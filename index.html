@@ -129,6 +129,15 @@
                 <div class="icon-image icon-folder"></div>
                 <span class="icon-label">Work Examples</span>
               </div>
+              <!-- Easter Egg Files -->
+              <div class="desktop-icon easter-egg" data-app="notepad" data-file="secrets">
+                <div class="icon-image icon-txt"></div>
+                <span class="icon-label">secrets.txt</span>
+              </div>
+              <div class="desktop-icon easter-egg" data-app="notepad" data-file="todo">
+                <div class="icon-image icon-txt"></div>
+                <span class="icon-label">todo.txt</span>
+              </div>
               <div class="desktop-icon" data-app="recycle" data-file="trash">
                 <div class="icon-image icon-recycle"></div>
                 <span class="icon-label">Recycle Bin</span>
@@ -325,6 +334,23 @@
     </div>
   </template>
 
+  <!-- Notepad Window Template (for easter eggs) -->
+  <template id="template-notepad">
+    <div class="window window-notepad" data-window="notepad" data-window-type="notepad">
+      <div class="window-titlebar">
+        <span class="window-title">Notepad</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content notepad-content">
+        <pre class="notepad-text" id="notepad-text"></pre>
+      </div>
+    </div>
+  </template>
+
   <!-- Recycle Bin Window Template -->
   <template id="template-recycle">
     <div class="window window-recycle" data-window="recycle">
@@ -337,14 +363,51 @@
         </div>
       </div>
       <div class="window-content recycle-content">
-        <div class="recycle-empty">
-          <div class="recycle-icon-large"></div>
-          <p>This folder is empty.</p>
-          <p class="recycle-note">(Because I don't throw away good ideas)</p>
+        <div class="recycle-items" id="recycle-items">
+          <!-- Populated by JS -->
         </div>
       </div>
     </div>
   </template>
+
+  <!-- ============================================ -->
+  <!-- SCREENSAVER -->
+  <!-- ============================================ -->
+  <div id="screensaver" class="screensaver hidden">
+    <div class="screensaver-content" id="screensaver-content">
+      <div class="screensaver-logo">
+        <span class="screensaver-text">Ashley.exe</span>
+        <span class="screensaver-subtext">Product Ops • Enablement • AI</span>
+      </div>
+    </div>
+    <div class="screensaver-hint">Move mouse or press any key to exit</div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- GERTRUDE - PHILOSOPHICAL CAT HELPER -->
+  <!-- ============================================ -->
+  <div id="gertrude-helper" class="gertrude-helper hidden">
+    <div class="gertrude-sprite">
+      <div class="gertrude-cat">
+        <div class="gertrude-ears">
+          <div class="gertrude-ear left"></div>
+          <div class="gertrude-ear right"></div>
+        </div>
+        <div class="gertrude-head">
+          <div class="gertrude-eyes">
+            <div class="gertrude-eye left"><div class="gertrude-pupil"></div></div>
+            <div class="gertrude-eye right"><div class="gertrude-pupil"></div></div>
+          </div>
+          <div class="gertrude-nose"></div>
+        </div>
+        <div class="gertrude-body"></div>
+      </div>
+    </div>
+    <div class="gertrude-bubble">
+      <div class="gertrude-message" id="gertrude-message"></div>
+      <button class="gertrude-dismiss" id="gertrude-dismiss" title="Dismiss">×</button>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="data.js"></script>

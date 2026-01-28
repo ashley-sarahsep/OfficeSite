@@ -14,6 +14,206 @@ const SITE_DATA = {
   location: "Guelph, Ontario / Remote",
 
   // ============================================
+  // GERTRUDE - PHILOSOPHICAL CAT HELPER
+  // ============================================
+  gertrude: {
+    // General philosophical observations
+    general: [
+      "Every click reveals intention. What draws your attention speaks to what you seek.",
+      "We understand others through the lens of our own experience. What lens are you looking through?",
+      "The gap between what is written and what is meant... that's where the real work happens.",
+      "Context shapes meaning. The same words in a different setting tell a different story.",
+      "Understanding isn't about extracting data. It's about entering someone else's frame of reference.",
+      "Take your time. Meaning unfolds at its own pace.",
+      "What we notice first often reveals what we value most.",
+      "Every portfolio is a story someone chose to tell. Consider what was left unsaid.",
+      "Interpretation is never neutral. We bring ourselves to everything we read.",
+      "The most important questions are often the ones we forget to ask."
+    ],
+
+    // When viewing the room
+    room: [
+      "A space tells you much about its inhabitant. What does this one say?",
+      "Objects carry meaning beyond their function. Each item here was chosen.",
+      "Home offices reveal the intersection of self and work. The boundary blurs.",
+      "Pink walls were a deliberate choice. Most choices are.",
+      "Notice what catches your eye. Your attention is information."
+    ],
+
+    // When viewing the resume
+    resume: [
+      "A resume is a compression of years into bullet points. Much is lost. Much is implied.",
+      "Job titles describe roles. They rarely capture how someone actually thinks.",
+      "Consider: what problems did she solve that no one asked her to solve?",
+      "Achievements are outcomes. The interesting part is often the process.",
+      "Read between the lines. The gaps tell stories too."
+    ],
+
+    // When viewing MySpace/About
+    myspace: [
+      "We curate ourselves for audiences. This is her curating herself for you.",
+      "Personal details reveal values. Music, books, interests—these shape a person.",
+      "Everyone has a Top 8. Priorities made visible.",
+      "Nostalgia is a form of meaning-making. Why does the past comfort us?",
+      "What someone shares voluntarily tells you what they want you to understand."
+    ],
+
+    // When in chat
+    chat: [
+      "Questions shape the answers we receive. Choose your questions thoughtfully.",
+      "Dialogue is collaborative meaning-making. What are you building together?",
+      "The best conversations leave both parties changed.",
+      "Every question carries assumptions. What are yours?",
+      "Listening is an active form of interpretation."
+    ],
+
+    // When viewing work examples
+    workExamples: [
+      "Case studies are retrospective sense-making. The actual work was messier.",
+      "Notice the problems she chose to highlight. Problem selection reveals priorities.",
+      "Outcomes matter, but so does the thinking that led there.",
+      "Every project involved humans with competing needs. That complexity rarely fits on slides.",
+      "What would you have done differently? That question reveals your own approach."
+    ],
+
+    // When on desktop
+    desktop: [
+      "A desktop is a mind made visible. Organization reflects cognition.",
+      "Icons are symbols. Symbols carry meaning beyond their pixels.",
+      "What you open first reveals what you're seeking.",
+      "Digital spaces are still spaces. We inhabit them.",
+      "Vigo watches. I watch. Everyone is always interpreting."
+    ],
+
+    // When idle for a while
+    idle: [
+      "Stillness is also a choice. What are you contemplating?",
+      "Sometimes the mind needs space before understanding arrives.",
+      "I too enjoy a good pause. *slow blink*",
+      "Reflection requires time. Take what you need.",
+      "The answers often come when we stop actively seeking."
+    ],
+
+    // First appearance
+    welcome: [
+      "Ah, a visitor. I am Gertrude. I observe, I reflect, I occasionally share wisdom. Don't mind me."
+    ],
+
+    // Settings/config
+    config: {
+      minDelay: 30000,        // Minimum ms between appearances (30 seconds)
+      maxDelay: 90000,        // Maximum ms between appearances (90 seconds)
+      displayDuration: 15000, // How long message stays visible (15 seconds)
+      idleThreshold: 60000,   // How long before considered idle (60 seconds)
+      dismissCooldown: 45000  // Wait time after user dismisses (45 seconds)
+    }
+  },
+
+  // ============================================
+  // EASTER EGGS - HIDDEN FILES
+  // ============================================
+  easterEggs: {
+    secrets: {
+      title: "secrets.txt - Notepad",
+      content: `THINGS I'VE LEARNED (that nobody tells you)
+============================================
+
+1. The best documentation is written by the person who struggled to figure it out.
+
+2. "Let's circle back" means "I don't have an answer and I'm hoping you forget."
+
+3. Every org chart is a work of fiction.
+
+4. The person who asks "why" the most is either the smartest person in the room or about to be managed out. Sometimes both.
+
+5. Cats know when you have an important video call. They know.
+
+6. The real requirements are never in the requirements document.
+
+7. "Quick question" is never quick.
+
+8. Institutional knowledge lives in three people's heads and a Slack thread from 2019.
+
+9. The best process is the one people actually follow.
+
+10. Sometimes the answer is "because that's what Sharon wanted in 2016 and Sharon is gone now but no one wants to change it."
+
+---
+Last modified: Whenever I remember something else
+Author: Someone who has been in too many meetings`
+    },
+
+    todo: {
+      title: "todo.txt - Notepad",
+      content: `ASHLEY'S ACTUAL TO-DO LIST
+============================
+
+[x] Build weird portfolio website instead of normal one
+[x] Add philosophical cat helper
+[x] Question whether this is too much
+[ ] Decide it's not too much
+[x] Write resume
+[ ] Resist urge to make resume a choose-your-own-adventure
+[x] Add cats
+[x] Add MORE cats
+[ ] Pet actual cats (overdue)
+
+SOMEDAY/MAYBE:
+- Learn to tolerate corporate small talk
+- Find job where "why?" is encouraged not suspicious
+- Write hermeneutics-based guide to reading Jira tickets
+- Convince someone that philosophy degrees are useful
+- Finally understand what "synergy" means (unlikely)
+
+DONE (celebrating small wins):
+- Survived 10+ years of remote work
+- Built things that worked
+- Made it weird in a good way
+- Found the pink chair
+
+---
+If you're reading this: hi! You found the easter egg.
+Curiosity is a good trait. I like curious people.`
+    },
+
+    // Recycle bin contents
+    trash: {
+      title: "Recycle Bin",
+      items: [
+        { name: "corporate_jargon.doc", size: "∞ KB", note: "Too heavy to delete permanently" },
+        { name: "synergy_deck_v47_FINAL_FINAL.ppt", size: "42 MB", note: "There's always another version" },
+        { name: "meeting_that_couldve_been_email.ics", size: "1 KB", note: "60 minutes of my life" },
+        { name: "old_linkedin_headshot.jpg", size: "2 MB", note: "We don't talk about 2015" },
+        { name: "enthusiasm_for_agile_ceremonies.txt", size: "0 KB", note: "File is empty" }
+      ]
+    },
+
+    // Cat petting responses (for clicking cats multiple times)
+    catPets: {
+      gertrude: {
+        threshold: 3, // clicks needed to trigger special response
+        responses: [
+          "*slow blink* You have earned a modicum of my respect.",
+          "*dignified purr* I will permit this affection. Briefly.",
+          "Yes, yes. You may admire me. I am aware I am magnificent.",
+          "*regal nod* Your devotion is noted.",
+          "I see you appreciate quality supervision. Wise."
+        ]
+      },
+      gherkin: {
+        threshold: 3,
+        responses: [
+          "*flops over dramatically* ATTENTION RECEIVED. MORE PLEASE.",
+          "*loud purr* Best. Day. Ever. Click again??",
+          "*stretches* This is acceptable. You may continue.",
+          "prrrrrRRRRR *aggressive head bonks*",
+          "*chaos mode activated* TIME TO ZOOM AROUND THE ROOM"
+        ]
+      }
+    }
+  },
+
+  // ============================================
   // PORTRAIT SYSTEM
   // ============================================
   // Different portraits for different conversational moods
@@ -454,8 +654,81 @@ const SITE_DATA = {
           portrait: "smiling1",
           text: "This radio doesn't actually work, but I love it anyway. There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
           responses: [
+            { text: "🎵 Turn the dial", next: "radio-tune", special: "radio" },
             { text: "Do you listen to music while you work?", next: "radio-music" },
             { text: "You seem drawn to vintage things", next: "radio-vintage" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune",
+          portrait: "excited",
+          text: "*crackle* ...you're listening to WPHIL 94.7, Philosophy Radio. Coming up: 'Hermeneutics Hour' followed by 'The Phenomenology of Everyday Objects'...",
+          responses: [
+            { text: "🎵 Keep turning", next: "radio-tune-2", special: "radio" },
+            { text: "This is my kind of station", next: "radio-philosophy" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune-2",
+          portrait: "funny1",
+          text: "*crackle* ...KPNK 101.5, Punk Goes Acoustic! Next up: a 12-minute folk ballad about corporate alienation...",
+          responses: [
+            { text: "🎵 Keep turning", next: "radio-tune-3", special: "radio" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune-3",
+          portrait: "smiling2",
+          text: "*crackle* ...WJPN - All John Prine, all day. 'In spite of ourselves, we'll end up sittin' on a rainbow...'",
+          responses: [
+            { text: "🎵 Keep turning", next: "radio-tune-4", special: "radio" },
+            { text: "Perfect.", next: "radio-prine" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune-4",
+          portrait: "thoughtful1",
+          text: "*crackle* ...WCOF - Coffee Shop Radio. Lo-fi beats to procrastinate to... *chill music intensifies*",
+          responses: [
+            { text: "🎵 Keep turning", next: "radio-tune-5", special: "radio" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune-5",
+          portrait: "funny2",
+          text: "*crackle* ...KCAT 88.3 - Feline Frequencies. *sound of a cat walking across a synthesizer* This has been '3AM Zoomies in D Minor'...",
+          responses: [
+            { text: "🎵 Start over", next: "radio-tune", special: "radio" },
+            { text: "Did Gherkin produce this?", next: "radio-gherkin" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-philosophy",
+          portrait: "thoughtful2",
+          text: "You have good taste. Understanding how people interpret information is literally my thing. Most of my work is applied hermeneutics, I just don't call it that.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-prine",
+          portrait: "excited",
+          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. That's what good communication looks like.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-gherkin",
+          portrait: "funny1",
+          text: "He's been experimenting with ambient music. Mostly it sounds like keyboard mashing with occasional meowing. Very avant-garde.",
+          responses: [
             { text: "[Back to exploring]", next: null }
           ]
         },

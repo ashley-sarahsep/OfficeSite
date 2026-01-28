@@ -837,6 +837,31 @@ body {
   border-radius: 4px 4px 0 0;
 }
 
+.icon-txt {
+  background: #fff;
+  border: 1px solid #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-txt::after {
+  content: '=';
+  font-family: monospace;
+  font-size: 16px;
+  color: #333;
+  letter-spacing: -2px;
+}
+.icon-txt::before {
+  content: '=';
+  position: absolute;
+  top: 8px;
+  font-family: monospace;
+  font-size: 16px;
+  color: #333;
+  letter-spacing: -2px;
+}
+
 .icon-recycle {
   background: #fff;
   border: 1px solid #000;
@@ -1646,32 +1671,86 @@ body {
   font-size: 11px;
 }
 
+/* Notepad Content */
+.notepad-content {
+  background: #fff;
+  height: 100%;
+  overflow: auto;
+  padding: 10px;
+}
+
+.notepad-text {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #000;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
+
 /* Recycle Bin Content */
 .recycle-content {
+  background: #fff;
+  height: 100%;
+  overflow: auto;
+  padding: 10px;
+}
+
+.recycle-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recycle-item {
+  display: grid;
+  grid-template-columns: 24px 1fr 80px;
+  gap: 10px;
+  align-items: center;
+  padding: 4px 8px;
+  cursor: default;
+  border: 1px solid transparent;
+}
+
+.recycle-item:hover {
+  background: #e8e8e8;
+}
+
+.recycle-item-icon {
+  width: 20px;
+  height: 20px;
+  background: #ddd;
+  border: 1px solid #999;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  padding: 40px;
+  font-size: 10px;
 }
 
-.recycle-empty {
-  text-align: center;
-  color: #666;
-}
-
-.recycle-icon-large {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 20px;
-  background: linear-gradient(180deg, #666 0%, #999 100%);
-  clip-path: polygon(10% 0%, 90% 0%, 100% 10%, 100% 100%, 0% 100%, 0% 10%);
-}
-
-.recycle-note {
-  font-style: italic;
+.recycle-item-name {
+  font-family: var(--font-system);
   font-size: 11px;
-  margin-top: 10px;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.recycle-item-size {
+  font-family: var(--font-system);
+  font-size: 11px;
+  color: #666;
+  text-align: right;
+}
+
+.recycle-item-note {
+  grid-column: 2 / 4;
+  font-family: var(--font-system);
+  font-size: 10px;
+  font-style: italic;
+  color: #888;
+  padding-left: 0;
 }
 
 /* ============================================
@@ -1794,4 +1873,318 @@ body {
 .typing::after {
   content: '|';
   animation: blink 0.7s infinite;
+}
+
+/* ============================================
+   GERTRUDE - PHILOSOPHICAL CAT HELPER
+   ============================================ */
+
+.gertrude-helper {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.gertrude-helper.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.gertrude-helper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* CSS Pixel Art Cat */
+.gertrude-sprite {
+  width: 60px;
+  height: 70px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.gertrude-cat {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ears */
+.gertrude-ears {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gertrude-ear {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 18px solid #1a1a1a;
+}
+
+.gertrude-ear.left {
+  transform: rotate(-10deg);
+}
+
+.gertrude-ear.right {
+  transform: rotate(10deg);
+}
+
+/* Head */
+.gertrude-head {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 40px;
+  background: #1a1a1a;
+  border-radius: 50% 50% 45% 45%;
+}
+
+/* Eyes */
+.gertrude-eyes {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.gertrude-eye {
+  width: 14px;
+  height: 14px;
+  background: #c88530;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gertrude-pupil {
+  position: absolute;
+  width: 8px;
+  height: 10px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: height 0.3s ease;
+}
+
+/* Slow blink animation */
+.gertrude-helper.blinking .gertrude-pupil {
+  height: 2px;
+}
+
+/* Nose */
+.gertrude-nose {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 4px;
+  background: #4a3a3a;
+  border-radius: 50%;
+}
+
+/* Body */
+.gertrude-body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 25px;
+  background: #1a1a1a;
+  border-radius: 40% 40% 50% 50%;
+}
+
+/* Speech Bubble */
+.gertrude-bubble {
+  background: var(--color-cream);
+  border: 3px solid var(--color-mauve);
+  border-radius: 12px;
+  padding: 12px 30px 12px 15px;
+  max-width: 280px;
+  position: relative;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  animation: bubblePop 0.3s ease;
+}
+
+.gertrude-bubble::before {
+  content: '';
+  position: absolute;
+  right: -12px;
+  bottom: 15px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid var(--color-mauve);
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.gertrude-bubble::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  bottom: 17px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid var(--color-cream);
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.gertrude-message {
+  font-family: var(--font-terminal);
+  font-size: 15px;
+  color: var(--color-burgundy);
+  line-height: 1.4;
+}
+
+.gertrude-dismiss {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: var(--color-mauve);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.gertrude-dismiss:hover {
+  opacity: 1;
+}
+
+@keyframes bubblePop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gertrude-helper {
+    bottom: 70px;
+    right: 10px;
+  }
+
+  .gertrude-bubble {
+    max-width: 200px;
+    padding: 10px 25px 10px 12px;
+  }
+
+  .gertrude-message {
+    font-size: 13px;
+  }
+
+  .gertrude-sprite {
+    width: 45px;
+    height: 55px;
+  }
+}
+
+/* ============================================
+   SCREENSAVER
+   ============================================ */
+
+.screensaver {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 99999;
+  cursor: none;
+  overflow: hidden;
+}
+
+.screensaver.hidden {
+  display: none;
+}
+
+.screensaver-content {
+  position: absolute;
+  animation: bounce 10s linear infinite;
+}
+
+.screensaver-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 20px 30px;
+  animation: colorCycle 8s linear infinite;
+}
+
+.screensaver-text {
+  font-family: var(--font-terminal);
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.screensaver-subtext {
+  font-family: var(--font-terminal);
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.screensaver-hint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: #444;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% { top: 10%; left: 10%; }
+  25% { top: 70%; left: 80%; }
+  50% { top: 20%; left: 70%; }
+  75% { top: 60%; left: 5%; }
+  100% { top: 10%; left: 10%; }
+}
+
+@keyframes colorCycle {
+  0% { color: var(--color-blush); }
+  25% { color: var(--color-orange); }
+  50% { color: var(--color-sage); }
+  75% { color: var(--color-burgundy); }
+  100% { color: var(--color-blush); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
 }

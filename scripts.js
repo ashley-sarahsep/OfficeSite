@@ -11,7 +11,22 @@ const state = {
   activeWindow: null,
   windowZIndex: 10,
   draggedWindow: null,
-  dragOffset: { x: 0, y: 0 }
+  dragOffset: { x: 0, y: 0 },
+  // Gertrude state
+  gertrude: {
+    isVisible: false,
+    lastShown: 0,
+    lastActivity: Date.now(),
+    shownWelcome: false,
+    dismissedAt: 0,
+    currentContext: 'room',
+    timer: null
+  },
+  // Easter egg tracking
+  catClicks: {
+    gertrude: { count: 0, lastClick: 0 },
+    gherkin: { count: 0, lastClick: 0 }
+  }
 };
 
 // ============================================
@@ -286,8 +301,78 @@ function handleRoomAction(actionId) {
     return;
   }
 
+  // Check for cat petting easter egg
+  if (actionId === 'gertrude' || actionId === 'gherkin') {
+    const catPetResponse = handleCatPet(actionId);
+    if (catPetResponse) {
+      // Show special response instead of normal dialog
+      showCatPetResponse(actionId, catPetResponse);
+      return;
+    }
+  }
+
   // Everything else opens dialog
   openDialog(actionId, itemData);
+}
+
+function handleCatPet(catId) {
+  const now = Date.now();
+  const catState = state.catClicks[catId];
+  const catConfig = SITE_DATA.easterEggs?.catPets?.[catId];
+
+  if (!catConfig) return null;
+
+  // Reset count if too much time has passed (5 seconds)
+  if (now - catState.lastClick > 5000) {
+    catState.count = 0;
+  }
+
+  catState.count++;
+  catState.lastClick = now;
+
+  // Check if threshold reached
+  if (catState.count >= catConfig.threshold) {
+    catState.count = 0; // Reset for next time
+    const responses = catConfig.responses;
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  return null;
+}
+
+function showCatPetResponse(catId, message) {
+  const overlay = document.getElementById('dialog-overlay');
+  const titleEl = document.getElementById('dialog-title');
+  const portraitImg = document.getElementById('dialog-portrait-img');
+  const itemImageContainer = document.getElementById('dialog-item-image');
+  const textEl = document.getElementById('dialog-text');
+  const responsesEl = document.getElementById('dialog-responses');
+
+  // Set dialog title
+  titleEl.textContent = catId === 'gertrude' ? '✨ Gertrude Approves ✨' : '🧡 Gherkin Happy 🧡';
+
+  // Hide portrait, we're showing cat reaction
+  portraitImg.style.display = 'none';
+  itemImageContainer.classList.remove('visible');
+
+  // Show the message
+  textEl.textContent = message;
+
+  // Simple close button
+  responsesEl.innerHTML = `
+    <button class="dialog-response" data-next="null">[Continue petting]</button>
+  `;
+
+  responsesEl.querySelector('button').addEventListener('click', () => {
+    overlay.classList.add('hidden');
+    // Reopen normal cat dialog
+    const catData = SITE_DATA.hotspots[catId];
+    if (catData) {
+      openDialog(catId, catData);
+    }
+  });
+
+  overlay.classList.remove('hidden');
 }
 
 // ============================================
@@ -572,43 +657,61 @@ function getWindowSize(appType) {
     myspace: { width: '700px', height: '550px' },
     messenger: { width: '400px', height: '450px' },
     folder: { width: '500px', height: '400px' },
-    recycle: { width: '400px', height: '300px' },
+    recycle: { width: '450px', height: '350px' },
+    notepad: { width: '500px', height: '400px' },
     'work-detail': { width: '500px', height: '400px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
 
 function getWindowTitle(appType, fileId) {
+  // Dynamic titles for notepad based on file
+  if (appType === 'notepad' && SITE_DATA.easterEggs?.[fileId]) {
+    return SITE_DATA.easterEggs[fileId].title;
+  }
+
   const titles = {
     wordpad: 'Resume.doc - WordPad',
     myspace: 'AboutMe.html - Internet Explorer',
     messenger: 'AshleyChat',
     folder: 'Work Examples',
     recycle: 'Recycle Bin',
+    notepad: 'Notepad',
     'work-detail': 'Project Details'
   };
   return titles[appType] || 'Window';
 }
 
 function initWindowContent(windowEl, appType, fileId) {
+  // Set window type for Gertrude context awareness
+  windowEl.dataset.windowType = appType;
+
   switch (appType) {
     case 'wordpad':
       initWordpad(windowEl);
+      windowEl.dataset.windowType = 'resume';
       break;
     case 'myspace':
       initMyspace(windowEl);
+      windowEl.dataset.windowType = 'myspace';
       break;
     case 'messenger':
       initMessenger(windowEl);
+      windowEl.dataset.windowType = 'chat';
       break;
     case 'folder':
       initFolder(windowEl);
+      windowEl.dataset.windowType = 'folder';
       break;
     case 'recycle':
-      // Empty by default
+      initRecycleBin(windowEl);
+      break;
+    case 'notepad':
+      initNotepad(windowEl, fileId);
       break;
     case 'work-detail':
       initWorkDetail(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
       break;
   }
 }
@@ -672,7 +775,7 @@ function focusWindow(windowId) {
     if (w.id === windowId) {
       w.element.style.zIndex = ++state.windowZIndex;
       titlebar?.classList.remove('inactive');
-      state.activeWindow = windowId;
+      state.activeWindow = w.element; // Store element reference for Gertrude
     } else {
       titlebar?.classList.add('inactive');
     }
@@ -985,6 +1088,245 @@ function initWorkDetail(windowEl, workId) {
   `;
 }
 
+function initNotepad(windowEl, fileId) {
+  const content = windowEl.querySelector('.notepad-text');
+  if (!content) return;
+
+  const easterEgg = SITE_DATA.easterEggs?.[fileId];
+  if (easterEgg) {
+    content.textContent = easterEgg.content;
+
+    // Update window title
+    const titleEl = windowEl.querySelector('.window-title');
+    if (titleEl && easterEgg.title) {
+      titleEl.textContent = easterEgg.title;
+    }
+  }
+}
+
+function initRecycleBin(windowEl) {
+  const content = windowEl.querySelector('.recycle-items');
+  if (!content) return;
+
+  const trash = SITE_DATA.easterEggs?.trash;
+  if (trash && trash.items) {
+    content.innerHTML = trash.items.map(item => `
+      <div class="recycle-item">
+        <div class="recycle-item-icon">${getFileIcon(item.name)}</div>
+        <span class="recycle-item-name">${item.name}</span>
+        <span class="recycle-item-size">${item.size}</span>
+        ${item.note ? `<span class="recycle-item-note">${item.note}</span>` : ''}
+      </div>
+    `).join('');
+  }
+}
+
+function getFileIcon(filename) {
+  const ext = filename.split('.').pop().toLowerCase();
+  const icons = {
+    doc: '📄',
+    ppt: '📊',
+    ics: '📅',
+    jpg: '🖼️',
+    txt: '📝'
+  };
+  return icons[ext] || '📄';
+}
+
+// ============================================
+// GERTRUDE - PHILOSOPHICAL CAT HELPER
+// ============================================
+
+function initGertrude() {
+  const dismissBtn = document.getElementById('gertrude-dismiss');
+
+  // Dismiss button handler
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => {
+      hideGertrude();
+      state.gertrude.dismissedAt = Date.now();
+    });
+  }
+
+  // Track user activity
+  document.addEventListener('click', () => {
+    state.gertrude.lastActivity = Date.now();
+  });
+  document.addEventListener('keydown', () => {
+    state.gertrude.lastActivity = Date.now();
+  });
+
+  // Start the Gertrude timer after a delay
+  setTimeout(() => {
+    // Show welcome message first
+    if (!state.gertrude.shownWelcome) {
+      showGertrudeMessage('welcome');
+      state.gertrude.shownWelcome = true;
+    }
+    // Start periodic appearances
+    scheduleGertrude();
+  }, 5000); // Wait 5 seconds after page load
+}
+
+function scheduleGertrude() {
+  const config = SITE_DATA.gertrude?.config || {
+    minDelay: 30000,
+    maxDelay: 90000
+  };
+
+  // Random delay between min and max
+  const delay = config.minDelay + Math.random() * (config.maxDelay - config.minDelay);
+
+  state.gertrude.timer = setTimeout(() => {
+    tryShowGertrude();
+    scheduleGertrude(); // Schedule next appearance
+  }, delay);
+}
+
+function tryShowGertrude() {
+  const config = SITE_DATA.gertrude?.config || {};
+  const now = Date.now();
+
+  // Don't show if already visible
+  if (state.gertrude.isVisible) return;
+
+  // Don't show if recently dismissed
+  if (now - state.gertrude.dismissedAt < (config.dismissCooldown || 45000)) return;
+
+  // Don't show if dialog is open
+  const dialogOverlay = document.getElementById('dialog-overlay');
+  if (dialogOverlay && !dialogOverlay.classList.contains('hidden')) return;
+
+  // Check if idle
+  const idleTime = now - state.gertrude.lastActivity;
+  if (idleTime > (config.idleThreshold || 60000)) {
+    showGertrudeMessage('idle');
+    return;
+  }
+
+  // Show context-appropriate message
+  showGertrudeMessage(getGertrudeContext());
+}
+
+function getGertrudeContext() {
+  // Check what's currently active
+  if (state.currentScene === 'room') {
+    return 'room';
+  }
+
+  if (state.currentScene === 'desktop') {
+    // Check which window is active
+    if (state.activeWindow) {
+      const windowType = state.activeWindow.dataset?.windowType;
+      if (windowType === 'resume') return 'resume';
+      if (windowType === 'myspace') return 'myspace';
+      if (windowType === 'chat') return 'chat';
+      if (windowType === 'folder') return 'workExamples';
+    }
+    return 'desktop';
+  }
+
+  return 'general';
+}
+
+function showGertrudeMessage(context) {
+  const helper = document.getElementById('gertrude-helper');
+  const messageEl = document.getElementById('gertrude-message');
+
+  if (!helper || !messageEl) return;
+
+  // Get messages for this context
+  const messages = SITE_DATA.gertrude?.[context] || SITE_DATA.gertrude?.general || [];
+  if (messages.length === 0) return;
+
+  // Pick a random message
+  const message = messages[Math.floor(Math.random() * messages.length)];
+
+  // Set message and show
+  messageEl.textContent = message;
+  helper.classList.remove('hidden');
+  helper.classList.add('visible');
+  state.gertrude.isVisible = true;
+  state.gertrude.lastShown = Date.now();
+
+  // Trigger slow blink animation
+  setTimeout(() => {
+    helper.classList.add('blinking');
+    setTimeout(() => {
+      helper.classList.remove('blinking');
+    }, 300);
+  }, 2000);
+
+  // Auto-hide after duration
+  const config = SITE_DATA.gertrude?.config || {};
+  setTimeout(() => {
+    if (state.gertrude.isVisible) {
+      hideGertrude();
+    }
+  }, config.displayDuration || 15000);
+}
+
+function hideGertrude() {
+  const helper = document.getElementById('gertrude-helper');
+  if (helper) {
+    helper.classList.remove('visible');
+    helper.classList.add('hidden');
+  }
+  state.gertrude.isVisible = false;
+}
+
+// ============================================
+// SCREENSAVER
+// ============================================
+
+let screensaverTimeout = null;
+const SCREENSAVER_DELAY = 120000; // 2 minutes of inactivity
+
+function initScreensaver() {
+  const screensaver = document.getElementById('screensaver');
+  if (!screensaver) return;
+
+  // Reset timer on any activity
+  const resetScreensaver = () => {
+    if (screensaverTimeout) {
+      clearTimeout(screensaverTimeout);
+    }
+
+    // Hide screensaver if visible
+    if (!screensaver.classList.contains('hidden')) {
+      screensaver.classList.add('hidden');
+    }
+
+    // Set new timeout
+    screensaverTimeout = setTimeout(showScreensaver, SCREENSAVER_DELAY);
+  };
+
+  // Activity listeners
+  document.addEventListener('mousemove', resetScreensaver);
+  document.addEventListener('mousedown', resetScreensaver);
+  document.addEventListener('keydown', resetScreensaver);
+  document.addEventListener('touchstart', resetScreensaver);
+  document.addEventListener('scroll', resetScreensaver);
+
+  // Start initial timer
+  screensaverTimeout = setTimeout(showScreensaver, SCREENSAVER_DELAY);
+}
+
+function showScreensaver() {
+  const screensaver = document.getElementById('screensaver');
+  const content = document.getElementById('screensaver-content');
+
+  if (!screensaver || !content) return;
+
+  // Random starting position
+  const startX = Math.random() * (window.innerWidth - 300);
+  const startY = Math.random() * (window.innerHeight - 100);
+  content.style.left = `${startX}px`;
+  content.style.top = `${startY}px`;
+
+  screensaver.classList.remove('hidden');
+}
+
 // ============================================
 // INITIALIZATION
 // ============================================
@@ -1005,6 +1347,12 @@ function initSite() {
 
   // Initialize the room menu
   initRoomMenu();
+
+  // Initialize Gertrude
+  initGertrude();
+
+  // Initialize screensaver
+  initScreensaver();
 
   // Show welcome dialog
   showWelcomeDialog();
