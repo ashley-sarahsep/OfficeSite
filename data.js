@@ -345,27 +345,18 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gertrude-intro",
           portrait: "smiling2",
-          text: "That's Gertrude! She's my little void - always watching, judging, supervising. She likes to perch on the bookshelf and observe her domain. Very regal energy.",
+          text: "That's Gertrude. Long-haired, grey, and the gentlest cat I've ever known. She's a big ball of fluff who'd let you pet her forever if you had the time. She takes a while to warm up, but once she does, you've got a sweet little lap companion for life.",
           responses: [
-            { text: "She looks very serious", next: "gertrude-serious" },
+            { text: "She sounds lovely", next: "gertrude-lovely" },
             { text: "Why the name Gertrude?", next: "gertrude-name" },
             { text: "Does she get along with Gherkin?", next: "gertrude-gherkin" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "gertrude-serious",
+          id: "gertrude-lovely",
           portrait: "funny1",
-          text: "She takes her job very seriously. Chief Security Officer. Nothing happens in this office without her approval. She's also the primary quality assurance tester for any box that enters the premises.",
-          responses: [
-            { text: "Important work", next: "gertrude-work" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "gertrude-work",
-          portrait: "funny2",
-          text: "Critical, really. If a box isn't properly tested, who knows what could happen? She's never found a box she couldn't fit in. Or at least try to fit in.",
+          text: "She really is. Her favourite thing is rolling around on the ground waiting for belly rubs. Very dignified.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -373,7 +364,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gertrude-name",
           portrait: "smiling1",
-          text: "I wanted something dignified for a black cat. Gertrude felt right - a bit old-fashioned, a bit witchy, very distinguished. She lives up to it.",
+          text: "She's named after Drew Barrymore's character in ET. I love E.T. and I love Gertie.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -381,7 +372,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gertrude-gherkin",
           portrait: "thoughtful1",
-          text: "They have an understanding. Gertrude rules the high ground - shelves, desks, anywhere elevated. Gherkin claims the soft surfaces. There's minimal territorial dispute. Mostly.",
+          text: "They have an understanding. Gherkin typically rules the high ground - shelves, desks, anywhere he can keep an eye on everything. Gertrude claims the laps and the soft surfaces. Minimal territorial dispute. Mostly.",
           responses: [
             { text: "Mostly?", next: "gertrude-mostly" },
             { text: "[Back to exploring]", next: null }
@@ -390,7 +381,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gertrude-mostly",
           portrait: "funny1",
-          text: "Sometimes there's a 3am disagreement. They sort it out. I just hear the thundering paws and try to go back to sleep.",
+          text: "Sometimes there's a 3am slap in the cat-face. They sort it out.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -405,7 +396,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gherkin-intro",
           portrait: "smiling2",
-          text: "And that's Gherkin! The orange one. He's claimed that pink chair as his personal throne. I bought it for the office aesthetic, he decided it was actually for napping.",
+          text: "And that's Gherkin. Big tabby, very handsome, too clever for his own good. He likes to perch up high and observe everything. That pink chair is just where he waits between surveillance sessions.",
           responses: [
             { text: "Why Gherkin?", next: "gherkin-name" },
             { text: "He looks very comfortable", next: "gherkin-comfortable" },
@@ -416,16 +407,25 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gherkin-name",
           portrait: "excited",
-          text: "He's a little pickle! Mischievous, gets into everything, causes chaos and then looks at you like 'what? I'm innocent.' The name just fit his personality perfectly.",
+          text: "He's a little pickle. Mischievous, observes everything, remembers everything, and will absolutely badger you until he gets what he wants. The name just fit.",
           responses: [
-            { text: "What kind of chaos?", next: "gherkin-chaos" },
+            { text: "What kind of badgering?", next: "gherkin-badger" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "gherkin-chaos",
+          id: "gherkin-badger",
           portrait: "funny1",
-          text: "He's excellent at walking across keyboards during important moments. He's submitted some interesting Slack messages on my behalf. Nothing career-ending. Yet.",
+          text: "He's not a quiet cat. If I've been at my desk too long without paying him attention, he lets me know about it. Loudly. Repeatedly. He's very good at making his needs clear.",
+          responses: [
+            { text: "Effective communication", next: "gherkin-effective" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-effective",
+          portrait: "funny2",
+          text: "He'd be great in a standup. Very concise. 'I need attention. Blocker: you are working. Action item: stop that.'",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -433,16 +433,15 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gherkin-comfortable",
           portrait: "smiling1",
-          text: "That's HIS chair now. Every office needs a cozy seat, right? He just decided it was his cozy seat. I've accepted my fate as furniture provider.",
+          text: "He prefers quiet time. Unfortunately, I have a habit of laughing too hard at things and startling him. He puts up with me anyway.",
           responses: [
-            { text: "Fair enough", next: null },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "gherkin-help",
           portrait: "funny1",
-          text: "He's excellent at reminding me to take breaks. By sitting on my laptop. Or my notes. Or whatever I'm actively trying to use. Very persistent feedback.",
+          text: "He's excellent at reminding me to take breaks. By yelling. Or sitting on whatever I'm trying to use. Very persistent feedback.",
           responses: [
             { text: "Sounds helpful", next: "gherkin-helpful" },
             { text: "[Back to exploring]", next: null }
@@ -451,7 +450,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gherkin-helpful",
           portrait: "funny2",
-          text: "Honestly? Sometimes he's right. If I've been staring at a screen for four hours and a cat plants himself on my keyboard, maybe I should take the hint.",
+          text: "Honestly? Sometimes he's right. If I've been at my desk for four hours and a cat is yelling at me, maybe I should take the hint.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
