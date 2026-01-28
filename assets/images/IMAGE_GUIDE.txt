@@ -7,6 +7,7 @@ REQUIRED IMAGES:
 ----------------
 room.png              - The main pixel art room illustration (the one you provided)
 vigo.jpg              - Desktop wallpaper (Vigo the Carpathian painting)
+myspace.jpg           - Profile photo for the MySpace/AboutMe page
 
 PORTRAIT IMAGES (for different expressions in dialogs):
 -------------------------------------------------------

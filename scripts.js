@@ -764,7 +764,7 @@ function initMyspace(windowEl) {
       <div class="myspace-body">
         <div class="myspace-sidebar">
           <div class="myspace-profile-pic">
-            <img src="assets/images/ashley-portrait.jpg" alt="Ashley" onerror="this.style.display='none'">
+            <img src="assets/images/myspace.jpg" alt="Ashley" onerror="this.style.display='none'">
           </div>
           <div class="myspace-stats">
             <p><strong>Status:</strong> ${data.status}</p>
