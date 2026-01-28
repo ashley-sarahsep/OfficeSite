@@ -833,6 +833,416 @@ Curiosity is a good trait. I like curious people.`
       name: "Computer Monitor",
       action: "openDesktop",
       hoverText: "Click to enter HireMeOS"
+    },
+
+    talkGertrude: {
+      name: "Talk to Gertrude",
+      image: "assets/images/gertrude.jpg",
+      conversations: [
+        {
+          id: "talk-gertrude-intro",
+          portrait: "smiling1",
+          text: "*You approach Gertrude. She regards you with ancient cat wisdom, her green eyes reflecting things you cannot comprehend.*",
+          responses: [
+            { text: "Hello, Gertrude.", next: "talk-gertrude-hello" },
+            { text: "*Offer a slow blink*", next: "talk-gertrude-blink" },
+            { text: "[Leave her to her thoughts]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-hello",
+          portrait: "thoughtful1",
+          text: "*Gertrude's ears rotate thoughtfully.* \"You seek wisdom about the one who provides kibble? She thinks in systems. Patterns within patterns. She sees the shapes of things before others notice the edges.\"",
+          responses: [
+            { text: "That sounds... profound.", next: "talk-gertrude-profound" },
+            { text: "What else can you tell me?", next: "talk-gertrude-more" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-blink",
+          portrait: "smiling2",
+          text: "*Gertrude returns the slow blink - the highest honor a cat can bestow.* \"You understand protocol. Good. The kibble-provider values those who observe before acting. Who listen more than they speak.\"",
+          responses: [
+            { text: "What can you tell me about her?", next: "talk-gertrude-more" },
+            { text: "[Accept this blessing and depart]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-profound",
+          portrait: "thoughtful2",
+          text: "\"I am a cat. Everything I say is profound.\" *She begins grooming a paw dismissively.* \"But consider: she builds things that help other humans work better. Not for glory. For function. The best systems are invisible until they break.\"",
+          responses: [
+            { text: "Like a good litter box system?", next: "talk-gertrude-litter" },
+            { text: "Tell me more about her approach.", next: "talk-gertrude-approach" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-litter",
+          portrait: "funny1",
+          text: "*Gertrude pauses mid-groom.* \"...You understand perfectly. Yes. Exactly like that. The infrastructure of dignity. She grasps this.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-more",
+          portrait: "serious",
+          text: "\"She watches. Learns. Adapts. When chaos arrives - and chaos always arrives - she does not panic. She finds the thread and pulls. Sometimes gently. Sometimes not.\" *Gertrude kneads the blanket contemplatively.* \"Like hunting. Patience, then precision.\"",
+          responses: [
+            { text: "Is she a good human?", next: "talk-gertrude-good" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-approach",
+          portrait: "thoughtful1",
+          text: "\"She asks why. Constantly. Annoyingly, some might say. But the why reveals the what should be.\" *Gertrude's tail swishes.* \"I ask why my dinner is late. Similar principle. Different stakes.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-good",
+          portrait: "smiling1",
+          text: "*Gertrude considers this for a long moment.* \"She keeps the food coming. She respects the 3am zoomies. She understands that sometimes a cat must sit on a keyboard and that is simply how it is.\" *A rare purr.* \"Yes. She is adequate.\"",
+          responses: [
+            { text: "High praise from a cat.", next: "talk-gertrude-praise" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-praise",
+          portrait: "funny2",
+          text: "*Gertrude's whiskers twitch - the feline equivalent of a smirk.* \"Don't tell her I said so. I have a reputation to maintain.\"",
+          responses: [
+            { text: "[Your secret is safe]", next: null }
+          ]
+        }
+      ]
+    },
+
+    talkGherkin: {
+      name: "Talk to Gherkin",
+      image: "assets/images/gherkin.jpg",
+      conversations: [
+        {
+          id: "talk-gherkin-intro",
+          portrait: "smiling2",
+          text: "*You approach Gherkin on his pink throne. He stretches luxuriously, showing off his impressive orange belly.*",
+          responses: [
+            { text: "Hey there, buddy.", next: "talk-gherkin-hey" },
+            { text: "*Reach out for a belly rub*", next: "talk-gherkin-belly" },
+            { text: "[Let sleeping cats lie]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-hey",
+          portrait: "excited",
+          text: "*Gherkin's eyes go wide and excited.* \"HELLO! Are you here about the human? She's great! She gives me treats! Sometimes I sit on her laptop and she makes funny noises! It's a GAME!\"",
+          responses: [
+            { text: "Tell me about your human.", next: "talk-gherkin-human" },
+            { text: "You seem very enthusiastic.", next: "talk-gherkin-enthusiasm" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-belly",
+          portrait: "funny1",
+          text: "*Gherkin immediately goes for the trap - belly exposed, paws ready.* \"HA! You fell for it! But actually... that's nice. Keep going.\" *purrs intensify*",
+          responses: [
+            { text: "What can you tell me about Ashley?", next: "talk-gherkin-human" },
+            { text: "[Continue petting and exit gracefully]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-human",
+          portrait: "smiling1",
+          text: "\"She types a LOT. Click click click. Very interesting sounds. Sometimes I help by adding extra letters. She says 'Gherkin no' but I can tell she appreciates the collaboration.\"",
+          responses: [
+            { text: "What's she like to work with?", next: "talk-gherkin-work" },
+            { text: "Does she give good pets?", next: "talk-gherkin-pets" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-enthusiasm",
+          portrait: "excited",
+          text: "\"EVERYTHING IS EXCITING! Especially 3am! That's when the best running happens! The human appreciates it, I can tell by the pillow she throws!\"",
+          responses: [
+            { text: "What's the best thing about her?", next: "talk-gherkin-best" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-work",
+          portrait: "thoughtful1",
+          text: "*Gherkin tilts his head, having a rare moment of clarity.* \"She solves puzzles. All day. People bring her problems and she makes them... smaller? Fixed? I don't know, I'm a cat. But she seems good at it.\"",
+          responses: [
+            { text: "That's actually insightful.", next: "talk-gherkin-insight" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-pets",
+          portrait: "smiling2",
+          text: "\"THE BEST. She knows exactly where to scritch. Behind the ears. Under the chin. She has figured out the algorithm of optimal pet distribution.\" *rolls over for demonstration*",
+          responses: [
+            { text: "Algorithm, huh?", next: "talk-gherkin-algorithm" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-best",
+          portrait: "funny2",
+          text: "\"She got me this chair! LOOK AT IT! It's PINK! I LOVE it! She said 'that's my chair, Gherkin' but we both know the truth now.\" *kneads the cushion possessively*",
+          responses: [
+            { text: "A true queen on his throne.", next: null },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-insight",
+          portrait: "funny1",
+          text: "*Gherkin's eyes go vacant again.* \"...I'm sorry, I was thinking about my food bowl. What were we discussing? Oh look, a shadow!\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-algorithm",
+          portrait: "smiling1",
+          text: "\"I heard her say that word once! It means 'fancy pattern for doing things right.' She's very into fancy patterns. I'm very into naps. We complement each other.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    coffeeChair: {
+      name: "Coffee Chat",
+      image: "assets/images/ashley-default.jpg",
+      conversations: [
+        {
+          id: "coffee-intro",
+          portrait: "smiling1",
+          text: "*You settle into the cozy reading chair nearby. Ashley notices and grabs two mugs.* Hey! Want some coffee? Fair warning - caffeine doesn't affect me at all, so I drink it purely for the taste. Pull up a seat, let's chat.",
+          responses: [
+            { text: "I'd love some coffee.", next: "coffee-yes" },
+            { text: "Just water for me, thanks.", next: "coffee-water" },
+            { text: "Tell me about yourself.", next: "coffee-about" },
+            { text: "[Maybe another time]", next: null }
+          ]
+        },
+        {
+          id: "coffee-yes",
+          portrait: "excited",
+          text: "*hands you a warm mug* So, what brings you to my little corner of the internet? Just browsing, or actually curious about what I do?",
+          responses: [
+            { text: "I'm genuinely curious about your work.", next: "coffee-curious" },
+            { text: "I like the aesthetic, honestly.", next: "coffee-aesthetic" },
+            { text: "Tell me something surprising about yourself.", next: "coffee-surprise" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-water",
+          portrait: "smiling2",
+          text: "Totally fair! *gets you a glass* Not everyone needs the bean. So, what's on your mind?",
+          responses: [
+            { text: "Tell me about your career journey.", next: "coffee-journey" },
+            { text: "What do you do for fun?", next: "coffee-fun" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-about",
+          portrait: "thoughtful1",
+          text: "The short version? I'm an operations person who ended up in tech. Philosophy degree, stumbled into startups, discovered I'm really good at building systems that help people work better. The long version involves a lot of trial, error, and cats.",
+          responses: [
+            { text: "Philosophy to tech is an interesting path.", next: "coffee-philosophy" },
+            { text: "What kind of systems?", next: "coffee-systems" },
+            { text: "Tell me about the cats.", next: "coffee-cats" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-curious",
+          portrait: "excited",
+          text: "Oh, I love that! The honest answer is I'm a professional problem-solver. Give me something ambiguous and messy - an unclear process, a communication breakdown, a project nobody wants to own - and I'll figure it out. It's like... operational detective work?",
+          responses: [
+            { text: "That sounds exhausting.", next: "coffee-exhausting" },
+            { text: "Got a good example?", next: "coffee-example" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-aesthetic",
+          portrait: "funny1",
+          text: "*laughs* That's completely valid! I spent way too long on this site. The 90s internet nostalgia, the Oregon Trail vibes... I'm firmly of the opinion that professional doesn't have to mean boring. Life's too short for generic portfolio templates.",
+          responses: [
+            { text: "Did you code all this yourself?", next: "coffee-coding" },
+            { text: "What else reflects your style?", next: "coffee-style" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-surprise",
+          portrait: "thoughtful2",
+          text: "Hmm. I once got really into building mechanical keyboards. I can recite the entire script of Clue. I think meetings should be a last resort, not a first instinct. Oh, and I genuinely enjoy writing documentation - good docs are an act of kindness.",
+          responses: [
+            { text: "Documentation as kindness?", next: "coffee-docs" },
+            { text: "Mechanical keyboards?", next: "coffee-keyboards" },
+            { text: "Let's talk about meetings.", next: "coffee-meetings" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-journey",
+          portrait: "thoughtful1",
+          text: "Started in retail management, learned that I hate hierarchies but love fixing broken processes. Fell into a tech startup when they were tiny. Built everything from scratch - sales ops, enablement, QA, project management. The job description just kept expanding.",
+          responses: [
+            { text: "That sounds chaotic.", next: "coffee-chaos" },
+            { text: "What's your favorite part?", next: "coffee-favorite" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-fun",
+          portrait: "smiling2",
+          text: "Thrift store hunting. Weird vintage finds. Learning new skills just because they seem interesting - right now it's AI prompt engineering. Reading philosophy for fun. And obviously, hanging out with Gertrude and Gherkin.",
+          responses: [
+            { text: "AI prompt engineering?", next: "coffee-ai" },
+            { text: "Philosophy for fun?", next: "coffee-philosophy" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-philosophy",
+          portrait: "serious",
+          text: "Hermeneutics, specifically - the philosophy of interpretation. How do people actually understand things? It's surprisingly practical in tech. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
+          responses: [
+            { text: "How does that show up in your work?", next: "coffee-hermeneutics-work" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-systems",
+          portrait: "excited",
+          text: "The invisible infrastructure. Contract workflows, onboarding programs, documentation standards, QA processes. The stuff nobody thinks about until it's missing. When it works, everyone just... works better. That's the goal.",
+          responses: [
+            { text: "Give me an example.", next: "coffee-example" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-cats",
+          portrait: "funny2",
+          text: "*gestures at Gertrude and Gherkin* These two run the place, honestly. Gertrude supervises from the bookshelf - very quality-assurance energy. Gherkin provides... chaos testing. They're my coworkers.",
+          responses: [
+            { text: "Do they help or hinder productivity?", next: "coffee-cat-productivity" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-exhausting",
+          portrait: "smiling1",
+          text: "My brain actually works better this way? Context-switching, seeing patterns across different domains - that's just how I'm wired. What exhausts me is when organizations resist transparency or cling to processes that don't work just because 'that's how we've always done it.'",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-example",
+          portrait: "thoughtful1",
+          text: "Big retail client needed a custom platform. I led the whole lifecycle - discovery, wireframes, QA, then became the PM. Daily scrums, Jira management, stakeholder communication. Then transitioned to account manager, stabilized it, handed it off clean. That's my pattern: see gaps, fill gaps, build systems, hand off.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-coding",
+          portrait: "smiling2",
+          text: "With a lot of help from AI tools! I'm not a developer, but I can think in systems and communicate requirements clearly. This site started as 'what if a portfolio was actually fun?' and grew from there. Sometimes the best projects are the ones that make you smile.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-style",
+          portrait: "thoughtful2",
+          text: "Vintage furniture. Warm, lived-in spaces. Direct communication over corporate jargon. I'd rather be authentic than polished. My code comments have jokes in them. Life's too short to be boring.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-docs",
+          portrait: "serious",
+          text: "Think about it - good documentation saves everyone's time. It respects the person who comes next. It's saying 'I cared enough to explain this clearly so you don't have to suffer.' That's meaningful! Most people just... don't bother.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-keyboards",
+          portrait: "funny1",
+          text: "*grins* It's the perfect hobby for someone who loves process. Researching switches, designing layouts, soldering - very satisfying. Plus the clicky sounds drive Gherkin absolutely nuts.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-meetings",
+          portrait: "serious",
+          text: "Most meetings could be async messages. Most status updates could be a Slack thread. I protect my deep work time fiercely. When I do meet, I want it to be for actual collaboration - brainstorming, decision-making, things that genuinely need real-time interaction.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-chaos",
+          portrait: "funny2",
+          text: "In the best way? Some people find ambiguity stressful - I find it interesting. Here's a mess, figure out the shape of it, build something that helps. That's the job, and I love it.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-favorite",
+          portrait: "excited",
+          text: "The moment when something just clicks. When you've been working on a problem and suddenly you see the solution - not a band-aid, but the actual root cause fixed. That's the good stuff. That's why I keep doing this.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-ai",
+          portrait: "excited",
+          text: "Oh, I've gone DEEP on this. Built training materials, prompt libraries, the works. AI isn't going to replace good thinking, but it amplifies it. The interesting work is figuring out how to communicate with these systems effectively - which, surprise, loops back to hermeneutics.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-hermeneutics-work",
+          portrait: "thoughtful1",
+          text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under cognitive load?' Not how I hope they will. How they actually will. That shift changes everything.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-cat-productivity",
+          portrait: "smiling1",
+          text: "Both? Gertrude keeps me company. Gherkin reminds me to take breaks by sitting on my keyboard. They're part of the system now. Can't imagine working without them.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
     }
   },
 
