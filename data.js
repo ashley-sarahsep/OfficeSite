@@ -751,7 +751,7 @@ DONE (celebrating small wins):
         {
           id: "art-intro",
           portrait: "smiling1",
-          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes. Nothing too precious.",
+          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes. Nothing too precious. Things that have been somewhere before they got to me.",
           responses: [
             { text: "They create a nice atmosphere", next: "art-atmosphere" },
             { text: "Do you have a favorite?", next: "art-favorite" },
@@ -762,7 +762,7 @@ DONE (celebrating small wins):
         {
           id: "art-atmosphere",
           portrait: "thoughtful1",
-          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you want to be, not a sterile workspace.",
+          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -770,7 +770,7 @@ DONE (celebrating small wins):
         {
           id: "art-favorite",
           portrait: "thoughtful2",
-          text: "Honestly, it changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you're staring at screens all day.",
+          text: "It changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -778,7 +778,7 @@ DONE (celebrating small wins):
         {
           id: "art-frames",
           portrait: "smiling2",
-          text: "Half the appeal, right? Ornate frames, a little worn, gold leaf that's seen better days. They've been somewhere, held something. The imperfections are the point.",
+          text: "Half the appeal, honestly. Ornate frames, a little worn, gold leaf that's seen better days. They've been somewhere, held something. The imperfections are the point. Perfect things are boring.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
