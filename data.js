@@ -465,7 +465,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-intro",
           portrait: "smiling1",
-          text: "I found this wall unit about 10 years ago. It stores a lot of items that are close to my heart. Books, vintage finds, things I've collected over the years. Each shelf tells a different story.",
+          text: "I love this wall unit/bookshelf. Got it for 80 bucks - still proud of that. It holds a lot of things that are close to my heart. Books, trinkets from family, things I've collected over the years.",
           responses: [
             { text: "What kind of books do you read?", next: "bookshelf-left-books" },
             { text: "Tell me about some of these objects", next: "bookshelf-left-objects" },
@@ -476,7 +476,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-books",
           portrait: "thoughtful1",
-          text: "Philosophy, mostly. Hermeneutics texts from university that I still reference. Some social work theory. A lot of fiction - I believe stories teach us how to understand people better than any business book. And yes, some business books. I'm not a purist.",
+          text: "It used to be mostly Philosophy. Hermeneutics texts from university that I still reference. Some social work theory. But then it became a lot of fiction - I think stories teach us how to understand people better than any business book. And yes, some pulpy trash. I'm not a purist.",
           responses: [
             { text: "What's hermeneutics?", next: "bookshelf-left-hermeneutics" },
             { text: "Any favorites?", next: "bookshelf-left-favorites" },
@@ -486,7 +486,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-hermeneutics",
           portrait: "thoughtful2",
-          text: "The art and science of interpretation. How people make meaning from texts, conversations, experiences. It sounds academic, but it's incredibly practical. When I design training programs or AI prompts, I'm always thinking about how someone will interpret this. What clarity looks like versus confusion.",
+          text: "The study of interpretation. How people make meaning from texts, conversations, experiences, data. It sounds academic, but it's incredibly practical - it's about understanding how understanding happens.",
           responses: [
             { text: "How does that apply to your work?", next: "bookshelf-left-apply" },
             { text: "[Back to exploring]", next: null }
@@ -495,7 +495,16 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-apply",
           portrait: "excited",
-          text: "Everything. When I built AI adoption programs, I thought about where models might misinterpret context. When I create enablement materials, I think about cognitive load. When I translate between technical and business teams, I'm really doing applied hermeneutics - making sure ideas don't get lost in translation.",
+          text: "More than you'd think. When I design training and onboarding programs, I'm thinking about how someone will interpret this under real-world conditions. When I work with LLMs, I'm thinking about where models might misinterpret context or misrepresent information. When I look at data, I'm thinking about what story it's actually telling versus what story we want it to tell.",
+          responses: [
+            { text: "What do you mean about data?", next: "bookshelf-left-data" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-data",
+          portrait: "serious",
+          text: "Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions, context, what questions you're asking. I've seen teams make confident decisions from dashboards that were technically accurate but fundamentally misleading. Hermeneutics taught me to ask: what's being measured, what's being missed, and who decided what counts?",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -503,7 +512,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-favorites",
           portrait: "thoughtful1",
-          text: "I'd have to think about that one. The honest answer is that my favorites change depending on what problem I'm wrestling with. Books are tools for thinking, not trophies.",
+          text: "My favorites change depending on the day you ask. A little story: when I was about 12, my older brother gave me a book list. I finished every book on it by the time I was 17 - many are on these shelves still. Many of them I was too young to fully grasp, and only on reflection did their weight become apparent. But on any day, I'll tell you: my brain feels at home reading Vonnegut, I feel deeply reading Sylvia Plath, and a Confederacy of Dunces will always be somewhere in my top 5.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -511,7 +520,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-objects",
           portrait: "smiling2",
-          text: "Vintage finds, mostly. Things that caught my eye at estate sales, thrift stores, travels. I like objects with history - they've been somewhere, meant something to someone. That little globe has been with me through three apartments and one international move.",
+          text: "Items that have a story, mostly. Things that sat on my grandmothers' dressers or display tables; gifted treasures; parts of my childhood. I like objects with history - they've been somewhere, meant something to someone. Many of these trinkets (and a few books) even made it through an international move.",
           responses: [
             { text: "International move?", next: "bookshelf-left-london" },
             { text: "[Back to exploring]", next: null }
@@ -520,7 +529,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-london",
           portrait: "smiling1",
-          text: "London, for a while. Worked at some agencies there. Started in accounts payable, ended up implementing timesheet systems. The pattern started early: see a gap, fill it, build something that lasts.",
+          text: "London, UK - just for a while. Worked at some agencies there. Started in accounts payable, ended up helping to implement a timesheet systems at a recruitment agency. The pattern started early: see a gap, fill it, build something that lasts.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -528,7 +537,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-collecting",
           portrait: "thoughtful1",
-          text: "Guilty. It's the eclectic thing - I'm drawn to objects that have character, that feel like they belong together even if they're from completely different places and eras. My aesthetic is basically 'these things shouldn't work together but somehow they do.'",
+          text: "Guilty. I'm drawn to objects that have character, that feel like they belong together even if they're from completely different places and eras. My aesthetic is basically 'these things shouldn't work together but somehow they do.'",
           responses: [
             { text: "That sounds like your work style too", next: "bookshelf-left-meta" },
             { text: "[Back to exploring]", next: null }
@@ -537,7 +546,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-meta",
           portrait: "funny1",
-          text: "Ha. Yeah, actually. Taking things that shouldn't quite fit - QA and sales enablement, philosophy and AI testing, technical translation and change management - and making them work together. Maybe I am just collecting skills the way I collect vintage teapots.",
+          text: "Yeah, actually. Taking things that shouldn't quite fit - QA and sales enablement, philosophy and AI testing, technical translation and change management - and making them work together. Maybe I'm just collecting skills the way I collect vintage teapots.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -552,43 +561,25 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-right-intro",
           portrait: "thoughtful1",
-          text: "This side's been with me for 20 years - one of the few pieces of furniture that's survived every move. It holds different things than the wall unit. More personal, I guess.",
+          text: "This side of the wall unit holds some sweet things - meaningful books, my grandma's glasses, photos with friends, a picture of Patrick McGoohan in The Prisoner - more room for things and little displays.",
           responses: [
             { text: "What makes it special?", next: "bookshelf-right-special" },
-            { text: "20 years is a long time for furniture", next: "bookshelf-right-longevity" },
+            { text: "What's over here?", next: "bookshelf-right-whats-here" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "bookshelf-right-special",
           portrait: "thoughtful2",
-          text: "It's the constant through every chapter. Different apartments, different cities, different careers. The stuff on these shelves maps to different versions of me. Some of it I'd choose again, some of it just... stayed.",
+          text: "I like looking at the things I love. Some say it's a bit silly to love objects, but it's not just the object - it's the memories, the moments.",
           responses: [
-            { text: "Different careers?", next: "bookshelf-right-careers" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "bookshelf-right-careers",
+          id: "bookshelf-right-whats-here",
           portrait: "smiling1",
-          text: "Receptionist to accounts receivable at an ad agency. Accounts payable in London. Payroll systems. IBM reseller sales ops. Then 7+ years at a field marketing platform, which became like five different jobs in one. Philosophy student, social work student, self-taught everything else. It's been a winding path.",
-          responses: [
-            { text: "That's quite a range", next: "bookshelf-right-range" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-right-range",
-          portrait: "thoughtful1",
-          text: "I'm a self-taught generalist who figures things out through pattern recognition and asking 'why' constantly. Every role required mastering new systems without formal training. The bookshelf holds artifacts from all of it.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-right-longevity",
-          portrait: "smiling2",
-          text: "Good furniture should outlast trends. I found it at a thrift store when I was barely out of school and it's moved with me ever since. Guelph to Toronto to London to back again. Some things are worth keeping.",
+          text: "Artifacts from a winding path. Bits and pieces from different careers, different cities, different versions of me. The eclectic collection of a self-taught generalist.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
