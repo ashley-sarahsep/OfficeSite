@@ -2005,11 +2005,12 @@ body {
   transform: translateY(0);
 }
 
-/* Emoji Cat */
-.gertrude-emoji {
-  font-size: 50px;
-  line-height: 1;
-  filter: grayscale(30%);
+/* Gertrude Icon */
+.gertrude-icon {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  image-rendering: pixelated;
   animation: gertrudeBob 2s ease-in-out infinite;
 }
 
