@@ -110,32 +110,34 @@ Author: Someone who's learned most of this the hard way`
       content: `ASHLEY'S ACTUAL TO-DO LIST
 ============================
 
-[x] Build weird portfolio website instead of normal one
-[x] Add philosophical cat helper
+[x] Build fun portfolio website (in hyper-focus mode for days)
+[x] Add philosophical Gertrude
 [x] Question whether this is too much
-[ ] Decide it's not too much
+[x] Decide it's not too much
 [x] Write resume
 [ ] Resist urge to make resume a choose-your-own-adventure
+[ ] Seriously resist that urge
+[x] Add a different game instead
 [x] Add cats
 [x] Add MORE cats
 [ ] Pet actual cats (overdue)
+[ ] Sit down so Gherkin stops yelling at me
 
 SOMEDAY/MAYBE:
-- Learn to tolerate corporate small talk
-- Find job where "why?" is encouraged not suspicious
-- Write hermeneutics-based guide to reading Jira tickets
-- Convince someone that philosophy degrees are useful
-- Finally understand what "synergy" means (unlikely)
+- Learn to tolerate corporate jargon and norms
+- Find a job where "why?" is encouraged not suspicious
+- Sew my own clothes
+- Write hermeneutics-based guide to interpreting Jira tickets
+- Stop laughing so hard that I startle Gherkin off my lap
+     - Kidding - I'll never stop cackling
 
 DONE (celebrating small wins):
-- Survived 10+ years of remote work
+- Thrived in 10+ years of remote work
 - Built things that worked
 - Made it weird in a good way
-- Found the pink chair
-
----
-If you're reading this: hi! You found the easter egg.
-Curiosity is a good trait. I like curious people.`
+- Bought neck warmer for sub-zero office temperature
+- Met loads of colleagues turned friends - and isn't it all about the friends we meet along the way?
+- Being perpetually curious`
     },
 
     // Recycle bin contents
