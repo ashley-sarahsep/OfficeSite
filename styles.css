@@ -327,12 +327,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 60px; /* Space for bottom navbar */
 }
 
 .room-container {
   position: relative;
   max-width: 100%;
-  max-height: calc(100vh - 60px);
+  max-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -340,188 +341,135 @@ body {
 
 .room-image {
   max-width: 100%;
-  max-height: calc(100vh - 60px);
+  max-height: calc(100vh - 80px);
   object-fit: contain;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
 
-.hotspots-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.hotspot {
-  position: absolute;
-  cursor: pointer;
-  pointer-events: auto;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.hotspot:hover {
-  border-color: rgba(201, 145, 143, 0.6);
-  background: rgba(201, 145, 143, 0.1);
-}
-
-.hotspot:hover .hotspot-label {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
-}
-
-.hotspot-label {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--dialog-brown-dark);
-  color: var(--dialog-cream);
-  padding: 4px 8px;
-  font-family: var(--font-terminal);
-  font-size: 14px;
-  white-space: nowrap;
-  border-radius: 3px;
-  opacity: 0;
-  transition: all 0.2s ease;
-  pointer-events: none;
-}
-
-/* Hotspot positions - adjusted for room image */
-/* Add ?debug to URL or set data-debug="true" on body to see outlines */
-
-#hotspot-monitor {
-  left: 1%;
-  top: 25%;
-  width: 12%;
-  height: 20%;
-}
-
-#hotspot-desk {
-  left: 1%;
-  top: 48%;
-  width: 30%;
-  height: 35%;
-}
-
-#hotspot-leftBookshelf {
-  left: 31%;
-  top: 12%;
-  width: 20%;
-  height: 65%;
-}
-
-#hotspot-rightBookshelf {
-  left: 51%;
-  top: 12%;
-  width: 20%;
-  height: 65%;
-}
-
-#hotspot-cat {
-  left: 72%;
-  top: 45%;
-  width: 18%;
-  height: 35%;
-}
-
-#hotspot-radio {
-  left: 35%;
-  top: 28%;
-  width: 10%;
-  height: 12%;
-}
-
-#hotspot-art {
-  left: 28%;
-  top: 1%;
-  width: 48%;
-  height: 14%;
-}
-
-/* Debug mode - add class "debug-hotspots" to body to see hotspot outlines */
-body.debug-hotspots .hotspot {
-  background: rgba(255, 0, 0, 0.3);
-  border: 2px dashed red;
-}
-
-body.debug-hotspots #hotspot-monitor { background: rgba(255, 0, 0, 0.3); }
-body.debug-hotspots #hotspot-desk { background: rgba(0, 255, 0, 0.3); }
-body.debug-hotspots #hotspot-leftBookshelf { background: rgba(0, 0, 255, 0.3); }
-body.debug-hotspots #hotspot-rightBookshelf { background: rgba(255, 255, 0, 0.3); }
-body.debug-hotspots #hotspot-cat { background: rgba(255, 0, 255, 0.3); }
-body.debug-hotspots #hotspot-radio { background: rgba(0, 255, 255, 0.3); }
-body.debug-hotspots #hotspot-art { background: rgba(255, 128, 0, 0.3); }
-
-body.debug-hotspots .hotspot-label {
-  opacity: 1;
-}
-
-/* Room navigation hints */
-.room-nav-hints {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.nav-hint {
-  position: absolute;
-  font-family: var(--font-terminal);
-  font-size: 24px;
-  color: var(--boot-cream);
-  opacity: 0.3;
-  transition: opacity 0.2s;
-}
-
-.nav-hint:hover {
-  opacity: 0.6;
-}
-
-.nav-hint-left {
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.nav-hint-right {
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.nav-hint-top {
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Room title bar */
-.room-title-bar {
+/* Bottom navigation bar */
+.room-navbar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--dialog-brown-dark);
-  padding: 12px 20px;
+  background: linear-gradient(to bottom, var(--dialog-brown) 0%, var(--dialog-brown-dark) 100%);
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 3px solid var(--dialog-cream);
+  z-index: 50;
 }
 
-.room-title {
+.navbar-title {
   font-family: var(--font-terminal);
-  font-size: 20px;
+  font-size: 22px;
   color: var(--dialog-cream);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
 }
 
-.room-subtitle {
+.navbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-btn {
+  background: var(--dialog-cream);
+  border: 2px solid var(--dialog-brown-dark);
+  border-radius: 4px;
+  padding: 8px 16px;
   font-family: var(--font-terminal);
   font-size: 16px;
-  color: var(--boot-text);
+  color: var(--dialog-brown-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-btn:hover {
+  background: var(--dialog-rose);
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-btn:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-btn-icon {
+  font-size: 18px;
+}
+
+/* Inspect menu popup */
+.inspect-menu {
+  position: fixed;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dialog-cream);
+  border: 4px solid var(--dialog-brown);
+  border-radius: 6px;
+  padding: 15px;
+  z-index: 60;
+  box-shadow:
+    inset 0 0 0 2px var(--dialog-rose),
+    6px 6px 0 rgba(0,0,0,0.3);
+  max-width: 90vw;
+  width: 400px;
+}
+
+.inspect-menu-header {
+  font-family: var(--font-terminal);
+  font-size: 18px;
+  color: var(--dialog-brown-dark);
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--dialog-rose);
+}
+
+.inspect-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.inspect-item {
+  background: var(--dialog-green);
+  border: 2px solid var(--dialog-brown);
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--dialog-brown-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.inspect-item:hover {
+  background: var(--dialog-rose);
+  transform: scale(1.02);
+}
+
+.inspect-item:active {
+  transform: scale(0.98);
+}
+
+.inspect-icon {
+  font-size: 20px;
+}
+
+/* Hide inspect menu by default */
+.inspect-menu.hidden {
+  display: none;
 }
 
 /* ============================================
@@ -1752,8 +1700,51 @@ body.debug-hotspots .hotspot-label {
     font-size: 20px;
   }
 
-  .hotspot-label {
+  /* Room navbar responsive */
+  .room-navbar {
+    padding: 8px 12px;
+  }
+
+  .navbar-title {
+    font-size: 16px;
+  }
+
+  .navbar-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .navbar-btn span:not(.navbar-btn-icon) {
+    display: none;
+  }
+
+  .navbar-btn-icon {
+    font-size: 20px;
+  }
+
+  /* Inspect menu responsive */
+  .inspect-menu {
+    width: calc(100vw - 20px);
+    bottom: 60px;
+    padding: 12px;
+  }
+
+  .inspect-menu-header {
+    font-size: 16px;
+  }
+
+  .inspect-menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .inspect-item {
+    padding: 8px 10px;
     font-size: 12px;
+  }
+
+  .inspect-icon {
+    font-size: 16px;
   }
 }
 

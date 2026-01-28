@@ -164,7 +164,7 @@ function transitionToRoom() {
       roomScene.style.transition = 'opacity 0.5s ease';
     }, 50);
     state.currentScene = 'room';
-    initRoomHotspots();
+    initRoomMenu();
   }, 500);
 }
 
@@ -228,120 +228,66 @@ function transitionToRoomFromDesktop() {
 }
 
 // ============================================
-// ROOM SCENE & HOTSPOTS
+// ROOM SCENE & MENU
 // ============================================
 
-function initRoomHotspots() {
-  const hotspots = document.querySelectorAll('.hotspot');
+function initRoomMenu() {
+  const inspectBtn = document.getElementById('inspect-btn');
+  const computerBtn = document.getElementById('computer-btn');
+  const inspectMenu = document.getElementById('inspect-menu');
+  const inspectItems = document.querySelectorAll('.inspect-item');
 
-  hotspots.forEach(hotspot => {
-    hotspot.addEventListener('click', (e) => {
-      const hotspotId = e.currentTarget.dataset.hotspot;
-      handleHotspotClick(hotspotId);
+  // Toggle inspect menu
+  inspectBtn.addEventListener('click', () => {
+    inspectMenu.classList.toggle('hidden');
+  });
+
+  // Computer button goes directly to desktop
+  computerBtn.addEventListener('click', () => {
+    inspectMenu.classList.add('hidden');
+    handleRoomAction('monitor');
+  });
+
+  // Inspect menu items
+  inspectItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const action = item.dataset.action;
+      inspectMenu.classList.add('hidden');
+      handleRoomAction(action);
     });
   });
 
-  // Initialize hotspot positioning
-  const roomImage = document.getElementById('room-image');
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!inspectMenu.classList.contains('hidden') &&
+        !inspectMenu.contains(e.target) &&
+        e.target !== inspectBtn &&
+        !inspectBtn.contains(e.target)) {
+      inspectMenu.classList.add('hidden');
+    }
+  });
 
-  // Update hotspots when image loads
-  if (roomImage.complete) {
-    updateHotspotsPosition();
-  } else {
-    roomImage.addEventListener('load', updateHotspotsPosition);
-  }
-
-  // Update on window resize
-  window.addEventListener('resize', debounce(updateHotspotsPosition, 100));
-
-  // Check for debug mode via URL parameter
-  if (window.location.search.includes('debug')) {
-    document.body.classList.add('debug-hotspots');
-  }
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !inspectMenu.classList.contains('hidden')) {
+      inspectMenu.classList.add('hidden');
+    }
+  });
 }
 
-// Debounce helper for resize events
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
+function handleRoomAction(actionId) {
+  const itemData = SITE_DATA.hotspots[actionId];
 
-// Calculate actual rendered image bounds and position hotspots to match
-function updateHotspotsPosition() {
-  const roomImage = document.getElementById('room-image');
-  const hotspotsContainer = document.getElementById('hotspots-container');
-  const roomContainer = document.querySelector('.room-container');
-
-  if (!roomImage || !hotspotsContainer || !roomContainer) return;
-
-  // Get the image's natural dimensions
-  const naturalWidth = roomImage.naturalWidth;
-  const naturalHeight = roomImage.naturalHeight;
-
-  if (!naturalWidth || !naturalHeight) return;
-
-  // Get the image element's CSS box dimensions
-  const imageRect = roomImage.getBoundingClientRect();
-  const containerRect = roomContainer.getBoundingClientRect();
-
-  // Calculate the image's position relative to room-container
-  const imageOffsetX = imageRect.left - containerRect.left;
-  const imageOffsetY = imageRect.top - containerRect.top;
-
-  // Calculate the actual rendered image dimensions within the CSS box
-  // (accounting for object-fit: contain letterboxing)
-  const imageBoxWidth = imageRect.width;
-  const imageBoxHeight = imageRect.height;
-  const imageAspect = naturalWidth / naturalHeight;
-  const boxAspect = imageBoxWidth / imageBoxHeight;
-
-  let renderedWidth, renderedHeight, contentOffsetX, contentOffsetY;
-
-  if (imageAspect > boxAspect) {
-    // Image is wider than box - letterbox top/bottom
-    renderedWidth = imageBoxWidth;
-    renderedHeight = imageBoxWidth / imageAspect;
-    contentOffsetX = 0;
-    contentOffsetY = (imageBoxHeight - renderedHeight) / 2;
-  } else {
-    // Image is taller than box - letterbox left/right
-    renderedHeight = imageBoxHeight;
-    renderedWidth = imageBoxHeight * imageAspect;
-    contentOffsetX = (imageBoxWidth - renderedWidth) / 2;
-    contentOffsetY = 0;
-  }
-
-  // Total offset = image element position + content offset within image
-  const totalOffsetX = imageOffsetX + contentOffsetX;
-  const totalOffsetY = imageOffsetY + contentOffsetY;
-
-  // Position the hotspots container to match the actual rendered image area
-  hotspotsContainer.style.width = `${renderedWidth}px`;
-  hotspotsContainer.style.height = `${renderedHeight}px`;
-  hotspotsContainer.style.left = `${totalOffsetX}px`;
-  hotspotsContainer.style.top = `${totalOffsetY}px`;
-}
-
-function handleHotspotClick(hotspotId) {
-  const hotspotData = SITE_DATA.hotspots[hotspotId];
-
-  if (!hotspotData) return;
+  if (!itemData) return;
 
   // Monitor opens desktop
-  if (hotspotData.action === 'openDesktop') {
+  if (itemData.action === 'openDesktop') {
     transitionToDesktop();
     return;
   }
 
   // Everything else opens dialog
-  openDialog(hotspotId, hotspotData);
+  openDialog(actionId, itemData);
 }
 
 // ============================================
