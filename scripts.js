@@ -1020,25 +1020,63 @@ function sendChatMessage(chatArea, message) {
 
   // Find response
   const chatData = SITE_DATA.chat;
-  let response = chatData.responses[message];
+  let responseData = chatData.responses[message];
 
-  if (!response) {
+  if (!responseData) {
     // Check for partial matches
     for (const [key, value] of Object.entries(chatData.responses)) {
       if (message.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
-        response = value;
+        responseData = value;
         break;
       }
     }
   }
 
-  if (!response) {
-    response = chatData.fallbackResponse;
+  // Handle response - can be object with text/followUp or plain string (fallback)
+  let responseText;
+  let followUpQuestion = null;
+
+  if (!responseData) {
+    responseText = chatData.fallbackResponse;
+  } else if (typeof responseData === 'object') {
+    responseText = responseData.text;
+    followUpQuestion = responseData.followUp;
+  } else {
+    responseText = responseData;
   }
 
   // Add bot response after delay
   setTimeout(() => {
-    addChatMessage(chatArea, response, 'bot');
+    addChatMessage(chatArea, responseText, 'bot');
+
+    // If there's a follow-up question, add it as a clickable button
+    if (followUpQuestion) {
+      setTimeout(() => {
+        const followUpDiv = document.createElement('div');
+        followUpDiv.className = 'chat-followup';
+        followUpDiv.innerHTML = `
+          <button class="chat-followup-btn">${followUpQuestion}</button>
+          <button class="chat-followup-btn chat-back-btn">[Back to questions]</button>
+        `;
+        chatArea.appendChild(followUpDiv);
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        // Add click handlers
+        followUpDiv.querySelector('.chat-followup-btn:not(.chat-back-btn)').addEventListener('click', () => {
+          followUpDiv.remove();
+          sendChatMessage(chatArea, followUpQuestion);
+        });
+
+        followUpDiv.querySelector('.chat-back-btn').addEventListener('click', () => {
+          followUpDiv.remove();
+          // Re-show quick questions
+          const quickQuestionsDiv = chatArea.closest('.messenger-body').querySelector('.chat-quick-questions');
+          if (quickQuestionsDiv) {
+            quickQuestionsDiv.style.display = 'flex';
+          }
+        });
+      }, 300);
+    }
   }, 500 + Math.random() * 500);
 }
 

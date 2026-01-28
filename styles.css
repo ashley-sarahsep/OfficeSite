@@ -1648,6 +1648,42 @@ body {
   border-color: var(--messenger-blue);
 }
 
+/* Chat follow-up questions */
+.chat-followup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 10px 0 10px 40px;
+}
+
+.chat-followup-btn {
+  padding: 6px 12px;
+  background: #fff;
+  border: 1px solid var(--messenger-blue);
+  border-radius: 15px;
+  font-family: var(--font-system);
+  font-size: 11px;
+  color: var(--messenger-blue);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chat-followup-btn:hover {
+  background: var(--messenger-blue);
+  color: #fff;
+}
+
+.chat-back-btn {
+  border-color: #999;
+  color: #666;
+}
+
+.chat-back-btn:hover {
+  background: #666;
+  border-color: #666;
+  color: #fff;
+}
+
 .messenger-input-row {
   display: flex;
   gap: 5px;
