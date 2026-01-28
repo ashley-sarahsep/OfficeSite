@@ -785,12 +785,12 @@ body {
 
 .desktop-icons {
   position: absolute;
-  left: 15px;
-  top: 80px;
+  left: 10px;
+  top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding: 10px;
+  gap: 8px;
+  padding: 5px;
   width: fit-content;
 }
 
@@ -1267,9 +1267,10 @@ body {
 .window-content {
   flex: 1;
   overflow: auto;
-  background: #fff;
+  background: var(--color-cream);
   border: 2px inset var(--win-button-face);
   margin: 2px;
+  color: var(--color-burgundy);
 }
 
 /* WordPad Content */
@@ -1278,19 +1279,23 @@ body {
   font-family: 'Times New Roman', serif;
   font-size: 14px;
   line-height: 1.6;
+  background: var(--color-cream);
+  color: var(--color-burgundy);
 }
 
 .wordpad-content h1 {
   font-size: 24px;
   margin-bottom: 5px;
+  color: var(--color-burgundy);
 }
 
 .wordpad-content h2 {
   font-size: 18px;
   margin-top: 20px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #000;
+  border-bottom: 2px solid var(--color-mauve);
   padding-bottom: 5px;
+  color: var(--color-teal);
 }
 
 .wordpad-content h3 {
@@ -1298,6 +1303,7 @@ body {
   font-weight: bold;
   margin-top: 15px;
   margin-bottom: 5px;
+  color: var(--color-mauve);
 }
 
 .wordpad-content p {
@@ -1320,12 +1326,12 @@ body {
 
 .resume-subtitle {
   font-size: 12px;
-  color: #666;
+  color: var(--color-mauve);
 }
 
 .resume-contact {
   font-size: 11px;
-  color: #333;
+  color: var(--color-teal);
   margin-top: 5px;
 }
 
@@ -1335,26 +1341,26 @@ body {
 
 .job-meta {
   font-style: italic;
-  color: #666;
+  color: var(--color-mauve);
   font-size: 12px;
 }
 
 /* MySpace Content */
 .myspace-content {
-  background: var(--myspace-bg);
+  background: var(--color-sage);
   padding: 0;
 }
 
 .myspace-page {
   max-width: 800px;
   margin: 0 auto;
-  background: #fff;
+  background: var(--color-cream);
   min-height: 100%;
 }
 
 .myspace-header {
-  background: linear-gradient(135deg, #003366 0%, #006699 100%);
-  color: #fff;
+  background: linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-mauve) 100%);
+  color: var(--color-cream);
   padding: 20px;
   text-align: center;
 }
@@ -1367,7 +1373,7 @@ body {
 
 .myspace-mood {
   font-size: 12px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 .myspace-body {
@@ -1386,8 +1392,8 @@ body {
 .myspace-profile-pic {
   width: 100%;
   aspect-ratio: 1;
-  background: #ddd;
-  border: 3px solid #000;
+  background: var(--color-blush);
+  border: 3px solid var(--color-burgundy);
 }
 
 .myspace-profile-pic img {
@@ -1397,9 +1403,10 @@ body {
 }
 
 .myspace-stats {
-  background: #eee;
+  background: var(--color-blush);
   padding: 10px;
   font-size: 11px;
+  color: var(--color-burgundy);
 }
 
 .myspace-stats p {
@@ -1413,22 +1420,23 @@ body {
 }
 
 .myspace-section {
-  background: #f5f5f5;
-  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--color-mauve);
   padding: 15px;
 }
 
 .myspace-section h3 {
-  color: var(--myspace-link);
+  color: var(--color-teal);
   font-size: 14px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid var(--color-blush);
   padding-bottom: 5px;
 }
 
 .myspace-section p {
   font-size: 12px;
   line-height: 1.5;
+  color: var(--color-burgundy);
 }
 
 .myspace-interests {
@@ -1515,26 +1523,26 @@ body {
 
 .testimonial-text {
   line-height: 1.5;
-  color: #333;
+  color: var(--color-burgundy);
   margin-bottom: 8px;
 }
 
 .testimonial-author {
   text-align: right;
   font-style: italic;
-  color: #666;
+  color: var(--color-mauve);
   font-size: 10px;
 }
 
 /* Messenger Content */
 .titlebar-messenger {
-  background: linear-gradient(90deg, #1e4b8e 0%, #4a90d9 100%);
+  background: linear-gradient(90deg, var(--color-teal) 0%, var(--color-sage) 100%);
 }
 
 .messenger-content {
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--color-cream);
 }
 
 .messenger-chat-area {
@@ -1542,8 +1550,8 @@ body {
   padding: 10px;
   overflow-y: auto;
   min-height: 200px;
-  background: #fff;
-  border-bottom: 1px solid #ccc;
+  background: var(--color-cream);
+  border-bottom: 1px solid var(--color-mauve);
 }
 
 .chat-message {
@@ -1658,6 +1666,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 20px;
+  background: var(--color-cream);
 }
 
 .folder-item {
@@ -1671,14 +1680,15 @@ body {
 }
 
 .folder-item:hover {
-  background: rgba(0, 0, 128, 0.1);
+  background: var(--color-blush);
+  border-radius: 4px;
 }
 
 .folder-item-icon {
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, #fff 60%, #ddd 60%);
-  border: 1px solid #000;
+  background: linear-gradient(135deg, var(--color-cream) 60%, var(--color-blush) 60%);
+  border: 1px solid var(--color-mauve);
 }
 
 .folder-item-name {
@@ -1686,27 +1696,30 @@ body {
   font-size: 11px;
   max-width: 80px;
   word-wrap: break-word;
+  color: var(--color-burgundy);
 }
 
 /* Work Detail Content */
 .work-detail-content {
   padding: 20px;
   overflow-y: auto;
+  background: var(--color-cream);
 }
 
 .work-detail-header {
   margin-bottom: 15px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid var(--color-mauve);
 }
 
 .work-detail-header h2 {
   font-size: 16px;
   margin-bottom: 3px;
+  color: var(--color-burgundy);
 }
 
 .work-detail-type {
-  color: #666;
+  color: var(--color-mauve);
   font-size: 11px;
   font-style: italic;
 }
@@ -1717,7 +1730,7 @@ body {
 
 .work-detail-section h3 {
   font-size: 12px;
-  color: #333;
+  color: var(--color-teal);
   margin-bottom: 8px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
