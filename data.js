@@ -19,22 +19,45 @@ const SITE_DATA = {
   // Click Gertrude to receive a thought. Click the bubble to dismiss.
   gertrude: {
     thoughts: [
-      // Thoughtful / Reflective
-      "The best systems are invisible until they break. What are you not noticing?",
-      "What would you build if you weren't afraid of being wrong?",
-      "The gap between intention and interpretation is where most problems live.",
-      "Are you solving the problem, or the symptom of the problem?",
-      "What question are you avoiding because you might not like the answer?",
-      "The way someone explains something reveals how they understand it.",
-      "Good documentation is an act of kindness to your future self.",
-      "What would change if you assumed everyone was doing their best?",
-      "The most important work often doesn't fit neatly into a job description.",
-      "Clarity is a gift. Give it generously.",
-      "What would you do differently if you knew no one was watching?",
-      "Sometimes the right answer is 'I don't know yet.'",
-      // Cat wisdom
-      "*slow blink* That's cat for 'I acknowledge you.'",
-      "Have you considered a nap? I find they help with complex problems."
+      // Short reflections
+      "Every conversation changes both people. Even this one. *slow blink*",
+      "When did you last do something with no goal in mind? *languid stretch*",
+      "Play isn't a break from real life. What if it's the realest part? *ear twitch*",
+      "What would you try if you knew the outcome didn't matter? *curious tilt*",
+      "A game is only a game if you let it absorb you completely. When were you last absorbed? *purr*",
+      "What question would you ask if you weren't worried about the answer? *slow blink*",
+      "What memory changed meaning as you got older? *thoughtful mrrp*",
+      "Are you the same person you were ten years ago? How do you know? *whisker twitch*",
+      "What are you in the middle of that you won't recognize until later? *tail swish*",
+      "Sunbeams move across the floor all day. I follow them. What are you following? *warm purr*",
+      "What would you do with an afternoon you didn't have to account for? *yawn*",
+      "Words meant something different to the person who wrote them than they do to you now. Both are real. *blink*",
+      "What's something you know deeply but struggle to explain? *mrrp*",
+      "What have you stopped noticing because it's always there? *ear perk*",
+      "There's a bird outside. Do you know what kind? I do. *intense stare*",
+      "What would a child ask about your work that you couldn't easily answer? *head tilt*",
+      "When did you last look at something long enough to really see it? *slow blink*",
+      "What small thing made today different from yesterday? *curious mrrp*",
+      "What's a question you've given up trying to answer? *soft purr*",
+      "The most interesting people are comfortable saying 'I don't know.' Are you? *tail curl*",
+      "I think about very little and I'm very happy. Related? Unclear. *nap incoming*",
+      "The red dot teaches us about desire. And also cardio. *pant*",
+      "My human made this whole website. I contributed by sitting on the keyboard. *proud*",
+      "I have no resume. I have presence. *regal stare*",
+      "Sometimes I knock things off tables just to see what happens. When did you last experiment? *innocent blink*",
+      "I've been staring at the wall for ten minutes. It's called thinking... or maybe it's a ghost... *tail flick*",
+      "What's something you'd love to learn if you had infinite time? *dreamy purr*",
+      "What's the most interesting thing you've changed your mind about? *attentive gaze*",
+
+      // Longer sits
+      "Humans spend so much time preparing for conversations - what to say, how to say it, what you want the other person to understand. But understanding isn't something you do to someone. It's something that happens between you, if you let it. When was the last time you let a conversation go somewhere you didn't plan? *settles into loaf position*",
+      "My human studies how people make meaning from things - words, experiences, each other. The interesting part isn't that we all understand differently. It's that we manage to understand each other at all. Every conversation is a small miracle of two entirely separate worlds overlapping for a moment. *slow blink* ...Anyway. I'm going to nap now.",
+      "You are in the middle of things right now that you won't have names for until much later. A chapter you won't recognize as a chapter until it's done. Humans are so eager to know what things mean while they're still happening. Sometimes meaning takes its time. That's not a flaw - that's how depth works. *long exhale, eyes half-closed*",
+      "Play is a funny thing. Real play - not relaxation, not distraction, but actual play - requires you to take it seriously and hold it loosely at the same time. To be completely absorbed in something that doesn't matter. Humans forget how to do this. They turn everything into work or rest, nothing in between. When did you last lose yourself in something just because it was interesting? *rolls onto back, paws in air*",
+      "There's a difference between listening to respond and listening to understand. Most people think they're doing the second when they're doing the first. The giveaway is what happens in your mind while the other person is talking - are you receiving, or are you preparing? It's hard to do both at once. Almost impossible, actually. But noticing is the first step. *ear twitch* ...I'm an excellent listener. Mostly to birds.",
+      "Every person you've ever met understood the world through a completely different set of experiences than you. Not just different opinions - different foundations. Different ways of knowing what's true, what matters, what's obvious. And somehow we still manage to communicate, to collaborate, to love each other. The gaps are real, but so are the bridges. *contemplative purr*",
+      "Here's something worth sitting with: the person you are now exists because of countless moments you've already forgotten. Conversations, glances, small decisions that didn't seem important at the time. You can't trace the line from there to here - it's too complex, too alive. You are an accumulation of things you can't remember. That's not sad. That's kind of beautiful. *kneads blanket thoughtfully*",
+      "Understanding someone isn't about gathering enough information until you 'get' them. People aren't puzzles to solve. Understanding is more like a dance - you move, they move, something emerges between you that neither of you could have created alone. It's less about knowing and more about relating. ...I relate to very few things. Food. Warmth. My human, sometimes. *tail swish*"
     ]
   },
 
