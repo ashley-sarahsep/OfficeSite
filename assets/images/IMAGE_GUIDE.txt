@@ -5,35 +5,46 @@ Place your images in this folder with the following names:
 
 REQUIRED IMAGES:
 ----------------
-room.png          - The main pixel art room illustration (the one you provided)
-ashley-portrait.jpg - Your portrait photo for dialog boxes (square, ~150x150px works well)
+room.png              - The main pixel art room illustration (the one you provided)
+
+PORTRAIT IMAGES (for different expressions in dialogs):
+-------------------------------------------------------
+ashley-default.jpg    - Default/neutral portrait
+ashley-smiling1.jpg   - Smiling expression variant 1
+ashley-smiling2.jpg   - Smiling expression variant 2
+ashley-thoughtful1.jpg - Thoughtful/considering expression 1
+ashley-thoughtful2.jpg - Thoughtful/considering expression 2
+ashley-funny1.jpg     - Funny/playful expression 1
+ashley-funny2.jpg     - Funny/playful expression 2 (optional)
+ashley-excited.jpg    - Excited/enthusiastic expression
+ashley-serious.jpg    - Serious/professional expression
 
 DIALOG HOTSPOT IMAGES (photos of actual items):
 -----------------------------------------------
-desk.jpg           - Photo of your actual desk setup
-huckleberry.jpg    - Photo of Huckleberry the cat
-bookshelf-left.jpg - Photo of left bookshelf items
-bookshelf-right.jpg - Photo of right bookshelf
-radio.jpg          - Photo of vintage radio
-art.jpg            - Photo of wall art collection
+desk.jpg              - Photo of your actual desk setup
+huckleberry.jpg       - Photo of Huckleberry the cat
+bookshelf-left.jpg    - Photo of left bookshelf items
+bookshelf-right.jpg   - Photo of right bookshelf
+radio.jpg             - Photo of vintage radio
+art.jpg               - Photo of wall art collection
 
 MYSPACE TOP 8 (optional - can use placeholders):
 ------------------------------------------------
-top8-cat.jpg       - Huckleberry (can reuse huckleberry.jpg)
-top8-jira.jpg      - Jira logo or screenshot
-top8-philosophy.jpg - Philosophy-related image
-top8-remote.jpg    - Remote work image
-top8-chair.jpg     - The pink chair
-top8-patterns.jpg  - Pattern recognition visual
-top8-coffee.jpg    - Coffee image
-top8-why.jpg       - "Why" related image
+top8-cat.jpg          - Huckleberry (can reuse huckleberry.jpg)
+top8-jira.jpg         - Jira logo or screenshot
+top8-philosophy.jpg   - Philosophy-related image
+top8-remote.jpg       - Remote work image
+top8-chair.jpg        - The pink chair
+top8-patterns.jpg     - Pattern recognition visual
+top8-coffee.jpg       - Coffee image
+top8-why.jpg          - "Why" related image
 
 WORK EXAMPLES (optional):
 -------------------------
-work-neptune.jpg   - Neptune project screenshot/visual
-work-ai.jpg        - AI adoption work visual
-work-sales.jpg     - Sales enablement visual
-work-ops.jpg       - Operations work visual
+work-enterprise.jpg   - Enterprise platform project visual
+work-ai.jpg           - AI adoption work visual
+work-sales.jpg        - Sales enablement visual
+work-ops.jpg          - Operations work visual
 
 NOTES:
 ------
@@ -41,6 +52,16 @@ NOTES:
 - JPG or PNG both work
 - Recommended sizes:
   - Room: whatever resolution looks good (will scale)
-  - Portrait: 150x150 to 300x300
+  - Portrait images: 150x150 to 300x300 (square works best)
   - Item photos: 400-600px wide
   - Top 8: 60x60 to 100x100
+
+PORTRAIT MOOD MAPPING:
+----------------------
+The dialog system uses different portraits based on conversational mood:
+- smiling1/smiling2: Warm, welcoming moments
+- thoughtful1/thoughtful2: Reflective, explaining complex ideas
+- funny1/funny2: Jokes, self-deprecating humor
+- excited: Talking about passion projects, music, things you love
+- serious: Professional approach, methodology explanations
+- default: Fallback for any missing portraits

@@ -1390,6 +1390,46 @@ body {
   font-size: 14px;
 }
 
+/* Testimonials */
+.testimonials-section {
+  background: #fff5f5 !important;
+}
+
+.testimonials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.testimonial {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-left: 3px solid var(--myspace-accent);
+  padding: 12px;
+  font-size: 11px;
+}
+
+.testimonial-title {
+  font-weight: bold;
+  color: var(--myspace-link);
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.testimonial-text {
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.testimonial-author {
+  text-align: right;
+  font-style: italic;
+  color: #666;
+  font-size: 10px;
+}
+
 /* Messenger Content */
 .titlebar-messenger {
   background: linear-gradient(90deg, #1e4b8e 0%, #4a90d9 100%);
@@ -1555,44 +1595,60 @@ body {
 /* Work Detail Content */
 .work-detail-content {
   padding: 20px;
+  overflow-y: auto;
 }
 
 .work-detail-header {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
 }
 
 .work-detail-header h2 {
-  font-size: 18px;
-  margin-bottom: 5px;
+  font-size: 16px;
+  margin-bottom: 3px;
 }
 
 .work-detail-type {
   color: #666;
-  font-size: 12px;
+  font-size: 11px;
+  font-style: italic;
 }
 
-.work-detail-image {
-  width: 100%;
-  max-height: 200px;
-  background: #ddd;
+.work-detail-section {
   margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #666;
-  font-size: 12px;
 }
 
-.work-detail-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.work-detail-section h3 {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .work-detail-description {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
-  margin-bottom: 15px;
+  color: #333;
+}
+
+.work-detail-list {
+  font-size: 11px;
+  line-height: 1.5;
+  margin-left: 15px;
+  color: #333;
+}
+
+.work-detail-list li {
+  margin-bottom: 5px;
+}
+
+.work-outcome {
+  font-size: 12px;
+  line-height: 1.5;
+  color: #006600;
+  font-weight: 500;
 }
 
 .work-detail-skills {

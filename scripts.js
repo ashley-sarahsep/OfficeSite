@@ -259,6 +259,14 @@ function handleHotspotClick(hotspotId) {
 // DIALOG SYSTEM
 // ============================================
 
+function getPortraitPath(portraitKey) {
+  // Get portrait path from the portraits object, fallback to default
+  if (SITE_DATA.portraits && SITE_DATA.portraits[portraitKey]) {
+    return SITE_DATA.portraits[portraitKey];
+  }
+  return SITE_DATA.portraits?.default || 'assets/images/ashley-default.jpg';
+}
+
 function openDialog(hotspotId, hotspotData) {
   const overlay = document.getElementById('dialog-overlay');
   const titleEl = document.getElementById('dialog-title');
@@ -271,10 +279,14 @@ function openDialog(hotspotId, hotspotData) {
   // Set dialog title
   titleEl.textContent = hotspotData.name;
 
-  // Set portrait
-  portraitImg.src = hotspotData.portrait || 'assets/images/ashley-portrait.jpg';
+  // Set initial portrait from first conversation
+  const firstConversation = hotspotData.conversations?.[0];
+  const initialPortrait = firstConversation?.portrait || 'default';
+  portraitImg.src = getPortraitPath(initialPortrait);
+  portraitImg.style.display = 'block';
   portraitImg.onerror = () => {
-    portraitImg.style.display = 'none';
+    // Try default if specific portrait fails
+    portraitImg.src = getPortraitPath('default');
   };
 
   // Set item image if available
@@ -305,6 +317,12 @@ function showConversation(conversationId) {
 
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
+  const portraitImg = document.getElementById('dialog-portrait-img');
+
+  // Update portrait based on conversation mood
+  if (conversation.portrait) {
+    portraitImg.src = getPortraitPath(conversation.portrait);
+  }
 
   // Type out the text
   typeText(textEl, conversation.text, () => {
@@ -749,6 +767,20 @@ function initMyspace(windowEl) {
               <dd>${data.interests.books}</dd>
             </dl>
           </div>
+          ${data.testimonials && data.testimonials.length > 0 ? `
+          <div class="myspace-section testimonials-section">
+            <h3>What People Say</h3>
+            <div class="testimonials-list">
+              ${data.testimonials.map(t => `
+                <div class="testimonial">
+                  <p class="testimonial-title">"${t.title}"</p>
+                  <p class="testimonial-text">${t.text}</p>
+                  <p class="testimonial-author">— ${t.name}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+          ` : ''}
           <div class="visitor-counter">
             VISITORS: ${String(data.profileViews).padStart(6, '0')}
           </div>
@@ -886,12 +918,34 @@ function initWorkDetail(windowEl, workId) {
       <h2>${work.name}</h2>
       <p class="work-detail-type">${work.type}</p>
     </div>
-    <div class="work-detail-image">
-      <img src="${work.image}" alt="${work.name}" onerror="this.parentElement.innerHTML='[Image Placeholder]'">
+    <div class="work-detail-section">
+      <p class="work-detail-description">${work.description}</p>
     </div>
-    <p class="work-detail-description">${work.description}</p>
-    <div class="work-detail-skills">
-      ${work.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+    ${work.challenge ? `
+    <div class="work-detail-section">
+      <h3>The Challenge</h3>
+      <p>${work.challenge}</p>
+    </div>
+    ` : ''}
+    ${work.whatIDid && work.whatIDid.length > 0 ? `
+    <div class="work-detail-section">
+      <h3>What I Did</h3>
+      <ul class="work-detail-list">
+        ${work.whatIDid.map(item => `<li>${item}</li>`).join('')}
+      </ul>
+    </div>
+    ` : ''}
+    ${work.outcome ? `
+    <div class="work-detail-section">
+      <h3>The Outcome</h3>
+      <p class="work-outcome">${work.outcome}</p>
+    </div>
+    ` : ''}
+    <div class="work-detail-section">
+      <h3>Skills</h3>
+      <div class="work-detail-skills">
+        ${work.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('')}
+      </div>
     </div>
   `;
 }
