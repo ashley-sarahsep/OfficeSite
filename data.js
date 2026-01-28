@@ -193,26 +193,25 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "welcome-intro",
           portrait: "smiling1",
-          text: "Hey there! Welcome to my office. I'm Ashley - a Product Operations and Enablement leader who builds systems that make everyone's job easier. Feel free to look around, click on things, and get to know me a bit.",
+          text: "Hey there! I'm Ashley. Welcome to my office. I always wanted to make myself a website just like this - something that made me feel like a kid on a computer. I figured, why not use this instead of a regular portfolio - and putting it together was very fun. Poke around, click on things, explore.",
           responses: [
-            { text: "Nice to meet you!", next: "welcome-nice" },
-            { text: "What can I explore here?", next: "welcome-explore" },
+            { text: "This is great.", next: "welcome-great" },
+            { text: "What can I explore?", next: "welcome-explore" },
             { text: "[Start exploring]", next: null }
           ]
         },
         {
-          id: "welcome-nice",
+          id: "welcome-great",
           portrait: "smiling2",
-          text: "Nice to meet you too! Make yourself at home. The cats might judge you, but I won't. Much.",
+          text: "Thanks! Buttons at the bottom let you inspect different things around the room, or head to the computer for the more traditional stuff - resume, work samples, ways to get in touch.",
           responses: [
-            { text: "What can I explore?", next: "welcome-explore" },
             { text: "[Start exploring]", next: null }
           ]
         },
         {
           id: "welcome-explore",
           portrait: "excited",
-          text: "Use the buttons at the bottom to inspect different things in the room - my desk, the bookshelves, the cats, the art. Or click 'Computer' to check out my resume, chat with me, and see some work examples. It's like a point-and-click adventure, but for hiring!",
+          text: "Buttons at the bottom let you look at different things in the room - the desk, the bookshelves, the cats, the art. The computer has my resume, some work examples, and ways to reach me. It's inspired by point-and-click exploration and adventure games - except this time the mystery is whether we'd work well together.",
           responses: [
             { text: "[Start exploring]", next: null }
           ]
