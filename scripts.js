@@ -539,6 +539,12 @@ function initDesktopIcons() {
 
 function initTaskbar() {
   // Taskbar items are updated dynamically
+
+  // Exit to room button
+  const exitBtn = document.getElementById('exit-to-room-btn');
+  exitBtn?.addEventListener('click', () => {
+    transitionToRoomFromDesktop();
+  });
 }
 
 function initStartMenu() {
@@ -1667,8 +1673,43 @@ function initSite() {
   // Initialize screensaver
   initScreensaver();
 
+  // Initialize image lightbox
+  initImageLightbox();
+
   // Show welcome dialog
   showWelcomeDialog();
+}
+
+// ============================================
+// IMAGE LIGHTBOX
+// ============================================
+
+function initImageLightbox() {
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImg = document.getElementById('lightbox-image');
+
+  // Close lightbox on click
+  lightbox?.addEventListener('click', () => {
+    lightbox.classList.add('hidden');
+  });
+
+  // Make dialog images clickable to expand
+  document.addEventListener('click', (e) => {
+    const itemImg = e.target.closest('#dialog-item-img');
+    if (itemImg && itemImg.src) {
+      openLightbox(itemImg.src);
+    }
+  });
+}
+
+function openLightbox(imageSrc) {
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImg = document.getElementById('lightbox-image');
+
+  if (lightbox && lightboxImg) {
+    lightboxImg.src = imageSrc;
+    lightbox.classList.remove('hidden');
+  }
 }
 
 function showWelcomeDialog() {

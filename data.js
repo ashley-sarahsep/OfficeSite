@@ -17,86 +17,86 @@ const SITE_DATA = {
   // GERTRUDE - PHILOSOPHICAL CAT HELPER
   // ============================================
   gertrude: {
-    // General philosophical observations
+    // General philosophical questions for recruiters
     general: [
-      "Every click reveals intention. What draws your attention speaks to what you seek.",
-      "We understand others through the lens of our own experience. What lens are you looking through?",
-      "The gap between what is written and what is meant... that's where the real work happens.",
-      "Context shapes meaning. The same words in a different setting tell a different story.",
-      "Understanding isn't about extracting data. It's about entering someone else's frame of reference.",
-      "Take your time. Meaning unfolds at its own pace.",
-      "What we notice first often reveals what we value most.",
-      "Every portfolio is a story someone chose to tell. Consider what was left unsaid.",
-      "Interpretation is never neutral. We bring ourselves to everything we read.",
-      "The most important questions are often the ones we forget to ask."
+      "What kind of thinker does your team actually need—and is that what you're looking for?",
+      "Does your organization reward people who ask 'why,' or does it view questions as friction?",
+      "What would happen if you hired for curiosity instead of credentials?",
+      "The best hires often don't fit the job description. What does that tell you about job descriptions?",
+      "Are you looking for someone to fill a role, or someone to evolve it?",
+      "What problems exist in your organization that no one has been asked to solve?",
+      "Do you need someone who follows processes, or someone who builds them?",
+      "What would 'culture fit' mean if your culture was designed to grow?",
+      "The gap between what a resume says and what a person does is where the interesting stuff lives.",
+      "What questions are you not asking that you should be?"
     ],
 
     // When viewing the room
     room: [
-      "A space tells you much about its inhabitant. What does this one say?",
-      "Objects carry meaning beyond their function. Each item here was chosen.",
-      "Home offices reveal the intersection of self and work. The boundary blurs.",
-      "Pink walls were a deliberate choice. Most choices are.",
-      "Notice what catches your eye. Your attention is information."
+      "A home office reveals how someone thinks. What does intentionality look like to you?",
+      "She chose pink walls and vintage furniture. What do your spaces say about your values?",
+      "Remote work requires self-direction. How does your team support that?",
+      "Notice what she surrounded herself with. Environment shapes thinking.",
+      "What would your ideal team member's workspace look like?"
     ],
 
     // When viewing the resume
     resume: [
-      "A resume is a compression of years into bullet points. Much is lost. Much is implied.",
-      "Job titles describe roles. They rarely capture how someone actually thinks.",
-      "Consider: what problems did she solve that no one asked her to solve?",
-      "Achievements are outcomes. The interesting part is often the process.",
-      "Read between the lines. The gaps tell stories too."
+      "Resumes compress years into bullets. What got left out that you wish you knew?",
+      "Job titles describe boxes. The interesting people outgrow their boxes.",
+      "What problems did she solve that nobody asked her to solve? That's the real question.",
+      "She built systems from scratch. Does your organization need builders or maintainers?",
+      "A 'Swiss Army Knife' operator—do you value versatility or specialization?"
     ],
 
     // When viewing MySpace/About
     myspace: [
-      "We curate ourselves for audiences. This is her curating herself for you.",
-      "Personal details reveal values. Music, books, interests—these shape a person.",
-      "Everyone has a Top 8. Priorities made visible.",
-      "Nostalgia is a form of meaning-making. Why does the past comfort us?",
-      "What someone shares voluntarily tells you what they want you to understand."
+      "She shared her actual interests. How often do candidates feel safe doing that?",
+      "Philosophy degree, social work background, operations career. What patterns do you see?",
+      "Her 'Top 8' includes Jira as a frenemy. Honesty has value.",
+      "What someone shares voluntarily tells you what they value. Are you listening?",
+      "Neurodivergent and thriving. Is your workplace designed for different kinds of minds?"
     ],
 
     // When in chat
     chat: [
-      "Questions shape the answers we receive. Choose your questions thoughtfully.",
-      "Dialogue is collaborative meaning-making. What are you building together?",
-      "The best conversations leave both parties changed.",
-      "Every question carries assumptions. What are yours?",
-      "Listening is an active form of interpretation."
+      "What questions reveal how someone actually thinks—not just what they know?",
+      "Are you interviewing for answers, or for how they arrive at answers?",
+      "The best interviews feel like conversations. What makes the difference?",
+      "She said she'll tell you what she actually thinks. Do you want that?",
+      "What would you learn if you asked 'why' five times?"
     ],
 
     // When viewing work examples
     workExamples: [
-      "Case studies are retrospective sense-making. The actual work was messier.",
-      "Notice the problems she chose to highlight. Problem selection reveals priorities.",
-      "Outcomes matter, but so does the thinking that led there.",
-      "Every project involved humans with competing needs. That complexity rarely fits on slides.",
-      "What would you have done differently? That question reveals your own approach."
+      "Case studies show outcomes. What do you learn about someone from how they frame problems?",
+      "She led QA, PM, and account management on the same project. Is that versatility or chaos?",
+      "Every project involves humans with competing needs. How does she navigate that?",
+      "She tested AI before trusting it. What does healthy skepticism look like in your org?",
+      "What would you have done differently? That question reveals your own assumptions."
     ],
 
     // When on desktop
     desktop: [
-      "A desktop is a mind made visible. Organization reflects cognition.",
-      "Icons are symbols. Symbols carry meaning beyond their pixels.",
-      "What you open first reveals what you're seeking.",
-      "Digital spaces are still spaces. We inhabit them.",
-      "Vigo watches. I watch. Everyone is always interpreting."
+      "A desktop is a mind made visible. What does organization mean to you?",
+      "She made her portfolio a retro game. What does that tell you about how she approaches problems?",
+      "Vigo watches over everything. Everyone brings their weird to work—do you make space for that?",
+      "Icons and folders. Systems within systems. She thinks in structures.",
+      "What you explore first reveals what you're actually looking for."
     ],
 
     // When idle for a while
     idle: [
-      "Stillness is also a choice. What are you contemplating?",
-      "Sometimes the mind needs space before understanding arrives.",
-      "I too enjoy a good pause. *slow blink*",
-      "Reflection requires time. Take what you need.",
-      "The answers often come when we stop actively seeking."
+      "Taking time to think before deciding. That's a skill. *slow blink*",
+      "Reflection before action. Not everyone values that. Do you?",
+      "Sometimes the best hires need time to be understood.",
+      "Stillness is also data. What does your patience reveal?",
+      "The answers come when you stop optimizing and start noticing."
     ],
 
     // First appearance
     welcome: [
-      "Ah, a visitor. I am Gertrude. I observe, I reflect, I occasionally share wisdom. Don't mind me."
+      "Ah, a visitor. I am Gertrude. I ask questions. Sometimes uncomfortable ones. Don't mind me."
     ],
 
     // Settings/config
