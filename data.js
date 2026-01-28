@@ -53,19 +53,19 @@ const SITE_DATA = {
         {
           id: "desk-remote-love",
           portrait: "thoughtful1",
-          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out - that's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Huckleberry makes an excellent coworker.",
+          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out - that's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Gertrude and Gherkin make excellent coworkers.",
           responses: [
-            { text: "Who's Huckleberry?", next: "desk-huckleberry-tease" },
+            { text: "Who are Gertrude and Gherkin?", next: "desk-cats-tease" },
             { text: "What kind of problems do you solve?", next: "desk-problems" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "desk-huckleberry-tease",
+          id: "desk-cats-tease",
           portrait: "smiling2",
-          text: "My cat! He's around here somewhere. Usually on the pink chair. Very opinionated about video call backgrounds.",
+          text: "My cats! Gertrude's the black one - she supervises from the bookshelf. Gherkin's the orange one on the pink chair. They have very strong opinions about video call backgrounds.",
           responses: [
-            { text: "I should go find him", next: null },
+            { text: "I should go meet them", next: null },
             { text: "What kind of work do you do from here?", next: "desk-work-history" },
             { text: "[Back to exploring]", next: null }
           ]
@@ -153,60 +153,120 @@ const SITE_DATA = {
       ]
     },
 
-    cat: {
-      name: "Huckleberry",
-      image: "assets/images/huckleberry.jpg",
+    gertrude: {
+      name: "Gertrude",
+      image: "assets/images/gertrude.jpg",
       conversations: [
         {
-          id: "cat-intro",
+          id: "gertrude-intro",
           portrait: "smiling2",
-          text: "That's Huckleberry! Named after the Doc Holliday line - 'I'll be your Huckleberry.' He's been my work-from-home companion through countless client calls and late-night debugging sessions.",
+          text: "That's Gertrude! She's my little void - always watching, judging, supervising. She likes to perch on the bookshelf and observe her domain. Very regal energy.",
           responses: [
-            { text: "Does he help with work?", next: "cat-help" },
-            { text: "He looks very comfortable", next: "cat-comfortable" },
-            { text: "I love the name", next: "cat-name" },
+            { text: "She looks very serious", next: "gertrude-serious" },
+            { text: "Why the name Gertrude?", next: "gertrude-name" },
+            { text: "Does she get along with Gherkin?", next: "gertrude-gherkin" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "cat-help",
+          id: "gertrude-serious",
           portrait: "funny1",
-          text: "He's excellent at reminding me to take breaks. Also very good at walking across keyboards during important moments. His code reviews are... unconventional.",
+          text: "She takes her job very seriously. Chief Security Officer. Nothing happens in this office without her approval. She's also the primary quality assurance tester for any box that enters the premises.",
           responses: [
-            { text: "Has he ever caused any disasters?", next: "cat-disaster" },
+            { text: "Important work", next: "gertrude-work" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "cat-disaster",
+          id: "gertrude-work",
           portrait: "funny2",
-          text: "Let's just say he's submitted some interesting Slack messages on my behalf. Nothing career-ending. Yet.",
+          text: "Critical, really. If a box isn't properly tested, who knows what could happen? She's never found a box she couldn't fit in. Or at least try to fit in.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "cat-comfortable",
+          id: "gertrude-name",
           portrait: "smiling1",
-          text: "That's HIS chair now. I bought it for the office aesthetic, he claimed it for napping. Every office needs a cozy seat, right? He just decided it was his cozy seat.",
+          text: "I wanted something dignified for a black cat. Gertrude felt right - a bit old-fashioned, a bit witchy, very distinguished. She lives up to it.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gertrude-gherkin",
+          portrait: "thoughtful1",
+          text: "They have an understanding. Gertrude rules the high ground - shelves, desks, anywhere elevated. Gherkin claims the soft surfaces. There's minimal territorial dispute. Mostly.",
+          responses: [
+            { text: "Mostly?", next: "gertrude-mostly" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gertrude-mostly",
+          portrait: "funny1",
+          text: "Sometimes there's a 3am disagreement. They sort it out. I just hear the thundering paws and try to go back to sleep.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    gherkin: {
+      name: "Gherkin",
+      image: "assets/images/gherkin.jpg",
+      conversations: [
+        {
+          id: "gherkin-intro",
+          portrait: "smiling2",
+          text: "And that's Gherkin! The orange one. He's claimed that pink chair as his personal throne. I bought it for the office aesthetic, he decided it was actually for napping.",
+          responses: [
+            { text: "Why Gherkin?", next: "gherkin-name" },
+            { text: "He looks very comfortable", next: "gherkin-comfortable" },
+            { text: "Does he help with work?", next: "gherkin-help" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-name",
+          portrait: "excited",
+          text: "He's a little pickle! Mischievous, gets into everything, causes chaos and then looks at you like 'what? I'm innocent.' The name just fit his personality perfectly.",
+          responses: [
+            { text: "What kind of chaos?", next: "gherkin-chaos" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-chaos",
+          portrait: "funny1",
+          text: "He's excellent at walking across keyboards during important moments. He's submitted some interesting Slack messages on my behalf. Nothing career-ending. Yet.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-comfortable",
+          portrait: "smiling1",
+          text: "That's HIS chair now. Every office needs a cozy seat, right? He just decided it was his cozy seat. I've accepted my fate as furniture provider.",
           responses: [
             { text: "Fair enough", next: null },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "cat-name",
-          portrait: "excited",
-          text: "Tombstone is a perfect movie and I will not be taking questions at this time. But also - when I applied to one job, I ended my cover letter with 'If this sounds good, I'd love to be your Huckleberry.' It felt right.",
+          id: "gherkin-help",
+          portrait: "funny1",
+          text: "He's excellent at reminding me to take breaks. By sitting on my laptop. Or my notes. Or whatever I'm actively trying to use. Very persistent feedback.",
           responses: [
-            { text: "Did you get the job?", next: "cat-job" },
+            { text: "Sounds helpful", next: "gherkin-helpful" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "cat-job",
-          portrait: "thoughtful1",
-          text: "That one didn't work out, but the line lives on. Some companies want personality, some want corporate. Huckleberry helps me filter.",
+          id: "gherkin-helpful",
+          portrait: "funny2",
+          text: "Honestly? Sometimes he's right. If I've been staring at a screen for four hours and a cat plants himself on my keyboard, maybe I should take the hint.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -587,7 +647,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p>I'm Ashley - the person who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recognizer. The connective tissue that keeps organizations from falling apart.</p>
 <p>My brain works differently than most - neurodivergent in ways that make me excellent at context-switching between wildly different problems and seeing patterns across domains that others miss.</p>
 <p>Philosophy background (hermeneutics - how people interpret information) + social work = I design systems that respect how humans actually think, learn, and adopt new behaviors.</p>
-<p>Based in Guelph, Ontario. Remote worker since 2014. Pink office walls. One opinionated cat named Huckleberry.</p>
+<p>Based in Guelph, Ontario. Remote worker since 2014. Pink office walls. Two opinionated cats named Gertrude and Gherkin.</p>
     `,
 
     interests: {
@@ -598,7 +658,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
     },
 
     topEight: [
-      { name: "Huckleberry", role: "Chief Napping Officer", image: "assets/images/top8-cat.jpg" },
+      { name: "Gertrude & Gherkin", role: "Chief Chaos Officers", image: "assets/images/top8-cats.jpg" },
       { name: "Jira", role: "Frenemy", image: "assets/images/top8-jira.jpg" },
       { name: "Hermeneutics", role: "Secret Weapon", image: "assets/images/top8-philosophy.jpg" },
       { name: "Remote Work", role: "Lifestyle", image: "assets/images/top8-remote.jpg" },
