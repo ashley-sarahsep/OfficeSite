@@ -22,18 +22,23 @@ function initBoot() {
   const bootScreen = document.getElementById('boot-screen');
   const bootText = document.getElementById('boot-text');
 
-  // Enhanced boot messages with Ashley's personality
-  const bootMessages = [
-    { text: 'ASHLEY.OS v12.0', type: 'title' },
-    { text: '', type: 'blank' },
-    { text: '[OK] Initializing core competencies...', type: 'status' },
-    { text: '[OK] Loading pattern recognition...', type: 'status' },
-    { text: '[OK] Mounting gap-filling protocols...', type: 'status' },
-    { text: '[OK] Deploying enablement frameworks...', type: 'status' },
-    { text: '[OK] Hermeneutics engine loaded...', type: 'status' },
-    { text: '[OK] Swiss Army Knife mode activated...', type: 'status' },
-    { text: '[OK] System ready.', type: 'status' },
-    { text: '', type: 'blank' }
+  // Use boot sequence from data.js - classic DOS style
+  const bootMessages = SITE_DATA.bootSequence || [
+    "BIOS Version 1.0.94 - Ashley Industries",
+    "Memory Test: 640K OK",
+    "Detecting IDE drives...",
+    "Primary Master: PERSONALITY.SYS",
+    "Primary Slave: EXPERIENCE.DAT",
+    "Secondary Master: CREATIVITY.DRV",
+    "Loading CONFIG.SYS...",
+    "Loading AUTOEXEC.BAT...",
+    "HIMEM.SYS loaded",
+    "EMM386.EXE loaded",
+    "Loading MOUSE.COM...",
+    "Loading SOUND.DRV...",
+    "Starting HireMeOS 98...",
+    "",
+    "Welcome to Ashley's Office"
   ];
 
   let currentLine = 0;
@@ -49,21 +54,18 @@ function initBoot() {
     const msg = bootMessages[currentLine];
     let lineHtml = '';
 
-    if (msg.type === 'title') {
-      lineHtml = `<span class="boot-title-text">${msg.text}</span>\n`;
-    } else if (msg.type === 'status') {
-      const okPart = msg.text.substring(0, 4);
-      const restPart = msg.text.substring(4);
-      lineHtml = `<span class="ok-tag">${okPart}</span><span class="message">${restPart}</span>\n`;
-    } else {
+    if (msg === '') {
       lineHtml = '\n';
+    } else {
+      // Style the text with the warm color scheme
+      lineHtml = `<span class="message">${msg}</span>\n`;
     }
 
     bootContent += lineHtml;
     bootText.innerHTML = bootContent;
 
     currentLine++;
-    setTimeout(typeBootLine, 150 + Math.random() * 100);
+    setTimeout(typeBootLine, 80 + Math.random() * 60);
   }
 
   function showBootOptions() {
