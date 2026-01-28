@@ -594,7 +594,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-intro",
           portrait: "smiling1",
-          text: "This radio doesn't actually work, but I love it anyway. There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
+          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
           responses: [
             { text: "🎵 Turn the dial", next: "radio-tune", special: "radio" },
             { text: "Do you listen to music while you work?", next: "radio-music" },
@@ -615,7 +615,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-tune-2",
           portrait: "funny1",
-          text: "*crackle* ...KPNK 101.5, Punk Goes Acoustic! Next up: a 12-minute folk ballad about corporate alienation...",
+          text: "*crackle* ...KPNK 101.5, Punk Goes Acoustic! Next up: Against Me!, followed by a 12-minute folk ballad about corporate alienation...",
           responses: [
             { text: "🎵 Keep turning", next: "radio-tune-3", special: "radio" },
             { text: "[Back to exploring]", next: null }
@@ -661,7 +661,25 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-prine",
           portrait: "excited",
-          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. That's what good communication looks like.",
+          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky - grew up in a house full of music.",
+          responses: [
+            { text: "Thousands of records?", next: "radio-records" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-records",
+          portrait: "thoughtful1",
+          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection - some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
+          responses: [
+            { text: "That's a lovely way to grow up", next: "radio-lovely" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-lovely",
+          portrait: "smiling2",
+          text: "It really was. My mum brought her own flavour too - Prince, Talking Heads, Psychedelic Furs. Between the two of them, I got a pretty good musical education. Explains why my playlists are all over the place.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -677,34 +695,16 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-music",
           portrait: "excited",
-          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi. Creative work gets something with more energy. Debugging gets whatever keeps me from throwing the laptop out the window.",
+          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi - or the Moon soundtrack. Creative work gets something with more energy. Testing gets some metal.",
           responses: [
             { text: "What's your go-to?", next: "radio-goto" },
-            { text: "What artists do you love?", next: "radio-artists" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "radio-goto",
           portrait: "thoughtful1",
-          text: "Honestly? It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever algorithm decided to serve me. I don't have a 'brand' when it comes to music.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "radio-artists",
-          portrait: "excited",
-          text: "John Prine, Emmylou Harris, Talking Heads, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Storytelling, heart, a little weirdness. Songs that sound simple but hit deep. I spent my youth going to punk and metal shows, so the folk sensibilities came later.",
-          responses: [
-            { text: "Punk shows to folk music is quite a journey", next: "radio-punk" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "radio-punk",
-          portrait: "funny1",
-          text: "The through-line is authenticity. Substance over style. Artists who mean what they say, who aren't afraid to be weird or vulnerable. That's what draws me in - in music and everywhere else.",
+          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music - I had too much good stuff thrown at me growing up to pick just one lane.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -712,7 +712,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-vintage",
           portrait: "thoughtful2",
-          text: "Vintage, mid-century modern, things with history. I like when you can see the craftsmanship, feel the intention behind the design. Modern minimalism is fine, but it often feels... soulless? Give me character over perfection.",
+          text: "Vintage, mid-century modern, things with history. I like when you can see the craftsmanship, feel the intention behind the design. Modern minimalism is fine, but it often feels soulless. Give me character over perfection.",
           responses: [
             { text: "That's kind of how you describe your work style", next: "radio-work-style" },
             { text: "[Back to exploring]", next: null }
@@ -721,7 +721,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-work-style",
           portrait: "smiling1",
-          text: "Maybe. I'd rather be authentic than polished. Direct communication over corporate speak. Solutions that actually work for humans over technically 'correct' approaches that nobody adopts. Character over perfection.",
+          text: "Maybe. I'd rather be authentic than polished. Direct communication over corporate speak. Solutions that actually work for humans over technically correct approaches that nobody adopts. Character over perfection.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
