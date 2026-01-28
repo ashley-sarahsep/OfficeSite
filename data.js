@@ -226,11 +226,11 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-intro",
           portrait: "smiling1",
-          text: "Oh, hi there! This is my work-from-home setup. I've been remote since 2014 - before it was cool, honestly. This desk has seen everything from startup chaos to enterprise client calls.",
+          text: "This is my work-from-home setup. I've been remote since 2014 - before it was a common thing. I know what works best for me to work my best.",
           responses: [
             { text: "What do you love about remote work?", next: "desk-remote-love" },
             { text: "Tell me about your work history", next: "desk-work-history" },
-            { text: "That's a lot of stickers on your laptop", next: "desk-stickers" },
+            { text: "I like the stickers on your laptop", next: "desk-stickers" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -247,7 +247,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-cats-tease",
           portrait: "smiling2",
-          text: "My cats! Gertrude's the black one - she supervises from the bookshelf. Gherkin's the orange one on the pink chair. They have very strong opinions about video call backgrounds.",
+          text: "The little fuzzbutts: Gertrude is represented by the black cat on the bookshelf - she supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
           responses: [
             { text: "I should go meet them", next: null },
             { text: "What kind of work do you do from here?", next: "desk-work-history" },
@@ -257,7 +257,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-work-history",
           portrait: "thoughtful1",
-          text: "I spent 7+ years at a field marketing SaaS platform. Joined when they were about 10 people with zero formal processes. Built the operational infrastructure from scratch - sales ops, enablement programs, QA processes, project management. The stuff that lets small teams do big things.",
+          text: "I spent 7+ years at a field marketing platform SaaS company, and 3+ years before that with an IBM business partner. Joined both when they were only a handful of non-developers with very few formal processes. I took the time to pay attention and put together the operational infrastructure from scratch - sales ops, enablement programs, CRM maintenance, pipeline management, demo process, QA and ticket writing best practices, change order and new scope of work guides. The stuff that lets small teams punch above their weight.",
           responses: [
             { text: "What's your proudest project?", next: "desk-neptune" },
             { text: "What do you mean by 'operational infrastructure'?", next: "desk-ops-explain" },
@@ -267,9 +267,9 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-neptune",
           portrait: "excited",
-          text: "An enterprise retail client needed a custom platform build. Led the whole lifecycle - discovery, requirements, wireframes, QA process, then took over as PM when it went live. Daily scrums with the dev team, Jira board management, the works. Then transitioned to account manager, got it stable, handed it off clean. That's my pattern: see gaps, fill gaps, build systems, hand off.",
+          text: "A major retail client needed a very complex custom platform build. With a slim team, I became the core person doing discovery, requirements, wireframes, and QA process. Then after it went live and into hyper-care, I stepped into the PM role. Daily scrums with the dev team, Jira board management, client communications. Got it stable, then handed it off clean to an account manager. That's my pattern: see gaps, fill gaps, build systems, hand off.",
           responses: [
-            { text: "That's a lot of hats to wear", next: "desk-swiss-army" },
+            { text: "That's a lot of hats", next: "desk-swiss-army" },
             { text: "Tell me more about your approach", next: "desk-approach" },
             { text: "[Back to exploring]", next: null }
           ]
@@ -277,7 +277,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-swiss-army",
           portrait: "smiling1",
-          text: "Swiss Army Knife Operator - that's what I call it. QA lead, project manager, sales enablement owner, strategic advisor, backup account manager. Often simultaneously. I excel at identifying what's missing and taking ownership without needing direction. Some people find ambiguity stressful. I find it interesting.",
+          text: "I've been the QA lead, project manager, sales enablement owner, strategic advisor, and account manager - often simultaneously. I'm good at identifying what's missing and taking ownership without waiting for someone to assign it. Some people find ambiguity stressful. I find it interesting.",
           responses: [
             { text: "That sounds exhausting", next: "desk-exhausting" },
             { text: "[Back to exploring]", next: null }
@@ -286,7 +286,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-exhausting",
           portrait: "funny1",
-          text: "Ha! My brain actually works better this way - context-switching between wildly different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
+          text: "My brain actually works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -303,7 +303,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-approach",
           portrait: "serious",
-          text: "Ask 'why' constantly. Don't accept surface-level explanations or build solutions just because 'that's what's done.' Identify root causes, not symptoms. Design based on evidence and iteration. And always - always - design for humans as they actually are, not as you wish they'd be.",
+          text: "Ask 'why' constantly. Don't accept surface-level explanations or build things just because 'that's how it's done.' Identify root causes, not symptoms. Design based on evidence and iteration. And design for humans as they actually behave, not as you wish they would.",
           responses: [
             { text: "What do you mean by that last part?", next: "desk-hermeneutics" },
             { text: "[Back to exploring]", next: null }
@@ -312,7 +312,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-hermeneutics",
           portrait: "thoughtful1",
-          text: "I studied philosophy - hermeneutics specifically. The art of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. Training programs, documentation, AI prompts. If you don't account for how humans process things under cognitive load, your technically 'correct' solution will fail.",
+          text: "I studied philosophy - hermeneutics, specifically. The study of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. If you don't account for how humans process things under real-world conditions, your technically correct solution will still fail.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -320,7 +320,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-problems",
           portrait: "thoughtful2",
-          text: "Gaps. I solve gaps. The work that doesn't clearly belong to one team. Communication breakdowns between technical and business stakeholders. New products that need adoption infrastructure. Projects that need someone to just... own them. I spot what's missing and take responsibility.",
+          text: "Gaps. I solve gaps. Work that doesn't clearly belong to one team. Communication breakdowns between technical and business people. New products that need adoption infrastructure. Projects that need someone to just own them. I spot what's missing and take responsibility.",
           responses: [
             { text: "Give me an example", next: "desk-neptune" },
             { text: "[Back to exploring]", next: null }
@@ -329,8 +329,9 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-stickers",
           portrait: "funny1",
-          text: "Every sticker has a story. Conference swag, weird internet finds, a few from products I actually believe in. My laptop is basically a personality test.",
+          text: "Just a few things that make me smile - David Lynch-isms, absurd humour. The real personality test is the rest of the room - you should see the bookshelves.",
           responses: [
+            { text: "I'll go check them out", next: null },
             { text: "[Back to exploring]", next: null }
           ]
         }
