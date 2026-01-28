@@ -1108,10 +1108,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
       image: "assets/images/work-ops.jpg"
     }
-  ]
-};
+  ],
 
-// ============================================
+  // ============================================
   // AI PORTFOLIO - Work Samples & Deliverables
   // ============================================
 
