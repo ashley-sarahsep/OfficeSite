@@ -9,104 +9,55 @@ const SITE_DATA = {
   name: "Ashley Sepers",
   title: "Product Operations | Cross-Functional Leadership | Enablement | AI Adoption",
   email: "ashley.sepers@gmail.com",
-  phone: "647.574.7721",
   linkedin: "linkedin.com/in/ashley-sarahsep",
   location: "Guelph, Ontario / Remote",
 
   // ============================================
-  // GERTRUDE - PHILOSOPHICAL CAT HELPER
+  // GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
   // ============================================
+  // Click Gertrude to receive a thought. Click the bubble to dismiss.
   gertrude: {
-    // General philosophical questions for recruiters
-    general: [
-      "What kind of thinker does your team actually need—and is that what you're looking for?",
-      "Does your organization reward people who ask 'why,' or does it view questions as friction?",
-      "What would happen if you hired for curiosity instead of credentials?",
-      "The best hires often don't fit the job description. What does that tell you about job descriptions?",
-      "Are you looking for someone to fill a role, or someone to evolve it?",
-      "What problems exist in your organization that no one has been asked to solve?",
-      "Do you need someone who follows processes, or someone who builds them?",
-      "What would 'culture fit' mean if your culture was designed to grow?",
-      "The gap between what a resume says and what a person does is where the interesting stuff lives.",
-      "What questions are you not asking that you should be?"
-    ],
+    thoughts: [
+      // Short reflections
+      "Every conversation changes both people. Even this one. *slow blink*",
+      "When did you last do something with no goal in mind? *languid stretch*",
+      "Play isn't a break from real life. What if it's the realest part? *ear twitch*",
+      "What would you try if you knew the outcome didn't matter? *curious tilt*",
+      "A game is only a game if you let it absorb you completely. When were you last absorbed? *purr*",
+      "What question would you ask if you weren't worried about the answer? *slow blink*",
+      "What memory changed meaning as you got older? *thoughtful mrrp*",
+      "Are you the same person you were ten years ago? How do you know? *whisker twitch*",
+      "What are you in the middle of that you won't recognize until later? *tail swish*",
+      "Sunbeams move across the floor all day. I follow them. What are you following? *warm purr*",
+      "What would you do with an afternoon you didn't have to account for? *yawn*",
+      "Words meant something different to the person who wrote them than they do to you now. Both are real. *blink*",
+      "What's something you know deeply but struggle to explain? *mrrp*",
+      "What have you stopped noticing because it's always there? *ear perk*",
+      "There's a bird outside. Do you know what kind? I do. *intense stare*",
+      "What would a child ask about your work that you couldn't easily answer? *head tilt*",
+      "When did you last look at something long enough to really see it? *slow blink*",
+      "What small thing made today different from yesterday? *curious mrrp*",
+      "What's a question you've given up trying to answer? *soft purr*",
+      "The most interesting people are comfortable saying 'I don't know.' Are you? *tail curl*",
+      "I think about very little and I'm very happy. Related? Unclear. *nap incoming*",
+      "The red dot teaches us about desire. And also cardio. *pant*",
+      "My human made this whole website. I contributed by sitting on the keyboard. *proud*",
+      "I have no resume. I have presence. *regal stare*",
+      "Sometimes I knock things off tables just to see what happens. When did you last experiment? *innocent blink*",
+      "I've been staring at the wall for ten minutes. It's called thinking... or maybe it's a ghost... *tail flick*",
+      "What's something you'd love to learn if you had infinite time? *dreamy purr*",
+      "What's the most interesting thing you've changed your mind about? *attentive gaze*",
 
-    // When viewing the room
-    room: [
-      "A home office reveals how someone thinks. What does intentionality look like to you?",
-      "She chose pink walls and vintage furniture. What do your spaces say about your values?",
-      "Remote work requires self-direction. How does your team support that?",
-      "Notice what she surrounded herself with. Environment shapes thinking.",
-      "What would your ideal team member's workspace look like?"
-    ],
-
-    // When viewing the resume
-    resume: [
-      "Resumes compress years into bullets. What got left out that you wish you knew?",
-      "Job titles describe boxes. The interesting people outgrow their boxes.",
-      "What problems did she solve that nobody asked her to solve? That's the real question.",
-      "She built systems from scratch. Does your organization need builders or maintainers?",
-      "A 'Swiss Army Knife' operator—do you value versatility or specialization?"
-    ],
-
-    // When viewing MySpace/About
-    myspace: [
-      "She shared her actual interests. How often do candidates feel safe doing that?",
-      "Philosophy degree, social work background, operations career. What patterns do you see?",
-      "Her 'Top 8' includes Jira as a frenemy. Honesty has value.",
-      "What someone shares voluntarily tells you what they value. Are you listening?",
-      "Neurodivergent and thriving. Is your workplace designed for different kinds of minds?"
-    ],
-
-    // When in chat
-    chat: [
-      "What questions reveal how someone actually thinks—not just what they know?",
-      "Are you interviewing for answers, or for how they arrive at answers?",
-      "The best interviews feel like conversations. What makes the difference?",
-      "She said she'll tell you what she actually thinks. Do you want that?",
-      "What would you learn if you asked 'why' five times?"
-    ],
-
-    // When viewing work examples
-    workExamples: [
-      "Case studies show outcomes. What do you learn about someone from how they frame problems?",
-      "She led QA, PM, and account management on the same project. Is that versatility or chaos?",
-      "Every project involves humans with competing needs. How does she navigate that?",
-      "She tested AI before trusting it. What does healthy skepticism look like in your org?",
-      "What would you have done differently? That question reveals your own assumptions."
-    ],
-
-    // When on desktop
-    desktop: [
-      "A desktop is a mind made visible. What does organization mean to you?",
-      "She made her portfolio a retro game. What does that tell you about how she approaches problems?",
-      "Vigo watches over everything. Everyone brings their weird to work—do you make space for that?",
-      "Icons and folders. Systems within systems. She thinks in structures.",
-      "What you explore first reveals what you're actually looking for."
-    ],
-
-    // When idle for a while
-    idle: [
-      "Taking time to think before deciding. That's a skill. *slow blink*",
-      "Reflection before action. Not everyone values that. Do you?",
-      "Sometimes the best hires need time to be understood.",
-      "Stillness is also data. What does your patience reveal?",
-      "The answers come when you stop optimizing and start noticing."
-    ],
-
-    // First appearance
-    welcome: [
-      "Ah, a visitor. I am Gertrude. I ask questions. Sometimes uncomfortable ones. Don't mind me."
-    ],
-
-    // Settings/config
-    config: {
-      minDelay: 30000,        // Minimum ms between appearances (30 seconds)
-      maxDelay: 90000,        // Maximum ms between appearances (90 seconds)
-      displayDuration: 15000, // How long message stays visible (15 seconds)
-      idleThreshold: 60000,   // How long before considered idle (60 seconds)
-      dismissCooldown: 45000  // Wait time after user dismisses (45 seconds)
-    }
+      // Longer sits
+      "Humans spend so much time preparing for conversations - what to say, how to say it, what you want the other person to understand. But understanding isn't something you do to someone. It's something that happens between you, if you let it. When was the last time you let a conversation go somewhere you didn't plan? *settles into loaf position*",
+      "My human studies how people make meaning from things - words, experiences, each other. The interesting part isn't that we all understand differently. It's that we manage to understand each other at all. Every conversation is a small miracle of two entirely separate worlds overlapping for a moment. *slow blink* ...Anyway. I'm going to nap now.",
+      "You are in the middle of things right now that you won't have names for until much later. A chapter you won't recognize as a chapter until it's done. Humans are so eager to know what things mean while they're still happening. Sometimes meaning takes its time. That's not a flaw - that's how depth works. *long exhale, eyes half-closed*",
+      "Play is a funny thing. Real play - not relaxation, not distraction, but actual play - requires you to take it seriously and hold it loosely at the same time. To be completely absorbed in something that doesn't matter. Humans forget how to do this. They turn everything into work or rest, nothing in between. When did you last lose yourself in something just because it was interesting? *rolls onto back, paws in air*",
+      "There's a difference between listening to respond and listening to understand. Most people think they're doing the second when they're doing the first. The giveaway is what happens in your mind while the other person is talking - are you receiving, or are you preparing? It's hard to do both at once. Almost impossible, actually. But noticing is the first step. *ear twitch* ...I'm an excellent listener. Mostly to birds.",
+      "Every person you've ever met understood the world through a completely different set of experiences than you. Not just different opinions - different foundations. Different ways of knowing what's true, what matters, what's obvious. And somehow we still manage to communicate, to collaborate, to love each other. The gaps are real, but so are the bridges. *contemplative purr*",
+      "Here's something worth sitting with: the person you are now exists because of countless moments you've already forgotten. Conversations, glances, small decisions that didn't seem important at the time. You can't trace the line from there to here - it's too complex, too alive. You are an accumulation of things you can't remember. That's not sad. That's kind of beautiful. *kneads blanket thoughtfully*",
+      "Understanding someone isn't about gathering enough information until you 'get' them. People aren't puzzles to solve. Understanding is more like a dance - you move, they move, something emerges between you that neither of you could have created alone. It's less about knowing and more about relating. ...I relate to very few things. Food. Warmth. My human, sometimes. *tail swish*"
+    ]
   },
 
   // ============================================
@@ -120,27 +71,37 @@ const SITE_DATA = {
 
 1. The best documentation is written by the person who struggled to figure it out.
 
-2. "Let's circle back" means "I don't have an answer and I'm hoping you forget."
+2. The best process is the one people actually follow. Design for how humans actually behave, not how you wish they would.
 
-3. Every org chart is a work of fiction.
+3. Good systems are invisible until they break. Like litter boxes.
 
-4. The person who asks "why" the most is either the smartest person in the room or about to be managed out. Sometimes both.
+4. Data doesn't speak for itself. Someone's always choosing what to measure and what to ignore.
 
-5. Cats know when you have an important video call. They know.
+5. If you can't explain it simply, you don't understand it well enough to build training for it.
 
-6. The real requirements are never in the requirements document.
+6. Institutional knowledge usually lives in three people's heads and a Slack thread from 2019. Write it down.
 
-7. "Quick question" is never quick.
+7. The real requirements often aren't in the requirements document. Ask more questions.
 
-8. Institutional knowledge lives in three people's heads and a Slack thread from 2019.
+8. Cats know when you have an important video call. They know.
 
-9. The best process is the one people actually follow.
+9. When someone says "we've always done it this way," that's an invitation to ask why, not a reason to stop asking.
 
-10. Sometimes the answer is "because that's what Sharon wanted in 2016 and Sharon is gone now but no one wants to change it."
+10. Most communication problems aren't about communication. They're about assumptions no one thought to check.
+
+11. The person who asks "why" the most is usually trying to help, even when it doesn't feel that way.
+
+12. Edge cases aren't edge cases to the people experiencing them.
+
+13. Sometimes the most valuable thing you can do is notice what's not being said.
+
+14. Training isn't about information transfer. It's about behaviour change. Different problem entirely.
+
+15. The gap between "technically correct" and "actually useful" is where most problems live.
 
 ---
 Last modified: Whenever I remember something else
-Author: Someone who has been in too many meetings`
+Author: Someone who's learned most of this the hard way`
     },
 
     todo: {
@@ -148,43 +109,48 @@ Author: Someone who has been in too many meetings`
       content: `ASHLEY'S ACTUAL TO-DO LIST
 ============================
 
-[x] Build weird portfolio website instead of normal one
-[x] Add philosophical cat helper
+[x] Build fun portfolio website (in hyper-focus mode for days)
+[x] Add philosophical Gertrude
 [x] Question whether this is too much
-[ ] Decide it's not too much
+[x] Decide it's not too much
 [x] Write resume
 [ ] Resist urge to make resume a choose-your-own-adventure
+[ ] Seriously resist that urge
+[x] Add a different game instead
 [x] Add cats
 [x] Add MORE cats
 [ ] Pet actual cats (overdue)
+[ ] Sit down so Gherkin stops yelling at me
 
 SOMEDAY/MAYBE:
-- Learn to tolerate corporate small talk
-- Find job where "why?" is encouraged not suspicious
-- Write hermeneutics-based guide to reading Jira tickets
-- Convince someone that philosophy degrees are useful
-- Finally understand what "synergy" means (unlikely)
+- Learn to tolerate corporate jargon and norms
+- Find a job where "why?" is encouraged not suspicious
+- Sew my own clothes
+- Write hermeneutics-based guide to interpreting Jira tickets
+- Stop laughing so hard that I startle Gherkin off my lap
+     - Kidding - I'll never stop cackling
 
 DONE (celebrating small wins):
-- Survived 10+ years of remote work
+- Thrived in 10+ years of remote work
 - Built things that worked
 - Made it weird in a good way
-- Found the pink chair
-
----
-If you're reading this: hi! You found the easter egg.
-Curiosity is a good trait. I like curious people.`
+- Bought neck warmer for sub-zero office temperature
+- Met loads of colleagues turned friends - and isn't it all about the friends we meet along the way?
+- Being perpetually curious`
     },
 
     // Recycle bin contents
     trash: {
       title: "Recycle Bin",
       items: [
-        { name: "corporate_jargon.doc", size: "∞ KB", note: "Too heavy to delete permanently" },
-        { name: "synergy_deck_v47_FINAL_FINAL.ppt", size: "42 MB", note: "There's always another version" },
-        { name: "meeting_that_couldve_been_email.ics", size: "1 KB", note: "60 minutes of my life" },
         { name: "old_linkedin_headshot.jpg", size: "2 MB", note: "We don't talk about 2015" },
-        { name: "enthusiasm_for_agile_ceremonies.txt", size: "0 KB", note: "File is empty" }
+        { name: "imposter_syndrome.exe", size: "∞ KB", note: "Keeps reinstalling itself" },
+        { name: "assumption_i_didnt_check.txt", size: "34 KB", note: "Cost me a week" },
+        { name: "perfectionism_paralysis.dll", size: "128 MB", note: "Still trying to uninstall" },
+        { name: "that_time_i_didnt_ask_why.doc", size: "12 KB", note: "Learned that one the hard way" },
+        { name: "waiting_for_permission.exe", size: "0 KB", note: "Finally deleted this one" },
+        { name: "comparing_myself_to_others.jpg", size: "46 MB", note: "Doesn't even run on my system anymore" },
+        { name: "things_i_took_personally_that_werent_personal.msg", size: "89 KB", note: "Moved to trash, eventually" }
       ]
     },
 
@@ -193,21 +159,21 @@ Curiosity is a good trait. I like curious people.`
       gertrude: {
         threshold: 3, // clicks needed to trigger special response
         responses: [
-          "*slow blink* You have earned a modicum of my respect.",
-          "*dignified purr* I will permit this affection. Briefly.",
-          "Yes, yes. You may admire me. I am aware I am magnificent.",
-          "*regal nod* Your devotion is noted.",
-          "I see you appreciate quality supervision. Wise."
+          "*slow blink* You have earned a modicum of my trust. This takes time, you know.",
+          "*soft purr* I will permit this affection. You're patient. I appreciate that.",
+          "*rolls onto side* Fine. You may have belly access. This is a privilege.",
+          "*settles into your hand* I wasn't sure about you at first. I've changed my mind.",
+          "*deep, contented purr* My human picked a good one. You may stay."
         ]
       },
       gherkin: {
         threshold: 3,
         responses: [
-          "*flops over dramatically* ATTENTION RECEIVED. MORE PLEASE.",
-          "*loud purr* Best. Day. Ever. Click again??",
-          "*stretches* This is acceptable. You may continue.",
-          "prrrrrRRRRR *aggressive head bonks*",
-          "*chaos mode activated* TIME TO ZOOM AROUND THE ROOM"
+          "*loud, insistent purr* YES. THIS. MORE OF THIS.",
+          "*yells approvingly* You understand. Attention is IMPORTANT.",
+          "*intense stare* I will remember this. I remember everything.",
+          "*head bonk* You're acceptable. Have you considered sitting down? Laps are better.",
+          "*settles but stays alert* This is good. But keep it quiet. Sudden noises and I'm gone."
         ]
       }
     }
@@ -241,26 +207,25 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "welcome-intro",
           portrait: "smiling1",
-          text: "Hey there! Welcome to my office. I'm Ashley - a Product Operations and Enablement leader who builds systems that make everyone's job easier. Feel free to look around, click on things, and get to know me a bit.",
+          text: "Hey there! I'm Ashley. Welcome to my office. I always wanted to make myself a website just like this - something that made me feel like a kid on a computer. I figured, why not use this instead of a regular portfolio - and putting it together was very fun. Poke around, click on things, explore.",
           responses: [
-            { text: "Nice to meet you!", next: "welcome-nice" },
-            { text: "What can I explore here?", next: "welcome-explore" },
+            { text: "This is great.", next: "welcome-great" },
+            { text: "What can I explore?", next: "welcome-explore" },
             { text: "[Start exploring]", next: null }
           ]
         },
         {
-          id: "welcome-nice",
+          id: "welcome-great",
           portrait: "smiling2",
-          text: "Nice to meet you too! Make yourself at home. The cats might judge you, but I won't. Much.",
+          text: "Thanks! Buttons at the bottom let you inspect different things around the room, or head to the computer for the more traditional stuff - resume, work samples, ways to get in touch.",
           responses: [
-            { text: "What can I explore?", next: "welcome-explore" },
             { text: "[Start exploring]", next: null }
           ]
         },
         {
           id: "welcome-explore",
           portrait: "excited",
-          text: "Use the buttons at the bottom to inspect different things in the room - my desk, the bookshelves, the cats, the art. Or click 'Computer' to check out my resume, chat with me, and see some work examples. It's like a point-and-click adventure, but for hiring!",
+          text: "Buttons at the bottom let you look at different things in the room - the desk, the bookshelves, the cats, the art. The computer has my resume, some work examples, and ways to reach me. It's inspired by point-and-click exploration and adventure games - except this time the mystery is whether we'd work well together.",
           responses: [
             { text: "[Start exploring]", next: null }
           ]
@@ -275,11 +240,11 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-intro",
           portrait: "smiling1",
-          text: "Oh, hi there! This is my work-from-home setup. I've been remote since 2014 - before it was cool, honestly. This desk has seen everything from startup chaos to enterprise client calls.",
+          text: "This is my work-from-home setup. I've been remote since 2014 - before it was a common thing. I know what works best for me to work my best.",
           responses: [
             { text: "What do you love about remote work?", next: "desk-remote-love" },
             { text: "Tell me about your work history", next: "desk-work-history" },
-            { text: "That's a lot of stickers on your laptop", next: "desk-stickers" },
+            { text: "I like the stickers on your laptop", next: "desk-stickers" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -296,7 +261,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-cats-tease",
           portrait: "smiling2",
-          text: "My cats! Gertrude's the black one - she supervises from the bookshelf. Gherkin's the orange one on the pink chair. They have very strong opinions about video call backgrounds.",
+          text: "The little fuzzbutts: Gertrude is represented by the black cat on the bookshelf - she supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
           responses: [
             { text: "I should go meet them", next: null },
             { text: "What kind of work do you do from here?", next: "desk-work-history" },
@@ -306,7 +271,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-work-history",
           portrait: "thoughtful1",
-          text: "I spent 7+ years at a field marketing SaaS platform. Joined when they were about 10 people with zero formal processes. Built the operational infrastructure from scratch - sales ops, enablement programs, QA processes, project management. The stuff that lets small teams do big things.",
+          text: "I spent 7+ years at a field marketing platform SaaS company, and 3+ years before that with an IBM business partner. Joined both when they were only a handful of non-developers with very few formal processes. I took the time to pay attention and put together the operational infrastructure from scratch - sales ops, enablement programs, CRM maintenance, pipeline management, demo process, QA and ticket writing best practices, change order and new scope of work guides. The stuff that lets small teams punch above their weight.",
           responses: [
             { text: "What's your proudest project?", next: "desk-neptune" },
             { text: "What do you mean by 'operational infrastructure'?", next: "desk-ops-explain" },
@@ -316,9 +281,9 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-neptune",
           portrait: "excited",
-          text: "An enterprise retail client needed a custom platform build. Led the whole lifecycle - discovery, requirements, wireframes, QA process, then took over as PM when it went live. Daily scrums with the dev team, Jira board management, the works. Then transitioned to account manager, got it stable, handed it off clean. That's my pattern: see gaps, fill gaps, build systems, hand off.",
+          text: "A major retail client needed a very complex custom platform build. With a slim team, I became the core person doing discovery, requirements, wireframes, and QA process. Then after it went live and into hyper-care, I stepped into the PM role. Daily scrums with the dev team, Jira board management, client communications. Got it stable, then handed it off clean to an account manager. That's my pattern: see gaps, fill gaps, build systems, hand off.",
           responses: [
-            { text: "That's a lot of hats to wear", next: "desk-swiss-army" },
+            { text: "That's a lot of hats", next: "desk-swiss-army" },
             { text: "Tell me more about your approach", next: "desk-approach" },
             { text: "[Back to exploring]", next: null }
           ]
@@ -326,7 +291,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-swiss-army",
           portrait: "smiling1",
-          text: "Swiss Army Knife Operator - that's what I call it. QA lead, project manager, sales enablement owner, strategic advisor, backup account manager. Often simultaneously. I excel at identifying what's missing and taking ownership without needing direction. Some people find ambiguity stressful. I find it interesting.",
+          text: "I've been the QA lead, project manager, sales enablement owner, strategic advisor, and account manager - often simultaneously. I'm good at identifying what's missing and taking ownership without waiting for someone to assign it. Some people find ambiguity stressful. I find it interesting.",
           responses: [
             { text: "That sounds exhausting", next: "desk-exhausting" },
             { text: "[Back to exploring]", next: null }
@@ -335,7 +300,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-exhausting",
           portrait: "funny1",
-          text: "Ha! My brain actually works better this way - context-switching between wildly different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
+          text: "My brain actually works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -352,7 +317,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-approach",
           portrait: "serious",
-          text: "Ask 'why' constantly. Don't accept surface-level explanations or build solutions just because 'that's what's done.' Identify root causes, not symptoms. Design based on evidence and iteration. And always - always - design for humans as they actually are, not as you wish they'd be.",
+          text: "Ask 'why' constantly. Don't accept surface-level explanations or build things just because 'that's how it's done.' Identify root causes, not symptoms. Design based on evidence and iteration. And design for humans as they actually behave, not as you wish they would.",
           responses: [
             { text: "What do you mean by that last part?", next: "desk-hermeneutics" },
             { text: "[Back to exploring]", next: null }
@@ -361,7 +326,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-hermeneutics",
           portrait: "thoughtful1",
-          text: "I studied philosophy - hermeneutics specifically. The art of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. Training programs, documentation, AI prompts. If you don't account for how humans process things under cognitive load, your technically 'correct' solution will fail.",
+          text: "I studied philosophy - hermeneutics, specifically. The study of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. If you don't account for how humans process things under real-world conditions, your technically correct solution will still fail.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -369,7 +334,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-problems",
           portrait: "thoughtful2",
-          text: "Gaps. I solve gaps. The work that doesn't clearly belong to one team. Communication breakdowns between technical and business stakeholders. New products that need adoption infrastructure. Projects that need someone to just... own them. I spot what's missing and take responsibility.",
+          text: "Gaps. I solve gaps. Work that doesn't clearly belong to one team. Communication breakdowns between technical and business people. New products that need adoption infrastructure. Projects that need someone to just own them. I spot what's missing and take responsibility.",
           responses: [
             { text: "Give me an example", next: "desk-neptune" },
             { text: "[Back to exploring]", next: null }
@@ -378,8 +343,9 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "desk-stickers",
           portrait: "funny1",
-          text: "Every sticker has a story. Conference swag, weird internet finds, a few from products I actually believe in. My laptop is basically a personality test.",
+          text: "Just a few things that make me smile - David Lynch-isms, absurd humour. The real personality test is the rest of the room - you should see the bookshelves.",
           responses: [
+            { text: "I'll go check them out", next: null },
             { text: "[Back to exploring]", next: null }
           ]
         }
@@ -393,27 +359,18 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gertrude-intro",
           portrait: "smiling2",
-          text: "That's Gertrude! She's my little void - always watching, judging, supervising. She likes to perch on the bookshelf and observe her domain. Very regal energy.",
+          text: "That's Gertrude. Long-haired, grey, and the gentlest cat I've ever known. She's a big ball of fluff who'd let you pet her forever if you had the time. She takes a while to warm up, but once she does, you've got a sweet little lap companion for life.",
           responses: [
-            { text: "She looks very serious", next: "gertrude-serious" },
+            { text: "She sounds lovely", next: "gertrude-lovely" },
             { text: "Why the name Gertrude?", next: "gertrude-name" },
             { text: "Does she get along with Gherkin?", next: "gertrude-gherkin" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "gertrude-serious",
+          id: "gertrude-lovely",
           portrait: "funny1",
-          text: "She takes her job very seriously. Chief Security Officer. Nothing happens in this office without her approval. She's also the primary quality assurance tester for any box that enters the premises.",
-          responses: [
-            { text: "Important work", next: "gertrude-work" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "gertrude-work",
-          portrait: "funny2",
-          text: "Critical, really. If a box isn't properly tested, who knows what could happen? She's never found a box she couldn't fit in. Or at least try to fit in.",
+          text: "She really is. Her favourite thing is rolling around on the ground waiting for belly rubs. Very dignified.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -421,7 +378,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gertrude-name",
           portrait: "smiling1",
-          text: "I wanted something dignified for a black cat. Gertrude felt right - a bit old-fashioned, a bit witchy, very distinguished. She lives up to it.",
+          text: "She's named after Drew Barrymore's character in ET. I love E.T. and I love Gertie.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -429,7 +386,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gertrude-gherkin",
           portrait: "thoughtful1",
-          text: "They have an understanding. Gertrude rules the high ground - shelves, desks, anywhere elevated. Gherkin claims the soft surfaces. There's minimal territorial dispute. Mostly.",
+          text: "They have an understanding. Gherkin typically rules the high ground - shelves, desks, anywhere he can keep an eye on everything. Gertrude claims the laps and the soft surfaces. Minimal territorial dispute. Mostly.",
           responses: [
             { text: "Mostly?", next: "gertrude-mostly" },
             { text: "[Back to exploring]", next: null }
@@ -438,7 +395,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gertrude-mostly",
           portrait: "funny1",
-          text: "Sometimes there's a 3am disagreement. They sort it out. I just hear the thundering paws and try to go back to sleep.",
+          text: "Sometimes there's a 3am slap in the cat-face. They sort it out.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -453,7 +410,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gherkin-intro",
           portrait: "smiling2",
-          text: "And that's Gherkin! The orange one. He's claimed that pink chair as his personal throne. I bought it for the office aesthetic, he decided it was actually for napping.",
+          text: "And that's Gherkin. Big tabby, very handsome, too clever for his own good. He likes to perch up high and observe everything. That pink chair is just where he waits between surveillance sessions.",
           responses: [
             { text: "Why Gherkin?", next: "gherkin-name" },
             { text: "He looks very comfortable", next: "gherkin-comfortable" },
@@ -464,16 +421,25 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gherkin-name",
           portrait: "excited",
-          text: "He's a little pickle! Mischievous, gets into everything, causes chaos and then looks at you like 'what? I'm innocent.' The name just fit his personality perfectly.",
+          text: "He's a little pickle. Mischievous, observes everything, remembers everything, and will absolutely badger you until he gets what he wants. The name just fit.",
           responses: [
-            { text: "What kind of chaos?", next: "gherkin-chaos" },
+            { text: "What kind of badgering?", next: "gherkin-badger" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "gherkin-chaos",
+          id: "gherkin-badger",
           portrait: "funny1",
-          text: "He's excellent at walking across keyboards during important moments. He's submitted some interesting Slack messages on my behalf. Nothing career-ending. Yet.",
+          text: "He's not a quiet cat. If I've been at my desk too long without paying him attention, he lets me know about it. Loudly. Repeatedly. He's very good at making his needs clear.",
+          responses: [
+            { text: "Effective communication", next: "gherkin-effective" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-effective",
+          portrait: "funny2",
+          text: "He'd be great in a standup. Very concise. 'I need attention. Blocker: you are working. Action item: stop that.'",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -481,16 +447,15 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gherkin-comfortable",
           portrait: "smiling1",
-          text: "That's HIS chair now. Every office needs a cozy seat, right? He just decided it was his cozy seat. I've accepted my fate as furniture provider.",
+          text: "He prefers quiet time. Unfortunately, I have a habit of laughing too hard at things and startling him. He puts up with me anyway.",
           responses: [
-            { text: "Fair enough", next: null },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "gherkin-help",
           portrait: "funny1",
-          text: "He's excellent at reminding me to take breaks. By sitting on my laptop. Or my notes. Or whatever I'm actively trying to use. Very persistent feedback.",
+          text: "He's excellent at reminding me to take breaks. By yelling. Or sitting on whatever I'm trying to use. Very persistent feedback.",
           responses: [
             { text: "Sounds helpful", next: "gherkin-helpful" },
             { text: "[Back to exploring]", next: null }
@@ -499,7 +464,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "gherkin-helpful",
           portrait: "funny2",
-          text: "Honestly? Sometimes he's right. If I've been staring at a screen for four hours and a cat plants himself on my keyboard, maybe I should take the hint.",
+          text: "Honestly? Sometimes he's right. If I've been at my desk for four hours and a cat is yelling at me, maybe I should take the hint.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -514,7 +479,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-intro",
           portrait: "smiling1",
-          text: "I found this wall unit about 10 years ago. It stores a lot of items that are close to my heart. Books, vintage finds, things I've collected over the years. Each shelf tells a different story.",
+          text: "I love this wall unit/bookshelf. Got it for 80 bucks - still proud of that. It holds a lot of things that are close to my heart. Books, trinkets from family, things I've collected over the years.",
           responses: [
             { text: "What kind of books do you read?", next: "bookshelf-left-books" },
             { text: "Tell me about some of these objects", next: "bookshelf-left-objects" },
@@ -525,7 +490,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-books",
           portrait: "thoughtful1",
-          text: "Philosophy, mostly. Hermeneutics texts from university that I still reference. Some social work theory. A lot of fiction - I believe stories teach us how to understand people better than any business book. And yes, some business books. I'm not a purist.",
+          text: "It used to be mostly Philosophy. Hermeneutics texts from university that I still reference. Some social work theory. But then it became a lot of fiction - I think stories teach us how to understand people better than any business book. And yes, some pulpy trash. I'm not a purist.",
           responses: [
             { text: "What's hermeneutics?", next: "bookshelf-left-hermeneutics" },
             { text: "Any favorites?", next: "bookshelf-left-favorites" },
@@ -535,7 +500,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-hermeneutics",
           portrait: "thoughtful2",
-          text: "The art and science of interpretation. How people make meaning from texts, conversations, experiences. It sounds academic, but it's incredibly practical. When I design training programs or AI prompts, I'm always thinking about how someone will interpret this. What clarity looks like versus confusion.",
+          text: "The study of interpretation. How people make meaning from texts, conversations, experiences, data. It sounds academic, but it's incredibly practical - it's about understanding how understanding happens.",
           responses: [
             { text: "How does that apply to your work?", next: "bookshelf-left-apply" },
             { text: "[Back to exploring]", next: null }
@@ -544,7 +509,16 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-apply",
           portrait: "excited",
-          text: "Everything. When I built AI adoption programs, I thought about where models might misinterpret context. When I create enablement materials, I think about cognitive load. When I translate between technical and business teams, I'm really doing applied hermeneutics - making sure ideas don't get lost in translation.",
+          text: "More than you'd think. When I design training and onboarding programs, I'm thinking about how someone will interpret this under real-world conditions. When I work with LLMs, I'm thinking about where models might misinterpret context or misrepresent information. When I look at data, I'm thinking about what story it's actually telling versus what story we want it to tell.",
+          responses: [
+            { text: "What do you mean about data?", next: "bookshelf-left-data" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-data",
+          portrait: "serious",
+          text: "Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions, context, what questions you're asking. I've seen teams make confident decisions from dashboards that were technically accurate but fundamentally misleading. Hermeneutics taught me to ask: what's being measured, what's being missed, and who decided what counts?",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -552,7 +526,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-favorites",
           portrait: "thoughtful1",
-          text: "I'd have to think about that one. The honest answer is that my favorites change depending on what problem I'm wrestling with. Books are tools for thinking, not trophies.",
+          text: "My favorites change depending on the day you ask. A little story: when I was about 12, my older brother gave me a book list. I finished every book on it by the time I was 17 - many are on these shelves still. Many of them I was too young to fully grasp, and only on reflection did their weight become apparent. But on any day, I'll tell you: my brain feels at home reading Vonnegut, I feel deeply reading Sylvia Plath, and a Confederacy of Dunces will always be somewhere in my top 5.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -560,7 +534,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-objects",
           portrait: "smiling2",
-          text: "Vintage finds, mostly. Things that caught my eye at estate sales, thrift stores, travels. I like objects with history - they've been somewhere, meant something to someone. That little globe has been with me through three apartments and one international move.",
+          text: "Items that have a story, mostly. Things that sat on my grandmothers' dressers or display tables; gifted treasures; parts of my childhood. I like objects with history - they've been somewhere, meant something to someone. Many of these trinkets (and a few books) even made it through an international move.",
           responses: [
             { text: "International move?", next: "bookshelf-left-london" },
             { text: "[Back to exploring]", next: null }
@@ -569,7 +543,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-london",
           portrait: "smiling1",
-          text: "London, for a while. Worked at some agencies there. Started in accounts payable, ended up implementing timesheet systems. The pattern started early: see a gap, fill it, build something that lasts.",
+          text: "London, UK - just for a while. Worked at some agencies there. Started in accounts payable, ended up helping to implement a timesheet systems at a recruitment agency. The pattern started early: see a gap, fill it, build something that lasts.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -577,7 +551,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-collecting",
           portrait: "thoughtful1",
-          text: "Guilty. It's the eclectic thing - I'm drawn to objects that have character, that feel like they belong together even if they're from completely different places and eras. My aesthetic is basically 'these things shouldn't work together but somehow they do.'",
+          text: "Guilty. I'm drawn to objects that have character, that feel like they belong together even if they're from completely different places and eras. My aesthetic is basically 'these things shouldn't work together but somehow they do.'",
           responses: [
             { text: "That sounds like your work style too", next: "bookshelf-left-meta" },
             { text: "[Back to exploring]", next: null }
@@ -586,7 +560,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-left-meta",
           portrait: "funny1",
-          text: "Ha. Yeah, actually. Taking things that shouldn't quite fit - QA and sales enablement, philosophy and AI testing, technical translation and change management - and making them work together. Maybe I am just collecting skills the way I collect vintage teapots.",
+          text: "Yeah, actually. Taking things that shouldn't quite fit - QA and sales enablement, philosophy and AI testing, technical translation and change management - and making them work together. Maybe I'm just collecting skills the way I collect vintage teapots.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -601,43 +575,25 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "bookshelf-right-intro",
           portrait: "thoughtful1",
-          text: "This side's been with me for 20 years - one of the few pieces of furniture that's survived every move. It holds different things than the wall unit. More personal, I guess.",
+          text: "This side of the wall unit holds some sweet things - meaningful books, my grandma's glasses, photos with friends, a picture of Patrick McGoohan in The Prisoner - more room for things and little displays.",
           responses: [
             { text: "What makes it special?", next: "bookshelf-right-special" },
-            { text: "20 years is a long time for furniture", next: "bookshelf-right-longevity" },
+            { text: "What's over here?", next: "bookshelf-right-whats-here" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "bookshelf-right-special",
           portrait: "thoughtful2",
-          text: "It's the constant through every chapter. Different apartments, different cities, different careers. The stuff on these shelves maps to different versions of me. Some of it I'd choose again, some of it just... stayed.",
+          text: "I like looking at the things I love. Some say it's a bit silly to love objects, but it's not just the object - it's the memories, the moments.",
           responses: [
-            { text: "Different careers?", next: "bookshelf-right-careers" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "bookshelf-right-careers",
+          id: "bookshelf-right-whats-here",
           portrait: "smiling1",
-          text: "Receptionist to accounts receivable at an ad agency. Accounts payable in London. Payroll systems. IBM reseller sales ops. Then 7+ years at a field marketing platform, which became like five different jobs in one. Philosophy student, social work student, self-taught everything else. It's been a winding path.",
-          responses: [
-            { text: "That's quite a range", next: "bookshelf-right-range" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-right-range",
-          portrait: "thoughtful1",
-          text: "I'm a self-taught generalist who figures things out through pattern recognition and asking 'why' constantly. Every role required mastering new systems without formal training. The bookshelf holds artifacts from all of it.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-right-longevity",
-          portrait: "smiling2",
-          text: "Good furniture should outlast trends. I found it at a thrift store when I was barely out of school and it's moved with me ever since. Guelph to Toronto to London to back again. Some things are worth keeping.",
+          text: "Artifacts from a winding path. Bits and pieces from different careers, different cities, different versions of me. The eclectic collection of a self-taught generalist.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -652,7 +608,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-intro",
           portrait: "smiling1",
-          text: "This radio doesn't actually work, but I love it anyway. There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
+          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
           responses: [
             { text: "🎵 Turn the dial", next: "radio-tune", special: "radio" },
             { text: "Do you listen to music while you work?", next: "radio-music" },
@@ -673,7 +629,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-tune-2",
           portrait: "funny1",
-          text: "*crackle* ...KPNK 101.5, Punk Goes Acoustic! Next up: a 12-minute folk ballad about corporate alienation...",
+          text: "*crackle* ...KPNK 101.5, Punk Goes Acoustic! Next up: Against Me!, followed by a 12-minute folk ballad about corporate alienation...",
           responses: [
             { text: "🎵 Keep turning", next: "radio-tune-3", special: "radio" },
             { text: "[Back to exploring]", next: null }
@@ -719,7 +675,25 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-prine",
           portrait: "excited",
-          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. That's what good communication looks like.",
+          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky - grew up in a house full of music.",
+          responses: [
+            { text: "Thousands of records?", next: "radio-records" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-records",
+          portrait: "thoughtful1",
+          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection - some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
+          responses: [
+            { text: "That's a lovely way to grow up", next: "radio-lovely" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-lovely",
+          portrait: "smiling2",
+          text: "It really was. My mum brought her own flavour too - Prince, Talking Heads, Psychedelic Furs. Between the two of them, I got a pretty good musical education. Explains why my playlists are all over the place.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -735,34 +709,16 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-music",
           portrait: "excited",
-          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi. Creative work gets something with more energy. Debugging gets whatever keeps me from throwing the laptop out the window.",
+          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi - or the Moon soundtrack. Creative work gets something with more energy. Testing gets some metal.",
           responses: [
             { text: "What's your go-to?", next: "radio-goto" },
-            { text: "What artists do you love?", next: "radio-artists" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "radio-goto",
           portrait: "thoughtful1",
-          text: "Honestly? It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever algorithm decided to serve me. I don't have a 'brand' when it comes to music.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "radio-artists",
-          portrait: "excited",
-          text: "John Prine, Emmylou Harris, Talking Heads, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Storytelling, heart, a little weirdness. Songs that sound simple but hit deep. I spent my youth going to punk and metal shows, so the folk sensibilities came later.",
-          responses: [
-            { text: "Punk shows to folk music is quite a journey", next: "radio-punk" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "radio-punk",
-          portrait: "funny1",
-          text: "The through-line is authenticity. Substance over style. Artists who mean what they say, who aren't afraid to be weird or vulnerable. That's what draws me in - in music and everywhere else.",
+          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music - I had too much good stuff thrown at me growing up to pick just one lane.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -770,7 +726,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-vintage",
           portrait: "thoughtful2",
-          text: "Vintage, mid-century modern, things with history. I like when you can see the craftsmanship, feel the intention behind the design. Modern minimalism is fine, but it often feels... soulless? Give me character over perfection.",
+          text: "Vintage, mid-century modern, things with history. I like when you can see the craftsmanship, feel the intention behind the design. Modern minimalism is fine, but it often feels soulless. Give me character over perfection.",
           responses: [
             { text: "That's kind of how you describe your work style", next: "radio-work-style" },
             { text: "[Back to exploring]", next: null }
@@ -779,7 +735,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "radio-work-style",
           portrait: "smiling1",
-          text: "Maybe. I'd rather be authentic than polished. Direct communication over corporate speak. Solutions that actually work for humans over technically 'correct' approaches that nobody adopts. Character over perfection.",
+          text: "Maybe. I'd rather be authentic than polished. Direct communication over corporate speak. Solutions that actually work for humans over technically correct approaches that nobody adopts. Character over perfection.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -794,7 +750,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "art-intro",
           portrait: "smiling1",
-          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes. Nothing too precious.",
+          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes. Nothing too precious. Things that have been somewhere before they got to me.",
           responses: [
             { text: "They create a nice atmosphere", next: "art-atmosphere" },
             { text: "Do you have a favorite?", next: "art-favorite" },
@@ -805,7 +761,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "art-atmosphere",
           portrait: "thoughtful1",
-          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you want to be, not a sterile workspace.",
+          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -813,7 +769,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "art-favorite",
           portrait: "thoughtful2",
-          text: "Honestly, it changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you're staring at screens all day.",
+          text: "It changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -821,7 +777,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "art-frames",
           portrait: "smiling2",
-          text: "Half the appeal, right? Ornate frames, a little worn, gold leaf that's seen better days. They've been somewhere, held something. The imperfections are the point.",
+          text: "Half the appeal, honestly. Ornate frames, a little worn, gold leaf that's seen better days. They've been somewhere, held something. The imperfections are the point. Perfect things are boring.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -842,17 +798,17 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-intro",
           portrait: "smiling1",
-          text: "*You approach Gertrude. She regards you with ancient cat wisdom, her green eyes reflecting things you cannot comprehend.*",
+          text: "You approach Gertrude. She regards you cautiously at first - she takes her time with new people. But there's warmth in those eyes if you're patient.",
           responses: [
             { text: "Hello, Gertrude.", next: "talk-gertrude-hello" },
-            { text: "*Offer a slow blink*", next: "talk-gertrude-blink" },
+            { text: "Offer a slow blink", next: "talk-gertrude-blink" },
             { text: "[Leave her to her thoughts]", next: null }
           ]
         },
         {
           id: "talk-gertrude-hello",
           portrait: "thoughtful1",
-          text: "*Gertrude's ears rotate thoughtfully.* \"You seek wisdom about the one who provides kibble? She thinks in systems. Patterns within patterns. She sees the shapes of things before others notice the edges.\"",
+          text: "Gertrude's ears rotate thoughtfully. She doesn't come closer yet, but she doesn't leave either. That's something. \"You seek wisdom about my human? She thinks in patterns. Sees the shape of things before others notice the edges. We have this in common.\"",
           responses: [
             { text: "That sounds... profound.", next: "talk-gertrude-profound" },
             { text: "What else can you tell me?", next: "talk-gertrude-more" },
@@ -862,7 +818,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-blink",
           portrait: "smiling2",
-          text: "*Gertrude returns the slow blink - the highest honor a cat can bestow.* \"You understand protocol. Good. The kibble-provider values those who observe before acting. Who listen more than they speak.\"",
+          text: "Gertrude returns the slow blink - the highest honor a cat can bestow. \"You understand protocol. Good. My human values those who observe before acting. Who listen more than they speak. I am beginning to like you.\"",
           responses: [
             { text: "What can you tell me about her?", next: "talk-gertrude-more" },
             { text: "[Accept this blessing and depart]", next: null }
@@ -871,7 +827,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-profound",
           portrait: "thoughtful2",
-          text: "\"I am a cat. Everything I say is profound.\" *She begins grooming a paw dismissively.* \"But consider: she builds things that help other humans work better. Not for glory. For function. The best systems are invisible until they break.\"",
+          text: "\"I am a cat. Everything I say is profound.\" She settles into a comfortable loaf. \"But consider: she builds things that help humans work better. Not for glory. For function. The best systems are invisible until they break.\"",
           responses: [
             { text: "Like a good litter box system?", next: "talk-gertrude-litter" },
             { text: "Tell me more about her approach.", next: "talk-gertrude-approach" },
@@ -881,7 +837,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-litter",
           portrait: "funny1",
-          text: "*Gertrude pauses mid-groom.* \"...You understand perfectly. Yes. Exactly like that. The infrastructure of dignity. She grasps this.\"",
+          text: "Gertrude's eyes soften with approval. \"You understand perfectly. Yes. Exactly like that. The infrastructure of dignity. She grasps this.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -889,7 +845,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-more",
           portrait: "serious",
-          text: "\"She watches. Learns. Adapts. When chaos arrives - and chaos always arrives - she does not panic. She finds the thread and pulls. Sometimes gently. Sometimes not.\" *Gertrude kneads the blanket contemplatively.* \"Like hunting. Patience, then precision.\"",
+          text: "\"She is gentle but persistent. When problems arrive - and problems always arrive - she does not panic. She watches, learns, finds the thread.\" Gertrude begins to purr softly. \"I was not sure about her at first either. Now I would not leave her lap if I had the choice.\"",
           responses: [
             { text: "Is she a good human?", next: "talk-gertrude-good" },
             { text: "[Back to exploring]", next: null }
@@ -898,7 +854,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-approach",
           portrait: "thoughtful1",
-          text: "\"She asks why. Constantly. Annoyingly, some might say. But the why reveals the what should be.\" *Gertrude's tail swishes.* \"I ask why my dinner is late. Similar principle. Different stakes.\"",
+          text: "\"She asks why. Constantly. Some might find it tiresome. But the why reveals what should be.\" Gertrude rolls onto her side, showing you her belly - a sign of trust. \"I asked why my dinner was late once. She explained the meeting ran long. I appreciated the honesty.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -906,16 +862,16 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-good",
           portrait: "smiling1",
-          text: "*Gertrude considers this for a long moment.* \"She keeps the food coming. She respects the 3am zoomies. She understands that sometimes a cat must sit on a keyboard and that is simply how it is.\" *A rare purr.* \"Yes. She is adequate.\"",
+          text: "Gertrude considers this, purring steadily now. \"She gives the best pets. Never rushes. Never stops before I'm ready. She understands that love requires patience.\" A slow blink. \"Yes. She is good. I am lucky to be hers.\"",
           responses: [
-            { text: "High praise from a cat.", next: "talk-gertrude-praise" },
+            { text: "That's sweet, Gertrude.", next: "talk-gertrude-sweet" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "talk-gertrude-praise",
+          id: "talk-gertrude-sweet",
           portrait: "funny2",
-          text: "*Gertrude's whiskers twitch - the feline equivalent of a smirk.* \"Don't tell her I said so. I have a reputation to maintain.\"",
+          text: "\"I have been told I am very sweet. Once you get to know me.\" She stretches luxuriously. \"Most things worth knowing take time.\"",
           responses: [
             { text: "[Your secret is safe]", next: null }
           ]
@@ -930,27 +886,27 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gherkin-intro",
           portrait: "smiling2",
-          text: "*You approach Gherkin on his pink throne. He stretches luxuriously, showing off his impressive orange belly.*",
+          text: "You approach Gherkin on his pink throne. He fixes you with an intense, intelligent stare. Then he starts yelling.",
           responses: [
             { text: "Hey there, buddy.", next: "talk-gherkin-hey" },
-            { text: "*Reach out for a belly rub*", next: "talk-gherkin-belly" },
-            { text: "[Let sleeping cats lie]", next: null }
+            { text: "Reach out for a belly rub", next: "talk-gherkin-belly" },
+            { text: "[Let him yell]", next: null }
           ]
         },
         {
           id: "talk-gherkin-hey",
           portrait: "excited",
-          text: "*Gherkin's eyes go wide and excited.* \"HELLO! Are you here about the human? She's great! She gives me treats! Sometimes I sit on her laptop and she makes funny noises! It's a GAME!\"",
+          text: "Gherkin yells louder, then settles. \"Finally. Someone who responds. My human sometimes ignores me when she's 'working.' I have to remind her that I exist and have needs.\"",
           responses: [
             { text: "Tell me about your human.", next: "talk-gherkin-human" },
-            { text: "You seem very enthusiastic.", next: "talk-gherkin-enthusiasm" },
+            { text: "You seem very vocal.", next: "talk-gherkin-vocal" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "talk-gherkin-belly",
           portrait: "funny1",
-          text: "*Gherkin immediately goes for the trap - belly exposed, paws ready.* \"HA! You fell for it! But actually... that's nice. Keep going.\" *purrs intensify*",
+          text: "Gherkin permits the belly rub with dignity. \"You may continue. I'm choosing to allow this.\" The purring is immediate and loud. \"My human gives excellent pets. But she laughs too hard at things and startles me off her lap. A flaw I've learned to tolerate.\"",
           responses: [
             { text: "What can you tell me about Ashley?", next: "talk-gherkin-human" },
             { text: "[Continue petting and exit gracefully]", next: null }
@@ -959,17 +915,17 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gherkin-human",
           portrait: "smiling1",
-          text: "\"She types a LOT. Click click click. Very interesting sounds. Sometimes I help by adding extra letters. She says 'Gherkin no' but I can tell she appreciates the collaboration.\"",
+          text: "\"She is clever. Like me.\" Gherkin's tail swishes. \"I watch her solve problems. She looks at something, thinks, tries a thing, adjusts. Very methodical. I do the same thing when I'm trying to open a cabinet she thinks is secure.\"",
           responses: [
             { text: "What's she like to work with?", next: "talk-gherkin-work" },
-            { text: "Does she give good pets?", next: "talk-gherkin-pets" },
+            { text: "You sound like you pay attention.", next: "talk-gherkin-attention" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "talk-gherkin-enthusiasm",
+          id: "talk-gherkin-vocal",
           portrait: "excited",
-          text: "\"EVERYTHING IS EXCITING! Especially 3am! That's when the best running happens! The human appreciates it, I can tell by the pillow she throws!\"",
+          text: "\"I have things to say. Important things. 'I want attention.' 'You've been at your desk too long.' 'It's time for quiet lap sitting now.'\" He yells again for emphasis. \"Clear communication is a virtue.\"",
           responses: [
             { text: "What's the best thing about her?", next: "talk-gherkin-best" },
             { text: "[Back to exploring]", next: null }
@@ -978,42 +934,50 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gherkin-work",
           portrait: "thoughtful1",
-          text: "*Gherkin tilts his head, having a rare moment of clarity.* \"She solves puzzles. All day. People bring her problems and she makes them... smaller? Fixed? I don't know, I'm a cat. But she seems good at it.\"",
+          text: "Gherkin considers this seriously. \"She is patient. She thinks before she acts. She does not get frustrated when things don't work the first time.\" A pause. \"Unless it's a printer. Printers make her say words I don't understand.\"",
           responses: [
             { text: "That's actually insightful.", next: "talk-gherkin-insight" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "talk-gherkin-pets",
-          portrait: "smiling2",
-          text: "\"THE BEST. She knows exactly where to scritch. Behind the ears. Under the chin. She has figured out the algorithm of optimal pet distribution.\" *rolls over for demonstration*",
+          id: "talk-gherkin-attention",
+          portrait: "serious",
+          text: "\"I observe everything. I remember everything. She left a treat in her desk drawer once, three months ago. I have not forgotten. I check daily.\" His eyes narrow. \"Persistence is also a virtue.\"",
           responses: [
-            { text: "Algorithm, huh?", next: "talk-gherkin-algorithm" },
+            { text: "That's... dedicated.", next: "talk-gherkin-dedicated" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "talk-gherkin-best",
           portrait: "funny2",
-          text: "\"She got me this chair! LOOK AT IT! It's PINK! I LOVE it! She said 'that's my chair, Gherkin' but we both know the truth now.\" *kneads the cushion possessively*",
+          text: "\"She understands that I prefer quiet time. No sudden loud noises. No chaos.\" He kneads the pink cushion. \"When she remembers not to laugh like a startled goose, we have very good lap sessions. I am training her.\"",
           responses: [
-            { text: "A true queen on his throne.", next: null },
+            { text: "Training her?", next: "talk-gherkin-training" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "talk-gherkin-insight",
           portrait: "funny1",
-          text: "*Gherkin's eyes go vacant again.* \"...I'm sorry, I was thinking about my food bowl. What were we discussing? Oh look, a shadow!\"",
+          text: "\"Insightful is my default state. I am a very smart cat.\" He begins grooming a paw. \"She tells me this often. I am inclined to agree.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "talk-gherkin-algorithm",
+          id: "talk-gherkin-dedicated",
+          portrait: "thoughtful1",
+          text: "\"She also does not give up on things. We are alike in this way.\" Gherkin settles into a dignified loaf. \"I respect her. When she sits down.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-training",
           portrait: "smiling1",
-          text: "\"I heard her say that word once! It means 'fancy pattern for doing things right.' She's very into fancy patterns. I'm very into naps. We complement each other.\"",
+          text: "\"Slowly. She is learning that when I yell, she should sit on the couch. When I stare, she should check my food bowl. When I knock something off a table...\" He pauses. \"Actually that one is just for fun.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1028,11 +992,11 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-intro",
           portrait: "smiling1",
-          text: "*You settle into the cozy reading chair nearby. Ashley notices and grabs two mugs.* Hey! Want some coffee? Fair warning - caffeine doesn't affect me at all, so I drink it purely for the taste. Pull up a seat, let's chat.",
+          text: "You settle into the cozy chair nearby. Ashley notices and gets up. Nice to see you here! she says - care for a hot beverage and a chat?",
           responses: [
-            { text: "I'd love some coffee.", next: "coffee-yes" },
-            { text: "Just water for me, thanks.", next: "coffee-water" },
-            { text: "Tell me about yourself.", next: "coffee-about" },
+            { text: "Coffee sounds great.", next: "coffee-yes" },
+            { text: "Tea, please.", next: "coffee-yes" },
+            { text: "I'm good, but let's talk.", next: "coffee-good" },
             { text: "[Maybe another time]", next: null }
           ]
         },
@@ -1048,9 +1012,9 @@ Curiosity is a good trait. I like curious people.`
           ]
         },
         {
-          id: "coffee-water",
+          id: "coffee-good",
           portrait: "smiling2",
-          text: "Totally fair! *gets you a glass* Not everyone needs the bean. So, what's on your mind?",
+          text: "No problem. So, what's on your mind?",
           responses: [
             { text: "Tell me about your career journey.", next: "coffee-journey" },
             { text: "What do you do for fun?", next: "coffee-fun" },
@@ -1060,18 +1024,28 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-about",
           portrait: "thoughtful1",
-          text: "The short version? I'm an operations person who ended up in tech. Philosophy degree, stumbled into startups, discovered I'm really good at building systems that help people work better. The long version involves a lot of trial, error, and cats.",
+          text: "The short version? I studied philosophy, then social work, then ended up in tech by a very winding road. The long version involves ad agencies, London, finance departments, and eventually startups. Plus cats.",
           responses: [
-            { text: "Philosophy to tech is an interesting path.", next: "coffee-philosophy" },
-            { text: "What kind of systems?", next: "coffee-systems" },
+            { text: "That's quite a path.", next: "coffee-path" },
+            { text: "What kind of work do you do now?", next: "coffee-curious" },
             { text: "Tell me about the cats.", next: "coffee-cats" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-path",
+          portrait: "thoughtful2",
+          text: "Philosophy taught me how to think - specifically hermeneutics, how people interpret and understand things. Social work taught me how to actually help people, not just theorize about it. Then I needed a job, started as a receptionist at an ad agency, got promoted to accounts receivable within six months. Did finance work in London for a while. Then fell into startups and discovered I'm good at building systems that make organizations work better. Every step taught me something I still use.",
+          responses: [
+            { text: "How does philosophy show up in tech work?", next: "coffee-philosophy-tech" },
+            { text: "What was London like?", next: "coffee-london" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "coffee-curious",
           portrait: "excited",
-          text: "Oh, I love that! The honest answer is I'm a professional problem-solver. Give me something ambiguous and messy - an unclear process, a communication breakdown, a project nobody wants to own - and I'll figure it out. It's like... operational detective work?",
+          text: "The honest answer is I'm a professional gap-filler. Give me something ambiguous and messy - an unclear process, a communication breakdown, a project nobody wants to own - and I'll figure it out. See gaps, fill gaps, build systems, hand off. That's the pattern.",
           responses: [
             { text: "That sounds exhausting.", next: "coffee-exhausting" },
             { text: "Got a good example?", next: "coffee-example" },
@@ -1081,7 +1055,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-aesthetic",
           portrait: "funny1",
-          text: "*laughs* That's completely valid! I spent way too long on this site. The 90s internet nostalgia, the Oregon Trail vibes... I'm firmly of the opinion that professional doesn't have to mean boring. Life's too short for generic portfolio templates.",
+          text: "That's completely valid. I spent way too long on this site. The point-and-click adventure vibe, the MYST energy... I'm firmly of the opinion that professional doesn't have to mean boring. Life's too short for generic portfolio templates.",
           responses: [
             { text: "Did you code all this yourself?", next: "coffee-coding" },
             { text: "What else reflects your style?", next: "coffee-style" },
@@ -1091,10 +1065,10 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-surprise",
           portrait: "thoughtful2",
-          text: "Hmm. I once got really into building mechanical keyboards. I can recite the entire script of Clue. I think meetings should be a last resort, not a first instinct. Oh, and I genuinely enjoy writing documentation - good docs are an act of kindness.",
+          text: "Hmm. I grew up in a house with thousands of records, so my music taste is all over the place. I think meetings should be a last resort, not a first instinct. I genuinely enjoy writing documentation - good docs are an act of kindness. And I spent my youth going to punk and metal shows before developing folk sensibilities. People find that one surprising.",
           responses: [
             { text: "Documentation as kindness?", next: "coffee-docs" },
-            { text: "Mechanical keyboards?", next: "coffee-keyboards" },
+            { text: "Punk to folk?", next: "coffee-punk" },
             { text: "Let's talk about meetings.", next: "coffee-meetings" },
             { text: "[Back to exploring]", next: null }
           ]
@@ -1102,17 +1076,50 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-journey",
           portrait: "thoughtful1",
-          text: "Started in retail management, learned that I hate hierarchies but love fixing broken processes. Fell into a tech startup when they were tiny. Built everything from scratch - sales ops, enablement, QA, project management. The job description just kept expanding.",
+          text: "Philosophy at Guelph, then social work at George Brown. Started as a receptionist at DDB - the ad agency - and got promoted to accounts receivable within six months. Moved to London, did accounts payable at a few agencies there, ended up implementing timesheet systems. Came back to Canada, landed at an IBM reseller doing sales ops, then spent 7+ years at a field marketing platform that became about five different jobs. The pattern started early: see a gap, fill it, build something that lasts.",
           responses: [
-            { text: "That sounds chaotic.", next: "coffee-chaos" },
-            { text: "What's your favorite part?", next: "coffee-favorite" },
+            { text: "That's a lot of pivots.", next: "coffee-pivots" },
+            { text: "What's your favourite part of what you do now?", next: "coffee-favorite" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-pivots",
+          portrait: "smiling1",
+          text: "I prefer 'following the interesting problems.' Each role taught me something. Reception taught me how organizations actually function day-to-day. Finance taught me systems and accuracy. London taught me adaptability. Sales ops taught me pipelines and CRMs. By the time I landed at the startup, I had this weird grab-bag of skills that turned out to be exactly what a tiny company with no processes needed.",
+          responses: [
+            { text: "The generalist advantage.", next: "coffee-generalist" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-generalist",
+          portrait: "thoughtful1",
+          text: "Exactly. I'm a self-taught generalist who figures things out through pattern recognition and asking 'why' constantly. Every role required mastering new systems without formal training. Turns out that's valuable when you're building things from scratch.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-london",
+          portrait: "smiling2",
+          text: "It was an adventure. Worked at a few agencies - Essence Digital, GroupM, Robert Walters. Started in accounts payable, ended up implementing an online timesheet system that cut their processing time significantly. The pattern started there, really. Show up, find the gap, build something useful.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-philosophy-tech",
+          portrait: "serious",
+          text: "More than you'd think. Hermeneutics is about how people make meaning from things - texts, conversations, data. When I'm building training programs, I'm thinking about how someone will actually interpret this under real conditions. When I'm working with AI, I'm thinking about where models might misunderstand context. It's all interpretation, just applied differently.",
+          responses: [
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "coffee-fun",
           portrait: "smiling2",
-          text: "Thrift store hunting. Weird vintage finds. Learning new skills just because they seem interesting - right now it's AI prompt engineering. Reading philosophy for fun. And obviously, hanging out with Gertrude and Gherkin.",
+          text: "Thrift store hunting. Vintage finds. Learning new skills just because they seem interesting - right now it's AI prompt engineering and how to communicate effectively with these systems. Reading philosophy for fun. And obviously, spending time with Gertrude and Gherkin.",
           responses: [
             { text: "AI prompt engineering?", next: "coffee-ai" },
             { text: "Philosophy for fun?", next: "coffee-philosophy" },
@@ -1122,7 +1129,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-philosophy",
           portrait: "serious",
-          text: "Hermeneutics, specifically - the philosophy of interpretation. How do people actually understand things? It's surprisingly practical in tech. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
+          text: "Hermeneutics, specifically - the study of interpretation. How do people actually understand things? It's surprisingly practical in tech. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
           responses: [
             { text: "How does that show up in your work?", next: "coffee-hermeneutics-work" },
             { text: "[Back to exploring]", next: null }
@@ -1140,7 +1147,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-cats",
           portrait: "funny2",
-          text: "*gestures at Gertrude and Gherkin* These two run the place, honestly. Gertrude supervises from the bookshelf - very quality-assurance energy. Gherkin provides... chaos testing. They're my coworkers.",
+          text: "*gestures at Gertrude and Gherkin* These two run the place. Gertrude's my lap companion - sweetest cat I've ever known once she warms up to you. Gherkin's the clever one - watches everything, remembers everything, and yells at me when I've been at my desk too long. They're my coworkers.",
           responses: [
             { text: "Do they help or hinder productivity?", next: "coffee-cat-productivity" },
             { text: "[Back to exploring]", next: null }
@@ -1149,7 +1156,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-exhausting",
           portrait: "smiling1",
-          text: "My brain actually works better this way? Context-switching, seeing patterns across different domains - that's just how I'm wired. What exhausts me is when organizations resist transparency or cling to processes that don't work just because 'that's how we've always done it.'",
+          text: "My brain actually works better this way. Context-switching, seeing patterns across different domains - that's how I'm wired. What exhausts me is sitting in meetings that could've been async messages. Or when organizations cling to processes that don't work just because 'that's how we've always done it.'",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1157,7 +1164,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-example",
           portrait: "thoughtful1",
-          text: "Big retail client needed a custom platform. I led the whole lifecycle - discovery, wireframes, QA, then became the PM. Daily scrums, Jira management, stakeholder communication. Then transitioned to account manager, stabilized it, handed it off clean. That's my pattern: see gaps, fill gaps, build systems, hand off.",
+          text: "A major retail client needed a custom platform. I led the whole lifecycle - discovery, wireframes, QA process, then stepped into the PM role when it went live. Daily scrums, Jira management, stakeholder communication. Then transitioned to account manager, got it stable, handed it off clean. That's the pattern.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1165,7 +1172,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-coding",
           portrait: "smiling2",
-          text: "With a lot of help from AI tools! I'm not a developer, but I can think in systems and communicate requirements clearly. This site started as 'what if a portfolio was actually fun?' and grew from there. Sometimes the best projects are the ones that make you smile.",
+          text: "With a lot of help from AI tools. I'm not a developer, but I can think in systems and communicate requirements clearly. This site started as 'what if a portfolio was actually fun to make?' and it's the most fun I've had in ages. Sometimes the best projects are the ones you make just because you want to.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1173,7 +1180,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-style",
           portrait: "thoughtful2",
-          text: "Vintage furniture. Warm, lived-in spaces. Direct communication over corporate jargon. I'd rather be authentic than polished. My code comments have jokes in them. Life's too short to be boring.",
+          text: "Vintage furniture. Warm, lived-in spaces. Things with history and character. Direct communication over corporate jargon. I'd rather be authentic than polished. Life's too short to be boring.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1181,15 +1188,15 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-docs",
           portrait: "serious",
-          text: "Think about it - good documentation saves everyone's time. It respects the person who comes next. It's saying 'I cared enough to explain this clearly so you don't have to suffer.' That's meaningful! Most people just... don't bother.",
+          text: "Think about it - good documentation saves everyone's time. It respects the person who comes next. It's saying 'I cared enough to explain this clearly so you don't have to struggle.' That's meaningful. Most people just don't bother, and it shows.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "coffee-keyboards",
+          id: "coffee-punk",
           portrait: "funny1",
-          text: "*grins* It's the perfect hobby for someone who loves process. Researching switches, designing layouts, soldering - very satisfying. Plus the clicky sounds drive Gherkin absolutely nuts.",
+          text: "The through-line is authenticity. Substance over style. Artists who mean what they say and aren't afraid to be weird or vulnerable. Against Me! was my favourite as a teenager. Now it's John Prine. Different sound, same honesty.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1197,7 +1204,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-meetings",
           portrait: "serious",
-          text: "Most meetings could be async messages. Most status updates could be a Slack thread. I protect my deep work time fiercely. When I do meet, I want it to be for actual collaboration - brainstorming, decision-making, things that genuinely need real-time interaction.",
+          text: "Most meetings could be async messages. Most status updates could be a Slack thread. I protect my deep work time. When I do meet, I want it to be for actual collaboration - brainstorming, decision-making, things that genuinely need real-time interaction.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1205,7 +1212,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-chaos",
           portrait: "funny2",
-          text: "In the best way? Some people find ambiguity stressful - I find it interesting. Here's a mess, figure out the shape of it, build something that helps. That's the job, and I love it.",
+          text: "In the best way. Some people find ambiguity stressful - I find it interesting. Here's a mess, figure out the shape of it, build something that helps. That's the job.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1213,7 +1220,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-favorite",
           portrait: "excited",
-          text: "The moment when something just clicks. When you've been working on a problem and suddenly you see the solution - not a band-aid, but the actual root cause fixed. That's the good stuff. That's why I keep doing this.",
+          text: "The moment when something clicks. When you've been working on a problem and suddenly you see the solution - not a band-aid, but the actual root cause fixed. That's the good stuff.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1221,7 +1228,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-ai",
           portrait: "excited",
-          text: "Oh, I've gone DEEP on this. Built training materials, prompt libraries, the works. AI isn't going to replace good thinking, but it amplifies it. The interesting work is figuring out how to communicate with these systems effectively - which, surprise, loops back to hermeneutics.",
+          text: "I've gone deep on this. Built training materials, prompt libraries, onboarding programs, the whole adoption infrastructure. AI isn't going to replace good thinking, but it amplifies it. The interesting work is figuring out how to communicate with these systems effectively - which loops right back to hermeneutics. How do they interpret? Where do they misunderstand? It's the same questions, different context.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1229,7 +1236,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-hermeneutics-work",
           portrait: "thoughtful1",
-          text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under cognitive load?' Not how I hope they will. How they actually will. That shift changes everything.",
+          text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under real-world conditions?' Not how I hope they will. How they actually will. That shift changes everything.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1237,7 +1244,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "coffee-cat-productivity",
           portrait: "smiling1",
-          text: "Both? Gertrude keeps me company. Gherkin reminds me to take breaks by sitting on my keyboard. They're part of the system now. Can't imagine working without them.",
+          text: "Both. Gertrude keeps me company and would let me pet her forever if I had the time. Gherkin reminds me to take breaks by yelling until I go sit somewhere he can access my lap. They're part of the system now.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1279,7 +1286,7 @@ Curiosity is a good trait. I like curious people.`
 <h1>ASHLEY SEPERS</h1>
 <p class="resume-subtitle">Product Operations | Cross-Functional Leadership | Enablement | AI Adoption</p>
 <p class="resume-contact">
-Email: ashley.sepers@gmail.com | Phone: 647.574.7721<br>
+Email: ashley.sepers@gmail.com<br>
 LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 </p>
 </div>
@@ -1350,7 +1357,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
   // ============================================
 
   aboutMe: {
-    displayName: "~*Ashley*~",
+    displayName: "Ashley",
     mood: "Filling gaps since 2014",
     status: "Remote & thriving",
     lastLogin: "Today",
@@ -1359,56 +1366,56 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
     headline: "Professional Gap-Filler | Hermeneutics Enthusiast | Cat Mom",
 
     aboutText: `
-<p><strong>Oh, hi there!</strong></p>
-<p>I'm Ashley - the person who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recognizer. The connective tissue that keeps organizations from falling apart.</p>
-<p>My brain works differently than most - neurodivergent in ways that make me excellent at context-switching between wildly different problems and seeing patterns across domains that others miss.</p>
-<p>Philosophy background (hermeneutics - how people interpret information) + social work = I design systems that respect how humans actually think, learn, and adopt new behaviors.</p>
-<p>Based in Guelph, Ontario. Remote worker since 2014. Pink office walls. Two opinionated cats named Gertrude and Gherkin.</p>
+<p><strong>Hey there!</strong></p>
+<p>I'm Ashley - a human being who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recognizer. The connective tissue that keeps organizations from falling apart.</p>
+<p>Philosophy background (hermeneutics - how people interpret information) + social work training = I design systems that respect how humans actually think, learn, and adopt new behaviors. Not how we wish they would. How they actually do.</p>
+<p>The path here was winding: philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops, then 7+ years at a startup that became about five different jobs. Every step taught me something I still use.</p>
+<p>Based in Guelph, Ontario. Remote worker since 2014. Pink office walls. A wall unit I got for $80 twelve years ago that stores all my favourite things. Two cats named Gertrude and Gherkin who have very different personalities and very strong opinions.</p>
     `,
 
     interests: {
-      general: "Hermeneutics, pattern recognition, vintage finds, pixel art games, MYST, Oregon Trail II, mid-century modern furniture, estate sales",
-      music: "John Prine, Emmylou Harris, Talking Heads, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Spent my youth at punk shows.",
-      movies: "Tombstone (I'll be your Huckleberry)",
-      books: "Philosophy texts, fiction that teaches empathy, the occasional business book"
+      general: "Hermeneutics, pattern recognition, thrift stores, vintage finds, point-and-click adventure games, MYST, mid-century modern furniture, estate sales, things with history",
+      music: "John Prine, Emmylou Harris, Talking Heads, Psychedelic Furs, Prince, Against Me!, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Grew up in a house with thousands of records. Spent my youth at punk and metal shows - see you in the pit.",
+      books: "Philosophy texts I still reference, fiction that teaches empathy, social work theory, just good stories",
+      heroes: "My dad (music, books, curiosity) and my mum (Prince, Talking Heads, the fun stuff), and I'm sure plenty of others, though I'm not keen on pedestals."
     },
 
     topEight: [
-      { name: "Gertrude & Gherkin", role: "Adorable Fuzzbutts", image: "assets/images/top8-cats.jpg" },
-      { name: "Jira", role: "Frenemy", image: "assets/images/top8-jira.jpg" },
-      { name: "Hermeneutics", role: "Secret Weapon", image: "assets/images/top8-philosophy.jpg" },
-      { name: "Remote Work", role: "Lifestyle", image: "assets/images/top8-remote.jpg" },
-      { name: "The Pink Chair", role: "Aspirational Seat", image: "assets/images/top8-chair.jpg" },
-      { name: "Pattern Recognition", role: "Superpower", image: "assets/images/top8-patterns.jpg" },
-      { name: "Coffee", role: "Fuel", image: "assets/images/top8-coffee.jpg" },
-      { name: "Asking Why", role: "Core Methodology", image: "assets/images/top8-why.jpg" }
+      { name: "Gertrude & Gherkin", role: "The Real Bosses", image: "assets/images/top8-cats.jpg" },
+      { name: "Jira", role: "It's Complicated", image: "assets/images/top8-jira.jpg" },
+      { name: "Hermeneutics", role: "Secretly Practical", image: "assets/images/top8-philosophy.jpg" },
+      { name: "Remote Work", role: "Since Before It Was Cool", image: "assets/images/top8-remote.jpg" },
+      { name: "The Pink Chair", role: "Gherkin's Now, Apparently", image: "assets/images/top8-chair.jpg" },
+      { name: "Asking Why", role: "Core Methodology", image: "assets/images/top8-why.jpg" },
+      { name: "The $80 Wall Unit", role: "Best Thrift Find", image: "assets/images/top8-wallunit.jpg" },
+      { name: "Good Documentation", role: "An Act of Kindness", image: "assets/images/top8-docs.jpg" }
     ],
 
     testimonials: [
       {
         name: "Sales Leader",
         title: "Ashley is the reason our demos actually close deals.",
-        text: "Every single demo she builds is researched specifically for that prospect—she knows their business, their challenges, their language. I've worked with a lot of sales support people, and most of them give you generic decks. Ashley gives you a customized experience that makes prospects feel understood. She's been involved in every win we've had since 2018, and that's not a coincidence. Plus, she's genuinely fun to work with."
+        text: "Every demo she builds is researched specifically for that prospect - she knows their business, their challenges, their language. Most sales support people give you generic decks. Ashley gives you a customized experience that makes prospects feel understood. She's been involved in every win we've had since 2018, and that's not a coincidence. Plus, she's genuinely great to work with."
       },
       {
         name: "Engineering Lead",
         title: "She's the only non-technical person I actually enjoy getting bug reports from.",
-        text: "Most people file tickets that say 'it's broken' and leave you guessing. Ashley's tickets have clear reproduction steps, expected behavior, actual behavior, and business impact. When she took over QA on a major project, our resolution time dropped significantly because we weren't going back and forth trying to understand the issue. She catches edge cases that our internal testing misses."
+        text: "Most people file tickets that say 'it's broken' and leave you guessing. Ashley's tickets have clear reproduction steps, expected behavior, actual behavior, and business impact. When she took over QA on a major project, our resolution time dropped because we weren't going back and forth trying to understand the issue. She catches edge cases our internal testing misses."
       },
       {
         name: "Executive / COO",
         title: "Ashley sees problems before they become problems.",
-        text: "What I value most about working with Ashley is that she doesn't just execute—she thinks. She'll come to me and say 'I noticed this gap between how Sales and Product are communicating, and here's what I think we should do about it.' Half the time I didn't even know the gap existed. She's the kind of person who makes the whole organization run smoother just by being present and paying attention."
+        text: "What I value most is that she doesn't just execute - she thinks. She'll come to me and say 'I noticed this gap between how Sales and Product are communicating, and here's what I think we should do about it.' Half the time I didn't even know the gap existed. She's the kind of person who makes the whole organization run smoother just by being present and paying attention."
       },
       {
         name: "Client Success Manager",
         title: "Clients ask for her by name.",
-        text: "When I'm swamped and Ashley steps in to cover a client call, I never worry. She knows the platform inside and out, she knows the client's specific setup, and she has this way of making people feel heard and supported. She's also the person I go to when I need a second opinion on how to communicate something tricky—she always knows the right tone."
+        text: "When I'm swamped and Ashley steps in to cover a client call, I never worry. She knows the platform inside and out, she knows the client's specific setup, and she has this way of making people feel heard. She's also the person I go to when I need a second opinion on how to communicate something tricky - she always knows the right tone."
       },
       {
         name: "New Hire",
         title: "Her training materials are the reason I got up to speed so fast.",
-        text: "When I joined, I was nervous about the learning curve. But Ashley had built out this whole library of training videos, documentation, and sandbox environments. It wasn't just 'here's how to click buttons'—it explained why things work the way they do. I went from nervous new hire to confident in about half the time I expected."
+        text: "When I joined, I was nervous about the learning curve. But Ashley had built out this whole library of training videos, documentation, and sandbox environments. It wasn't just 'here's how to click buttons' - it explained why things work the way they do. I went from nervous to confident in about half the time I expected."
       }
     ]
   },
@@ -1419,7 +1426,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
   chat: {
     botName: "AshleyBot",
-    welcomeMessage: "Hey! This is AshleyChat - ask me anything about my work, experience, or approach. I'm an AI trained on everything Ashley could think to share (she's thorough).",
+    welcomeMessage: "Hey! This is AshleyChat - ask me anything about my work, experience, or approach. I'm an AI trained on everything Ashley could think to share. She was thorough.",
 
     quickQuestions: [
       "What do you do?",
@@ -1431,20 +1438,73 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
     ],
 
     responses: {
-      "What do you do?": "I'm a Product Operations / Enablement leader who specializes in finding organizational gaps and building systems to fill them. Most recently, I built the entire adoption infrastructure for an AI agent product - testing framework, onboarding methodology, training curriculum, the works. Before that, I spent 7+ years building operational infrastructure from scratch, running QA, creating sales enablement materials, and being the person who makes sure nothing falls through the cracks.",
+      "What do you do?": {
+        text: "I find gaps and fill them. That's the short version.\n\nThe longer version: I'm a Product Operations and Enablement leader who builds systems that make organizations work better. Most recently, I built the entire adoption infrastructure for an AI agent product - testing framework, onboarding methodology, training curriculum, the works. Before that, I spent 7+ years at a field marketing platform building operational infrastructure from scratch, running QA, leading projects, creating sales enablement materials, and being the person who makes sure nothing falls through the cracks.\n\nThe pattern is always the same: see gaps, fill gaps, build systems, hand off.",
+        followUp: "How did you end up doing this kind of work?"
+      },
 
-      "Tell me about your AI work": "I led product adoption for an AI-powered analytics tool for experiential marketing. Built the entire adoption infrastructure from scratch: manual testing framework for QA (because I'm not a blind AI advocate - I caught quality issues before they reached clients), 5-phase onboarding methodology, 'Power Prompts' library for enterprise analytics, and training materials for different user types. My philosophy background in hermeneutics actually helps here - understanding how LLMs interpret context makes me better at catching where they might go wrong.",
+      "How did you end up doing this kind of work?": {
+        text: "The path was winding. Philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops at an IBM reseller, then 7+ years at a startup that kept handing me new problems to solve.\n\nTurns out a philosophy degree and a brain that won't stop asking 'why' is surprisingly useful when you're building systems from scratch. Every role required figuring things out without formal training. I just kept doing that.",
+        followUp: null
+      },
 
-      "What's your work style?": "Give me an ambiguous problem and trust me to figure it out. I don't need constant meetings or hand-holding - I need interesting problems and the space to solve them. I ask 'why' constantly, design for humans as they actually are (not as we wish they'd be), and I'm comfortable wearing multiple hats simultaneously. Swiss Army Knife Operator, basically.",
+      "Tell me about your AI work": {
+        text: "I led product adoption for an AI-powered analytics tool for experiential marketing. Built the entire adoption infrastructure from scratch: manual testing framework for QA (I'm not a blind AI advocate - I caught quality issues and hallucinations before they reached clients), a 5-phase onboarding methodology, a 'Power Prompts' library for enterprise analytics, and training materials tailored to different user types.\n\nMy philosophy background in hermeneutics actually helps here. Understanding how people interpret information - and how LLMs interpret context - makes me better at catching where things might go wrong. I advocate for appropriate guardrails, transparency about limitations, and ethical implementation. The technology is powerful, but it needs someone asking the hard questions.",
+        followUp: "What do you mean by catching where things go wrong?"
+      },
 
-      "Why should I hire you?": "Because I'm the person who makes everyone else's job easier. I see gaps that others miss or ignore, build systems to address them, and hand them off when they're working. I bridge technical and business teams, create shared understanding, and actually get things done. Plus, I'll tell you what I actually think - no corporate politeness, just honest, clear communication.",
+      "What do you mean by catching where things go wrong?": {
+        text: "My brain doesn't let things rest when something feels off. That's actually useful in AI work - I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong. Things not functioning properly doesn't sit well with me, so I test thoroughly and catch issues others might accept or miss.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of missed responses or loose threads. My brain tracks these things whether I want it to or not. I've learned to make that work for me.",
+        followUp: null
+      },
 
-      "What makes you different?": "My philosophy background in hermeneutics (how people interpret information) combined with social work gives me a unique lens. I don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviors. That's why my training programs reduce ramp time and my analytics work uncovers insights others miss. Also: I'm pretty funny, if that matters.",
+      "What's your work style?": {
+        text: "Give me an ambiguous problem and trust me to figure it out. I don't need constant meetings or hand-holding - I need interesting problems and the space to solve them.\n\nI ask 'why' constantly. I design for humans as they actually behave, not as we wish they would. I'm comfortable wearing multiple hats - QA lead, project manager, sales enablement owner, strategic advisor, backup account manager, sometimes all at once. Some people find ambiguity stressful. I find it interesting.\n\nWhat exhausts me is sitting in meetings that could've been async messages.",
+        followUp: "How do you handle that much context-switching?"
+      },
 
-      "What are you looking for?": "Small teams where I know everyone and relationships matter. Advisor and sounding board roles where I can help teams think through problems. Authentic cultures where people say what they mean. Growth-stage companies where one person can have real impact. Remote work (I've been remote since 2014). I don't want highly specialized roles, rigid enterprise environments, or places where asking 'why' is seen as insubordination."
+      "How do you handle that much context-switching?": {
+        text: "Honestly? My brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and because my brain moves in unexpected directions, I come up with solutions that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken genuinely bothers me, so I follow through. It's not discipline - it's just how I'm built.",
+        followUp: "That sounds like a superpower, honestly."
+      },
+
+      "That sounds like a superpower, honestly.": {
+        text: "It took me a while to see it that way. For a long time I thought I was just anxious and weird. Turns out anxious and weird is actually 'catches edge cases, never drops balls, notices problems before they escalate, and thinks differently enough to solve things others can't.' Reframing helps.",
+        followUp: null
+      },
+
+      "Why should I hire you?": {
+        text: "Because I'm the person who makes everyone else's job easier.\n\nI see gaps that others miss or ignore, build systems to address them, and hand them off when they're working. I bridge technical and business teams and create shared understanding where there wasn't any. I actually get things done without needing to be told what to do.\n\nI'll also tell you what I actually think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing rather than threatening, we'd probably work well together.",
+        followUp: "What do people say about working with you?"
+      },
+
+      "What do people say about working with you?": {
+        text: "That I'm the reason demos close deals. That my bug reports are actually useful. That I see problems before they become problems. That clients ask for me by name. That my training materials are why new hires get up to speed fast.\n\nAlso that I'm delightful. I am told I'm delightful to work with. I don't think that's nothing.",
+        followUp: null
+      },
+
+      "What makes you different?": {
+        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviors. That's why my training programs work and my documentation actually gets used. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
+        followUp: "You mentioned hermeneutics - how does that actually help?"
+      },
+
+      "You mentioned hermeneutics - how does that actually help?": {
+        text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under real-world conditions?' Not how I hope they will. How they actually will.\n\nIt also applies to data. Data doesn't speak for itself - someone has to interpret it, and that interpretation is shaped by assumptions and context. I ask: what's being measured, what's being missed, who decided what counts?\n\nIt sounds abstract but it's incredibly practical. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
+        followUp: null
+      },
+
+      "What are you looking for?": {
+        text: "Growth-stage companies where one person can have real impact. Small teams where relationships matter and I know everyone's name. Authentic cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board - someone who helps teams think through problems, not just execute tasks. Remote work is essential (I've been remote since 2014, I'm not going back). Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialized roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
+        followUp: "What does your ideal role look like?"
+      },
+
+      "What does your ideal role look like?": {
+        text: "Product Operations, Revenue Operations, Chief of Staff to someone who wants a strategic partner, or something in the AI/enablement space where I can help people actually adopt and use these tools well.\n\nSomewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my weird background is an asset, not a question mark.\n\nBasically: give me interesting problems, trust me to solve them, and let me make your organization work better. That's the job I want.",
+        followUp: null
+      }
     },
 
-    fallbackResponse: "That's a great question! For the detailed answer, you might want to check my Resume.doc or AboutMe.html on this desktop. Or just email me at ashley.sepers@gmail.com - I promise I'm friendlier than this chatbot."
+    fallbackResponse: "Good question. For the detailed answer, you might want to check Resume.doc or AboutMe.html on this desktop. Or just email Ashley directly at ashley.sepers@gmail.com - she's friendlier and funnier than I am."
   },
 
   // ============================================
@@ -1456,16 +1516,16 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       id: "enterprise-platform",
       name: "Enterprise Custom Platform Build",
       type: "Full Lifecycle Project Leadership",
-      description: "A major retail solutions company managing tens of thousands of field installations needed a custom platform to track their operations at scale. They had complex workflows spanning multiple business units, existing systems that needed integration, and high expectations for quality and timeline.",
-      challenge: "No existing playbook for a project of this complexity. Someone needed to own it end-to-end.",
+      description: "A major retail solutions client managing tens of thousands of field installations needed a custom platform to track their operations at scale. Complex workflows spanning multiple business units, existing systems that needed integration, and high expectations for quality and timeline.",
+      challenge: "No existing playbook for a project of this complexity. Someone needed to own it end-to-end. I became that someone.",
       whatIDid: [
         "Led discovery process - mapped existing workflows against platform capabilities, conducted stakeholder interviews, documented gap analysis",
         "Created wireframes and workflows translating business requirements into technical specifications",
-        "Built comprehensive QA process from scratch - test plans, quality standards, coordination between internal team and client QA",
-        "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs",
-        "Transitioned to account manager role post-launch, then successfully handed off with complete documentation"
+        "Built comprehensive QA process from scratch - test plans, quality standards, coordination between internal dev team and client QA",
+        "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs, kept everything moving",
+        "Transitioned to account manager role post-launch, stabilized the relationship, then successfully handed off with complete documentation"
       ],
-      outcome: "Platform launched successfully with zero failed deployments. Scaled to track 42,000+ retail installations. QA process became template for subsequent implementations.",
+      outcome: "Platform launched successfully with zero failed deployments. Scaled to track 42,000+ retail installations. QA process became template for subsequent implementations. Classic pattern: see gap, fill gap, build system, hand off.",
       skills: ["Project Management", "QA Leadership", "Requirements Gathering", "Jira", "Agile", "Client Relations", "Technical Translation"],
       image: "assets/images/work-enterprise.jpg"
     },
@@ -1473,16 +1533,16 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       id: "ai-adoption",
       name: "AI Product Adoption Infrastructure",
       type: "End-to-End Enablement Building",
-      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was powerful, but there was no existing adoption infrastructure - no onboarding process, no training materials, no quality assurance framework.",
-      challenge: "AI products don't sell or adopt themselves. Clients needed to understand capabilities, trust the results, and learn to use it effectively.",
+      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was genuinely powerful, but there was no existing adoption infrastructure - no onboarding process, no training materials, no quality assurance framework.",
+      challenge: "AI products don't sell or adopt themselves. Clients needed to understand capabilities, trust the results, and learn to use it effectively. And someone needed to make sure the results were actually trustworthy in the first place.",
       whatIDid: [
-        "Built manual testing framework from scratch - systematic process to test prompts for reliability before client deployment",
+        "Built manual testing framework from scratch - systematic process to test prompts for reliability, catch hallucinations, and ensure accuracy before client deployment",
         "Designed 5-phase onboarding methodology: Discovery → Implementation → Testing & Validation → Training → Ongoing Support",
         "Created educational curriculum for varying proficiency levels - 50+ training videos and resources",
         "Developed 'Power Prompts' library of enterprise analytical frameworks",
-        "Served as internal advocate for AI quality, ethical implementation, and transparency about limitations"
+        "Served as internal advocate for AI quality, ethical implementation, and transparency about limitations (I'm not a blind AI enthusiast - these tools need someone asking hard questions)"
       ],
-      outcome: "Successfully onboarded enterprise clients. Featured in client success case studies. Adoption infrastructure became standard for all AI agent deployments. Owned industry trade show booth from concept to execution.",
+      outcome: "Successfully onboarded enterprise clients including major experiential marketing agencies and beverage brands. Featured in client success case studies. Adoption infrastructure became standard for all AI agent deployments. Owned industry trade show booth from concept to execution.",
       skills: ["AI/LLM", "Prompt Engineering", "Training Design", "QA", "Documentation", "Change Management", "Ethics"],
       image: "assets/images/work-ai.jpg"
     },
@@ -1490,15 +1550,15 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       id: "sales-enablement",
       name: "Lean Team, Enterprise Results",
       type: "Sales Enablement Program",
-      description: "A small sales team (2-4 people) needed to win enterprise deals with major CPG brands. They were competing against larger companies with dedicated sales enablement departments. Team composition changed over time, but demo quality couldn't fluctuate.",
-      challenge: "Maintain enterprise-quality sales materials and institutional knowledge across team changes with limited resources.",
+      description: "A small sales team (2-4 people) needed to win enterprise deals with major brands - Fortune 500 CPG companies, national telecommunications providers, major beverage brands. Competing against larger companies with dedicated sales enablement departments. Team composition changed over the years, but demo quality couldn't fluctuate.",
+      challenge: "Maintain enterprise-quality sales materials and institutional knowledge across team changes with limited resources. Be the constant when everything else shifted.",
       whatIDid: [
-        "Created 30+ customized demo environments annually - each specifically researched for that prospect's business, challenges, and use cases",
+        "Created 30+ customized demo environments annually - each specifically researched for that prospect's business, challenges, and use cases (no generic decks)",
         "Built discovery frameworks and qualification playbooks for varying sales cycles (same-day SMB to year-long enterprise)",
-        "Served as enablement constant across sales team changes - maintained demo quality regardless of who was on the team",
+        "Served as enablement constant across sales team changes - maintained demo quality and approach consistency regardless of who was on the team",
         "Reduced new hire ramp time from 90 to 60 days through structured onboarding and self-service resources"
       ],
-      outcome: "Contributed to 100% of sales wins since 2018. Lean team consistently closed enterprise deals competing against much larger competitors.",
+      outcome: "Contributed to 100% of sales wins since 2018. Lean team consistently closed enterprise deals competing against much larger competitors. Turns out thorough research and genuine understanding of a prospect's business beats a big team with generic materials.",
       skills: ["Sales Enablement", "Demo Excellence", "CRM", "Competitive Intel", "Training", "Onboarding"],
       image: "assets/images/work-sales.jpg"
     },
@@ -1506,15 +1566,15 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       id: "ops-infrastructure",
       name: "Building Operations from Zero",
       type: "0-to-1 Infrastructure Development",
-      description: "Joined a field marketing SaaS company when the team was ~10 people with no formal processes, workflows, or documentation. The COO was managing all sales and operations solo.",
-      challenge: "Build everything needed to scale from startup chaos to enterprise-ready operations.",
+      description: "Joined a field marketing SaaS company when the team was about 10 people with no formal processes, no workflows, no documentation. The COO was managing all sales and operations solo. It was the kind of chaos that's either terrifying or exciting depending on how you're wired.",
+      challenge: "Build everything needed to scale from startup chaos to enterprise-ready operations. From scratch. While also doing the day-to-day work.",
       whatIDid: [
         "Created complete operational infrastructure: sales operations, contract workflows, demo preparation processes, enablement programs",
         "Established account transition processes, documentation standards, and client handoff protocols",
         "Designed training programs, onboarding flows, and process documentation used company-wide",
         "Built systems that maintained consistency across multiple team composition changes over 7+ years"
       ],
-      outcome: "Operational systems enabled company to scale from ~10 people to supporting 32M+ visits, 576K+ client staff, and major enterprise clients at massive scale.",
+      outcome: "Operational systems enabled company to scale from about 10 people to supporting 32M+ visits, 576K+ client staff, and Fortune 500 clients at massive scale. The invisible infrastructure that let a small team do big things.",
       skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
       image: "assets/images/work-ops.jpg"
     }

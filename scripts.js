@@ -12,16 +12,8 @@ const state = {
   windowZIndex: 10,
   draggedWindow: null,
   dragOffset: { x: 0, y: 0 },
-  // Gertrude state
-  gertrude: {
-    isVisible: false,
-    lastShown: 0,
-    lastActivity: Date.now(),
-    shownWelcome: false,
-    dismissedAt: 0,
-    currentContext: 'room',
-    timer: null
-  },
+  // Gertrude state (simplified - now click-based)
+  gertrudeBubbleOpen: false,
   // Easter egg tracking
   catClicks: {
     gertrude: { count: 0, lastClick: 0 },
@@ -343,17 +335,22 @@ function handleCatPet(catId) {
 function showCatPetResponse(catId, message) {
   const overlay = document.getElementById('dialog-overlay');
   const titleEl = document.getElementById('dialog-title');
+  const portraitContainer = document.getElementById('dialog-portrait');
   const portraitImg = document.getElementById('dialog-portrait-img');
-  const itemImageContainer = document.getElementById('dialog-item-image');
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
 
   // Set dialog title
   titleEl.textContent = catId === 'gertrude' ? '✨ Gertrude Approves ✨' : '🧡 Gherkin Happy 🧡';
 
-  // Hide portrait, we're showing cat reaction
-  portraitImg.style.display = 'none';
-  itemImageContainer.classList.remove('visible');
+  // Show cat image in portrait container
+  const catData = SITE_DATA.hotspots[catId];
+  if (catData?.image) {
+    portraitImg.src = catData.image;
+    portraitImg.alt = catData.name;
+    portraitImg.style.display = 'block';
+    portraitContainer.classList.add('cat-pettable');
+  }
 
   // Show the message
   textEl.textContent = message;
@@ -366,7 +363,6 @@ function showCatPetResponse(catId, message) {
   responsesEl.querySelector('button').addEventListener('click', () => {
     overlay.classList.add('hidden');
     // Reopen normal cat dialog
-    const catData = SITE_DATA.hotspots[catId];
     if (catData) {
       openDialog(catId, catData);
     }
@@ -390,35 +386,47 @@ function getPortraitPath(portraitKey) {
 function openDialog(hotspotId, hotspotData) {
   const overlay = document.getElementById('dialog-overlay');
   const titleEl = document.getElementById('dialog-title');
+  const portraitContainer = document.getElementById('dialog-portrait');
   const portraitImg = document.getElementById('dialog-portrait-img');
-  const itemImageContainer = document.getElementById('dialog-item-image');
-  const itemImg = document.getElementById('dialog-item-img');
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
 
   // Set dialog title
   titleEl.textContent = hotspotData.name;
 
-  // Set initial portrait from first conversation
-  const firstConversation = hotspotData.conversations?.[0];
-  const initialPortrait = firstConversation?.portrait || 'default';
-  portraitImg.src = getPortraitPath(initialPortrait);
+  // Determine what image to show:
+  // - If hotspot has an image (items/cats), show that image
+  // - Otherwise (conversations with Ashley like welcome, coffeeChair), show Ashley's portrait
+  const isAshleyConversation = !hotspotData.image || hotspotId === 'welcome' || hotspotId === 'coffeeChair';
+
+  // Store what type of dialog this is for portrait updates
+  state.isAshleyDialog = isAshleyConversation;
+
+  if (isAshleyConversation) {
+    // Show Ashley's portrait with expressions
+    const firstConversation = hotspotData.conversations?.[0];
+    const initialPortrait = firstConversation?.portrait || 'default';
+    portraitImg.src = getPortraitPath(initialPortrait);
+    portraitImg.alt = 'Ashley';
+    portraitContainer.classList.remove('cat-pettable');
+  } else {
+    // Show the item/cat image
+    portraitImg.src = hotspotData.image;
+    portraitImg.alt = hotspotData.name;
+
+    // Add cat-pettable class for cats (hand cursor for petting)
+    if (hotspotId === 'gertrude' || hotspotId === 'gherkin') {
+      portraitContainer.classList.add('cat-pettable');
+    } else {
+      portraitContainer.classList.remove('cat-pettable');
+    }
+  }
+
   portraitImg.style.display = 'block';
   portraitImg.onerror = () => {
-    // Try default if specific portrait fails
+    // Fallback to Ashley portrait if item image fails
     portraitImg.src = getPortraitPath('default');
   };
-
-  // Set item image if available
-  if (hotspotData.image) {
-    itemImg.src = hotspotData.image;
-    itemImg.onerror = () => {
-      itemImageContainer.classList.remove('visible');
-    };
-    itemImageContainer.classList.add('visible');
-  } else {
-    itemImageContainer.classList.remove('visible');
-  }
 
   // Start conversation at intro
   state.currentDialog = hotspotId;
@@ -439,8 +447,8 @@ function showConversation(conversationId) {
   const responsesEl = document.getElementById('dialog-responses');
   const portraitImg = document.getElementById('dialog-portrait-img');
 
-  // Update portrait based on conversation mood
-  if (conversation.portrait) {
+  // Update portrait based on conversation mood (only for Ashley conversations)
+  if (state.isAshleyDialog && conversation.portrait) {
     portraitImg.src = getPortraitPath(conversation.portrait);
   }
 
@@ -1020,25 +1028,63 @@ function sendChatMessage(chatArea, message) {
 
   // Find response
   const chatData = SITE_DATA.chat;
-  let response = chatData.responses[message];
+  let responseData = chatData.responses[message];
 
-  if (!response) {
+  if (!responseData) {
     // Check for partial matches
     for (const [key, value] of Object.entries(chatData.responses)) {
       if (message.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
-        response = value;
+        responseData = value;
         break;
       }
     }
   }
 
-  if (!response) {
-    response = chatData.fallbackResponse;
+  // Handle response - can be object with text/followUp or plain string (fallback)
+  let responseText;
+  let followUpQuestion = null;
+
+  if (!responseData) {
+    responseText = chatData.fallbackResponse;
+  } else if (typeof responseData === 'object') {
+    responseText = responseData.text;
+    followUpQuestion = responseData.followUp;
+  } else {
+    responseText = responseData;
   }
 
   // Add bot response after delay
   setTimeout(() => {
-    addChatMessage(chatArea, response, 'bot');
+    addChatMessage(chatArea, responseText, 'bot');
+
+    // If there's a follow-up question, add it as a clickable button
+    if (followUpQuestion) {
+      setTimeout(() => {
+        const followUpDiv = document.createElement('div');
+        followUpDiv.className = 'chat-followup';
+        followUpDiv.innerHTML = `
+          <button class="chat-followup-btn">${followUpQuestion}</button>
+          <button class="chat-followup-btn chat-back-btn">[Back to questions]</button>
+        `;
+        chatArea.appendChild(followUpDiv);
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        // Add click handlers
+        followUpDiv.querySelector('.chat-followup-btn:not(.chat-back-btn)').addEventListener('click', () => {
+          followUpDiv.remove();
+          sendChatMessage(chatArea, followUpQuestion);
+        });
+
+        followUpDiv.querySelector('.chat-back-btn').addEventListener('click', () => {
+          followUpDiv.remove();
+          // Re-show quick questions
+          const quickQuestionsDiv = chatArea.closest('.messenger-body').querySelector('.chat-quick-questions');
+          if (quickQuestionsDiv) {
+            quickQuestionsDiv.style.display = 'flex';
+          }
+        });
+      }, 300);
+    }
   }, 500 + Math.random() * 500);
 }
 
@@ -1453,145 +1499,68 @@ function showGameEnding(container) {
 }
 
 // ============================================
-// GERTRUDE - PHILOSOPHICAL CAT HELPER
+// GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
 // ============================================
 
+let gertrudeThoughtIndex = 0;
+
 function initGertrude() {
-  const dismissBtn = document.getElementById('gertrude-dismiss');
-
-  // Dismiss button handler
-  if (dismissBtn) {
-    dismissBtn.addEventListener('click', () => {
-      hideGertrude();
-      state.gertrude.dismissedAt = Date.now();
-    });
-  }
-
-  // Track user activity
-  document.addEventListener('click', () => {
-    state.gertrude.lastActivity = Date.now();
-  });
-  document.addEventListener('keydown', () => {
-    state.gertrude.lastActivity = Date.now();
-  });
-
-  // Start the Gertrude timer after a delay
-  setTimeout(() => {
-    // Show welcome message first
-    if (!state.gertrude.shownWelcome) {
-      showGertrudeMessage('welcome');
-      state.gertrude.shownWelcome = true;
-    }
-    // Start periodic appearances
-    scheduleGertrude();
-  }, 5000); // Wait 5 seconds after page load
-}
-
-function scheduleGertrude() {
-  const config = SITE_DATA.gertrude?.config || {
-    minDelay: 30000,
-    maxDelay: 90000
-  };
-
-  // Random delay between min and max
-  const delay = config.minDelay + Math.random() * (config.maxDelay - config.minDelay);
-
-  state.gertrude.timer = setTimeout(() => {
-    tryShowGertrude();
-    scheduleGertrude(); // Schedule next appearance
-  }, delay);
-}
-
-function tryShowGertrude() {
-  const config = SITE_DATA.gertrude?.config || {};
-  const now = Date.now();
-
-  // Don't show if already visible
-  if (state.gertrude.isVisible) return;
-
-  // Don't show if recently dismissed
-  if (now - state.gertrude.dismissedAt < (config.dismissCooldown || 45000)) return;
-
-  // Don't show if dialog is open
-  const dialogOverlay = document.getElementById('dialog-overlay');
-  if (dialogOverlay && !dialogOverlay.classList.contains('hidden')) return;
-
-  // Check if idle
-  const idleTime = now - state.gertrude.lastActivity;
-  if (idleTime > (config.idleThreshold || 60000)) {
-    showGertrudeMessage('idle');
-    return;
-  }
-
-  // Show context-appropriate message
-  showGertrudeMessage(getGertrudeContext());
-}
-
-function getGertrudeContext() {
-  // Check what's currently active
-  if (state.currentScene === 'room') {
-    return 'room';
-  }
-
-  if (state.currentScene === 'desktop') {
-    // Check which window is active
-    if (state.activeWindow) {
-      const windowType = state.activeWindow.dataset?.windowType;
-      if (windowType === 'resume') return 'resume';
-      if (windowType === 'myspace') return 'myspace';
-      if (windowType === 'chat') return 'chat';
-      if (windowType === 'folder') return 'workExamples';
-    }
-    return 'desktop';
-  }
-
-  return 'general';
-}
-
-function showGertrudeMessage(context) {
-  const helper = document.getElementById('gertrude-helper');
+  const gertrudeIcon = document.getElementById('gertrude-click');
+  const bubble = document.getElementById('gertrude-bubble');
   const messageEl = document.getElementById('gertrude-message');
 
-  if (!helper || !messageEl) return;
+  if (!gertrudeIcon || !bubble || !messageEl) return;
 
-  // Get messages for this context
-  const messages = SITE_DATA.gertrude?.[context] || SITE_DATA.gertrude?.general || [];
-  if (messages.length === 0) return;
+  // Shuffle thoughts on load for variety
+  if (SITE_DATA.gertrude?.thoughts) {
+    shuffleArray(SITE_DATA.gertrude.thoughts);
+  }
 
-  // Pick a random message
-  const message = messages[Math.floor(Math.random() * messages.length)];
-
-  // Set message and show
-  messageEl.textContent = message;
-  helper.classList.remove('hidden');
-  helper.classList.add('visible');
-  state.gertrude.isVisible = true;
-  state.gertrude.lastShown = Date.now();
-
-  // Trigger slow blink animation
-  setTimeout(() => {
-    helper.classList.add('blinking');
-    setTimeout(() => {
-      helper.classList.remove('blinking');
-    }, 300);
-  }, 2000);
-
-  // Auto-hide after duration
-  const config = SITE_DATA.gertrude?.config || {};
-  setTimeout(() => {
-    if (state.gertrude.isVisible) {
-      hideGertrude();
+  // Click Gertrude to show a thought
+  gertrudeIcon.addEventListener('click', () => {
+    if (bubble.classList.contains('hidden')) {
+      showGertrudeThought();
+    } else {
+      hideGertrudeBubble();
     }
-  }, config.displayDuration || 15000);
+  });
+
+  // Click bubble to dismiss
+  bubble.addEventListener('click', () => {
+    hideGertrudeBubble();
+  });
 }
 
-function hideGertrude() {
-  const helper = document.getElementById('gertrude-helper');
-  if (helper) {
-    helper.classList.remove('visible');
-    helper.classList.add('hidden');
+function showGertrudeThought() {
+  const bubble = document.getElementById('gertrude-bubble');
+  const messageEl = document.getElementById('gertrude-message');
+  const thoughts = SITE_DATA.gertrude?.thoughts || [];
+
+  if (!bubble || !messageEl || thoughts.length === 0) return;
+
+  // Get next thought (cycles through all)
+  const thought = thoughts[gertrudeThoughtIndex % thoughts.length];
+  gertrudeThoughtIndex++;
+
+  // Show the thought
+  messageEl.textContent = thought;
+  bubble.classList.remove('hidden');
+}
+
+function hideGertrudeBubble() {
+  const bubble = document.getElementById('gertrude-bubble');
+  if (bubble) {
+    bubble.classList.add('hidden');
   }
-  state.gertrude.isVisible = false;
+}
+
+// Utility: Shuffle array in place
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 // ============================================
@@ -1693,11 +1662,11 @@ function initImageLightbox() {
     lightbox.classList.add('hidden');
   });
 
-  // Make dialog images clickable to expand
+  // Make dialog portrait image clickable to expand
   document.addEventListener('click', (e) => {
-    const itemImg = e.target.closest('#dialog-item-img');
-    if (itemImg && itemImg.src) {
-      openLightbox(itemImg.src);
+    const portraitImg = e.target.closest('#dialog-portrait-img');
+    if (portraitImg && portraitImg.src) {
+      openLightbox(portraitImg.src);
     }
   });
 }
