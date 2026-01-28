@@ -11,26 +11,13 @@
 </head>
 <body>
   <!-- ============================================ -->
-  <!-- DOS BOOT SEQUENCE -->
-  <!-- ============================================ -->
-  <div id="boot-screen" class="boot-screen">
-    <div class="boot-monitor-frame">
-      <div class="boot-monitor-notch"></div>
-      <div class="boot-monitor-screen">
-        <div class="boot-content">
-          <pre id="boot-text"></pre>
-          <div class="boot-cursor">_</div>
-        </div>
-      </div>
-      <div class="boot-monitor-brand">ASHLEY.OS <span class="boot-monitor-led"></span></div>
-    </div>
-    <div class="boot-skip">Press any key to skip...</div>
-  </div>
+  <!-- Boot screen (hidden - kept for potential future use) -->
+  <div id="boot-screen" class="boot-screen hidden"></div>
 
   <!-- ============================================ -->
   <!-- MAIN ROOM SCENE -->
   <!-- ============================================ -->
-  <div id="room-scene" class="room-scene hidden">
+  <div id="room-scene" class="room-scene">
     <!-- Room background image -->
     <div class="room-container">
       <img src="assets/images/office2.jpg" alt="Ashley's Office" class="room-image" id="room-image">

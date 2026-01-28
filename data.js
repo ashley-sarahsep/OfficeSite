@@ -35,6 +35,39 @@ const SITE_DATA = {
   // ============================================
 
   hotspots: {
+    welcome: {
+      name: "Welcome!",
+      conversations: [
+        {
+          id: "welcome-intro",
+          portrait: "smiling1",
+          text: "Hey there! Welcome to my office. I'm Ashley - a Product Operations and Enablement leader who builds systems that make everyone's job easier. Feel free to look around, click on things, and get to know me a bit.",
+          responses: [
+            { text: "Nice to meet you!", next: "welcome-nice" },
+            { text: "What can I explore here?", next: "welcome-explore" },
+            { text: "[Start exploring]", next: null }
+          ]
+        },
+        {
+          id: "welcome-nice",
+          portrait: "smiling2",
+          text: "Nice to meet you too! Make yourself at home. The cats might judge you, but I won't. Much.",
+          responses: [
+            { text: "What can I explore?", next: "welcome-explore" },
+            { text: "[Start exploring]", next: null }
+          ]
+        },
+        {
+          id: "welcome-explore",
+          portrait: "excited",
+          text: "Use the buttons at the bottom to inspect different things in the room - my desk, the bookshelves, the cats, the art. Or click 'Computer' to check out my resume, chat with me, and see some work examples. It's like a point-and-click adventure, but for hiring!",
+          responses: [
+            { text: "[Start exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
     desk: {
       name: "Work Desk",
       image: "assets/images/desk.jpg",

@@ -990,5 +990,29 @@ function initWorkDetail(windowEl, workId) {
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  initBoot();
+  initSite();
 });
+
+function initSite() {
+  const bootScreen = document.getElementById('boot-screen');
+  const roomScene = document.getElementById('room-scene');
+
+  // Hide boot screen, show room directly
+  bootScreen.classList.add('hidden');
+  roomScene.classList.remove('hidden');
+  roomScene.style.opacity = '1';
+  state.currentScene = 'room';
+
+  // Initialize the room menu
+  initRoomMenu();
+
+  // Show welcome dialog
+  showWelcomeDialog();
+}
+
+function showWelcomeDialog() {
+  const welcomeData = SITE_DATA.hotspots.welcome;
+  if (welcomeData) {
+    openDialog('welcome', welcomeData);
+  }
+}
