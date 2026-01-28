@@ -142,11 +142,14 @@ Curiosity is a good trait. I like curious people.`
     trash: {
       title: "Recycle Bin",
       items: [
-        { name: "corporate_jargon.doc", size: "∞ KB", note: "Too heavy to delete permanently" },
-        { name: "synergy_deck_v47_FINAL_FINAL.ppt", size: "42 MB", note: "There's always another version" },
-        { name: "meeting_that_couldve_been_email.ics", size: "1 KB", note: "60 minutes of my life" },
         { name: "old_linkedin_headshot.jpg", size: "2 MB", note: "We don't talk about 2015" },
-        { name: "enthusiasm_for_agile_ceremonies.txt", size: "0 KB", note: "File is empty" }
+        { name: "imposter_syndrome.exe", size: "∞ KB", note: "Keeps reinstalling itself" },
+        { name: "assumption_i_didnt_check.txt", size: "34 KB", note: "Cost me a week" },
+        { name: "perfectionism_paralysis.dll", size: "128 MB", note: "Still trying to uninstall" },
+        { name: "that_time_i_didnt_ask_why.doc", size: "12 KB", note: "Learned that one the hard way" },
+        { name: "waiting_for_permission.exe", size: "0 KB", note: "Finally deleted this one" },
+        { name: "comparing_myself_to_others.jpg", size: "46 MB", note: "Doesn't even run on my system anymore" },
+        { name: "things_i_took_personally_that_werent_personal.msg", size: "89 KB", note: "Moved to trash, eventually" }
       ]
     },
 
