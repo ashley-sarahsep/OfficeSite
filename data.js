@@ -14,99 +14,28 @@ const SITE_DATA = {
   location: "Guelph, Ontario / Remote",
 
   // ============================================
-  // GERTRUDE - PHILOSOPHICAL CAT HELPER
+  // GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
   // ============================================
+  // Click Gertrude to receive a thought. Click the bubble to dismiss.
   gertrude: {
-    // General philosophical questions for recruiters
-    general: [
-      "What kind of thinker does your team actually need—and is that what you're looking for?",
-      "Does your organization reward people who ask 'why,' or does it view questions as friction?",
-      "What would happen if you hired for curiosity instead of credentials?",
-      "The best hires often don't fit the job description. What does that tell you about job descriptions?",
-      "Are you looking for someone to fill a role, or someone to evolve it?",
-      "What problems exist in your organization that no one has been asked to solve?",
-      "Do you need someone who follows processes, or someone who builds them?",
-      "What would 'culture fit' mean if your culture was designed to grow?",
-      "The gap between what a resume says and what a person does is where the interesting stuff lives.",
-      "What questions are you not asking that you should be?"
-    ],
-
-    // When viewing the room
-    room: [
-      "A home office reveals how someone thinks. What does intentionality look like to you?",
-      "She chose pink walls and vintage furniture. What do your spaces say about your values?",
-      "Remote work requires self-direction. How does your team support that?",
-      "Notice what she surrounded herself with. Environment shapes thinking.",
-      "What would your ideal team member's workspace look like?"
-    ],
-
-    // When viewing the resume
-    resume: [
-      "Resumes compress years into bullets. What got left out that you wish you knew?",
-      "Job titles describe boxes. The interesting people outgrow their boxes.",
-      "What problems did she solve that nobody asked her to solve? That's the real question.",
-      "She built systems from scratch. Does your organization need builders or maintainers?",
-      "A 'Swiss Army Knife' operator—do you value versatility or specialization?"
-    ],
-
-    // When viewing MySpace/About
-    myspace: [
-      "She shared her actual interests. How often do candidates feel safe doing that?",
-      "Philosophy degree, social work background, operations career. What patterns do you see?",
-      "Her 'Top 8' includes Jira as a frenemy. Honesty has value.",
-      "What someone shares voluntarily tells you what they value. Are you listening?",
-      "Neurodivergent and thriving. Is your workplace designed for different kinds of minds?"
-    ],
-
-    // When in chat
-    chat: [
-      "What questions reveal how someone actually thinks—not just what they know?",
-      "Are you interviewing for answers, or for how they arrive at answers?",
-      "The best interviews feel like conversations. What makes the difference?",
-      "She said she'll tell you what she actually thinks. Do you want that?",
-      "What would you learn if you asked 'why' five times?"
-    ],
-
-    // When viewing work examples
-    workExamples: [
-      "Case studies show outcomes. What do you learn about someone from how they frame problems?",
-      "She led QA, PM, and account management on the same project. Is that versatility or chaos?",
-      "Every project involves humans with competing needs. How does she navigate that?",
-      "She tested AI before trusting it. What does healthy skepticism look like in your org?",
-      "What would you have done differently? That question reveals your own assumptions."
-    ],
-
-    // When on desktop
-    desktop: [
-      "A desktop is a mind made visible. What does organization mean to you?",
-      "She made her portfolio a retro game. What does that tell you about how she approaches problems?",
-      "Vigo watches over everything. Everyone brings their weird to work—do you make space for that?",
-      "Icons and folders. Systems within systems. She thinks in structures.",
-      "What you explore first reveals what you're actually looking for."
-    ],
-
-    // When idle for a while
-    idle: [
-      "Taking time to think before deciding. That's a skill. *slow blink*",
-      "Reflection before action. Not everyone values that. Do you?",
-      "Sometimes the best hires need time to be understood.",
-      "Stillness is also data. What does your patience reveal?",
-      "The answers come when you stop optimizing and start noticing."
-    ],
-
-    // First appearance
-    welcome: [
-      "Ah, a visitor. I am Gertrude. I ask questions. Sometimes uncomfortable ones. Don't mind me."
-    ],
-
-    // Settings/config
-    config: {
-      minDelay: 30000,        // Minimum ms between appearances (30 seconds)
-      maxDelay: 90000,        // Maximum ms between appearances (90 seconds)
-      displayDuration: 15000, // How long message stays visible (15 seconds)
-      idleThreshold: 60000,   // How long before considered idle (60 seconds)
-      dismissCooldown: 45000  // Wait time after user dismisses (45 seconds)
-    }
+    thoughts: [
+      // Thoughtful / Reflective
+      "The best systems are invisible until they break. What are you not noticing?",
+      "What would you build if you weren't afraid of being wrong?",
+      "The gap between intention and interpretation is where most problems live.",
+      "Are you solving the problem, or the symptom of the problem?",
+      "What question are you avoiding because you might not like the answer?",
+      "The way someone explains something reveals how they understand it.",
+      "Good documentation is an act of kindness to your future self.",
+      "What would change if you assumed everyone was doing their best?",
+      "The most important work often doesn't fit neatly into a job description.",
+      "Clarity is a gift. Give it generously.",
+      "What would you do differently if you knew no one was watching?",
+      "Sometimes the right answer is 'I don't know yet.'",
+      // Cat wisdom
+      "*slow blink* That's cat for 'I acknowledge you.'",
+      "Have you considered a nap? I find they help with complex problems."
+    ]
   },
 
   // ============================================

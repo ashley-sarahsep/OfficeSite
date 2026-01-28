@@ -1980,38 +1980,32 @@ body {
 }
 
 /* ============================================
-   GERTRUDE - PHILOSOPHICAL CAT HELPER
+   GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
    ============================================ */
 
 .gertrude-helper {
   position: fixed;
-  bottom: 80px;
+  bottom: 20px;
   right: 20px;
   z-index: 9999;
   display: flex;
   align-items: flex-end;
   gap: 10px;
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.gertrude-helper.hidden {
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-}
-
-.gertrude-helper.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Gertrude Icon */
+/* Gertrude Icon - Always Visible & Clickable */
 .gertrude-icon {
   width: 70px;
   height: 70px;
   object-fit: contain;
-  image-rendering: pixelated;
+  cursor: pointer;
   animation: gertrudeBob 2s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+.gertrude-icon:hover {
+  transform: scale(1.1);
+  animation: none;
 }
 
 @keyframes gertrudeBob {
@@ -2024,10 +2018,21 @@ body {
   background: var(--color-cream);
   border: 3px solid var(--color-mauve);
   border-radius: 12px;
-  padding: 12px 30px 12px 15px;
+  padding: 12px 15px;
   max-width: 280px;
   position: relative;
   box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.gertrude-bubble.hidden {
+  opacity: 0;
+  transform: scale(0.8) translateX(20px);
+  pointer-events: none;
+}
+
+.gertrude-bubble:not(.hidden) {
   animation: bubblePop 0.3s ease;
 }
 

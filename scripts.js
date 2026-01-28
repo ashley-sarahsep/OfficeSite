@@ -12,16 +12,8 @@ const state = {
   windowZIndex: 10,
   draggedWindow: null,
   dragOffset: { x: 0, y: 0 },
-  // Gertrude state
-  gertrude: {
-    isVisible: false,
-    lastShown: 0,
-    lastActivity: Date.now(),
-    shownWelcome: false,
-    dismissedAt: 0,
-    currentContext: 'room',
-    timer: null
-  },
+  // Gertrude state (simplified - now click-based)
+  gertrudeBubbleOpen: false,
   // Easter egg tracking
   catClicks: {
     gertrude: { count: 0, lastClick: 0 },
@@ -1453,145 +1445,68 @@ function showGameEnding(container) {
 }
 
 // ============================================
-// GERTRUDE - PHILOSOPHICAL CAT HELPER
+// GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
 // ============================================
 
+let gertrudeThoughtIndex = 0;
+
 function initGertrude() {
-  const dismissBtn = document.getElementById('gertrude-dismiss');
-
-  // Dismiss button handler
-  if (dismissBtn) {
-    dismissBtn.addEventListener('click', () => {
-      hideGertrude();
-      state.gertrude.dismissedAt = Date.now();
-    });
-  }
-
-  // Track user activity
-  document.addEventListener('click', () => {
-    state.gertrude.lastActivity = Date.now();
-  });
-  document.addEventListener('keydown', () => {
-    state.gertrude.lastActivity = Date.now();
-  });
-
-  // Start the Gertrude timer after a delay
-  setTimeout(() => {
-    // Show welcome message first
-    if (!state.gertrude.shownWelcome) {
-      showGertrudeMessage('welcome');
-      state.gertrude.shownWelcome = true;
-    }
-    // Start periodic appearances
-    scheduleGertrude();
-  }, 5000); // Wait 5 seconds after page load
-}
-
-function scheduleGertrude() {
-  const config = SITE_DATA.gertrude?.config || {
-    minDelay: 30000,
-    maxDelay: 90000
-  };
-
-  // Random delay between min and max
-  const delay = config.minDelay + Math.random() * (config.maxDelay - config.minDelay);
-
-  state.gertrude.timer = setTimeout(() => {
-    tryShowGertrude();
-    scheduleGertrude(); // Schedule next appearance
-  }, delay);
-}
-
-function tryShowGertrude() {
-  const config = SITE_DATA.gertrude?.config || {};
-  const now = Date.now();
-
-  // Don't show if already visible
-  if (state.gertrude.isVisible) return;
-
-  // Don't show if recently dismissed
-  if (now - state.gertrude.dismissedAt < (config.dismissCooldown || 45000)) return;
-
-  // Don't show if dialog is open
-  const dialogOverlay = document.getElementById('dialog-overlay');
-  if (dialogOverlay && !dialogOverlay.classList.contains('hidden')) return;
-
-  // Check if idle
-  const idleTime = now - state.gertrude.lastActivity;
-  if (idleTime > (config.idleThreshold || 60000)) {
-    showGertrudeMessage('idle');
-    return;
-  }
-
-  // Show context-appropriate message
-  showGertrudeMessage(getGertrudeContext());
-}
-
-function getGertrudeContext() {
-  // Check what's currently active
-  if (state.currentScene === 'room') {
-    return 'room';
-  }
-
-  if (state.currentScene === 'desktop') {
-    // Check which window is active
-    if (state.activeWindow) {
-      const windowType = state.activeWindow.dataset?.windowType;
-      if (windowType === 'resume') return 'resume';
-      if (windowType === 'myspace') return 'myspace';
-      if (windowType === 'chat') return 'chat';
-      if (windowType === 'folder') return 'workExamples';
-    }
-    return 'desktop';
-  }
-
-  return 'general';
-}
-
-function showGertrudeMessage(context) {
-  const helper = document.getElementById('gertrude-helper');
+  const gertrudeIcon = document.getElementById('gertrude-click');
+  const bubble = document.getElementById('gertrude-bubble');
   const messageEl = document.getElementById('gertrude-message');
 
-  if (!helper || !messageEl) return;
+  if (!gertrudeIcon || !bubble || !messageEl) return;
 
-  // Get messages for this context
-  const messages = SITE_DATA.gertrude?.[context] || SITE_DATA.gertrude?.general || [];
-  if (messages.length === 0) return;
+  // Shuffle thoughts on load for variety
+  if (SITE_DATA.gertrude?.thoughts) {
+    shuffleArray(SITE_DATA.gertrude.thoughts);
+  }
 
-  // Pick a random message
-  const message = messages[Math.floor(Math.random() * messages.length)];
-
-  // Set message and show
-  messageEl.textContent = message;
-  helper.classList.remove('hidden');
-  helper.classList.add('visible');
-  state.gertrude.isVisible = true;
-  state.gertrude.lastShown = Date.now();
-
-  // Trigger slow blink animation
-  setTimeout(() => {
-    helper.classList.add('blinking');
-    setTimeout(() => {
-      helper.classList.remove('blinking');
-    }, 300);
-  }, 2000);
-
-  // Auto-hide after duration
-  const config = SITE_DATA.gertrude?.config || {};
-  setTimeout(() => {
-    if (state.gertrude.isVisible) {
-      hideGertrude();
+  // Click Gertrude to show a thought
+  gertrudeIcon.addEventListener('click', () => {
+    if (bubble.classList.contains('hidden')) {
+      showGertrudeThought();
+    } else {
+      hideGertrudeBubble();
     }
-  }, config.displayDuration || 15000);
+  });
+
+  // Click bubble to dismiss
+  bubble.addEventListener('click', () => {
+    hideGertrudeBubble();
+  });
 }
 
-function hideGertrude() {
-  const helper = document.getElementById('gertrude-helper');
-  if (helper) {
-    helper.classList.remove('visible');
-    helper.classList.add('hidden');
+function showGertrudeThought() {
+  const bubble = document.getElementById('gertrude-bubble');
+  const messageEl = document.getElementById('gertrude-message');
+  const thoughts = SITE_DATA.gertrude?.thoughts || [];
+
+  if (!bubble || !messageEl || thoughts.length === 0) return;
+
+  // Get next thought (cycles through all)
+  const thought = thoughts[gertrudeThoughtIndex % thoughts.length];
+  gertrudeThoughtIndex++;
+
+  // Show the thought
+  messageEl.textContent = thought;
+  bubble.classList.remove('hidden');
+}
+
+function hideGertrudeBubble() {
+  const bubble = document.getElementById('gertrude-bubble');
+  if (bubble) {
+    bubble.classList.add('hidden');
   }
-  state.gertrude.isVisible = false;
+}
+
+// Utility: Shuffle array in place
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 // ============================================
