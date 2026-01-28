@@ -335,17 +335,22 @@ function handleCatPet(catId) {
 function showCatPetResponse(catId, message) {
   const overlay = document.getElementById('dialog-overlay');
   const titleEl = document.getElementById('dialog-title');
+  const portraitContainer = document.getElementById('dialog-portrait');
   const portraitImg = document.getElementById('dialog-portrait-img');
-  const itemImageContainer = document.getElementById('dialog-item-image');
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
 
   // Set dialog title
   titleEl.textContent = catId === 'gertrude' ? '✨ Gertrude Approves ✨' : '🧡 Gherkin Happy 🧡';
 
-  // Hide portrait, we're showing cat reaction
-  portraitImg.style.display = 'none';
-  itemImageContainer.classList.remove('visible');
+  // Show cat image in portrait container
+  const catData = SITE_DATA.hotspots[catId];
+  if (catData?.image) {
+    portraitImg.src = catData.image;
+    portraitImg.alt = catData.name;
+    portraitImg.style.display = 'block';
+    portraitContainer.classList.add('cat-pettable');
+  }
 
   // Show the message
   textEl.textContent = message;
@@ -358,7 +363,6 @@ function showCatPetResponse(catId, message) {
   responsesEl.querySelector('button').addEventListener('click', () => {
     overlay.classList.add('hidden');
     // Reopen normal cat dialog
-    const catData = SITE_DATA.hotspots[catId];
     if (catData) {
       openDialog(catId, catData);
     }
@@ -382,43 +386,47 @@ function getPortraitPath(portraitKey) {
 function openDialog(hotspotId, hotspotData) {
   const overlay = document.getElementById('dialog-overlay');
   const titleEl = document.getElementById('dialog-title');
+  const portraitContainer = document.getElementById('dialog-portrait');
   const portraitImg = document.getElementById('dialog-portrait-img');
-  const itemImageContainer = document.getElementById('dialog-item-image');
-  const itemImg = document.getElementById('dialog-item-img');
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
 
   // Set dialog title
   titleEl.textContent = hotspotData.name;
 
-  // Set initial portrait from first conversation
-  const firstConversation = hotspotData.conversations?.[0];
-  const initialPortrait = firstConversation?.portrait || 'default';
-  portraitImg.src = getPortraitPath(initialPortrait);
-  portraitImg.style.display = 'block';
-  portraitImg.onerror = () => {
-    // Try default if specific portrait fails
-    portraitImg.src = getPortraitPath('default');
-  };
+  // Determine what image to show:
+  // - If hotspot has an image (items/cats), show that image
+  // - Otherwise (conversations with Ashley like welcome, coffeeChair), show Ashley's portrait
+  const isAshleyConversation = !hotspotData.image || hotspotId === 'welcome' || hotspotId === 'coffeeChair';
 
-  // Set item image if available
-  if (hotspotData.image) {
-    itemImg.src = hotspotData.image;
-    itemImg.onerror = () => {
-      itemImageContainer.classList.remove('visible');
-    };
-    itemImageContainer.classList.add('visible');
+  // Store what type of dialog this is for portrait updates
+  state.isAshleyDialog = isAshleyConversation;
+
+  if (isAshleyConversation) {
+    // Show Ashley's portrait with expressions
+    const firstConversation = hotspotData.conversations?.[0];
+    const initialPortrait = firstConversation?.portrait || 'default';
+    portraitImg.src = getPortraitPath(initialPortrait);
+    portraitImg.alt = 'Ashley';
+    portraitContainer.classList.remove('cat-pettable');
+  } else {
+    // Show the item/cat image
+    portraitImg.src = hotspotData.image;
+    portraitImg.alt = hotspotData.name;
 
     // Add cat-pettable class for cats (hand cursor for petting)
     if (hotspotId === 'gertrude' || hotspotId === 'gherkin') {
-      itemImageContainer.classList.add('cat-pettable');
+      portraitContainer.classList.add('cat-pettable');
     } else {
-      itemImageContainer.classList.remove('cat-pettable');
+      portraitContainer.classList.remove('cat-pettable');
     }
-  } else {
-    itemImageContainer.classList.remove('visible');
-    itemImageContainer.classList.remove('cat-pettable');
   }
+
+  portraitImg.style.display = 'block';
+  portraitImg.onerror = () => {
+    // Fallback to Ashley portrait if item image fails
+    portraitImg.src = getPortraitPath('default');
+  };
 
   // Start conversation at intro
   state.currentDialog = hotspotId;
@@ -439,8 +447,8 @@ function showConversation(conversationId) {
   const responsesEl = document.getElementById('dialog-responses');
   const portraitImg = document.getElementById('dialog-portrait-img');
 
-  // Update portrait based on conversation mood
-  if (conversation.portrait) {
+  // Update portrait based on conversation mood (only for Ashley conversations)
+  if (state.isAshleyDialog && conversation.portrait) {
     portraitImg.src = getPortraitPath(conversation.portrait);
   }
 
@@ -1654,11 +1662,11 @@ function initImageLightbox() {
     lightbox.classList.add('hidden');
   });
 
-  // Make dialog images clickable to expand
+  // Make dialog portrait image clickable to expand
   document.addEventListener('click', (e) => {
-    const itemImg = e.target.closest('#dialog-item-img');
-    if (itemImg && itemImg.src) {
-      openLightbox(itemImg.src);
+    const portraitImg = e.target.closest('#dialog-portrait-img');
+    if (portraitImg && portraitImg.src) {
+      openLightbox(portraitImg.src);
     }
   });
 }
