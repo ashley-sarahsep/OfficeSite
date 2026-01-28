@@ -6,6 +6,7 @@ Place your images in this folder with the following names:
 REQUIRED IMAGES:
 ----------------
 room.png              - The main pixel art room illustration (the one you provided)
+vigo.jpg              - Desktop wallpaper (Vigo the Carpathian painting)
 
 PORTRAIT IMAGES (for different expressions in dialogs):
 -------------------------------------------------------
