@@ -9,7 +9,6 @@ const SITE_DATA = {
   name: "Ashley Sepers",
   title: "Product Operations | Cross-Functional Leadership | Enablement | AI Adoption",
   email: "ashley.sepers@gmail.com",
-  phone: "647.574.7721",
   linkedin: "linkedin.com/in/ashley-sarahsep",
   location: "Guelph, Ontario / Remote",
 
@@ -1287,7 +1286,7 @@ DONE (celebrating small wins):
 <h1>ASHLEY SEPERS</h1>
 <p class="resume-subtitle">Product Operations | Cross-Functional Leadership | Enablement | AI Adoption</p>
 <p class="resume-contact">
-Email: ashley.sepers@gmail.com | Phone: 647.574.7721<br>
+Email: ashley.sepers@gmail.com<br>
 LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 </p>
 </div>
