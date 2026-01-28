@@ -408,8 +408,16 @@ function openDialog(hotspotId, hotspotData) {
       itemImageContainer.classList.remove('visible');
     };
     itemImageContainer.classList.add('visible');
+
+    // Add cat-pettable class for cats (hand cursor for petting)
+    if (hotspotId === 'gertrude' || hotspotId === 'gherkin') {
+      itemImageContainer.classList.add('cat-pettable');
+    } else {
+      itemImageContainer.classList.remove('cat-pettable');
+    }
   } else {
     itemImageContainer.classList.remove('visible');
+    itemImageContainer.classList.remove('cat-pettable');
   }
 
   // Start conversation at intro

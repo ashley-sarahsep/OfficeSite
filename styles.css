@@ -586,6 +586,21 @@ body {
   transform: scale(1.02);
 }
 
+/* Cat-specific petting cursor - more obvious hand */
+.dialog-item-image.cat-pettable {
+  cursor: grab;
+}
+
+.dialog-item-image.cat-pettable:hover {
+  transform: scale(1.05);
+  border-color: var(--color-mauve);
+}
+
+.dialog-item-image.cat-pettable:active {
+  cursor: grabbing;
+  transform: scale(0.98);
+}
+
 .dialog-item-image.visible {
   display: block;
 }

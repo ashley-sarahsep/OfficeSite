@@ -158,21 +158,21 @@ Curiosity is a good trait. I like curious people.`
       gertrude: {
         threshold: 3, // clicks needed to trigger special response
         responses: [
-          "*slow blink* You have earned a modicum of my respect.",
-          "*dignified purr* I will permit this affection. Briefly.",
-          "Yes, yes. You may admire me. I am aware I am magnificent.",
-          "*regal nod* Your devotion is noted.",
-          "I see you appreciate quality supervision. Wise."
+          "*slow blink* You have earned a modicum of my trust. This takes time, you know.",
+          "*soft purr* I will permit this affection. You're patient. I appreciate that.",
+          "*rolls onto side* Fine. You may have belly access. This is a privilege.",
+          "*settles into your hand* I wasn't sure about you at first. I've changed my mind.",
+          "*deep, contented purr* My human picked a good one. You may stay."
         ]
       },
       gherkin: {
         threshold: 3,
         responses: [
-          "*flops over dramatically* ATTENTION RECEIVED. MORE PLEASE.",
-          "*loud purr* Best. Day. Ever. Click again??",
-          "*stretches* This is acceptable. You may continue.",
-          "prrrrrRRRRR *aggressive head bonks*",
-          "*chaos mode activated* TIME TO ZOOM AROUND THE ROOM"
+          "*loud, insistent purr* YES. THIS. MORE OF THIS.",
+          "*yells approvingly* You understand. Attention is IMPORTANT.",
+          "*intense stare* I will remember this. I remember everything.",
+          "*head bonk* You're acceptable. Have you considered sitting down? Laps are better.",
+          "*settles but stays alert* This is good. But keep it quiet. Sudden noises and I'm gone."
         ]
       }
     }
