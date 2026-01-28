@@ -2061,7 +2061,8 @@ body {
   right: 20px;
   z-index: 9999;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
 
@@ -2100,7 +2101,7 @@ body {
 
 .gertrude-bubble.hidden {
   opacity: 0;
-  transform: scale(0.8) translateX(20px);
+  transform: scale(0.8) translateY(10px);
   pointer-events: none;
 }
 
@@ -2111,25 +2112,25 @@ body {
 .gertrude-bubble::before {
   content: '';
   position: absolute;
-  right: -12px;
-  bottom: 15px;
+  bottom: -12px;
+  right: 25px;
   width: 0;
   height: 0;
-  border-left: 12px solid var(--color-mauve);
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
+  border-top: 12px solid var(--color-mauve);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
 }
 
 .gertrude-bubble::after {
   content: '';
   position: absolute;
-  right: -8px;
-  bottom: 17px;
+  bottom: -8px;
+  right: 27px;
   width: 0;
   height: 0;
-  border-left: 10px solid var(--color-cream);
-  border-top: 6px solid transparent;
-  border-bottom: 6px solid transparent;
+  border-top: 10px solid var(--color-cream);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
 }
 
 .gertrude-message {
