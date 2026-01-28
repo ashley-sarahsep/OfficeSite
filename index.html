@@ -11,26 +11,13 @@
 </head>
 <body>
   <!-- ============================================ -->
-  <!-- DOS BOOT SEQUENCE -->
-  <!-- ============================================ -->
-  <div id="boot-screen" class="boot-screen">
-    <div class="boot-monitor-frame">
-      <div class="boot-monitor-notch"></div>
-      <div class="boot-monitor-screen">
-        <div class="boot-content">
-          <pre id="boot-text"></pre>
-          <div class="boot-cursor">_</div>
-        </div>
-      </div>
-      <div class="boot-monitor-brand">ASHLEY.OS <span class="boot-monitor-led"></span></div>
-    </div>
-    <div class="boot-skip">Press any key to skip...</div>
-  </div>
+  <!-- Boot screen (hidden - kept for potential future use) -->
+  <div id="boot-screen" class="boot-screen hidden"></div>
 
   <!-- ============================================ -->
   <!-- MAIN ROOM SCENE -->
   <!-- ============================================ -->
-  <div id="room-scene" class="room-scene hidden">
+  <div id="room-scene" class="room-scene">
     <!-- Room background image -->
     <div class="room-container">
       <img src="assets/images/office2.jpg" alt="Ashley's Office" class="room-image" id="room-image">
@@ -141,6 +128,23 @@
               <div class="desktop-icon" data-app="folder" data-file="work">
                 <div class="icon-image icon-folder"></div>
                 <span class="icon-label">Work Examples</span>
+              </div>
+              <div class="desktop-icon" data-app="portfolio" data-file="aiwork">
+                <div class="icon-image icon-folder-special"></div>
+                <span class="icon-label">AI Portfolio</span>
+              </div>
+              <div class="desktop-icon" data-app="game" data-file="projecttrail">
+                <div class="icon-image icon-game"></div>
+                <span class="icon-label">ProjectTrail.exe</span>
+              </div>
+              <!-- Easter Egg Files -->
+              <div class="desktop-icon easter-egg" data-app="notepad" data-file="secrets">
+                <div class="icon-image icon-txt"></div>
+                <span class="icon-label">secrets.txt</span>
+              </div>
+              <div class="desktop-icon easter-egg" data-app="notepad" data-file="todo">
+                <div class="icon-image icon-txt"></div>
+                <span class="icon-label">todo.txt</span>
               </div>
               <div class="desktop-icon" data-app="recycle" data-file="trash">
                 <div class="icon-image icon-recycle"></div>
@@ -338,6 +342,23 @@
     </div>
   </template>
 
+  <!-- Notepad Window Template (for easter eggs) -->
+  <template id="template-notepad">
+    <div class="window window-notepad" data-window="notepad" data-window-type="notepad">
+      <div class="window-titlebar">
+        <span class="window-title">Notepad</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content notepad-content">
+        <pre class="notepad-text" id="notepad-text"></pre>
+      </div>
+    </div>
+  </template>
+
   <!-- Recycle Bin Window Template -->
   <template id="template-recycle">
     <div class="window window-recycle" data-window="recycle">
@@ -350,14 +371,107 @@
         </div>
       </div>
       <div class="window-content recycle-content">
-        <div class="recycle-empty">
-          <div class="recycle-icon-large"></div>
-          <p>This folder is empty.</p>
-          <p class="recycle-note">(Because I don't throw away good ideas)</p>
+        <div class="recycle-items" id="recycle-items">
+          <!-- Populated by JS -->
         </div>
       </div>
     </div>
   </template>
+
+  <!-- AI Portfolio Window Template -->
+  <template id="template-portfolio">
+    <div class="window window-portfolio" data-window="portfolio">
+      <div class="window-titlebar">
+        <span class="window-title">AI Portfolio - Explorer</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-menubar">
+        <span class="menu-item">File</span>
+        <span class="menu-item">Edit</span>
+        <span class="menu-item">View</span>
+      </div>
+      <div class="window-content portfolio-content" id="portfolio-content">
+        <!-- Portfolio items loaded by JS -->
+      </div>
+    </div>
+  </template>
+
+  <!-- Portfolio Viewer Window Template (for viewing documents) -->
+  <template id="template-portfolio-viewer">
+    <div class="window window-portfolio-viewer" data-window="portfolio-viewer">
+      <div class="window-titlebar">
+        <span class="window-title">Document Viewer</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content portfolio-viewer-content" id="portfolio-viewer-content">
+        <!-- Document content loaded by JS -->
+      </div>
+    </div>
+  </template>
+
+  <!-- Project Trail Game Window Template -->
+  <template id="template-game">
+    <div class="window window-game" data-window="game">
+      <div class="window-titlebar titlebar-game">
+        <span class="window-title">Project Trail - A Business Adventure</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content game-content" id="game-content">
+        <!-- Game loaded by JS -->
+      </div>
+    </div>
+  </template>
+
+  <!-- ============================================ -->
+  <!-- SCREENSAVER -->
+  <!-- ============================================ -->
+  <div id="screensaver" class="screensaver hidden">
+    <div class="screensaver-content" id="screensaver-content">
+      <div class="screensaver-logo">
+        <span class="screensaver-text">Ashley.exe</span>
+        <span class="screensaver-subtext">Product Ops • Enablement • AI</span>
+      </div>
+    </div>
+    <div class="screensaver-hint">Move mouse or press any key to exit</div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- GERTRUDE - PHILOSOPHICAL CAT HELPER -->
+  <!-- ============================================ -->
+  <div id="gertrude-helper" class="gertrude-helper hidden">
+    <div class="gertrude-sprite">
+      <div class="gertrude-cat">
+        <div class="gertrude-ears">
+          <div class="gertrude-ear left"></div>
+          <div class="gertrude-ear right"></div>
+        </div>
+        <div class="gertrude-head">
+          <div class="gertrude-eyes">
+            <div class="gertrude-eye left"><div class="gertrude-pupil"></div></div>
+            <div class="gertrude-eye right"><div class="gertrude-pupil"></div></div>
+          </div>
+          <div class="gertrude-nose"></div>
+        </div>
+        <div class="gertrude-body"></div>
+      </div>
+    </div>
+    <div class="gertrude-bubble">
+      <div class="gertrude-message" id="gertrude-message"></div>
+      <button class="gertrude-dismiss" id="gertrude-dismiss" title="Dismiss">×</button>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="data.js"></script>

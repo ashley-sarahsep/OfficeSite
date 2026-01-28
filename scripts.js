@@ -11,7 +11,22 @@ const state = {
   activeWindow: null,
   windowZIndex: 10,
   draggedWindow: null,
-  dragOffset: { x: 0, y: 0 }
+  dragOffset: { x: 0, y: 0 },
+  // Gertrude state
+  gertrude: {
+    isVisible: false,
+    lastShown: 0,
+    lastActivity: Date.now(),
+    shownWelcome: false,
+    dismissedAt: 0,
+    currentContext: 'room',
+    timer: null
+  },
+  // Easter egg tracking
+  catClicks: {
+    gertrude: { count: 0, lastClick: 0 },
+    gherkin: { count: 0, lastClick: 0 }
+  }
 };
 
 // ============================================
@@ -286,8 +301,78 @@ function handleRoomAction(actionId) {
     return;
   }
 
+  // Check for cat petting easter egg
+  if (actionId === 'gertrude' || actionId === 'gherkin') {
+    const catPetResponse = handleCatPet(actionId);
+    if (catPetResponse) {
+      // Show special response instead of normal dialog
+      showCatPetResponse(actionId, catPetResponse);
+      return;
+    }
+  }
+
   // Everything else opens dialog
   openDialog(actionId, itemData);
+}
+
+function handleCatPet(catId) {
+  const now = Date.now();
+  const catState = state.catClicks[catId];
+  const catConfig = SITE_DATA.easterEggs?.catPets?.[catId];
+
+  if (!catConfig) return null;
+
+  // Reset count if too much time has passed (5 seconds)
+  if (now - catState.lastClick > 5000) {
+    catState.count = 0;
+  }
+
+  catState.count++;
+  catState.lastClick = now;
+
+  // Check if threshold reached
+  if (catState.count >= catConfig.threshold) {
+    catState.count = 0; // Reset for next time
+    const responses = catConfig.responses;
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  return null;
+}
+
+function showCatPetResponse(catId, message) {
+  const overlay = document.getElementById('dialog-overlay');
+  const titleEl = document.getElementById('dialog-title');
+  const portraitImg = document.getElementById('dialog-portrait-img');
+  const itemImageContainer = document.getElementById('dialog-item-image');
+  const textEl = document.getElementById('dialog-text');
+  const responsesEl = document.getElementById('dialog-responses');
+
+  // Set dialog title
+  titleEl.textContent = catId === 'gertrude' ? '✨ Gertrude Approves ✨' : '🧡 Gherkin Happy 🧡';
+
+  // Hide portrait, we're showing cat reaction
+  portraitImg.style.display = 'none';
+  itemImageContainer.classList.remove('visible');
+
+  // Show the message
+  textEl.textContent = message;
+
+  // Simple close button
+  responsesEl.innerHTML = `
+    <button class="dialog-response" data-next="null">[Continue petting]</button>
+  `;
+
+  responsesEl.querySelector('button').addEventListener('click', () => {
+    overlay.classList.add('hidden');
+    // Reopen normal cat dialog
+    const catData = SITE_DATA.hotspots[catId];
+    if (catData) {
+      openDialog(catId, catData);
+    }
+  });
+
+  overlay.classList.remove('hidden');
 }
 
 // ============================================
@@ -572,43 +657,78 @@ function getWindowSize(appType) {
     myspace: { width: '700px', height: '550px' },
     messenger: { width: '400px', height: '450px' },
     folder: { width: '500px', height: '400px' },
-    recycle: { width: '400px', height: '300px' },
-    'work-detail': { width: '500px', height: '400px' }
+    recycle: { width: '450px', height: '350px' },
+    notepad: { width: '500px', height: '400px' },
+    'work-detail': { width: '500px', height: '400px' },
+    portfolio: { width: '550px', height: '450px' },
+    'portfolio-viewer': { width: '600px', height: '500px' },
+    game: { width: '650px', height: '500px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
 
 function getWindowTitle(appType, fileId) {
+  // Dynamic titles for notepad based on file
+  if (appType === 'notepad' && SITE_DATA.easterEggs?.[fileId]) {
+    return SITE_DATA.easterEggs[fileId].title;
+  }
+
   const titles = {
     wordpad: 'Resume.doc - WordPad',
     myspace: 'AboutMe.html - Internet Explorer',
     messenger: 'AshleyChat',
     folder: 'Work Examples',
     recycle: 'Recycle Bin',
-    'work-detail': 'Project Details'
+    notepad: 'Notepad',
+    'work-detail': 'Project Details',
+    portfolio: 'AI Portfolio - Explorer',
+    'portfolio-viewer': 'Document Viewer',
+    game: 'Project Trail - A Business Adventure'
   };
   return titles[appType] || 'Window';
 }
 
 function initWindowContent(windowEl, appType, fileId) {
+  // Set window type for Gertrude context awareness
+  windowEl.dataset.windowType = appType;
+
   switch (appType) {
     case 'wordpad':
       initWordpad(windowEl);
+      windowEl.dataset.windowType = 'resume';
       break;
     case 'myspace':
       initMyspace(windowEl);
+      windowEl.dataset.windowType = 'myspace';
       break;
     case 'messenger':
       initMessenger(windowEl);
+      windowEl.dataset.windowType = 'chat';
       break;
     case 'folder':
       initFolder(windowEl);
+      windowEl.dataset.windowType = 'folder';
       break;
     case 'recycle':
-      // Empty by default
+      initRecycleBin(windowEl);
+      break;
+    case 'notepad':
+      initNotepad(windowEl, fileId);
       break;
     case 'work-detail':
       initWorkDetail(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'portfolio':
+      initPortfolio(windowEl);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'portfolio-viewer':
+      initPortfolioViewer(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'game':
+      initProjectTrail(windowEl);
       break;
   }
 }
@@ -672,7 +792,7 @@ function focusWindow(windowId) {
     if (w.id === windowId) {
       w.element.style.zIndex = ++state.windowZIndex;
       titlebar?.classList.remove('inactive');
-      state.activeWindow = windowId;
+      state.activeWindow = w.element; // Store element reference for Gertrude
     } else {
       titlebar?.classList.add('inactive');
     }
@@ -985,10 +1105,575 @@ function initWorkDetail(windowEl, workId) {
   `;
 }
 
+function initNotepad(windowEl, fileId) {
+  const content = windowEl.querySelector('.notepad-text');
+  if (!content) return;
+
+  const easterEgg = SITE_DATA.easterEggs?.[fileId];
+  if (easterEgg) {
+    content.textContent = easterEgg.content;
+
+    // Update window title
+    const titleEl = windowEl.querySelector('.window-title');
+    if (titleEl && easterEgg.title) {
+      titleEl.textContent = easterEgg.title;
+    }
+  }
+}
+
+function initRecycleBin(windowEl) {
+  const content = windowEl.querySelector('.recycle-items');
+  if (!content) return;
+
+  const trash = SITE_DATA.easterEggs?.trash;
+  if (trash && trash.items) {
+    content.innerHTML = trash.items.map(item => `
+      <div class="recycle-item">
+        <div class="recycle-item-icon">${getFileIcon(item.name)}</div>
+        <span class="recycle-item-name">${item.name}</span>
+        <span class="recycle-item-size">${item.size}</span>
+        ${item.note ? `<span class="recycle-item-note">${item.note}</span>` : ''}
+      </div>
+    `).join('');
+  }
+}
+
+function getFileIcon(filename) {
+  const ext = filename.split('.').pop().toLowerCase();
+  const icons = {
+    doc: '📄',
+    ppt: '📊',
+    ics: '📅',
+    jpg: '🖼️',
+    txt: '📝'
+  };
+  return icons[ext] || '📄';
+}
+
+// ============================================
+// AI PORTFOLIO
+// ============================================
+
+function initPortfolio(windowEl) {
+  const content = windowEl.querySelector('.portfolio-content');
+  if (!content) return;
+
+  const portfolio = SITE_DATA.portfolio;
+
+  content.innerHTML = `
+    <div class="portfolio-wrapper">
+      <div class="portfolio-header">
+        <h2>${portfolio.title}</h2>
+        <p>${portfolio.description}</p>
+      </div>
+      <div class="portfolio-categories">
+        ${portfolio.categories.map(cat => `
+          <div class="portfolio-category" data-category="${cat.id}">
+            <div class="portfolio-category-header">
+              <span class="portfolio-category-icon">${cat.icon}</span>
+              <span class="portfolio-category-name">${cat.name}</span>
+              <span class="portfolio-category-count">${cat.items.length} items</span>
+            </div>
+            <div class="portfolio-items">
+              ${cat.items.map(item => `
+                <div class="portfolio-item" data-item-id="${item.id}" data-category="${cat.id}">
+                  <span class="portfolio-item-icon">📄</span>
+                  <span class="portfolio-item-name">${item.name}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  // Add click handlers for categories (collapse/expand)
+  content.querySelectorAll('.portfolio-category-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const category = header.closest('.portfolio-category');
+      category.classList.toggle('collapsed');
+    });
+  });
+
+  // Add click handlers for items
+  content.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('dblclick', () => {
+      const itemId = item.dataset.itemId;
+      const categoryId = item.dataset.category;
+      openApp('portfolio-viewer', `${categoryId}:${itemId}`);
+    });
+  });
+}
+
+function initPortfolioViewer(windowEl, fileId) {
+  const content = windowEl.querySelector('.portfolio-viewer-content');
+  if (!content || !fileId) return;
+
+  const [categoryId, itemId] = fileId.split(':');
+  const category = SITE_DATA.portfolio.categories.find(c => c.id === categoryId);
+  const item = category?.items.find(i => i.id === itemId);
+
+  if (!item) {
+    content.innerHTML = '<p>Document not found.</p>';
+    return;
+  }
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = item.name + ' - Document Viewer';
+  }
+
+  content.innerHTML = `
+    <div class="portfolio-viewer-wrapper">
+      <div class="portfolio-viewer-header">
+        <h2>${item.name}</h2>
+        <p class="portfolio-viewer-description">${item.description}</p>
+      </div>
+      <div class="portfolio-viewer-body">
+        <pre class="portfolio-document">${item.content}</pre>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================
+// PROJECT TRAIL GAME
+// ============================================
+
+let gameState = {
+  stats: {},
+  currentEvent: null,
+  history: []
+};
+
+function initProjectTrail(windowEl) {
+  const content = windowEl.querySelector('.game-content');
+  if (!content) return;
+
+  // Reset game state
+  gameState = {
+    stats: { ...SITE_DATA.projectTrail.startingStats },
+    currentEvent: 'start',
+    history: []
+  };
+
+  showGameIntro(content);
+}
+
+function showGameIntro(container) {
+  const game = SITE_DATA.projectTrail;
+
+  container.innerHTML = `
+    <div class="game-intro">
+      <div class="game-title-art">
+        <pre class="game-ascii">
+   ____            _           _     _____         _ _
+  |  _ \\ _ __ ___ (_) ___  ___| |_  |_   _| __ __ _(_) |
+  | |_) | '__/ _ \\| |/ _ \\/ __| __|   | || '__/ _\` | | |
+  |  __/| | | (_) | |  __/ (__| |_    | || | | (_| | | |
+  |_|   |_|  \\___// |\\___|\\___|\\__|   |_||_|  \\__,_|_|_|
+                |__/
+        </pre>
+        <p class="game-subtitle">${game.subtitle}</p>
+      </div>
+      <div class="game-intro-text">
+        ${game.intro.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+      </div>
+      <button class="game-start-btn" id="game-start-btn">Begin Your Journey</button>
+      <p class="game-hint">Tip: Your choices affect Sanity, Trust, Project Health, Documentation, and Morale</p>
+    </div>
+  `;
+
+  container.querySelector('#game-start-btn').addEventListener('click', () => {
+    showGameEvent(container);
+  });
+}
+
+function showGameEvent(container) {
+  const event = SITE_DATA.projectTrail.events.find(e => e.id === gameState.currentEvent);
+
+  if (!event) {
+    showGameEnding(container);
+    return;
+  }
+
+  if (event.text === 'CALCULATING_RESULTS') {
+    showGameEnding(container);
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="game-event">
+      <div class="game-stats-bar">
+        <div class="game-stat" title="Sanity">🧠 ${gameState.stats.sanity}</div>
+        <div class="game-stat" title="Stakeholder Trust">🤝 ${gameState.stats.stakeholderTrust}</div>
+        <div class="game-stat" title="Project Health">📊 ${gameState.stats.projectHealth}</div>
+        <div class="game-stat" title="Documentation">📝 ${gameState.stats.documentation}</div>
+        <div class="game-stat" title="Team Morale">💪 ${gameState.stats.teamMorale}</div>
+      </div>
+      <div class="game-event-content">
+        <h3 class="game-event-title">${event.title}</h3>
+        <div class="game-event-text">
+          ${event.text.split('\n').map(p => `<p>${p}</p>`).join('')}
+        </div>
+        <div class="game-choices">
+          ${event.choices.map((choice, index) => `
+            <button class="game-choice" data-index="${index}">
+              ${choice.text}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Add click handlers
+  container.querySelectorAll('.game-choice').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const choiceIndex = parseInt(btn.dataset.index);
+      handleGameChoice(container, event, choiceIndex);
+    });
+  });
+}
+
+function handleGameChoice(container, event, choiceIndex) {
+  const choice = event.choices[choiceIndex];
+
+  // Apply effects
+  if (choice.effects) {
+    for (const [stat, change] of Object.entries(choice.effects)) {
+      gameState.stats[stat] = Math.max(0, Math.min(100, gameState.stats[stat] + change));
+    }
+  }
+
+  // Record history
+  gameState.history.push({
+    event: event.id,
+    choice: choice.text
+  });
+
+  // Move to next event
+  gameState.currentEvent = choice.nextEvent;
+
+  // Show effects animation briefly
+  showEffectsAnimation(container, choice.effects, () => {
+    showGameEvent(container);
+  });
+}
+
+function showEffectsAnimation(container, effects, callback) {
+  if (!effects) {
+    callback();
+    return;
+  }
+
+  const effectsHtml = Object.entries(effects)
+    .map(([stat, change]) => {
+      const statNames = {
+        sanity: '🧠 Sanity',
+        stakeholderTrust: '🤝 Trust',
+        projectHealth: '📊 Project',
+        documentation: '📝 Docs',
+        teamMorale: '💪 Morale'
+      };
+      const color = change > 0 ? 'green' : 'red';
+      const sign = change > 0 ? '+' : '';
+      return `<div class="effect-item ${color}">${statNames[stat]}: ${sign}${change}</div>`;
+    })
+    .join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'game-effects-overlay';
+  overlay.innerHTML = `<div class="game-effects">${effectsHtml}</div>`;
+  container.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.remove();
+    callback();
+  }, 1000);
+}
+
+function showGameEnding(container) {
+  const totalScore = Object.values(gameState.stats).reduce((a, b) => a + b, 0);
+  const endings = SITE_DATA.projectTrail.endings;
+
+  let ending;
+  if (totalScore >= endings.excellent.threshold) {
+    ending = endings.excellent;
+  } else if (totalScore >= endings.good.threshold) {
+    ending = endings.good;
+  } else if (totalScore >= endings.okay.threshold) {
+    ending = endings.okay;
+  } else {
+    ending = endings.rough;
+  }
+
+  container.innerHTML = `
+    <div class="game-ending">
+      <div class="game-final-stats">
+        <h4>Final Stats</h4>
+        <div class="game-stats-grid">
+          <div class="game-final-stat">🧠 Sanity: ${gameState.stats.sanity}</div>
+          <div class="game-final-stat">🤝 Trust: ${gameState.stats.stakeholderTrust}</div>
+          <div class="game-final-stat">📊 Project: ${gameState.stats.projectHealth}</div>
+          <div class="game-final-stat">📝 Docs: ${gameState.stats.documentation}</div>
+          <div class="game-final-stat">💪 Morale: ${gameState.stats.teamMorale}</div>
+        </div>
+        <div class="game-total-score">Total Score: ${totalScore}</div>
+      </div>
+      <div class="game-ending-content">
+        <h2 class="game-ending-title">${ending.title}</h2>
+        <div class="game-ending-text">
+          ${ending.text.split('\n').map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+      <div class="game-ending-actions">
+        <button class="game-restart-btn" id="game-restart">Play Again</button>
+      </div>
+      <p class="game-credit">Project Trail - Inspired by the operations life of Ashley Sepers</p>
+    </div>
+  `;
+
+  container.querySelector('#game-restart').addEventListener('click', () => {
+    gameState = {
+      stats: { ...SITE_DATA.projectTrail.startingStats },
+      currentEvent: 'start',
+      history: []
+    };
+    showGameIntro(container);
+  });
+}
+
+// ============================================
+// GERTRUDE - PHILOSOPHICAL CAT HELPER
+// ============================================
+
+function initGertrude() {
+  const dismissBtn = document.getElementById('gertrude-dismiss');
+
+  // Dismiss button handler
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => {
+      hideGertrude();
+      state.gertrude.dismissedAt = Date.now();
+    });
+  }
+
+  // Track user activity
+  document.addEventListener('click', () => {
+    state.gertrude.lastActivity = Date.now();
+  });
+  document.addEventListener('keydown', () => {
+    state.gertrude.lastActivity = Date.now();
+  });
+
+  // Start the Gertrude timer after a delay
+  setTimeout(() => {
+    // Show welcome message first
+    if (!state.gertrude.shownWelcome) {
+      showGertrudeMessage('welcome');
+      state.gertrude.shownWelcome = true;
+    }
+    // Start periodic appearances
+    scheduleGertrude();
+  }, 5000); // Wait 5 seconds after page load
+}
+
+function scheduleGertrude() {
+  const config = SITE_DATA.gertrude?.config || {
+    minDelay: 30000,
+    maxDelay: 90000
+  };
+
+  // Random delay between min and max
+  const delay = config.minDelay + Math.random() * (config.maxDelay - config.minDelay);
+
+  state.gertrude.timer = setTimeout(() => {
+    tryShowGertrude();
+    scheduleGertrude(); // Schedule next appearance
+  }, delay);
+}
+
+function tryShowGertrude() {
+  const config = SITE_DATA.gertrude?.config || {};
+  const now = Date.now();
+
+  // Don't show if already visible
+  if (state.gertrude.isVisible) return;
+
+  // Don't show if recently dismissed
+  if (now - state.gertrude.dismissedAt < (config.dismissCooldown || 45000)) return;
+
+  // Don't show if dialog is open
+  const dialogOverlay = document.getElementById('dialog-overlay');
+  if (dialogOverlay && !dialogOverlay.classList.contains('hidden')) return;
+
+  // Check if idle
+  const idleTime = now - state.gertrude.lastActivity;
+  if (idleTime > (config.idleThreshold || 60000)) {
+    showGertrudeMessage('idle');
+    return;
+  }
+
+  // Show context-appropriate message
+  showGertrudeMessage(getGertrudeContext());
+}
+
+function getGertrudeContext() {
+  // Check what's currently active
+  if (state.currentScene === 'room') {
+    return 'room';
+  }
+
+  if (state.currentScene === 'desktop') {
+    // Check which window is active
+    if (state.activeWindow) {
+      const windowType = state.activeWindow.dataset?.windowType;
+      if (windowType === 'resume') return 'resume';
+      if (windowType === 'myspace') return 'myspace';
+      if (windowType === 'chat') return 'chat';
+      if (windowType === 'folder') return 'workExamples';
+    }
+    return 'desktop';
+  }
+
+  return 'general';
+}
+
+function showGertrudeMessage(context) {
+  const helper = document.getElementById('gertrude-helper');
+  const messageEl = document.getElementById('gertrude-message');
+
+  if (!helper || !messageEl) return;
+
+  // Get messages for this context
+  const messages = SITE_DATA.gertrude?.[context] || SITE_DATA.gertrude?.general || [];
+  if (messages.length === 0) return;
+
+  // Pick a random message
+  const message = messages[Math.floor(Math.random() * messages.length)];
+
+  // Set message and show
+  messageEl.textContent = message;
+  helper.classList.remove('hidden');
+  helper.classList.add('visible');
+  state.gertrude.isVisible = true;
+  state.gertrude.lastShown = Date.now();
+
+  // Trigger slow blink animation
+  setTimeout(() => {
+    helper.classList.add('blinking');
+    setTimeout(() => {
+      helper.classList.remove('blinking');
+    }, 300);
+  }, 2000);
+
+  // Auto-hide after duration
+  const config = SITE_DATA.gertrude?.config || {};
+  setTimeout(() => {
+    if (state.gertrude.isVisible) {
+      hideGertrude();
+    }
+  }, config.displayDuration || 15000);
+}
+
+function hideGertrude() {
+  const helper = document.getElementById('gertrude-helper');
+  if (helper) {
+    helper.classList.remove('visible');
+    helper.classList.add('hidden');
+  }
+  state.gertrude.isVisible = false;
+}
+
+// ============================================
+// SCREENSAVER
+// ============================================
+
+let screensaverTimeout = null;
+const SCREENSAVER_DELAY = 120000; // 2 minutes of inactivity
+
+function initScreensaver() {
+  const screensaver = document.getElementById('screensaver');
+  if (!screensaver) return;
+
+  // Reset timer on any activity
+  const resetScreensaver = () => {
+    if (screensaverTimeout) {
+      clearTimeout(screensaverTimeout);
+    }
+
+    // Hide screensaver if visible
+    if (!screensaver.classList.contains('hidden')) {
+      screensaver.classList.add('hidden');
+    }
+
+    // Set new timeout
+    screensaverTimeout = setTimeout(showScreensaver, SCREENSAVER_DELAY);
+  };
+
+  // Activity listeners
+  document.addEventListener('mousemove', resetScreensaver);
+  document.addEventListener('mousedown', resetScreensaver);
+  document.addEventListener('keydown', resetScreensaver);
+  document.addEventListener('touchstart', resetScreensaver);
+  document.addEventListener('scroll', resetScreensaver);
+
+  // Start initial timer
+  screensaverTimeout = setTimeout(showScreensaver, SCREENSAVER_DELAY);
+}
+
+function showScreensaver() {
+  const screensaver = document.getElementById('screensaver');
+  const content = document.getElementById('screensaver-content');
+
+  if (!screensaver || !content) return;
+
+  // Random starting position
+  const startX = Math.random() * (window.innerWidth - 300);
+  const startY = Math.random() * (window.innerHeight - 100);
+  content.style.left = `${startX}px`;
+  content.style.top = `${startY}px`;
+
+  screensaver.classList.remove('hidden');
+}
+
 // ============================================
 // INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  initBoot();
+  initSite();
 });
+
+function initSite() {
+  const bootScreen = document.getElementById('boot-screen');
+  const roomScene = document.getElementById('room-scene');
+
+  // Hide boot screen, show room directly
+  bootScreen.classList.add('hidden');
+  roomScene.classList.remove('hidden');
+  roomScene.style.opacity = '1';
+  state.currentScene = 'room';
+
+  // Initialize the room menu
+  initRoomMenu();
+
+  // Initialize Gertrude
+  initGertrude();
+
+  // Initialize screensaver
+  initScreensaver();
+
+  // Show welcome dialog
+  showWelcomeDialog();
+}
+
+function showWelcomeDialog() {
+  const welcomeData = SITE_DATA.hotspots.welcome;
+  if (welcomeData) {
+    openDialog('welcome', welcomeData);
+  }
+}
