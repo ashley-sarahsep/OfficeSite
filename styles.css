@@ -72,7 +72,7 @@ html, body {
 
 body {
   font-family: var(--font-system);
-  background: #1a1a1a;
+  background: var(--color-cream);
   color: #fff;
 }
 
@@ -785,22 +785,23 @@ body {
 
 .desktop-icons {
   position: absolute;
-  left: 10px;
-  top: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 5px;
-  width: fit-content;
+  left: 8px;
+  top: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px;
+  padding: 4px;
+  width: 130px;
+  max-height: 180px;
 }
 
 .desktop-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
   cursor: pointer;
-  padding: 5px;
+  padding: 3px;
   border: 1px solid transparent;
 }
 
@@ -933,12 +934,13 @@ body {
 
 .icon-label {
   font-family: var(--font-system);
-  font-size: 11px;
+  font-size: 10px;
   color: #fff;
   text-shadow: 1px 1px 1px #000;
   text-align: center;
-  max-width: 70px;
+  max-width: 55px;
   word-wrap: break-word;
+  line-height: 1.1;
 }
 
 /* Taskbar */
