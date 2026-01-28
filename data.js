@@ -1425,7 +1425,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
   chat: {
     botName: "AshleyBot",
-    welcomeMessage: "Hey! This is AshleyChat - ask me anything about my work, experience, or approach. I'm an AI trained on everything Ashley could think to share (she's thorough).",
+    welcomeMessage: "Hey! This is AshleyChat - ask me anything about my work, experience, or approach. I'm an AI trained on everything Ashley could think to share. She was thorough.",
 
     quickQuestions: [
       "What do you do?",
@@ -1437,20 +1437,73 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
     ],
 
     responses: {
-      "What do you do?": "I'm a Product Operations / Enablement leader who specializes in finding organizational gaps and building systems to fill them. Most recently, I built the entire adoption infrastructure for an AI agent product - testing framework, onboarding methodology, training curriculum, the works. Before that, I spent 7+ years building operational infrastructure from scratch, running QA, creating sales enablement materials, and being the person who makes sure nothing falls through the cracks.",
+      "What do you do?": {
+        text: "I find gaps and fill them. That's the short version.\n\nThe longer version: I'm a Product Operations and Enablement leader who builds systems that make organizations work better. Most recently, I built the entire adoption infrastructure for an AI agent product - testing framework, onboarding methodology, training curriculum, the works. Before that, I spent 7+ years at a field marketing platform building operational infrastructure from scratch, running QA, leading projects, creating sales enablement materials, and being the person who makes sure nothing falls through the cracks.\n\nThe pattern is always the same: see gaps, fill gaps, build systems, hand off.",
+        followUp: "How did you end up doing this kind of work?"
+      },
 
-      "Tell me about your AI work": "I led product adoption for an AI-powered analytics tool for experiential marketing. Built the entire adoption infrastructure from scratch: manual testing framework for QA (because I'm not a blind AI advocate - I caught quality issues before they reached clients), 5-phase onboarding methodology, 'Power Prompts' library for enterprise analytics, and training materials for different user types. My philosophy background in hermeneutics actually helps here - understanding how LLMs interpret context makes me better at catching where they might go wrong.",
+      "How did you end up doing this kind of work?": {
+        text: "The path was winding. Philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops at an IBM reseller, then 7+ years at a startup that kept handing me new problems to solve.\n\nTurns out a philosophy degree and a brain that won't stop asking 'why' is surprisingly useful when you're building systems from scratch. Every role required figuring things out without formal training. I just kept doing that.",
+        followUp: null
+      },
 
-      "What's your work style?": "Give me an ambiguous problem and trust me to figure it out. I don't need constant meetings or hand-holding - I need interesting problems and the space to solve them. I ask 'why' constantly, design for humans as they actually are (not as we wish they'd be), and I'm comfortable wearing multiple hats simultaneously. Swiss Army Knife Operator, basically.",
+      "Tell me about your AI work": {
+        text: "I led product adoption for an AI-powered analytics tool for experiential marketing. Built the entire adoption infrastructure from scratch: manual testing framework for QA (I'm not a blind AI advocate - I caught quality issues and hallucinations before they reached clients), a 5-phase onboarding methodology, a 'Power Prompts' library for enterprise analytics, and training materials tailored to different user types.\n\nMy philosophy background in hermeneutics actually helps here. Understanding how people interpret information - and how LLMs interpret context - makes me better at catching where things might go wrong. I advocate for appropriate guardrails, transparency about limitations, and ethical implementation. The technology is powerful, but it needs someone asking the hard questions.",
+        followUp: "What do you mean by catching where things go wrong?"
+      },
 
-      "Why should I hire you?": "Because I'm the person who makes everyone else's job easier. I see gaps that others miss or ignore, build systems to address them, and hand them off when they're working. I bridge technical and business teams, create shared understanding, and actually get things done. Plus, I'll tell you what I actually think - no corporate politeness, just honest, clear communication.",
+      "What do you mean by catching where things go wrong?": {
+        text: "My brain doesn't let things rest when something feels off. That's actually useful in AI work - I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong. Things not functioning properly doesn't sit well with me, so I test thoroughly and catch issues others might accept or miss.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of missed responses or loose threads. My brain tracks these things whether I want it to or not. I've learned to make that work for me.",
+        followUp: null
+      },
 
-      "What makes you different?": "My philosophy background in hermeneutics (how people interpret information) combined with social work gives me a unique lens. I don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviors. That's why my training programs reduce ramp time and my analytics work uncovers insights others miss. Also: I'm pretty funny, if that matters.",
+      "What's your work style?": {
+        text: "Give me an ambiguous problem and trust me to figure it out. I don't need constant meetings or hand-holding - I need interesting problems and the space to solve them.\n\nI ask 'why' constantly. I design for humans as they actually behave, not as we wish they would. I'm comfortable wearing multiple hats - QA lead, project manager, sales enablement owner, strategic advisor, backup account manager, sometimes all at once. Some people find ambiguity stressful. I find it interesting.\n\nWhat exhausts me is sitting in meetings that could've been async messages.",
+        followUp: "How do you handle that much context-switching?"
+      },
 
-      "What are you looking for?": "Small teams where I know everyone and relationships matter. Advisor and sounding board roles where I can help teams think through problems. Authentic cultures where people say what they mean. Growth-stage companies where one person can have real impact. Remote work (I've been remote since 2014). I don't want highly specialized roles, rigid enterprise environments, or places where asking 'why' is seen as insubordination."
+      "How do you handle that much context-switching?": {
+        text: "Honestly? My brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and because my brain moves in unexpected directions, I come up with solutions that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken genuinely bothers me, so I follow through. It's not discipline - it's just how I'm built.",
+        followUp: "That sounds like a superpower, honestly."
+      },
+
+      "That sounds like a superpower, honestly.": {
+        text: "It took me a while to see it that way. For a long time I thought I was just anxious and weird. Turns out anxious and weird is actually 'catches edge cases, never drops balls, notices problems before they escalate, and thinks differently enough to solve things others can't.' Reframing helps.",
+        followUp: null
+      },
+
+      "Why should I hire you?": {
+        text: "Because I'm the person who makes everyone else's job easier.\n\nI see gaps that others miss or ignore, build systems to address them, and hand them off when they're working. I bridge technical and business teams and create shared understanding where there wasn't any. I actually get things done without needing to be told what to do.\n\nI'll also tell you what I actually think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing rather than threatening, we'd probably work well together.",
+        followUp: "What do people say about working with you?"
+      },
+
+      "What do people say about working with you?": {
+        text: "That I'm the reason demos close deals. That my bug reports are actually useful. That I see problems before they become problems. That clients ask for me by name. That my training materials are why new hires get up to speed fast.\n\nAlso that I'm delightful. I am told I'm delightful to work with. I don't think that's nothing.",
+        followUp: null
+      },
+
+      "What makes you different?": {
+        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviors. That's why my training programs work and my documentation actually gets used. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
+        followUp: "You mentioned hermeneutics - how does that actually help?"
+      },
+
+      "You mentioned hermeneutics - how does that actually help?": {
+        text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under real-world conditions?' Not how I hope they will. How they actually will.\n\nIt also applies to data. Data doesn't speak for itself - someone has to interpret it, and that interpretation is shaped by assumptions and context. I ask: what's being measured, what's being missed, who decided what counts?\n\nIt sounds abstract but it's incredibly practical. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
+        followUp: null
+      },
+
+      "What are you looking for?": {
+        text: "Growth-stage companies where one person can have real impact. Small teams where relationships matter and I know everyone's name. Authentic cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board - someone who helps teams think through problems, not just execute tasks. Remote work is essential (I've been remote since 2014, I'm not going back). Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialized roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
+        followUp: "What does your ideal role look like?"
+      },
+
+      "What does your ideal role look like?": {
+        text: "Product Operations, Revenue Operations, Chief of Staff to someone who wants a strategic partner, or something in the AI/enablement space where I can help people actually adopt and use these tools well.\n\nSomewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my weird background is an asset, not a question mark.\n\nBasically: give me interesting problems, trust me to solve them, and let me make your organization work better. That's the job I want.",
+        followUp: null
+      }
     },
 
-    fallbackResponse: "That's a great question! For the detailed answer, you might want to check my Resume.doc or AboutMe.html on this desktop. Or just email me at ashley.sepers@gmail.com - I promise I'm friendlier than this chatbot."
+    fallbackResponse: "Good question. For the detailed answer, you might want to check Resume.doc or AboutMe.html on this desktop. Or just email Ashley directly at ashley.sepers@gmail.com - she's friendlier and funnier than I am."
   },
 
   // ============================================
@@ -1462,16 +1515,16 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       id: "enterprise-platform",
       name: "Enterprise Custom Platform Build",
       type: "Full Lifecycle Project Leadership",
-      description: "A major retail solutions company managing tens of thousands of field installations needed a custom platform to track their operations at scale. They had complex workflows spanning multiple business units, existing systems that needed integration, and high expectations for quality and timeline.",
-      challenge: "No existing playbook for a project of this complexity. Someone needed to own it end-to-end.",
+      description: "A major retail solutions client managing tens of thousands of field installations needed a custom platform to track their operations at scale. Complex workflows spanning multiple business units, existing systems that needed integration, and high expectations for quality and timeline.",
+      challenge: "No existing playbook for a project of this complexity. Someone needed to own it end-to-end. I became that someone.",
       whatIDid: [
         "Led discovery process - mapped existing workflows against platform capabilities, conducted stakeholder interviews, documented gap analysis",
         "Created wireframes and workflows translating business requirements into technical specifications",
-        "Built comprehensive QA process from scratch - test plans, quality standards, coordination between internal team and client QA",
-        "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs",
-        "Transitioned to account manager role post-launch, then successfully handed off with complete documentation"
+        "Built comprehensive QA process from scratch - test plans, quality standards, coordination between internal dev team and client QA",
+        "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs, kept everything moving",
+        "Transitioned to account manager role post-launch, stabilized the relationship, then successfully handed off with complete documentation"
       ],
-      outcome: "Platform launched successfully with zero failed deployments. Scaled to track 42,000+ retail installations. QA process became template for subsequent implementations.",
+      outcome: "Platform launched successfully with zero failed deployments. Scaled to track 42,000+ retail installations. QA process became template for subsequent implementations. Classic pattern: see gap, fill gap, build system, hand off.",
       skills: ["Project Management", "QA Leadership", "Requirements Gathering", "Jira", "Agile", "Client Relations", "Technical Translation"],
       image: "assets/images/work-enterprise.jpg"
     },
@@ -1479,16 +1532,16 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       id: "ai-adoption",
       name: "AI Product Adoption Infrastructure",
       type: "End-to-End Enablement Building",
-      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was powerful, but there was no existing adoption infrastructure - no onboarding process, no training materials, no quality assurance framework.",
-      challenge: "AI products don't sell or adopt themselves. Clients needed to understand capabilities, trust the results, and learn to use it effectively.",
+      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was genuinely powerful, but there was no existing adoption infrastructure - no onboarding process, no training materials, no quality assurance framework.",
+      challenge: "AI products don't sell or adopt themselves. Clients needed to understand capabilities, trust the results, and learn to use it effectively. And someone needed to make sure the results were actually trustworthy in the first place.",
       whatIDid: [
-        "Built manual testing framework from scratch - systematic process to test prompts for reliability before client deployment",
+        "Built manual testing framework from scratch - systematic process to test prompts for reliability, catch hallucinations, and ensure accuracy before client deployment",
         "Designed 5-phase onboarding methodology: Discovery → Implementation → Testing & Validation → Training → Ongoing Support",
         "Created educational curriculum for varying proficiency levels - 50+ training videos and resources",
         "Developed 'Power Prompts' library of enterprise analytical frameworks",
-        "Served as internal advocate for AI quality, ethical implementation, and transparency about limitations"
+        "Served as internal advocate for AI quality, ethical implementation, and transparency about limitations (I'm not a blind AI enthusiast - these tools need someone asking hard questions)"
       ],
-      outcome: "Successfully onboarded enterprise clients. Featured in client success case studies. Adoption infrastructure became standard for all AI agent deployments. Owned industry trade show booth from concept to execution.",
+      outcome: "Successfully onboarded enterprise clients including major experiential marketing agencies and beverage brands. Featured in client success case studies. Adoption infrastructure became standard for all AI agent deployments. Owned industry trade show booth from concept to execution.",
       skills: ["AI/LLM", "Prompt Engineering", "Training Design", "QA", "Documentation", "Change Management", "Ethics"],
       image: "assets/images/work-ai.jpg"
     },
@@ -1496,15 +1549,15 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       id: "sales-enablement",
       name: "Lean Team, Enterprise Results",
       type: "Sales Enablement Program",
-      description: "A small sales team (2-4 people) needed to win enterprise deals with major CPG brands. They were competing against larger companies with dedicated sales enablement departments. Team composition changed over time, but demo quality couldn't fluctuate.",
-      challenge: "Maintain enterprise-quality sales materials and institutional knowledge across team changes with limited resources.",
+      description: "A small sales team (2-4 people) needed to win enterprise deals with major brands - Fortune 500 CPG companies, national telecommunications providers, major beverage brands. Competing against larger companies with dedicated sales enablement departments. Team composition changed over the years, but demo quality couldn't fluctuate.",
+      challenge: "Maintain enterprise-quality sales materials and institutional knowledge across team changes with limited resources. Be the constant when everything else shifted.",
       whatIDid: [
-        "Created 30+ customized demo environments annually - each specifically researched for that prospect's business, challenges, and use cases",
+        "Created 30+ customized demo environments annually - each specifically researched for that prospect's business, challenges, and use cases (no generic decks)",
         "Built discovery frameworks and qualification playbooks for varying sales cycles (same-day SMB to year-long enterprise)",
-        "Served as enablement constant across sales team changes - maintained demo quality regardless of who was on the team",
+        "Served as enablement constant across sales team changes - maintained demo quality and approach consistency regardless of who was on the team",
         "Reduced new hire ramp time from 90 to 60 days through structured onboarding and self-service resources"
       ],
-      outcome: "Contributed to 100% of sales wins since 2018. Lean team consistently closed enterprise deals competing against much larger competitors.",
+      outcome: "Contributed to 100% of sales wins since 2018. Lean team consistently closed enterprise deals competing against much larger competitors. Turns out thorough research and genuine understanding of a prospect's business beats a big team with generic materials.",
       skills: ["Sales Enablement", "Demo Excellence", "CRM", "Competitive Intel", "Training", "Onboarding"],
       image: "assets/images/work-sales.jpg"
     },
@@ -1512,15 +1565,15 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       id: "ops-infrastructure",
       name: "Building Operations from Zero",
       type: "0-to-1 Infrastructure Development",
-      description: "Joined a field marketing SaaS company when the team was ~10 people with no formal processes, workflows, or documentation. The COO was managing all sales and operations solo.",
-      challenge: "Build everything needed to scale from startup chaos to enterprise-ready operations.",
+      description: "Joined a field marketing SaaS company when the team was about 10 people with no formal processes, no workflows, no documentation. The COO was managing all sales and operations solo. It was the kind of chaos that's either terrifying or exciting depending on how you're wired.",
+      challenge: "Build everything needed to scale from startup chaos to enterprise-ready operations. From scratch. While also doing the day-to-day work.",
       whatIDid: [
         "Created complete operational infrastructure: sales operations, contract workflows, demo preparation processes, enablement programs",
         "Established account transition processes, documentation standards, and client handoff protocols",
         "Designed training programs, onboarding flows, and process documentation used company-wide",
         "Built systems that maintained consistency across multiple team composition changes over 7+ years"
       ],
-      outcome: "Operational systems enabled company to scale from ~10 people to supporting 32M+ visits, 576K+ client staff, and major enterprise clients at massive scale.",
+      outcome: "Operational systems enabled company to scale from about 10 people to supporting 32M+ visits, 576K+ client staff, and Fortune 500 clients at massive scale. The invisible infrastructure that let a small team do big things.",
       skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
       image: "assets/images/work-ops.jpg"
     }
