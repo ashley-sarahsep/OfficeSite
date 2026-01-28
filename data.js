@@ -1394,27 +1394,27 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       {
         name: "Sales Leader",
         title: "Ashley is the reason our demos actually close deals.",
-        text: "Every single demo she builds is researched specifically for that prospect—she knows their business, their challenges, their language. I've worked with a lot of sales support people, and most of them give you generic decks. Ashley gives you a customized experience that makes prospects feel understood. She's been involved in every win we've had since 2018, and that's not a coincidence. Plus, she's genuinely fun to work with."
+        text: "Every demo she builds is researched specifically for that prospect - she knows their business, their challenges, their language. Most sales support people give you generic decks. Ashley gives you a customized experience that makes prospects feel understood. She's been involved in every win we've had since 2018, and that's not a coincidence. Plus, she's genuinely great to work with."
       },
       {
         name: "Engineering Lead",
         title: "She's the only non-technical person I actually enjoy getting bug reports from.",
-        text: "Most people file tickets that say 'it's broken' and leave you guessing. Ashley's tickets have clear reproduction steps, expected behavior, actual behavior, and business impact. When she took over QA on a major project, our resolution time dropped significantly because we weren't going back and forth trying to understand the issue. She catches edge cases that our internal testing misses."
+        text: "Most people file tickets that say 'it's broken' and leave you guessing. Ashley's tickets have clear reproduction steps, expected behavior, actual behavior, and business impact. When she took over QA on a major project, our resolution time dropped because we weren't going back and forth trying to understand the issue. She catches edge cases our internal testing misses."
       },
       {
         name: "Executive / COO",
         title: "Ashley sees problems before they become problems.",
-        text: "What I value most about working with Ashley is that she doesn't just execute—she thinks. She'll come to me and say 'I noticed this gap between how Sales and Product are communicating, and here's what I think we should do about it.' Half the time I didn't even know the gap existed. She's the kind of person who makes the whole organization run smoother just by being present and paying attention."
+        text: "What I value most is that she doesn't just execute - she thinks. She'll come to me and say 'I noticed this gap between how Sales and Product are communicating, and here's what I think we should do about it.' Half the time I didn't even know the gap existed. She's the kind of person who makes the whole organization run smoother just by being present and paying attention."
       },
       {
         name: "Client Success Manager",
         title: "Clients ask for her by name.",
-        text: "When I'm swamped and Ashley steps in to cover a client call, I never worry. She knows the platform inside and out, she knows the client's specific setup, and she has this way of making people feel heard and supported. She's also the person I go to when I need a second opinion on how to communicate something tricky—she always knows the right tone."
+        text: "When I'm swamped and Ashley steps in to cover a client call, I never worry. She knows the platform inside and out, she knows the client's specific setup, and she has this way of making people feel heard. She's also the person I go to when I need a second opinion on how to communicate something tricky - she always knows the right tone."
       },
       {
         name: "New Hire",
         title: "Her training materials are the reason I got up to speed so fast.",
-        text: "When I joined, I was nervous about the learning curve. But Ashley had built out this whole library of training videos, documentation, and sandbox environments. It wasn't just 'here's how to click buttons'—it explained why things work the way they do. I went from nervous new hire to confident in about half the time I expected."
+        text: "When I joined, I was nervous about the learning curve. But Ashley had built out this whole library of training videos, documentation, and sandbox environments. It wasn't just 'here's how to click buttons' - it explained why things work the way they do. I went from nervous to confident in about half the time I expected."
       }
     ]
   },
