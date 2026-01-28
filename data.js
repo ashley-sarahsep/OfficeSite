@@ -784,17 +784,17 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-intro",
           portrait: "smiling1",
-          text: "*You approach Gertrude. She regards you with ancient cat wisdom, her green eyes reflecting things you cannot comprehend.*",
+          text: "You approach Gertrude. She regards you cautiously at first - she takes her time with new people. But there's warmth in those eyes if you're patient.",
           responses: [
             { text: "Hello, Gertrude.", next: "talk-gertrude-hello" },
-            { text: "*Offer a slow blink*", next: "talk-gertrude-blink" },
+            { text: "Offer a slow blink", next: "talk-gertrude-blink" },
             { text: "[Leave her to her thoughts]", next: null }
           ]
         },
         {
           id: "talk-gertrude-hello",
           portrait: "thoughtful1",
-          text: "*Gertrude's ears rotate thoughtfully.* \"You seek wisdom about the one who provides kibble? She thinks in systems. Patterns within patterns. She sees the shapes of things before others notice the edges.\"",
+          text: "Gertrude's ears rotate thoughtfully. She doesn't come closer yet, but she doesn't leave either. That's something. \"You seek wisdom about my human? She thinks in patterns. Sees the shape of things before others notice the edges. We have this in common.\"",
           responses: [
             { text: "That sounds... profound.", next: "talk-gertrude-profound" },
             { text: "What else can you tell me?", next: "talk-gertrude-more" },
@@ -804,7 +804,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-blink",
           portrait: "smiling2",
-          text: "*Gertrude returns the slow blink - the highest honor a cat can bestow.* \"You understand protocol. Good. The kibble-provider values those who observe before acting. Who listen more than they speak.\"",
+          text: "Gertrude returns the slow blink - the highest honor a cat can bestow. \"You understand protocol. Good. My human values those who observe before acting. Who listen more than they speak. I am beginning to like you.\"",
           responses: [
             { text: "What can you tell me about her?", next: "talk-gertrude-more" },
             { text: "[Accept this blessing and depart]", next: null }
@@ -813,7 +813,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-profound",
           portrait: "thoughtful2",
-          text: "\"I am a cat. Everything I say is profound.\" *She begins grooming a paw dismissively.* \"But consider: she builds things that help other humans work better. Not for glory. For function. The best systems are invisible until they break.\"",
+          text: "\"I am a cat. Everything I say is profound.\" She settles into a comfortable loaf. \"But consider: she builds things that help humans work better. Not for glory. For function. The best systems are invisible until they break.\"",
           responses: [
             { text: "Like a good litter box system?", next: "talk-gertrude-litter" },
             { text: "Tell me more about her approach.", next: "talk-gertrude-approach" },
@@ -823,7 +823,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-litter",
           portrait: "funny1",
-          text: "*Gertrude pauses mid-groom.* \"...You understand perfectly. Yes. Exactly like that. The infrastructure of dignity. She grasps this.\"",
+          text: "Gertrude's eyes soften with approval. \"You understand perfectly. Yes. Exactly like that. The infrastructure of dignity. She grasps this.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -831,7 +831,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-more",
           portrait: "serious",
-          text: "\"She watches. Learns. Adapts. When chaos arrives - and chaos always arrives - she does not panic. She finds the thread and pulls. Sometimes gently. Sometimes not.\" *Gertrude kneads the blanket contemplatively.* \"Like hunting. Patience, then precision.\"",
+          text: "\"She is gentle but persistent. When problems arrive - and problems always arrive - she does not panic. She watches, learns, finds the thread.\" Gertrude begins to purr softly. \"I was not sure about her at first either. Now I would not leave her lap if I had the choice.\"",
           responses: [
             { text: "Is she a good human?", next: "talk-gertrude-good" },
             { text: "[Back to exploring]", next: null }
@@ -840,7 +840,7 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-approach",
           portrait: "thoughtful1",
-          text: "\"She asks why. Constantly. Annoyingly, some might say. But the why reveals the what should be.\" *Gertrude's tail swishes.* \"I ask why my dinner is late. Similar principle. Different stakes.\"",
+          text: "\"She asks why. Constantly. Some might find it tiresome. But the why reveals what should be.\" Gertrude rolls onto her side, showing you her belly - a sign of trust. \"I asked why my dinner was late once. She explained the meeting ran long. I appreciated the honesty.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -848,16 +848,16 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gertrude-good",
           portrait: "smiling1",
-          text: "*Gertrude considers this for a long moment.* \"She keeps the food coming. She respects the 3am zoomies. She understands that sometimes a cat must sit on a keyboard and that is simply how it is.\" *A rare purr.* \"Yes. She is adequate.\"",
+          text: "Gertrude considers this, purring steadily now. \"She gives the best pets. Never rushes. Never stops before I'm ready. She understands that love requires patience.\" A slow blink. \"Yes. She is good. I am lucky to be hers.\"",
           responses: [
-            { text: "High praise from a cat.", next: "talk-gertrude-praise" },
+            { text: "That's sweet, Gertrude.", next: "talk-gertrude-sweet" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "talk-gertrude-praise",
+          id: "talk-gertrude-sweet",
           portrait: "funny2",
-          text: "*Gertrude's whiskers twitch - the feline equivalent of a smirk.* \"Don't tell her I said so. I have a reputation to maintain.\"",
+          text: "\"I have been told I am very sweet. Once you get to know me.\" She stretches luxuriously. \"Most things worth knowing take time.\"",
           responses: [
             { text: "[Your secret is safe]", next: null }
           ]
@@ -872,27 +872,27 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gherkin-intro",
           portrait: "smiling2",
-          text: "*You approach Gherkin on his pink throne. He stretches luxuriously, showing off his impressive orange belly.*",
+          text: "You approach Gherkin on his pink throne. He fixes you with an intense, intelligent stare. Then he starts yelling.",
           responses: [
             { text: "Hey there, buddy.", next: "talk-gherkin-hey" },
-            { text: "*Reach out for a belly rub*", next: "talk-gherkin-belly" },
-            { text: "[Let sleeping cats lie]", next: null }
+            { text: "Reach out for a belly rub", next: "talk-gherkin-belly" },
+            { text: "[Let him yell]", next: null }
           ]
         },
         {
           id: "talk-gherkin-hey",
           portrait: "excited",
-          text: "*Gherkin's eyes go wide and excited.* \"HELLO! Are you here about the human? She's great! She gives me treats! Sometimes I sit on her laptop and she makes funny noises! It's a GAME!\"",
+          text: "Gherkin yells louder, then settles. \"Finally. Someone who responds. My human sometimes ignores me when she's 'working.' I have to remind her that I exist and have needs.\"",
           responses: [
             { text: "Tell me about your human.", next: "talk-gherkin-human" },
-            { text: "You seem very enthusiastic.", next: "talk-gherkin-enthusiasm" },
+            { text: "You seem very vocal.", next: "talk-gherkin-vocal" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "talk-gherkin-belly",
           portrait: "funny1",
-          text: "*Gherkin immediately goes for the trap - belly exposed, paws ready.* \"HA! You fell for it! But actually... that's nice. Keep going.\" *purrs intensify*",
+          text: "Gherkin permits the belly rub with dignity. \"You may continue. I'm choosing to allow this.\" The purring is immediate and loud. \"My human gives excellent pets. But she laughs too hard at things and startles me off her lap. A flaw I've learned to tolerate.\"",
           responses: [
             { text: "What can you tell me about Ashley?", next: "talk-gherkin-human" },
             { text: "[Continue petting and exit gracefully]", next: null }
@@ -901,17 +901,17 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gherkin-human",
           portrait: "smiling1",
-          text: "\"She types a LOT. Click click click. Very interesting sounds. Sometimes I help by adding extra letters. She says 'Gherkin no' but I can tell she appreciates the collaboration.\"",
+          text: "\"She is clever. Like me.\" Gherkin's tail swishes. \"I watch her solve problems. She looks at something, thinks, tries a thing, adjusts. Very methodical. I do the same thing when I'm trying to open a cabinet she thinks is secure.\"",
           responses: [
             { text: "What's she like to work with?", next: "talk-gherkin-work" },
-            { text: "Does she give good pets?", next: "talk-gherkin-pets" },
+            { text: "You sound like you pay attention.", next: "talk-gherkin-attention" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "talk-gherkin-enthusiasm",
+          id: "talk-gherkin-vocal",
           portrait: "excited",
-          text: "\"EVERYTHING IS EXCITING! Especially 3am! That's when the best running happens! The human appreciates it, I can tell by the pillow she throws!\"",
+          text: "\"I have things to say. Important things. 'I want attention.' 'You've been at your desk too long.' 'It's time for quiet lap sitting now.'\" He yells again for emphasis. \"Clear communication is a virtue.\"",
           responses: [
             { text: "What's the best thing about her?", next: "talk-gherkin-best" },
             { text: "[Back to exploring]", next: null }
@@ -920,42 +920,50 @@ Curiosity is a good trait. I like curious people.`
         {
           id: "talk-gherkin-work",
           portrait: "thoughtful1",
-          text: "*Gherkin tilts his head, having a rare moment of clarity.* \"She solves puzzles. All day. People bring her problems and she makes them... smaller? Fixed? I don't know, I'm a cat. But she seems good at it.\"",
+          text: "Gherkin considers this seriously. \"She is patient. She thinks before she acts. She does not get frustrated when things don't work the first time.\" A pause. \"Unless it's a printer. Printers make her say words I don't understand.\"",
           responses: [
             { text: "That's actually insightful.", next: "talk-gherkin-insight" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "talk-gherkin-pets",
-          portrait: "smiling2",
-          text: "\"THE BEST. She knows exactly where to scritch. Behind the ears. Under the chin. She has figured out the algorithm of optimal pet distribution.\" *rolls over for demonstration*",
+          id: "talk-gherkin-attention",
+          portrait: "serious",
+          text: "\"I observe everything. I remember everything. She left a treat in her desk drawer once, three months ago. I have not forgotten. I check daily.\" His eyes narrow. \"Persistence is also a virtue.\"",
           responses: [
-            { text: "Algorithm, huh?", next: "talk-gherkin-algorithm" },
+            { text: "That's... dedicated.", next: "talk-gherkin-dedicated" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "talk-gherkin-best",
           portrait: "funny2",
-          text: "\"She got me this chair! LOOK AT IT! It's PINK! I LOVE it! She said 'that's my chair, Gherkin' but we both know the truth now.\" *kneads the cushion possessively*",
+          text: "\"She understands that I prefer quiet time. No sudden loud noises. No chaos.\" He kneads the pink cushion. \"When she remembers not to laugh like a startled goose, we have very good lap sessions. I am training her.\"",
           responses: [
-            { text: "A true queen on his throne.", next: null },
+            { text: "Training her?", next: "talk-gherkin-training" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "talk-gherkin-insight",
           portrait: "funny1",
-          text: "*Gherkin's eyes go vacant again.* \"...I'm sorry, I was thinking about my food bowl. What were we discussing? Oh look, a shadow!\"",
+          text: "\"Insightful is my default state. I am a very smart cat.\" He begins grooming a paw. \"She tells me this often. I am inclined to agree.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "talk-gherkin-algorithm",
+          id: "talk-gherkin-dedicated",
+          portrait: "thoughtful1",
+          text: "\"She also does not give up on things. We are alike in this way.\" Gherkin settles into a dignified loaf. \"I respect her. When she sits down.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-training",
           portrait: "smiling1",
-          text: "\"I heard her say that word once! It means 'fancy pattern for doing things right.' She's very into fancy patterns. I'm very into naps. We complement each other.\"",
+          text: "\"Slowly. She is learning that when I yell, she should sit on the couch. When I stare, she should check my food bowl. When I knock something off a table...\" He pauses. \"Actually that one is just for fun.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
