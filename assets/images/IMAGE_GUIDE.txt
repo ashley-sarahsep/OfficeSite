@@ -5,7 +5,9 @@ Place your images in this folder with the following names:
 
 REQUIRED IMAGES:
 ----------------
-room.png              - The main pixel art room illustration (the one you provided)
+office2.jpg           - The main pixel art room illustration
+vigo.jpg              - Desktop wallpaper (Vigo the Carpathian painting)
+myspace.jpg           - Profile photo for the MySpace/AboutMe page
 
 PORTRAIT IMAGES (for different expressions in dialogs):
 -------------------------------------------------------
@@ -22,7 +24,8 @@ ashley-serious.jpg    - Serious/professional expression
 DIALOG HOTSPOT IMAGES (photos of actual items):
 -----------------------------------------------
 desk.jpg              - Photo of your actual desk setup
-huckleberry.jpg       - Photo of Huckleberry the cat
+gertrude.jpg          - Photo of Gertrude (black cat on bookshelf)
+gherkin.jpg           - Photo of Gherkin (orange cat on pink chair)
 bookshelf-left.jpg    - Photo of left bookshelf items
 bookshelf-right.jpg   - Photo of right bookshelf
 radio.jpg             - Photo of vintage radio
@@ -30,7 +33,7 @@ art.jpg               - Photo of wall art collection
 
 MYSPACE TOP 8 (optional - can use placeholders):
 ------------------------------------------------
-top8-cat.jpg          - Huckleberry (can reuse huckleberry.jpg)
+top8-cats.jpg         - Gertrude & Gherkin together (or either cat)
 top8-jira.jpg         - Jira logo or screenshot
 top8-philosophy.jpg   - Philosophy-related image
 top8-remote.jpg       - Remote work image

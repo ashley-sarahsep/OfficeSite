@@ -33,64 +33,57 @@
   <div id="room-scene" class="room-scene hidden">
     <!-- Room background image -->
     <div class="room-container">
-      <img src="assets/images/room.png" alt="Ashley's Office" class="room-image" id="room-image">
+      <img src="assets/images/office2.jpg" alt="Ashley's Office" class="room-image" id="room-image">
+    </div>
 
-      <!-- Clickable hotspots - positioned over the image -->
-      <div class="hotspots-container" id="hotspots-container">
-        <!-- Monitor - enters desktop -->
-        <div class="hotspot" data-hotspot="monitor" id="hotspot-monitor" title="Enter Computer">
-          <span class="hotspot-label">Computer</span>
-        </div>
-
-        <!-- Desk area -->
-        <div class="hotspot" data-hotspot="desk" id="hotspot-desk" title="Work Desk">
-          <span class="hotspot-label">Desk</span>
-        </div>
-
-        <!-- Left bookshelf -->
-        <div class="hotspot" data-hotspot="leftBookshelf" id="hotspot-leftBookshelf" title="Left Bookshelf">
-          <span class="hotspot-label">Bookshelf</span>
-        </div>
-
-        <!-- Right bookshelf -->
-        <div class="hotspot" data-hotspot="rightBookshelf" id="hotspot-rightBookshelf" title="Right Bookshelf">
-          <span class="hotspot-label">Bookshelf</span>
-        </div>
-
-        <!-- Cat on pink chair -->
-        <div class="hotspot" data-hotspot="cat" id="hotspot-cat" title="Huckleberry">
-          <span class="hotspot-label">Huckleberry</span>
-        </div>
-
-        <!-- Radio -->
-        <div class="hotspot" data-hotspot="radio" id="hotspot-radio" title="Vintage Radio">
-          <span class="hotspot-label">Radio</span>
-        </div>
-
-        <!-- Art on walls -->
-        <div class="hotspot" data-hotspot="art" id="hotspot-art" title="Wall Art">
-          <span class="hotspot-label">Art</span>
-        </div>
+    <!-- Bottom navigation bar -->
+    <div class="room-navbar" id="room-navbar">
+      <div class="navbar-title">Ashley's Office</div>
+      <div class="navbar-actions">
+        <button class="navbar-btn" id="inspect-btn">
+          <span class="navbar-btn-icon">&#128269;</span>
+          <span>Inspect</span>
+        </button>
+        <button class="navbar-btn" id="computer-btn" data-action="monitor">
+          <span class="navbar-btn-icon">&#128187;</span>
+          <span>Computer</span>
+        </button>
       </div>
     </div>
 
-    <!-- Room navigation hints -->
-    <div class="room-nav-hints">
-      <div class="nav-hint nav-hint-left">
-        <span class="nav-arrow">&larr;</span>
+    <!-- Inspect menu (popup from bottom bar) -->
+    <div class="inspect-menu hidden" id="inspect-menu">
+      <div class="inspect-menu-header">What would you like to inspect?</div>
+      <div class="inspect-menu-grid">
+        <button class="inspect-item" data-action="desk">
+          <span class="inspect-icon">&#128221;</span>
+          <span>Work Desk</span>
+        </button>
+        <button class="inspect-item" data-action="gertrude">
+          <span class="inspect-icon">&#128008;</span>
+          <span>Gertrude</span>
+        </button>
+        <button class="inspect-item" data-action="gherkin">
+          <span class="inspect-icon">&#128049;</span>
+          <span>Gherkin</span>
+        </button>
+        <button class="inspect-item" data-action="leftBookshelf">
+          <span class="inspect-icon">&#128218;</span>
+          <span>Left Bookshelf</span>
+        </button>
+        <button class="inspect-item" data-action="rightBookshelf">
+          <span class="inspect-icon">&#128218;</span>
+          <span>Right Bookshelf</span>
+        </button>
+        <button class="inspect-item" data-action="radio">
+          <span class="inspect-icon">&#128251;</span>
+          <span>Vintage Radio</span>
+        </button>
+        <button class="inspect-item" data-action="art">
+          <span class="inspect-icon">&#127912;</span>
+          <span>Wall Art</span>
+        </button>
       </div>
-      <div class="nav-hint nav-hint-right">
-        <span class="nav-arrow">&rarr;</span>
-      </div>
-      <div class="nav-hint nav-hint-top">
-        <span class="nav-arrow">&uarr;</span>
-      </div>
-    </div>
-
-    <!-- Room title bar -->
-    <div class="room-title-bar">
-      <span class="room-title">Ashley's Office</span>
-      <span class="room-subtitle">Click objects to explore</span>
     </div>
   </div>
 

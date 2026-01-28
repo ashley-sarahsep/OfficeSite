@@ -1,31 +1,41 @@
 /* ============================================
    ASHLEY SEPERS - RETRO PORTFOLIO STYLES
-   Color palette based on warm Oregon Trail II aesthetic
+   Custom warm palette with cream accents
    ============================================ */
 
-/* CSS Variables - Warm retro palette */
+/* CSS Variables - Custom warm palette */
 :root {
-  /* Boot screen colors - Dark green CRT style */
-  --boot-bg: #2a3830;
+  /* Main palette colors */
+  --color-cream: #f5f0e6;
+  --color-blush: #d4a9a0;
+  --color-mauve: #7d5a5a;
+  --color-burgundy: #722f4e;
+  --color-orange: #c88530;
+  --color-teal: #1e4d4d;
+  --color-sage: #9ea890;
+
+  /* Boot screen colors */
+  --boot-bg: var(--color-teal);
   --boot-frame: #3d3d3d;
   --boot-frame-inner: #2a2a2a;
-  --boot-pink: #c9918f;
-  --boot-green: #8b9f7a;
-  --boot-cream: #c4a882;
-  --boot-text: #9a9a8a;
+  --boot-pink: var(--color-blush);
+  --boot-green: var(--color-sage);
+  --boot-cream: var(--color-cream);
+  --boot-text: #b8c4b0;
 
-  /* Oregon Trail dialog colors */
-  --dialog-cream: #f5efe6;
-  --dialog-rose: #e8d4d4;
-  --dialog-green: #d4e0d4;
-  --dialog-brown: #8b7355;
-  --dialog-brown-dark: #5c4a3a;
+  /* Dialog/UI colors */
+  --dialog-cream: var(--color-cream);
+  --dialog-rose: var(--color-blush);
+  --dialog-green: var(--color-sage);
+  --dialog-brown: var(--color-mauve);
+  --dialog-brown-dark: var(--color-burgundy);
   --dialog-text: #3a3028;
+  --dialog-accent: var(--color-orange);
 
   /* Win98 desktop colors */
-  --win-bg: #008080;
-  --win-titlebar: #000080;
-  --win-titlebar-inactive: #808080;
+  --win-bg: var(--color-teal);
+  --win-titlebar: var(--color-burgundy);
+  --win-titlebar-inactive: var(--color-mauve);
   --win-button-face: #c0c0c0;
   --win-button-light: #ffffff;
   --win-button-shadow: #808080;
@@ -33,13 +43,13 @@
   --win-text: #000000;
 
   /* MySpace colors */
-  --myspace-bg: #a5bfdd;
-  --myspace-accent: #ff6699;
-  --myspace-link: #003366;
+  --myspace-bg: var(--color-sage);
+  --myspace-accent: var(--color-burgundy);
+  --myspace-link: var(--color-teal);
 
   /* Messenger colors */
-  --messenger-blue: #0078d4;
-  --messenger-header: #1e4b8e;
+  --messenger-blue: var(--color-teal);
+  --messenger-header: var(--color-burgundy);
 
   /* General */
   --font-pixel: 'Press Start 2P', monospace;
@@ -327,12 +337,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 60px; /* Space for bottom navbar */
 }
 
 .room-container {
   position: relative;
   max-width: 100%;
-  max-height: calc(100vh - 60px);
+  max-height: calc(100vh - 80px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -340,168 +351,135 @@ body {
 
 .room-image {
   max-width: 100%;
-  max-height: calc(100vh - 60px);
+  max-height: calc(100vh - 80px);
   object-fit: contain;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
 
-.hotspots-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.hotspot {
-  position: absolute;
-  cursor: pointer;
-  pointer-events: auto;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.hotspot:hover {
-  border-color: rgba(201, 145, 143, 0.6);
-  background: rgba(201, 145, 143, 0.1);
-}
-
-.hotspot:hover .hotspot-label {
-  opacity: 1;
-  transform: translateX(-50%) translateY(-5px);
-}
-
-.hotspot-label {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--dialog-brown-dark);
-  color: var(--dialog-cream);
-  padding: 4px 8px;
-  font-family: var(--font-terminal);
-  font-size: 14px;
-  white-space: nowrap;
-  border-radius: 3px;
-  opacity: 0;
-  transition: all 0.2s ease;
-  pointer-events: none;
-}
-
-/* Hotspot positions - these will need adjustment based on actual image */
-#hotspot-monitor {
-  left: 3%;
-  top: 30%;
-  width: 14%;
-  height: 22%;
-}
-
-#hotspot-desk {
-  left: 4%;
-  top: 55%;
-  width: 28%;
-  height: 25%;
-}
-
-#hotspot-leftBookshelf {
-  left: 33%;
-  top: 15%;
-  width: 18%;
-  height: 60%;
-}
-
-#hotspot-rightBookshelf {
-  left: 53%;
-  top: 15%;
-  width: 18%;
-  height: 60%;
-}
-
-#hotspot-cat {
-  left: 73%;
-  top: 50%;
-  width: 15%;
-  height: 28%;
-}
-
-#hotspot-radio {
-  left: 38%;
-  top: 32%;
-  width: 8%;
-  height: 10%;
-}
-
-#hotspot-art {
-  left: 33%;
-  top: 2%;
-  width: 40%;
-  height: 15%;
-}
-
-/* Room navigation hints */
-.room-nav-hints {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.nav-hint {
-  position: absolute;
-  font-family: var(--font-terminal);
-  font-size: 24px;
-  color: var(--boot-cream);
-  opacity: 0.3;
-  transition: opacity 0.2s;
-}
-
-.nav-hint:hover {
-  opacity: 0.6;
-}
-
-.nav-hint-left {
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.nav-hint-right {
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.nav-hint-top {
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-/* Room title bar */
-.room-title-bar {
+/* Bottom navigation bar */
+.room-navbar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--dialog-brown-dark);
-  padding: 12px 20px;
+  background: linear-gradient(to bottom, var(--dialog-brown) 0%, var(--dialog-brown-dark) 100%);
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-top: 3px solid var(--dialog-cream);
+  z-index: 50;
 }
 
-.room-title {
+.navbar-title {
   font-family: var(--font-terminal);
-  font-size: 20px;
+  font-size: 22px;
   color: var(--dialog-cream);
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
 }
 
-.room-subtitle {
+.navbar-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-btn {
+  background: var(--dialog-cream);
+  border: 2px solid var(--dialog-brown-dark);
+  border-radius: 4px;
+  padding: 8px 16px;
   font-family: var(--font-terminal);
   font-size: 16px;
-  color: var(--boot-text);
+  color: var(--dialog-brown-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-btn:hover {
+  background: var(--dialog-rose);
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-btn:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+}
+
+.navbar-btn-icon {
+  font-size: 18px;
+}
+
+/* Inspect menu popup */
+.inspect-menu {
+  position: fixed;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--dialog-cream);
+  border: 4px solid var(--dialog-brown);
+  border-radius: 6px;
+  padding: 15px;
+  z-index: 60;
+  box-shadow:
+    inset 0 0 0 2px var(--dialog-rose),
+    6px 6px 0 rgba(0,0,0,0.3);
+  max-width: 90vw;
+  width: 400px;
+}
+
+.inspect-menu-header {
+  font-family: var(--font-terminal);
+  font-size: 18px;
+  color: var(--dialog-brown-dark);
+  text-align: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--dialog-rose);
+}
+
+.inspect-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.inspect-item {
+  background: var(--dialog-green);
+  border: 2px solid var(--dialog-brown);
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--dialog-brown-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.15s ease;
+}
+
+.inspect-item:hover {
+  background: var(--dialog-rose);
+  transform: scale(1.02);
+}
+
+.inspect-item:active {
+  transform: scale(0.98);
+}
+
+.inspect-icon {
+  font-size: 20px;
+}
+
+/* Hide inspect menu by default */
+.inspect-menu.hidden {
+  display: none;
 }
 
 /* ============================================
@@ -748,6 +726,10 @@ body {
   flex: 1;
   position: relative;
   padding: 10px;
+  background-image: url('assets/images/vigo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .desktop-icons {
@@ -1392,7 +1374,7 @@ body {
 
 /* Testimonials */
 .testimonials-section {
-  background: #fff5f5 !important;
+  background: color-mix(in srgb, var(--color-blush) 15%, white) !important;
 }
 
 .testimonials-list {
@@ -1732,8 +1714,51 @@ body {
     font-size: 20px;
   }
 
-  .hotspot-label {
+  /* Room navbar responsive */
+  .room-navbar {
+    padding: 8px 12px;
+  }
+
+  .navbar-title {
+    font-size: 16px;
+  }
+
+  .navbar-btn {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .navbar-btn span:not(.navbar-btn-icon) {
+    display: none;
+  }
+
+  .navbar-btn-icon {
+    font-size: 20px;
+  }
+
+  /* Inspect menu responsive */
+  .inspect-menu {
+    width: calc(100vw - 20px);
+    bottom: 60px;
+    padding: 12px;
+  }
+
+  .inspect-menu-header {
+    font-size: 16px;
+  }
+
+  .inspect-menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .inspect-item {
+    padding: 8px 10px;
     font-size: 12px;
+  }
+
+  .inspect-icon {
+    font-size: 16px;
   }
 }
 

@@ -22,18 +22,23 @@ function initBoot() {
   const bootScreen = document.getElementById('boot-screen');
   const bootText = document.getElementById('boot-text');
 
-  // Enhanced boot messages with Ashley's personality
-  const bootMessages = [
-    { text: 'ASHLEY.OS v12.0', type: 'title' },
-    { text: '', type: 'blank' },
-    { text: '[OK] Initializing core competencies...', type: 'status' },
-    { text: '[OK] Loading pattern recognition...', type: 'status' },
-    { text: '[OK] Mounting gap-filling protocols...', type: 'status' },
-    { text: '[OK] Deploying enablement frameworks...', type: 'status' },
-    { text: '[OK] Hermeneutics engine loaded...', type: 'status' },
-    { text: '[OK] Swiss Army Knife mode activated...', type: 'status' },
-    { text: '[OK] System ready.', type: 'status' },
-    { text: '', type: 'blank' }
+  // Use boot sequence from data.js - classic DOS style
+  const bootMessages = SITE_DATA.bootSequence || [
+    "BIOS Version 1.0.94 - Ashley Industries",
+    "Memory Test: 640K OK",
+    "Detecting IDE drives...",
+    "Primary Master: PERSONALITY.SYS",
+    "Primary Slave: EXPERIENCE.DAT",
+    "Secondary Master: CREATIVITY.DRV",
+    "Loading CONFIG.SYS...",
+    "Loading AUTOEXEC.BAT...",
+    "HIMEM.SYS loaded",
+    "EMM386.EXE loaded",
+    "Loading MOUSE.COM...",
+    "Loading SOUND.DRV...",
+    "Starting HireMeOS 98...",
+    "",
+    "Welcome to Ashley's Office"
   ];
 
   let currentLine = 0;
@@ -49,21 +54,18 @@ function initBoot() {
     const msg = bootMessages[currentLine];
     let lineHtml = '';
 
-    if (msg.type === 'title') {
-      lineHtml = `<span class="boot-title-text">${msg.text}</span>\n`;
-    } else if (msg.type === 'status') {
-      const okPart = msg.text.substring(0, 4);
-      const restPart = msg.text.substring(4);
-      lineHtml = `<span class="ok-tag">${okPart}</span><span class="message">${restPart}</span>\n`;
-    } else {
+    if (msg === '') {
       lineHtml = '\n';
+    } else {
+      // Style the text with the warm color scheme
+      lineHtml = `<span class="message">${msg}</span>\n`;
     }
 
     bootContent += lineHtml;
     bootText.innerHTML = bootContent;
 
     currentLine++;
-    setTimeout(typeBootLine, 150 + Math.random() * 100);
+    setTimeout(typeBootLine, 80 + Math.random() * 60);
   }
 
   function showBootOptions() {
@@ -162,7 +164,7 @@ function transitionToRoom() {
       roomScene.style.transition = 'opacity 0.5s ease';
     }, 50);
     state.currentScene = 'room';
-    initRoomHotspots();
+    initRoomMenu();
   }, 500);
 }
 
@@ -226,33 +228,66 @@ function transitionToRoomFromDesktop() {
 }
 
 // ============================================
-// ROOM SCENE & HOTSPOTS
+// ROOM SCENE & MENU
 // ============================================
 
-function initRoomHotspots() {
-  const hotspots = document.querySelectorAll('.hotspot');
+function initRoomMenu() {
+  const inspectBtn = document.getElementById('inspect-btn');
+  const computerBtn = document.getElementById('computer-btn');
+  const inspectMenu = document.getElementById('inspect-menu');
+  const inspectItems = document.querySelectorAll('.inspect-item');
 
-  hotspots.forEach(hotspot => {
-    hotspot.addEventListener('click', (e) => {
-      const hotspotId = e.currentTarget.dataset.hotspot;
-      handleHotspotClick(hotspotId);
+  // Toggle inspect menu
+  inspectBtn.addEventListener('click', () => {
+    inspectMenu.classList.toggle('hidden');
+  });
+
+  // Computer button goes directly to desktop
+  computerBtn.addEventListener('click', () => {
+    inspectMenu.classList.add('hidden');
+    handleRoomAction('monitor');
+  });
+
+  // Inspect menu items
+  inspectItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const action = item.dataset.action;
+      inspectMenu.classList.add('hidden');
+      handleRoomAction(action);
     });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!inspectMenu.classList.contains('hidden') &&
+        !inspectMenu.contains(e.target) &&
+        e.target !== inspectBtn &&
+        !inspectBtn.contains(e.target)) {
+      inspectMenu.classList.add('hidden');
+    }
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !inspectMenu.classList.contains('hidden')) {
+      inspectMenu.classList.add('hidden');
+    }
   });
 }
 
-function handleHotspotClick(hotspotId) {
-  const hotspotData = SITE_DATA.hotspots[hotspotId];
+function handleRoomAction(actionId) {
+  const itemData = SITE_DATA.hotspots[actionId];
 
-  if (!hotspotData) return;
+  if (!itemData) return;
 
   // Monitor opens desktop
-  if (hotspotData.action === 'openDesktop') {
+  if (itemData.action === 'openDesktop') {
     transitionToDesktop();
     return;
   }
 
   // Everything else opens dialog
-  openDialog(hotspotId, hotspotData);
+  openDialog(actionId, itemData);
 }
 
 // ============================================
@@ -729,7 +764,7 @@ function initMyspace(windowEl) {
       <div class="myspace-body">
         <div class="myspace-sidebar">
           <div class="myspace-profile-pic">
-            <img src="assets/images/ashley-portrait.jpg" alt="Ashley" onerror="this.style.display='none'">
+            <img src="assets/images/myspace.jpg" alt="Ashley" onerror="this.style.display='none'">
           </div>
           <div class="myspace-stats">
             <p><strong>Status:</strong> ${data.status}</p>
