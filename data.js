@@ -658,7 +658,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
     },
 
     topEight: [
-      { name: "Gertrude & Gherkin", role: "Chief Chaos Officers", image: "assets/images/top8-cats.jpg" },
+      { name: "Gertrude & Gherkin", role: "Adorable Fuzzbutts", image: "assets/images/top8-cats.jpg" },
       { name: "Jira", role: "Frenemy", image: "assets/images/top8-jira.jpg" },
       { name: "Hermeneutics", role: "Secret Weapon", image: "assets/images/top8-philosophy.jpg" },
       { name: "Remote Work", role: "Lifestyle", image: "assets/images/top8-remote.jpg" },
