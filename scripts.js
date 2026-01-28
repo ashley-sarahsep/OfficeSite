@@ -659,7 +659,10 @@ function getWindowSize(appType) {
     folder: { width: '500px', height: '400px' },
     recycle: { width: '450px', height: '350px' },
     notepad: { width: '500px', height: '400px' },
-    'work-detail': { width: '500px', height: '400px' }
+    'work-detail': { width: '500px', height: '400px' },
+    portfolio: { width: '550px', height: '450px' },
+    'portfolio-viewer': { width: '600px', height: '500px' },
+    game: { width: '650px', height: '500px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -677,7 +680,10 @@ function getWindowTitle(appType, fileId) {
     folder: 'Work Examples',
     recycle: 'Recycle Bin',
     notepad: 'Notepad',
-    'work-detail': 'Project Details'
+    'work-detail': 'Project Details',
+    portfolio: 'AI Portfolio - Explorer',
+    'portfolio-viewer': 'Document Viewer',
+    game: 'Project Trail - A Business Adventure'
   };
   return titles[appType] || 'Window';
 }
@@ -712,6 +718,17 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'work-detail':
       initWorkDetail(windowEl, fileId);
       windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'portfolio':
+      initPortfolio(windowEl);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'portfolio-viewer':
+      initPortfolioViewer(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'game':
+      initProjectTrail(windowEl);
       break;
   }
 }
@@ -1131,6 +1148,302 @@ function getFileIcon(filename) {
     txt: '📝'
   };
   return icons[ext] || '📄';
+}
+
+// ============================================
+// AI PORTFOLIO
+// ============================================
+
+function initPortfolio(windowEl) {
+  const content = windowEl.querySelector('.portfolio-content');
+  if (!content) return;
+
+  const portfolio = SITE_DATA.portfolio;
+
+  content.innerHTML = `
+    <div class="portfolio-wrapper">
+      <div class="portfolio-header">
+        <h2>${portfolio.title}</h2>
+        <p>${portfolio.description}</p>
+      </div>
+      <div class="portfolio-categories">
+        ${portfolio.categories.map(cat => `
+          <div class="portfolio-category" data-category="${cat.id}">
+            <div class="portfolio-category-header">
+              <span class="portfolio-category-icon">${cat.icon}</span>
+              <span class="portfolio-category-name">${cat.name}</span>
+              <span class="portfolio-category-count">${cat.items.length} items</span>
+            </div>
+            <div class="portfolio-items">
+              ${cat.items.map(item => `
+                <div class="portfolio-item" data-item-id="${item.id}" data-category="${cat.id}">
+                  <span class="portfolio-item-icon">📄</span>
+                  <span class="portfolio-item-name">${item.name}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  // Add click handlers for categories (collapse/expand)
+  content.querySelectorAll('.portfolio-category-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const category = header.closest('.portfolio-category');
+      category.classList.toggle('collapsed');
+    });
+  });
+
+  // Add click handlers for items
+  content.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('dblclick', () => {
+      const itemId = item.dataset.itemId;
+      const categoryId = item.dataset.category;
+      openApp('portfolio-viewer', `${categoryId}:${itemId}`);
+    });
+  });
+}
+
+function initPortfolioViewer(windowEl, fileId) {
+  const content = windowEl.querySelector('.portfolio-viewer-content');
+  if (!content || !fileId) return;
+
+  const [categoryId, itemId] = fileId.split(':');
+  const category = SITE_DATA.portfolio.categories.find(c => c.id === categoryId);
+  const item = category?.items.find(i => i.id === itemId);
+
+  if (!item) {
+    content.innerHTML = '<p>Document not found.</p>';
+    return;
+  }
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = item.name + ' - Document Viewer';
+  }
+
+  content.innerHTML = `
+    <div class="portfolio-viewer-wrapper">
+      <div class="portfolio-viewer-header">
+        <h2>${item.name}</h2>
+        <p class="portfolio-viewer-description">${item.description}</p>
+      </div>
+      <div class="portfolio-viewer-body">
+        <pre class="portfolio-document">${item.content}</pre>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================
+// PROJECT TRAIL GAME
+// ============================================
+
+let gameState = {
+  stats: {},
+  currentEvent: null,
+  history: []
+};
+
+function initProjectTrail(windowEl) {
+  const content = windowEl.querySelector('.game-content');
+  if (!content) return;
+
+  // Reset game state
+  gameState = {
+    stats: { ...SITE_DATA.projectTrail.startingStats },
+    currentEvent: 'start',
+    history: []
+  };
+
+  showGameIntro(content);
+}
+
+function showGameIntro(container) {
+  const game = SITE_DATA.projectTrail;
+
+  container.innerHTML = `
+    <div class="game-intro">
+      <div class="game-title-art">
+        <pre class="game-ascii">
+   ____            _           _     _____         _ _
+  |  _ \\ _ __ ___ (_) ___  ___| |_  |_   _| __ __ _(_) |
+  | |_) | '__/ _ \\| |/ _ \\/ __| __|   | || '__/ _\` | | |
+  |  __/| | | (_) | |  __/ (__| |_    | || | | (_| | | |
+  |_|   |_|  \\___// |\\___|\\___|\\__|   |_||_|  \\__,_|_|_|
+                |__/
+        </pre>
+        <p class="game-subtitle">${game.subtitle}</p>
+      </div>
+      <div class="game-intro-text">
+        ${game.intro.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+      </div>
+      <button class="game-start-btn" id="game-start-btn">Begin Your Journey</button>
+      <p class="game-hint">Tip: Your choices affect Sanity, Trust, Project Health, Documentation, and Morale</p>
+    </div>
+  `;
+
+  container.querySelector('#game-start-btn').addEventListener('click', () => {
+    showGameEvent(container);
+  });
+}
+
+function showGameEvent(container) {
+  const event = SITE_DATA.projectTrail.events.find(e => e.id === gameState.currentEvent);
+
+  if (!event) {
+    showGameEnding(container);
+    return;
+  }
+
+  if (event.text === 'CALCULATING_RESULTS') {
+    showGameEnding(container);
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="game-event">
+      <div class="game-stats-bar">
+        <div class="game-stat" title="Sanity">🧠 ${gameState.stats.sanity}</div>
+        <div class="game-stat" title="Stakeholder Trust">🤝 ${gameState.stats.stakeholderTrust}</div>
+        <div class="game-stat" title="Project Health">📊 ${gameState.stats.projectHealth}</div>
+        <div class="game-stat" title="Documentation">📝 ${gameState.stats.documentation}</div>
+        <div class="game-stat" title="Team Morale">💪 ${gameState.stats.teamMorale}</div>
+      </div>
+      <div class="game-event-content">
+        <h3 class="game-event-title">${event.title}</h3>
+        <div class="game-event-text">
+          ${event.text.split('\n').map(p => `<p>${p}</p>`).join('')}
+        </div>
+        <div class="game-choices">
+          ${event.choices.map((choice, index) => `
+            <button class="game-choice" data-index="${index}">
+              ${choice.text}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Add click handlers
+  container.querySelectorAll('.game-choice').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const choiceIndex = parseInt(btn.dataset.index);
+      handleGameChoice(container, event, choiceIndex);
+    });
+  });
+}
+
+function handleGameChoice(container, event, choiceIndex) {
+  const choice = event.choices[choiceIndex];
+
+  // Apply effects
+  if (choice.effects) {
+    for (const [stat, change] of Object.entries(choice.effects)) {
+      gameState.stats[stat] = Math.max(0, Math.min(100, gameState.stats[stat] + change));
+    }
+  }
+
+  // Record history
+  gameState.history.push({
+    event: event.id,
+    choice: choice.text
+  });
+
+  // Move to next event
+  gameState.currentEvent = choice.nextEvent;
+
+  // Show effects animation briefly
+  showEffectsAnimation(container, choice.effects, () => {
+    showGameEvent(container);
+  });
+}
+
+function showEffectsAnimation(container, effects, callback) {
+  if (!effects) {
+    callback();
+    return;
+  }
+
+  const effectsHtml = Object.entries(effects)
+    .map(([stat, change]) => {
+      const statNames = {
+        sanity: '🧠 Sanity',
+        stakeholderTrust: '🤝 Trust',
+        projectHealth: '📊 Project',
+        documentation: '📝 Docs',
+        teamMorale: '💪 Morale'
+      };
+      const color = change > 0 ? 'green' : 'red';
+      const sign = change > 0 ? '+' : '';
+      return `<div class="effect-item ${color}">${statNames[stat]}: ${sign}${change}</div>`;
+    })
+    .join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'game-effects-overlay';
+  overlay.innerHTML = `<div class="game-effects">${effectsHtml}</div>`;
+  container.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.remove();
+    callback();
+  }, 1000);
+}
+
+function showGameEnding(container) {
+  const totalScore = Object.values(gameState.stats).reduce((a, b) => a + b, 0);
+  const endings = SITE_DATA.projectTrail.endings;
+
+  let ending;
+  if (totalScore >= endings.excellent.threshold) {
+    ending = endings.excellent;
+  } else if (totalScore >= endings.good.threshold) {
+    ending = endings.good;
+  } else if (totalScore >= endings.okay.threshold) {
+    ending = endings.okay;
+  } else {
+    ending = endings.rough;
+  }
+
+  container.innerHTML = `
+    <div class="game-ending">
+      <div class="game-final-stats">
+        <h4>Final Stats</h4>
+        <div class="game-stats-grid">
+          <div class="game-final-stat">🧠 Sanity: ${gameState.stats.sanity}</div>
+          <div class="game-final-stat">🤝 Trust: ${gameState.stats.stakeholderTrust}</div>
+          <div class="game-final-stat">📊 Project: ${gameState.stats.projectHealth}</div>
+          <div class="game-final-stat">📝 Docs: ${gameState.stats.documentation}</div>
+          <div class="game-final-stat">💪 Morale: ${gameState.stats.teamMorale}</div>
+        </div>
+        <div class="game-total-score">Total Score: ${totalScore}</div>
+      </div>
+      <div class="game-ending-content">
+        <h2 class="game-ending-title">${ending.title}</h2>
+        <div class="game-ending-text">
+          ${ending.text.split('\n').map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+      <div class="game-ending-actions">
+        <button class="game-restart-btn" id="game-restart">Play Again</button>
+      </div>
+      <p class="game-credit">Project Trail - Inspired by the operations life of Ashley Sepers</p>
+    </div>
+  `;
+
+  container.querySelector('#game-restart').addEventListener('click', () => {
+    gameState = {
+      stats: { ...SITE_DATA.projectTrail.startingStats },
+      currentEvent: 'start',
+      history: []
+    };
+    showGameIntro(container);
+  });
 }
 
 // ============================================

@@ -129,6 +129,14 @@
                 <div class="icon-image icon-folder"></div>
                 <span class="icon-label">Work Examples</span>
               </div>
+              <div class="desktop-icon" data-app="portfolio" data-file="aiwork">
+                <div class="icon-image icon-folder-special"></div>
+                <span class="icon-label">AI Portfolio</span>
+              </div>
+              <div class="desktop-icon" data-app="game" data-file="projecttrail">
+                <div class="icon-image icon-game"></div>
+                <span class="icon-label">ProjectTrail.exe</span>
+              </div>
               <!-- Easter Egg Files -->
               <div class="desktop-icon easter-egg" data-app="notepad" data-file="secrets">
                 <div class="icon-image icon-txt"></div>
@@ -366,6 +374,62 @@
         <div class="recycle-items" id="recycle-items">
           <!-- Populated by JS -->
         </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- AI Portfolio Window Template -->
+  <template id="template-portfolio">
+    <div class="window window-portfolio" data-window="portfolio">
+      <div class="window-titlebar">
+        <span class="window-title">AI Portfolio - Explorer</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-menubar">
+        <span class="menu-item">File</span>
+        <span class="menu-item">Edit</span>
+        <span class="menu-item">View</span>
+      </div>
+      <div class="window-content portfolio-content" id="portfolio-content">
+        <!-- Portfolio items loaded by JS -->
+      </div>
+    </div>
+  </template>
+
+  <!-- Portfolio Viewer Window Template (for viewing documents) -->
+  <template id="template-portfolio-viewer">
+    <div class="window window-portfolio-viewer" data-window="portfolio-viewer">
+      <div class="window-titlebar">
+        <span class="window-title">Document Viewer</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content portfolio-viewer-content" id="portfolio-viewer-content">
+        <!-- Document content loaded by JS -->
+      </div>
+    </div>
+  </template>
+
+  <!-- Project Trail Game Window Template -->
+  <template id="template-game">
+    <div class="window window-game" data-window="game">
+      <div class="window-titlebar titlebar-game">
+        <span class="window-title">Project Trail - A Business Adventure</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content game-content" id="game-content">
+        <!-- Game loaded by JS -->
       </div>
     </div>
   </template>

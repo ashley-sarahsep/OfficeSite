@@ -1111,6 +1111,571 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
   ]
 };
 
+// ============================================
+  // AI PORTFOLIO - Work Samples & Deliverables
+  // ============================================
+
+  portfolio: {
+    title: "AI Work Portfolio",
+    description: "Actual deliverables and artifacts from my AI adoption work",
+
+    categories: [
+      {
+        id: "training",
+        name: "Training Materials",
+        icon: "📚",
+        items: [
+          {
+            id: "onboarding-guide",
+            name: "AI Agent Onboarding Guide",
+            type: "document",
+            description: "5-phase onboarding methodology for enterprise AI adoption",
+            content: `AI AGENT ONBOARDING METHODOLOGY
+=====================================
+
+PHASE 1: DISCOVERY (Week 1-2)
+- Stakeholder interviews to understand business objectives
+- Current data infrastructure assessment
+- Use case prioritization workshop
+- Success metrics definition
+
+PHASE 2: IMPLEMENTATION (Week 2-3)
+- Data connection setup and validation
+- Custom prompt library configuration
+- User role mapping and permissions
+- Integration with existing workflows
+
+PHASE 3: TESTING & VALIDATION (Week 3-4)
+- Systematic prompt testing against known data
+- Edge case identification and documentation
+- Quality baseline establishment
+- Feedback loop creation
+
+PHASE 4: TRAINING (Week 4-5)
+- Role-based training sessions
+- Self-service resource library access
+- Power user certification program
+- Ongoing support channel setup
+
+PHASE 5: ONGOING SUPPORT (Week 5+)
+- Weekly office hours
+- Quarterly prompt library updates
+- Performance metric reviews
+- Continuous improvement cycles
+
+---
+Developed by Ashley Sepers
+Applied Hermeneutics in AI Adoption`
+          },
+          {
+            id: "video-curriculum",
+            name: "Video Training Curriculum",
+            type: "list",
+            description: "50+ training videos organized by proficiency level",
+            content: `VIDEO TRAINING CURRICULUM
+==========================
+
+BEGINNER (15 videos)
+- What is an AI Analytics Agent?
+- Your First Query: Asking Questions
+- Understanding AI Responses
+- When to Trust (and Verify) Results
+- Common Beginner Mistakes
+[...]
+
+INTERMEDIATE (20 videos)
+- Building Complex Queries
+- Filtering and Time Ranges
+- Comparative Analysis
+- Trend Detection
+- Export and Reporting
+[...]
+
+ADVANCED (15 videos)
+- Power Prompts Framework
+- Multi-Dataset Analysis
+- Custom Metric Creation
+- API Integration Basics
+- Training Others
+[...]
+
+---
+Total runtime: 8+ hours
+All videos include closed captions and transcripts`
+          }
+        ]
+      },
+      {
+        id: "prompts",
+        name: "Prompt Libraries",
+        icon: "💬",
+        items: [
+          {
+            id: "power-prompts",
+            name: "Power Prompts Framework",
+            type: "document",
+            description: "Enterprise-level analytical prompt frameworks",
+            content: `POWER PROMPTS FRAMEWORK
+========================
+
+PHILOSOPHY:
+Good prompts aren't about tricking AI - they're about
+providing enough context for accurate interpretation.
+(Hermeneutics in action!)
+
+STRUCTURE:
+1. Context Setting
+   "Given [time period] data for [scope]..."
+
+2. Specific Request
+   "...identify [metric] patterns where..."
+
+3. Output Format
+   "...present as [format] including [elements]"
+
+4. Validation Cue
+   "...and flag any data gaps or anomalies"
+
+EXAMPLE POWER PROMPTS:
+
+COMPETITIVE ANALYSIS:
+"Compare our Q3 performance across all retail
+locations against Q2, highlighting any stores
+where visit completion dropped more than 10%.
+Present as a table with location, both quarters'
+rates, and the delta. Note any locations with
+incomplete data."
+
+TREND DETECTION:
+"Identify the top 5 performing product categories
+this month versus the same month last year. For
+each category, show: total visits, completion rate,
+average duration, and YoY change. Flag any
+categories with sample size under 100 visits."
+
+---
+Library contains 75+ tested prompts
+Organized by: Sales, Operations, Executive, Field`
+          },
+          {
+            id: "prompt-testing",
+            name: "Prompt Testing Framework",
+            type: "document",
+            description: "QA methodology for validating AI prompt reliability",
+            content: `PROMPT TESTING FRAMEWORK
+=========================
+
+WHY TEST PROMPTS?
+LLMs can confidently give wrong answers. Testing
+isn't optional - it's the difference between
+"AI-powered" and "AI-trusted."
+
+TESTING METHODOLOGY:
+
+1. BASELINE VALIDATION
+   - Run prompt against known dataset
+   - Compare output to manually calculated result
+   - Document any discrepancies
+
+2. EDGE CASE TESTING
+   - Empty data sets
+   - Single data point
+   - Extremely large data sets
+   - Data with nulls/gaps
+   - Conflicting data
+
+3. INTERPRETATION TESTING
+   - Rephrase same question 5 different ways
+   - Compare outputs for consistency
+   - Note any semantic drift
+
+4. RELIABILITY SCORING
+   - Run same prompt 10 times
+   - Document variation in responses
+   - Flag prompts with >5% variation
+
+5. HUMAN REVIEW
+   - Does the answer make business sense?
+   - Would a domain expert agree?
+   - Is the confidence appropriate?
+
+---
+This framework caught 23 prompt issues before
+they reached clients.`
+          }
+        ]
+      },
+      {
+        id: "qa",
+        name: "QA Documentation",
+        icon: "🔍",
+        items: [
+          {
+            id: "qa-process",
+            name: "AI Agent QA Process",
+            type: "document",
+            description: "Manual testing framework for AI product quality",
+            content: `AI AGENT QA PROCESS
+=====================
+
+TESTING PHILOSOPHY:
+"Trust but verify" isn't enough with AI.
+It's "Verify, document, then cautiously trust."
+
+DAILY QA CHECKLIST:
+□ Run standard prompt battery (15 prompts)
+□ Compare to previous day's baseline
+□ Document any drift or variation
+□ Flag anomalies for engineering review
+□ Update reliability scores
+
+WEEKLY QA TASKS:
+□ Edge case testing round
+□ New prompt validation
+□ Client-reported issue investigation
+□ Prompt library maintenance
+□ Documentation updates
+
+MONTHLY QA TASKS:
+□ Full regression testing
+□ Performance metric review
+□ Prompt library audit
+□ Training material updates
+□ Stakeholder report
+
+ISSUE CLASSIFICATION:
+🔴 Critical: Wrong data, business impact
+🟡 Major: Inconsistent results, confusion
+🟢 Minor: Formatting, minor variations
+⚪ Enhancement: Suggestions for improvement
+
+---
+This process evolved from initial chaos to
+systematic quality assurance over 6 months.`
+          },
+          {
+            id: "bug-template",
+            name: "Bug Report Template",
+            type: "document",
+            description: "Template for clear, actionable bug reports",
+            content: `AI AGENT BUG REPORT TEMPLATE
+==============================
+
+[ISSUE TITLE]
+Clear, descriptive title
+
+[SEVERITY]
+🔴 Critical | 🟡 Major | 🟢 Minor
+
+[ENVIRONMENT]
+- Client:
+- Dataset:
+- Date/Time:
+- User Role:
+
+[PROMPT USED]
+Exact text of the prompt
+
+[EXPECTED BEHAVIOR]
+What should have happened
+
+[ACTUAL BEHAVIOR]
+What actually happened
+
+[EVIDENCE]
+- Screenshots
+- Data export
+- Manual calculation showing discrepancy
+
+[REPRODUCTION STEPS]
+1. Navigate to...
+2. Enter prompt...
+3. Observe...
+
+[BUSINESS IMPACT]
+How this affects the client/users
+
+[ADDITIONAL CONTEXT]
+Any other relevant information
+
+---
+"Most people file tickets that say 'it's broken'
+and leave you guessing. Ashley's tickets have
+clear reproduction steps, expected behavior,
+actual behavior, and business impact."
+- Engineering Lead`
+          }
+        ]
+      },
+      {
+        id: "philosophy",
+        name: "Applied Philosophy",
+        icon: "🎓",
+        items: [
+          {
+            id: "hermeneutics-ai",
+            name: "Hermeneutics for AI Work",
+            type: "document",
+            description: "How philosophy improves AI implementation",
+            content: `HERMENEUTICS FOR AI WORK
+==========================
+
+WHAT IS HERMENEUTICS?
+The art and science of interpretation. How people
+make meaning from texts, conversations, experiences.
+
+WHY IT MATTERS FOR AI:
+
+1. UNDERSTANDING LLM INTERPRETATION
+   - LLMs interpret prompts based on training context
+   - Ambiguity leads to unpredictable results
+   - Clear context = better interpretation
+   (Same principles as human communication!)
+
+2. DESIGNING FOR HUMAN INTERPRETATION
+   - Users interpret AI responses through their lens
+   - Domain expertise affects understanding
+   - Cognitive load impacts comprehension
+
+3. BRIDGING THE GAP
+   - Technical output → Business meaning
+   - Data → Decision-relevant insight
+   - Complexity → Actionable clarity
+
+PRACTICAL APPLICATIONS:
+
+PROMPT DESIGN:
+"How will the model interpret this?"
+"What context is missing?"
+"Where might ambiguity cause problems?"
+
+TRAINING DESIGN:
+"How will users process this information?"
+"What prior knowledge are they bringing?"
+"Where might confusion arise?"
+
+OUTPUT VALIDATION:
+"Does this make sense to a human reader?"
+"Is the confidence appropriate?"
+"What's being assumed vs. stated?"
+
+---
+Philosophy degree: Surprisingly practical.`
+          }
+        ]
+      }
+    ]
+  },
+
+  // ============================================
+  // PROJECT TRAIL - Business Adventure Game
+  // ============================================
+
+  projectTrail: {
+    title: "Project Trail",
+    subtitle: "A Business Adventure",
+    intro: `The year is 2024. You've just been hired as the sole Operations Lead at a growing SaaS startup.
+
+Your mission: Build the operational infrastructure while keeping projects on track, stakeholders happy, and your sanity intact.
+
+The trail ahead is uncertain. Resources are limited. But someone has to make sure nothing falls through the cracks.
+
+That someone is you.`,
+
+    // Player stats
+    startingStats: {
+      sanity: 100,
+      stakeholderTrust: 75,
+      projectHealth: 80,
+      documentation: 10,
+      teamMorale: 70
+    },
+
+    // Game events with choices
+    events: [
+      {
+        id: "start",
+        title: "Day 1: The Inbox",
+        text: "You open your laptop to find 147 unread emails. A Slack message pops up: 'Quick question - got a sec?' The calendar shows 6 meetings today. Your cat walks across the keyboard.",
+        choices: [
+          {
+            text: "Triage emails by urgency, batch respond later",
+            effects: { sanity: -5, documentation: +10, stakeholderTrust: +5 },
+            nextEvent: "meeting-conflict"
+          },
+          {
+            text: "Answer the Slack immediately (it's never quick)",
+            effects: { sanity: -10, stakeholderTrust: +10 },
+            nextEvent: "slack-hole"
+          },
+          {
+            text: "Pet the cat first. Priorities.",
+            effects: { sanity: +5, teamMorale: +5 },
+            nextEvent: "meeting-conflict"
+          }
+        ]
+      },
+      {
+        id: "meeting-conflict",
+        title: "The Double-Booking",
+        text: "Two meetings are scheduled at the same time: a client demo and an internal planning session. Both organizers insist theirs is 'critical.'",
+        choices: [
+          {
+            text: "Attend the client demo (revenue first)",
+            effects: { stakeholderTrust: +10, teamMorale: -10 },
+            nextEvent: "scope-creep"
+          },
+          {
+            text: "Attend internal planning (team needs support)",
+            effects: { stakeholderTrust: -5, teamMorale: +15, projectHealth: +5 },
+            nextEvent: "scope-creep"
+          },
+          {
+            text: "Split-screen both and hope for the best",
+            effects: { sanity: -20, stakeholderTrust: -5 },
+            nextEvent: "scope-creep"
+          }
+        ]
+      },
+      {
+        id: "slack-hole",
+        title: "The Slack Hole",
+        text: "The 'quick question' turned into a 45-minute thread that could have been a 2-sentence answer with proper documentation. Three other people have now pinged you with 'urgent' requests.",
+        choices: [
+          {
+            text: "Create documentation to prevent this in the future",
+            effects: { sanity: -5, documentation: +20 },
+            nextEvent: "scope-creep"
+          },
+          {
+            text: "Keep answering - you're the knowledge holder now",
+            effects: { sanity: -15, stakeholderTrust: +5 },
+            nextEvent: "scope-creep"
+          }
+        ]
+      },
+      {
+        id: "scope-creep",
+        title: "Scope Creep Crossing",
+        text: "A stakeholder casually mentions in a meeting: 'Oh, and we also need it to do [entirely new feature]. That's included, right?' Everyone looks at you.",
+        choices: [
+          {
+            text: "'That's a great idea for Phase 2. Let me document it.'",
+            effects: { stakeholderTrust: +5, projectHealth: +10, documentation: +5 },
+            nextEvent: "tech-debt"
+          },
+          {
+            text: "'We can explore that if timeline extends 3 weeks.'",
+            effects: { stakeholderTrust: -5, projectHealth: +15 },
+            nextEvent: "tech-debt"
+          },
+          {
+            text: "*internal screaming* 'Sure, let me see what we can do.'",
+            effects: { sanity: -15, projectHealth: -20, stakeholderTrust: +10 },
+            nextEvent: "tech-debt"
+          }
+        ]
+      },
+      {
+        id: "tech-debt",
+        title: "The Technical Debt Monster",
+        text: "Engineering reports that the 'quick fix' from six months ago has become load-bearing code. Fixing it properly will take 2 sprints. Ignoring it risks the whole platform.",
+        choices: [
+          {
+            text: "Advocate for fixing it now - long-term health matters",
+            effects: { projectHealth: +20, stakeholderTrust: -10, documentation: +5 },
+            nextEvent: "ai-launch"
+          },
+          {
+            text: "Patch it again - we need to hit the deadline",
+            effects: { projectHealth: -15, stakeholderTrust: +5 },
+            nextEvent: "ai-launch"
+          },
+          {
+            text: "Document the risk and let leadership decide",
+            effects: { documentation: +15, projectHealth: +5 },
+            nextEvent: "ai-launch"
+          }
+        ]
+      },
+      {
+        id: "ai-launch",
+        title: "The AI Product Launch",
+        text: "Leadership wants to launch the new AI feature next week. It's not fully tested. Marketing already announced it. Engineering says 'it works on my machine.'",
+        choices: [
+          {
+            text: "Push for a soft launch with select clients first",
+            effects: { stakeholderTrust: +10, projectHealth: +15, sanity: -5 },
+            nextEvent: "final-stretch"
+          },
+          {
+            text: "Build a rapid QA framework and test what you can",
+            effects: { documentation: +15, projectHealth: +10, sanity: -10 },
+            nextEvent: "final-stretch"
+          },
+          {
+            text: "Send the 'concerns' email (CYA documentation)",
+            effects: { documentation: +20, stakeholderTrust: -10 },
+            nextEvent: "final-stretch"
+          }
+        ]
+      },
+      {
+        id: "final-stretch",
+        title: "The Final Stretch",
+        text: "It's Friday at 4:47 PM. The project launches Monday. You've held everything together with documentation, diplomacy, and determination. One last choice...",
+        choices: [
+          {
+            text: "Do a final review, then log off. Rest matters.",
+            effects: { sanity: +20, teamMorale: +10 },
+            nextEvent: "ending"
+          },
+          {
+            text: "Work through the weekend. Can't risk anything.",
+            effects: { sanity: -25, projectHealth: +10, documentation: +10 },
+            nextEvent: "ending"
+          },
+          {
+            text: "Send a team appreciation note, then log off.",
+            effects: { teamMorale: +20, sanity: +10 },
+            nextEvent: "ending"
+          }
+        ]
+      },
+      {
+        id: "ending",
+        title: "The Journey's End",
+        text: "CALCULATING_RESULTS",
+        choices: []
+      }
+    ],
+
+    // Ending calculations
+    endings: {
+      excellent: {
+        threshold: 350,
+        title: "Master Operator",
+        text: "Against all odds, you built sustainable systems, maintained stakeholder trust, and kept your sanity intact. The project launched successfully. Leadership is impressed. The cats are fed. You've proven that one person with the right approach can make an enormous difference. Well played."
+      },
+      good: {
+        threshold: 280,
+        title: "Seasoned Survivor",
+        text: "The project launched. Some things fell through cracks, but you caught the important ones. Your documentation will save someone hours of pain. You learned when to push back and when to adapt. This is what operational excellence actually looks like - not perfection, but consistent improvement."
+      },
+      okay: {
+        threshold: 200,
+        title: "Battle-Tested",
+        text: "You made it through, though not without some battle scars. The experience taught you valuable lessons about priorities, boundaries, and the importance of saying 'let me document that for Phase 2.' Next time will be smoother. Probably."
+      },
+      rough: {
+        threshold: 0,
+        title: "Lessons Learned",
+        text: "The trail was rough. Some projects struggled, some stakeholders grumbled, and your sanity took hits. But you showed up every day and kept things moving. In operations, sometimes that's the win. Take what you learned, rest up, and try again."
+      }
+    }
+  }
+};
+
 // Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = SITE_DATA;
