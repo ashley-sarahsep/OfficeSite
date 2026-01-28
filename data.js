@@ -72,27 +72,37 @@ const SITE_DATA = {
 
 1. The best documentation is written by the person who struggled to figure it out.
 
-2. "Let's circle back" means "I don't have an answer and I'm hoping you forget."
+2. The best process is the one people actually follow. Design for how humans actually behave, not how you wish they would.
 
-3. Every org chart is a work of fiction.
+3. Good systems are invisible until they break. Like litter boxes.
 
-4. The person who asks "why" the most is either the smartest person in the room or about to be managed out. Sometimes both.
+4. Data doesn't speak for itself. Someone's always choosing what to measure and what to ignore.
 
-5. Cats know when you have an important video call. They know.
+5. If you can't explain it simply, you don't understand it well enough to build training for it.
 
-6. The real requirements are never in the requirements document.
+6. Institutional knowledge usually lives in three people's heads and a Slack thread from 2019. Write it down.
 
-7. "Quick question" is never quick.
+7. The real requirements often aren't in the requirements document. Ask more questions.
 
-8. Institutional knowledge lives in three people's heads and a Slack thread from 2019.
+8. Cats know when you have an important video call. They know.
 
-9. The best process is the one people actually follow.
+9. When someone says "we've always done it this way," that's an invitation to ask why, not a reason to stop asking.
 
-10. Sometimes the answer is "because that's what Sharon wanted in 2016 and Sharon is gone now but no one wants to change it."
+10. Most communication problems aren't about communication. They're about assumptions no one thought to check.
+
+11. The person who asks "why" the most is usually trying to help, even when it doesn't feel that way.
+
+12. Edge cases aren't edge cases to the people experiencing them.
+
+13. Sometimes the most valuable thing you can do is notice what's not being said.
+
+14. Training isn't about information transfer. It's about behaviour change. Different problem entirely.
+
+15. The gap between "technically correct" and "actually useful" is where most problems live.
 
 ---
 Last modified: Whenever I remember something else
-Author: Someone who has been in too many meetings`
+Author: Someone who's learned most of this the hard way`
     },
 
     todo: {
