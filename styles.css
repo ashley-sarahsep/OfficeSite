@@ -391,54 +391,74 @@ body {
   pointer-events: none;
 }
 
-/* Hotspot positions - these will need adjustment based on actual image */
+/* Hotspot positions - adjusted for room image */
+/* Add ?debug to URL or set data-debug="true" on body to see outlines */
+
 #hotspot-monitor {
-  left: 3%;
-  top: 30%;
-  width: 14%;
-  height: 22%;
+  left: 1%;
+  top: 25%;
+  width: 12%;
+  height: 20%;
 }
 
 #hotspot-desk {
-  left: 4%;
-  top: 55%;
-  width: 28%;
-  height: 25%;
+  left: 1%;
+  top: 48%;
+  width: 30%;
+  height: 35%;
 }
 
 #hotspot-leftBookshelf {
-  left: 33%;
-  top: 15%;
-  width: 18%;
-  height: 60%;
+  left: 31%;
+  top: 12%;
+  width: 20%;
+  height: 65%;
 }
 
 #hotspot-rightBookshelf {
-  left: 53%;
-  top: 15%;
-  width: 18%;
-  height: 60%;
+  left: 51%;
+  top: 12%;
+  width: 20%;
+  height: 65%;
 }
 
 #hotspot-cat {
-  left: 73%;
-  top: 50%;
-  width: 15%;
-  height: 28%;
+  left: 72%;
+  top: 45%;
+  width: 18%;
+  height: 35%;
 }
 
 #hotspot-radio {
-  left: 38%;
-  top: 32%;
-  width: 8%;
-  height: 10%;
+  left: 35%;
+  top: 28%;
+  width: 10%;
+  height: 12%;
 }
 
 #hotspot-art {
-  left: 33%;
-  top: 2%;
-  width: 40%;
-  height: 15%;
+  left: 28%;
+  top: 1%;
+  width: 48%;
+  height: 14%;
+}
+
+/* Debug mode - add class "debug-hotspots" to body to see hotspot outlines */
+body.debug-hotspots .hotspot {
+  background: rgba(255, 0, 0, 0.3);
+  border: 2px dashed red;
+}
+
+body.debug-hotspots #hotspot-monitor { background: rgba(255, 0, 0, 0.3); }
+body.debug-hotspots #hotspot-desk { background: rgba(0, 255, 0, 0.3); }
+body.debug-hotspots #hotspot-leftBookshelf { background: rgba(0, 0, 255, 0.3); }
+body.debug-hotspots #hotspot-rightBookshelf { background: rgba(255, 255, 0, 0.3); }
+body.debug-hotspots #hotspot-cat { background: rgba(255, 0, 255, 0.3); }
+body.debug-hotspots #hotspot-radio { background: rgba(0, 255, 255, 0.3); }
+body.debug-hotspots #hotspot-art { background: rgba(255, 128, 0, 0.3); }
+
+body.debug-hotspots .hotspot-label {
+  opacity: 1;
 }
 
 /* Room navigation hints */

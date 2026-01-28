@@ -240,6 +240,93 @@ function initRoomHotspots() {
       handleHotspotClick(hotspotId);
     });
   });
+
+  // Initialize hotspot positioning
+  const roomImage = document.getElementById('room-image');
+
+  // Update hotspots when image loads
+  if (roomImage.complete) {
+    updateHotspotsPosition();
+  } else {
+    roomImage.addEventListener('load', updateHotspotsPosition);
+  }
+
+  // Update on window resize
+  window.addEventListener('resize', debounce(updateHotspotsPosition, 100));
+
+  // Check for debug mode via URL parameter
+  if (window.location.search.includes('debug')) {
+    document.body.classList.add('debug-hotspots');
+  }
+}
+
+// Debounce helper for resize events
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Calculate actual rendered image bounds and position hotspots to match
+function updateHotspotsPosition() {
+  const roomImage = document.getElementById('room-image');
+  const hotspotsContainer = document.getElementById('hotspots-container');
+  const roomContainer = document.querySelector('.room-container');
+
+  if (!roomImage || !hotspotsContainer || !roomContainer) return;
+
+  // Get the image's natural dimensions
+  const naturalWidth = roomImage.naturalWidth;
+  const naturalHeight = roomImage.naturalHeight;
+
+  if (!naturalWidth || !naturalHeight) return;
+
+  // Get the image element's CSS box dimensions
+  const imageRect = roomImage.getBoundingClientRect();
+  const containerRect = roomContainer.getBoundingClientRect();
+
+  // Calculate the image's position relative to room-container
+  const imageOffsetX = imageRect.left - containerRect.left;
+  const imageOffsetY = imageRect.top - containerRect.top;
+
+  // Calculate the actual rendered image dimensions within the CSS box
+  // (accounting for object-fit: contain letterboxing)
+  const imageBoxWidth = imageRect.width;
+  const imageBoxHeight = imageRect.height;
+  const imageAspect = naturalWidth / naturalHeight;
+  const boxAspect = imageBoxWidth / imageBoxHeight;
+
+  let renderedWidth, renderedHeight, contentOffsetX, contentOffsetY;
+
+  if (imageAspect > boxAspect) {
+    // Image is wider than box - letterbox top/bottom
+    renderedWidth = imageBoxWidth;
+    renderedHeight = imageBoxWidth / imageAspect;
+    contentOffsetX = 0;
+    contentOffsetY = (imageBoxHeight - renderedHeight) / 2;
+  } else {
+    // Image is taller than box - letterbox left/right
+    renderedHeight = imageBoxHeight;
+    renderedWidth = imageBoxHeight * imageAspect;
+    contentOffsetX = (imageBoxWidth - renderedWidth) / 2;
+    contentOffsetY = 0;
+  }
+
+  // Total offset = image element position + content offset within image
+  const totalOffsetX = imageOffsetX + contentOffsetX;
+  const totalOffsetY = imageOffsetY + contentOffsetY;
+
+  // Position the hotspots container to match the actual rendered image area
+  hotspotsContainer.style.width = `${renderedWidth}px`;
+  hotspotsContainer.style.height = `${renderedHeight}px`;
+  hotspotsContainer.style.left = `${totalOffsetX}px`;
+  hotspotsContainer.style.top = `${totalOffsetY}px`;
 }
 
 function handleHotspotClick(hotspotId) {
