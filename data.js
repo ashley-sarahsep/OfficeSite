@@ -1356,7 +1356,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
   // ============================================
 
   aboutMe: {
-    displayName: "~*Ashley*~",
+    displayName: "Ashley",
     mood: "Filling gaps since 2014",
     status: "Remote & thriving",
     lastLogin: "Today",
@@ -1365,29 +1365,29 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
     headline: "Professional Gap-Filler | Hermeneutics Enthusiast | Cat Mom",
 
     aboutText: `
-<p><strong>Oh, hi there!</strong></p>
-<p>I'm Ashley - the person who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recognizer. The connective tissue that keeps organizations from falling apart.</p>
-<p>My brain works differently than most - neurodivergent in ways that make me excellent at context-switching between wildly different problems and seeing patterns across domains that others miss.</p>
-<p>Philosophy background (hermeneutics - how people interpret information) + social work = I design systems that respect how humans actually think, learn, and adopt new behaviors.</p>
-<p>Based in Guelph, Ontario. Remote worker since 2014. Pink office walls. Two opinionated cats named Gertrude and Gherkin.</p>
+<p><strong>Hey there!</strong></p>
+<p>I'm Ashley - a human being who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recognizer. The connective tissue that keeps organizations from falling apart.</p>
+<p>Philosophy background (hermeneutics - how people interpret information) + social work training = I design systems that respect how humans actually think, learn, and adopt new behaviors. Not how we wish they would. How they actually do.</p>
+<p>The path here was winding: philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops, then 7+ years at a startup that became about five different jobs. Every step taught me something I still use.</p>
+<p>Based in Guelph, Ontario. Remote worker since 2014. Pink office walls. A wall unit I got for $80 twelve years ago that stores all my favourite things. Two cats named Gertrude and Gherkin who have very different personalities and very strong opinions.</p>
     `,
 
     interests: {
-      general: "Hermeneutics, pattern recognition, vintage finds, pixel art games, MYST, Oregon Trail II, mid-century modern furniture, estate sales",
-      music: "John Prine, Emmylou Harris, Talking Heads, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Spent my youth at punk shows.",
-      movies: "Tombstone (I'll be your Huckleberry)",
-      books: "Philosophy texts, fiction that teaches empathy, the occasional business book"
+      general: "Hermeneutics, pattern recognition, thrift stores, vintage finds, point-and-click adventure games, MYST, mid-century modern furniture, estate sales, things with history",
+      music: "John Prine, Emmylou Harris, Talking Heads, Psychedelic Furs, Prince, Against Me!, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Grew up in a house with thousands of records. Spent my youth at punk and metal shows - see you in the pit.",
+      books: "Philosophy texts I still reference, fiction that teaches empathy, social work theory, just good stories",
+      heroes: "My dad (music, books, curiosity) and my mum (Prince, Talking Heads, the fun stuff), and I'm sure plenty of others, though I'm not keen on pedestals."
     },
 
     topEight: [
-      { name: "Gertrude & Gherkin", role: "Adorable Fuzzbutts", image: "assets/images/top8-cats.jpg" },
-      { name: "Jira", role: "Frenemy", image: "assets/images/top8-jira.jpg" },
-      { name: "Hermeneutics", role: "Secret Weapon", image: "assets/images/top8-philosophy.jpg" },
-      { name: "Remote Work", role: "Lifestyle", image: "assets/images/top8-remote.jpg" },
-      { name: "The Pink Chair", role: "Aspirational Seat", image: "assets/images/top8-chair.jpg" },
-      { name: "Pattern Recognition", role: "Superpower", image: "assets/images/top8-patterns.jpg" },
-      { name: "Coffee", role: "Fuel", image: "assets/images/top8-coffee.jpg" },
-      { name: "Asking Why", role: "Core Methodology", image: "assets/images/top8-why.jpg" }
+      { name: "Gertrude & Gherkin", role: "The Real Bosses", image: "assets/images/top8-cats.jpg" },
+      { name: "Jira", role: "It's Complicated", image: "assets/images/top8-jira.jpg" },
+      { name: "Hermeneutics", role: "Secretly Practical", image: "assets/images/top8-philosophy.jpg" },
+      { name: "Remote Work", role: "Since Before It Was Cool", image: "assets/images/top8-remote.jpg" },
+      { name: "The Pink Chair", role: "Gherkin's Now, Apparently", image: "assets/images/top8-chair.jpg" },
+      { name: "Asking Why", role: "Core Methodology", image: "assets/images/top8-why.jpg" },
+      { name: "The $80 Wall Unit", role: "Best Thrift Find", image: "assets/images/top8-wallunit.jpg" },
+      { name: "Good Documentation", role: "An Act of Kindness", image: "assets/images/top8-docs.jpg" }
     ],
 
     testimonials: [
