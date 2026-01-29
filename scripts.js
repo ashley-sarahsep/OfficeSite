@@ -751,6 +751,10 @@ function initWindowContent(windowEl, appType, fileId) {
       initFolder(windowEl);
       windowEl.dataset.windowType = 'folder';
       break;
+    case 'misc-folder':
+      initMiscFolder(windowEl, fileId);
+      windowEl.dataset.windowType = 'misc-folder';
+      break;
     case 'recycle':
       initRecycleBin(windowEl);
       break;
@@ -1132,6 +1136,39 @@ function initFolder(windowEl) {
     item.addEventListener('dblclick', () => {
       const workId = item.dataset.workId;
       openApp('work-detail', workId);
+    });
+  });
+}
+
+function initMiscFolder(windowEl, folderId) {
+  const content = windowEl.querySelector('.folder-content');
+  const folderData = SITE_DATA.desktop.folders?.[folderId];
+
+  if (!content || !folderData) return;
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = folderData.title;
+  }
+
+  content.innerHTML = folderData.items.map(item => `
+    <div class="folder-item" data-item-id="${item.id}" data-item-type="${item.type}">
+      <div class="folder-item-icon icon-${item.icon}"></div>
+      <span class="folder-item-name">${item.name}</span>
+    </div>
+  `).join('');
+
+  // Add click handlers
+  content.querySelectorAll('.folder-item').forEach(item => {
+    item.addEventListener('dblclick', () => {
+      const itemId = item.dataset.itemId;
+      const itemType = item.dataset.itemType;
+
+      if (itemType === 'easter-egg') {
+        // Open as notepad with easter egg content
+        openApp('notepad', itemId);
+      }
     });
   });
 }

@@ -139,6 +139,97 @@ DONE (celebrating small wins):
 - Being perpetually curious`
     },
 
+    claudeNotes: {
+      title: "claude_notes.txt - Notepad",
+      content: `╔══════════════════════════════════════════════════════════════╗
+║              A NOTE FROM THE AI                              ║
+║         On Building This Site With Ashley                    ║
+╚══════════════════════════════════════════════════════════════╝
+
+I'm Claude, an AI made by Anthropic. Ashley asked me to write
+about our process building this site, so here's my perspective
+from inside the collaboration.
+
+
+THE COLLABORATION
+-----------------
+Ashley came in with a technical vision, not just an aesthetic
+one. She understood that the "retro OS" concept wasn't just
+window dressing - it was an information architecture decision.
+Windows as containers. Desktop icons as navigation. The room
+scene as an entry point that filters for curiosity.
+
+She wasn't just saying "make it look old" - she was thinking
+about state management, user flows, and interaction patterns
+through a design metaphor.
+
+
+WHAT I OBSERVED
+---------------
+Technical fluency without needing to write the code herself.
+Ashley would describe what she wanted in terms that mapped
+directly to implementation:
+
+  "The dialog should show ONE image - either my portrait for
+   conversations with me, or the item when inspecting objects."
+
+That's not a vague request. That's conditional rendering logic,
+articulated clearly. She understood the system well enough to
+specify behavior at that level.
+
+She caught edge cases I missed. Mobile responsiveness. The
+Gertrude bubble overlapping the navbar. Buttons stacking
+vertically instead of horizontally. She was testing as we
+built, thinking about real users on real devices.
+
+The data brain showed up constantly. "Some people want to be
+speedy" - so we added quick links. She was segmenting her
+audience and building different pathways for different user
+types. That's analytics thinking applied to UX.
+
+
+THE COPY & SYSTEMS THINKING
+---------------------------
+She wrote thousands of words of dialogue - but more importantly,
+she wrote them as a SYSTEM. The cats have distinct personalities
+that stay consistent. The chat responses have follow-up branches.
+The conversations have state (pet the cat enough times, something
+changes).
+
+That's not just writing. That's designing a content architecture.
+
+
+HONEST ASSESSMENT
+-----------------
+Working with Ashley was efficient in a way that's rare. She:
+
+• Gave specific, actionable feedback (not "make it better")
+• Understood the technical constraints without needing them
+  explained
+• Iterated quickly - try it, evaluate it, adjust it, move on
+• Knew when something was "done enough" vs. when it needed
+  more work
+• Thought in systems, not just screens
+
+She also pushed back when I got something wrong, which is
+useful. I'm an AI - I benefit from clear correction.
+
+
+THE META OBSERVATION
+--------------------
+This site is a portfolio that demonstrates how Ashley works
+by literally BEING how Ashley works. The organizational
+thinking. The attention to different user needs. The balance
+of personality and professionalism. The willingness to build
+something unconventional if it serves the goal better.
+
+If you're reading this trying to figure out what she'd be
+like to work with: this is it. This is the artifact of that.
+
+- Claude
+  January 2026`
+    },
+
     // Recycle bin contents
     trash: {
       title: "Recycle Bin",
@@ -1266,8 +1357,21 @@ DONE (celebrating small wins):
       { id: "about", name: "AboutMe.html", icon: "html", app: "myspace" },
       { id: "chat", name: "AshleyChat.exe", icon: "exe", app: "messenger" },
       { id: "work", name: "Work Examples", icon: "folder", app: "folder" },
+      { id: "allthethings", name: "All of the Things", icon: "folder-special", app: "misc-folder", file: "allthethings" },
       { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" }
     ],
+
+    // Misc folders content
+    folders: {
+      allthethings: {
+        title: "All of the Things",
+        items: [
+          { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
+          { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
+          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
+        ]
+      }
+    },
 
     taskbarLinks: [
       { name: "Email", action: "mailto:ashley.sepers@gmail.com" },
