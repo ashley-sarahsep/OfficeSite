@@ -840,7 +840,9 @@ function getWindowSize(appType) {
     'about-computer': { width: '420px', height: '380px' },
     raiders: { width: '550px', height: '480px' },
     memory: { width: '420px', height: '500px' },
-    minesweeper: { width: '340px', height: '440px' }
+    minesweeper: { width: '340px', height: '440px' },
+    casestudy: { width: '600px', height: '550px' },
+    presentation: { width: '700px', height: '520px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -866,7 +868,9 @@ function getWindowTitle(appType, fileId) {
     'about-computer': 'About This Computer',
     raiders: 'Raiders of the Lost Doc',
     memory: 'Memory Match',
-    minesweeper: 'Meeting Minesweeper'
+    minesweeper: 'Meeting Minesweeper',
+    casestudy: 'Case Study',
+    presentation: 'Presentation'
   };
   return titles[appType] || 'Window';
 }
@@ -912,6 +916,14 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'portfolio-viewer':
       initPortfolioViewer(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'casestudy':
+      initCaseStudy(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'presentation':
+      initPresentation(windowEl, fileId);
       windowEl.dataset.windowType = 'workExamples';
       break;
     case 'game':
@@ -1587,21 +1599,27 @@ function initPortfolio(windowEl) {
         <h2>${portfolio.title}</h2>
         <p>${portfolio.description}</p>
       </div>
-      <div class="portfolio-categories">
-        ${portfolio.categories.map(cat => `
-          <div class="portfolio-category" data-category="${cat.id}">
-            <div class="portfolio-category-header">
-              <span class="portfolio-category-icon">${cat.icon}</span>
-              <span class="portfolio-category-name">${cat.name}</span>
-              <span class="portfolio-category-count">${cat.items.length} items</span>
+      <div class="portfolio-projects">
+        ${portfolio.projects.map(project => `
+          <div class="portfolio-project" data-project-id="${project.id}">
+            <div class="portfolio-project-header">
+              <span class="portfolio-project-icon">${project.icon}</span>
+              <div class="portfolio-project-info">
+                <span class="portfolio-project-title">${project.title}</span>
+                <span class="portfolio-project-category">${project.category}</span>
+              </div>
             </div>
-            <div class="portfolio-items">
-              ${cat.items.map(item => `
-                <div class="portfolio-item" data-item-id="${item.id}" data-category="${cat.id}">
-                  <span class="portfolio-item-icon">📄</span>
-                  <span class="portfolio-item-name">${item.name}</span>
-                </div>
-              `).join('')}
+            <p class="portfolio-project-summary">${project.summary}</p>
+            <div class="portfolio-project-actions">
+              <button class="portfolio-action" data-action="casestudy" data-project="${project.id}">
+                📋 Case Study
+              </button>
+              <button class="portfolio-action" data-action="presentation" data-project="${project.id}">
+                📊 Presentation
+              </button>
+              <button class="portfolio-action" data-action="document" data-project="${project.id}">
+                📄 Full Document
+              </button>
             </div>
           </div>
         `).join('')}
@@ -1609,54 +1627,227 @@ function initPortfolio(windowEl) {
     </div>
   `;
 
-  // Add click handlers for categories (collapse/expand)
-  content.querySelectorAll('.portfolio-category-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const category = header.closest('.portfolio-category');
-      category.classList.toggle('collapsed');
+  // Add click handlers for action buttons
+  content.querySelectorAll('.portfolio-action').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const action = btn.dataset.action;
+      const projectId = btn.dataset.project;
+      const project = portfolio.projects.find(p => p.id === projectId);
+
+      if (!project) return;
+
+      if (action === 'casestudy') {
+        openApp('casestudy', projectId);
+      } else if (action === 'presentation') {
+        openApp('presentation', projectId);
+      } else if (action === 'document') {
+        // Open the HTML document in a new window/tab
+        window.open(project.documentUrl, '_blank');
+      }
     });
+  });
+}
+
+function initCaseStudy(windowEl, projectId) {
+  const content = windowEl.querySelector('.casestudy-content');
+  if (!content || !projectId) return;
+
+  const project = SITE_DATA.portfolio.projects.find(p => p.id === projectId);
+
+  if (!project) {
+    content.innerHTML = '<p>Project not found.</p>';
+    return;
+  }
+
+  const cs = project.caseStudy;
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = project.title + ' - Case Study';
+  }
+
+  content.innerHTML = `
+    <div class="casestudy-wrapper">
+      <div class="casestudy-header">
+        <span class="casestudy-icon">${project.icon}</span>
+        <div class="casestudy-title-area">
+          <h2>${project.title}</h2>
+          <span class="casestudy-category">${project.category}</span>
+        </div>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>🎯 The Challenge</h3>
+        <p>${cs.challenge}</p>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>💡 My Approach</h3>
+        <p>${cs.approach}</p>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>📦 Key Deliverables</h3>
+        <ul class="casestudy-deliverables">
+          ${cs.deliverables.map(d => `<li>${d}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>📈 The Impact</h3>
+        <p>${cs.impact}</p>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>🛠️ Skills Applied</h3>
+        <div class="casestudy-skills">
+          ${cs.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="casestudy-footer">
+        <button class="casestudy-btn" id="view-presentation" data-project="${projectId}">
+          📊 View Presentation
+        </button>
+        <button class="casestudy-btn secondary" id="view-document" data-url="${project.documentUrl}">
+          📄 View Full Document
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Add button handlers
+  content.querySelector('#view-presentation')?.addEventListener('click', () => {
+    openApp('presentation', projectId);
   });
 
-  // Add click handlers for items
-  content.querySelectorAll('.portfolio-item').forEach(item => {
-    item.addEventListener('dblclick', () => {
-      const itemId = item.dataset.itemId;
-      const categoryId = item.dataset.category;
-      openApp('portfolio-viewer', `${categoryId}:${itemId}`);
-    });
+  content.querySelector('#view-document')?.addEventListener('click', () => {
+    window.open(project.documentUrl, '_blank');
   });
+}
+
+function initPresentation(windowEl, projectId) {
+  const content = windowEl.querySelector('.presentation-content');
+  if (!content || !projectId) return;
+
+  const project = SITE_DATA.portfolio.projects.find(p => p.id === projectId);
+
+  if (!project || !project.presentation) {
+    content.innerHTML = '<p>Presentation not found.</p>';
+    return;
+  }
+
+  const pres = project.presentation;
+  let currentSlide = 0;
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = pres.title + ' - Presentation';
+  }
+
+  function renderSlide() {
+    const slide = pres.slides[currentSlide];
+    const totalSlides = pres.slides.length;
+
+    content.innerHTML = `
+      <div class="presentation-wrapper">
+        <div class="presentation-slide">
+          ${currentSlide === 0 ? `
+            <div class="presentation-title-slide">
+              <span class="presentation-icon">${project.icon}</span>
+              <h1>${pres.title}</h1>
+              <p class="presentation-subtitle">${pres.subtitle}</p>
+              <p class="presentation-author">Ashley Sepers</p>
+            </div>
+          ` : `
+            <div class="presentation-content-slide">
+              <h2>${slide.title}</h2>
+              <div class="presentation-body">
+                ${slide.content.split('\n').map(line =>
+                  line.startsWith('•') ?
+                    `<p class="presentation-bullet">${line}</p>` :
+                    `<p>${line}</p>`
+                ).join('')}
+              </div>
+            </div>
+          `}
+        </div>
+
+        <div class="presentation-controls">
+          <button class="pres-nav-btn" id="pres-prev" ${currentSlide === 0 ? 'disabled' : ''}>
+            ◀ Prev
+          </button>
+          <span class="pres-counter">${currentSlide + 1} / ${totalSlides}</span>
+          <button class="pres-nav-btn" id="pres-next" ${currentSlide === totalSlides - 1 ? 'disabled' : ''}>
+            Next ▶
+          </button>
+        </div>
+
+        <div class="presentation-progress">
+          <div class="presentation-progress-bar" style="width: ${((currentSlide + 1) / totalSlides) * 100}%"></div>
+        </div>
+      </div>
+    `;
+
+    // Add navigation handlers
+    content.querySelector('#pres-prev')?.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        renderSlide();
+      }
+    });
+
+    content.querySelector('#pres-next')?.addEventListener('click', () => {
+      if (currentSlide < pres.slides.length - 1) {
+        currentSlide++;
+        renderSlide();
+      }
+    });
+  }
+
+  renderSlide();
+
+  // Add keyboard navigation
+  const keyHandler = (e) => {
+    if (!document.contains(windowEl)) {
+      document.removeEventListener('keydown', keyHandler);
+      return;
+    }
+
+    // Only handle if this window is focused
+    const isActive = windowEl.style.zIndex === String(state.windowZIndex);
+    if (!isActive) return;
+
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      if (currentSlide < pres.slides.length - 1) {
+        currentSlide++;
+        renderSlide();
+      }
+    } else if (e.key === 'ArrowLeft') {
+      if (currentSlide > 0) {
+        currentSlide--;
+        renderSlide();
+      }
+    }
+  };
+
+  document.addEventListener('keydown', keyHandler);
 }
 
 function initPortfolioViewer(windowEl, fileId) {
   const content = windowEl.querySelector('.portfolio-viewer-content');
   if (!content || !fileId) return;
 
-  const [categoryId, itemId] = fileId.split(':');
-  const category = SITE_DATA.portfolio.categories.find(c => c.id === categoryId);
-  const item = category?.items.find(i => i.id === itemId);
-
-  if (!item) {
-    content.innerHTML = '<p>Document not found.</p>';
+  // Legacy support - redirect to case study
+  const project = SITE_DATA.portfolio.projects.find(p => p.id === fileId);
+  if (project) {
+    initCaseStudy(windowEl, fileId);
     return;
   }
 
-  // Update window title
-  const titleEl = windowEl.querySelector('.window-title');
-  if (titleEl) {
-    titleEl.textContent = item.name + ' - Document Viewer';
-  }
-
-  content.innerHTML = `
-    <div class="portfolio-viewer-wrapper">
-      <div class="portfolio-viewer-header">
-        <h2>${item.name}</h2>
-        <p class="portfolio-viewer-description">${item.description}</p>
-      </div>
-      <div class="portfolio-viewer-body">
-        <pre class="portfolio-document">${item.content}</pre>
-      </div>
-    </div>
-  `;
+  content.innerHTML = '<p>Document not found.</p>';
 }
 
 // ============================================

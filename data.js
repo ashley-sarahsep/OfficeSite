@@ -1962,353 +1962,268 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
   // ============================================
 
   portfolio: {
-    title: "AI Work Portfolio",
-    description: "Actual deliverables and artifacts from my AI adoption work",
+    title: "Work Portfolio",
+    description: "Case studies and deliverables from my operations and AI enablement work",
 
-    categories: [
+    projects: [
       {
-        id: "training",
-        name: "Training Materials",
+        id: "prompt-crafting",
+        title: "The Art of Prompt Crafting",
+        category: "AI Training & Enablement",
         icon: "📚",
-        items: [
-          {
-            id: "onboarding-guide",
-            name: "AI Agent Onboarding Guide",
-            type: "document",
-            description: "5-phase onboarding methodology for enterprise AI adoption",
-            content: `AI AGENT ONBOARDING METHODOLOGY
-=====================================
+        summary: "Created comprehensive onboarding curriculum for enterprise AI agent adoption",
+        documentUrl: "examples/prompt-crafting-guide.html",
 
-PHASE 1: DISCOVERY (Week 1-2)
-- Stakeholder interviews to understand business objectives
-- Current data infrastructure assessment
-- Use case prioritization workshop
-- Success metrics definition
+        caseStudy: {
+          challenge: "New AI agent product launching with zero training infrastructure. Clients ranged from tech-savvy analysts to executives who'd never used AI. Needed to get diverse users productive quickly without overwhelming them or setting unrealistic expectations.",
 
-PHASE 2: IMPLEMENTATION (Week 2-3)
-- Data connection setup and validation
-- Custom prompt library configuration
-- User role mapping and permissions
-- Integration with existing workflows
+          approach: "Applied my hermeneutics background - how do people actually learn and interpret new information? Built a progressive curriculum that met users where they were. Started with 'what AI can and can't do' before teaching prompts. Created role-based paths so sales teams learned differently than ops teams.",
 
-PHASE 3: TESTING & VALIDATION (Week 3-4)
-- Systematic prompt testing against known data
-- Edge case identification and documentation
-- Quality baseline establishment
-- Feedback loop creation
+          deliverables: [
+            "5-phase onboarding methodology (Discovery → Implementation → Testing → Training → Support)",
+            "Role-based training tracks for different user types",
+            "50+ training videos with transcripts and captions",
+            "Self-service resource library with searchable documentation",
+            "Power user certification program",
+            "Ongoing office hours and support framework"
+          ],
 
-PHASE 4: TRAINING (Week 4-5)
-- Role-based training sessions
-- Self-service resource library access
-- Power user certification program
-- Ongoing support channel setup
+          impact: "Became the go-to person for all AI-related questions across the organization. Training materials were used for every new client onboarding and internal hire. Reduced the 'I don't get it' support tickets dramatically by setting proper expectations upfront. Clients who went through the full curriculum showed notably higher engagement and satisfaction.",
 
-PHASE 5: ONGOING SUPPORT (Week 5+)
-- Weekly office hours
-- Quarterly prompt library updates
-- Performance metric reviews
-- Continuous improvement cycles
+          skills: ["Curriculum Design", "AI/ML Understanding", "Technical Writing", "Video Production", "Change Management", "Stakeholder Training"]
+        },
 
----
-Developed by Ashley Sepers
-Applied Hermeneutics in AI Adoption`
-          },
-          {
-            id: "video-curriculum",
-            name: "Video Training Curriculum",
-            type: "list",
-            description: "50+ training videos organized by proficiency level",
-            content: `VIDEO TRAINING CURRICULUM
-==========================
-
-BEGINNER (15 videos)
-- What is an AI Analytics Agent?
-- Your First Query: Asking Questions
-- Understanding AI Responses
-- When to Trust (and Verify) Results
-- Common Beginner Mistakes
-[...]
-
-INTERMEDIATE (20 videos)
-- Building Complex Queries
-- Filtering and Time Ranges
-- Comparative Analysis
-- Trend Detection
-- Export and Reporting
-[...]
-
-ADVANCED (15 videos)
-- Power Prompts Framework
-- Multi-Dataset Analysis
-- Custom Metric Creation
-- API Integration Basics
-- Training Others
-[...]
-
----
-Total runtime: 8+ hours
-All videos include closed captions and transcripts`
-          }
-        ]
+        presentation: {
+          title: "The Art of Prompt Crafting",
+          subtitle: "Building AI Adoption from Zero",
+          slides: [
+            {
+              title: "The Challenge",
+              content: "New AI product. Zero training materials. Users ranging from 'What's a prompt?' to 'Give me the API.'",
+              notes: "No two users had the same starting point"
+            },
+            {
+              title: "My Philosophy",
+              content: "Hermeneutics: The study of how people interpret and understand information.\n\nGood training isn't about information dumps - it's about meeting people where they are.",
+              notes: "Philosophy degree: surprisingly practical"
+            },
+            {
+              title: "The Framework",
+              content: "5 Phases:\n\n1. Discovery - Understand their goals\n2. Implementation - Set up properly\n3. Testing - Build confidence\n4. Training - Role-based learning\n5. Support - Ongoing success",
+              notes: "Each phase has clear exit criteria"
+            },
+            {
+              title: "Key Insight",
+              content: "Most AI training fails because it teaches WHAT before WHY.\n\nI started with: 'Here's what AI can't do' before 'Here's what it can.'",
+              notes: "Setting expectations prevents disappointment"
+            },
+            {
+              title: "The Deliverables",
+              content: "• 50+ training videos\n• Role-based learning paths\n• Self-service resource library\n• Power user certification\n• Weekly office hours",
+              notes: "All created from scratch by me"
+            },
+            {
+              title: "The Impact",
+              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\nSupport tickets about 'I don't get it' dropped significantly.",
+              notes: "My fingerprints on every success"
+            }
+          ]
+        }
       },
+
       {
-        id: "prompts",
-        name: "Prompt Libraries",
-        icon: "💬",
-        items: [
-          {
-            id: "power-prompts",
-            name: "Power Prompts Framework",
-            type: "document",
-            description: "Enterprise-level analytical prompt frameworks",
-            content: `POWER PROMPTS FRAMEWORK
-========================
+        id: "visual-language",
+        title: "The Visual Language",
+        category: "Data Visualization",
+        icon: "📊",
+        summary: "Developed standards for translating data queries into clear, actionable visualizations",
+        documentUrl: "examples/visual-language-guide.html",
 
-PHILOSOPHY:
-Good prompts aren't about tricking AI - they're about
-providing enough context for accurate interpretation.
-(Hermeneutics in action!)
+        caseStudy: {
+          challenge: "AI agents could answer questions, but the answers were walls of text. Executives wanted charts. Analysts wanted tables. Field teams wanted simple numbers. Same data, completely different needs - and no standards for how to present any of it.",
 
-STRUCTURE:
-1. Context Setting
-   "Given [time period] data for [scope]..."
+          approach: "Researched visualization best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness - same data, different presentations for different roles.",
 
-2. Specific Request
-   "...identify [metric] patterns where..."
+          deliverables: [
+            "Chart selection guide matching data types to visualization types",
+            "Audience adaptation framework (Executive vs. Analyst vs. Field)",
+            "Color palette standards with accessibility compliance",
+            "Template library for common report types",
+            "Prompt engineering patterns for visualization requests",
+            "Style guide ensuring consistency across all outputs"
+          ],
 
-3. Output Format
-   "...present as [format] including [elements]"
+          impact: "Transformed raw AI outputs into presentation-ready insights. Executives actually started using the dashboards instead of asking for manual reports. Consistency across all client deliverables improved significantly. Became the standard for how data was presented company-wide.",
 
-4. Validation Cue
-   "...and flag any data gaps or anomalies"
+          skills: ["Data Visualization", "UX Design", "Technical Documentation", "Accessibility", "Stakeholder Management", "Information Architecture"]
+        },
 
-EXAMPLE POWER PROMPTS:
-
-COMPETITIVE ANALYSIS:
-"Compare our Q3 performance across all retail
-locations against Q2, highlighting any stores
-where visit completion dropped more than 10%.
-Present as a table with location, both quarters'
-rates, and the delta. Note any locations with
-incomplete data."
-
-TREND DETECTION:
-"Identify the top 5 performing product categories
-this month versus the same month last year. For
-each category, show: total visits, completion rate,
-average duration, and YoY change. Flag any
-categories with sample size under 100 visits."
-
----
-Library contains 75+ tested prompts
-Organized by: Sales, Operations, Executive, Field`
-          },
-          {
-            id: "prompt-testing",
-            name: "Prompt Testing Framework",
-            type: "document",
-            description: "QA methodology for validating AI prompt reliability",
-            content: `PROMPT TESTING FRAMEWORK
-=========================
-
-WHY TEST PROMPTS?
-LLMs can confidently give wrong answers. Testing
-isn't optional - it's the difference between
-"AI-powered" and "AI-trusted."
-
-TESTING METHODOLOGY:
-
-1. BASELINE VALIDATION
-   - Run prompt against known dataset
-   - Compare output to manually calculated result
-   - Document any discrepancies
-
-2. EDGE CASE TESTING
-   - Empty data sets
-   - Single data point
-   - Extremely large data sets
-   - Data with nulls/gaps
-   - Conflicting data
-
-3. INTERPRETATION TESTING
-   - Rephrase same question 5 different ways
-   - Compare outputs for consistency
-   - Note any semantic drift
-
-4. RELIABILITY SCORING
-   - Run same prompt 10 times
-   - Document variation in responses
-   - Flag prompts with >5% variation
-
-5. HUMAN REVIEW
-   - Does the answer make business sense?
-   - Would a domain expert agree?
-   - Is the confidence appropriate?
-
----
-This framework caught 23 prompt issues before
-they reached clients.`
-          }
-        ]
+        presentation: {
+          title: "The Visual Language",
+          subtitle: "Making Data Speak Clearly",
+          slides: [
+            {
+              title: "The Problem",
+              content: "AI could answer anything.\nBut the answers looked like this:\n\n[Wall of text nobody read]",
+              notes: "Data without design is just noise"
+            },
+            {
+              title: "Different Audiences, Different Needs",
+              content: "Executive: 'Just tell me if we're up or down'\n\nAnalyst: 'I need the underlying data'\n\nField Team: 'Is this location good or bad?'",
+              notes: "One size fits nobody"
+            },
+            {
+              title: "The Solution",
+              content: "A decision framework:\n\n• Trends over time → Line charts\n• Part of whole → Pie/donut\n• Comparisons → Bar charts\n• Relationships → Scatter plots\n• Single metrics → Big numbers",
+              notes: "Match the visual to the question"
+            },
+            {
+              title: "Audience Adaptation",
+              content: "Same data, three presentations:\n\nExec: 'Revenue up 12% ↑' (green, big)\nAnalyst: [Full table with drill-down]\nField: 'Your store: #3 of 50'",
+              notes: "Context determines format"
+            },
+            {
+              title: "The Standards",
+              content: "• Consistent color palette\n• Accessibility-compliant contrast\n• Clear titles that answer 'so what?'\n• Source attribution\n• Data freshness indicators",
+              notes: "Consistency builds trust"
+            },
+            {
+              title: "The Result",
+              content: "Executives stopped asking for manual reports.\n\nEvery deliverable looked professional.\n\nBecame the company standard for data presentation.",
+              notes: "Design system for data"
+            }
+          ]
+        }
       },
+
       {
-        id: "qa",
-        name: "QA Documentation",
-        icon: "🔍",
-        items: [
-          {
-            id: "qa-process",
-            name: "AI Agent QA Process",
-            type: "document",
-            description: "Manual testing framework for AI product quality",
-            content: `AI AGENT QA PROCESS
-=====================
+        id: "survey-methodology",
+        title: "Experience Survey Framework",
+        category: "Research & Insights",
+        icon: "📋",
+        summary: "Built survey methodology for capturing authentic customer experience feedback",
+        documentUrl: "examples/mobile-experience-survey-guide.html",
 
-TESTING PHILOSOPHY:
-"Trust but verify" isn't enough with AI.
-It's "Verify, document, then cautiously trust."
+        caseStudy: {
+          challenge: "Clients needed to understand what customers actually thought about their field marketing experiences. But most surveys were either too long (nobody finishes), too vague (useless data), or too leading (biased results). Needed a framework that got honest, useful feedback without survey fatigue.",
 
-DAILY QA CHECKLIST:
-□ Run standard prompt battery (15 prompts)
-□ Compare to previous day's baseline
-□ Document any drift or variation
-□ Flag anomalies for engineering review
-□ Update reliability scores
+          approach: "Studied survey methodology research. Identified the sweet spot: 5-7 questions, specific but not leading, mix of quantitative (for tracking) and qualitative (for insights). Built in mobile-first design since most respondents were on phones. Created question banks organized by what you're trying to learn.",
 
-WEEKLY QA TASKS:
-□ Edge case testing round
-□ New prompt validation
-□ Client-reported issue investigation
-□ Prompt library maintenance
-□ Documentation updates
+          deliverables: [
+            "Survey design principles document",
+            "Question bank organized by research objective",
+            "Mobile-optimized survey templates",
+            "Response analysis framework",
+            "Benchmark interpretation guide",
+            "Common pitfalls and how to avoid them"
+          ],
 
-MONTHLY QA TASKS:
-□ Full regression testing
-□ Performance metric review
-□ Prompt library audit
-□ Training material updates
-□ Stakeholder report
+          impact: "Survey completion rates improved compared to previous approaches. Data quality was markedly better - fewer 'straight-line' responses, more thoughtful feedback. Clients could actually make decisions based on results. Framework was adopted as the standard for all experience measurement.",
 
-ISSUE CLASSIFICATION:
-🔴 Critical: Wrong data, business impact
-🟡 Major: Inconsistent results, confusion
-🟢 Minor: Formatting, minor variations
-⚪ Enhancement: Suggestions for improvement
+          skills: ["Survey Design", "Research Methodology", "Data Analysis", "UX Writing", "Mobile Design", "Client Training"]
+        },
 
----
-This process evolved from initial chaos to
-systematic quality assurance over 6 months.`
-          },
-          {
-            id: "bug-template",
-            name: "Bug Report Template",
-            type: "document",
-            description: "Template for clear, actionable bug reports",
-            content: `AI AGENT BUG REPORT TEMPLATE
-==============================
-
-[ISSUE TITLE]
-Clear, descriptive title
-
-[SEVERITY]
-🔴 Critical | 🟡 Major | 🟢 Minor
-
-[ENVIRONMENT]
-- Client:
-- Dataset:
-- Date/Time:
-- User Role:
-
-[PROMPT USED]
-Exact text of the prompt
-
-[EXPECTED BEHAVIOR]
-What should have happened
-
-[ACTUAL BEHAVIOR]
-What actually happened
-
-[EVIDENCE]
-- Screenshots
-- Data export
-- Manual calculation showing discrepancy
-
-[REPRODUCTION STEPS]
-1. Navigate to...
-2. Enter prompt...
-3. Observe...
-
-[BUSINESS IMPACT]
-How this affects the client/users
-
-[ADDITIONAL CONTEXT]
-Any other relevant information
-
----
-"Most people file tickets that say 'it's broken'
-and leave you guessing. Ashley's tickets have
-clear reproduction steps, expected behavior,
-actual behavior, and business impact."
-- Engineering Lead`
-          }
-        ]
+        presentation: {
+          title: "Experience Survey Framework",
+          subtitle: "Getting Feedback That Actually Helps",
+          slides: [
+            {
+              title: "The Challenge",
+              content: "Most surveys fail:\n\n• Too long → Abandoned\n• Too vague → Useless\n• Too leading → Biased\n\nWe needed honest, useful feedback.",
+              notes: "Survey fatigue is real"
+            },
+            {
+              title: "The Research",
+              content: "What the data says:\n\n• 5-7 questions optimal\n• Mobile completion 3x higher\n• Specific beats generic\n• Mix quant + qual",
+              notes: "Evidence-based approach"
+            },
+            {
+              title: "The Framework",
+              content: "Every survey needs:\n\n1. Overall satisfaction (benchmark)\n2. Specific experience questions\n3. Likelihood to recommend (NPS)\n4. Open-ended 'why'\n5. One actionable question",
+              notes: "Structure that works"
+            },
+            {
+              title: "Question Bank Approach",
+              content: "Pre-tested questions organized by objective:\n\n• Measuring satisfaction\n• Understanding drivers\n• Identifying problems\n• Capturing suggestions",
+              notes: "Don't reinvent the wheel"
+            },
+            {
+              title: "Mobile-First Design",
+              content: "• Thumb-friendly buttons\n• Progress indicators\n• Save and continue\n• Under 3 minutes total",
+              notes: "Design for how people actually respond"
+            },
+            {
+              title: "The Impact",
+              content: "Completion rates improved significantly.\n\nData quality measurably better.\n\nClients could make decisions.\n\nBecame the standard framework.",
+              notes: "Better data, better decisions"
+            }
+          ]
+        }
       },
+
       {
-        id: "philosophy",
-        name: "Applied Philosophy",
-        icon: "🎓",
-        items: [
-          {
-            id: "hermeneutics-ai",
-            name: "Hermeneutics for AI Work",
-            type: "document",
-            description: "How philosophy improves AI implementation",
-            content: `HERMENEUTICS FOR AI WORK
-==========================
+        id: "advanced-prompts",
+        title: "Enterprise Analytics Framework",
+        category: "AI & Analytics",
+        icon: "🔬",
+        summary: "Created advanced prompt frameworks for enterprise-level business intelligence",
+        documentUrl: "examples/advanced-ai-prompts-guide.html",
 
-WHAT IS HERMENEUTICS?
-The art and science of interpretation. How people
-make meaning from texts, conversations, experiences.
+        caseStudy: {
+          challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to bridge the gap between business questions and technical queries.",
 
-WHY IT MATTERS FOR AI:
+          approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively - same prompt, multiple datasets, consistent results. Created templates that non-technical users could customize. Built in guardrails to prevent misinterpretation.",
 
-1. UNDERSTANDING LLM INTERPRETATION
-   - LLMs interpret prompts based on training context
-   - Ambiguity leads to unpredictable results
-   - Clear context = better interpretation
-   (Same principles as human communication!)
+          deliverables: [
+            "Power Prompts library with 75+ tested templates",
+            "Prompt engineering guide for analysts",
+            "Business question → Prompt translation framework",
+            "Output validation checklist",
+            "Edge case documentation",
+            "Continuous improvement process for prompt refinement"
+          ],
 
-2. DESIGNING FOR HUMAN INTERPRETATION
-   - Users interpret AI responses through their lens
-   - Domain expertise affects understanding
-   - Cognitive load impacts comprehension
+          impact: "Transformed how clients extracted value from their data. Analysts who previously did manual Excel work could get answers in seconds. Executives got strategic insights they didn't know were possible. Several major sales wins directly cited the analytical capabilities as decision factors.",
 
-3. BRIDGING THE GAP
-   - Technical output → Business meaning
-   - Data → Decision-relevant insight
-   - Complexity → Actionable clarity
+          skills: ["Prompt Engineering", "Business Intelligence", "Data Analysis", "Technical Writing", "QA Testing", "Client Training"]
+        },
 
-PRACTICAL APPLICATIONS:
-
-PROMPT DESIGN:
-"How will the model interpret this?"
-"What context is missing?"
-"Where might ambiguity cause problems?"
-
-TRAINING DESIGN:
-"How will users process this information?"
-"What prior knowledge are they bringing?"
-"Where might confusion arise?"
-
-OUTPUT VALIDATION:
-"Does this make sense to a human reader?"
-"Is the confidence appropriate?"
-"What's being assumed vs. stated?"
-
----
-Philosophy degree: Surprisingly practical.`
-          }
-        ]
+        presentation: {
+          title: "Enterprise Analytics Framework",
+          subtitle: "Power Prompts for Business Intelligence",
+          slides: [
+            {
+              title: "The Gap",
+              content: "Business Question:\n'How are we doing vs. last year?'\n\nBasic Prompt:\n'Compare this year to last year'\n\nResult: Wall of unusable text",
+              notes: "Good questions need good translation"
+            },
+            {
+              title: "The Insight",
+              content: "AI can do sophisticated analysis.\n\nUsers don't know how to ask for it.\n\nMy job: Build the bridge.",
+              notes: "Translation layer"
+            },
+            {
+              title: "Prompt Engineering",
+              content: "Structure:\n1. Context (time, scope, filters)\n2. Specific request (metric, comparison)\n3. Output format (table, chart, summary)\n4. Validation cue (flag anomalies)",
+              notes: "Repeatable framework"
+            },
+            {
+              title: "The Power Prompts Library",
+              content: "75+ tested prompts:\n\n• Trend Detection\n• Anomaly Identification\n• Competitive Analysis\n• Performance Ranking\n• Predictive Patterns",
+              notes: "Tested on real data"
+            },
+            {
+              title: "Quality Assurance",
+              content: "Every prompt tested:\n\n• Multiple datasets\n• Edge cases\n• Rephrasing consistency\n• Business logic validation\n• Human review",
+              notes: "Trust but verify. Then verify again."
+            },
+            {
+              title: "The Impact",
+              content: "Manual Excel analysis → Seconds.\n\nExecutives got strategic insights.\n\nMajor sales wins cited our analytics.\n\nChanged how clients saw their data.",
+              notes: "My fingerprints on the big wins"
+            }
+          ]
+        }
       }
     ]
   },
