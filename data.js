@@ -1984,7 +1984,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
         "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs, kept everything moving",
         "Transitioned to account manager role post-launch, stabilized the relationship, then successfully handed off with complete documentation"
       ],
-      outcome: "Platform launched successfully with zero failed deployments. Scaled to track 42,000+ retail installations. QA process became template for subsequent implementations. Classic pattern: see gap, fill gap, build system, hand off.",
+      outcome: "Platform launched successfully and scaled to track 42,000+ retail installations. QA process became template for subsequent implementations. Classic pattern: see gap, fill gap, build system, hand off.",
       skills: ["Project Management", "QA Leadership", "Requirements Gathering", "Jira", "Agile", "Client Relations", "Technical Translation"],
       image: "assets/images/work-enterprise.jpg"
     },
