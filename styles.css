@@ -366,8 +366,9 @@ body {
   background: linear-gradient(to bottom, var(--dialog-brown) 0%, var(--dialog-brown-dark) 100%);
   padding: 10px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 30px;
   border-top: 3px solid var(--dialog-cream);
   z-index: 50;
 }
@@ -377,6 +378,9 @@ body {
   font-size: 22px;
   color: var(--dialog-cream);
   text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+  position: absolute;
+  left: 20px;
+}
 }
 
 .navbar-actions {
@@ -2061,7 +2065,7 @@ body {
   right: 20px;
   z-index: 9999;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
 }
@@ -2074,6 +2078,7 @@ body {
   cursor: pointer;
   animation: gertrudeBob 2s ease-in-out infinite;
   transition: transform 0.2s ease;
+  order: 2; /* Icon appears below the bubble */
 }
 
 .gertrude-icon:hover {
@@ -2097,6 +2102,7 @@ body {
   box-shadow: 3px 3px 0 rgba(0,0,0,0.2);
   cursor: pointer;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  order: 1; /* Bubble appears above the icon */
 }
 
 .gertrude-bubble.hidden {
