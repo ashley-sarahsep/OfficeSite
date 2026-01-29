@@ -347,6 +347,28 @@
     </div>
   </template>
 
+  <!-- Misc Folder Window Template -->
+  <template id="template-misc-folder">
+    <div class="window window-folder" data-window="misc-folder">
+      <div class="window-titlebar">
+        <span class="window-title">Folder</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-menubar">
+        <span class="menu-item">File</span>
+        <span class="menu-item">Edit</span>
+        <span class="menu-item">View</span>
+      </div>
+      <div class="window-content folder-content">
+        <!-- Folder items loaded by JS -->
+      </div>
+    </div>
+  </template>
+
   <!-- Work Example Detail Window Template -->
   <template id="template-work-detail">
     <div class="window window-work-detail" data-window="work-detail">
@@ -377,6 +399,27 @@
       </div>
       <div class="window-content notepad-content">
         <pre class="notepad-text" id="notepad-text"></pre>
+      </div>
+    </div>
+  </template>
+
+  <!-- Cat Pong Game Template -->
+  <template id="template-catpong">
+    <div class="window window-catpong" data-window="catpong">
+      <div class="window-titlebar titlebar-game">
+        <span class="window-title">CatPong.exe</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content catpong-content">
+        <canvas id="catpong-canvas" width="400" height="300"></canvas>
+        <div class="catpong-info">
+          <span class="catpong-score">Gertrude: <span id="score-left">0</span> | Gherkin: <span id="score-right">0</span></span>
+          <span class="catpong-controls">W/S or ↑/↓ to move | Space to start</span>
+        </div>
       </div>
     </div>
   </template>
