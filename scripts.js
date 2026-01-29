@@ -1091,8 +1091,8 @@ function initWordpad(windowEl) {
     downloadBtn.addEventListener('click', () => {
       // Try to download the PDF file
       const link = document.createElement('a');
-      link.href = 'assets/Ashley_Sepers_Resume.pdf';
-      link.download = 'Ashley_Sepers_Resume.pdf';
+      link.href = 'assets/Ashley_Sarah_Resume.pdf';
+      link.download = 'Ashley_Sarah_Resume.pdf';
       link.click();
     });
   }
@@ -1107,7 +1107,7 @@ function initWordpad(windowEl) {
         <!DOCTYPE html>
         <html>
         <head>
-          <title>Ashley Sepers - Resume</title>
+          <title>Ashley Sarah - Resume</title>
           <style>
             body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 20px; color: #333; line-height: 1.6; }
             h1 { font-size: 28px; margin-bottom: 5px; }
@@ -1759,7 +1759,7 @@ function initPresentation(windowEl, projectId) {
               <span class="presentation-icon">${project.icon}</span>
               <h1>${pres.title}</h1>
               <p class="presentation-subtitle">${pres.subtitle}</p>
-              <p class="presentation-author">Ashley Sepers</p>
+              <p class="presentation-author">Ashley Sarah</p>
             </div>
           ` : `
             <div class="presentation-content-slide">
@@ -2044,7 +2044,7 @@ function showGameEnding(container) {
       <div class="game-ending-actions">
         <button class="game-restart-btn" id="game-restart">Play Again</button>
       </div>
-      <p class="game-credit">Project Trail - Inspired by the operations life of Ashley Sepers</p>
+      <p class="game-credit">Project Trail - Inspired by the operations life of Ashley Sarah</p>
     </div>
   `;
 

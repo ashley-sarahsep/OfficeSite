@@ -6,7 +6,7 @@
 
 const SITE_DATA = {
   // Personal info
-  name: "Ashley Sepers",
+  name: "Ashley Sarah",
   title: "Product Operations | Cross-Functional Leadership | Enablement | AI Adoption",
   email: "ashley.sepers@gmail.com",
   linkedin: "linkedin.com/in/ashley-sarahsep",
