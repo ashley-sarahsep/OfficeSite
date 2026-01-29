@@ -419,6 +419,10 @@ function openDialog(hotspotId, hotspotData) {
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
 
+  // Clear previous dialog content immediately
+  textEl.textContent = '';
+  responsesEl.innerHTML = '';
+
   // Set dialog title
   titleEl.textContent = hotspotData.name;
 
