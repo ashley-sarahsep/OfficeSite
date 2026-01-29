@@ -2204,20 +2204,20 @@ function initCatPong(windowEl) {
   function update() {
     if (!game.running || game.paused) return;
 
-    // Move paddles based on keys
-    if (game.keys['w'] || game.keys['W'] || game.keys['ArrowUp']) {
-      game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed);
-    }
-    if (game.keys['s'] || game.keys['S'] || game.keys['ArrowDown']) {
-      game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed);
+    // Simple AI for left paddle
+    const paddleCenter = game.paddleLeft.y + game.paddleLeft.height / 2;
+    if (paddleCenter < game.ball.y - 20) {
+      game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed * 0.7);
+    } else if (paddleCenter > game.ball.y + 20) {
+      game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed * 0.7);
     }
 
-    // Simple AI for right paddle
-    const paddleCenter = game.paddleRight.y + game.paddleRight.height / 2;
-    if (paddleCenter < game.ball.y - 20) {
-      game.paddleRight.y = Math.min(canvas.height - game.paddleRight.height, game.paddleRight.y + game.paddleSpeed * 0.7);
-    } else if (paddleCenter > game.ball.y + 20) {
-      game.paddleRight.y = Math.max(0, game.paddleRight.y - game.paddleSpeed * 0.7);
+    // Move player paddle (right) based on keys
+    if (game.keys['w'] || game.keys['W'] || game.keys['ArrowUp']) {
+      game.paddleRight.y = Math.max(0, game.paddleRight.y - game.paddleSpeed);
+    }
+    if (game.keys['s'] || game.keys['S'] || game.keys['ArrowDown']) {
+      game.paddleRight.y = Math.min(canvas.height - game.paddleRight.height, game.paddleRight.y + game.paddleSpeed);
     }
 
     // Move ball
@@ -2248,14 +2248,11 @@ function initCatPong(windowEl) {
 
     // Scoring
     if (game.ball.x < 0) {
+      // Ball went off left - player (right) scores
       game.scoreRight++;
       scoreRightEl.textContent = game.scoreRight;
-      resetBall();
-    } else if (game.ball.x > canvas.width) {
-      game.scoreLeft++;
-      scoreLeftEl.textContent = game.scoreLeft;
-      // Track high score
-      const isNewBest = setHighScore('catpong', game.scoreLeft, 'high');
+      // Track high score for player
+      const isNewBest = setHighScore('catpong', game.scoreRight, 'high');
       if (bestEl) {
         bestEl.textContent = `Best: ${getHighScore('catpong')}`;
         if (isNewBest) {
@@ -2263,6 +2260,11 @@ function initCatPong(windowEl) {
           setTimeout(() => bestEl.classList.remove('new-best'), 1000);
         }
       }
+      resetBall();
+    } else if (game.ball.x > canvas.width) {
+      // Ball went off right - AI (left) scores
+      game.scoreLeft++;
+      scoreLeftEl.textContent = game.scoreLeft;
       resetBall();
     }
 
