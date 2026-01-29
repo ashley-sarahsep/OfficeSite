@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Art of Prompt Crafting</title>
+  <style>
+    :root {
+      --deep-ocean: #1a365d;
+      --ocean-mid: #2c5282;
+      --coral: #dd6b4d;
+      --coral-light: #e8a090;
+      --cream: #faf7f2;
+      --warm-white: #ffffff;
+      --sage: #68a67d;
+      --sage-light: #e8f5eb;
+      --text: #2d3748;
+      --text-light: #5a6578;
+      --border: #e2e0db;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    h1 {
+      color: var(--deep-ocean);
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-light);
+      font-size: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .intro {
+      background: var(--warm-white);
+      padding: 20px 24px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--coral);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .intro p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      color: var(--deep-ocean);
+      font-size: 22px;
+      margin: 35px 0 18px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--coral-light);
+    }
+
+    h3 {
+      color: var(--ocean-mid);
+      font-size: 17px;
+      margin: 22px 0 12px 0;
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    /* Comparison Examples - Compact Grid */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    @media (max-width: 650px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .example-box {
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+
+    .example-box.basic {
+      background: #fef2f0;
+      border: 1px solid #f5c6bc;
+    }
+
+    .example-box.enhanced {
+      background: var(--sage-light);
+      border: 1px solid #b8dac2;
+    }
+
+    .example-header {
+      padding: 6px 12px;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .example-box.basic .example-header {
+      background: #f5c6bc;
+      color: #8b3a2f;
+    }
+
+    .example-box.enhanced .example-header {
+      background: #b8dac2;
+      color: #2d5a3c;
+    }
+
+    .example-content {
+      padding: 12px;
+    }
+
+    .prompt-text {
+      background: rgba(0,0,0,0.04);
+      padding: 8px 10px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 12px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .response-text {
+      color: var(--text-light);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .response-text p {
+      margin-bottom: 6px;
+      font-size: 12px;
+    }
+
+    .insight {
+      background: rgba(0,0,0,0.03);
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-style: italic;
+      font-size: 11px;
+      margin-top: 8px;
+      color: var(--text-light);
+    }
+
+    .highlight {
+      background: #fff3cd;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    /* Tip Boxes */
+    .tip {
+      background: linear-gradient(135deg, #f0f4f8 0%, #e8ecf0 100%);
+      border-left: 3px solid var(--ocean-mid);
+      padding: 14px 16px;
+      margin: 18px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+    }
+
+    .tip-title {
+      font-weight: 600;
+      color: var(--ocean-mid);
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .tip ul {
+      margin: 8px 0 0 18px;
+    }
+
+    .tip li {
+      margin-bottom: 4px;
+    }
+
+    /* Do/Don't Compact Grid */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    @media (max-width: 650px) {
+      .do-dont {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .do-col, .dont-col {
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 13px;
+    }
+
+    .do-col {
+      background: var(--sage-light);
+      border: 1px solid #b8dac2;
+    }
+
+    .dont-col {
+      background: #fef2f0;
+      border: 1px solid #f5c6bc;
+    }
+
+    .col-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .do-col .col-title {
+      color: #2d5a3c;
+    }
+
+    .dont-col .col-title {
+      color: #8b3a2f;
+    }
+
+    .do-col ul, .dont-col ul {
+      margin-left: 16px;
+    }
+
+    .do-col li, .dont-col li {
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    /* Exercise Boxes */
+    .exercise {
+      background: #fff9f0;
+      border: 1px solid #e8c9a0;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+    }
+
+    .exercise-title {
+      font-weight: 600;
+      color: #9a6d3a;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .exercise ol {
+      margin-left: 20px;
+    }
+
+    .exercise li {
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    /* Prompt Templates */
+    .template {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin: 12px 0;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    /* Principle Sections */
+    .principle {
+      margin-bottom: 24px;
+    }
+
+    .principle-title {
+      font-weight: 600;
+      color: var(--deep-ocean);
+      font-size: 16px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon {
+      font-size: 18px;
+    }
+
+    /* Full-width Example */
+    .example-full {
+      background: var(--sage-light);
+      border: 1px solid #b8dac2;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+
+    .example-full .example-header {
+      background: #b8dac2;
+      color: #2d5a3c;
+    }
+
+    .example-full .example-content {
+      padding: 14px;
+    }
+
+    .multi-response h4 {
+      color: var(--ocean-mid);
+      font-size: 13px;
+      margin: 12px 0 6px 0;
+    }
+
+    .multi-response h4:first-child {
+      margin-top: 0;
+    }
+
+    .multi-response ul {
+      margin: 4px 0 0 18px;
+      font-size: 12px;
+    }
+
+    .multi-response li {
+      margin-bottom: 3px;
+    }
+
+    /* Workflow Steps */
+    .workflow {
+      counter-reset: step;
+      margin: 16px 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      background: var(--ocean-mid);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content strong {
+      color: var(--deep-ocean);
+      font-size: 14px;
+    }
+
+    .step-content p {
+      font-size: 13px;
+      margin: 2px 0 0 0;
+      color: var(--text-light);
+    }
+
+    /* Visual Chart Mockups */
+    .chart-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+
+    @media (max-width: 650px) {
+      .chart-demo {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-box {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .chart-label {
+      padding: 8px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .chart-box.basic .chart-label {
+      background: #e8e5e0;
+      color: var(--text-light);
+    }
+
+    .chart-box.enhanced .chart-label {
+      background: linear-gradient(90deg, var(--ocean-mid), var(--coral));
+      color: white;
+    }
+
+    .chart-visual {
+      height: 120px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      padding: 12px;
+      background: var(--warm-white);
+    }
+
+    .bar {
+      width: 14%;
+      border-radius: 3px 3px 0 0;
+    }
+
+    .chart-box.basic .bar {
+      background: #c5c5c5;
+    }
+
+    .chart-box.enhanced .bar {
+      background: linear-gradient(180deg, var(--coral) 0%, var(--ocean-mid) 100%);
+    }
+
+    .bar-1 { height: 55%; }
+    .bar-2 { height: 80%; }
+    .bar-3 { height: 35%; }
+    .bar-4 { height: 65%; }
+    .bar-5 { height: 45%; }
+
+    /* Pro Tip Box */
+    .pro-tip {
+      background: var(--deep-ocean);
+      color: white;
+      padding: 14px 18px;
+      border-radius: 8px;
+      margin: 18px 0;
+      font-size: 13px;
+    }
+
+    .pro-tip strong {
+      color: var(--coral-light);
+    }
+
+    /* Formula Box */
+    .formula {
+      background: linear-gradient(135deg, #f8f6f3 0%, #f0ede8 100%);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .formula-text {
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 13px;
+      color: var(--ocean-mid);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .formula-example {
+      font-size: 12px;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 10px 0 10px 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    li strong {
+      color: var(--ocean-mid);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--warm-white);
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .section-card h3 {
+      margin-top: 0;
+    }
+
+    /* Conclusion */
+    .conclusion {
+      background: linear-gradient(135deg, var(--deep-ocean) 0%, var(--ocean-mid) 100%);
+      color: white;
+      padding: 24px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+
+    .conclusion h2 {
+      color: white;
+      border-bottom-color: rgba(255,255,255,0.3);
+      margin-top: 0;
+    }
+
+    .conclusion p {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .conclusion ul {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .conclusion li {
+      color: rgba(255,255,255,0.9);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-light);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The Art of Prompt Crafting</h1>
+    <p class="subtitle">How your words shape AI outputs and practical techniques to get exactly what you need from your mAInEvent Agent</p>
+  </header>
+
+  <div class="intro">
+    <p>The way you communicate with AI systems has a profound impact on the quality of information you receive. Unlike human colleagues who can interpret vague requests, AI systems respond directly to what you ask—and how you ask it.</p>
+    <p>This guide demonstrates how different phrasings produce dramatically different results, with practical techniques to help you craft prompts that yield the most valuable insights from your data.</p>
+  </div>
+
+  <h2>The Power of Phrasing: Basic Principles</h2>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">&#127919;</span> Specificity Transforms Results</div>
+
+    <div class="comparison">
+      <div class="example-box basic">
+        <div class="example-header">Basic Prompt</div>
+        <div class="example-content">
+          <div class="prompt-text">Show me event data.</div>
+          <div class="response-text">
+            <p>Here's a summary of your event data:</p>
+            <p>Total Events: 123 | Avg Attendance: 45 | Top Type: Sampling</p>
+          </div>
+          <div class="insight">Generic response requiring follow-up questions.</div>
+        </div>
+      </div>
+
+      <div class="example-box enhanced">
+        <div class="example-header">Enhanced Prompt</div>
+        <div class="example-content">
+          <div class="prompt-text">Show me event performance data for sampling events in the Northeast region during Q2 2023, focusing on attendance trends and conversion rates.</div>
+          <div class="response-text">
+            <p>28 sampling events across 5 markets | Attendance +12% over Q1 | Conversion: 34% (7% above avg) | Boston: +18% growth</p>
+          </div>
+          <div class="insight">Actionable insights without follow-up needed.</div>
+        </div>
+      </div>
+    </div>
+
+    <p>The enhanced prompt specified <span class="highlight">event type</span>, <span class="highlight">region</span>, <span class="highlight">time period</span>, and <span class="highlight">metrics of interest</span>—enabling much more valuable information in a single interaction.</p>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">&#128260;</span> Context Creates Clarity</div>
+
+    <div class="comparison">
+      <div class="example-box basic">
+        <div class="example-header">Basic Prompt</div>
+        <div class="example-content">
+          <div class="prompt-text">Which events performed best?</div>
+          <div class="response-text">
+            <p>Top events by attendance:</p>
+            <p>1. Chicago Launch (256) | 2. NYC Festival (221) | 3. Atlanta Show (198)</p>
+          </div>
+          <div class="insight">Agent guessed "best" meant attendance.</div>
+        </div>
+      </div>
+
+      <div class="example-box enhanced">
+        <div class="example-header">Enhanced Prompt</div>
+        <div class="example-content">
+          <div class="prompt-text">We're planning our 2024 budget. Which event types showed highest ROI in 2023? I'm interested in leads generated vs. total event cost.</div>
+          <div class="response-text">
+            <p>Highest ROI (leads-to-cost): In-Store Demos $42/lead | Campus Tours $53/lead | Conferences $67/lead</p>
+          </div>
+          <div class="insight">Agent understands your purpose and metric.</div>
+        </div>
+      </div>
+    </div>
+
+    <p>Explaining <span class="highlight">why you need information</span> and <span class="highlight">how you'll use it</span> helps prioritize the most relevant data.</p>
+  </div>
+
+  <div class="tip">
+    <div class="tip-title">The 4W + H Framework</div>
+    <p>Include these elements in your prompts:</p>
+    <ul>
+      <li><strong>What</strong> – Specific data or insights you're seeking</li>
+      <li><strong>Where</strong> – Relevant regions, markets, or venues</li>
+      <li><strong>When</strong> – Time period for the analysis</li>
+      <li><strong>Who</strong> – Audiences, staff types, or stakeholders involved</li>
+      <li><strong>How</strong> – How information should be measured or presented</li>
+    </ul>
+  </div>
+
+  <h2>Visualization Magic: Requesting Compelling Graphics</h2>
+
+  <p>The way you request visuals dramatically affects their usefulness and appearance.</p>
+
+  <div class="chart-demo">
+    <div class="chart-box basic">
+      <div class="chart-label">Basic: "Create a chart of event performance"</div>
+      <div class="chart-visual">
+        <div class="bar bar-1"></div>
+        <div class="bar bar-2"></div>
+        <div class="bar bar-3"></div>
+        <div class="bar bar-4"></div>
+        <div class="bar bar-5"></div>
+      </div>
+    </div>
+    <div class="chart-box enhanced">
+      <div class="chart-label">Enhanced: Specific chart type, metrics, colors</div>
+      <div class="chart-visual">
+        <div class="bar bar-1"></div>
+        <div class="bar bar-2"></div>
+        <div class="bar bar-3"></div>
+        <div class="bar bar-4"></div>
+        <div class="bar bar-5"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="do-dont">
+    <div class="do-col">
+      <div class="col-title">&#10003; Do Specify</div>
+      <ul>
+        <li><strong>Chart type</strong> – Bar, line, pie, scatter, heat map</li>
+        <li><strong>Data focus</strong> – Exact metrics and dimensions</li>
+        <li><strong>Time period</strong> – Specific date range</li>
+        <li><strong>Comparisons</strong> – Groups to compare</li>
+        <li><strong>Colors</strong> – Hex codes or brand colors</li>
+        <li><strong>Context</strong> – How the visual will be used</li>
+      </ul>
+    </div>
+    <div class="dont-col">
+      <div class="col-title">&#10007; Don't Leave Ambiguous</div>
+      <ul>
+        <li><strong>Metrics</strong> – "Performance" is too vague</li>
+        <li><strong>Time frames</strong> – "Recent" is subjective</li>
+        <li><strong>Comparisons</strong> – "Compare events" needs specifics</li>
+        <li><strong>Audience</strong> – Executives need different views than analysts</li>
+        <li><strong>Format</strong> – Don't assume the Agent knows best chart type</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="formula">
+    <div class="formula-text">"Create a [CHART TYPE] showing [METRIC] for [DIMENSION] during [TIME PERIOD]. Use [COLORS] and highlight [KEY INSIGHTS]. This is for [PURPOSE]."</div>
+    <div class="formula-example">Example: "Create a stacked bar chart showing samples distributed and conversion rates by product type for Northeast markets in Q3. Use brand blue/purple gradient and highlight highest conversion. This is for our quarterly marketing review."</div>
+  </div>
+
+  <h2>From Analysis to Storytelling: Advanced Techniques</h2>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">&#128269;</span> Request Analysis, Not Just Data</div>
+
+    <div class="comparison">
+      <div class="example-box basic">
+        <div class="example-header">Basic: Data Only</div>
+        <div class="example-content">
+          <div class="prompt-text">Show me attendance numbers for Chicago events last quarter.</div>
+          <div class="response-text">
+            <p>Trade Show: 187 | Mall Sampling: 342 | University: 156 | In-Store: 98 | Street Team: 275</p>
+          </div>
+          <div class="insight">Raw data you must interpret yourself.</div>
+        </div>
+      </div>
+
+      <div class="example-box enhanced">
+        <div class="example-header">Enhanced: Analysis + Recommendations</div>
+        <div class="example-content">
+          <div class="prompt-text">Analyze Chicago attendance trends vs. previous quarter and same quarter last year. What's driving changes and what would you recommend?</div>
+          <div class="response-text">
+            <p>+12% QoQ, -5% YoY | Mall sampling +23% YoY | Trade shows -18% | Rec: Reallocate budget to mall events</p>
+          </div>
+          <div class="insight">Analysis with actionable recommendations.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="principle">
+    <div class="principle-title"><span class="icon">&#128202;</span> Request Multiple Perspectives</div>
+
+    <div class="example-full">
+      <div class="example-header">Multi-Perspective Prompt</div>
+      <div class="example-content">
+        <div class="prompt-text">Analyze our Q2 product sampling program from three perspectives: 1) Financial efficiency (cost per sample, ROI), 2) Marketing impact (reach, impressions, engagement), and 3) Operational execution (staff performance, venue effectiveness). I need to present to both finance and marketing executives.</div>
+        <div class="multi-response">
+          <h4>Financial Perspective</h4>
+          <ul>
+            <li>Cost per sample: $6.75 (12% below budget) | Customer acquisition: $42.30 | ROI: 124%</li>
+          </ul>
+          <h4>Marketing Perspective</h4>
+          <ul>
+            <li>Consumer reach: 28,500 | Social impressions: 145,000 (+37%) | Brand sentiment: +8.5%</li>
+          </ul>
+          <h4>Operational Perspective</h4>
+          <ul>
+            <li>Staff efficiency: 42 samples/hour | Best venue: Urban shopping centers (+62%) | Weather impact: -35% on rainy days</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-title">&#9998; Practice: Transform These Basic Prompts</div>
+    <ol>
+      <li><strong>Basic:</strong> "Show me event costs." <em>→ Add cost categories, time periods, comparisons, and business context.</em></li>
+      <li><strong>Basic:</strong> "Make a chart of attendance." <em>→ Specify chart type, metrics, time frame, style, and purpose.</em></li>
+      <li><strong>Basic:</strong> "Which venues are best?" <em>→ Define "best" with metrics, scope, and how you'll use the information.</em></li>
+    </ol>
+  </div>
+
+  <h2>Prompt Templates for Common Scenarios</h2>
+
+  <h3>Performance Analysis</h3>
+  <div class="template">Analyze the performance of [EVENT TYPE] in [MARKETS] during [TIME PERIOD], comparing [METRIC 1], [METRIC 2], and [METRIC 3]. Which factors correlate with success? Present for a [presentation/report] to [audience].</div>
+
+  <h3>Comparative Analysis</h3>
+  <div class="template">Compare [SEGMENT A] versus [SEGMENT B] for [EVENT TYPE] during [TIME PERIOD]. Focus on [METRIC 1] and [METRIC 2]. What insights could inform our [business decision]? Include clear visualizations.</div>
+
+  <h3>Trend Analysis</h3>
+  <div class="template">Identify significant trends in [METRIC] for [EVENT TYPE] over [TIME PERIOD]. Break down by [DIMENSION] and highlight seasonal patterns or anomalies. Create a visualization for [report/presentation].</div>
+
+  <h3>Root Cause Analysis</h3>
+  <div class="template">We've noticed [OBSERVED ISSUE] in [EVENT TYPE] events in [LOCATION] during [TIME PERIOD]. Analyze correlations with [FACTOR 1], [FACTOR 2], [FACTOR 3]. What are the primary drivers and potential solutions?</div>
+
+  <h2>Creative Approaches: Thinking Outside the Box</h2>
+
+  <div class="section-card">
+    <h3>&#128260; Role-Based Perspectives</h3>
+    <div class="template">Analyze our recent sampling program from three perspectives: 1) As a financial analyst focused on ROI, 2) As a first-time consumer experiencing our brand, and 3) As a competitive intelligence specialist. For each, highlight 2-3 key insights and recommendations.</div>
+    <p style="margin-top: 10px; font-size: 13px; color: var(--text-light);"><em>This reveals insights you might miss with a single analytical lens.</em></p>
+  </div>
+
+  <div class="section-card">
+    <h3>&#128302; Future Scenario Planning</h3>
+    <div class="template">Based on 18 months of data, create three scenarios for Q3-Q4 if: 1) Consumer spending decreases 15%, 2) A competitor launches aggressive sampling, or 3) We increase staff training budget 25%. Project impact on key metrics and suggest adjustments.</div>
+    <p style="margin-top: 10px; font-size: 13px; color: var(--text-light);"><em>Data-driven scenario planning helps prepare for multiple futures.</em></p>
+  </div>
+
+  <div class="section-card">
+    <h3>&#128269; Pattern Recognition</h3>
+    <div class="template">Analyze 12 months of data to identify non-obvious patterns between variables like weather, day of week, staff experience, venue characteristics, and performance. What surprising relationships could inform strategy?</div>
+    <p style="margin-top: 10px; font-size: 13px; color: var(--text-light);"><em>Discovers hidden correlations beyond standard reports.</em></p>
+  </div>
+
+  <h2>Your Prompt Crafting Workflow</h2>
+
+  <div class="workflow">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <strong>Define your objective</strong>
+        <p>What decision or action will this information support?</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <strong>Identify key parameters</strong>
+        <p>Time periods, regions, event types, and relevant metrics.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <strong>Consider your audience</strong>
+        <p>Who will consume this and what matters to them?</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <strong>Draft your prompt</strong>
+        <p>Use templates and principles from this guide.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <strong>Review and enhance</strong>
+        <p>Eliminate ambiguity, add visualization preferences and format needs.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <strong>Execute and refine</strong>
+        <p>Iterate based on results: "Focus more on..." or "Reformulate to emphasize..."</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pro-tip">
+    <strong>Remember:</strong> Iteration is key. Start with a well-structured prompt, then refine based on the response. Use phrases like "That's helpful, but focus more specifically on..." to guide toward your ideal output.
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-title">&#9998; Practice Challenge</div>
+    <ol>
+      <li>Take a recent request you made (or plan to make)</li>
+      <li>Apply the principles from this guide to enhance it</li>
+      <li>Compare response quality between original and enhanced prompts</li>
+      <li>Note which changes had the biggest impact</li>
+    </ol>
+  </div>
+
+  <div class="conclusion">
+    <h2>Conclusion</h2>
+    <p>Effective AI communication is both art and science. By applying these techniques, you'll:</p>
+    <ul>
+      <li>Extract deeper insights from your event data</li>
+      <li>Create more compelling visualizations</li>
+      <li>Reduce time spent iterating on requests</li>
+      <li>Generate outputs that directly support decisions</li>
+      <li>Discover patterns that might otherwise remain hidden</li>
+    </ul>
+    <p style="margin-top: 16px;">Your ability to articulate precisely what you need is the single most important factor in the quality of insights you'll receive. With practice, prompt crafting becomes second nature—unlocking the full potential of your mAInEvent Agent.</p>
+  </div>
+
+  <footer>
+    <p>Powered by MainEvent. Copyright &copy; 1998 - 2025 Network Ninja, Inc.</p>
+  </footer>
+
+</body>
+</html>
