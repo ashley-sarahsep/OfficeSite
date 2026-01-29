@@ -1505,60 +1505,229 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <div class="resume-section">
 <h2>OH, HELLO!</h2>
 <p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience driving operational and product success through coordination across teams, technical translation, and operational excellence. I navigate ambiguous environments, identify organizational gaps, and build scalable systems that make everyone else's job easier.</p>
-<p>I joined a field marketing SaaS company when the team was ~10 people with no formal processes and built the operational infrastructure from scratch - sales operations, training programs, QA processes, and project management frameworks that enabled the team to support 32M+ visits, 576K+ client staff, and major CPG brands at massive scale.</p>
+<p>I joined MainEvent when the team was ~10 people with no formal processes and built the operational infrastructure from scratch - sales operations, training programs, QA processes, and project management frameworks that enabled the team to support 32M+ visits, 576K+ client staff, and Fortune 500 brands at massive scale. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product including manual testing framework, client data reviews, 5-phase onboarding methodology, educational curriculum with enterprise analytical frameworks, and thought leadership content.</p>
+<p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviors. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
 </div>
 
 <div class="resume-section">
 <h2>WHAT MAKES ME DIFFERENT</h2>
 
 <h3>HERMENEUTICS ADVANTAGE IN OPERATIONS & ANALYTICS</h3>
-<p>My background in philosophy (hermeneutics) and social work gives me a unique advantage in both operations and data analytics. I don't just create training - I design learning experiences based on how humans actually process, retain, and apply information.</p>
+<p>My background in philosophy (hermeneutics) and social work gives me a unique advantage in both operations and data analytics. I don't just create training - I design learning experiences based on how humans actually process, retain, and apply information. I approach data with multiple perspectives before arriving at conclusions - I don't just look at what the numbers say, I ask what story the data is really telling, what patterns exist and why, whether those patterns are helping or hindering outcomes, and whether successes are replicable. My brain gets genuinely excited about digging deeper into the "why" behind data patterns, which makes analytics work both strategic and deeply satisfying.</p>
 
 <h3>SWISS ARMY KNIFE OPERATOR</h3>
-<p>Comfortable wearing multiple hats and stepping into gaps without being asked. Have served as QA lead, project manager, product operations lead, sales training owner, advisor, and backup account manager - often simultaneously.</p>
+<p>Comfortable wearing multiple hats and stepping into gaps without being asked. Have served as QA lead, project manager, product operations lead, sales training owner, advisor, and backup account manager - often simultaneously. Excel at identifying what's missing and taking ownership without needing direction. People consistently come to me for answers, to work through problems, to test things, and to run ideas by - I become the go-to person across teams because I genuinely care about solving problems thoroughly and building sustainable solutions.</p>
 
 <h3>SELF-TAUGHT TECHNOLOGY ADOPTER</h3>
-<p>Mastered every system and tool through self-directed learning - from CRM platforms to AI agent development to project management tools. I build technical solutions, implement new technologies, and adapt to new platforms rapidly.</p>
+<p>Mastered every system and tool through self-directed learning - from CRM platforms to AI agent development to project management tools. At MainEvent, I was the first person to really take to the AI Agents and became the go-to for everything related to them (minus the actual development). I build technical solutions, implement new technologies, and adapt to new platforms rapidly without extensive training or hand-holding. This self-learning approach informs how I design training programs for others - I understand the learning journey because I've walked it myself.</p>
 
 <h3>BRIDGE BUILDER BETWEEN TECHNICAL & BUSINESS</h3>
-<p>Translate technical capabilities into business value and user-friendly language. Create shared understanding across groups that typically struggle to communicate.</p>
+<p>Translate technical capabilities into business value and user-friendly language. Help engineers understand user challenges. Help business stakeholders understand technical constraints. Create shared understanding across groups that typically struggle to communicate. When ideas are lost in translation between teams, I step in to ensure equilibrium of understanding - I can articulate complex concepts clearly for any audience.</p>
+
+<h3>CRITICAL AI ADVOCATE WITH ETHICAL LENS</h3>
+<p>I love working with AI and ML as tools, but I'm not a blind advocate. I'm very critical and aware of limitations, hallucinations, and potential issues. My philosophy background helps me understand how LLMs interpret and generate information, which makes me effective at identifying where they might misinterpret context or produce misleading results. I advocate for ethical AI implementation, appropriate guardrails, transparency about limitations, and thoughtful consideration of how models are trained and deployed.</p>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> Ashley's unique combination of philosophy (hermeneutics), social work, and self-taught technical skills means she doesn't just build systems - she builds systems that account for how humans actually think, learn, and adopt new behaviors. This is why her training programs consistently reduce ramp time and her analytics work uncovers insights others miss.
+</div>
 </div>
 
 <div class="resume-section">
-<h2>EXPERIENCE</h2>
+<h2>WHAT I'VE DONE</h2>
+<hr class="section-divider">
 
-<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
-<p class="job-meta">Field Marketing SaaS Platform | Jan 2025 - Dec 2025 | Remote</p>
+<h3>AI PRODUCT ENABLEMENT & ADOPTION</h3>
+<p class="job-title">Network Ninja (MainEvent) | Head of Client Enablement & AI Adoption</p>
+<p class="job-meta">Jan 2025 - December 2025 | Remote</p>
+<p>Lead product adoption for AI-powered field marketing analysis agents, enabling experiential marketing agencies and CPG brands to query and analyze data from millions of field events using natural language.</p>
+
 <p><strong>THE GAP:</strong> New AI agent product launching with no adoption infrastructure, quality assurance framework, or client training materials</p>
+
 <p><strong>THE SYSTEMS I BUILT:</strong></p>
 <ul>
-<li>Created manual testing framework for AI agent product from scratch</li>
-<li>Applied philosophy background (hermeneutics) to understand how AI interprets and generates information</li>
-<li>Developed enterprise-level analytical prompt frameworks (Power Prompts)</li>
-<li>Designed and implemented 5-phase onboarding methodology for AI agent adoption</li>
-<li>Built library of 50+ training videos and resources</li>
+<li>Created manual testing framework for AI agent product from scratch - systematic process to test prompts and outputs for reliability, consistency, and accuracy before client deployment</li>
+<li>Applied philosophy background (hermeneutics) to understand how AI interprets and generates information - identified where models might misinterpret context or produce misleading results</li>
+<li>Developed enterprise-level analytical prompt frameworks (Power Prompts) enabling clients to extract business intelligence from field marketing data - created frameworks for program performance analysis, staff performance tracking, venue intelligence, pattern discovery, and data quality optimization</li>
+<li>Designed and implemented 5-phase onboarding methodology for AI agent adoption with complete educational curriculum including practical guides, onboarding documentation, prompting best practices, and enterprise analytical frameworks</li>
+<li>Built library of training videos and resources using Google Drive, Loom, and Notion for content delivery</li>
+<li>Created quality feedback loop between client usage and product development team - drove product improvements through documented testing, issue identification, and honest assessment of AI capabilities and limitations</li>
 </ul>
 
-<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
-<p class="job-meta">Field Marketing SaaS Platform | Dec 2023 - Dec 2025 | Remote</p>
+<p><strong>THE IMPACT:</strong></p>
+<ul>
+<li>Onboarded major clients with custom analytical frameworks tailored to client-specific business needs</li>
+<li>Featured in client success case studies demonstrating AI agent impact for major brands</li>
+<li>Owned and executed Experiential Marketing Summit (EMS Vegas) booth presence from concept to execution - created all video examples, product demonstrations, and outreach materials</li>
+</ul>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> Ashley's philosophy background in hermeneutics (how people interpret information) makes her uniquely effective at identifying where AI models might misinterpret context or produce misleading results - turning her into an invaluable quality advocate for AI products before they reach clients.
+</div>
+
+<hr class="section-divider">
+
+<h3>PRODUCT OPERATIONS & STRATEGIC LEADERSHIP</h3>
+<p class="job-title">Network Ninja (MainEvent) | Chief of Staff & Head of Sales Enablement</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Partner to COO/Head of Sales and executive team for field marketing software platform serving experiential marketing agencies and major CPG brands (Kraft Heinz, U.S. Cellular, Monster Energy), managing mobile tours, product sampling, brand activations, and event staffing across 1.9+ million locations.</p>
+
 <p><strong>THE GAP:</strong> No QA lead on major projects, inconsistent demo quality across sales team changes, gaps between technical and business teams</p>
+
 <p><strong>THE SYSTEMS I BUILT:</strong></p>
+
+<p><em>Quality Assurance Leadership:</em></p>
 <ul>
-<li>Served as sole QA Lead on major client projects including enterprise custom platform builds</li>
-<li>Led complete project lifecycle: discovery, requirements, QA, PM, account management</li>
-<li>Created 30+ customized demo environments annually</li>
-<li>Key contributor to 100% of sales wins since 2018</li>
+<li>Served as sole QA Lead on major client projects (including Neptune project) - owned quality from testing through client delivery</li>
+<li>Created and executed detailed test plans covering edge cases, user flows, regression testing, and emerging bugs</li>
+<li>Partnered with Product and Engineering to deeply understand platform functionality and technical architecture</li>
+<li>Wrote clear, actionable feedback on technical issues in Jira - detailed tickets for developers, client-friendly explanations for customers</li>
 </ul>
 
-<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
-<p class="job-meta">Field Marketing SaaS Platform | Oct 2018 - Jul 2025 | Remote</p>
-<p>Built operational infrastructure from scratch. Reduced new hire ramp time from 90 to 60 days. Enabled small team to support 400,000+ field reps executing 32+ million visits annually serving major CPG brands.</p>
+<p><em>Neptune Retail Solutions Project - End-to-End Ownership:</em></p>
+<ul>
+<li>Led complete project lifecycle: discovery, requirements gathering, workflow/wireframe design, QA process creation, development team leadership (4 people), project management, and account management</li>
+<li>Managed Jira board for entire project - prioritized tickets, triaged bugs, tracked feature development, and ensured all work passed testing standards</li>
+<li>Transitioned into account manager role post-launch - managed client relationship, handled escalations, ensured smooth operations</li>
+<li>Successfully handed off to dedicated account manager once platform was running smoothly with complete documentation and knowledge transfer</li>
+</ul>
+
+<p><em>Sales Enablement & Demo Excellence:</em></p>
+<ul>
+<li>Own all sales materials including demo environments, pitch decks, competitive battle cards, and customer-facing documentation for lean sales team (2-4 people)</li>
+<li>Create 30+ customized demo environments and tailored sales packages annually - each researched and built specifically for prospect's business, industry challenges, and use cases</li>
+<li>Provide continuity and institutional knowledge as sales team composition changes - maintain consistency in demo quality and sales approach regardless of team turnover</li>
+<li>Develop discovery frameworks and qualification playbooks that help sellers identify best-fit opportunities across varying sales cycles</li>
+</ul>
+
+<p><em>Strategic Operations & Gap Identification:</em></p>
+<ul>
+<li>Identify operational gaps, communication breakdowns, and work that doesn't clearly belong to one team - then take ownership</li>
+<li>Advise executive leadership on GTM, product roadmap priorities, organizational alignment, and operational efficiency</li>
+<li>Step in when ideas are lost in translation between teams - ensure equilibrium of understanding across technical and non-technical stakeholders</li>
+<li>Stepped up to cover PM responsibilities during team transitions - led daily scrums, managed sprint planning, triaged bugs, maintained delivery momentum without missing client commitments</li>
+</ul>
+
+<p><strong>THE IMPACT:</strong></p>
+<ul>
+<li>Key contributor to 100% of sales wins since 2018 - every deal involves custom demo preparation, prospect research, and materials development</li>
+<li>Successfully launched Neptune custom platform and transitioned to dedicated account manager</li>
+<li>Maintained quality delivery standards across 20+ implementations as sole QA Lead</li>
+<li>Led trade show readiness and event planning including EMS Vegas booth materials, demo prep, lead qualification</li>
+</ul>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> Ashley's "Swiss Army Knife" approach means she's comfortable stepping into whatever role is needed - QA lead, project manager, sales enabler, account manager - often simultaneously. This flexibility enabled her to lead the Neptune project end-to-end from discovery to successful handoff while maintaining quality standards across 20+ other implementations.
+</div>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT FOUNDATION</h3>
+<p class="job-title">Network Ninja (MainEvent) | Sales Operations & Enablement Lead</p>
+<p class="job-meta">Oct 2018 - Jul 2025 (6+ yrs) | Remote</p>
+<p>End-to-end operations and training leadership for field marketing SaaS platform. Joined when MainEvent team was ~10 people with no formal processes.</p>
+
+<p><strong>THE GAP:</strong> No operational infrastructure, no sales processes, no training programs, no CRM management</p>
+
+<p><strong>THE SYSTEMS I BUILT:</strong></p>
+
+<p><em>Operational Infrastructure from Scratch:</em></p>
+<ul>
+<li>Built sales operations, training programs, QA processes, and project management frameworks from zero</li>
+<li>Established sales processes and reporting standards that scaled with team growth</li>
+<li>Created evaluation frameworks and KPI tracking systems to measure feature adoption and training effectiveness</li>
+<li>Managed sales pipeline across multiple CRM platforms (SugarCRM, HubSpot - self-taught on each system), maintained data integrity, forecasting accuracy, performance analytics</li>
+</ul>
+
+<p><em>Training & Enablement Programs:</em></p>
+<ul>
+<li>Designed and delivered onboarding and training programs on CRM systems, sales processes, product knowledge, and customer discovery</li>
+<li>Created 30+ customized demo environments and tailored sales packages annually - each specifically researched and built for individual prospect's business context, pitches, or RFPs</li>
+<li>Served as training constant and institutional knowledge across sales team changes - maintained demo quality and sales approach consistency</li>
+<li>Created discovery frameworks, qualification checklists, and sales playbooks that improved effectiveness across varying sales cycles (same-day SMB to year-long enterprise)</li>
+</ul>
+
+<p><em>Product Operations & Quality:</em></p>
+<ul>
+<li>Partnered with Product and Engineering throughout full software development lifecycle - provided user perspective, seller and client feedback, ensured delivery met commitments</li>
+<li>Leveraged AI agents to analyze field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements</li>
+<li>Conducted win/loss analysis, competitive post-mortems, and gathered field feedback to identify product gaps and competitive advantages</li>
+<li>Managed client issues, triaged bugs in Jira, translated complex platform behavior into client-friendly explanations while coordinating resolution with engineering</li>
+<li>Led daily scrum calls with internal team to prioritize bugs, manage feature development, maintain delivery momentum</li>
+</ul>
+
+<p><strong>THE IMPACT:</strong></p>
+<ul>
+<li>Enabled small team to support a platform that now manages 400,000+ field reps executing 32+ million visits annually serving Fortune 500 clients</li>
+<li>Reduced new hire ramp time from 90 to 60 days through improved onboarding programs, structured learning paths, and self-service resources</li>
+<li>Contributed to 100% of sales wins since 2018 through custom demo preparation, prospect research, and materials development</li>
+<li>Researched prospects' businesses to create tailored demos that showcased platform value in their specific context</li>
+</ul>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> The operational infrastructure Ashley built from scratch when MainEvent was ~10 people now supports a platform managing 400,000+ field reps, 32+ million visits annually, and Fortune 500 clients at massive scale - proving her systems are built to last and scale.
+</div>
+
+<hr class="section-divider">
+
+<h3>EARLIER OPERATIONS & ENABLEMENT ROLES</h3>
+
+<p class="job-title">Sales Operations | All Blue Solutions Inc.</p>
+<p class="job-meta">May 2015 - Oct 2018 (3 yrs 6 mos) | Remote</p>
+<p>Sales operations and training for IBM reseller, managing CRM infrastructure, training programs, and demand generation.</p>
+<ul>
+<li>Designed and delivered new hire training programs on CRM systems, sales processes, and product knowledge</li>
+<li>Managed SugarCRM system with 200+ opportunities; trained team members on pipeline management, reporting, and process adherence</li>
+<li>Created documentation and self-service resources that enabled team autonomy</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<p class="job-meta">Jun 2014 - Jan 2015</p>
+<ul>
+<li>Led implementation of online timesheet system</li>
+<li>Processed high-volume payroll operations for large-scale contract workforce</li>
+<li>Extended from 6-month contract based on performance and system implementation success</li>
+</ul>
+
+<p class="job-title">Accounts Payable Specialist | Essence Digital & GroupM, London, UK</p>
+<p class="job-meta">Feb 2014 - Mar 2014</p>
+<ul>
+<li>Managed accounts payable for high-profile clients including Google, IGN, Financial Times</li>
+<li>Promoted to high-volume national accounts based on demonstrated performance</li>
+</ul>
+
+<p class="job-title">Accounts Receivable Coordinator | DDB Canada, Toronto</p>
+<p class="job-meta">Aug 2011 - Dec 2012</p>
+<ul>
+<li>Promoted from Receptionist to Accounts Receivable Specialist within first 6 months</li>
+<li>Managed financial operations and client relationships across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>TECHNICAL CAPABILITIES</h2>
+<p><strong>Project Management:</strong> Jira (expert - bug tracking, sprint management, feature requests), Agile methodologies, daily scrum facilitation, sprint planning, stakeholder management, Asana</p>
+<p><strong>Data & Analytics:</strong> Data cleanup and validation, pattern identification, business intelligence frameworks, report building, sales analytics, forecasting, performance metrics tracking</p>
+<p><strong>CRM & Sales Operations:</strong> SugarCRM, HubSpot, Salesforce integrations, pipeline management, sales process design, discovery frameworks, demo environment creation</p>
+<p><strong>AI & Technology:</strong> AI agent development, LLM implementation, prompt engineering, quality assurance for AI outputs, technical training delivery, adoption frameworks, onboarding materials</p>
+<p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, video training, Slack, Microsoft Teams, Zoom, Google Workspace</p>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> Every technical skill on this resume was self-taught through necessity and pattern recognition - from mastering multiple CRM platforms to building AI agent adoption frameworks to leading project management for development teams. Ashley's strength is figuring things out quickly and building systems that enable others to do the same.
+</div>
 </div>
 
 <div class="resume-section">
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialized study in interpretation theory, meaning-making, communication, and how people understand and process information.</p>
 <p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress) - SQL, data visualization, statistical analysis</p>
 </div>
     `
   },

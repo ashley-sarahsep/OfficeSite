@@ -1409,6 +1409,53 @@ body {
   font-style: italic;
   color: var(--color-mauve);
   font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.job-title {
+  font-weight: bold;
+  color: var(--color-burgundy);
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+.section-divider {
+  border: none;
+  border-top: 2px dashed var(--color-sage);
+  margin: 20px 0;
+}
+
+.did-you-know {
+  background: linear-gradient(135deg, var(--color-blush) 0%, var(--color-cream) 100%);
+  border: 2px solid var(--color-mauve);
+  border-left: 5px solid var(--color-burgundy);
+  border-radius: 4px;
+  padding: 12px 15px;
+  margin: 15px 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--color-burgundy);
+}
+
+.did-you-know strong {
+  color: var(--color-burgundy);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+.edu-detail {
+  font-size: 11px;
+  color: var(--color-sage);
+  font-style: italic;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+.continuing-ed {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid var(--color-sage);
+  font-size: 12px;
 }
 
 /* MySpace Content */
