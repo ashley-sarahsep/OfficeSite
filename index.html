@@ -10,6 +10,37 @@
   <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Skip Link for Keyboard Navigation -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Accessibility Quick Panel (Room Scene) -->
+  <div class="a11y-quick-panel" id="a11y-quick-panel" role="dialog" aria-label="Quick accessibility settings">
+    <div class="a11y-quick-panel-header">
+      <h4>Quick Accessibility</h4>
+      <button class="a11y-quick-panel-close" id="a11y-quick-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="a11y-quick-toggles">
+      <button class="a11y-quick-toggle" data-setting="highContrast">
+        <span aria-hidden="true">🔲</span> High Contrast
+      </button>
+      <button class="a11y-quick-toggle" data-setting="largeText">
+        <span aria-hidden="true">🔤</span> Large Text
+      </button>
+      <button class="a11y-quick-toggle" data-setting="focusIndicators">
+        <span aria-hidden="true">🎯</span> Focus Indicators
+      </button>
+      <button class="a11y-quick-toggle" data-setting="reducedMotion">
+        <span aria-hidden="true">⏸️</span> Reduced Motion
+      </button>
+      <button class="a11y-quick-toggle" data-setting="singleClick">
+        <span aria-hidden="true">👆</span> Single-Click Mode
+      </button>
+    </div>
+    <div class="a11y-quick-panel-footer">
+      <button class="a11y-quick-panel-link" id="a11y-open-full">Open Full Settings</button>
+    </div>
+  </div>
+
   <!-- ============================================ -->
   <!-- Boot screen (hidden - kept for potential future use) -->
   <div id="boot-screen" class="boot-screen hidden"></div>
@@ -17,6 +48,7 @@
   <!-- ============================================ -->
   <!-- MAIN ROOM SCENE -->
   <!-- ============================================ -->
+  <main id="main-content">
   <div id="room-scene" class="room-scene">
     <!-- Room background image -->
     <div class="room-container">
@@ -40,6 +72,9 @@
         <button class="navbar-link" data-window="resume">Resume</button>
         <button class="navbar-link" data-window="myspace">About Me</button>
         <button class="navbar-link" data-window="chat">Chat</button>
+        <button class="navbar-link navbar-accessibility-btn" id="room-accessibility-btn" aria-label="Accessibility Settings">
+          <span aria-hidden="true">&#9855;</span>
+        </button>
       </div>
     </div>
 
@@ -162,6 +197,10 @@
                 <div class="icon-image icon-recycle"></div>
                 <span class="icon-label">Recycle Bin</span>
               </div>
+              <div class="desktop-icon" data-app="accessibility" data-file="settings">
+                <div class="icon-image icon-accessibility"></div>
+                <span class="icon-label">Accessibility</span>
+              </div>
             </div>
 
             <!-- Windows container -->
@@ -235,6 +274,7 @@
       </div>
     </div>
   </div>
+  </main>
 
   <!-- ============================================ -->
   <!-- WINDOW TEMPLATES (hidden, cloned by JS) -->
@@ -438,6 +478,112 @@
     </div>
   </template>
 
+  <!-- Accessibility Options Window Template -->
+  <template id="template-accessibility">
+    <div class="window window-accessibility" data-window="accessibility" role="dialog" aria-labelledby="accessibility-title">
+      <div class="window-titlebar">
+        <span class="window-title" id="accessibility-title">Accessibility Options</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize" aria-label="Minimize">_</button>
+          <button class="window-btn window-maximize" aria-label="Maximize">[]</button>
+          <button class="window-btn window-close" aria-label="Close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content accessibility-content">
+        <div class="accessibility-wrapper">
+          <div class="accessibility-header">
+            <span class="accessibility-icon" aria-hidden="true">&#9855;</span>
+            <div>
+              <h2>Accessibility Options</h2>
+              <p>Customize your viewing experience</p>
+            </div>
+          </div>
+
+          <div class="accessibility-section">
+            <h3>Display</h3>
+            <div class="accessibility-options">
+              <label class="accessibility-option">
+                <input type="checkbox" id="a11y-high-contrast" data-setting="highContrast">
+                <span class="option-toggle"></span>
+                <div class="option-info">
+                  <span class="option-name">High Contrast Mode</span>
+                  <span class="option-desc">Increases contrast for better readability</span>
+                </div>
+              </label>
+              <label class="accessibility-option">
+                <input type="checkbox" id="a11y-large-text" data-setting="largeText">
+                <span class="option-toggle"></span>
+                <div class="option-info">
+                  <span class="option-name">Large Text</span>
+                  <span class="option-desc">Increases font sizes throughout the site</span>
+                </div>
+              </label>
+              <label class="accessibility-option">
+                <input type="checkbox" id="a11y-dyslexia-font" data-setting="dyslexiaFont">
+                <span class="option-toggle"></span>
+                <div class="option-info">
+                  <span class="option-name">Dyslexia-Friendly Font</span>
+                  <span class="option-desc">Uses OpenDyslexic font for easier reading</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="accessibility-section">
+            <h3>Navigation</h3>
+            <div class="accessibility-options">
+              <label class="accessibility-option">
+                <input type="checkbox" id="a11y-focus-indicators" data-setting="focusIndicators">
+                <span class="option-toggle"></span>
+                <div class="option-info">
+                  <span class="option-name">Enhanced Focus Indicators</span>
+                  <span class="option-desc">Shows visible outlines on focused elements</span>
+                </div>
+              </label>
+              <label class="accessibility-option">
+                <input type="checkbox" id="a11y-single-click" data-setting="singleClick">
+                <span class="option-toggle"></span>
+                <div class="option-info">
+                  <span class="option-name">Single-Click Mode</span>
+                  <span class="option-desc">Opens items with one click instead of double-click</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="accessibility-section">
+            <h3>Motion & Sound</h3>
+            <div class="accessibility-options">
+              <label class="accessibility-option">
+                <input type="checkbox" id="a11y-reduced-motion" data-setting="reducedMotion">
+                <span class="option-toggle"></span>
+                <div class="option-info">
+                  <span class="option-name">Reduced Motion</span>
+                  <span class="option-desc">Minimizes animations and transitions</span>
+                </div>
+              </label>
+              <label class="accessibility-option">
+                <input type="checkbox" id="a11y-screen-reader" data-setting="screenReaderMode">
+                <span class="option-toggle"></span>
+                <div class="option-info">
+                  <span class="option-name">Screen Reader Optimized</span>
+                  <span class="option-desc">Adds extra ARIA labels and announcements</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="accessibility-actions">
+            <button class="accessibility-btn accessibility-btn-reset" id="a11y-reset">Reset All</button>
+            <button class="accessibility-btn accessibility-btn-apply" id="a11y-apply">Apply & Close</button>
+          </div>
+
+          <p class="accessibility-note">Settings are saved automatically and persist between visits.</p>
+        </div>
+      </div>
+    </div>
+  </template>
+
   <!-- AI Portfolio Window Template -->
   <template id="template-portfolio">
     <div class="window window-portfolio" data-window="portfolio">
@@ -518,10 +664,10 @@
   </div>
 
   <!-- Image Lightbox -->
-  <div class="image-lightbox hidden" id="image-lightbox">
-    <span class="image-lightbox-close">&times;</span>
+  <div class="image-lightbox hidden" id="image-lightbox" role="dialog" aria-label="Image preview">
+    <button class="image-lightbox-close" aria-label="Close image preview">&times;</button>
     <img src="" alt="Expanded image" id="lightbox-image">
-    <span class="image-lightbox-hint">Click anywhere to close</span>
+    <span class="image-lightbox-hint">Click anywhere or press Escape to close</span>
   </div>
 
   <!-- Scripts -->
