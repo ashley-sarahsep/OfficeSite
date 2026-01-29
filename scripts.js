@@ -553,34 +553,50 @@ function initDesktop() {
 
 function initDesktopIcons() {
   const icons = document.querySelectorAll('.desktop-icon');
+  const desktopArea = document.getElementById('desktop-area');
+
+  // Load saved positions
+  loadIconPositions();
+
+  // Track dragging state
+  let draggedIcon = null;
+  let dragOffset = { x: 0, y: 0 };
+  let isDragging = false;
+  let dragStartPos = { x: 0, y: 0 };
 
   icons.forEach(icon => {
     // Add keyboard accessibility
     icon.setAttribute('tabindex', '0');
     icon.setAttribute('role', 'button');
 
-    // Check if single-click mode is enabled
-    if (accessibilitySettings.singleClick) {
-      // Single click to open
-      icon.addEventListener('click', (e) => {
-        const app = e.currentTarget.dataset.app;
-        const file = e.currentTarget.dataset.file;
-        openApp(app, file);
-      });
-    } else {
-      // Double click to open
-      icon.addEventListener('dblclick', (e) => {
-        const app = e.currentTarget.dataset.app;
-        const file = e.currentTarget.dataset.file;
-        openApp(app, file);
-      });
+    // Mouse down - start potential drag
+    icon.addEventListener('mousedown', (e) => {
+      if (e.button !== 0) return; // Left click only
 
-      // Single click to select
-      icon.addEventListener('click', (e) => {
-        icons.forEach(i => i.classList.remove('selected'));
-        e.currentTarget.classList.add('selected');
-      });
-    }
+      draggedIcon = icon;
+      isDragging = false;
+      dragStartPos = { x: e.clientX, y: e.clientY };
+
+      const rect = icon.getBoundingClientRect();
+      dragOffset = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+
+      // Select the icon
+      icons.forEach(i => i.classList.remove('selected'));
+      icon.classList.add('selected');
+
+      e.preventDefault();
+    });
+
+    // Double click to open
+    icon.addEventListener('dblclick', (e) => {
+      if (isDragging) return;
+      const app = e.currentTarget.dataset.app;
+      const file = e.currentTarget.dataset.file;
+      openApp(app, file);
+    });
 
     // Keyboard support - Enter or Space to open
     icon.addEventListener('keydown', (e) => {
@@ -593,12 +609,96 @@ function initDesktopIcons() {
     });
   });
 
+  // Mouse move - handle dragging
+  const iconsContainer = document.querySelector('.desktop-icons');
+
+  document.addEventListener('mousemove', (e) => {
+    if (!draggedIcon) return;
+
+    // Check if we've moved enough to consider it a drag
+    const dx = Math.abs(e.clientX - dragStartPos.x);
+    const dy = Math.abs(e.clientY - dragStartPos.y);
+
+    if (dx > 5 || dy > 5) {
+      isDragging = true;
+      draggedIcon.classList.add('dragging');
+
+      const containerRect = iconsContainer.getBoundingClientRect();
+      let newX = e.clientX - containerRect.left - dragOffset.x;
+      let newY = e.clientY - containerRect.top - dragOffset.y;
+
+      // Constrain to container area
+      newX = Math.max(0, Math.min(newX, containerRect.width - 70));
+      newY = Math.max(0, Math.min(newY, containerRect.height - 70));
+
+      draggedIcon.style.position = 'absolute';
+      draggedIcon.style.left = `${newX}px`;
+      draggedIcon.style.top = `${newY}px`;
+    }
+  });
+
+  // Mouse up - end drag
+  document.addEventListener('mouseup', () => {
+    if (draggedIcon) {
+      draggedIcon.classList.remove('dragging');
+
+      if (isDragging) {
+        saveIconPositions();
+      }
+
+      draggedIcon = null;
+      isDragging = false;
+    }
+  });
+
   // Click desktop to deselect
-  document.getElementById('desktop-area')?.addEventListener('click', (e) => {
+  desktopArea?.addEventListener('click', (e) => {
     if (e.target.id === 'desktop-area') {
       icons.forEach(i => i.classList.remove('selected'));
     }
   });
+}
+
+function saveIconPositions() {
+  const icons = document.querySelectorAll('.desktop-icon');
+  const positions = {};
+
+  icons.forEach(icon => {
+    const id = icon.dataset.app + (icon.dataset.file ? `-${icon.dataset.file}` : '');
+    if (icon.style.left && icon.style.top) {
+      positions[id] = {
+        left: icon.style.left,
+        top: icon.style.top
+      };
+    }
+  });
+
+  try {
+    localStorage.setItem('desktop-icon-positions', JSON.stringify(positions));
+  } catch (e) {
+    console.warn('Could not save icon positions:', e);
+  }
+}
+
+function loadIconPositions() {
+  try {
+    const saved = localStorage.getItem('desktop-icon-positions');
+    if (!saved) return;
+
+    const positions = JSON.parse(saved);
+    const icons = document.querySelectorAll('.desktop-icon');
+
+    icons.forEach(icon => {
+      const id = icon.dataset.app + (icon.dataset.file ? `-${icon.dataset.file}` : '');
+      if (positions[id]) {
+        icon.style.position = 'absolute';
+        icon.style.left = positions[id].left;
+        icon.style.top = positions[id].top;
+      }
+    });
+  } catch (e) {
+    console.warn('Could not load icon positions:', e);
+  }
 }
 
 function initTaskbar() {
@@ -739,7 +839,8 @@ function getWindowSize(appType) {
     accessibility: { width: '450px', height: '520px' },
     'about-computer': { width: '420px', height: '380px' },
     raiders: { width: '550px', height: '480px' },
-    memory: { width: '420px', height: '500px' }
+    memory: { width: '420px', height: '500px' },
+    minesweeper: { width: '340px', height: '440px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -764,7 +865,8 @@ function getWindowTitle(appType, fileId) {
     accessibility: 'Accessibility Options',
     'about-computer': 'About This Computer',
     raiders: 'Raiders of the Lost Doc',
-    memory: 'Memory Match'
+    memory: 'Memory Match',
+    minesweeper: 'Meeting Minesweeper'
   };
   return titles[appType] || 'Window';
 }
@@ -823,6 +925,9 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'memory':
       initMemory(windowEl);
+      break;
+    case 'minesweeper':
+      initMinesweeper(windowEl);
       break;
     case 'accessibility':
       initAccessibilityWindow(windowEl);
@@ -2129,6 +2234,227 @@ function initMemory(windowEl) {
 
   // Shuffle and start
   cards = shuffle(cards);
+  render();
+}
+
+// ============================================
+// MEETING MINESWEEPER
+// ============================================
+
+function initMinesweeper(windowEl) {
+  const content = windowEl.querySelector('.minesweeper-content');
+  if (!content) return;
+
+  const ROWS = 9;
+  const COLS = 9;
+  const MINES = 10;
+
+  let board = [];
+  let revealed = [];
+  let flagged = [];
+  let gameOver = false;
+  let gameWon = false;
+  let firstClick = true;
+  let minesLeft = MINES;
+
+  // Meeting-themed mine messages
+  const meetingTypes = [
+    '📅 "Quick sync"',
+    '📅 "Touch base"',
+    '📅 "All-hands"',
+    '📅 "Retro"',
+    '📅 "Brainstorm"',
+    '📅 "Status update"',
+    '📅 "1:1"',
+    '📅 "Planning"',
+    '📅 "Review"',
+    '📅 "Standup"'
+  ];
+
+  function initBoard(safeRow, safeCol) {
+    // Create empty board
+    board = Array(ROWS).fill(null).map(() => Array(COLS).fill(0));
+    revealed = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
+    flagged = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
+
+    // Place mines (avoiding first click area)
+    let minesPlaced = 0;
+    while (minesPlaced < MINES) {
+      const r = Math.floor(Math.random() * ROWS);
+      const c = Math.floor(Math.random() * COLS);
+
+      // Don't place mine on or adjacent to first click
+      const isSafe = Math.abs(r - safeRow) <= 1 && Math.abs(c - safeCol) <= 1;
+
+      if (board[r][c] !== -1 && !isSafe) {
+        board[r][c] = -1; // -1 = mine (meeting)
+        minesPlaced++;
+      }
+    }
+
+    // Calculate numbers
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        if (board[r][c] === -1) continue;
+        let count = 0;
+        for (let dr = -1; dr <= 1; dr++) {
+          for (let dc = -1; dc <= 1; dc++) {
+            const nr = r + dr, nc = c + dc;
+            if (nr >= 0 && nr < ROWS && nc >= 0 && nc < COLS && board[nr][nc] === -1) {
+              count++;
+            }
+          }
+        }
+        board[r][c] = count;
+      }
+    }
+  }
+
+  function reveal(r, c) {
+    if (r < 0 || r >= ROWS || c < 0 || c >= COLS) return;
+    if (revealed[r][c] || flagged[r][c]) return;
+
+    revealed[r][c] = true;
+
+    if (board[r][c] === -1) {
+      gameOver = true;
+      revealAll();
+      return;
+    }
+
+    // Auto-reveal adjacent cells if 0
+    if (board[r][c] === 0) {
+      for (let dr = -1; dr <= 1; dr++) {
+        for (let dc = -1; dc <= 1; dc++) {
+          reveal(r + dr, c + dc);
+        }
+      }
+    }
+
+    checkWin();
+  }
+
+  function revealAll() {
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        revealed[r][c] = true;
+      }
+    }
+  }
+
+  function toggleFlag(r, c) {
+    if (revealed[r][c] || gameOver || gameWon) return;
+    flagged[r][c] = !flagged[r][c];
+    minesLeft += flagged[r][c] ? -1 : 1;
+  }
+
+  function checkWin() {
+    let unrevealedSafe = 0;
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        if (!revealed[r][c] && board[r][c] !== -1) {
+          unrevealedSafe++;
+        }
+      }
+    }
+    if (unrevealedSafe === 0) {
+      gameWon = true;
+      revealAll();
+    }
+  }
+
+  function getCellContent(r, c) {
+    if (!revealed[r][c]) {
+      return flagged[r][c] ? '🚩' : '';
+    }
+    if (board[r][c] === -1) {
+      return '📅';
+    }
+    if (board[r][c] === 0) {
+      return '';
+    }
+    return board[r][c];
+  }
+
+  function getCellClass(r, c) {
+    let cls = 'ms-cell';
+    if (revealed[r][c]) {
+      cls += ' revealed';
+      if (board[r][c] === -1) {
+        cls += ' mine';
+      } else if (board[r][c] > 0) {
+        cls += ` num-${board[r][c]}`;
+      }
+    } else if (flagged[r][c]) {
+      cls += ' flagged';
+    }
+    return cls;
+  }
+
+  function render() {
+    const statusEmoji = gameOver ? '😵' : gameWon ? '😎' : '🙂';
+
+    content.innerHTML = `
+      <div class="ms-wrapper">
+        <div class="ms-header">
+          <div class="ms-counter">${String(minesLeft).padStart(3, '0')}</div>
+          <button class="ms-face" id="ms-reset">${statusEmoji}</button>
+          <div class="ms-counter">📅${MINES}</div>
+        </div>
+        <div class="ms-board">
+          ${board.map((row, r) =>
+            row.map((_, c) =>
+              `<button class="${getCellClass(r, c)}" data-r="${r}" data-c="${c}">${getCellContent(r, c)}</button>`
+            ).join('')
+          ).join('')}
+        </div>
+        ${gameOver ? `<div class="ms-message ms-lose">📅 Meeting ambush! You've been scheduled.</div>` : ''}
+        ${gameWon ? `<div class="ms-message ms-win">🎉 Calendar defended! No surprise meetings today!</div>` : ''}
+      </div>
+    `;
+
+    // Reset button
+    content.querySelector('#ms-reset').addEventListener('click', () => {
+      board = [];
+      revealed = [];
+      flagged = [];
+      gameOver = false;
+      gameWon = false;
+      firstClick = true;
+      minesLeft = MINES;
+      render();
+    });
+
+    // Cell clicks
+    content.querySelectorAll('.ms-cell').forEach(cell => {
+      const r = parseInt(cell.dataset.r);
+      const c = parseInt(cell.dataset.c);
+
+      cell.addEventListener('click', () => {
+        if (gameOver || gameWon) return;
+
+        if (firstClick) {
+          initBoard(r, c);
+          firstClick = false;
+        }
+
+        reveal(r, c);
+        render();
+      });
+
+      cell.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        if (gameOver || gameWon || firstClick) return;
+        toggleFlag(r, c);
+        render();
+      });
+    });
+  }
+
+  // Initial render (empty board until first click)
+  board = Array(ROWS).fill(null).map(() => Array(COLS).fill(0));
+  revealed = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
+  flagged = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
   render();
 }
 

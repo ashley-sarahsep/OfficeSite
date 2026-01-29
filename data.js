@@ -1456,6 +1456,7 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
         title: "Take a Break",
         items: [
           { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "exe", type: "game", app: "raiders" },
+          { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "exe", type: "game", app: "minesweeper" },
           { id: "memory", name: "Memory Match.exe", icon: "exe", type: "game", app: "memory" },
           { id: "catpong", name: "Cat Pong.exe", icon: "exe", type: "game", app: "catpong" }
         ]
