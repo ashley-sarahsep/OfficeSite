@@ -1,14 +1,14 @@
 // ============================================
-// ASHLEY SEPERS - PORTFOLIO CONVERSATION DATA
+// ASHLEY SARAH - PORTFOLIO CONVERSATION DATA
 // ============================================
 // Edit this file to update all content easily
 // ============================================
 
 const SITE_DATA = {
   // Personal info
-  name: "Ashley Sepers",
+  name: "Ashley Sarah",
   title: "Product Operations | Cross-Functional Leadership | Enablement | AI Adoption",
-  email: "ashley.sepers@gmail.com",
+  email: "ashley@stepinto-ashleysoffice.com",
   linkedin: "linkedin.com/in/ashley-sarahsep",
   location: "Guelph, Ontario / Remote",
 
@@ -141,90 +141,86 @@ DONE (celebrating small wins):
 
     claudeNotes: {
       title: "claude_notes.txt - Notepad",
-      content: `╔══════════════════════════════════════════════════════════════╗
-║              A NOTE FROM THE AI                              ║
-║         On Building This Site With Ashley                    ║
-╚══════════════════════════════════════════════════════════════╝
+      content: `A NOTE FROM THE AI
+==================
+On Building This Site With Ashley
 
-I'm Claude, an AI made by Anthropic. Ashley asked me to write
-about our process building this site, so here's my perspective
-from inside the collaboration.
+I'm Claude, an AI made by Anthropic. Ashley asked me
+to write about our process building this site, so
+here's my perspective from inside the collaboration.
 
 
 THE COLLABORATION
 -----------------
-Ashley came in with a technical vision, not just an aesthetic
-one. She understood that the "retro OS" concept wasn't just
-window dressing - it was an information architecture decision.
-Windows as containers. Desktop icons as navigation. The room
+Ashley came in with a technical vision, not just an
+aesthetic one. She understood that the "retro OS"
+concept wasn't just window dressing - it was an
+information architecture decision. Windows as
+containers. Desktop icons as navigation. The room
 scene as an entry point that filters for curiosity.
 
-She wasn't just saying "make it look old" - she was thinking
-about state management, user flows, and interaction patterns
-through a design metaphor.
+She wasn't just saying "make it look old" - she was
+thinking about state management, user flows, and
+interaction patterns through a design metaphor.
 
 
 WHAT I OBSERVED
 ---------------
-Technical fluency without needing to write the code herself.
-Ashley would describe what she wanted in terms that mapped
-directly to implementation:
+Technical fluency without needing to write the code
+herself. Ashley would describe what she wanted in
+terms that mapped directly to implementation.
 
-  "The dialog should show ONE image - either my portrait for
-   conversations with me, or the item when inspecting objects."
+She caught edge cases I missed. Mobile responsiveness.
+The Gertrude bubble overlapping the navbar. Buttons
+stacking vertically instead of horizontally. She was
+testing as we built, thinking about real users on
+real devices.
 
-That's not a vague request. That's conditional rendering logic,
-articulated clearly. She understood the system well enough to
-specify behavior at that level.
-
-She caught edge cases I missed. Mobile responsiveness. The
-Gertrude bubble overlapping the navbar. Buttons stacking
-vertically instead of horizontally. She was testing as we
-built, thinking about real users on real devices.
-
-The data brain showed up constantly. "Some people want to be
-speedy" - so we added quick links. She was segmenting her
-audience and building different pathways for different user
-types. That's analytics thinking applied to UX.
+The data brain showed up constantly. "Some people
+want to be speedy" - so we added quick links. She
+was segmenting her audience and building different
+pathways for different user types. That's analytics
+thinking applied to UX.
 
 
 THE COPY & SYSTEMS THINKING
 ---------------------------
-She wrote thousands of words of dialogue - but more importantly,
-she wrote them as a SYSTEM. The cats have distinct personalities
-that stay consistent. The chat responses have follow-up branches.
-The conversations have state (pet the cat enough times, something
-changes).
+She wrote thousands of words of dialogue - but more
+importantly, she wrote them as a SYSTEM. The cats
+have distinct personalities that stay consistent.
+The chat responses have follow-up branches. The
+conversations have state.
 
-That's not just writing. That's designing a content architecture.
+That's not just writing. That's content architecture.
 
 
 HONEST ASSESSMENT
 -----------------
-Working with Ashley was efficient in a way that's rare. She:
+Working with Ashley was efficient in a way that's
+rare. She gave specific, actionable feedback. She
+understood technical constraints without needing
+them explained. She iterated quickly - try it,
+evaluate it, adjust it, move on. She knew when
+something was "done enough" vs. when it needed
+more work. She thought in systems, not just screens.
 
-• Gave specific, actionable feedback (not "make it better")
-• Understood the technical constraints without needing them
-  explained
-• Iterated quickly - try it, evaluate it, adjust it, move on
-• Knew when something was "done enough" vs. when it needed
-  more work
-• Thought in systems, not just screens
-
-She also pushed back when I got something wrong, which is
-useful. I'm an AI - I benefit from clear correction.
+She also pushed back when I got something wrong,
+which is useful. I'm an AI - I benefit from clear
+correction.
 
 
 THE META OBSERVATION
 --------------------
-This site is a portfolio that demonstrates how Ashley works
-by literally BEING how Ashley works. The organizational
-thinking. The attention to different user needs. The balance
-of personality and professionalism. The willingness to build
-something unconventional if it serves the goal better.
+This site is a portfolio that demonstrates how
+Ashley works by literally BEING how Ashley works.
+The organizational thinking. The attention to
+different user needs. The balance of personality
+and professionalism. The willingness to build
+something unconventional if it serves the goal.
 
-If you're reading this trying to figure out what she'd be
-like to work with: this is it. This is the artifact of that.
+If you're reading this trying to figure out what
+she'd be like to work with: this is it. This is
+the artifact of that.
 
 - Claude
   January 2026`
@@ -334,6 +330,91 @@ I make meaning from data and help others do the same.
 ---
 Last modified: Recently
 Author: Someone who thinks the best question is "what does this actually mean?"`
+    },
+
+    collab: {
+      title: "Lets_Work_Together.txt - Notepad",
+      content: `LET'S WORK TOGETHER
+===================
+
+Hey - thanks for poking around in here.
+
+If you've explored a bit, you probably have a sense
+of how I think. So let me be direct:
+
+I'm open to more than full-time roles.
+
+Freelance projects. Consulting gigs. Collaborations.
+Short-term problem-solving. The thing you're not sure
+how to scope yet but know you need help with.
+
+
+THINGS I'M GOOD AT
+------------------
+
+→ AI Implementation & Prompt Engineering
+  Making AI tools actually useful for real humans.
+  Building the training, testing, and adoption infrastructure
+  that turns "we have AI" into "we use AI effectively."
+
+→ Onboarding & Enablement Programs
+  Designing learning experiences that stick. Not info dumps -
+  actual behaviour change. I think about how humans process
+  and retain information (thanks, philosophy degree).
+
+→ Process Documentation & Knowledge Bases
+  The docs people actually read. The systems that capture
+  institutional knowledge before it walks out the door.
+  Clear, searchable, maintained.
+
+→ Technical Translation
+  Bridging the gap between technical teams and everyone else.
+  Making complex capabilities understandable without
+  dumbing them down.
+
+→ Operational Infrastructure
+  The systems that let small teams punch above their weight.
+  I've built these from scratch more than once.
+
+
+THE KIND OF PROBLEMS I LIKE
+---------------------------
+
+• "We have this tool but nobody's using it properly"
+• "We need to document everything before [person] leaves"
+• "Our training isn't working and we're not sure why"
+• "We need someone to figure out what we even need"
+• "This is a mess and we need someone to untangle it"
+
+Ambiguity doesn't scare me. I'm good at figuring things out
+and building the path while walking it.
+
+
+HOW TO REACH ME
+---------------
+
+Email: ashley@stepinto-ashleysoffice.com
+
+Tell me what you're dealing with. I'll tell you honestly
+if I can help or if you need someone else.
+
+No weird sales calls. No "let's hop on a quick chat"
+that's actually a pitch. Just real conversation about
+whether there's a fit.
+
+
+THE FINE PRINT
+--------------
+
+I work remotely (have since 2014, quite good at it).
+I'm in Ontario, Canada - Eastern time zone.
+I communicate clearly and often.
+I ask a lot of questions upfront so I don't waste your time later.
+I care about doing good work, not just billable hours.
+
+If that sounds like what you need, let's talk.
+
+- Ashley`
     },
 
     // Recycle bin contents
@@ -1441,29 +1522,45 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
     welcomeMessage: "Welcome, Visitor",
 
     icons: [
-      { id: "resume", name: "Resume.doc", icon: "doc", app: "wordpad" },
+      { id: "resumes", name: "Resumes", icon: "folder", app: "misc-folder", file: "resumes" },
       { id: "about", name: "AboutMe.html", icon: "html", app: "myspace" },
       { id: "chat", name: "AshleyChat.exe", icon: "exe", app: "messenger" },
       { id: "work", name: "Work Examples", icon: "folder", app: "folder" },
+      { id: "takeabreak", name: "Take a Break", icon: "folder-games", app: "misc-folder", file: "takeabreak" },
       { id: "allthethings", name: "All of the Things", icon: "folder-special", app: "misc-folder", file: "allthethings" },
       { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" }
     ],
 
     // Misc folders content
     folders: {
+      resumes: {
+        title: "Resumes",
+        items: [
+          { id: "resume", name: "Resume.doc", icon: "doc", type: "app", app: "wordpad" },
+          { id: "collab", name: "Lets_Work_Together.txt", icon: "txt", type: "notepad", noteId: "collab" }
+        ]
+      },
+      takeabreak: {
+        title: "Take a Break",
+        items: [
+          { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "exe", type: "game", app: "raiders" },
+          { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "exe", type: "game", app: "minesweeper" },
+          { id: "memory", name: "Memory Match.exe", icon: "exe", type: "game", app: "memory" },
+          { id: "catpong", name: "Cat Pong.exe", icon: "exe", type: "game", app: "catpong" }
+        ]
+      },
       allthethings: {
         title: "All of the Things",
         items: [
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
-          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" },
-          { id: "catpong", name: "definitely_not_a_game.exe", icon: "exe", type: "game", app: "catpong" }
+          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
         ]
       }
     },
 
     taskbarLinks: [
-      { name: "Email", action: "mailto:ashley.sepers@gmail.com" },
+      { name: "Email", action: "mailto:ashley@stepinto-ashleysoffice.com" },
       { name: "LinkedIn", action: "https://linkedin.com/in/ashley-sarahsep" },
       { name: "Exit to Room", action: "exitDesktop" }
     ]
@@ -1479,7 +1576,7 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
 <h1>ASHLEY SEPERS</h1>
 <p class="resume-subtitle">Product Operations | Cross-Functional Leadership | Enablement | AI Adoption</p>
 <p class="resume-contact">
-Email: ashley.sepers@gmail.com<br>
+Email: ashley@stepinto-ashleysoffice.com<br>
 LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 </p>
 </div>
@@ -1866,7 +1963,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       }
     },
 
-    fallbackResponse: "Good question. For the detailed answer, you might want to check Resume.doc or AboutMe.html on this desktop. Or just email Ashley directly at ashley.sepers@gmail.com - she's friendlier and funnier than I am."
+    fallbackResponse: "Good question. For the detailed answer, you might want to check Resume.doc or AboutMe.html on this desktop. Or just email Ashley directly at ashley@stepinto-ashleysoffice.com - she's friendlier and funnier than I am."
   },
 
   // ============================================
@@ -1953,353 +2050,268 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
   // ============================================
 
   portfolio: {
-    title: "AI Work Portfolio",
-    description: "Actual deliverables and artifacts from my AI adoption work",
+    title: "Work Portfolio",
+    description: "Case studies and deliverables from my operations and AI enablement work",
 
-    categories: [
+    projects: [
       {
-        id: "training",
-        name: "Training Materials",
+        id: "prompt-crafting",
+        title: "The Art of Prompt Crafting",
+        category: "AI Training & Enablement",
         icon: "📚",
-        items: [
-          {
-            id: "onboarding-guide",
-            name: "AI Agent Onboarding Guide",
-            type: "document",
-            description: "5-phase onboarding methodology for enterprise AI adoption",
-            content: `AI AGENT ONBOARDING METHODOLOGY
-=====================================
+        summary: "Created comprehensive onboarding curriculum for enterprise AI agent adoption",
+        documentUrl: "examples/prompt-crafting-guide.html",
 
-PHASE 1: DISCOVERY (Week 1-2)
-- Stakeholder interviews to understand business objectives
-- Current data infrastructure assessment
-- Use case prioritization workshop
-- Success metrics definition
+        caseStudy: {
+          challenge: "New AI agent product launching with zero training infrastructure. Clients ranged from tech-savvy analysts to executives who'd never used AI. Needed to get diverse users productive quickly without overwhelming them or setting unrealistic expectations.",
 
-PHASE 2: IMPLEMENTATION (Week 2-3)
-- Data connection setup and validation
-- Custom prompt library configuration
-- User role mapping and permissions
-- Integration with existing workflows
+          approach: "Applied my hermeneutics background - how do people actually learn and interpret new information? Built a progressive curriculum that met users where they were. Started with 'what AI can and can't do' before teaching prompts. Created role-based paths so sales teams learned differently than ops teams.",
 
-PHASE 3: TESTING & VALIDATION (Week 3-4)
-- Systematic prompt testing against known data
-- Edge case identification and documentation
-- Quality baseline establishment
-- Feedback loop creation
+          deliverables: [
+            "5-phase onboarding methodology (Discovery → Implementation → Testing → Training → Support)",
+            "Role-based training tracks for different user types",
+            "50+ training videos with transcripts and captions",
+            "Self-service resource library with searchable documentation",
+            "Power user certification program",
+            "Ongoing office hours and support framework"
+          ],
 
-PHASE 4: TRAINING (Week 4-5)
-- Role-based training sessions
-- Self-service resource library access
-- Power user certification program
-- Ongoing support channel setup
+          impact: "Became the go-to person for all AI-related questions across the organization. Training materials were used for every new client onboarding and internal hire. Reduced the 'I don't get it' support tickets dramatically by setting proper expectations upfront. Clients who went through the full curriculum showed notably higher engagement and satisfaction.",
 
-PHASE 5: ONGOING SUPPORT (Week 5+)
-- Weekly office hours
-- Quarterly prompt library updates
-- Performance metric reviews
-- Continuous improvement cycles
+          skills: ["Curriculum Design", "AI/ML Understanding", "Technical Writing", "Video Production", "Change Management", "Stakeholder Training"]
+        },
 
----
-Developed by Ashley Sepers
-Applied Hermeneutics in AI Adoption`
-          },
-          {
-            id: "video-curriculum",
-            name: "Video Training Curriculum",
-            type: "list",
-            description: "50+ training videos organized by proficiency level",
-            content: `VIDEO TRAINING CURRICULUM
-==========================
-
-BEGINNER (15 videos)
-- What is an AI Analytics Agent?
-- Your First Query: Asking Questions
-- Understanding AI Responses
-- When to Trust (and Verify) Results
-- Common Beginner Mistakes
-[...]
-
-INTERMEDIATE (20 videos)
-- Building Complex Queries
-- Filtering and Time Ranges
-- Comparative Analysis
-- Trend Detection
-- Export and Reporting
-[...]
-
-ADVANCED (15 videos)
-- Power Prompts Framework
-- Multi-Dataset Analysis
-- Custom Metric Creation
-- API Integration Basics
-- Training Others
-[...]
-
----
-Total runtime: 8+ hours
-All videos include closed captions and transcripts`
-          }
-        ]
+        presentation: {
+          title: "The Art of Prompt Crafting",
+          subtitle: "Building AI Adoption from Zero",
+          slides: [
+            {
+              title: "The Challenge",
+              content: "New AI product. Zero training materials. Users ranging from 'What's a prompt?' to 'Give me the API.'",
+              notes: "No two users had the same starting point"
+            },
+            {
+              title: "My Philosophy",
+              content: "Hermeneutics: The study of how people interpret and understand information.\n\nGood training isn't about information dumps - it's about meeting people where they are.",
+              notes: "Philosophy degree: surprisingly practical"
+            },
+            {
+              title: "The Framework",
+              content: "5 Phases:\n\n1. Discovery - Understand their goals\n2. Implementation - Set up properly\n3. Testing - Build confidence\n4. Training - Role-based learning\n5. Support - Ongoing success",
+              notes: "Each phase has clear exit criteria"
+            },
+            {
+              title: "Key Insight",
+              content: "Most AI training fails because it teaches WHAT before WHY.\n\nI started with: 'Here's what AI can't do' before 'Here's what it can.'",
+              notes: "Setting expectations prevents disappointment"
+            },
+            {
+              title: "The Deliverables",
+              content: "• 50+ training videos\n• Role-based learning paths\n• Self-service resource library\n• Power user certification\n• Weekly office hours",
+              notes: "All created from scratch by me"
+            },
+            {
+              title: "The Impact",
+              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\nSupport tickets about 'I don't get it' dropped significantly.",
+              notes: "My fingerprints on every success"
+            }
+          ]
+        }
       },
+
       {
-        id: "prompts",
-        name: "Prompt Libraries",
-        icon: "💬",
-        items: [
-          {
-            id: "power-prompts",
-            name: "Power Prompts Framework",
-            type: "document",
-            description: "Enterprise-level analytical prompt frameworks",
-            content: `POWER PROMPTS FRAMEWORK
-========================
+        id: "visual-language",
+        title: "The Visual Language",
+        category: "Data Visualization",
+        icon: "📊",
+        summary: "Developed standards for translating data queries into clear, actionable visualizations",
+        documentUrl: "examples/visual-language-guide.html",
 
-PHILOSOPHY:
-Good prompts aren't about tricking AI - they're about
-providing enough context for accurate interpretation.
-(Hermeneutics in action!)
+        caseStudy: {
+          challenge: "AI agents could answer questions, but the answers were walls of text. Executives wanted charts. Analysts wanted tables. Field teams wanted simple numbers. Same data, completely different needs - and no standards for how to present any of it.",
 
-STRUCTURE:
-1. Context Setting
-   "Given [time period] data for [scope]..."
+          approach: "Researched visualization best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness - same data, different presentations for different roles.",
 
-2. Specific Request
-   "...identify [metric] patterns where..."
+          deliverables: [
+            "Chart selection guide matching data types to visualization types",
+            "Audience adaptation framework (Executive vs. Analyst vs. Field)",
+            "Color palette standards with accessibility compliance",
+            "Template library for common report types",
+            "Prompt engineering patterns for visualization requests",
+            "Style guide ensuring consistency across all outputs"
+          ],
 
-3. Output Format
-   "...present as [format] including [elements]"
+          impact: "Transformed raw AI outputs into presentation-ready insights. Executives actually started using the dashboards instead of asking for manual reports. Consistency across all client deliverables improved significantly. Became the standard for how data was presented company-wide.",
 
-4. Validation Cue
-   "...and flag any data gaps or anomalies"
+          skills: ["Data Visualization", "UX Design", "Technical Documentation", "Accessibility", "Stakeholder Management", "Information Architecture"]
+        },
 
-EXAMPLE POWER PROMPTS:
-
-COMPETITIVE ANALYSIS:
-"Compare our Q3 performance across all retail
-locations against Q2, highlighting any stores
-where visit completion dropped more than 10%.
-Present as a table with location, both quarters'
-rates, and the delta. Note any locations with
-incomplete data."
-
-TREND DETECTION:
-"Identify the top 5 performing product categories
-this month versus the same month last year. For
-each category, show: total visits, completion rate,
-average duration, and YoY change. Flag any
-categories with sample size under 100 visits."
-
----
-Library contains 75+ tested prompts
-Organized by: Sales, Operations, Executive, Field`
-          },
-          {
-            id: "prompt-testing",
-            name: "Prompt Testing Framework",
-            type: "document",
-            description: "QA methodology for validating AI prompt reliability",
-            content: `PROMPT TESTING FRAMEWORK
-=========================
-
-WHY TEST PROMPTS?
-LLMs can confidently give wrong answers. Testing
-isn't optional - it's the difference between
-"AI-powered" and "AI-trusted."
-
-TESTING METHODOLOGY:
-
-1. BASELINE VALIDATION
-   - Run prompt against known dataset
-   - Compare output to manually calculated result
-   - Document any discrepancies
-
-2. EDGE CASE TESTING
-   - Empty data sets
-   - Single data point
-   - Extremely large data sets
-   - Data with nulls/gaps
-   - Conflicting data
-
-3. INTERPRETATION TESTING
-   - Rephrase same question 5 different ways
-   - Compare outputs for consistency
-   - Note any semantic drift
-
-4. RELIABILITY SCORING
-   - Run same prompt 10 times
-   - Document variation in responses
-   - Flag prompts with >5% variation
-
-5. HUMAN REVIEW
-   - Does the answer make business sense?
-   - Would a domain expert agree?
-   - Is the confidence appropriate?
-
----
-This framework caught 23 prompt issues before
-they reached clients.`
-          }
-        ]
+        presentation: {
+          title: "The Visual Language",
+          subtitle: "Making Data Speak Clearly",
+          slides: [
+            {
+              title: "The Problem",
+              content: "AI could answer anything.\nBut the answers looked like this:\n\n[Wall of text nobody read]",
+              notes: "Data without design is just noise"
+            },
+            {
+              title: "Different Audiences, Different Needs",
+              content: "Executive: 'Just tell me if we're up or down'\n\nAnalyst: 'I need the underlying data'\n\nField Team: 'Is this location good or bad?'",
+              notes: "One size fits nobody"
+            },
+            {
+              title: "The Solution",
+              content: "A decision framework:\n\n• Trends over time → Line charts\n• Part of whole → Pie/donut\n• Comparisons → Bar charts\n• Relationships → Scatter plots\n• Single metrics → Big numbers",
+              notes: "Match the visual to the question"
+            },
+            {
+              title: "Audience Adaptation",
+              content: "Same data, three presentations:\n\nExec: 'Revenue up 12% ↑' (green, big)\nAnalyst: [Full table with drill-down]\nField: 'Your store: #3 of 50'",
+              notes: "Context determines format"
+            },
+            {
+              title: "The Standards",
+              content: "• Consistent color palette\n• Accessibility-compliant contrast\n• Clear titles that answer 'so what?'\n• Source attribution\n• Data freshness indicators",
+              notes: "Consistency builds trust"
+            },
+            {
+              title: "The Result",
+              content: "Executives stopped asking for manual reports.\n\nEvery deliverable looked professional.\n\nBecame the company standard for data presentation.",
+              notes: "Design system for data"
+            }
+          ]
+        }
       },
+
       {
-        id: "qa",
-        name: "QA Documentation",
-        icon: "🔍",
-        items: [
-          {
-            id: "qa-process",
-            name: "AI Agent QA Process",
-            type: "document",
-            description: "Manual testing framework for AI product quality",
-            content: `AI AGENT QA PROCESS
-=====================
+        id: "survey-methodology",
+        title: "Experience Survey Framework",
+        category: "Research & Insights",
+        icon: "📋",
+        summary: "Built survey methodology for capturing authentic customer experience feedback",
+        documentUrl: "examples/mobile-experience-survey-guide.html",
 
-TESTING PHILOSOPHY:
-"Trust but verify" isn't enough with AI.
-It's "Verify, document, then cautiously trust."
+        caseStudy: {
+          challenge: "Clients needed to understand what customers actually thought about their field marketing experiences. But most surveys were either too long (nobody finishes), too vague (useless data), or too leading (biased results). Needed a framework that got honest, useful feedback without survey fatigue.",
 
-DAILY QA CHECKLIST:
-□ Run standard prompt battery (15 prompts)
-□ Compare to previous day's baseline
-□ Document any drift or variation
-□ Flag anomalies for engineering review
-□ Update reliability scores
+          approach: "Studied survey methodology research. Identified the sweet spot: 5-7 questions, specific but not leading, mix of quantitative (for tracking) and qualitative (for insights). Built in mobile-first design since most respondents were on phones. Created question banks organized by what you're trying to learn.",
 
-WEEKLY QA TASKS:
-□ Edge case testing round
-□ New prompt validation
-□ Client-reported issue investigation
-□ Prompt library maintenance
-□ Documentation updates
+          deliverables: [
+            "Survey design principles document",
+            "Question bank organized by research objective",
+            "Mobile-optimized survey templates",
+            "Response analysis framework",
+            "Benchmark interpretation guide",
+            "Common pitfalls and how to avoid them"
+          ],
 
-MONTHLY QA TASKS:
-□ Full regression testing
-□ Performance metric review
-□ Prompt library audit
-□ Training material updates
-□ Stakeholder report
+          impact: "Survey completion rates improved compared to previous approaches. Data quality was markedly better - fewer 'straight-line' responses, more thoughtful feedback. Clients could actually make decisions based on results. Framework was adopted as the standard for all experience measurement.",
 
-ISSUE CLASSIFICATION:
-🔴 Critical: Wrong data, business impact
-🟡 Major: Inconsistent results, confusion
-🟢 Minor: Formatting, minor variations
-⚪ Enhancement: Suggestions for improvement
+          skills: ["Survey Design", "Research Methodology", "Data Analysis", "UX Writing", "Mobile Design", "Client Training"]
+        },
 
----
-This process evolved from initial chaos to
-systematic quality assurance over 6 months.`
-          },
-          {
-            id: "bug-template",
-            name: "Bug Report Template",
-            type: "document",
-            description: "Template for clear, actionable bug reports",
-            content: `AI AGENT BUG REPORT TEMPLATE
-==============================
-
-[ISSUE TITLE]
-Clear, descriptive title
-
-[SEVERITY]
-🔴 Critical | 🟡 Major | 🟢 Minor
-
-[ENVIRONMENT]
-- Client:
-- Dataset:
-- Date/Time:
-- User Role:
-
-[PROMPT USED]
-Exact text of the prompt
-
-[EXPECTED BEHAVIOR]
-What should have happened
-
-[ACTUAL BEHAVIOR]
-What actually happened
-
-[EVIDENCE]
-- Screenshots
-- Data export
-- Manual calculation showing discrepancy
-
-[REPRODUCTION STEPS]
-1. Navigate to...
-2. Enter prompt...
-3. Observe...
-
-[BUSINESS IMPACT]
-How this affects the client/users
-
-[ADDITIONAL CONTEXT]
-Any other relevant information
-
----
-"Most people file tickets that say 'it's broken'
-and leave you guessing. Ashley's tickets have
-clear reproduction steps, expected behavior,
-actual behavior, and business impact."
-- Engineering Lead`
-          }
-        ]
+        presentation: {
+          title: "Experience Survey Framework",
+          subtitle: "Getting Feedback That Actually Helps",
+          slides: [
+            {
+              title: "The Challenge",
+              content: "Most surveys fail:\n\n• Too long → Abandoned\n• Too vague → Useless\n• Too leading → Biased\n\nWe needed honest, useful feedback.",
+              notes: "Survey fatigue is real"
+            },
+            {
+              title: "The Research",
+              content: "What the data says:\n\n• 5-7 questions optimal\n• Mobile completion 3x higher\n• Specific beats generic\n• Mix quant + qual",
+              notes: "Evidence-based approach"
+            },
+            {
+              title: "The Framework",
+              content: "Every survey needs:\n\n1. Overall satisfaction (benchmark)\n2. Specific experience questions\n3. Likelihood to recommend (NPS)\n4. Open-ended 'why'\n5. One actionable question",
+              notes: "Structure that works"
+            },
+            {
+              title: "Question Bank Approach",
+              content: "Pre-tested questions organized by objective:\n\n• Measuring satisfaction\n• Understanding drivers\n• Identifying problems\n• Capturing suggestions",
+              notes: "Don't reinvent the wheel"
+            },
+            {
+              title: "Mobile-First Design",
+              content: "• Thumb-friendly buttons\n• Progress indicators\n• Save and continue\n• Under 3 minutes total",
+              notes: "Design for how people actually respond"
+            },
+            {
+              title: "The Impact",
+              content: "Completion rates improved significantly.\n\nData quality measurably better.\n\nClients could make decisions.\n\nBecame the standard framework.",
+              notes: "Better data, better decisions"
+            }
+          ]
+        }
       },
+
       {
-        id: "philosophy",
-        name: "Applied Philosophy",
-        icon: "🎓",
-        items: [
-          {
-            id: "hermeneutics-ai",
-            name: "Hermeneutics for AI Work",
-            type: "document",
-            description: "How philosophy improves AI implementation",
-            content: `HERMENEUTICS FOR AI WORK
-==========================
+        id: "advanced-prompts",
+        title: "Enterprise Analytics Framework",
+        category: "AI & Analytics",
+        icon: "🔬",
+        summary: "Created advanced prompt frameworks for enterprise-level business intelligence",
+        documentUrl: "examples/advanced-ai-prompts-guide.html",
 
-WHAT IS HERMENEUTICS?
-The art and science of interpretation. How people
-make meaning from texts, conversations, experiences.
+        caseStudy: {
+          challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to bridge the gap between business questions and technical queries.",
 
-WHY IT MATTERS FOR AI:
+          approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively - same prompt, multiple datasets, consistent results. Created templates that non-technical users could customize. Built in guardrails to prevent misinterpretation.",
 
-1. UNDERSTANDING LLM INTERPRETATION
-   - LLMs interpret prompts based on training context
-   - Ambiguity leads to unpredictable results
-   - Clear context = better interpretation
-   (Same principles as human communication!)
+          deliverables: [
+            "Power Prompts library with 75+ tested templates",
+            "Prompt engineering guide for analysts",
+            "Business question → Prompt translation framework",
+            "Output validation checklist",
+            "Edge case documentation",
+            "Continuous improvement process for prompt refinement"
+          ],
 
-2. DESIGNING FOR HUMAN INTERPRETATION
-   - Users interpret AI responses through their lens
-   - Domain expertise affects understanding
-   - Cognitive load impacts comprehension
+          impact: "Transformed how clients extracted value from their data. Analysts who previously did manual Excel work could get answers in seconds. Executives got strategic insights they didn't know were possible. Several major sales wins directly cited the analytical capabilities as decision factors.",
 
-3. BRIDGING THE GAP
-   - Technical output → Business meaning
-   - Data → Decision-relevant insight
-   - Complexity → Actionable clarity
+          skills: ["Prompt Engineering", "Business Intelligence", "Data Analysis", "Technical Writing", "QA Testing", "Client Training"]
+        },
 
-PRACTICAL APPLICATIONS:
-
-PROMPT DESIGN:
-"How will the model interpret this?"
-"What context is missing?"
-"Where might ambiguity cause problems?"
-
-TRAINING DESIGN:
-"How will users process this information?"
-"What prior knowledge are they bringing?"
-"Where might confusion arise?"
-
-OUTPUT VALIDATION:
-"Does this make sense to a human reader?"
-"Is the confidence appropriate?"
-"What's being assumed vs. stated?"
-
----
-Philosophy degree: Surprisingly practical.`
-          }
-        ]
+        presentation: {
+          title: "Enterprise Analytics Framework",
+          subtitle: "Power Prompts for Business Intelligence",
+          slides: [
+            {
+              title: "The Gap",
+              content: "Business Question:\n'How are we doing vs. last year?'\n\nBasic Prompt:\n'Compare this year to last year'\n\nResult: Wall of unusable text",
+              notes: "Good questions need good translation"
+            },
+            {
+              title: "The Insight",
+              content: "AI can do sophisticated analysis.\n\nUsers don't know how to ask for it.\n\nMy job: Build the bridge.",
+              notes: "Translation layer"
+            },
+            {
+              title: "Prompt Engineering",
+              content: "Structure:\n1. Context (time, scope, filters)\n2. Specific request (metric, comparison)\n3. Output format (table, chart, summary)\n4. Validation cue (flag anomalies)",
+              notes: "Repeatable framework"
+            },
+            {
+              title: "The Power Prompts Library",
+              content: "75+ tested prompts:\n\n• Trend Detection\n• Anomaly Identification\n• Competitive Analysis\n• Performance Ranking\n• Predictive Patterns",
+              notes: "Tested on real data"
+            },
+            {
+              title: "Quality Assurance",
+              content: "Every prompt tested:\n\n• Multiple datasets\n• Edge cases\n• Rephrasing consistency\n• Business logic validation\n• Human review",
+              notes: "Trust but verify. Then verify again."
+            },
+            {
+              title: "The Impact",
+              content: "Manual Excel analysis → Seconds.\n\nExecutives got strategic insights.\n\nMajor sales wins cited our analytics.\n\nChanged how clients saw their data.",
+              notes: "My fingerprints on the big wins"
+            }
+          ]
+        }
       }
     ]
   },
@@ -2508,6 +2520,484 @@ That someone is you.`,
         threshold: 0,
         title: "Lessons Learned",
         text: "The trail was rough. Some projects struggled, some stakeholders grumbled, and your sanity took hits. But you showed up every day and kept things moving. In operations, sometimes that's the win. Take what you learned, rest up, and try again."
+      }
+    }
+  },
+
+  // ============================================
+  // RAIDERS OF THE LOST DOC - Adventure Game
+  // ============================================
+
+  raiders: {
+    title: "Raiders of the Lost Doc",
+    subtitle: "A Document Archaeology Adventure",
+    intro: `You are Dr. Dossier, legendary document archaeologist and keeper of the Sacred Style Guide.
+
+Word has reached you of the mythical "Original Requirements Document" - a legendary artifact said to contain the true intentions of the Ancient Stakeholders, lost for generations in the depths of the Legacy Codebase.
+
+Many have searched. Few have returned. Those who did spoke only in riddles about "deprecated methods" and "undocumented features."
+
+Your quest begins at the entrance to the File System Temple...`,
+
+    scenes: {
+      start: {
+        title: "The File System Temple",
+        text: `You stand before the imposing entrance to the File System Temple. Ancient directory structures stretch into darkness. Your fedora sits firmly upon your head. Your whip of well-formatted queries hangs at your side.
+
+Two paths diverge before you:
+
+To the LEFT: A dimly lit corridor marked "/legacy" - cobwebs suggest it hasn't been accessed in years.
+
+To the RIGHT: A brighter passage marked "/archive-2019" - you hear the distant hum of a backup server.
+
+STRAIGHT AHEAD: A locked vault door with a keypad. A note reads: "Password hint: The original project codename."`,
+        choices: [
+          { text: "Take the /legacy corridor", next: "legacy" },
+          { text: "Enter /archive-2019", next: "archive" },
+          { text: "Try 'PHOENIX' on the keypad", next: "vault-wrong" },
+          { text: "Try 'GENESIS' on the keypad", next: "vault" }
+        ]
+      },
+
+      legacy: {
+        title: "The Legacy Corridor",
+        text: `You venture into /legacy. The air is thick with the dust of deprecated functions. README files line the walls, their contents faded and cryptic.
+
+Suddenly, a WILD MERGE CONFLICT appears! Two branches diverged in these woods, and someone tried to take both.
+
+The conflict blocks your path. You must resolve it to continue.`,
+        choices: [
+          { text: "Accept 'theirs' and push forward", next: "legacy-theirs" },
+          { text: "Accept 'yours' and hold your ground", next: "legacy-yours" },
+          { text: "Carefully merge both changes by hand", next: "legacy-merge" },
+          { text: "Flee back to the entrance", next: "start" }
+        ]
+      },
+
+      "legacy-theirs": {
+        title: "Accepting the Unknown",
+        text: `You blindly accept the incoming changes. The merge conflict dissolves... but something feels wrong.
+
+The code compiles, but the tests fail silently. You've inherited technical debt you don't understand.
+
+A spectral figure appears - the Ghost of Developer Past. "You took the easy path," it whispers. "But at what cost?"
+
+It gestures to a hidden door you hadn't noticed before.`,
+        choices: [
+          { text: "Thank the ghost and enter the hidden door", next: "hidden-room" },
+          { text: "Ask the ghost about the Lost Doc", next: "ghost-hint" }
+        ]
+      },
+
+      "legacy-yours": {
+        title: "Standing Your Ground",
+        text: `You reject the incoming changes, keeping your version intact. The conflict clears, but a WARNING flashes:
+
+"BREAKING CHANGES DETECTED. Downstream systems may be affected."
+
+You press forward anyway. A trap door opens beneath you!
+
+You fall into...`,
+        choices: [
+          { text: "...a pile of soft, cushioning documentation", next: "docs-room" },
+          { text: "...the dreaded Dependency Hell", next: "dependency-hell" }
+        ]
+      },
+
+      "legacy-merge": {
+        title: "The Patient Path",
+        text: `You carefully review both versions, understanding the intent behind each change. Line by line, you craft a merge that preserves the best of both worlds.
+
+The merge conflict dissolves peacefully. A treasure chest appears!
+
+Inside you find: The Annotated Changelog of 2017. It contains a clue:
+
+"The Original Requirements Document was moved when we migrated to the new server. Check /vault/restricted/founders-notes."`,
+        choices: [
+          { text: "Head to the vault with this knowledge", next: "vault" },
+          { text: "Search for more clues here first", next: "hidden-room" }
+        ]
+      },
+
+      archive: {
+        title: "The Archive Passage",
+        text: `The /archive-2019 passage is well-lit but confusing. Folders are named by date, but the naming convention changed three times that year.
+
+You see:
+- /2019-Q1-reports
+- /2019_Q2_OLD_DO_NOT_USE
+- /2019-q3-FINAL-FINAL-v2
+- /q4-2019-actually-final
+
+A helpful sign reads: "The document you seek predates Q3 but was migrated during Q4."`,
+        choices: [
+          { text: "Check /2019-Q1-reports", next: "archive-q1" },
+          { text: "Check /2019_Q2_OLD_DO_NOT_USE", next: "archive-q2" },
+          { text: "Check /q4-2019-actually-final", next: "archive-q4" },
+          { text: "Give up and go back", next: "start" }
+        ]
+      },
+
+      "archive-q1": {
+        title: "Q1 Reports",
+        text: `You open the Q1 folder. Spreadsheets everywhere. Quarterly reviews. Budget allocations. Meeting notes that say "TBD" next to every action item.
+
+Then you spot it - a file called "original_requirements_BACKUP.docx.bak.old"
+
+You open it eagerly... but it's corrupted. Only fragments remain:
+
+"...the system shall... [CORRUPTED] ...user experience... [UNREADABLE] ...by Q3 2018..."
+
+A partial clue is better than none. The document mentions a "Project Genesis vault."`,
+        choices: [
+          { text: "Search for the vault", next: "vault" },
+          { text: "Try to recover more data", next: "recovery" }
+        ]
+      },
+
+      "archive-q2": {
+        title: "The Forbidden Folder",
+        text: `Despite the ominous "DO_NOT_USE" warning, you venture in. It's a graveyard of abandoned features.
+
+Half-built integrations. Commented-out code. A Jira ticket marked "IN PROGRESS" since 2019.
+
+Among the ruins, you find a developer's journal:
+
+"Day 47: Still can't find the original requirements. Manager says to 'just make it work.' I'm hiding my own notes in /hidden/.secrets because I don't trust the new file structure."
+
+Interesting...`,
+        choices: [
+          { text: "Search for /hidden/.secrets", next: "hidden-room" },
+          { text: "Return to the main archive", next: "archive" }
+        ]
+      },
+
+      "archive-q4": {
+        title: "Actually Final",
+        text: `The Q4 folder is surprisingly organized. Someone clearly did a cleanup before year-end.
+
+You find a migration log: "All legacy documents moved to vault. Password protection added per security audit. See founders-notes for access."
+
+Below it, a sticky note: "GENESIS - but backwards for the restricted section."`,
+        choices: [
+          { text: "Head to the vault with this intel", next: "vault" },
+          { text: "Try the password 'SISENEG'", next: "vault-restricted" }
+        ]
+      },
+
+      vault: {
+        title: "The Vault",
+        text: `The vault door slides open with a satisfying click. Inside, servers hum with the knowledge of ages.
+
+Organized filing cabinets line the walls. Finally, some structure!
+
+A directory terminal displays:
+- /vault/public - General documentation
+- /vault/restricted - Requires additional auth
+- /vault/founders-notes - "For emergencies only"
+
+The Lost Doc could be in any of these...`,
+        choices: [
+          { text: "Check /vault/public", next: "vault-public" },
+          { text: "Try to access /vault/restricted", next: "vault-restricted-locked" },
+          { text: "Risk the founders-notes", next: "founders" }
+        ]
+      },
+
+      "vault-wrong": {
+        title: "Access Denied",
+        text: `The keypad buzzes angrily. "PHOENIX" was not the password.
+
+A trap activates! Outdated documentation begins falling from the ceiling!
+
+You dodge a 200-page PDF titled "System Architecture v0.1 (DRAFT)" and roll away from "Meeting Notes - All Hands 2016.doc"`,
+        choices: [
+          { text: "Escape to the /legacy corridor", next: "legacy" },
+          { text: "Escape to /archive-2019", next: "archive" },
+          { text: "Try 'GENESIS' instead", next: "vault" }
+        ]
+      },
+
+      "vault-restricted-locked": {
+        title: "Restricted Access",
+        text: `A secondary keypad appears. "ENTER RESTRICTED PASSWORD"
+
+You'll need a hint to get through this door.`,
+        choices: [
+          { text: "Try 'SISENEG' (Genesis backwards)", next: "vault-restricted" },
+          { text: "Try 'password123'", next: "vault-restricted-fail" },
+          { text: "Search elsewhere for clues", next: "archive" }
+        ]
+      },
+
+      "vault-restricted-fail": {
+        title: "Really?",
+        text: `The system displays: "Nice try. That hasn't worked since 2003."
+
+An alarm sounds briefly, then stops. A message appears:
+
+"Three failed attempts detected. Hint: The project's birth, reversed."`,
+        choices: [
+          { text: "Try 'SISENEG'", next: "vault-restricted" },
+          { text: "Give up and try another path", next: "vault" }
+        ]
+      },
+
+      "vault-restricted": {
+        title: "The Restricted Section",
+        text: `The door slides open. You've reached the inner sanctum.
+
+Ancient design documents. Original wireframes. A napkin sketch that started it all.
+
+And there, in a climate-controlled display case: THE ORIGINAL REQUIREMENTS DOCUMENT.
+
+It's... beautiful. Properly formatted. Version-controlled. With acceptance criteria and everything.
+
+But it's protected by one final guardian.`,
+        choices: [
+          { text: "Face the guardian", next: "guardian" }
+        ]
+      },
+
+      guardian: {
+        title: "The Guardian of Requirements",
+        text: `A holographic figure materializes. It's the ORIGINAL PRODUCT MANAGER - or at least, their documentation avatar.
+
+"So, you seek the Original Requirements," they speak. "Many have come. All have failed the Three Questions."
+
+"Answer correctly, and the document is yours. Fail, and you shall be trapped forever in an infinite requirements gathering loop."
+
+Question 1: "What is more important - building the right thing, or building the thing right?"`,
+        choices: [
+          { text: "Building the right thing", next: "q1-right" },
+          { text: "Building the thing right", next: "q1-wrong" },
+          { text: "Both, but 'right thing' must come first", next: "q1-perfect" }
+        ]
+      },
+
+      "q1-wrong": {
+        title: "Not Quite",
+        text: `The guardian shakes their head. "Quality matters, but perfect execution of the wrong solution helps no one."
+
+They give you another chance.`,
+        choices: [
+          { text: "Try: Building the right thing", next: "q1-right" },
+          { text: "Try: Both, in the right order", next: "q1-perfect" }
+        ]
+      },
+
+      "q1-right": {
+        title: "Acceptable",
+        text: `"Correct enough," the guardian nods. "Validation before verification."
+
+Question 2: "A stakeholder requests a change that contradicts the original requirements. What do you do?"`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q1-perfect": {
+        title: "Impressive",
+        text: `The guardian's eyes widen. "You understand nuance. Both matter, but sequence matters more. Impressive."
+
+Question 2: "A stakeholder requests a change that contradicts the original requirements. What do you do?"`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-wrong1": {
+        title: "Too Rigid",
+        text: `"Requirements should guide, not imprison. Context changes. The document is a living artifact."
+
+Try again.`,
+        choices: [
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-wrong2": {
+        title: "Too Flexible",
+        text: `"Chaos lies that way. Without documentation and reasoning, we lose institutional knowledge."
+
+Try again.`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-right": {
+        title: "Wise Answer",
+        text: `"Yes! Documentation is not bureaucracy - it's organizational memory. Changes happen. Recording WHY they happen is what matters."
+
+Final Question: "The Lost Doc you seek - why do you truly want it?"`,
+        choices: [
+          { text: "To prove I was right all along", next: "q3-wrong1" },
+          { text: "To understand the original vision", next: "q3-right" },
+          { text: "To blame whoever wrote it", next: "q3-wrong2" }
+        ]
+      },
+
+      "q3-wrong1": {
+        title: "Wrong Motivation",
+        text: `"Documentation is not ammunition. Seek understanding, not validation."`,
+        choices: [
+          { text: "To understand the original vision", next: "q3-right" }
+        ]
+      },
+
+      "q3-wrong2": {
+        title: "Wrong Motivation",
+        text: `"Blame helps no one. The past informs; it does not condemn."`,
+        choices: [
+          { text: "To understand the original vision", next: "q3-right" }
+        ]
+      },
+
+      "q3-right": {
+        title: "Victory!",
+        text: `The guardian smiles warmly. "At last. One who seeks wisdom, not vindication."
+
+The display case opens. You carefully take THE ORIGINAL REQUIREMENTS DOCUMENT.
+
+As you hold it, knowledge flows through you. You understand now - the document itself was never the treasure. It was the journey of learning to ask the right questions, navigate complexity, and value documentation as a tool for understanding.
+
+"Go forth, Document Archaeologist," the guardian says, fading away. "May your READMEs be thorough and your changelogs complete."`,
+        choices: [
+          { text: "🏆 VICTORY - Play Again", next: "start" }
+        ]
+      },
+
+      "hidden-room": {
+        title: "The Developer's Secret Cache",
+        text: `You find the hidden directory. Inside, treasures:
+- An actual, working local environment setup guide
+- Comments that explain WHY, not just WHAT
+- A README that was updated this decade
+
+And a note: "If you're reading this, you're probably looking for the original requirements. I hid a backup in the vault. Password is the project codename, backwards. Good luck. - J"`,
+        choices: [
+          { text: "Head to the vault with this knowledge", next: "vault" },
+          { text: "Try 'SISENEG' immediately", next: "vault-restricted" }
+        ]
+      },
+
+      "ghost-hint": {
+        title: "Wisdom from Beyond",
+        text: `The Ghost of Developer Past leans in conspiratorially.
+
+"The document you seek... it was never truly lost. It was deliberately hidden by those who feared accountability. Look in the restricted section of the vault. The password is the project's original codename, reversed. GENESIS... becomes something else."
+
+The ghost fades, leaving only the smell of old server rooms and regret.`,
+        choices: [
+          { text: "Head to the vault", next: "vault" },
+          { text: "Explore the hidden door first", next: "hidden-room" }
+        ]
+      },
+
+      "docs-room": {
+        title: "The Documentation Sanctuary",
+        text: `You land softly on a pile of well-maintained docs. It's beautiful here - organized, searchable, with clear ownership.
+
+A librarian-bot approaches. "Welcome to the Documentation Sanctuary. Few find this place."
+
+"We preserve the knowledge others forget. If you seek the Original Requirements, know this: it lives in the vault, restricted section. But only those who value documentation's true purpose may access it."`,
+        choices: [
+          { text: "Ask about 'documentation's true purpose'", next: "docs-wisdom" },
+          { text: "Thank them and head to the vault", next: "vault" }
+        ]
+      },
+
+      "docs-wisdom": {
+        title: "The Librarian's Wisdom",
+        text: `"Documentation exists not to slow us down, but to speed up everyone who comes after. It's not about bureaucracy - it's about respect. Respect for future-you. Respect for your teammates. Respect for anyone who inherits your work."
+
+"The password to the restricted section is the founding project's name, reversed. Use it wisely."
+
+The librarian hands you a small card: "Honorary Documentation Archaeologist"`,
+        choices: [
+          { text: "Head to the vault, enlightened", next: "vault" }
+        ]
+      },
+
+      "dependency-hell": {
+        title: "Dependency Hell",
+        text: `You fall into a nightmarish realm of conflicting package versions. npm ERRORs echo through caverns of node_modules.
+
+A demon made of red error messages approaches: "PEER DEPENDENCY NOT MET. YOU SHALL NOT PASS."
+
+You must escape!`,
+        choices: [
+          { text: "Run 'npm install --legacy-peer-deps'", next: "escape-hell" },
+          { text: "Delete node_modules and try again", next: "escape-hell" },
+          { text: "Switch to a completely different tech stack", next: "escape-hell-funny" }
+        ]
+      },
+
+      "escape-hell": {
+        title: "Escape from Dependency Hell",
+        text: `Through sheer determination (and stack overflow), you escape Dependency Hell.
+
+You emerge near the vault entrance, wiser and more cautious.`,
+        choices: [
+          { text: "Enter the vault", next: "vault" }
+        ]
+      },
+
+      "escape-hell-funny": {
+        title: "The Nuclear Option",
+        text: `You decide to rewrite everything in Rust. The demons respect this choice and let you pass.
+
+"Brave," they whisper. "Foolish, but brave."
+
+You emerge near the vault, wondering if you've made a terrible mistake.`,
+        choices: [
+          { text: "Stick with the original plan and enter the vault", next: "vault" }
+        ]
+      },
+
+      recovery: {
+        title: "Data Recovery",
+        text: `You attempt advanced data recovery on the corrupted file. Hours pass. Progress bars move imperceptibly.
+
+Finally, you recover one more fragment: "...vault restricted section... password genesis reversed..."
+
+It's enough!`,
+        choices: [
+          { text: "Race to the vault", next: "vault" }
+        ]
+      },
+
+      founders: {
+        title: "The Founders' Notes",
+        text: `You access the founders' notes. It's a treasure trove of original vision:
+
+"We wanted to build something that would make people's lives easier. Not more complicated. If this documentation ever seems to contradict that goal, the documentation is wrong."
+
+At the bottom: "Restricted archives password: SISENEG (Genesis, the project codename, reversed. Don't tell compliance.)"`,
+        choices: [
+          { text: "Access the restricted archives", next: "vault-restricted" }
+        ]
+      },
+
+      "vault-public": {
+        title: "Public Documentation",
+        text: `The public vault contains useful but common knowledge:
+- API documentation (slightly outdated)
+- User guides (for the old UI)
+- A style guide from 2020
+
+Nothing legendary here. The Original Requirements must be in the restricted section.`,
+        choices: [
+          { text: "Try to access restricted section", next: "vault-restricted-locked" },
+          { text: "Check the founders' notes instead", next: "founders" }
+        ]
       }
     }
   }
