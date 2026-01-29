@@ -1037,43 +1037,21 @@ function initMyspace(windowEl) {
 function initMessenger(windowEl) {
   const chatArea = windowEl.querySelector('.messenger-chat-area');
   const quickQuestions = windowEl.querySelector('.messenger-quick-questions');
-  const input = windowEl.querySelector('.messenger-input');
-  const sendBtn = windowEl.querySelector('.messenger-send');
 
   const chatData = SITE_DATA.chat;
 
   // Add welcome message
   addChatMessage(chatArea, chatData.welcomeMessage, 'bot');
 
-  // Add quick questions
+  // Add quick questions as the primary interaction method
   chatData.quickQuestions.forEach(q => {
     const btn = document.createElement('button');
     btn.className = 'quick-question';
     btn.textContent = q;
     btn.addEventListener('click', () => {
-      sendChatMessage(chatArea, q);
+      sendChatMessage(chatArea, q, quickQuestions);
     });
     quickQuestions.appendChild(btn);
-  });
-
-  // Send on button click
-  sendBtn?.addEventListener('click', () => {
-    const message = input.value.trim();
-    if (message) {
-      sendChatMessage(chatArea, message);
-      input.value = '';
-    }
-  });
-
-  // Send on enter
-  input?.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      const message = input.value.trim();
-      if (message) {
-        sendChatMessage(chatArea, message);
-        input.value = '';
-      }
-    }
   });
 }
 
@@ -1090,7 +1068,7 @@ function addChatMessage(chatArea, text, type) {
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-function sendChatMessage(chatArea, message) {
+function sendChatMessage(chatArea, message, quickQuestionsEl) {
   // Add user message
   addChatMessage(chatArea, message, 'user');
 
@@ -1121,39 +1099,64 @@ function sendChatMessage(chatArea, message) {
     responseText = responseData;
   }
 
+  // Get quickQuestions element if not passed
+  if (!quickQuestionsEl) {
+    quickQuestionsEl = chatArea.closest('.messenger-content')?.querySelector('.messenger-quick-questions');
+  }
+
   // Add bot response after delay
   setTimeout(() => {
     addChatMessage(chatArea, responseText, 'bot');
 
-    // If there's a follow-up question, add it as a clickable button
-    if (followUpQuestion) {
+    // Update the quick questions area with follow-up or reset to main questions
+    if (quickQuestionsEl) {
       setTimeout(() => {
-        const followUpDiv = document.createElement('div');
-        followUpDiv.className = 'chat-followup';
-        followUpDiv.innerHTML = `
-          <button class="chat-followup-btn">${followUpQuestion}</button>
-          <button class="chat-followup-btn chat-back-btn">[Back to questions]</button>
-        `;
-        chatArea.appendChild(followUpDiv);
+        quickQuestionsEl.innerHTML = '';
+
+        if (followUpQuestion) {
+          // Show follow-up question and back button
+          const followUpBtn = document.createElement('button');
+          followUpBtn.className = 'quick-question';
+          followUpBtn.textContent = followUpQuestion;
+          followUpBtn.addEventListener('click', () => {
+            sendChatMessage(chatArea, followUpQuestion, quickQuestionsEl);
+          });
+          quickQuestionsEl.appendChild(followUpBtn);
+
+          const backBtn = document.createElement('button');
+          backBtn.className = 'quick-question';
+          backBtn.textContent = '← Back to questions';
+          backBtn.style.background = '#f0f0f0';
+          backBtn.style.color = '#666';
+          backBtn.style.borderColor = '#ccc';
+          backBtn.addEventListener('click', () => {
+            resetQuickQuestions(quickQuestionsEl, chatArea);
+          });
+          quickQuestionsEl.appendChild(backBtn);
+        } else {
+          // Reset to main questions
+          resetQuickQuestions(quickQuestionsEl, chatArea);
+        }
+
         chatArea.scrollTop = chatArea.scrollHeight;
-
-        // Add click handlers
-        followUpDiv.querySelector('.chat-followup-btn:not(.chat-back-btn)').addEventListener('click', () => {
-          followUpDiv.remove();
-          sendChatMessage(chatArea, followUpQuestion);
-        });
-
-        followUpDiv.querySelector('.chat-back-btn').addEventListener('click', () => {
-          followUpDiv.remove();
-          // Re-show quick questions
-          const quickQuestionsDiv = chatArea.closest('.messenger-body').querySelector('.chat-quick-questions');
-          if (quickQuestionsDiv) {
-            quickQuestionsDiv.style.display = 'flex';
-          }
-        });
       }, 300);
     }
   }, 500 + Math.random() * 500);
+}
+
+function resetQuickQuestions(quickQuestionsEl, chatArea) {
+  const chatData = SITE_DATA.chat;
+  quickQuestionsEl.innerHTML = '';
+
+  chatData.quickQuestions.forEach(q => {
+    const btn = document.createElement('button');
+    btn.className = 'quick-question';
+    btn.textContent = q;
+    btn.addEventListener('click', () => {
+      sendChatMessage(chatArea, q, quickQuestionsEl);
+    });
+    quickQuestionsEl.appendChild(btn);
+  });
 }
 
 function initFolder(windowEl) {

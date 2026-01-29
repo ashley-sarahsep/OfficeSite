@@ -1716,32 +1716,49 @@ body {
 }
 
 .messenger-input-area {
-  padding: 10px;
-  background: #f5f5f5;
+  padding: 12px;
+  background: linear-gradient(to bottom, #f0f0f0, #e8e8e8);
+  border-top: 1px solid #d0d0d0;
+}
+
+.messenger-prompt {
+  font-family: var(--font-system);
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .messenger-quick-questions {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 10px;
+  gap: 6px;
 }
 
 .quick-question {
-  padding: 5px 10px;
+  padding: 7px 12px;
   background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 15px;
+  border: 1px solid var(--messenger-blue);
+  border-radius: 16px;
   font-family: var(--font-system);
   font-size: 11px;
+  color: var(--messenger-blue);
   cursor: pointer;
   transition: all 0.2s;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
 }
 
 .quick-question:hover {
   background: var(--messenger-blue);
   color: #fff;
   border-color: var(--messenger-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.quick-question:active {
+  transform: translateY(0);
 }
 
 /* Chat follow-up questions */
@@ -1780,34 +1797,7 @@ body {
   color: #fff;
 }
 
-.messenger-input-row {
-  display: flex;
-  gap: 5px;
-}
-
-.messenger-input {
-  flex: 1;
-  padding: 8px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: var(--font-system);
-  font-size: 12px;
-}
-
-.messenger-send {
-  padding: 8px 15px;
-  background: var(--messenger-blue);
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-family: var(--font-system);
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.messenger-send:hover {
-  background: #005a9e;
-}
+/* Text input removed - using quick questions only */
 
 /* Folder Content */
 .folder-content {
