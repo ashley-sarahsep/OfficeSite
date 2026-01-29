@@ -404,25 +404,7 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
         {
           id: "welcome-intro",
           portrait: "smiling1",
-          text: "Hey there! I'm Ashley. Welcome to my office. I always wanted to make myself a website just like this - something that made me feel like a kid on a computer. I figured, why not use this instead of a regular portfolio - and putting it together was very fun. Poke around, click on things, explore.",
-          responses: [
-            { text: "This is great.", next: "welcome-great" },
-            { text: "What can I explore?", next: "welcome-explore" },
-            { text: "[Start exploring]", next: null }
-          ]
-        },
-        {
-          id: "welcome-great",
-          portrait: "smiling2",
-          text: "Thanks! Buttons at the bottom let you inspect different things around the room, or head to the computer for the more traditional stuff - resume, work samples, ways to get in touch.",
-          responses: [
-            { text: "[Start exploring]", next: null }
-          ]
-        },
-        {
-          id: "welcome-explore",
-          portrait: "excited",
-          text: "Buttons at the bottom let you look at different things in the room - the desk, the bookshelves, the cats, the art. The computer has my resume, some work examples, and ways to reach me. It's inspired by point-and-click exploration and adventure games - except this time the mystery is whether we'd work well together.",
+          text: "Hiya! I'm Ashley - this is my office. Want to know more? Take a look around.",
           responses: [
             { text: "[Start exploring]", next: null }
           ]
