@@ -1,5 +1,5 @@
 // ============================================
-// ASHLEY SEPERS - PORTFOLIO CONVERSATION DATA
+// ASHLEY SARAH - PORTFOLIO CONVERSATION DATA
 // ============================================
 // Edit this file to update all content easily
 // ============================================
@@ -8,7 +8,7 @@ const SITE_DATA = {
   // Personal info
   name: "Ashley Sarah",
   title: "Product Operations | Cross-Functional Leadership | Enablement | AI Adoption",
-  email: "ashley.sepers@gmail.com",
+  email: "ashley@stepinto-ashleysoffice.com",
   linkedin: "linkedin.com/in/ashley-sarahsep",
   location: "Guelph, Ontario / Remote",
 
@@ -1472,7 +1472,7 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
     },
 
     taskbarLinks: [
-      { name: "Email", action: "mailto:ashley.sepers@gmail.com" },
+      { name: "Email", action: "mailto:ashley@stepinto-ashleysoffice.com" },
       { name: "LinkedIn", action: "https://linkedin.com/in/ashley-sarahsep" },
       { name: "Exit to Room", action: "exitDesktop" }
     ]
@@ -1488,7 +1488,7 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
 <h1>ASHLEY SEPERS</h1>
 <p class="resume-subtitle">Product Operations | Cross-Functional Leadership | Enablement | AI Adoption</p>
 <p class="resume-contact">
-Email: ashley.sepers@gmail.com<br>
+Email: ashley@stepinto-ashleysoffice.com<br>
 LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 </p>
 </div>
@@ -1875,7 +1875,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       }
     },
 
-    fallbackResponse: "Good question. For the detailed answer, you might want to check Resume.doc or AboutMe.html on this desktop. Or just email Ashley directly at ashley.sepers@gmail.com - she's friendlier and funnier than I am."
+    fallbackResponse: "Good question. For the detailed answer, you might want to check Resume.doc or AboutMe.html on this desktop. Or just email Ashley directly at ashley@stepinto-ashleysoffice.com - she's friendlier and funnier than I am."
   },
 
   // ============================================
