@@ -419,6 +419,10 @@ function openDialog(hotspotId, hotspotData) {
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
 
+  // Clear previous dialog content immediately
+  textEl.textContent = '';
+  responsesEl.innerHTML = '';
+
   // Set dialog title
   titleEl.textContent = hotspotData.name;
 
@@ -551,17 +555,41 @@ function initDesktopIcons() {
   const icons = document.querySelectorAll('.desktop-icon');
 
   icons.forEach(icon => {
-    // Double click to open
-    icon.addEventListener('dblclick', (e) => {
-      const app = e.currentTarget.dataset.app;
-      const file = e.currentTarget.dataset.file;
-      openApp(app, file);
-    });
+    // Add keyboard accessibility
+    icon.setAttribute('tabindex', '0');
+    icon.setAttribute('role', 'button');
 
-    // Single click to select
-    icon.addEventListener('click', (e) => {
-      icons.forEach(i => i.classList.remove('selected'));
-      e.currentTarget.classList.add('selected');
+    // Check if single-click mode is enabled
+    if (accessibilitySettings.singleClick) {
+      // Single click to open
+      icon.addEventListener('click', (e) => {
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      });
+    } else {
+      // Double click to open
+      icon.addEventListener('dblclick', (e) => {
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      });
+
+      // Single click to select
+      icon.addEventListener('click', (e) => {
+        icons.forEach(i => i.classList.remove('selected'));
+        e.currentTarget.classList.add('selected');
+      });
+    }
+
+    // Keyboard support - Enter or Space to open
+    icon.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      }
     });
   });
 
@@ -704,7 +732,8 @@ function getWindowSize(appType) {
     'work-detail': { width: '500px', height: '400px' },
     portfolio: { width: '550px', height: '450px' },
     'portfolio-viewer': { width: '600px', height: '500px' },
-    game: { width: '650px', height: '500px' }
+    game: { width: '650px', height: '500px' },
+    accessibility: { width: '450px', height: '520px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -725,7 +754,8 @@ function getWindowTitle(appType, fileId) {
     'work-detail': 'Project Details',
     portfolio: 'AI Portfolio - Explorer',
     'portfolio-viewer': 'Document Viewer',
-    game: 'Project Trail - A Business Adventure'
+    game: 'Project Trail - A Business Adventure',
+    accessibility: 'Accessibility Options'
   };
   return titles[appType] || 'Window';
 }
@@ -778,6 +808,9 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'catpong':
       initCatPong(windowEl);
+      break;
+    case 'accessibility':
+      initAccessibilityWindow(windowEl);
       break;
   }
 }
@@ -1004,43 +1037,21 @@ function initMyspace(windowEl) {
 function initMessenger(windowEl) {
   const chatArea = windowEl.querySelector('.messenger-chat-area');
   const quickQuestions = windowEl.querySelector('.messenger-quick-questions');
-  const input = windowEl.querySelector('.messenger-input');
-  const sendBtn = windowEl.querySelector('.messenger-send');
 
   const chatData = SITE_DATA.chat;
 
   // Add welcome message
   addChatMessage(chatArea, chatData.welcomeMessage, 'bot');
 
-  // Add quick questions
+  // Add quick questions as the primary interaction method
   chatData.quickQuestions.forEach(q => {
     const btn = document.createElement('button');
     btn.className = 'quick-question';
     btn.textContent = q;
     btn.addEventListener('click', () => {
-      sendChatMessage(chatArea, q);
+      sendChatMessage(chatArea, q, quickQuestions);
     });
     quickQuestions.appendChild(btn);
-  });
-
-  // Send on button click
-  sendBtn?.addEventListener('click', () => {
-    const message = input.value.trim();
-    if (message) {
-      sendChatMessage(chatArea, message);
-      input.value = '';
-    }
-  });
-
-  // Send on enter
-  input?.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      const message = input.value.trim();
-      if (message) {
-        sendChatMessage(chatArea, message);
-        input.value = '';
-      }
-    }
   });
 }
 
@@ -1057,7 +1068,7 @@ function addChatMessage(chatArea, text, type) {
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-function sendChatMessage(chatArea, message) {
+function sendChatMessage(chatArea, message, quickQuestionsEl) {
   // Add user message
   addChatMessage(chatArea, message, 'user');
 
@@ -1088,39 +1099,64 @@ function sendChatMessage(chatArea, message) {
     responseText = responseData;
   }
 
+  // Get quickQuestions element if not passed
+  if (!quickQuestionsEl) {
+    quickQuestionsEl = chatArea.closest('.messenger-content')?.querySelector('.messenger-quick-questions');
+  }
+
   // Add bot response after delay
   setTimeout(() => {
     addChatMessage(chatArea, responseText, 'bot');
 
-    // If there's a follow-up question, add it as a clickable button
-    if (followUpQuestion) {
+    // Update the quick questions area with follow-up or reset to main questions
+    if (quickQuestionsEl) {
       setTimeout(() => {
-        const followUpDiv = document.createElement('div');
-        followUpDiv.className = 'chat-followup';
-        followUpDiv.innerHTML = `
-          <button class="chat-followup-btn">${followUpQuestion}</button>
-          <button class="chat-followup-btn chat-back-btn">[Back to questions]</button>
-        `;
-        chatArea.appendChild(followUpDiv);
+        quickQuestionsEl.innerHTML = '';
+
+        if (followUpQuestion) {
+          // Show follow-up question and back button
+          const followUpBtn = document.createElement('button');
+          followUpBtn.className = 'quick-question';
+          followUpBtn.textContent = followUpQuestion;
+          followUpBtn.addEventListener('click', () => {
+            sendChatMessage(chatArea, followUpQuestion, quickQuestionsEl);
+          });
+          quickQuestionsEl.appendChild(followUpBtn);
+
+          const backBtn = document.createElement('button');
+          backBtn.className = 'quick-question';
+          backBtn.textContent = '← Back to questions';
+          backBtn.style.background = '#f0f0f0';
+          backBtn.style.color = '#666';
+          backBtn.style.borderColor = '#ccc';
+          backBtn.addEventListener('click', () => {
+            resetQuickQuestions(quickQuestionsEl, chatArea);
+          });
+          quickQuestionsEl.appendChild(backBtn);
+        } else {
+          // Reset to main questions
+          resetQuickQuestions(quickQuestionsEl, chatArea);
+        }
+
         chatArea.scrollTop = chatArea.scrollHeight;
-
-        // Add click handlers
-        followUpDiv.querySelector('.chat-followup-btn:not(.chat-back-btn)').addEventListener('click', () => {
-          followUpDiv.remove();
-          sendChatMessage(chatArea, followUpQuestion);
-        });
-
-        followUpDiv.querySelector('.chat-back-btn').addEventListener('click', () => {
-          followUpDiv.remove();
-          // Re-show quick questions
-          const quickQuestionsDiv = chatArea.closest('.messenger-body').querySelector('.chat-quick-questions');
-          if (quickQuestionsDiv) {
-            quickQuestionsDiv.style.display = 'flex';
-          }
-        });
       }, 300);
     }
   }, 500 + Math.random() * 500);
+}
+
+function resetQuickQuestions(quickQuestionsEl, chatArea) {
+  const chatData = SITE_DATA.chat;
+  quickQuestionsEl.innerHTML = '';
+
+  chatData.quickQuestions.forEach(q => {
+    const btn = document.createElement('button');
+    btn.className = 'quick-question';
+    btn.textContent = q;
+    btn.addEventListener('click', () => {
+      sendChatMessage(chatArea, q, quickQuestionsEl);
+    });
+    quickQuestionsEl.appendChild(btn);
+  });
 }
 
 function initFolder(windowEl) {
@@ -1896,6 +1932,9 @@ function initSite() {
   const bootScreen = document.getElementById('boot-screen');
   const roomScene = document.getElementById('room-scene');
 
+  // Initialize accessibility FIRST (before any visual rendering)
+  initAccessibility();
+
   // Hide boot screen, show room directly
   bootScreen.classList.add('hidden');
   roomScene.classList.remove('hidden');
@@ -1925,10 +1964,26 @@ function initSite() {
 function initImageLightbox() {
   const lightbox = document.getElementById('image-lightbox');
   const lightboxImg = document.getElementById('lightbox-image');
+  const closeBtn = lightbox?.querySelector('.image-lightbox-close');
 
-  // Close lightbox on click
-  lightbox?.addEventListener('click', () => {
-    lightbox.classList.add('hidden');
+  // Close lightbox on background click
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxImg) {
+      closeLightbox();
+    }
+  });
+
+  // Close button
+  closeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) {
+      closeLightbox();
+    }
   });
 
   // Make dialog portrait image clickable to expand
@@ -1938,6 +1993,13 @@ function initImageLightbox() {
       openLightbox(portraitImg.src);
     }
   });
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('image-lightbox');
+  if (lightbox) {
+    lightbox.classList.add('hidden');
+  }
 }
 
 function openLightbox(imageSrc) {
@@ -1955,4 +2017,288 @@ function showWelcomeDialog() {
   if (welcomeData) {
     openDialog('welcome', welcomeData);
   }
+}
+
+// ============================================
+// ACCESSIBILITY SETTINGS
+// ============================================
+
+const accessibilitySettings = {
+  highContrast: false,
+  largeText: false,
+  dyslexiaFont: false,
+  focusIndicators: false,
+  singleClick: false,
+  reducedMotion: false,
+  screenReaderMode: false
+};
+
+// CSS class mapping for each setting
+const settingClasses = {
+  highContrast: 'a11y-high-contrast',
+  largeText: 'a11y-large-text',
+  dyslexiaFont: 'a11y-dyslexia-font',
+  focusIndicators: 'a11y-focus-indicators',
+  singleClick: 'a11y-single-click',
+  reducedMotion: 'a11y-reduced-motion',
+  screenReaderMode: 'a11y-screen-reader'
+};
+
+function initAccessibility() {
+  // Load saved settings from localStorage
+  loadAccessibilitySettings();
+
+  // Apply loaded settings
+  applyAccessibilitySettings();
+
+  // Initialize room accessibility button
+  initRoomAccessibilityButton();
+
+  // Initialize quick panel
+  initQuickAccessibilityPanel();
+
+  // Respect prefers-reduced-motion on first load
+  if (!localStorage.getItem('a11y-settings')) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      accessibilitySettings.reducedMotion = true;
+      applyAccessibilitySettings();
+      saveAccessibilitySettings();
+    }
+  }
+}
+
+function loadAccessibilitySettings() {
+  try {
+    const saved = localStorage.getItem('a11y-settings');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      Object.assign(accessibilitySettings, parsed);
+    }
+  } catch (e) {
+    console.warn('Could not load accessibility settings:', e);
+  }
+}
+
+function saveAccessibilitySettings() {
+  try {
+    localStorage.setItem('a11y-settings', JSON.stringify(accessibilitySettings));
+  } catch (e) {
+    console.warn('Could not save accessibility settings:', e);
+  }
+}
+
+function applyAccessibilitySettings() {
+  // Apply/remove classes based on settings
+  for (const [setting, enabled] of Object.entries(accessibilitySettings)) {
+    const className = settingClasses[setting];
+    if (className) {
+      document.body.classList.toggle(className, enabled);
+    }
+  }
+
+  // Update single-click mode for desktop icons
+  updateSingleClickMode();
+
+  // Update all checkboxes in accessibility windows and quick panel
+  updateAccessibilityUI();
+
+  // Announce change for screen readers
+  if (accessibilitySettings.screenReaderMode) {
+    announceForScreenReader('Accessibility settings updated');
+  }
+}
+
+function updateSingleClickMode() {
+  // This is handled by checking accessibilitySettings.singleClick in click handlers
+  // Re-initialize desktop icons if they exist
+  const icons = document.querySelectorAll('.desktop-icon');
+  icons.forEach(icon => {
+    // Remove existing listeners by cloning
+    const newIcon = icon.cloneNode(true);
+    icon.parentNode.replaceChild(newIcon, icon);
+
+    // Add appropriate listener
+    if (accessibilitySettings.singleClick) {
+      newIcon.addEventListener('click', (e) => {
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      });
+    } else {
+      newIcon.addEventListener('dblclick', (e) => {
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      });
+      newIcon.addEventListener('click', (e) => {
+        document.querySelectorAll('.desktop-icon').forEach(i => i.classList.remove('selected'));
+        e.currentTarget.classList.add('selected');
+      });
+    }
+
+    // Add keyboard support
+    newIcon.setAttribute('tabindex', '0');
+    newIcon.setAttribute('role', 'button');
+    newIcon.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      }
+    });
+  });
+}
+
+function updateAccessibilityUI() {
+  // Update checkboxes in accessibility window
+  for (const [setting, enabled] of Object.entries(accessibilitySettings)) {
+    const checkbox = document.querySelector(`[data-setting="${setting}"]`);
+    if (checkbox && checkbox.type === 'checkbox') {
+      checkbox.checked = enabled;
+    }
+  }
+
+  // Update quick panel toggles
+  document.querySelectorAll('.a11y-quick-toggle').forEach(btn => {
+    const setting = btn.dataset.setting;
+    if (setting && accessibilitySettings[setting] !== undefined) {
+      btn.classList.toggle('active', accessibilitySettings[setting]);
+    }
+  });
+}
+
+function toggleAccessibilitySetting(setting, value = null) {
+  if (accessibilitySettings[setting] !== undefined) {
+    accessibilitySettings[setting] = value !== null ? value : !accessibilitySettings[setting];
+    applyAccessibilitySettings();
+    saveAccessibilitySettings();
+  }
+}
+
+function resetAccessibilitySettings() {
+  for (const key of Object.keys(accessibilitySettings)) {
+    accessibilitySettings[key] = false;
+  }
+  applyAccessibilitySettings();
+  saveAccessibilitySettings();
+}
+
+function initRoomAccessibilityButton() {
+  const btn = document.getElementById('room-accessibility-btn');
+  const panel = document.getElementById('a11y-quick-panel');
+
+  if (btn && panel) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      panel.classList.toggle('visible');
+
+      // Focus first toggle when opening
+      if (panel.classList.contains('visible')) {
+        const firstToggle = panel.querySelector('.a11y-quick-toggle');
+        if (firstToggle) firstToggle.focus();
+      }
+    });
+  }
+}
+
+function initQuickAccessibilityPanel() {
+  const panel = document.getElementById('a11y-quick-panel');
+  const closeBtn = document.getElementById('a11y-quick-close');
+  const openFullBtn = document.getElementById('a11y-open-full');
+
+  if (!panel) return;
+
+  // Close button
+  closeBtn?.addEventListener('click', () => {
+    panel.classList.remove('visible');
+  });
+
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    if (panel.classList.contains('visible') &&
+        !panel.contains(e.target) &&
+        e.target.id !== 'room-accessibility-btn') {
+      panel.classList.remove('visible');
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panel.classList.contains('visible')) {
+      panel.classList.remove('visible');
+    }
+  });
+
+  // Quick toggles
+  panel.querySelectorAll('.a11y-quick-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const setting = btn.dataset.setting;
+      toggleAccessibilitySetting(setting);
+    });
+  });
+
+  // Open full settings
+  openFullBtn?.addEventListener('click', () => {
+    panel.classList.remove('visible');
+    // Go to desktop and open accessibility panel
+    if (state.currentScene !== 'desktop') {
+      transitionToDesktop(() => {
+        openApp('accessibility', 'settings');
+      });
+    } else {
+      openApp('accessibility', 'settings');
+    }
+  });
+}
+
+function initAccessibilityWindow(windowEl) {
+  const applyBtn = windowEl.querySelector('#a11y-apply');
+  const resetBtn = windowEl.querySelector('#a11y-reset');
+
+  // Set initial checkbox states
+  windowEl.querySelectorAll('[data-setting]').forEach(input => {
+    const setting = input.dataset.setting;
+    if (accessibilitySettings[setting] !== undefined) {
+      input.checked = accessibilitySettings[setting];
+    }
+
+    // Add change listeners
+    input.addEventListener('change', () => {
+      toggleAccessibilitySetting(setting, input.checked);
+    });
+  });
+
+  // Apply & Close button
+  applyBtn?.addEventListener('click', () => {
+    // Settings are already applied in real-time, just close
+    const windowId = windowEl.id;
+    closeWindow(windowId);
+  });
+
+  // Reset button
+  resetBtn?.addEventListener('click', () => {
+    resetAccessibilitySettings();
+    // Update all checkboxes
+    windowEl.querySelectorAll('[data-setting]').forEach(input => {
+      input.checked = false;
+    });
+  });
+}
+
+// Screen reader announcement helper
+function announceForScreenReader(message) {
+  let announcer = document.getElementById('sr-announcer');
+  if (!announcer) {
+    announcer = document.createElement('div');
+    announcer.id = 'sr-announcer';
+    announcer.setAttribute('aria-live', 'polite');
+    announcer.setAttribute('aria-atomic', 'true');
+    announcer.className = 'sr-only';
+    document.body.appendChild(announcer);
+  }
+  announcer.textContent = '';
+  setTimeout(() => {
+    announcer.textContent = message;
+  }, 100);
 }

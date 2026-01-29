@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Agent: Practical Guide for Everyday Users</title>
+  <style>
+    :root {
+      --color-cream: #f5f0e6;
+      --color-burgundy: #722f4e;
+      --color-teal: #1e4d4d;
+      --color-sage: #9ea890;
+      --color-mauve: #b8a9a3;
+      --color-text: #2d2d2d;
+      --color-text-light: #5a5a5a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--color-cream);
+      color: var(--color-text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--color-burgundy);
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--color-text-light);
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+
+    .intro {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      border-left: 4px solid var(--color-teal);
+    }
+
+    h2 {
+      color: var(--color-burgundy);
+      font-size: 22px;
+      margin: 35px 0 18px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-mauve);
+    }
+
+    h3 {
+      color: var(--color-teal);
+      font-size: 18px;
+      margin: 25px 0 12px 0;
+    }
+
+    h4 {
+      color: var(--color-burgundy);
+      font-size: 14px;
+      margin: 15px 0 6px 0;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    .data-category {
+      background: white;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      border-radius: 6px;
+      border-left: 3px solid var(--color-sage);
+    }
+
+    .data-category h4 {
+      margin: 0 0 4px 0;
+      color: var(--color-teal);
+    }
+
+    .data-category p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--color-text-light);
+    }
+
+    .tips-section {
+      background: linear-gradient(135deg, #f9f7f3 0%, #f0ebe0 100%);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 1px solid var(--color-mauve);
+    }
+
+    .tips-section h3 {
+      margin-top: 0;
+      color: var(--color-burgundy);
+    }
+
+    ul {
+      margin: 12px 0 12px 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    li strong {
+      color: var(--color-teal);
+    }
+
+    .pro-tip {
+      background: var(--color-burgundy);
+      color: white;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 14px;
+    }
+
+    .pro-tip strong {
+      color: var(--color-cream);
+    }
+
+    .workflow-section {
+      margin: 25px 0;
+    }
+
+    .workflow-step {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 15px;
+      align-items: flex-start;
+    }
+
+    .step-letter {
+      background: var(--color-teal);
+      color: white;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .step-content {
+      flex: 1;
+    }
+
+    .step-content h4 {
+      margin: 0 0 4px 0;
+    }
+
+    .step-content p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--color-text-light);
+    }
+
+    .helpful-tips {
+      background: var(--color-cream);
+      border: 1px solid var(--color-sage);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 15px 0;
+    }
+
+    .helpful-tips h4 {
+      color: var(--color-teal);
+      margin: 0 0 8px 0;
+    }
+
+    .helpful-tips p {
+      font-size: 13px;
+      margin: 0;
+      color: var(--color-text-light);
+    }
+
+    .prompt-card {
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .prompt-number {
+      background: var(--color-burgundy);
+      color: white;
+      padding: 8px 16px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .prompt-content {
+      padding: 16px;
+    }
+
+    .prompt-content h4 {
+      margin: 0 0 10px 0;
+    }
+
+    .prompt-example {
+      background: #f8f6f2;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      margin-bottom: 10px;
+      border-left: 3px solid var(--color-teal);
+    }
+
+    .prompt-result {
+      font-size: 13px;
+      color: var(--color-text-light);
+      font-style: italic;
+    }
+
+    .troubleshooting-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      align-items: baseline;
+    }
+
+    .problem {
+      color: var(--color-burgundy);
+      font-weight: 600;
+      min-width: 180px;
+    }
+
+    .solution {
+      color: var(--color-teal);
+    }
+
+    .conversation-example {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .conversation-example h4 {
+      margin-bottom: 15px;
+    }
+
+    .message {
+      margin-bottom: 15px;
+      padding: 10px 14px;
+      border-radius: 8px;
+    }
+
+    .message.user {
+      background: #f0ebe0;
+      margin-left: 20px;
+    }
+
+    .message.agent {
+      background: var(--color-sage);
+      color: white;
+      margin-right: 20px;
+    }
+
+    .message-sender {
+      font-weight: 600;
+      font-size: 12px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .message.user .message-sender {
+      color: var(--color-burgundy);
+    }
+
+    .message.agent .message-sender {
+      color: var(--color-cream);
+    }
+
+    .cta-section {
+      text-align: center;
+      margin: 40px 0;
+      padding: 30px;
+      background: linear-gradient(135deg, var(--color-teal) 0%, #2a5a5a 100%);
+      border-radius: 12px;
+      color: white;
+    }
+
+    .cta-section h3 {
+      color: white;
+      margin-top: 0;
+    }
+
+    .cta-section p {
+      margin-bottom: 15px;
+    }
+
+    .cta-prompt {
+      background: rgba(255,255,255,0.15);
+      padding: 15px;
+      border-radius: 8px;
+      font-style: italic;
+      margin: 15px 0;
+    }
+
+    .resources-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .resource-card {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      border: 1px solid var(--color-mauve);
+    }
+
+    .resource-card h4 {
+      color: var(--color-burgundy);
+      margin: 0 0 5px 0;
+    }
+
+    .resource-card p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--color-text-light);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>AI Agent: Practical Guide for Everyday Users</h1>
+  <p class="subtitle">Get more from your data with AI-powered insights</p>
+
+  <div class="intro">
+    <p>As someone who regularly works with data, you already know how valuable your information is. An AI Agent helps you unlock deeper insights from that data through simple, conversation-based interactions. This guide will show you how to get the most helpful information from your AI assistant.</p>
+  </div>
+
+  <h2>How Your AI Agent Works With Existing Data</h2>
+  <p>Your AI Agent connects to all the data you're already collecting. This typically includes:</p>
+
+  <div class="data-category">
+    <h4>Event & Activity Data</h4>
+    <p>Dates, times, schedules, and associated details</p>
+  </div>
+
+  <div class="data-category">
+    <h4>Form Responses & Recaps</h4>
+    <p>All your form fields and responses from completed activities</p>
+  </div>
+
+  <div class="data-category">
+    <h4>Team Information</h4>
+    <p>Assignments, hours, roles, and performance data</p>
+  </div>
+
+  <div class="data-category">
+    <h4>Locations & Geography</h4>
+    <p>Venue types, locations, and regional organization</p>
+  </div>
+
+  <div class="data-category">
+    <h4>Programs & Categories</h4>
+    <p>All the categorization you use for grouping and classification</p>
+  </div>
+
+  <div class="data-category">
+    <h4>Qualitative Feedback</h4>
+    <p>Comments, notes, and text-based responses</p>
+  </div>
+
+  <div class="tips-section">
+    <h3>Everyday Tips for Better Results</h3>
+    <p>These simple strategies will help you get the most useful information:</p>
+    <ul>
+      <li><strong>Be specific about timeframes:</strong> "Show me data from January to March" or "last 30 days" helps focus your results</li>
+      <li><strong>Name your programs and categories:</strong> "Show me data for our Sampling Program" works better than "Show me data by program"</li>
+      <li><strong>Specify locations or regions</strong> whenever possible — this dramatically improves relevance</li>
+      <li><strong>Ask follow-up questions</strong> to drill down into interesting points ("Can you break that down by venue type?")</li>
+      <li><strong>Request specific formats</strong> when needed ("Show this as a chart" or "Create a comparison table")</li>
+      <li><strong>Provide feedback</strong> if the Agent misunderstands ("That's not what I meant" or "Please summarize this")</li>
+    </ul>
+  </div>
+
+  <div class="pro-tip">
+    <strong>Pro Tip:</strong> Combining program AND location specifications in your queries will give you the most focused, relevant results. For example: "Show me our Summer Program performance in the Northeast Region for Q2" is much better than "Show me our program performance."
+  </div>
+
+  <h2>Practical Workflows: What You Can Do Today</h2>
+
+  <h3>1. Quickly Prepare for Team Meetings</h3>
+
+  <div class="workflow-step">
+    <div class="step-letter">A</div>
+    <div class="step-content">
+      <h4>Get a performance snapshot</h4>
+      <p>Ask: "Give me a summary of our Southeast Region performance for Program X during the past month, including key metrics and trends"</p>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-letter">B</div>
+    <div class="step-content">
+      <h4>Identify discussion points</h4>
+      <p>Ask: "What are 5 notable strengths or patterns in our Chicago market data for Program Y that would be worth discussing?"</p>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-letter">C</div>
+    <div class="step-content">
+      <h4>Create presentation materials</h4>
+      <p>Ask: "Create a visually appealing summary of these insights that I can share with my team"</p>
+    </div>
+  </div>
+
+  <div class="helpful-tips">
+    <h4>Helpful Tips</h4>
+    <p>Specify a timeframe that matches your meeting cycle. Include program and market details for focused results. Request specific formats like charts or tables. Consider asking for comparisons to previous periods to show progress.</p>
+  </div>
+
+  <h3>2. Analyze Form Responses</h3>
+
+  <div class="workflow-step">
+    <div class="step-letter">A</div>
+    <div class="step-content">
+      <h4>Get overall statistics</h4>
+      <p>Ask: "Summarize the responses from our Program A activities in the Boston market completed last quarter"</p>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-letter">B</div>
+    <div class="step-content">
+      <h4>Analyze open-ended responses</h4>
+      <p>Ask: "What are the common themes emerging from staff comments about Program B results in the Midwest?"</p>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-letter">C</div>
+    <div class="step-content">
+      <h4>Compare across segments</h4>
+      <p>Ask: "How do responses for our Holiday Program differ between weekday and weekend activities?"</p>
+    </div>
+  </div>
+
+  <div class="helpful-tips">
+    <h4>Helpful Tips</h4>
+    <p>Focus on specific fields most relevant to your goals. For qualitative analysis, ask for "key themes" or "sentiment analysis." Compare responses across different types, venues, or markets to identify what's working best.</p>
+  </div>
+
+  <h3>3. Create Reports for Stakeholders</h3>
+
+  <div class="workflow-step">
+    <div class="step-letter">A</div>
+    <div class="step-content">
+      <h4>Generate the core report</h4>
+      <p>Ask: "Create a detailed summary of our Spring Program for Q1 in the Western Region including key metrics and highlights"</p>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-letter">B</div>
+    <div class="step-content">
+      <h4>Add strategic context</h4>
+      <p>Ask: "Based on this data, what key successes and opportunities are worth highlighting to stakeholders?"</p>
+    </div>
+  </div>
+
+  <div class="workflow-step">
+    <div class="step-letter">C</div>
+    <div class="step-content">
+      <h4>Tailor for your audience</h4>
+      <p>Ask: "Format this as an executive summary with clear visuals emphasizing the metrics they care about"</p>
+    </div>
+  </div>
+
+  <div class="helpful-tips">
+    <h4>Helpful Tips</h4>
+    <p>Be clear about who the audience is. Different stakeholders care about different metrics. Request visuals that communicate your key points clearly. Ask the Agent to highlight the most important takeaways.</p>
+  </div>
+
+  <h2>10 Practical Prompts for Everyday Tasks</h2>
+
+  <div class="prompt-card">
+    <div class="prompt-number">1. Quickly Compare Programs</div>
+    <div class="prompt-content">
+      <h4>Side-by-side analysis</h4>
+      <div class="prompt-example">"Compare the performance of our Summer Program and Winter Program in the Chicago market for last quarter. Show metrics side by side and highlight key differences."</div>
+      <p class="prompt-result">You'll get: A side-by-side comparison with metrics like attendance, costs, and key performance indicators.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">2. Market Performance Analysis</div>
+    <div class="prompt-content">
+      <h4>Identify top performers</h4>
+      <div class="prompt-example">"Which markets have shown the strongest performance for our Ambassador Program over the last quarter? What factors might be contributing to their success?"</div>
+      <p class="prompt-result">You'll get: Analysis of top-performing markets with insights into potential contributing factors.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">3. Trend Analysis</div>
+    <div class="prompt-content">
+      <h4>Spot patterns over time</h4>
+      <div class="prompt-example">"Show me key trends from the past 6 months for our Demo Program in the Northeast, broken down by month. Visualize the patterns."</div>
+      <p class="prompt-result">You'll get: Month-over-month trends with visual charts highlighting patterns.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">4. Feedback Analysis</div>
+    <div class="prompt-content">
+      <h4>Extract themes from comments</h4>
+      <div class="prompt-example">"Analyze the feedback responses for our Product Launch Program in Western markets. What are the most common themes and emerging issues?"</div>
+      <p class="prompt-result">You'll get: Thematic analysis with key insights and potential action items.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">5. Custom Field Deep Dive</div>
+    <div class="prompt-content">
+      <h4>Analyze specific data points</h4>
+      <div class="prompt-example">"Analyze responses to our 'Consumer Feedback' field from Summer Tour activities in Florida over the last 3 months. How have themes changed over time?"</div>
+      <p class="prompt-result">You'll get: Thematic analysis showing how sentiment has evolved over the timeframe.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">6. ROI Optimization</div>
+    <div class="prompt-content">
+      <h4>Find what works best</h4>
+      <div class="prompt-example">"Which venue types have given us the best ROI for our Holiday Program in the Midwest this past year? Include attendance, cost, and conversion metrics."</div>
+      <p class="prompt-result">You'll get: Recommendations for allocating budget across venue types based on performance.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">7. Target Tracking</div>
+    <div class="prompt-content">
+      <h4>Monitor goal progress</h4>
+      <div class="prompt-example">"Show me our progress toward Q2 goals across different cities in the Southern Region. Where are we meeting targets and where are we behind?"</div>
+      <p class="prompt-result">You'll get: Comparative analysis highlighting significant variances against targets by location.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">8. Custom Report Creation</div>
+    <div class="prompt-content">
+      <h4>Generate shareable summaries</h4>
+      <div class="prompt-example">"Create a monthly performance dashboard for our Festival Program in the Northeast showing key metrics, trends, and highlights as a one-page summary with visuals."</div>
+      <p class="prompt-result">You'll get: A professionally-formatted report ready to share with stakeholders.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">9. Schedule Planning</div>
+    <div class="prompt-content">
+      <h4>Optimize timing decisions</h4>
+      <div class="prompt-example">"Based on historical performance data for our Promo Program in Chicago, what are the optimal days, times, and locations for future activities?"</div>
+      <p class="prompt-result">You'll get: Data-driven recommendations for scheduling based on past performance.</p>
+    </div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-number">10. Seasonality Analysis</div>
+    <div class="prompt-content">
+      <h4>Understand cyclical patterns</h4>
+      <div class="prompt-example">"Analyze how our Ambassador Program performance on the West Coast varies by season over the last year. When are we most effective?"</div>
+      <p class="prompt-result">You'll get: Insights into seasonal patterns with recommendations for annual planning.</p>
+    </div>
+  </div>
+
+  <h2>Troubleshooting: Getting Better Results</h2>
+
+  <div class="troubleshooting-item">
+    <span class="problem">Results are too broad</span>
+    <span class="solution">Include program and market details in your question</span>
+  </div>
+
+  <div class="troubleshooting-item">
+    <span class="problem">Getting data you don't need</span>
+    <span class="solution">Ask a follow-up: "Focus only on Summer Program events in Q2"</span>
+  </div>
+
+  <div class="troubleshooting-item">
+    <span class="problem">Format isn't helpful</span>
+    <span class="solution">Request specific format: "Show as a bar chart" or "Present in a table"</span>
+  </div>
+
+  <div class="troubleshooting-item">
+    <span class="problem">Too much information</span>
+    <span class="solution">Ask "Show me just the top 3 most important takeaways"</span>
+  </div>
+
+  <div class="troubleshooting-item">
+    <span class="problem">Analysis too complex</span>
+    <span class="solution">Say "Simplify this and focus on the 3 most important elements"</span>
+  </div>
+
+  <div class="tips-section">
+    <h3>The Conversational Approach</h3>
+    <p>Think of your AI Agent as a conversation with a helpful colleague who knows your data really well. You can:</p>
+    <ul>
+      <li><strong>Start specific:</strong> Begin with a focused question about a specific program and market</li>
+      <li><strong>Ask follow-up questions:</strong> "That's interesting. Can you tell me more about why that market performed better?"</li>
+      <li><strong>Request changes:</strong> "Can you show that same data broken down by month instead of by region?"</li>
+      <li><strong>Get explanations:</strong> "Why did we see such a significant drop in performance in February?"</li>
+    </ul>
+    <p>This conversational approach often leads to insights you might not have thought to look for initially.</p>
+  </div>
+
+  <div class="conversation-example">
+    <h4>Example Conversation</h4>
+
+    <div class="message user">
+      <div class="message-sender">You</div>
+      Show me performance data for our Summer Promotion Program in the Midwest Region for Q2.
+    </div>
+
+    <div class="message agent">
+      <div class="message-sender">AI Agent</div>
+      Here's the performance data for your Summer Promotion Program in the Midwest Region for Q2. I've included key metrics such as attendance, conversion rates, and costs. The Chicago market shows the highest engagement at 24% above target.
+    </div>
+
+    <div class="message user">
+      <div class="message-sender">You</div>
+      That's interesting about Chicago. What factors contributed to their success?
+    </div>
+
+    <div class="message agent">
+      <div class="message-sender">AI Agent</div>
+      Looking at the Chicago market data, several factors appear to contribute to their success: 1) Higher staff-to-attendee ratio (1:18 vs. regional average of 1:25), 2) More weekend events (68% vs. 42% average), 3) Higher percentage of outdoor venues (75% vs. 55% average). Would you like a detailed analysis of any of these factors?
+    </div>
+
+    <div class="message user">
+      <div class="message-sender">You</div>
+      Yes, analyze the impact of weekend vs. weekday events across all Midwest markets.
+    </div>
+
+    <div class="message agent">
+      <div class="message-sender">AI Agent</div>
+      Weekend events consistently outperform weekday events with 37% higher attendance and 22% better conversion rates across all Midwest markets. Chicago had the highest percentage of weekend events, which appears to be a significant factor in their success. Would you like this as a chart for your reporting?
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <h3>Ready to Try It?</h3>
+    <p>Start with a specific question about a program and market that's relevant to your current priorities. For example:</p>
+    <div class="cta-prompt">"Summarize our Summer Program performance in the Northeast Region for the past month, highlighting any notable trends or outliers."</div>
+    <p>Then follow up with more specific questions based on what you discover. Each interaction will help you learn what's possible and how to get the most from your AI Agent.</p>
+  </div>
+
+  <div class="resources-section">
+    <h2>Want to Learn More?</h2>
+    <p>This guide covers the basics, but there's much more you can do. Check out these additional resources:</p>
+
+    <div class="resource-card">
+      <h4>Advanced Analytics Framework</h4>
+      <p>Learn advanced techniques for complex analysis and strategic insights</p>
+    </div>
+
+    <div class="resource-card">
+      <h4>Use Case Library</h4>
+      <p>Explore creative ways to use AI for specific business challenges</p>
+    </div>
+
+    <div class="resource-card">
+      <h4>Help Documentation</h4>
+      <p>Find comprehensive answers about AI Agent capabilities</p>
+    </div>
+  </div>
+
+</body>
+</html>
