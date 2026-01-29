@@ -11,7 +11,14 @@ const state = {
   activeWindow: null,
   windowZIndex: 10,
   draggedWindow: null,
-  dragOffset: { x: 0, y: 0 }
+  dragOffset: { x: 0, y: 0 },
+  // Gertrude state (simplified - now click-based)
+  gertrudeBubbleOpen: false,
+  // Easter egg tracking
+  catClicks: {
+    gertrude: { count: 0, lastClick: 0 },
+    gherkin: { count: 0, lastClick: 0 }
+  }
 };
 
 // ============================================
@@ -168,7 +175,7 @@ function transitionToRoom() {
   }, 500);
 }
 
-function transitionToDesktop() {
+function transitionToDesktop(callback) {
   const bootScreen = document.getElementById('boot-screen');
   const roomScene = document.getElementById('room-scene');
   const desktopScene = document.getElementById('desktop-scene');
@@ -197,6 +204,10 @@ function transitionToDesktop() {
     setTimeout(() => {
       desktopScene.style.opacity = '1';
       desktopScene.style.transition = 'opacity 0.5s ease';
+      // Call the callback after transition completes
+      if (callback && typeof callback === 'function') {
+        setTimeout(callback, 100);
+      }
     }, 50);
     state.currentScene = 'desktop';
     initDesktop();
@@ -273,6 +284,30 @@ function initRoomMenu() {
       inspectMenu.classList.add('hidden');
     }
   });
+
+  // Quick links - go directly to desktop and open window
+  const quickLinks = document.querySelectorAll('.navbar-link[data-window]');
+  quickLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const windowType = link.dataset.window;
+      inspectMenu.classList.add('hidden');
+
+      // Transition to desktop and open the requested window
+      transitionToDesktop(() => {
+        switch (windowType) {
+          case 'resume':
+            openApp('wordpad', 'resume');
+            break;
+          case 'myspace':
+            openApp('myspace', 'about');
+            break;
+          case 'chat':
+            openApp('messenger', 'chat');
+            break;
+        }
+      });
+    });
+  });
 }
 
 function handleRoomAction(actionId) {
@@ -286,8 +321,82 @@ function handleRoomAction(actionId) {
     return;
   }
 
+  // Check for cat petting easter egg
+  if (actionId === 'gertrude' || actionId === 'gherkin') {
+    const catPetResponse = handleCatPet(actionId);
+    if (catPetResponse) {
+      // Show special response instead of normal dialog
+      showCatPetResponse(actionId, catPetResponse);
+      return;
+    }
+  }
+
   // Everything else opens dialog
   openDialog(actionId, itemData);
+}
+
+function handleCatPet(catId) {
+  const now = Date.now();
+  const catState = state.catClicks[catId];
+  const catConfig = SITE_DATA.easterEggs?.catPets?.[catId];
+
+  if (!catConfig) return null;
+
+  // Reset count if too much time has passed (5 seconds)
+  if (now - catState.lastClick > 5000) {
+    catState.count = 0;
+  }
+
+  catState.count++;
+  catState.lastClick = now;
+
+  // Check if threshold reached
+  if (catState.count >= catConfig.threshold) {
+    catState.count = 0; // Reset for next time
+    const responses = catConfig.responses;
+    return responses[Math.floor(Math.random() * responses.length)];
+  }
+
+  return null;
+}
+
+function showCatPetResponse(catId, message) {
+  const overlay = document.getElementById('dialog-overlay');
+  const titleEl = document.getElementById('dialog-title');
+  const portraitContainer = document.getElementById('dialog-portrait');
+  const portraitImg = document.getElementById('dialog-portrait-img');
+  const textEl = document.getElementById('dialog-text');
+  const responsesEl = document.getElementById('dialog-responses');
+
+  // Set dialog title
+  titleEl.textContent = catId === 'gertrude' ? '✨ Gertrude Approves ✨' : '🧡 Gherkin Happy 🧡';
+
+  // Show cat image in portrait container
+  const catData = SITE_DATA.hotspots[catId];
+  if (catData?.image) {
+    portraitImg.src = catData.image;
+    portraitImg.alt = catData.name;
+    portraitImg.style.display = 'block';
+    portraitContainer.classList.add('cat-pettable');
+  }
+
+  // Show the message
+  textEl.textContent = message;
+
+  // Simple close button
+  responsesEl.innerHTML = `
+    <button class="dialog-response" data-next="null">[Continue petting]</button>
+  `;
+
+  responsesEl.querySelector('button').addEventListener('click', () => {
+    overlay.classList.add('hidden');
+    // Reopen normal cat dialog
+    if (catData) {
+      openDialog(catId, catData);
+    }
+  });
+
+  overlay.classList.remove('hidden');
 }
 
 // ============================================
@@ -305,35 +414,47 @@ function getPortraitPath(portraitKey) {
 function openDialog(hotspotId, hotspotData) {
   const overlay = document.getElementById('dialog-overlay');
   const titleEl = document.getElementById('dialog-title');
+  const portraitContainer = document.getElementById('dialog-portrait');
   const portraitImg = document.getElementById('dialog-portrait-img');
-  const itemImageContainer = document.getElementById('dialog-item-image');
-  const itemImg = document.getElementById('dialog-item-img');
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
 
   // Set dialog title
   titleEl.textContent = hotspotData.name;
 
-  // Set initial portrait from first conversation
-  const firstConversation = hotspotData.conversations?.[0];
-  const initialPortrait = firstConversation?.portrait || 'default';
-  portraitImg.src = getPortraitPath(initialPortrait);
+  // Determine what image to show:
+  // - If hotspot has an image (items/cats), show that image
+  // - Otherwise (conversations with Ashley like welcome, coffeeChair), show Ashley's portrait
+  const isAshleyConversation = !hotspotData.image || hotspotId === 'welcome' || hotspotId === 'coffeeChair';
+
+  // Store what type of dialog this is for portrait updates
+  state.isAshleyDialog = isAshleyConversation;
+
+  if (isAshleyConversation) {
+    // Show Ashley's portrait with expressions
+    const firstConversation = hotspotData.conversations?.[0];
+    const initialPortrait = firstConversation?.portrait || 'default';
+    portraitImg.src = getPortraitPath(initialPortrait);
+    portraitImg.alt = 'Ashley';
+    portraitContainer.classList.remove('cat-pettable');
+  } else {
+    // Show the item/cat image
+    portraitImg.src = hotspotData.image;
+    portraitImg.alt = hotspotData.name;
+
+    // Add cat-pettable class for cats (hand cursor for petting)
+    if (hotspotId === 'gertrude' || hotspotId === 'gherkin') {
+      portraitContainer.classList.add('cat-pettable');
+    } else {
+      portraitContainer.classList.remove('cat-pettable');
+    }
+  }
+
   portraitImg.style.display = 'block';
   portraitImg.onerror = () => {
-    // Try default if specific portrait fails
+    // Fallback to Ashley portrait if item image fails
     portraitImg.src = getPortraitPath('default');
   };
-
-  // Set item image if available
-  if (hotspotData.image) {
-    itemImg.src = hotspotData.image;
-    itemImg.onerror = () => {
-      itemImageContainer.classList.remove('visible');
-    };
-    itemImageContainer.classList.add('visible');
-  } else {
-    itemImageContainer.classList.remove('visible');
-  }
 
   // Start conversation at intro
   state.currentDialog = hotspotId;
@@ -354,8 +475,8 @@ function showConversation(conversationId) {
   const responsesEl = document.getElementById('dialog-responses');
   const portraitImg = document.getElementById('dialog-portrait-img');
 
-  // Update portrait based on conversation mood
-  if (conversation.portrait) {
+  // Update portrait based on conversation mood (only for Ashley conversations)
+  if (state.isAshleyDialog && conversation.portrait) {
     portraitImg.src = getPortraitPath(conversation.portrait);
   }
 
@@ -454,6 +575,12 @@ function initDesktopIcons() {
 
 function initTaskbar() {
   // Taskbar items are updated dynamically
+
+  // Exit to room button
+  const exitBtn = document.getElementById('exit-to-room-btn');
+  exitBtn?.addEventListener('click', () => {
+    transitionToRoomFromDesktop();
+  });
 }
 
 function initStartMenu() {
@@ -572,43 +699,85 @@ function getWindowSize(appType) {
     myspace: { width: '700px', height: '550px' },
     messenger: { width: '400px', height: '450px' },
     folder: { width: '500px', height: '400px' },
-    recycle: { width: '400px', height: '300px' },
-    'work-detail': { width: '500px', height: '400px' }
+    recycle: { width: '450px', height: '350px' },
+    notepad: { width: '500px', height: '400px' },
+    'work-detail': { width: '500px', height: '400px' },
+    portfolio: { width: '550px', height: '450px' },
+    'portfolio-viewer': { width: '600px', height: '500px' },
+    game: { width: '650px', height: '500px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
 
 function getWindowTitle(appType, fileId) {
+  // Dynamic titles for notepad based on file
+  if (appType === 'notepad' && SITE_DATA.easterEggs?.[fileId]) {
+    return SITE_DATA.easterEggs[fileId].title;
+  }
+
   const titles = {
     wordpad: 'Resume.doc - WordPad',
     myspace: 'AboutMe.html - Internet Explorer',
     messenger: 'AshleyChat',
     folder: 'Work Examples',
     recycle: 'Recycle Bin',
-    'work-detail': 'Project Details'
+    notepad: 'Notepad',
+    'work-detail': 'Project Details',
+    portfolio: 'AI Portfolio - Explorer',
+    'portfolio-viewer': 'Document Viewer',
+    game: 'Project Trail - A Business Adventure'
   };
   return titles[appType] || 'Window';
 }
 
 function initWindowContent(windowEl, appType, fileId) {
+  // Set window type for Gertrude context awareness
+  windowEl.dataset.windowType = appType;
+
   switch (appType) {
     case 'wordpad':
       initWordpad(windowEl);
+      windowEl.dataset.windowType = 'resume';
       break;
     case 'myspace':
       initMyspace(windowEl);
+      windowEl.dataset.windowType = 'myspace';
       break;
     case 'messenger':
       initMessenger(windowEl);
+      windowEl.dataset.windowType = 'chat';
       break;
     case 'folder':
       initFolder(windowEl);
+      windowEl.dataset.windowType = 'folder';
+      break;
+    case 'misc-folder':
+      initMiscFolder(windowEl, fileId);
+      windowEl.dataset.windowType = 'misc-folder';
       break;
     case 'recycle':
-      // Empty by default
+      initRecycleBin(windowEl);
+      break;
+    case 'notepad':
+      initNotepad(windowEl, fileId);
       break;
     case 'work-detail':
       initWorkDetail(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'portfolio':
+      initPortfolio(windowEl);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'portfolio-viewer':
+      initPortfolioViewer(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'game':
+      initProjectTrail(windowEl);
+      break;
+    case 'catpong':
+      initCatPong(windowEl);
       break;
   }
 }
@@ -672,7 +841,7 @@ function focusWindow(windowId) {
     if (w.id === windowId) {
       w.element.style.zIndex = ++state.windowZIndex;
       titlebar?.classList.remove('inactive');
-      state.activeWindow = windowId;
+      state.activeWindow = w.element; // Store element reference for Gertrude
     } else {
       titlebar?.classList.add('inactive');
     }
@@ -894,25 +1063,63 @@ function sendChatMessage(chatArea, message) {
 
   // Find response
   const chatData = SITE_DATA.chat;
-  let response = chatData.responses[message];
+  let responseData = chatData.responses[message];
 
-  if (!response) {
+  if (!responseData) {
     // Check for partial matches
     for (const [key, value] of Object.entries(chatData.responses)) {
       if (message.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
-        response = value;
+        responseData = value;
         break;
       }
     }
   }
 
-  if (!response) {
-    response = chatData.fallbackResponse;
+  // Handle response - can be object with text/followUp or plain string (fallback)
+  let responseText;
+  let followUpQuestion = null;
+
+  if (!responseData) {
+    responseText = chatData.fallbackResponse;
+  } else if (typeof responseData === 'object') {
+    responseText = responseData.text;
+    followUpQuestion = responseData.followUp;
+  } else {
+    responseText = responseData;
   }
 
   // Add bot response after delay
   setTimeout(() => {
-    addChatMessage(chatArea, response, 'bot');
+    addChatMessage(chatArea, responseText, 'bot');
+
+    // If there's a follow-up question, add it as a clickable button
+    if (followUpQuestion) {
+      setTimeout(() => {
+        const followUpDiv = document.createElement('div');
+        followUpDiv.className = 'chat-followup';
+        followUpDiv.innerHTML = `
+          <button class="chat-followup-btn">${followUpQuestion}</button>
+          <button class="chat-followup-btn chat-back-btn">[Back to questions]</button>
+        `;
+        chatArea.appendChild(followUpDiv);
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        // Add click handlers
+        followUpDiv.querySelector('.chat-followup-btn:not(.chat-back-btn)').addEventListener('click', () => {
+          followUpDiv.remove();
+          sendChatMessage(chatArea, followUpQuestion);
+        });
+
+        followUpDiv.querySelector('.chat-back-btn').addEventListener('click', () => {
+          followUpDiv.remove();
+          // Re-show quick questions
+          const quickQuestionsDiv = chatArea.closest('.messenger-body').querySelector('.chat-quick-questions');
+          if (quickQuestionsDiv) {
+            quickQuestionsDiv.style.display = 'flex';
+          }
+        });
+      }, 300);
+    }
   }, 500 + Math.random() * 500);
 }
 
@@ -921,8 +1128,8 @@ function initFolder(windowEl) {
   if (!content) return;
 
   content.innerHTML = SITE_DATA.workExamples.map(work => `
-    <div class="folder-item" data-work-id="${work.id}">
-      <div class="folder-item-icon"></div>
+    <div class="folder-item" data-work-id="${work.id}" data-work-type="${work.type}" data-file-type="${work.fileType || ''}">
+      <div class="folder-item-icon ${work.type === 'textfile' ? 'icon-txt' : ''}"></div>
       <span class="folder-item-name">${work.name}</span>
     </div>
   `).join('');
@@ -931,7 +1138,52 @@ function initFolder(windowEl) {
   content.querySelectorAll('.folder-item').forEach(item => {
     item.addEventListener('dblclick', () => {
       const workId = item.dataset.workId;
-      openApp('work-detail', workId);
+      const workType = item.dataset.workType;
+      const fileType = item.dataset.fileType;
+
+      if (workType === 'textfile' && fileType) {
+        // Open as notepad with easter egg content
+        openApp('notepad', fileType);
+      } else {
+        openApp('work-detail', workId);
+      }
+    });
+  });
+}
+
+function initMiscFolder(windowEl, folderId) {
+  const content = windowEl.querySelector('.folder-content');
+  const folderData = SITE_DATA.desktop.folders?.[folderId];
+
+  if (!content || !folderData) return;
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = folderData.title;
+  }
+
+  content.innerHTML = folderData.items.map(item => `
+    <div class="folder-item" data-item-id="${item.id}" data-item-type="${item.type}" data-item-app="${item.app || ''}">
+      <div class="folder-item-icon icon-${item.icon}"></div>
+      <span class="folder-item-name">${item.name}</span>
+    </div>
+  `).join('');
+
+  // Add click handlers
+  content.querySelectorAll('.folder-item').forEach(item => {
+    item.addEventListener('dblclick', () => {
+      const itemId = item.dataset.itemId;
+      const itemType = item.dataset.itemType;
+      const itemApp = item.dataset.itemApp;
+
+      if (itemType === 'easter-egg') {
+        // Open as notepad with easter egg content
+        openApp('notepad', itemId);
+      } else if (itemType === 'game' && itemApp) {
+        // Open as game
+        openApp(itemApp, itemId);
+      }
     });
   });
 }
@@ -985,10 +1237,722 @@ function initWorkDetail(windowEl, workId) {
   `;
 }
 
+function initNotepad(windowEl, fileId) {
+  const content = windowEl.querySelector('.notepad-text');
+  if (!content) return;
+
+  const easterEgg = SITE_DATA.easterEggs?.[fileId];
+  if (easterEgg) {
+    content.textContent = easterEgg.content;
+
+    // Update window title
+    const titleEl = windowEl.querySelector('.window-title');
+    if (titleEl && easterEgg.title) {
+      titleEl.textContent = easterEgg.title;
+    }
+  }
+}
+
+function initRecycleBin(windowEl) {
+  const content = windowEl.querySelector('.recycle-items');
+  if (!content) return;
+
+  const trash = SITE_DATA.easterEggs?.trash;
+  if (trash && trash.items) {
+    content.innerHTML = trash.items.map(item => `
+      <div class="recycle-item">
+        <div class="recycle-item-icon">${getFileIcon(item.name)}</div>
+        <span class="recycle-item-name">${item.name}</span>
+        <span class="recycle-item-size">${item.size}</span>
+        ${item.note ? `<span class="recycle-item-note">${item.note}</span>` : ''}
+      </div>
+    `).join('');
+  }
+}
+
+function getFileIcon(filename) {
+  const ext = filename.split('.').pop().toLowerCase();
+  const icons = {
+    doc: '📄',
+    ppt: '📊',
+    ics: '📅',
+    jpg: '🖼️',
+    txt: '📝'
+  };
+  return icons[ext] || '📄';
+}
+
+// ============================================
+// AI PORTFOLIO
+// ============================================
+
+function initPortfolio(windowEl) {
+  const content = windowEl.querySelector('.portfolio-content');
+  if (!content) return;
+
+  const portfolio = SITE_DATA.portfolio;
+
+  content.innerHTML = `
+    <div class="portfolio-wrapper">
+      <div class="portfolio-header">
+        <h2>${portfolio.title}</h2>
+        <p>${portfolio.description}</p>
+      </div>
+      <div class="portfolio-categories">
+        ${portfolio.categories.map(cat => `
+          <div class="portfolio-category" data-category="${cat.id}">
+            <div class="portfolio-category-header">
+              <span class="portfolio-category-icon">${cat.icon}</span>
+              <span class="portfolio-category-name">${cat.name}</span>
+              <span class="portfolio-category-count">${cat.items.length} items</span>
+            </div>
+            <div class="portfolio-items">
+              ${cat.items.map(item => `
+                <div class="portfolio-item" data-item-id="${item.id}" data-category="${cat.id}">
+                  <span class="portfolio-item-icon">📄</span>
+                  <span class="portfolio-item-name">${item.name}</span>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  // Add click handlers for categories (collapse/expand)
+  content.querySelectorAll('.portfolio-category-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const category = header.closest('.portfolio-category');
+      category.classList.toggle('collapsed');
+    });
+  });
+
+  // Add click handlers for items
+  content.querySelectorAll('.portfolio-item').forEach(item => {
+    item.addEventListener('dblclick', () => {
+      const itemId = item.dataset.itemId;
+      const categoryId = item.dataset.category;
+      openApp('portfolio-viewer', `${categoryId}:${itemId}`);
+    });
+  });
+}
+
+function initPortfolioViewer(windowEl, fileId) {
+  const content = windowEl.querySelector('.portfolio-viewer-content');
+  if (!content || !fileId) return;
+
+  const [categoryId, itemId] = fileId.split(':');
+  const category = SITE_DATA.portfolio.categories.find(c => c.id === categoryId);
+  const item = category?.items.find(i => i.id === itemId);
+
+  if (!item) {
+    content.innerHTML = '<p>Document not found.</p>';
+    return;
+  }
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = item.name + ' - Document Viewer';
+  }
+
+  content.innerHTML = `
+    <div class="portfolio-viewer-wrapper">
+      <div class="portfolio-viewer-header">
+        <h2>${item.name}</h2>
+        <p class="portfolio-viewer-description">${item.description}</p>
+      </div>
+      <div class="portfolio-viewer-body">
+        <pre class="portfolio-document">${item.content}</pre>
+      </div>
+    </div>
+  `;
+}
+
+// ============================================
+// PROJECT TRAIL GAME
+// ============================================
+
+let gameState = {
+  stats: {},
+  currentEvent: null,
+  history: []
+};
+
+function initProjectTrail(windowEl) {
+  const content = windowEl.querySelector('.game-content');
+  if (!content) return;
+
+  // Reset game state
+  gameState = {
+    stats: { ...SITE_DATA.projectTrail.startingStats },
+    currentEvent: 'start',
+    history: []
+  };
+
+  showGameIntro(content);
+}
+
+function showGameIntro(container) {
+  const game = SITE_DATA.projectTrail;
+
+  container.innerHTML = `
+    <div class="game-intro">
+      <div class="game-title-art">
+        <pre class="game-ascii">
+   ____            _           _     _____         _ _
+  |  _ \\ _ __ ___ (_) ___  ___| |_  |_   _| __ __ _(_) |
+  | |_) | '__/ _ \\| |/ _ \\/ __| __|   | || '__/ _\` | | |
+  |  __/| | | (_) | |  __/ (__| |_    | || | | (_| | | |
+  |_|   |_|  \\___// |\\___|\\___|\\__|   |_||_|  \\__,_|_|_|
+                |__/
+        </pre>
+        <p class="game-subtitle">${game.subtitle}</p>
+      </div>
+      <div class="game-intro-text">
+        ${game.intro.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+      </div>
+      <button class="game-start-btn" id="game-start-btn">Begin Your Journey</button>
+      <p class="game-hint">Tip: Your choices affect Sanity, Trust, Project Health, Documentation, and Morale</p>
+    </div>
+  `;
+
+  container.querySelector('#game-start-btn').addEventListener('click', () => {
+    showGameEvent(container);
+  });
+}
+
+function showGameEvent(container) {
+  const event = SITE_DATA.projectTrail.events.find(e => e.id === gameState.currentEvent);
+
+  if (!event) {
+    showGameEnding(container);
+    return;
+  }
+
+  if (event.text === 'CALCULATING_RESULTS') {
+    showGameEnding(container);
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="game-event">
+      <div class="game-stats-bar">
+        <div class="game-stat" title="Sanity">🧠 ${gameState.stats.sanity}</div>
+        <div class="game-stat" title="Stakeholder Trust">🤝 ${gameState.stats.stakeholderTrust}</div>
+        <div class="game-stat" title="Project Health">📊 ${gameState.stats.projectHealth}</div>
+        <div class="game-stat" title="Documentation">📝 ${gameState.stats.documentation}</div>
+        <div class="game-stat" title="Team Morale">💪 ${gameState.stats.teamMorale}</div>
+      </div>
+      <div class="game-event-content">
+        <h3 class="game-event-title">${event.title}</h3>
+        <div class="game-event-text">
+          ${event.text.split('\n').map(p => `<p>${p}</p>`).join('')}
+        </div>
+        <div class="game-choices">
+          ${event.choices.map((choice, index) => `
+            <button class="game-choice" data-index="${index}">
+              ${choice.text}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Add click handlers
+  container.querySelectorAll('.game-choice').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const choiceIndex = parseInt(btn.dataset.index);
+      handleGameChoice(container, event, choiceIndex);
+    });
+  });
+}
+
+function handleGameChoice(container, event, choiceIndex) {
+  const choice = event.choices[choiceIndex];
+
+  // Apply effects
+  if (choice.effects) {
+    for (const [stat, change] of Object.entries(choice.effects)) {
+      gameState.stats[stat] = Math.max(0, Math.min(100, gameState.stats[stat] + change));
+    }
+  }
+
+  // Record history
+  gameState.history.push({
+    event: event.id,
+    choice: choice.text
+  });
+
+  // Move to next event
+  gameState.currentEvent = choice.nextEvent;
+
+  // Show effects animation briefly
+  showEffectsAnimation(container, choice.effects, () => {
+    showGameEvent(container);
+  });
+}
+
+function showEffectsAnimation(container, effects, callback) {
+  if (!effects) {
+    callback();
+    return;
+  }
+
+  const effectsHtml = Object.entries(effects)
+    .map(([stat, change]) => {
+      const statNames = {
+        sanity: '🧠 Sanity',
+        stakeholderTrust: '🤝 Trust',
+        projectHealth: '📊 Project',
+        documentation: '📝 Docs',
+        teamMorale: '💪 Morale'
+      };
+      const color = change > 0 ? 'green' : 'red';
+      const sign = change > 0 ? '+' : '';
+      return `<div class="effect-item ${color}">${statNames[stat]}: ${sign}${change}</div>`;
+    })
+    .join('');
+
+  const overlay = document.createElement('div');
+  overlay.className = 'game-effects-overlay';
+  overlay.innerHTML = `<div class="game-effects">${effectsHtml}</div>`;
+  container.appendChild(overlay);
+
+  setTimeout(() => {
+    overlay.remove();
+    callback();
+  }, 1000);
+}
+
+function showGameEnding(container) {
+  const totalScore = Object.values(gameState.stats).reduce((a, b) => a + b, 0);
+  const endings = SITE_DATA.projectTrail.endings;
+
+  let ending;
+  if (totalScore >= endings.excellent.threshold) {
+    ending = endings.excellent;
+  } else if (totalScore >= endings.good.threshold) {
+    ending = endings.good;
+  } else if (totalScore >= endings.okay.threshold) {
+    ending = endings.okay;
+  } else {
+    ending = endings.rough;
+  }
+
+  container.innerHTML = `
+    <div class="game-ending">
+      <div class="game-final-stats">
+        <h4>Final Stats</h4>
+        <div class="game-stats-grid">
+          <div class="game-final-stat">🧠 Sanity: ${gameState.stats.sanity}</div>
+          <div class="game-final-stat">🤝 Trust: ${gameState.stats.stakeholderTrust}</div>
+          <div class="game-final-stat">📊 Project: ${gameState.stats.projectHealth}</div>
+          <div class="game-final-stat">📝 Docs: ${gameState.stats.documentation}</div>
+          <div class="game-final-stat">💪 Morale: ${gameState.stats.teamMorale}</div>
+        </div>
+        <div class="game-total-score">Total Score: ${totalScore}</div>
+      </div>
+      <div class="game-ending-content">
+        <h2 class="game-ending-title">${ending.title}</h2>
+        <div class="game-ending-text">
+          ${ending.text.split('\n').map(p => `<p>${p}</p>`).join('')}
+        </div>
+      </div>
+      <div class="game-ending-actions">
+        <button class="game-restart-btn" id="game-restart">Play Again</button>
+      </div>
+      <p class="game-credit">Project Trail - Inspired by the operations life of Ashley Sepers</p>
+    </div>
+  `;
+
+  container.querySelector('#game-restart').addEventListener('click', () => {
+    gameState = {
+      stats: { ...SITE_DATA.projectTrail.startingStats },
+      currentEvent: 'start',
+      history: []
+    };
+    showGameIntro(container);
+  });
+}
+
+// ============================================
+// CAT PONG - HIDDEN MINI GAME
+// ============================================
+
+function initCatPong(windowEl) {
+  const canvas = windowEl.querySelector('#catpong-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const scoreLeftEl = windowEl.querySelector('#score-left');
+  const scoreRightEl = windowEl.querySelector('#score-right');
+
+  // Game state
+  const game = {
+    running: false,
+    paused: false,
+    scoreLeft: 0,
+    scoreRight: 0,
+    ball: { x: 200, y: 150, vx: 4, vy: 3, radius: 8 },
+    paddleLeft: { y: 125, height: 50, width: 10 },
+    paddleRight: { y: 125, height: 50, width: 10 },
+    paddleSpeed: 6,
+    keys: {}
+  };
+
+  // Cat faces for paddles
+  const catLeft = ">'.'<";  // Gertrude - calm
+  const catRight = ">^.^<"; // Gherkin - excited
+
+  function draw() {
+    // Clear canvas
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw center line
+    ctx.strokeStyle = '#333';
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2, 0);
+    ctx.lineTo(canvas.width / 2, canvas.height);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Draw paddles as cat faces
+    ctx.fillStyle = '#d4a9a0';
+    ctx.font = '14px monospace';
+    ctx.textAlign = 'center';
+
+    // Left paddle (Gertrude)
+    ctx.save();
+    ctx.translate(15, game.paddleLeft.y + game.paddleLeft.height / 2);
+    ctx.fillText(catLeft, 0, 5);
+    ctx.restore();
+
+    // Right paddle (Gherkin)
+    ctx.save();
+    ctx.translate(canvas.width - 15, game.paddleRight.y + game.paddleRight.height / 2);
+    ctx.fillText(catRight, 0, 5);
+    ctx.restore();
+
+    // Draw ball (yarn ball)
+    ctx.beginPath();
+    ctx.arc(game.ball.x, game.ball.y, game.ball.radius, 0, Math.PI * 2);
+    ctx.fillStyle = '#c88530';
+    ctx.fill();
+    ctx.strokeStyle = '#a06820';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Draw "start" message if not running
+    if (!game.running) {
+      ctx.fillStyle = '#f5f0e6';
+      ctx.font = '16px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('Press SPACE to start', canvas.width / 2, canvas.height / 2);
+      ctx.font = '12px monospace';
+      ctx.fillText('W/S or ↑/↓ to move', canvas.width / 2, canvas.height / 2 + 25);
+    }
+  }
+
+  function update() {
+    if (!game.running || game.paused) return;
+
+    // Move paddles based on keys
+    if (game.keys['w'] || game.keys['W'] || game.keys['ArrowUp']) {
+      game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed);
+    }
+    if (game.keys['s'] || game.keys['S'] || game.keys['ArrowDown']) {
+      game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed);
+    }
+
+    // Simple AI for right paddle
+    const paddleCenter = game.paddleRight.y + game.paddleRight.height / 2;
+    if (paddleCenter < game.ball.y - 20) {
+      game.paddleRight.y = Math.min(canvas.height - game.paddleRight.height, game.paddleRight.y + game.paddleSpeed * 0.7);
+    } else if (paddleCenter > game.ball.y + 20) {
+      game.paddleRight.y = Math.max(0, game.paddleRight.y - game.paddleSpeed * 0.7);
+    }
+
+    // Move ball
+    game.ball.x += game.ball.vx;
+    game.ball.y += game.ball.vy;
+
+    // Ball collision with top/bottom
+    if (game.ball.y - game.ball.radius <= 0 || game.ball.y + game.ball.radius >= canvas.height) {
+      game.ball.vy *= -1;
+    }
+
+    // Ball collision with paddles
+    // Left paddle
+    if (game.ball.x - game.ball.radius <= 25 &&
+        game.ball.y >= game.paddleLeft.y &&
+        game.ball.y <= game.paddleLeft.y + game.paddleLeft.height) {
+      game.ball.vx = Math.abs(game.ball.vx) * 1.05;
+      game.ball.x = 25 + game.ball.radius;
+    }
+
+    // Right paddle
+    if (game.ball.x + game.ball.radius >= canvas.width - 25 &&
+        game.ball.y >= game.paddleRight.y &&
+        game.ball.y <= game.paddleRight.y + game.paddleRight.height) {
+      game.ball.vx = -Math.abs(game.ball.vx) * 1.05;
+      game.ball.x = canvas.width - 25 - game.ball.radius;
+    }
+
+    // Scoring
+    if (game.ball.x < 0) {
+      game.scoreRight++;
+      scoreRightEl.textContent = game.scoreRight;
+      resetBall();
+    } else if (game.ball.x > canvas.width) {
+      game.scoreLeft++;
+      scoreLeftEl.textContent = game.scoreLeft;
+      resetBall();
+    }
+
+    // Cap speed
+    const maxSpeed = 12;
+    game.ball.vx = Math.max(-maxSpeed, Math.min(maxSpeed, game.ball.vx));
+  }
+
+  function resetBall() {
+    game.ball.x = canvas.width / 2;
+    game.ball.y = canvas.height / 2;
+    game.ball.vx = (Math.random() > 0.5 ? 1 : -1) * 4;
+    game.ball.vy = (Math.random() - 0.5) * 6;
+  }
+
+  function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Key handlers
+  function handleKeyDown(e) {
+    game.keys[e.key] = true;
+    if (e.key === ' ' && !game.running) {
+      game.running = true;
+      resetBall();
+    }
+    if (['w', 's', 'W', 'S', 'ArrowUp', 'ArrowDown', ' '].includes(e.key)) {
+      e.preventDefault();
+    }
+  }
+
+  function handleKeyUp(e) {
+    game.keys[e.key] = false;
+  }
+
+  // Add event listeners
+  document.addEventListener('keydown', handleKeyDown);
+  document.addEventListener('keyup', handleKeyUp);
+
+  // Clean up when window closes
+  const observer = new MutationObserver((mutations) => {
+    if (!document.contains(windowEl)) {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Start game loop
+  draw();
+  gameLoop();
+}
+
+// ============================================
+// GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
+// ============================================
+
+let gertrudeThoughtIndex = 0;
+
+function initGertrude() {
+  const gertrudeIcon = document.getElementById('gertrude-click');
+  const bubble = document.getElementById('gertrude-bubble');
+  const messageEl = document.getElementById('gertrude-message');
+
+  if (!gertrudeIcon || !bubble || !messageEl) return;
+
+  // Shuffle thoughts on load for variety
+  if (SITE_DATA.gertrude?.thoughts) {
+    shuffleArray(SITE_DATA.gertrude.thoughts);
+  }
+
+  // Click Gertrude to show a thought
+  gertrudeIcon.addEventListener('click', () => {
+    if (bubble.classList.contains('hidden')) {
+      showGertrudeThought();
+    } else {
+      hideGertrudeBubble();
+    }
+  });
+
+  // Click bubble to dismiss
+  bubble.addEventListener('click', () => {
+    hideGertrudeBubble();
+  });
+}
+
+function showGertrudeThought() {
+  const bubble = document.getElementById('gertrude-bubble');
+  const messageEl = document.getElementById('gertrude-message');
+  const thoughts = SITE_DATA.gertrude?.thoughts || [];
+
+  if (!bubble || !messageEl || thoughts.length === 0) return;
+
+  // Get next thought (cycles through all)
+  const thought = thoughts[gertrudeThoughtIndex % thoughts.length];
+  gertrudeThoughtIndex++;
+
+  // Show the thought
+  messageEl.textContent = thought;
+  bubble.classList.remove('hidden');
+}
+
+function hideGertrudeBubble() {
+  const bubble = document.getElementById('gertrude-bubble');
+  if (bubble) {
+    bubble.classList.add('hidden');
+  }
+}
+
+// Utility: Shuffle array in place
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// ============================================
+// SCREENSAVER
+// ============================================
+
+let screensaverTimeout = null;
+const SCREENSAVER_DELAY = 120000; // 2 minutes of inactivity
+
+function initScreensaver() {
+  const screensaver = document.getElementById('screensaver');
+  if (!screensaver) return;
+
+  // Reset timer on any activity
+  const resetScreensaver = () => {
+    if (screensaverTimeout) {
+      clearTimeout(screensaverTimeout);
+    }
+
+    // Hide screensaver if visible
+    if (!screensaver.classList.contains('hidden')) {
+      screensaver.classList.add('hidden');
+    }
+
+    // Set new timeout
+    screensaverTimeout = setTimeout(showScreensaver, SCREENSAVER_DELAY);
+  };
+
+  // Activity listeners
+  document.addEventListener('mousemove', resetScreensaver);
+  document.addEventListener('mousedown', resetScreensaver);
+  document.addEventListener('keydown', resetScreensaver);
+  document.addEventListener('touchstart', resetScreensaver);
+  document.addEventListener('scroll', resetScreensaver);
+
+  // Start initial timer
+  screensaverTimeout = setTimeout(showScreensaver, SCREENSAVER_DELAY);
+}
+
+function showScreensaver() {
+  const screensaver = document.getElementById('screensaver');
+  const content = document.getElementById('screensaver-content');
+
+  if (!screensaver || !content) return;
+
+  // Random starting position
+  const startX = Math.random() * (window.innerWidth - 300);
+  const startY = Math.random() * (window.innerHeight - 100);
+  content.style.left = `${startX}px`;
+  content.style.top = `${startY}px`;
+
+  screensaver.classList.remove('hidden');
+}
+
 // ============================================
 // INITIALIZATION
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
-  initBoot();
+  initSite();
 });
+
+function initSite() {
+  const bootScreen = document.getElementById('boot-screen');
+  const roomScene = document.getElementById('room-scene');
+
+  // Hide boot screen, show room directly
+  bootScreen.classList.add('hidden');
+  roomScene.classList.remove('hidden');
+  roomScene.style.opacity = '1';
+  state.currentScene = 'room';
+
+  // Initialize the room menu
+  initRoomMenu();
+
+  // Initialize Gertrude
+  initGertrude();
+
+  // Initialize screensaver
+  initScreensaver();
+
+  // Initialize image lightbox
+  initImageLightbox();
+
+  // Show welcome dialog
+  showWelcomeDialog();
+}
+
+// ============================================
+// IMAGE LIGHTBOX
+// ============================================
+
+function initImageLightbox() {
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImg = document.getElementById('lightbox-image');
+
+  // Close lightbox on click
+  lightbox?.addEventListener('click', () => {
+    lightbox.classList.add('hidden');
+  });
+
+  // Make dialog portrait image clickable to expand
+  document.addEventListener('click', (e) => {
+    const portraitImg = e.target.closest('#dialog-portrait-img');
+    if (portraitImg && portraitImg.src) {
+      openLightbox(portraitImg.src);
+    }
+  });
+}
+
+function openLightbox(imageSrc) {
+  const lightbox = document.getElementById('image-lightbox');
+  const lightboxImg = document.getElementById('lightbox-image');
+
+  if (lightbox && lightboxImg) {
+    lightboxImg.src = imageSrc;
+    lightbox.classList.remove('hidden');
+  }
+}
+
+function showWelcomeDialog() {
+  const welcomeData = SITE_DATA.hotspots.welcome;
+  if (welcomeData) {
+    openDialog('welcome', welcomeData);
+  }
+}
