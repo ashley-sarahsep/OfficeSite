@@ -1,6 +1,41 @@
 // ============================================
-// ASHLEY SEPERS - RETRO PORTFOLIO SCRIPTS
+// ASHLEY SARAH - RETRO PORTFOLIO SCRIPTS
 // ============================================
+
+// High Score Functions
+function getHighScore(gameId) {
+  try {
+    const scores = JSON.parse(localStorage.getItem('hiremeos-highscores') || '{}');
+    return scores[gameId] || null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function setHighScore(gameId, score, type = 'high') {
+  // type: 'high' = higher is better, 'low' = lower is better
+  try {
+    const scores = JSON.parse(localStorage.getItem('hiremeos-highscores') || '{}');
+    const current = scores[gameId];
+
+    let isNewBest = false;
+    if (current === undefined || current === null) {
+      isNewBest = true;
+    } else if (type === 'high' && score > current) {
+      isNewBest = true;
+    } else if (type === 'low' && score < current) {
+      isNewBest = true;
+    }
+
+    if (isNewBest) {
+      scores[gameId] = score;
+      localStorage.setItem('hiremeos-highscores', JSON.stringify(scores));
+    }
+    return isNewBest;
+  } catch (e) {
+    return false;
+  }
+}
 
 // State management
 const state = {
@@ -2025,6 +2060,10 @@ function showGameEnding(container) {
   const totalScore = Object.values(gameState.stats).reduce((a, b) => a + b, 0);
   const endings = SITE_DATA.projectTrail.endings;
 
+  // Track high score
+  const isNewBest = setHighScore('projecttrail', totalScore, 'high');
+  const bestScore = getHighScore('projecttrail');
+
   let ending;
   if (totalScore >= endings.excellent.threshold) {
     ending = endings.excellent;
@@ -2048,6 +2087,9 @@ function showGameEnding(container) {
           <div class="game-final-stat">💪 Morale: ${gameState.stats.teamMorale}</div>
         </div>
         <div class="game-total-score">Total Score: ${totalScore}</div>
+        <div class="game-best-score ${isNewBest ? 'new-best' : ''}">
+          ${isNewBest ? '🎉 New Personal Best!' : `Personal Best: ${bestScore}`}
+        </div>
       </div>
       <div class="game-ending-content">
         <h2 class="game-ending-title">${ending.title}</h2>
@@ -2083,6 +2125,13 @@ function initCatPong(windowEl) {
   const ctx = canvas.getContext('2d');
   const scoreLeftEl = windowEl.querySelector('#score-left');
   const scoreRightEl = windowEl.querySelector('#score-right');
+  const bestEl = windowEl.querySelector('#catpong-best');
+
+  // Load and display high score
+  const currentBest = getHighScore('catpong');
+  if (currentBest !== null && bestEl) {
+    bestEl.textContent = `Best: ${currentBest}`;
+  }
 
   // Game state
   const game = {
@@ -2205,6 +2254,15 @@ function initCatPong(windowEl) {
     } else if (game.ball.x > canvas.width) {
       game.scoreLeft++;
       scoreLeftEl.textContent = game.scoreLeft;
+      // Track high score
+      const isNewBest = setHighScore('catpong', game.scoreLeft, 'high');
+      if (bestEl) {
+        bestEl.textContent = `Best: ${getHighScore('catpong')}`;
+        if (isNewBest) {
+          bestEl.classList.add('new-best');
+          setTimeout(() => bestEl.classList.remove('new-best'), 1000);
+        }
+      }
       resetBall();
     }
 
@@ -2361,11 +2419,19 @@ function initMemory(windowEl) {
 
   function render() {
     const isWon = matched.length === cards.length;
+    const bestScore = getHighScore('memory');
+    let isNewBest = false;
+
+    // Check for new best when won
+    if (isWon && moves > 0) {
+      isNewBest = setHighScore('memory', moves, 'low');
+    }
 
     content.innerHTML = `
       <div class="memory-wrapper">
         <div class="memory-header">
           <span class="memory-moves">Moves: ${moves}</span>
+          <span class="memory-best">${bestScore ? `Best: ${bestScore}` : ''}</span>
           <span class="memory-matched">Matched: ${matched.length / 2}/${icons.length}</span>
         </div>
         <div class="memory-grid">
@@ -2379,7 +2445,7 @@ function initMemory(windowEl) {
         ${isWon ? `
           <div class="memory-win">
             <p>🎉 You Win!</p>
-            <p>Completed in ${moves} moves</p>
+            <p>Completed in ${moves} moves${isNewBest ? ' - NEW BEST!' : ''}</p>
             <button class="memory-restart" id="memory-restart">Play Again</button>
           </div>
         ` : ''}
@@ -2461,6 +2527,8 @@ function initMinesweeper(windowEl) {
   let gameWon = false;
   let firstClick = true;
   let minesLeft = MINES;
+  let timer = 0;
+  let timerInterval = null;
 
   // Meeting-themed mine messages
   const meetingTypes = [
@@ -2598,14 +2666,32 @@ function initMinesweeper(windowEl) {
 
   function render() {
     const statusEmoji = gameOver ? '😵' : gameWon ? '😎' : '🙂';
+    const bestTime = getHighScore('minesweeper');
+    let isNewBest = false;
+
+    // Check for new best when won
+    if (gameWon && timer > 0) {
+      isNewBest = setHighScore('minesweeper', timer, 'low');
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    // Stop timer on game over
+    if (gameOver && timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
 
     content.innerHTML = `
       <div class="ms-wrapper">
         <div class="ms-header">
           <div class="ms-counter">${String(minesLeft).padStart(3, '0')}</div>
           <button class="ms-face" id="ms-reset">${statusEmoji}</button>
-          <div class="ms-counter">📅${MINES}</div>
+          <div class="ms-counter">${String(Math.min(timer, 999)).padStart(3, '0')}</div>
         </div>
+        ${bestTime ? `<div class="ms-best">Best: ${bestTime}s</div>` : ''}
         <div class="ms-board">
           ${board.map((row, r) =>
             row.map((_, c) =>
@@ -2614,12 +2700,16 @@ function initMinesweeper(windowEl) {
           ).join('')}
         </div>
         ${gameOver ? `<div class="ms-message ms-lose">📅 Meeting ambush! You've been scheduled.</div>` : ''}
-        ${gameWon ? `<div class="ms-message ms-win">🎉 Calendar defended! No surprise meetings today!</div>` : ''}
+        ${gameWon ? `<div class="ms-message ms-win">🎉 Calendar defended!${isNewBest ? ' NEW BEST TIME!' : ''}</div>` : ''}
       </div>
     `;
 
     // Reset button
     content.querySelector('#ms-reset').addEventListener('click', () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
       board = [];
       revealed = [];
       flagged = [];
@@ -2627,6 +2717,7 @@ function initMinesweeper(windowEl) {
       gameWon = false;
       firstClick = true;
       minesLeft = MINES;
+      timer = 0;
       render();
     });
 
@@ -2641,6 +2732,14 @@ function initMinesweeper(windowEl) {
         if (firstClick) {
           initBoard(r, c);
           firstClick = false;
+          // Start timer
+          timerInterval = setInterval(() => {
+            timer++;
+            const timerEl = content.querySelector('.ms-counter:last-child');
+            if (timerEl) {
+              timerEl.textContent = String(Math.min(timer, 999)).padStart(3, '0');
+            }
+          }, 1000);
         }
 
         reveal(r, c);
