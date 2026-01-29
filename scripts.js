@@ -1125,8 +1125,8 @@ function initFolder(windowEl) {
   if (!content) return;
 
   content.innerHTML = SITE_DATA.workExamples.map(work => `
-    <div class="folder-item" data-work-id="${work.id}">
-      <div class="folder-item-icon"></div>
+    <div class="folder-item" data-work-id="${work.id}" data-work-type="${work.type}" data-file-type="${work.fileType || ''}">
+      <div class="folder-item-icon ${work.type === 'textfile' ? 'icon-txt' : ''}"></div>
       <span class="folder-item-name">${work.name}</span>
     </div>
   `).join('');
@@ -1135,7 +1135,15 @@ function initFolder(windowEl) {
   content.querySelectorAll('.folder-item').forEach(item => {
     item.addEventListener('dblclick', () => {
       const workId = item.dataset.workId;
-      openApp('work-detail', workId);
+      const workType = item.dataset.workType;
+      const fileType = item.dataset.fileType;
+
+      if (workType === 'textfile' && fileType) {
+        // Open as notepad with easter egg content
+        openApp('notepad', fileType);
+      } else {
+        openApp('work-detail', workId);
+      }
     });
   });
 }

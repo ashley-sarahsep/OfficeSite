@@ -230,6 +230,112 @@ like to work with: this is it. This is the artifact of that.
   January 2026`
     },
 
+    analyticsSamples: {
+      title: "analytics_samples.txt - Notepad",
+      content: `HOW I THINK ABOUT DATA
+======================
+
+I have a philosophy degree, which means I ask questions
+about things other people take for granted. Including data.
+
+Data doesn't speak for itself. Someone chose what to measure,
+how to measure it, and what to ignore. Those choices have
+assumptions baked in. The interesting work is figuring out
+what story the data is actually telling - and what's missing
+from that story.
+
+
+WHAT I'M LOOKING FOR
+--------------------
+
+When I look at data, I'm trying to understand:
+
+- What's the narrative here? Not just the numbers, but what
+  they mean in context.
+
+- What assumptions shaped how this was collected? What got
+  left out, and does that matter?
+
+- What would someone need to know to make a good decision
+  from this? What's the "so what"?
+
+- Where are the patterns that aren't obvious at first glance?
+  What's the data showing that nobody thought to ask about?
+
+Metrics are only useful if they help someone do something
+differently. Otherwise it's just numbers on a screen.
+
+
+A REAL EXAMPLE: FIELD MARKETING ANALYTICS
+-----------------------------------------
+
+The platform I worked on tracked millions of field marketing
+visits - product sampling, brand activations, mobile tours.
+Clients wanted to know: is this working?
+
+The surface-level answer is easy:
+Here's how many events. Here's attendance. Here's samples distributed.
+
+The meaningful answer takes more work:
+- Which venues consistently outperform, and what do they
+  have in common?
+- What's the relationship between engagement and conversion,
+  and how does that vary by region or event type?
+- Where are the opportunities hiding in the data that
+  clients haven't thought to ask about?
+- What story can we tell that helps them make better
+  decisions next quarter?
+
+I built prompt frameworks that helped clients move from
+"show me the numbers" to "help me understand what's
+actually happening and what I should do about it."
+
+
+THE GAP I'M GOOD AT FILLING
+---------------------------
+
+Technical people can build dashboards.
+Business people can ask for reports.
+
+The gap is: someone who can sit with the data, understand
+its limitations, find the patterns, and translate it into
+something that actually means something to the people who
+need to act on it. Someone who can make the meaning clear -
+whether the news is good or bad.
+
+That's applied hermeneutics. I just don't usually call it that.
+
+
+WHAT I'VE LEARNED
+-----------------
+
+- A dashboard nobody uses is just expensive art
+- The most valuable insight is sometimes "we're measuring
+  the wrong thing"
+- Good analysis answers "so what?" not just "how much?"
+- Patterns across data are more interesting than single metrics
+- Honest interpretation matters more than impressive-looking charts
+- The story you tell from the data should help someone
+  make a better decision - otherwise, what's the point?
+
+
+TOOLS & EXPERIENCE
+------------------
+
+- Built analytical frameworks for AI-powered data querying
+- Created "Power Prompts" library helping clients extract
+  strategic insights from field marketing data
+- Designed KPI tracking systems for enablement program effectiveness
+- Conducted win/loss analysis and competitive post-mortems
+- Turned messy field data into clear, actionable reports
+
+I make meaning from data and help others do the same.
+
+---
+Last modified: Recently
+Author: Someone who thinks the best question is "what does this actually mean?"`
+    },
+
     // Recycle bin contents
     trash: {
       title: "Recycle Bin",
@@ -1681,6 +1787,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       outcome: "Operational systems enabled company to scale from about 10 people to supporting 32M+ visits, 576K+ client staff, and Fortune 500 clients at massive scale. The invisible infrastructure that let a small team do big things.",
       skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
       image: "assets/images/work-ops.jpg"
+    },
+    {
+      id: "analytics-samples",
+      name: "analytics_samples.txt",
+      type: "textfile",
+      fileType: "analyticsSamples"
     }
   ],
 
