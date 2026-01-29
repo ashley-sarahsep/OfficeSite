@@ -641,6 +641,9 @@ function initStartMenu() {
         case 'chat':
           openApp('messenger', 'chat');
           break;
+        case 'about-computer':
+          openApp('about-computer', 'specs');
+          break;
         case 'email':
           window.location.href = 'mailto:' + SITE_DATA.email;
           break;
@@ -733,7 +736,8 @@ function getWindowSize(appType) {
     portfolio: { width: '550px', height: '450px' },
     'portfolio-viewer': { width: '600px', height: '500px' },
     game: { width: '650px', height: '500px' },
-    accessibility: { width: '450px', height: '520px' }
+    accessibility: { width: '450px', height: '520px' },
+    'about-computer': { width: '420px', height: '380px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -755,7 +759,8 @@ function getWindowTitle(appType, fileId) {
     portfolio: 'AI Portfolio - Explorer',
     'portfolio-viewer': 'Document Viewer',
     game: 'Project Trail - A Business Adventure',
-    accessibility: 'Accessibility Options'
+    accessibility: 'Accessibility Options',
+    'about-computer': 'About This Computer'
   };
   return titles[appType] || 'Window';
 }
@@ -811,6 +816,9 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'accessibility':
       initAccessibilityWindow(windowEl);
+      break;
+    case 'about-computer':
+      initAboutComputer(windowEl);
       break;
   }
 }
@@ -1363,6 +1371,92 @@ function getFileIcon(filename) {
 }
 
 // ============================================
+// ABOUT THIS COMPUTER
+// ============================================
+
+function initAboutComputer(windowEl) {
+  const content = windowEl.querySelector('.about-computer-content');
+  if (!content) return;
+
+  // Calculate some dynamic "specs"
+  const yearsExp = new Date().getFullYear() - 2011;
+  const remoteYears = new Date().getFullYear() - 2014;
+
+  content.innerHTML = `
+    <div class="about-computer-wrapper">
+      <div class="about-computer-header">
+        <div class="about-computer-logo">
+          <span class="about-logo-icon">👩‍💻</span>
+        </div>
+        <div class="about-computer-title">
+          <h2>HireMeOS 98</h2>
+          <p class="about-subtitle">Ashley Edition</p>
+        </div>
+      </div>
+
+      <div class="about-computer-specs">
+        <div class="about-spec-group">
+          <div class="about-spec">
+            <span class="spec-label">Processor:</span>
+            <span class="spec-value">Pattern Recognition Engine™ (${yearsExp} years optimized)</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Memory:</span>
+            <span class="spec-value">"I have a doc for that" - 2TB indexed</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Remote Mode:</span>
+            <span class="spec-value">Native since 2014 (${remoteYears} years)</span>
+          </div>
+        </div>
+
+        <div class="about-divider"></div>
+
+        <div class="about-spec-group">
+          <div class="about-spec">
+            <span class="spec-label">Gap Detection:</span>
+            <span class="spec-value">Real-time, high-precision</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Translation Layer:</span>
+            <span class="spec-value">Complex → Simple v3.0</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Async Support:</span>
+            <span class="spec-value">Multi-timezone enabled</span>
+          </div>
+        </div>
+
+        <div class="about-divider"></div>
+
+        <div class="about-spec-group">
+          <div class="about-spec">
+            <span class="spec-label">Preferred Input:</span>
+            <span class="spec-value">Context & clear goals</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Output Format:</span>
+            <span class="spec-value">Actionable, documented, shipped</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-computer-footer">
+        <p>Serial No: ASHLEY-${new Date().getFullYear()}-OPS</p>
+        <button class="about-ok-btn" id="about-ok-btn">OK</button>
+      </div>
+    </div>
+  `;
+
+  // OK button closes the window
+  const okBtn = content.querySelector('#about-ok-btn');
+  okBtn?.addEventListener('click', () => {
+    const windowId = windowEl.id;
+    closeWindow(windowId);
+  });
+}
+
+// ============================================
 // AI PORTFOLIO
 // ============================================
 
@@ -1848,10 +1942,12 @@ function initCatPong(windowEl) {
 }
 
 // ============================================
-// GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
+// GERTRUDE - PHILOSOPHICAL CAT (AUTO + CLICK)
 // ============================================
 
 let gertrudeThoughtIndex = 0;
+let gertrudeAutoTimer = null;
+let gertrudeHideTimer = null;
 
 function initGertrude() {
   const gertrudeIcon = document.getElementById('gertrude-click');
@@ -1865,10 +1961,10 @@ function initGertrude() {
     shuffleArray(SITE_DATA.gertrude.thoughts);
   }
 
-  // Click Gertrude to show a thought
+  // Click Gertrude to show a thought (and reset auto-timer)
   gertrudeIcon.addEventListener('click', () => {
     if (bubble.classList.contains('hidden')) {
-      showGertrudeThought();
+      showGertrudeThought(true); // true = manual trigger
     } else {
       hideGertrudeBubble();
     }
@@ -1878,14 +1974,50 @@ function initGertrude() {
   bubble.addEventListener('click', () => {
     hideGertrudeBubble();
   });
+
+  // Start the auto-thought timer
+  scheduleNextGertrudeThought();
 }
 
-function showGertrudeThought() {
+function scheduleNextGertrudeThought() {
+  // Clear any existing timer
+  if (gertrudeAutoTimer) {
+    clearTimeout(gertrudeAutoTimer);
+  }
+
+  // Schedule next thought in 45-75 seconds (randomized)
+  const delay = 45000 + Math.random() * 30000;
+  gertrudeAutoTimer = setTimeout(() => {
+    // Only auto-show if on desktop scene and bubble is hidden
+    const desktopScene = document.getElementById('desktop-scene');
+    const bubble = document.getElementById('gertrude-bubble');
+
+    if (desktopScene && !desktopScene.classList.contains('hidden') &&
+        bubble && bubble.classList.contains('hidden')) {
+      showGertrudeThought(false); // false = auto trigger
+    }
+
+    // Schedule the next one
+    scheduleNextGertrudeThought();
+  }, delay);
+}
+
+function showGertrudeThought(isManual = false) {
   const bubble = document.getElementById('gertrude-bubble');
   const messageEl = document.getElementById('gertrude-message');
   const thoughts = SITE_DATA.gertrude?.thoughts || [];
 
   if (!bubble || !messageEl || thoughts.length === 0) return;
+
+  // Clear any existing hide timer
+  if (gertrudeHideTimer) {
+    clearTimeout(gertrudeHideTimer);
+  }
+
+  // If manually triggered, reset the auto-timer
+  if (isManual) {
+    scheduleNextGertrudeThought();
+  }
 
   // Get next thought (cycles through all)
   const thought = thoughts[gertrudeThoughtIndex % thoughts.length];
@@ -1894,12 +2026,22 @@ function showGertrudeThought() {
   // Show the thought
   messageEl.textContent = thought;
   bubble.classList.remove('hidden');
+
+  // Auto-hide after 8 seconds (gives time to read)
+  gertrudeHideTimer = setTimeout(() => {
+    hideGertrudeBubble();
+  }, 8000);
 }
 
 function hideGertrudeBubble() {
   const bubble = document.getElementById('gertrude-bubble');
   if (bubble) {
     bubble.classList.add('hidden');
+  }
+  // Clear hide timer if manually dismissed
+  if (gertrudeHideTimer) {
+    clearTimeout(gertrudeHideTimer);
+    gertrudeHideTimer = null;
   }
 }
 

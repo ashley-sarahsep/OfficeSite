@@ -250,6 +250,11 @@
                 <span>AshleyChat.exe</span>
               </div>
               <div class="start-menu-divider"></div>
+              <div class="start-menu-item" data-action="about-computer">
+                <span class="menu-icon icon-computer-small"></span>
+                <span>About This Computer</span>
+              </div>
+              <div class="start-menu-divider"></div>
               <div class="start-menu-item" data-action="email">
                 <span class="menu-icon icon-email"></span>
                 <span>Email Ashley</span>
@@ -618,6 +623,23 @@
       </div>
       <div class="window-content portfolio-viewer-content" id="portfolio-viewer-content">
         <!-- Document content loaded by JS -->
+      </div>
+    </div>
+  </template>
+
+  <!-- About This Computer Window Template -->
+  <template id="template-about-computer">
+    <div class="window window-about-computer" data-window="about-computer">
+      <div class="window-titlebar">
+        <span class="window-title">About This Computer</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content about-computer-content" id="about-computer-content">
+        <!-- About content loaded by JS -->
       </div>
     </div>
   </template>
