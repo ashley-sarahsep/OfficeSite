@@ -1293,6 +1293,27 @@ body {
   border-color: #000;
 }
 
+.toolbar-icon {
+  margin-right: 3px;
+}
+
+.toolbar-btn-download {
+  background: linear-gradient(to bottom, #4a9d7c, #3d8268);
+  color: white;
+  border-color: #2d6b53;
+  padding: 3px 10px;
+  font-weight: bold;
+}
+
+.toolbar-btn-download:hover {
+  background: linear-gradient(to bottom, #5ab88f, #4a9d7c);
+  border-color: #1d5040;
+}
+
+.toolbar-btn-print {
+  padding: 3px 10px;
+}
+
 .toolbar-divider {
   width: 1px;
   background: #808080;
@@ -2909,6 +2930,160 @@ body {
   font-size: 12px;
   color: var(--color-sage);
   opacity: 0.8;
+}
+
+/* ============================================
+   ABOUT THIS COMPUTER
+   ============================================ */
+
+.about-computer-content {
+  background: var(--win-button-face);
+  padding: 0;
+  overflow-y: auto;
+}
+
+.about-computer-wrapper {
+  padding: 20px;
+}
+
+.about-computer-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--color-mauve);
+}
+
+.about-computer-logo {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--color-burgundy) 0%, var(--color-mauve) 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,0.3),
+    2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.about-logo-icon {
+  font-size: 32px;
+}
+
+.about-computer-title h2 {
+  font-family: var(--font-system);
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.about-subtitle {
+  font-size: 12px;
+  color: var(--color-mauve);
+  font-style: italic;
+}
+
+.about-computer-specs {
+  background: #fff;
+  border: 2px inset var(--win-button-shadow);
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.about-spec-group {
+  margin-bottom: 8px;
+}
+
+.about-spec-group:last-child {
+  margin-bottom: 0;
+}
+
+.about-spec {
+  display: flex;
+  padding: 3px 0;
+  font-size: 11px;
+  font-family: var(--font-system);
+  line-height: 1.4;
+}
+
+.spec-label {
+  width: 110px;
+  flex-shrink: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.spec-value {
+  color: #000;
+}
+
+.about-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-mauve), transparent);
+  margin: 8px 0;
+}
+
+.about-computer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-computer-footer p {
+  font-size: 10px;
+  color: #666;
+  font-family: var(--font-terminal);
+}
+
+.about-ok-btn {
+  padding: 5px 30px;
+  font-family: var(--font-system);
+  font-size: 12px;
+  background: var(--win-button-face);
+  border: 2px outset var(--win-button-light);
+  cursor: pointer;
+}
+
+.about-ok-btn:hover {
+  background: #d0d0d0;
+}
+
+.about-ok-btn:active {
+  border-style: inset;
+}
+
+/* Start menu computer icon */
+.icon-computer-small {
+  width: 16px;
+  height: 16px;
+  background: linear-gradient(180deg, #c0c0c0 0%, #808080 100%);
+  border: 1px solid #000;
+  border-radius: 2px;
+  position: relative;
+}
+
+.icon-computer-small::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 9px;
+  height: 6px;
+  background: #000080;
+  border: 1px solid #000;
+}
+
+.icon-computer-small::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  left: 4px;
+  width: 7px;
+  height: 2px;
+  background: #404040;
 }
 
 /* ============================================
