@@ -336,6 +336,91 @@ Last modified: Recently
 Author: Someone who thinks the best question is "what does this actually mean?"`
     },
 
+    collab: {
+      title: "Lets_Work_Together.txt - Notepad",
+      content: `LET'S WORK TOGETHER
+===================
+
+Hey - thanks for poking around in here.
+
+If you've made it this far into my weird little portfolio,
+you probably have a sense of how I think. So let me be direct:
+
+I'm open to more than full-time roles.
+
+Freelance projects. Consulting gigs. Collaborations.
+Short-term problem-solving. The thing you're not sure
+how to scope yet but know you need help with.
+
+
+THINGS I'M GOOD AT
+------------------
+
+→ AI Implementation & Prompt Engineering
+  Making AI tools actually useful for real humans.
+  Building the training, testing, and adoption infrastructure
+  that turns "we have AI" into "we use AI effectively."
+
+→ Onboarding & Enablement Programs
+  Designing learning experiences that stick. Not info dumps -
+  actual behaviour change. I think about how humans process
+  and retain information (thanks, philosophy degree).
+
+→ Process Documentation & Knowledge Bases
+  The docs people actually read. The systems that capture
+  institutional knowledge before it walks out the door.
+  Clear, searchable, maintained.
+
+→ Technical Translation
+  Bridging the gap between technical teams and everyone else.
+  Making complex capabilities understandable without
+  dumbing them down.
+
+→ Operational Infrastructure
+  The systems that let small teams punch above their weight.
+  I've built these from scratch more than once.
+
+
+THE KIND OF PROBLEMS I LIKE
+---------------------------
+
+• "We have this tool but nobody's using it properly"
+• "We need to document everything before [person] leaves"
+• "Our training isn't working and we're not sure why"
+• "We need someone to figure out what we even need"
+• "This is a mess and we need someone to untangle it"
+
+Ambiguity doesn't scare me. I'm good at figuring things out
+and building the path while walking it.
+
+
+HOW TO REACH ME
+---------------
+
+Email: ashley@stepinto-ashleysoffice.com
+
+Tell me what you're dealing with. I'll tell you honestly
+if I can help or if you need someone else.
+
+No weird sales calls. No "let's hop on a quick chat"
+that's actually a pitch. Just real conversation about
+whether there's a fit.
+
+
+THE FINE PRINT
+--------------
+
+I work remotely (have since 2014, quite good at it).
+I'm in Ontario, Canada - Eastern time zone.
+I communicate clearly and often.
+I ask a lot of questions upfront so I don't waste your time later.
+I care about doing good work, not just billable hours.
+
+If that sounds like what you need, let's talk.
+
+- Ashley`
+    },
+
     // Recycle bin contents
     trash: {
       title: "Recycle Bin",
@@ -1441,7 +1526,7 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
     welcomeMessage: "Welcome, Visitor",
 
     icons: [
-      { id: "resume", name: "Resume.doc", icon: "doc", app: "wordpad" },
+      { id: "resumes", name: "Resumes", icon: "folder", app: "misc-folder", file: "resumes" },
       { id: "about", name: "AboutMe.html", icon: "html", app: "myspace" },
       { id: "chat", name: "AshleyChat.exe", icon: "exe", app: "messenger" },
       { id: "work", name: "Work Examples", icon: "folder", app: "folder" },
@@ -1452,6 +1537,13 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
 
     // Misc folders content
     folders: {
+      resumes: {
+        title: "Resumes",
+        items: [
+          { id: "resume", name: "Resume.doc", icon: "doc", type: "app", app: "wordpad" },
+          { id: "collab", name: "Lets_Work_Together.txt", icon: "txt", type: "notepad", noteId: "collab" }
+        ]
+      },
       takeabreak: {
         title: "Take a Break",
         items: [

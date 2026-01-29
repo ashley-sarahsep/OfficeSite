@@ -1379,7 +1379,7 @@ function initMiscFolder(windowEl, folderId) {
   }
 
   content.innerHTML = folderData.items.map(item => `
-    <div class="folder-item" data-item-id="${item.id}" data-item-type="${item.type}" data-item-app="${item.app || ''}">
+    <div class="folder-item" data-item-id="${item.id}" data-item-type="${item.type}" data-item-app="${item.app || ''}" data-note-id="${item.noteId || ''}">
       <div class="folder-item-icon icon-${item.icon}"></div>
       <span class="folder-item-name">${item.name}</span>
     </div>
@@ -1391,10 +1391,17 @@ function initMiscFolder(windowEl, folderId) {
       const itemId = item.dataset.itemId;
       const itemType = item.dataset.itemType;
       const itemApp = item.dataset.itemApp;
+      const noteId = item.dataset.noteId;
 
       if (itemType === 'easter-egg') {
         // Open as notepad with easter egg content
         openApp('notepad', itemId);
+      } else if (itemType === 'notepad' && noteId) {
+        // Open notepad with specific content
+        openApp('notepad', noteId);
+      } else if (itemType === 'app' && itemApp) {
+        // Open specified app
+        openApp(itemApp, itemId);
       } else if (itemType === 'game' && itemApp) {
         // Open as game
         openApp(itemApp, itemId);
