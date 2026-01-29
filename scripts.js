@@ -776,6 +776,9 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'game':
       initProjectTrail(windowEl);
       break;
+    case 'catpong':
+      initCatPong(windowEl);
+      break;
   }
 }
 
@@ -1161,7 +1164,7 @@ function initMiscFolder(windowEl, folderId) {
   }
 
   content.innerHTML = folderData.items.map(item => `
-    <div class="folder-item" data-item-id="${item.id}" data-item-type="${item.type}">
+    <div class="folder-item" data-item-id="${item.id}" data-item-type="${item.type}" data-item-app="${item.app || ''}">
       <div class="folder-item-icon icon-${item.icon}"></div>
       <span class="folder-item-name">${item.name}</span>
     </div>
@@ -1172,10 +1175,14 @@ function initMiscFolder(windowEl, folderId) {
     item.addEventListener('dblclick', () => {
       const itemId = item.dataset.itemId;
       const itemType = item.dataset.itemType;
+      const itemApp = item.dataset.itemApp;
 
       if (itemType === 'easter-egg') {
         // Open as notepad with easter egg content
         openApp('notepad', itemId);
+      } else if (itemType === 'game' && itemApp) {
+        // Open as game
+        openApp(itemApp, itemId);
       }
     });
   });
@@ -1569,6 +1576,195 @@ function showGameEnding(container) {
     };
     showGameIntro(container);
   });
+}
+
+// ============================================
+// CAT PONG - HIDDEN MINI GAME
+// ============================================
+
+function initCatPong(windowEl) {
+  const canvas = windowEl.querySelector('#catpong-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const scoreLeftEl = windowEl.querySelector('#score-left');
+  const scoreRightEl = windowEl.querySelector('#score-right');
+
+  // Game state
+  const game = {
+    running: false,
+    paused: false,
+    scoreLeft: 0,
+    scoreRight: 0,
+    ball: { x: 200, y: 150, vx: 4, vy: 3, radius: 8 },
+    paddleLeft: { y: 125, height: 50, width: 10 },
+    paddleRight: { y: 125, height: 50, width: 10 },
+    paddleSpeed: 6,
+    keys: {}
+  };
+
+  // Cat faces for paddles
+  const catLeft = ">'.'<";  // Gertrude - calm
+  const catRight = ">^.^<"; // Gherkin - excited
+
+  function draw() {
+    // Clear canvas
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw center line
+    ctx.strokeStyle = '#333';
+    ctx.setLineDash([5, 5]);
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2, 0);
+    ctx.lineTo(canvas.width / 2, canvas.height);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Draw paddles as cat faces
+    ctx.fillStyle = '#d4a9a0';
+    ctx.font = '14px monospace';
+    ctx.textAlign = 'center';
+
+    // Left paddle (Gertrude)
+    ctx.save();
+    ctx.translate(15, game.paddleLeft.y + game.paddleLeft.height / 2);
+    ctx.fillText(catLeft, 0, 5);
+    ctx.restore();
+
+    // Right paddle (Gherkin)
+    ctx.save();
+    ctx.translate(canvas.width - 15, game.paddleRight.y + game.paddleRight.height / 2);
+    ctx.fillText(catRight, 0, 5);
+    ctx.restore();
+
+    // Draw ball (yarn ball)
+    ctx.beginPath();
+    ctx.arc(game.ball.x, game.ball.y, game.ball.radius, 0, Math.PI * 2);
+    ctx.fillStyle = '#c88530';
+    ctx.fill();
+    ctx.strokeStyle = '#a06820';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // Draw "start" message if not running
+    if (!game.running) {
+      ctx.fillStyle = '#f5f0e6';
+      ctx.font = '16px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('Press SPACE to start', canvas.width / 2, canvas.height / 2);
+      ctx.font = '12px monospace';
+      ctx.fillText('W/S or ↑/↓ to move', canvas.width / 2, canvas.height / 2 + 25);
+    }
+  }
+
+  function update() {
+    if (!game.running || game.paused) return;
+
+    // Move paddles based on keys
+    if (game.keys['w'] || game.keys['W'] || game.keys['ArrowUp']) {
+      game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed);
+    }
+    if (game.keys['s'] || game.keys['S'] || game.keys['ArrowDown']) {
+      game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed);
+    }
+
+    // Simple AI for right paddle
+    const paddleCenter = game.paddleRight.y + game.paddleRight.height / 2;
+    if (paddleCenter < game.ball.y - 20) {
+      game.paddleRight.y = Math.min(canvas.height - game.paddleRight.height, game.paddleRight.y + game.paddleSpeed * 0.7);
+    } else if (paddleCenter > game.ball.y + 20) {
+      game.paddleRight.y = Math.max(0, game.paddleRight.y - game.paddleSpeed * 0.7);
+    }
+
+    // Move ball
+    game.ball.x += game.ball.vx;
+    game.ball.y += game.ball.vy;
+
+    // Ball collision with top/bottom
+    if (game.ball.y - game.ball.radius <= 0 || game.ball.y + game.ball.radius >= canvas.height) {
+      game.ball.vy *= -1;
+    }
+
+    // Ball collision with paddles
+    // Left paddle
+    if (game.ball.x - game.ball.radius <= 25 &&
+        game.ball.y >= game.paddleLeft.y &&
+        game.ball.y <= game.paddleLeft.y + game.paddleLeft.height) {
+      game.ball.vx = Math.abs(game.ball.vx) * 1.05;
+      game.ball.x = 25 + game.ball.radius;
+    }
+
+    // Right paddle
+    if (game.ball.x + game.ball.radius >= canvas.width - 25 &&
+        game.ball.y >= game.paddleRight.y &&
+        game.ball.y <= game.paddleRight.y + game.paddleRight.height) {
+      game.ball.vx = -Math.abs(game.ball.vx) * 1.05;
+      game.ball.x = canvas.width - 25 - game.ball.radius;
+    }
+
+    // Scoring
+    if (game.ball.x < 0) {
+      game.scoreRight++;
+      scoreRightEl.textContent = game.scoreRight;
+      resetBall();
+    } else if (game.ball.x > canvas.width) {
+      game.scoreLeft++;
+      scoreLeftEl.textContent = game.scoreLeft;
+      resetBall();
+    }
+
+    // Cap speed
+    const maxSpeed = 12;
+    game.ball.vx = Math.max(-maxSpeed, Math.min(maxSpeed, game.ball.vx));
+  }
+
+  function resetBall() {
+    game.ball.x = canvas.width / 2;
+    game.ball.y = canvas.height / 2;
+    game.ball.vx = (Math.random() > 0.5 ? 1 : -1) * 4;
+    game.ball.vy = (Math.random() - 0.5) * 6;
+  }
+
+  function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+  }
+
+  // Key handlers
+  function handleKeyDown(e) {
+    game.keys[e.key] = true;
+    if (e.key === ' ' && !game.running) {
+      game.running = true;
+      resetBall();
+    }
+    if (['w', 's', 'W', 'S', 'ArrowUp', 'ArrowDown', ' '].includes(e.key)) {
+      e.preventDefault();
+    }
+  }
+
+  function handleKeyUp(e) {
+    game.keys[e.key] = false;
+  }
+
+  // Add event listeners
+  document.addEventListener('keydown', handleKeyDown);
+  document.addEventListener('keyup', handleKeyUp);
+
+  // Clean up when window closes
+  const observer = new MutationObserver((mutations) => {
+    if (!document.contains(windowEl)) {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
+  // Start game loop
+  draw();
+  gameLoop();
 }
 
 // ============================================

@@ -2833,3 +2833,43 @@ body {
   color: var(--color-sage);
   opacity: 0.7;
 }
+
+/* ============================================
+   CAT PONG GAME
+   ============================================ */
+
+.catpong-content {
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  min-height: 350px;
+}
+
+#catpong-canvas {
+  border: 3px solid var(--color-mauve);
+  background: #000;
+  image-rendering: pixelated;
+}
+
+.catpong-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-family: var(--font-terminal);
+}
+
+.catpong-score {
+  font-size: 16px;
+  color: var(--color-cream);
+}
+
+.catpong-controls {
+  font-size: 12px;
+  color: var(--color-sage);
+  opacity: 0.8;
+}

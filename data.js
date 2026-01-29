@@ -1474,7 +1474,8 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
         items: [
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
-          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
+          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" },
+          { id: "catpong", name: "definitely_not_a_game.exe", icon: "exe", type: "game", app: "catpong" }
         ]
       }
     },
