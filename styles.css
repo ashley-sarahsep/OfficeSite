@@ -2019,6 +2019,39 @@ body {
   .inspect-icon {
     font-size: 16px;
   }
+
+  /* Windows responsive - fit to mobile screen */
+  .window {
+    position: fixed !important;
+    top: 5px !important;
+    left: 5px !important;
+    right: 5px !important;
+    bottom: 40px !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: unset;
+    min-height: unset;
+    max-width: calc(100vw - 10px);
+    max-height: calc(100vh - 45px);
+  }
+
+  .window-content {
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+  }
+
+  .messenger-content {
+    max-height: calc(100vh - 120px);
+  }
+
+  .messenger-chat-area {
+    max-height: calc(100vh - 280px);
+    min-height: 150px;
+  }
+
+  .myspace-content {
+    max-height: calc(100vh - 100px);
+  }
 }
 
 /* ============================================
