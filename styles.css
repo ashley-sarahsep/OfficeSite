@@ -381,10 +381,10 @@ body {
   position: absolute;
   left: 20px;
 }
-}
 
 .navbar-actions {
   display: flex;
+  flex-direction: row;
   gap: 10px;
 }
 
