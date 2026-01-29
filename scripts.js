@@ -949,6 +949,50 @@ function initWordpad(windowEl) {
   if (content) {
     content.innerHTML = SITE_DATA.resume.content;
   }
+
+  // Download PDF button
+  const downloadBtn = windowEl.querySelector('#resume-download');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', () => {
+      // Try to download the PDF file
+      const link = document.createElement('a');
+      link.href = 'assets/Ashley_Sepers_Resume.pdf';
+      link.download = 'Ashley_Sepers_Resume.pdf';
+      link.click();
+    });
+  }
+
+  // Print button - opens print dialog for the resume content
+  const printBtn = windowEl.querySelector('#resume-print');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      const printContent = windowEl.querySelector('.wordpad-content').innerHTML;
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Ashley Sepers - Resume</title>
+          <style>
+            body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 20px; color: #333; line-height: 1.6; }
+            h1 { font-size: 28px; margin-bottom: 5px; }
+            h2 { font-size: 18px; border-bottom: 2px solid #333; padding-bottom: 5px; margin-top: 25px; }
+            h3 { font-size: 15px; margin-bottom: 5px; }
+            p { margin: 8px 0; }
+            ul { margin: 10px 0; padding-left: 25px; }
+            li { margin: 5px 0; }
+            .resume-header { text-align: center; margin-bottom: 20px; }
+            .resume-contact { font-size: 14px; color: #555; }
+            @media print { body { margin: 0; padding: 20px; } }
+          </style>
+        </head>
+        <body>${printContent}</body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.print();
+    });
+  }
 }
 
 function initMyspace(windowEl) {
