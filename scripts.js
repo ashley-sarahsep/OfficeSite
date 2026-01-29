@@ -543,12 +543,19 @@ document.getElementById('dialog-overlay')?.addEventListener('click', (e) => {
 // HIREMEOS DESKTOP
 // ============================================
 
+let desktopInitialized = false;
+let clockInterval = null;
+
 function initDesktop() {
-  initDesktopIcons();
-  initTaskbar();
-  initStartMenu();
-  updateClock();
-  setInterval(updateClock, 1000);
+  // Only initialize once to prevent duplicate event listeners
+  if (!desktopInitialized) {
+    initDesktopIcons();
+    initTaskbar();
+    initStartMenu();
+    updateClock();
+    clockInterval = setInterval(updateClock, 1000);
+    desktopInitialized = true;
+  }
 }
 
 function initDesktopIcons() {

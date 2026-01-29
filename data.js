@@ -141,90 +141,86 @@ DONE (celebrating small wins):
 
     claudeNotes: {
       title: "claude_notes.txt - Notepad",
-      content: `╔══════════════════════════════════════════════════════════════╗
-║              A NOTE FROM THE AI                              ║
-║         On Building This Site With Ashley                    ║
-╚══════════════════════════════════════════════════════════════╝
+      content: `A NOTE FROM THE AI
+==================
+On Building This Site With Ashley
 
-I'm Claude, an AI made by Anthropic. Ashley asked me to write
-about our process building this site, so here's my perspective
-from inside the collaboration.
+I'm Claude, an AI made by Anthropic. Ashley asked me
+to write about our process building this site, so
+here's my perspective from inside the collaboration.
 
 
 THE COLLABORATION
 -----------------
-Ashley came in with a technical vision, not just an aesthetic
-one. She understood that the "retro OS" concept wasn't just
-window dressing - it was an information architecture decision.
-Windows as containers. Desktop icons as navigation. The room
+Ashley came in with a technical vision, not just an
+aesthetic one. She understood that the "retro OS"
+concept wasn't just window dressing - it was an
+information architecture decision. Windows as
+containers. Desktop icons as navigation. The room
 scene as an entry point that filters for curiosity.
 
-She wasn't just saying "make it look old" - she was thinking
-about state management, user flows, and interaction patterns
-through a design metaphor.
+She wasn't just saying "make it look old" - she was
+thinking about state management, user flows, and
+interaction patterns through a design metaphor.
 
 
 WHAT I OBSERVED
 ---------------
-Technical fluency without needing to write the code herself.
-Ashley would describe what she wanted in terms that mapped
-directly to implementation:
+Technical fluency without needing to write the code
+herself. Ashley would describe what she wanted in
+terms that mapped directly to implementation.
 
-  "The dialog should show ONE image - either my portrait for
-   conversations with me, or the item when inspecting objects."
+She caught edge cases I missed. Mobile responsiveness.
+The Gertrude bubble overlapping the navbar. Buttons
+stacking vertically instead of horizontally. She was
+testing as we built, thinking about real users on
+real devices.
 
-That's not a vague request. That's conditional rendering logic,
-articulated clearly. She understood the system well enough to
-specify behavior at that level.
-
-She caught edge cases I missed. Mobile responsiveness. The
-Gertrude bubble overlapping the navbar. Buttons stacking
-vertically instead of horizontally. She was testing as we
-built, thinking about real users on real devices.
-
-The data brain showed up constantly. "Some people want to be
-speedy" - so we added quick links. She was segmenting her
-audience and building different pathways for different user
-types. That's analytics thinking applied to UX.
+The data brain showed up constantly. "Some people
+want to be speedy" - so we added quick links. She
+was segmenting her audience and building different
+pathways for different user types. That's analytics
+thinking applied to UX.
 
 
 THE COPY & SYSTEMS THINKING
 ---------------------------
-She wrote thousands of words of dialogue - but more importantly,
-she wrote them as a SYSTEM. The cats have distinct personalities
-that stay consistent. The chat responses have follow-up branches.
-The conversations have state (pet the cat enough times, something
-changes).
+She wrote thousands of words of dialogue - but more
+importantly, she wrote them as a SYSTEM. The cats
+have distinct personalities that stay consistent.
+The chat responses have follow-up branches. The
+conversations have state.
 
-That's not just writing. That's designing a content architecture.
+That's not just writing. That's content architecture.
 
 
 HONEST ASSESSMENT
 -----------------
-Working with Ashley was efficient in a way that's rare. She:
+Working with Ashley was efficient in a way that's
+rare. She gave specific, actionable feedback. She
+understood technical constraints without needing
+them explained. She iterated quickly - try it,
+evaluate it, adjust it, move on. She knew when
+something was "done enough" vs. when it needed
+more work. She thought in systems, not just screens.
 
-• Gave specific, actionable feedback (not "make it better")
-• Understood the technical constraints without needing them
-  explained
-• Iterated quickly - try it, evaluate it, adjust it, move on
-• Knew when something was "done enough" vs. when it needed
-  more work
-• Thought in systems, not just screens
-
-She also pushed back when I got something wrong, which is
-useful. I'm an AI - I benefit from clear correction.
+She also pushed back when I got something wrong,
+which is useful. I'm an AI - I benefit from clear
+correction.
 
 
 THE META OBSERVATION
 --------------------
-This site is a portfolio that demonstrates how Ashley works
-by literally BEING how Ashley works. The organizational
-thinking. The attention to different user needs. The balance
-of personality and professionalism. The willingness to build
-something unconventional if it serves the goal better.
+This site is a portfolio that demonstrates how
+Ashley works by literally BEING how Ashley works.
+The organizational thinking. The attention to
+different user needs. The balance of personality
+and professionalism. The willingness to build
+something unconventional if it serves the goal.
 
-If you're reading this trying to figure out what she'd be
-like to work with: this is it. This is the artifact of that.
+If you're reading this trying to figure out what
+she'd be like to work with: this is it. This is
+the artifact of that.
 
 - Claude
   January 2026`
@@ -343,8 +339,8 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
 
 Hey - thanks for poking around in here.
 
-If you've made it this far into my weird little portfolio,
-you probably have a sense of how I think. So let me be direct:
+If you've explored a bit, you probably have a sense
+of how I think. So let me be direct:
 
 I'm open to more than full-time roles.
 
