@@ -175,7 +175,7 @@ function transitionToRoom() {
   }, 500);
 }
 
-function transitionToDesktop() {
+function transitionToDesktop(callback) {
   const bootScreen = document.getElementById('boot-screen');
   const roomScene = document.getElementById('room-scene');
   const desktopScene = document.getElementById('desktop-scene');
@@ -204,6 +204,10 @@ function transitionToDesktop() {
     setTimeout(() => {
       desktopScene.style.opacity = '1';
       desktopScene.style.transition = 'opacity 0.5s ease';
+      // Call the callback after transition completes
+      if (callback && typeof callback === 'function') {
+        setTimeout(callback, 100);
+      }
     }, 50);
     state.currentScene = 'desktop';
     initDesktop();
@@ -279,6 +283,30 @@ function initRoomMenu() {
     if (e.key === 'Escape' && !inspectMenu.classList.contains('hidden')) {
       inspectMenu.classList.add('hidden');
     }
+  });
+
+  // Quick links - go directly to desktop and open window
+  const quickLinks = document.querySelectorAll('.navbar-link[data-window]');
+  quickLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      const windowType = link.dataset.window;
+      inspectMenu.classList.add('hidden');
+
+      // Transition to desktop and open the requested window
+      transitionToDesktop(() => {
+        switch (windowType) {
+          case 'resume':
+            openApp('wordpad', 'resume');
+            break;
+          case 'myspace':
+            openApp('myspace', 'about');
+            break;
+          case 'chat':
+            openApp('messenger', 'chat');
+            break;
+        }
+      });
+    });
   });
 }
 

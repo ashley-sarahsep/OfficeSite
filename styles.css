@@ -419,6 +419,30 @@ body {
   font-size: 18px;
 }
 
+.navbar-quicklinks {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  right: 20px;
+}
+
+.navbar-link {
+  padding: 6px 12px;
+  background: var(--dialog-cream);
+  border: 2px solid var(--dialog-brown-dark);
+  border-radius: 4px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--dialog-brown-dark);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.navbar-link:hover {
+  background: var(--dialog-rose);
+  transform: translateY(-1px);
+}
+
 /* Inspect menu popup */
 .inspect-menu {
   position: fixed;
@@ -1995,6 +2019,16 @@ body {
     font-size: 20px;
   }
 
+  .navbar-quicklinks {
+    position: static;
+    gap: 5px;
+  }
+
+  .navbar-link {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+
   /* Inspect menu responsive */
   .inspect-menu {
     width: calc(100vw - 20px);
@@ -2018,6 +2052,39 @@ body {
 
   .inspect-icon {
     font-size: 16px;
+  }
+
+  /* Windows responsive - fit to mobile screen */
+  .window {
+    position: fixed !important;
+    top: 5px !important;
+    left: 5px !important;
+    right: 5px !important;
+    bottom: 40px !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: unset;
+    min-height: unset;
+    max-width: calc(100vw - 10px);
+    max-height: calc(100vh - 45px);
+  }
+
+  .window-content {
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+  }
+
+  .messenger-content {
+    max-height: calc(100vh - 120px);
+  }
+
+  .messenger-chat-area {
+    max-height: calc(100vh - 280px);
+    min-height: 150px;
+  }
+
+  .myspace-content {
+    max-height: calc(100vh - 100px);
   }
 }
 
