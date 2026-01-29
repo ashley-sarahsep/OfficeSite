@@ -737,7 +737,9 @@ function getWindowSize(appType) {
     'portfolio-viewer': { width: '600px', height: '500px' },
     game: { width: '650px', height: '500px' },
     accessibility: { width: '450px', height: '520px' },
-    'about-computer': { width: '420px', height: '380px' }
+    'about-computer': { width: '420px', height: '380px' },
+    raiders: { width: '550px', height: '480px' },
+    memory: { width: '420px', height: '500px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -760,7 +762,9 @@ function getWindowTitle(appType, fileId) {
     'portfolio-viewer': 'Document Viewer',
     game: 'Project Trail - A Business Adventure',
     accessibility: 'Accessibility Options',
-    'about-computer': 'About This Computer'
+    'about-computer': 'About This Computer',
+    raiders: 'Raiders of the Lost Doc',
+    memory: 'Memory Match'
   };
   return titles[appType] || 'Window';
 }
@@ -813,6 +817,12 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'catpong':
       initCatPong(windowEl);
+      break;
+    case 'raiders':
+      initRaiders(windowEl);
+      break;
+    case 'memory':
+      initMemory(windowEl);
       break;
     case 'accessibility':
       initAccessibilityWindow(windowEl);
@@ -1939,6 +1949,187 @@ function initCatPong(windowEl) {
   // Start game loop
   draw();
   gameLoop();
+}
+
+// ============================================
+// RAIDERS OF THE LOST DOC - Adventure Game
+// ============================================
+
+function initRaiders(windowEl) {
+  const content = windowEl.querySelector('.raiders-content');
+  if (!content) return;
+
+  const game = SITE_DATA.raiders;
+  showRaidersIntro(content, game);
+}
+
+function showRaidersIntro(container, game) {
+  container.innerHTML = `
+    <div class="raiders-intro">
+      <div class="raiders-title">
+        <pre class="raiders-ascii">
+  ____       _     _
+ |  _ \\ __ _(_) __| | ___ _ __ ___
+ | |_) / _\` | |/ _\` |/ _ \\ '__/ __|
+ |  _ < (_| | | (_| |  __/ |  \\__ \\
+ |_| \\_\\__,_|_|\\__,_|\\___|_|  |___/
+    of the Lost Doc
+        </pre>
+        <p class="raiders-subtitle">${game.subtitle}</p>
+      </div>
+      <div class="raiders-intro-text">
+        ${game.intro.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+      </div>
+      <button class="raiders-start-btn" id="raiders-start">Begin Your Quest</button>
+    </div>
+  `;
+
+  container.querySelector('#raiders-start').addEventListener('click', () => {
+    showRaidersScene(container, game, 'start');
+  });
+}
+
+function showRaidersScene(container, game, sceneId) {
+  const scene = game.scenes[sceneId];
+  if (!scene) {
+    showRaidersIntro(container, game);
+    return;
+  }
+
+  const isVictory = sceneId === 'q3-right';
+
+  container.innerHTML = `
+    <div class="raiders-scene ${isVictory ? 'raiders-victory' : ''}">
+      <div class="raiders-location">
+        <span class="raiders-location-icon">📍</span>
+        <span class="raiders-location-name">${scene.title}</span>
+      </div>
+      <div class="raiders-narrative">
+        ${scene.text.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+      </div>
+      <div class="raiders-choices">
+        ${scene.choices.map((choice, i) => `
+          <button class="raiders-choice ${choice.text.includes('VICTORY') ? 'raiders-choice-victory' : ''}" data-next="${choice.next}">
+            ${choice.text}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  container.querySelectorAll('.raiders-choice').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const next = btn.dataset.next;
+      showRaidersScene(container, game, next);
+    });
+  });
+}
+
+// ============================================
+// MEMORY MATCH GAME
+// ============================================
+
+function initMemory(windowEl) {
+  const content = windowEl.querySelector('.memory-content');
+  if (!content) return;
+
+  // Office-themed icons for matching
+  const icons = ['📁', '📄', '💾', '🖨️', '📧', '📊', '🗂️', '💼'];
+  let cards = [...icons, ...icons]; // Pairs
+  let flipped = [];
+  let matched = [];
+  let moves = 0;
+  let canFlip = true;
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function render() {
+    const isWon = matched.length === cards.length;
+
+    content.innerHTML = `
+      <div class="memory-wrapper">
+        <div class="memory-header">
+          <span class="memory-moves">Moves: ${moves}</span>
+          <span class="memory-matched">Matched: ${matched.length / 2}/${icons.length}</span>
+        </div>
+        <div class="memory-grid">
+          ${cards.map((icon, i) => `
+            <button class="memory-card ${flipped.includes(i) || matched.includes(i) ? 'flipped' : ''} ${matched.includes(i) ? 'matched' : ''}" data-index="${i}">
+              <span class="memory-card-front">?</span>
+              <span class="memory-card-back">${icon}</span>
+            </button>
+          `).join('')}
+        </div>
+        ${isWon ? `
+          <div class="memory-win">
+            <p>🎉 You Win!</p>
+            <p>Completed in ${moves} moves</p>
+            <button class="memory-restart" id="memory-restart">Play Again</button>
+          </div>
+        ` : ''}
+      </div>
+    `;
+
+    // Add click handlers
+    content.querySelectorAll('.memory-card:not(.matched)').forEach(card => {
+      card.addEventListener('click', () => {
+        if (!canFlip) return;
+        const index = parseInt(card.dataset.index);
+        if (flipped.includes(index)) return;
+
+        flipCard(index);
+      });
+    });
+
+    // Restart button
+    const restartBtn = content.querySelector('#memory-restart');
+    if (restartBtn) {
+      restartBtn.addEventListener('click', () => {
+        cards = shuffle([...icons, ...icons]);
+        flipped = [];
+        matched = [];
+        moves = 0;
+        canFlip = true;
+        render();
+      });
+    }
+  }
+
+  function flipCard(index) {
+    flipped.push(index);
+    render();
+
+    if (flipped.length === 2) {
+      moves++;
+      canFlip = false;
+
+      const [first, second] = flipped;
+      if (cards[first] === cards[second]) {
+        // Match found
+        matched.push(first, second);
+        flipped = [];
+        canFlip = true;
+        render();
+      } else {
+        // No match - flip back after delay
+        setTimeout(() => {
+          flipped = [];
+          canFlip = true;
+          render();
+        }, 1000);
+      }
+    }
+  }
+
+  // Shuffle and start
+  cards = shuffle(cards);
+  render();
 }
 
 // ============================================

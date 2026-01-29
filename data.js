@@ -1445,19 +1445,27 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
       { id: "about", name: "AboutMe.html", icon: "html", app: "myspace" },
       { id: "chat", name: "AshleyChat.exe", icon: "exe", app: "messenger" },
       { id: "work", name: "Work Examples", icon: "folder", app: "folder" },
+      { id: "takeabreak", name: "Take a Break", icon: "folder-games", app: "misc-folder", file: "takeabreak" },
       { id: "allthethings", name: "All of the Things", icon: "folder-special", app: "misc-folder", file: "allthethings" },
       { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" }
     ],
 
     // Misc folders content
     folders: {
+      takeabreak: {
+        title: "Take a Break",
+        items: [
+          { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "exe", type: "game", app: "raiders" },
+          { id: "memory", name: "Memory Match.exe", icon: "exe", type: "game", app: "memory" },
+          { id: "catpong", name: "Cat Pong.exe", icon: "exe", type: "game", app: "catpong" }
+        ]
+      },
       allthethings: {
         title: "All of the Things",
         items: [
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
-          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" },
-          { id: "catpong", name: "definitely_not_a_game.exe", icon: "exe", type: "game", app: "catpong" }
+          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
         ]
       }
     },
@@ -2508,6 +2516,484 @@ That someone is you.`,
         threshold: 0,
         title: "Lessons Learned",
         text: "The trail was rough. Some projects struggled, some stakeholders grumbled, and your sanity took hits. But you showed up every day and kept things moving. In operations, sometimes that's the win. Take what you learned, rest up, and try again."
+      }
+    }
+  },
+
+  // ============================================
+  // RAIDERS OF THE LOST DOC - Adventure Game
+  // ============================================
+
+  raiders: {
+    title: "Raiders of the Lost Doc",
+    subtitle: "A Document Archaeology Adventure",
+    intro: `You are Dr. Dossier, legendary document archaeologist and keeper of the Sacred Style Guide.
+
+Word has reached you of the mythical "Original Requirements Document" - a legendary artifact said to contain the true intentions of the Ancient Stakeholders, lost for generations in the depths of the Legacy Codebase.
+
+Many have searched. Few have returned. Those who did spoke only in riddles about "deprecated methods" and "undocumented features."
+
+Your quest begins at the entrance to the File System Temple...`,
+
+    scenes: {
+      start: {
+        title: "The File System Temple",
+        text: `You stand before the imposing entrance to the File System Temple. Ancient directory structures stretch into darkness. Your fedora sits firmly upon your head. Your whip of well-formatted queries hangs at your side.
+
+Two paths diverge before you:
+
+To the LEFT: A dimly lit corridor marked "/legacy" - cobwebs suggest it hasn't been accessed in years.
+
+To the RIGHT: A brighter passage marked "/archive-2019" - you hear the distant hum of a backup server.
+
+STRAIGHT AHEAD: A locked vault door with a keypad. A note reads: "Password hint: The original project codename."`,
+        choices: [
+          { text: "Take the /legacy corridor", next: "legacy" },
+          { text: "Enter /archive-2019", next: "archive" },
+          { text: "Try 'PHOENIX' on the keypad", next: "vault-wrong" },
+          { text: "Try 'GENESIS' on the keypad", next: "vault" }
+        ]
+      },
+
+      legacy: {
+        title: "The Legacy Corridor",
+        text: `You venture into /legacy. The air is thick with the dust of deprecated functions. README files line the walls, their contents faded and cryptic.
+
+Suddenly, a WILD MERGE CONFLICT appears! Two branches diverged in these woods, and someone tried to take both.
+
+The conflict blocks your path. You must resolve it to continue.`,
+        choices: [
+          { text: "Accept 'theirs' and push forward", next: "legacy-theirs" },
+          { text: "Accept 'yours' and hold your ground", next: "legacy-yours" },
+          { text: "Carefully merge both changes by hand", next: "legacy-merge" },
+          { text: "Flee back to the entrance", next: "start" }
+        ]
+      },
+
+      "legacy-theirs": {
+        title: "Accepting the Unknown",
+        text: `You blindly accept the incoming changes. The merge conflict dissolves... but something feels wrong.
+
+The code compiles, but the tests fail silently. You've inherited technical debt you don't understand.
+
+A spectral figure appears - the Ghost of Developer Past. "You took the easy path," it whispers. "But at what cost?"
+
+It gestures to a hidden door you hadn't noticed before.`,
+        choices: [
+          { text: "Thank the ghost and enter the hidden door", next: "hidden-room" },
+          { text: "Ask the ghost about the Lost Doc", next: "ghost-hint" }
+        ]
+      },
+
+      "legacy-yours": {
+        title: "Standing Your Ground",
+        text: `You reject the incoming changes, keeping your version intact. The conflict clears, but a WARNING flashes:
+
+"BREAKING CHANGES DETECTED. Downstream systems may be affected."
+
+You press forward anyway. A trap door opens beneath you!
+
+You fall into...`,
+        choices: [
+          { text: "...a pile of soft, cushioning documentation", next: "docs-room" },
+          { text: "...the dreaded Dependency Hell", next: "dependency-hell" }
+        ]
+      },
+
+      "legacy-merge": {
+        title: "The Patient Path",
+        text: `You carefully review both versions, understanding the intent behind each change. Line by line, you craft a merge that preserves the best of both worlds.
+
+The merge conflict dissolves peacefully. A treasure chest appears!
+
+Inside you find: The Annotated Changelog of 2017. It contains a clue:
+
+"The Original Requirements Document was moved when we migrated to the new server. Check /vault/restricted/founders-notes."`,
+        choices: [
+          { text: "Head to the vault with this knowledge", next: "vault" },
+          { text: "Search for more clues here first", next: "hidden-room" }
+        ]
+      },
+
+      archive: {
+        title: "The Archive Passage",
+        text: `The /archive-2019 passage is well-lit but confusing. Folders are named by date, but the naming convention changed three times that year.
+
+You see:
+- /2019-Q1-reports
+- /2019_Q2_OLD_DO_NOT_USE
+- /2019-q3-FINAL-FINAL-v2
+- /q4-2019-actually-final
+
+A helpful sign reads: "The document you seek predates Q3 but was migrated during Q4."`,
+        choices: [
+          { text: "Check /2019-Q1-reports", next: "archive-q1" },
+          { text: "Check /2019_Q2_OLD_DO_NOT_USE", next: "archive-q2" },
+          { text: "Check /q4-2019-actually-final", next: "archive-q4" },
+          { text: "Give up and go back", next: "start" }
+        ]
+      },
+
+      "archive-q1": {
+        title: "Q1 Reports",
+        text: `You open the Q1 folder. Spreadsheets everywhere. Quarterly reviews. Budget allocations. Meeting notes that say "TBD" next to every action item.
+
+Then you spot it - a file called "original_requirements_BACKUP.docx.bak.old"
+
+You open it eagerly... but it's corrupted. Only fragments remain:
+
+"...the system shall... [CORRUPTED] ...user experience... [UNREADABLE] ...by Q3 2018..."
+
+A partial clue is better than none. The document mentions a "Project Genesis vault."`,
+        choices: [
+          { text: "Search for the vault", next: "vault" },
+          { text: "Try to recover more data", next: "recovery" }
+        ]
+      },
+
+      "archive-q2": {
+        title: "The Forbidden Folder",
+        text: `Despite the ominous "DO_NOT_USE" warning, you venture in. It's a graveyard of abandoned features.
+
+Half-built integrations. Commented-out code. A Jira ticket marked "IN PROGRESS" since 2019.
+
+Among the ruins, you find a developer's journal:
+
+"Day 47: Still can't find the original requirements. Manager says to 'just make it work.' I'm hiding my own notes in /hidden/.secrets because I don't trust the new file structure."
+
+Interesting...`,
+        choices: [
+          { text: "Search for /hidden/.secrets", next: "hidden-room" },
+          { text: "Return to the main archive", next: "archive" }
+        ]
+      },
+
+      "archive-q4": {
+        title: "Actually Final",
+        text: `The Q4 folder is surprisingly organized. Someone clearly did a cleanup before year-end.
+
+You find a migration log: "All legacy documents moved to vault. Password protection added per security audit. See founders-notes for access."
+
+Below it, a sticky note: "GENESIS - but backwards for the restricted section."`,
+        choices: [
+          { text: "Head to the vault with this intel", next: "vault" },
+          { text: "Try the password 'SISENEG'", next: "vault-restricted" }
+        ]
+      },
+
+      vault: {
+        title: "The Vault",
+        text: `The vault door slides open with a satisfying click. Inside, servers hum with the knowledge of ages.
+
+Organized filing cabinets line the walls. Finally, some structure!
+
+A directory terminal displays:
+- /vault/public - General documentation
+- /vault/restricted - Requires additional auth
+- /vault/founders-notes - "For emergencies only"
+
+The Lost Doc could be in any of these...`,
+        choices: [
+          { text: "Check /vault/public", next: "vault-public" },
+          { text: "Try to access /vault/restricted", next: "vault-restricted-locked" },
+          { text: "Risk the founders-notes", next: "founders" }
+        ]
+      },
+
+      "vault-wrong": {
+        title: "Access Denied",
+        text: `The keypad buzzes angrily. "PHOENIX" was not the password.
+
+A trap activates! Outdated documentation begins falling from the ceiling!
+
+You dodge a 200-page PDF titled "System Architecture v0.1 (DRAFT)" and roll away from "Meeting Notes - All Hands 2016.doc"`,
+        choices: [
+          { text: "Escape to the /legacy corridor", next: "legacy" },
+          { text: "Escape to /archive-2019", next: "archive" },
+          { text: "Try 'GENESIS' instead", next: "vault" }
+        ]
+      },
+
+      "vault-restricted-locked": {
+        title: "Restricted Access",
+        text: `A secondary keypad appears. "ENTER RESTRICTED PASSWORD"
+
+You'll need a hint to get through this door.`,
+        choices: [
+          { text: "Try 'SISENEG' (Genesis backwards)", next: "vault-restricted" },
+          { text: "Try 'password123'", next: "vault-restricted-fail" },
+          { text: "Search elsewhere for clues", next: "archive" }
+        ]
+      },
+
+      "vault-restricted-fail": {
+        title: "Really?",
+        text: `The system displays: "Nice try. That hasn't worked since 2003."
+
+An alarm sounds briefly, then stops. A message appears:
+
+"Three failed attempts detected. Hint: The project's birth, reversed."`,
+        choices: [
+          { text: "Try 'SISENEG'", next: "vault-restricted" },
+          { text: "Give up and try another path", next: "vault" }
+        ]
+      },
+
+      "vault-restricted": {
+        title: "The Restricted Section",
+        text: `The door slides open. You've reached the inner sanctum.
+
+Ancient design documents. Original wireframes. A napkin sketch that started it all.
+
+And there, in a climate-controlled display case: THE ORIGINAL REQUIREMENTS DOCUMENT.
+
+It's... beautiful. Properly formatted. Version-controlled. With acceptance criteria and everything.
+
+But it's protected by one final guardian.`,
+        choices: [
+          { text: "Face the guardian", next: "guardian" }
+        ]
+      },
+
+      guardian: {
+        title: "The Guardian of Requirements",
+        text: `A holographic figure materializes. It's the ORIGINAL PRODUCT MANAGER - or at least, their documentation avatar.
+
+"So, you seek the Original Requirements," they speak. "Many have come. All have failed the Three Questions."
+
+"Answer correctly, and the document is yours. Fail, and you shall be trapped forever in an infinite requirements gathering loop."
+
+Question 1: "What is more important - building the right thing, or building the thing right?"`,
+        choices: [
+          { text: "Building the right thing", next: "q1-right" },
+          { text: "Building the thing right", next: "q1-wrong" },
+          { text: "Both, but 'right thing' must come first", next: "q1-perfect" }
+        ]
+      },
+
+      "q1-wrong": {
+        title: "Not Quite",
+        text: `The guardian shakes their head. "Quality matters, but perfect execution of the wrong solution helps no one."
+
+They give you another chance.`,
+        choices: [
+          { text: "Try: Building the right thing", next: "q1-right" },
+          { text: "Try: Both, in the right order", next: "q1-perfect" }
+        ]
+      },
+
+      "q1-right": {
+        title: "Acceptable",
+        text: `"Correct enough," the guardian nods. "Validation before verification."
+
+Question 2: "A stakeholder requests a change that contradicts the original requirements. What do you do?"`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q1-perfect": {
+        title: "Impressive",
+        text: `The guardian's eyes widen. "You understand nuance. Both matter, but sequence matters more. Impressive."
+
+Question 2: "A stakeholder requests a change that contradicts the original requirements. What do you do?"`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-wrong1": {
+        title: "Too Rigid",
+        text: `"Requirements should guide, not imprison. Context changes. The document is a living artifact."
+
+Try again.`,
+        choices: [
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-wrong2": {
+        title: "Too Flexible",
+        text: `"Chaos lies that way. Without documentation and reasoning, we lose institutional knowledge."
+
+Try again.`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-right": {
+        title: "Wise Answer",
+        text: `"Yes! Documentation is not bureaucracy - it's organizational memory. Changes happen. Recording WHY they happen is what matters."
+
+Final Question: "The Lost Doc you seek - why do you truly want it?"`,
+        choices: [
+          { text: "To prove I was right all along", next: "q3-wrong1" },
+          { text: "To understand the original vision", next: "q3-right" },
+          { text: "To blame whoever wrote it", next: "q3-wrong2" }
+        ]
+      },
+
+      "q3-wrong1": {
+        title: "Wrong Motivation",
+        text: `"Documentation is not ammunition. Seek understanding, not validation."`,
+        choices: [
+          { text: "To understand the original vision", next: "q3-right" }
+        ]
+      },
+
+      "q3-wrong2": {
+        title: "Wrong Motivation",
+        text: `"Blame helps no one. The past informs; it does not condemn."`,
+        choices: [
+          { text: "To understand the original vision", next: "q3-right" }
+        ]
+      },
+
+      "q3-right": {
+        title: "Victory!",
+        text: `The guardian smiles warmly. "At last. One who seeks wisdom, not vindication."
+
+The display case opens. You carefully take THE ORIGINAL REQUIREMENTS DOCUMENT.
+
+As you hold it, knowledge flows through you. You understand now - the document itself was never the treasure. It was the journey of learning to ask the right questions, navigate complexity, and value documentation as a tool for understanding.
+
+"Go forth, Document Archaeologist," the guardian says, fading away. "May your READMEs be thorough and your changelogs complete."`,
+        choices: [
+          { text: "🏆 VICTORY - Play Again", next: "start" }
+        ]
+      },
+
+      "hidden-room": {
+        title: "The Developer's Secret Cache",
+        text: `You find the hidden directory. Inside, treasures:
+- An actual, working local environment setup guide
+- Comments that explain WHY, not just WHAT
+- A README that was updated this decade
+
+And a note: "If you're reading this, you're probably looking for the original requirements. I hid a backup in the vault. Password is the project codename, backwards. Good luck. - J"`,
+        choices: [
+          { text: "Head to the vault with this knowledge", next: "vault" },
+          { text: "Try 'SISENEG' immediately", next: "vault-restricted" }
+        ]
+      },
+
+      "ghost-hint": {
+        title: "Wisdom from Beyond",
+        text: `The Ghost of Developer Past leans in conspiratorially.
+
+"The document you seek... it was never truly lost. It was deliberately hidden by those who feared accountability. Look in the restricted section of the vault. The password is the project's original codename, reversed. GENESIS... becomes something else."
+
+The ghost fades, leaving only the smell of old server rooms and regret.`,
+        choices: [
+          { text: "Head to the vault", next: "vault" },
+          { text: "Explore the hidden door first", next: "hidden-room" }
+        ]
+      },
+
+      "docs-room": {
+        title: "The Documentation Sanctuary",
+        text: `You land softly on a pile of well-maintained docs. It's beautiful here - organized, searchable, with clear ownership.
+
+A librarian-bot approaches. "Welcome to the Documentation Sanctuary. Few find this place."
+
+"We preserve the knowledge others forget. If you seek the Original Requirements, know this: it lives in the vault, restricted section. But only those who value documentation's true purpose may access it."`,
+        choices: [
+          { text: "Ask about 'documentation's true purpose'", next: "docs-wisdom" },
+          { text: "Thank them and head to the vault", next: "vault" }
+        ]
+      },
+
+      "docs-wisdom": {
+        title: "The Librarian's Wisdom",
+        text: `"Documentation exists not to slow us down, but to speed up everyone who comes after. It's not about bureaucracy - it's about respect. Respect for future-you. Respect for your teammates. Respect for anyone who inherits your work."
+
+"The password to the restricted section is the founding project's name, reversed. Use it wisely."
+
+The librarian hands you a small card: "Honorary Documentation Archaeologist"`,
+        choices: [
+          { text: "Head to the vault, enlightened", next: "vault" }
+        ]
+      },
+
+      "dependency-hell": {
+        title: "Dependency Hell",
+        text: `You fall into a nightmarish realm of conflicting package versions. npm ERRORs echo through caverns of node_modules.
+
+A demon made of red error messages approaches: "PEER DEPENDENCY NOT MET. YOU SHALL NOT PASS."
+
+You must escape!`,
+        choices: [
+          { text: "Run 'npm install --legacy-peer-deps'", next: "escape-hell" },
+          { text: "Delete node_modules and try again", next: "escape-hell" },
+          { text: "Switch to a completely different tech stack", next: "escape-hell-funny" }
+        ]
+      },
+
+      "escape-hell": {
+        title: "Escape from Dependency Hell",
+        text: `Through sheer determination (and stack overflow), you escape Dependency Hell.
+
+You emerge near the vault entrance, wiser and more cautious.`,
+        choices: [
+          { text: "Enter the vault", next: "vault" }
+        ]
+      },
+
+      "escape-hell-funny": {
+        title: "The Nuclear Option",
+        text: `You decide to rewrite everything in Rust. The demons respect this choice and let you pass.
+
+"Brave," they whisper. "Foolish, but brave."
+
+You emerge near the vault, wondering if you've made a terrible mistake.`,
+        choices: [
+          { text: "Stick with the original plan and enter the vault", next: "vault" }
+        ]
+      },
+
+      recovery: {
+        title: "Data Recovery",
+        text: `You attempt advanced data recovery on the corrupted file. Hours pass. Progress bars move imperceptibly.
+
+Finally, you recover one more fragment: "...vault restricted section... password genesis reversed..."
+
+It's enough!`,
+        choices: [
+          { text: "Race to the vault", next: "vault" }
+        ]
+      },
+
+      founders: {
+        title: "The Founders' Notes",
+        text: `You access the founders' notes. It's a treasure trove of original vision:
+
+"We wanted to build something that would make people's lives easier. Not more complicated. If this documentation ever seems to contradict that goal, the documentation is wrong."
+
+At the bottom: "Restricted archives password: SISENEG (Genesis, the project codename, reversed. Don't tell compliance.)"`,
+        choices: [
+          { text: "Access the restricted archives", next: "vault-restricted" }
+        ]
+      },
+
+      "vault-public": {
+        title: "Public Documentation",
+        text: `The public vault contains useful but common knowledge:
+- API documentation (slightly outdated)
+- User guides (for the old UI)
+- A style guide from 2020
+
+Nothing legendary here. The Original Requirements must be in the restricted section.`,
+        choices: [
+          { text: "Try to access restricted section", next: "vault-restricted-locked" },
+          { text: "Check the founders' notes instead", next: "founders" }
+        ]
       }
     }
   }

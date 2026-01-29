@@ -2933,6 +2933,306 @@ body {
 }
 
 /* ============================================
+   RAIDERS OF THE LOST DOC
+   ============================================ */
+
+.raiders-content {
+  background: linear-gradient(180deg, #2d1b0e 0%, #1a0f06 100%);
+  color: var(--color-cream);
+  padding: 0;
+  overflow-y: auto;
+  min-height: 400px;
+}
+
+.raiders-intro {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.raiders-title {
+  margin-bottom: 20px;
+}
+
+.raiders-ascii {
+  font-family: monospace;
+  font-size: 10px;
+  color: #c9a227;
+  line-height: 1.2;
+  white-space: pre;
+  text-shadow: 0 0 10px rgba(201, 162, 39, 0.5);
+}
+
+.raiders-subtitle {
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--color-blush);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.raiders-intro-text {
+  max-width: 480px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: left;
+  color: #e8dcc4;
+}
+
+.raiders-intro-text p {
+  margin-bottom: 12px;
+}
+
+.raiders-start-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-family: var(--font-terminal);
+  font-size: 16px;
+  background: linear-gradient(180deg, #c9a227 0%, #8b6914 100%);
+  color: #1a0f06;
+  border: 2px solid #8b6914;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.raiders-start-btn:hover {
+  background: linear-gradient(180deg, #d4b23a 0%, #a07d1a 100%);
+}
+
+.raiders-scene {
+  padding: 20px;
+}
+
+.raiders-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  background: rgba(201, 162, 39, 0.2);
+  border-left: 3px solid #c9a227;
+  margin-bottom: 15px;
+}
+
+.raiders-location-icon {
+  font-size: 16px;
+}
+
+.raiders-location-name {
+  font-family: var(--font-terminal);
+  font-size: 16px;
+  color: #c9a227;
+  font-weight: bold;
+}
+
+.raiders-narrative {
+  font-family: var(--font-terminal);
+  font-size: 13px;
+  line-height: 1.7;
+  color: #e8dcc4;
+  margin-bottom: 20px;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.raiders-narrative p {
+  margin-bottom: 12px;
+}
+
+.raiders-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.raiders-choice {
+  padding: 10px 15px;
+  font-family: var(--font-terminal);
+  font-size: 13px;
+  background: rgba(201, 162, 39, 0.1);
+  color: var(--color-cream);
+  border: 1px solid #6b5a1e;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.raiders-choice:hover {
+  background: rgba(201, 162, 39, 0.25);
+  border-color: #c9a227;
+  padding-left: 20px;
+}
+
+.raiders-choice-victory {
+  background: linear-gradient(180deg, rgba(201, 162, 39, 0.3) 0%, rgba(139, 105, 20, 0.3) 100%);
+  border-color: #c9a227;
+  color: #c9a227;
+  font-weight: bold;
+}
+
+.raiders-victory .raiders-narrative {
+  max-height: none;
+}
+
+/* ============================================
+   MEMORY MATCH GAME
+   ============================================ */
+
+.memory-content {
+  background: linear-gradient(180deg, #1e4d4d 0%, #0f2a2a 100%);
+  padding: 15px;
+  min-height: 450px;
+}
+
+.memory-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.memory-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 320px;
+  margin-bottom: 15px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  color: var(--color-cream);
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 320px;
+}
+
+.memory-card {
+  width: 70px;
+  height: 70px;
+  perspective: 1000px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.memory-card-front,
+.memory-card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border-radius: 6px;
+  backface-visibility: hidden;
+  transition: transform 0.4s ease;
+}
+
+.memory-card-front {
+  background: linear-gradient(180deg, var(--color-burgundy) 0%, var(--color-mauve) 100%);
+  color: var(--color-cream);
+  font-family: var(--font-terminal);
+  font-size: 24px;
+  border: 2px solid var(--color-mauve);
+}
+
+.memory-card-back {
+  background: var(--color-cream);
+  transform: rotateY(180deg);
+  border: 2px solid var(--color-sage);
+}
+
+.memory-card.flipped .memory-card-front {
+  transform: rotateY(180deg);
+}
+
+.memory-card.flipped .memory-card-back {
+  transform: rotateY(0);
+}
+
+.memory-card.matched .memory-card-back {
+  background: linear-gradient(180deg, #9ea890 0%, #7d8a72 100%);
+  border-color: #6b7a5f;
+}
+
+.memory-card.matched {
+  cursor: default;
+}
+
+.memory-win {
+  margin-top: 20px;
+  text-align: center;
+  font-family: var(--font-terminal);
+  color: var(--color-cream);
+}
+
+.memory-win p {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.memory-win p:first-child {
+  font-size: 24px;
+  color: #c9a227;
+}
+
+.memory-restart {
+  margin-top: 10px;
+  padding: 10px 25px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+  background: linear-gradient(180deg, var(--color-burgundy) 0%, #5a2438 100%);
+  color: var(--color-cream);
+  border: 2px solid var(--color-mauve);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.memory-restart:hover {
+  background: linear-gradient(180deg, #8a3a5e 0%, #6a2c48 100%);
+}
+
+/* Take a Break folder icon */
+.icon-folder-games {
+  width: 32px;
+  height: 28px;
+  background: linear-gradient(180deg, #d4a9a0 0%, #b88a82 50%, #c9a227 100%);
+  border: 1px solid #8b6914;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+}
+
+.icon-folder-games::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 3px;
+  width: 12px;
+  height: 6px;
+  background: #c9a227;
+  border-radius: 2px 2px 0 0;
+  border: 1px solid #8b6914;
+  border-bottom: none;
+}
+
+.icon-folder-games::after {
+  content: '🎮';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+/* ============================================
    ABOUT THIS COMPUTER
    ============================================ */
 
