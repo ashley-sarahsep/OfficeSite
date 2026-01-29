@@ -649,6 +649,24 @@ function initDesktopIcons() {
         openApp(app, file);
       }
     });
+
+    // Touch support - single tap to open on mobile
+    icon.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      draggedIcon = icon;
+      isDragging = false;
+      dragStartPos = { x: touch.clientX, y: touch.clientY };
+
+      const rect = icon.getBoundingClientRect();
+      dragOffset = {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top
+      };
+
+      // Select the icon
+      icons.forEach(i => i.classList.remove('selected'));
+      icon.classList.add('selected');
+    }, { passive: true });
   });
 
   // Mouse move - handle dragging
@@ -686,6 +704,52 @@ function initDesktopIcons() {
 
       if (isDragging) {
         saveIconPositions();
+      }
+
+      draggedIcon = null;
+      isDragging = false;
+    }
+  });
+
+  // Touch move - handle dragging on mobile
+  document.addEventListener('touchmove', (e) => {
+    if (!draggedIcon) return;
+
+    const touch = e.touches[0];
+    const dx = Math.abs(touch.clientX - dragStartPos.x);
+    const dy = Math.abs(touch.clientY - dragStartPos.y);
+
+    if (dx > 10 || dy > 10) {
+      isDragging = true;
+      draggedIcon.classList.add('dragging');
+
+      const containerRect = iconsContainer.getBoundingClientRect();
+      let newX = touch.clientX - containerRect.left - dragOffset.x;
+      let newY = touch.clientY - containerRect.top - dragOffset.y;
+
+      // Constrain to container area
+      newX = Math.max(0, Math.min(newX, containerRect.width - 70));
+      newY = Math.max(0, Math.min(newY, containerRect.height - 70));
+
+      draggedIcon.style.position = 'absolute';
+      draggedIcon.style.left = `${newX}px`;
+      draggedIcon.style.top = `${newY}px`;
+    }
+  }, { passive: true });
+
+  // Touch end - single tap opens, drag ends
+  document.addEventListener('touchend', () => {
+    if (draggedIcon) {
+      draggedIcon.classList.remove('dragging');
+
+      if (isDragging) {
+        // Was dragging - just save position
+        saveIconPositions();
+      } else {
+        // Was a tap - open the app (single click on mobile)
+        const app = draggedIcon.dataset.app;
+        const file = draggedIcon.dataset.file;
+        openApp(app, file);
       }
 
       draggedIcon = null;
