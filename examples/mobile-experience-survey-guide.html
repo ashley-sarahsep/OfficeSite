@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile Experience Survey Guide</title>
+  <style>
+    :root {
+      --espresso: #3c2415;
+      --roast: #6b4423;
+      --copper: #b87333;
+      --cream: #f5f0e8;
+      --latte: #d4c4a8;
+      --mint: #4a9d7c;
+      --mint-light: #e0f2eb;
+      --berry: #8b4557;
+      --text: #2d2a26;
+      --text-light: #5c5650;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .brand-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--espresso) 0%, var(--roast) 100%);
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--cream);
+    }
+
+    h1 {
+      color: var(--espresso);
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-light);
+      font-size: 15px;
+    }
+
+    .intro {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      border-left: 4px solid var(--copper);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .intro p {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 640px) {
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .highlight-card {
+      background: var(--cream);
+      padding: 14px;
+      border-radius: 8px;
+      text-align: center;
+      border-bottom: 3px solid var(--copper);
+    }
+
+    .highlight-card h3 {
+      color: var(--espresso);
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .highlight-card p {
+      font-size: 12px;
+      margin: 0;
+      color: var(--text-light);
+    }
+
+    h2 {
+      color: var(--espresso);
+      font-size: 20px;
+      margin: 28px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--latte);
+    }
+
+    h3 {
+      color: var(--roast);
+      font-size: 16px;
+      margin: 20px 0 12px 0;
+    }
+
+    /* Core Principles */
+    .principles {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-left: 4px solid var(--mint);
+    }
+
+    .principles h2 {
+      margin-top: 0;
+      text-align: center;
+      color: var(--mint);
+      border-bottom-color: var(--mint-light);
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 640px) {
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .principle {
+      background: #f9f7f4;
+      padding: 14px;
+      border-radius: 6px;
+      border-left: 3px solid var(--mint);
+    }
+
+    .principle h4 {
+      color: var(--mint);
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .principle p {
+      font-size: 12px;
+      color: var(--text-light);
+      margin: 0;
+    }
+
+    /* Sample Survey */
+    .sample-survey {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 500px;
+      margin: 24px auto;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+      border-top: 4px solid var(--copper);
+    }
+
+    .sample-survey h3 {
+      text-align: center;
+      color: var(--espresso);
+      margin: 0 0 16px 0;
+      font-size: 18px;
+    }
+
+    .survey-q {
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .survey-q:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .survey-q p {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .survey-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .survey-opt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .survey-opt input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--copper);
+    }
+
+    .text-input {
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    .submit-btn {
+      background: var(--espresso);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 12px 24px;
+      width: 100%;
+      font-weight: 600;
+      margin-top: 16px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* Question Bank */
+    .question-bank {
+      margin-top: 28px;
+    }
+
+    .q-category {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .q-category h3 {
+      color: var(--espresso);
+      margin: 0 0 14px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--latte);
+      font-size: 16px;
+    }
+
+    .q-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .q-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .q-card {
+      background: #f9f7f4;
+      padding: 14px;
+      border-radius: 6px;
+      border-left: 3px solid var(--copper);
+    }
+
+    .q-type {
+      display: inline-block;
+      background: var(--copper);
+      color: white;
+      font-size: 10px;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .q-text {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .q-opts {
+      font-size: 11px;
+      color: var(--text-light);
+      margin: 0 0 8px 14px;
+      list-style: disc;
+    }
+
+    .q-opts li {
+      margin-bottom: 2px;
+    }
+
+    .q-insight {
+      background: var(--mint-light);
+      border-left: 2px solid var(--mint);
+      padding: 6px 10px;
+      font-size: 11px;
+    }
+
+    .q-insight strong {
+      color: var(--mint);
+      display: block;
+      font-size: 10px;
+      margin-bottom: 2px;
+    }
+
+    /* Implementation Tips */
+    .tips-section {
+      background: var(--white);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 24px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-top: 4px solid var(--berry);
+    }
+
+    .tips-section h2 {
+      text-align: center;
+      margin-top: 0;
+      color: var(--berry);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 700px) {
+      .tips-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .tip-card {
+      background: #f9f7f4;
+      padding: 14px;
+      border-radius: 6px;
+      border-left: 3px solid var(--berry);
+    }
+
+    .tip-card h4 {
+      color: var(--berry);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .tip-card ul {
+      margin: 0 0 0 16px;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .tip-card li {
+      margin-bottom: 4px;
+    }
+
+    /* Workflow */
+    .workflow {
+      margin: 28px 0;
+    }
+
+    .workflow h3 {
+      text-align: center;
+      color: var(--espresso);
+      margin-bottom: 20px;
+    }
+
+    .workflow-steps {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      position: relative;
+    }
+
+    @media (max-width: 640px) {
+      .workflow-steps {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+
+    .workflow-step {
+      flex: 1;
+      text-align: center;
+      padding: 14px 10px;
+      border-radius: 8px;
+      color: white;
+    }
+
+    .workflow-step:nth-child(1) { background: var(--copper); }
+    .workflow-step:nth-child(2) { background: var(--espresso); }
+    .workflow-step:nth-child(3) { background: var(--roast); }
+    .workflow-step:nth-child(4) { background: var(--mint); }
+
+    .workflow-step h4 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .workflow-step p {
+      font-size: 11px;
+      opacity: 0.9;
+      margin: 0;
+    }
+
+    /* Conclusion */
+    .conclusion {
+      background: linear-gradient(135deg, var(--espresso) 0%, var(--roast) 100%);
+      color: white;
+      padding: 24px;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 28px;
+    }
+
+    .conclusion h2 {
+      color: white;
+      border-bottom: none;
+      margin: 0 0 12px 0;
+    }
+
+    .conclusion p {
+      font-size: 14px;
+      max-width: 700px;
+      margin: 0 auto 12px;
+      opacity: 0.95;
+    }
+
+    .conclusion p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--latte);
+      color: var(--text-light);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24"><path d="M2,21V19H20V21H2M20,8V5H18V8H20M20,3A2,2 0 0,1 22,5V8A2,2 0 0,1 20,10H18V13A4,4 0 0,1 14,17H8A4,4 0 0,1 4,13V3H20M16,5H6V13A2,2 0 0,0 8,15H14A2,2 0 0,0 16,13V5Z"/></svg>
+    </div>
+    <h1>Mobile Experience Survey Guide</h1>
+    <p class="subtitle">Quick & Effective Feedback Collection for Pop-Up and Touring Activations</p>
+  </header>
+
+  <div class="intro">
+    <p>Collecting feedback directly from mobile experience visitors provides invaluable insights into the attendee experience. This guide outlines a streamlined approach to gathering meaningful data through a brief, engaging survey that visitors can complete on-site or shortly after their experience.</p>
+    <p>The recommended survey is designed to be completed in under 2 minutes while capturing key metrics and sentiment that will help optimize future mobile activations.</p>
+
+    <div class="highlights">
+      <div class="highlight-card">
+        <h3>Quick</h3>
+        <p>7 questions max to respect time and maximize completions</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Actionable</h3>
+        <p>Data that directly informs program improvements</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Engaging</h3>
+        <p>Fun and on-brand, not a corporate questionnaire</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="principles">
+    <h2>Core Principles for Effective Attendee Surveys</h2>
+
+    <div class="principles-grid">
+      <div class="principle">
+        <h4>Ultra-Brief Format</h4>
+        <p>Keep to 7 questions maximum. Visitors are there for the experience, not paperwork. Brevity increases completion rates and goodwill.</p>
+      </div>
+      <div class="principle">
+        <h4>Mobile-First Design</h4>
+        <p>Large tap targets, minimal typing, responsive design that works even with spotty event Wi-Fi.</p>
+      </div>
+      <div class="principle">
+        <h4>Prioritize Closed Questions</h4>
+        <p>Multiple-choice, rating scales, and single-selection make completion faster and analysis more straightforward.</p>
+      </div>
+      <div class="principle">
+        <h4>One Open-Ended Option</h4>
+        <p>Include just one well-crafted text question to capture unexpected insights and let visitors share what matters most.</p>
+      </div>
+      <div class="principle">
+        <h4>Fun, On-Brand Tone</h4>
+        <p>Maintain your brand's spirit with conversational tone, branded visuals, and creative rating scales.</p>
+      </div>
+      <div class="principle">
+        <h4>Clear Value Exchange</h4>
+        <p>Offer a small incentive (digital coupon, exclusive content) to show you value their feedback and time.</p>
+      </div>
+      <div class="principle">
+        <h4>Multiple Collection Methods</h4>
+        <p>QR codes, text-to-survey, email follow-up, and tablets on-site for immediate completion.</p>
+      </div>
+      <div class="principle">
+        <h4>Consistent Core Questions</h4>
+        <p>Maintain standard questions across all events for longitudinal data while allowing 1-2 event-specific additions.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="text-align: center;">Sample Survey Preview</h2>
+
+  <div class="sample-survey">
+    <h3>Tell Us About Your Visit</h3>
+
+    <div class="survey-q">
+      <p>1. How would you rate your overall experience today?</p>
+      <div class="survey-options">
+        <label class="survey-opt"><input type="radio" name="q1"> Absolutely amazing!</label>
+        <label class="survey-opt"><input type="radio" name="q1"> Really good</label>
+        <label class="survey-opt"><input type="radio" name="q1"> Good</label>
+        <label class="survey-opt"><input type="radio" name="q1"> Okay</label>
+        <label class="survey-opt"><input type="radio" name="q1"> Disappointing</label>
+      </div>
+    </div>
+
+    <div class="survey-q">
+      <p>2. What was your favorite part of the visit?</p>
+      <div class="survey-options">
+        <label class="survey-opt"><input type="radio" name="q2"> Trying the products</label>
+        <label class="survey-opt"><input type="radio" name="q2"> The unique setup/vehicle</label>
+        <label class="survey-opt"><input type="radio" name="q2"> Talking with staff</label>
+        <label class="survey-opt"><input type="radio" name="q2"> Taking photos</label>
+        <label class="survey-opt"><input type="radio" name="q2"> Learning something new</label>
+        <label class="survey-opt"><input type="radio" name="q2"> Other</label>
+      </div>
+    </div>
+
+    <div class="survey-q">
+      <p>3. What brought you here today?</p>
+      <div class="survey-options">
+        <label class="survey-opt"><input type="radio" name="q3"> Saw it while passing by</label>
+        <label class="survey-opt"><input type="radio" name="q3"> Social media</label>
+        <label class="survey-opt"><input type="radio" name="q3"> Friend/family recommendation</label>
+        <label class="survey-opt"><input type="radio" name="q3"> Planned to attend this event</label>
+        <label class="survey-opt"><input type="radio" name="q3"> Already a fan of the brand</label>
+      </div>
+    </div>
+
+    <div class="survey-q">
+      <p>4. Is this your first time visiting us?</p>
+      <div class="survey-options">
+        <label class="survey-opt"><input type="radio" name="q4"> Yes, first time!</label>
+        <label class="survey-opt"><input type="radio" name="q4"> I've visited 1-2 times before</label>
+        <label class="survey-opt"><input type="radio" name="q4"> I'm a regular visitor</label>
+      </div>
+    </div>
+
+    <div class="survey-q">
+      <p>5. What made today special or how could we make it even better?</p>
+      <textarea class="text-input" rows="2" placeholder="Share your thoughts..."></textarea>
+    </div>
+
+    <button class="submit-btn">SUBMIT FEEDBACK</button>
+  </div>
+
+  <div class="question-bank">
+    <h2 style="text-align: center;">Recommended Question Bank</h2>
+    <p style="text-align: center; font-size: 13px; color: var(--text-light); max-width: 600px; margin: 0 auto 20px;">Select from these field-tested questions to create your optimal 5-7 question survey. Choose at least one from each category for well-rounded feedback.</p>
+
+    <div class="q-category">
+      <h3>Core Experience Questions</h3>
+      <div class="q-grid">
+        <div class="q-card">
+          <div class="q-type">Rating Scale</div>
+          <div class="q-text">How would you rate your overall experience today?</div>
+          <ul class="q-opts">
+            <li>Absolutely amazing!</li>
+            <li>Really good</li>
+            <li>Good / Okay / Disappointing</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Overall satisfaction benchmark, event-to-event comparison
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Single Selection</div>
+          <div class="q-text">What was your favorite part of the visit?</div>
+          <ul class="q-opts">
+            <li>Trying products / Unique setup</li>
+            <li>Talking with staff / Photos</li>
+            <li>Learning something new / Other</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Experience element prioritization, key attraction factors
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Yes/No + Selection</div>
+          <div class="q-text">Did anything about your visit surprise or delight you?</div>
+          <ul class="q-opts">
+            <li>No, it was what I expected</li>
+            <li>Yes, the [specific elements]</li>
+            <li>Yes, something else (specify)</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Expectation vs. reality gap, unexpected delight factors
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Multiple Selection</div>
+          <div class="q-text">Which activities did you participate in today? (Select all)</div>
+          <ul class="q-opts">
+            <li>Product sampling / Photos</li>
+            <li>Staff conversation / Social sharing</li>
+            <li>Learned about brand</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Engagement depth measurement, activity prioritization
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-category">
+      <h3>Visitor Context & Demographics</h3>
+      <div class="q-grid">
+        <div class="q-card">
+          <div class="q-type">Single Selection</div>
+          <div class="q-text">What brought you to visit us today?</div>
+          <ul class="q-opts">
+            <li>Passing by / Social media</li>
+            <li>Friend/family / Planned event</li>
+            <li>Existing brand fan</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Marketing channel effectiveness, spontaneous vs. planned visits
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Single Selection</div>
+          <div class="q-text">Is this your first time visiting our mobile experience?</div>
+          <ul class="q-opts">
+            <li>Yes, first time!</li>
+            <li>1-2 times before</li>
+            <li>Many times</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            New vs. returning visitor rates, loyalty tracking
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Multiple Selection</div>
+          <div class="q-text">Who did you visit with today?</div>
+          <ul class="q-opts">
+            <li>Alone / Partner / Children</li>
+            <li>Family / Friends / Colleagues</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Visitation group patterns, audience composition
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Single Selection</div>
+          <div class="q-text">How far did you travel to visit us today?</div>
+          <ul class="q-opts">
+            <li>Under 5 miles / 5-15 miles</li>
+            <li>15-30 miles / 30+ miles</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Draw radius analysis, location planning data
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-category">
+      <h3>Brand Connection</h3>
+      <div class="q-grid">
+        <div class="q-card">
+          <div class="q-type">Scale Question</div>
+          <div class="q-text">After today, how likely are you to purchase our products in the next month?</div>
+          <ul class="q-opts">
+            <li>Definitely will (5)</li>
+            <li>Very likely to Definitely won't (4-1)</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Purchase intent impact, conversion potential
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Yes/No with Follow-up</div>
+          <div class="q-text">Did today's visit change how you feel about our brand?</div>
+          <ul class="q-opts">
+            <li>Yes, more positive now</li>
+            <li>No change, already positive</li>
+            <li>No change, neutral/unchanged</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Brand sentiment impact, existing vs. new customer effect
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">NPS Style</div>
+          <div class="q-text">How likely are you to recommend visiting us to a friend?</div>
+          <ul class="q-opts">
+            <li>0-10 scale with labels</li>
+            <li>Optional follow-up: Why?</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Net promoter score, word-of-mouth potential
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Multiple Selection</div>
+          <div class="q-text">Which words best describe our brand after today? (Select up to 3)</div>
+          <ul class="q-opts">
+            <li>Fun / Innovative / Premium</li>
+            <li>Friendly / Authentic / Creative</li>
+          </ul>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Brand attribute association, messaging alignment
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q-category">
+      <h3>Open-Ended Insights</h3>
+      <div class="q-grid">
+        <div class="q-card">
+          <div class="q-type">Open Text</div>
+          <div class="q-text">What made today's visit special or how could we make it even better?</div>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Qualitative feedback, improvement suggestions, emotional connections
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Open Text</div>
+          <div class="q-text">What's one memory or story about our brand you'd like to share?</div>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Personal connections, nostalgic associations, content opportunities
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Open Text</div>
+          <div class="q-text">If you could suggest one new location for us to visit, where would it be?</div>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Community venue suggestions, local knowledge leverage
+          </div>
+        </div>
+
+        <div class="q-card">
+          <div class="q-type">Open Text</div>
+          <div class="q-text">What's one question you had that didn't get answered today?</div>
+          <div class="q-insight">
+            <strong>INSIGHTS ENABLED:</strong>
+            Information gaps, FAQ development, staff training needs
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tips-section">
+    <h2>Implementation Best Practices</h2>
+
+    <div class="tips-grid">
+      <div class="tip-card">
+        <h4>Collection Timing</h4>
+        <ul>
+          <li>Offer survey <strong>immediately after</strong> interaction</li>
+          <li>Position near exit, not blocking flow</li>
+          <li>Send follow-ups within 24 hours</li>
+          <li>Test different times for responsiveness</li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <h4>Multiple Methods</h4>
+        <ul>
+          <li>QR codes on signage and giveaways</li>
+          <li>Text-to-survey option</li>
+          <li>Tablets for on-site completion</li>
+          <li>Email for later completion</li>
+          <li>Paper backup for connectivity issues</li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <h4>Incentive Strategies</h4>
+        <ul>
+          <li>Digital coupons or discount codes</li>
+          <li>Exclusive digital content</li>
+          <li>Entry into prize drawings</li>
+          <li>Small branded items on-site</li>
+          <li>Highlight feedback impact</li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <h4>Staff Training</h4>
+        <ul>
+          <li>Script 10-second conversational invite</li>
+          <li>Train to mention survey naturally</li>
+          <li>Friendly team competition for completions</li>
+          <li>Explain how feedback is used</li>
+          <li>Thank visitors who complete</li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <h4>Technical Setup</h4>
+        <ul>
+          <li>Offline capability with sync</li>
+          <li>Optimized for all devices</li>
+          <li>Quick loading on slow connections</li>
+          <li>Readable in bright sunlight</li>
+          <li>Clear progress indicators</li>
+        </ul>
+      </div>
+
+      <div class="tip-card">
+        <h4>Rotation Strategy</h4>
+        <ul>
+          <li>4-5 core questions that never change</li>
+          <li>Rotate 1-2 questions monthly</li>
+          <li>Event-specific questions as needed</li>
+          <li>A/B test new questions</li>
+          <li>Refresh set quarterly</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="workflow">
+    <h3>From Survey to Insights: The Data Journey</h3>
+    <div class="workflow-steps">
+      <div class="workflow-step">
+        <h4>Collection</h4>
+        <p>Visitor feedback from multiple touchpoints</p>
+      </div>
+      <div class="workflow-step">
+        <h4>Analysis</h4>
+        <p>Trends, patterns & correlations</p>
+      </div>
+      <div class="workflow-step">
+        <h4>Insights</h4>
+        <p>Actionable recommendations</p>
+      </div>
+      <div class="workflow-step">
+        <h4>Optimization</h4>
+        <p>Program improvements</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="conclusion">
+    <h2>Measuring What Matters</h2>
+    <p>These carefully crafted questions balance brevity with insight, capturing meaningful visitor feedback without disrupting the experience. By implementing this streamlined approach, you'll gain direct insight into visitor perceptions, preferences, and experiences that refine your program while strengthening connections with your audience.</p>
+    <p>The best survey is one visitors will actually complete. Keep it brief, mobile-friendly, and offer a small incentive to maximize response rates while collecting the data that matters most.</p>
+  </div>
+
+  <footer>
+  </footer>
+
+</body>
+</html>

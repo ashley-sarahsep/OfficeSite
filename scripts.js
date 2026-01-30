@@ -1,6 +1,41 @@
 // ============================================
-// ASHLEY SEPERS - RETRO PORTFOLIO SCRIPTS
+// ASHLEY SARAH - RETRO PORTFOLIO SCRIPTS
 // ============================================
+
+// High Score Functions
+function getHighScore(gameId) {
+  try {
+    const scores = JSON.parse(localStorage.getItem('hiremeos-highscores') || '{}');
+    return scores[gameId] || null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function setHighScore(gameId, score, type = 'high') {
+  // type: 'high' = higher is better, 'low' = lower is better
+  try {
+    const scores = JSON.parse(localStorage.getItem('hiremeos-highscores') || '{}');
+    const current = scores[gameId];
+
+    let isNewBest = false;
+    if (current === undefined || current === null) {
+      isNewBest = true;
+    } else if (type === 'high' && score > current) {
+      isNewBest = true;
+    } else if (type === 'low' && score < current) {
+      isNewBest = true;
+    }
+
+    if (isNewBest) {
+      scores[gameId] = score;
+      localStorage.setItem('hiremeos-highscores', JSON.stringify(scores));
+    }
+    return isNewBest;
+  } catch (e) {
+    return false;
+  }
+}
 
 // State management
 const state = {
@@ -419,6 +454,10 @@ function openDialog(hotspotId, hotspotData) {
   const textEl = document.getElementById('dialog-text');
   const responsesEl = document.getElementById('dialog-responses');
 
+  // Clear previous dialog content immediately
+  textEl.textContent = '';
+  responsesEl.innerHTML = '';
+
   // Set dialog title
   titleEl.textContent = hotspotData.name;
 
@@ -539,38 +578,233 @@ document.getElementById('dialog-overlay')?.addEventListener('click', (e) => {
 // HIREMEOS DESKTOP
 // ============================================
 
+let desktopInitialized = false;
+let clockInterval = null;
+
 function initDesktop() {
-  initDesktopIcons();
-  initTaskbar();
-  initStartMenu();
-  updateClock();
-  setInterval(updateClock, 1000);
+  // Only initialize once to prevent duplicate event listeners
+  if (!desktopInitialized) {
+    initDesktopIcons();
+    initTaskbar();
+    initStartMenu();
+    updateClock();
+    clockInterval = setInterval(updateClock, 1000);
+    desktopInitialized = true;
+  }
 }
 
 function initDesktopIcons() {
   const icons = document.querySelectorAll('.desktop-icon');
+  const desktopArea = document.getElementById('desktop-area');
+
+  // Load saved positions
+  loadIconPositions();
+
+  // Track dragging state
+  let draggedIcon = null;
+  let dragOffset = { x: 0, y: 0 };
+  let isDragging = false;
+  let dragStartPos = { x: 0, y: 0 };
 
   icons.forEach(icon => {
+    // Add keyboard accessibility
+    icon.setAttribute('tabindex', '0');
+    icon.setAttribute('role', 'button');
+
+    // Mouse down - start potential drag
+    icon.addEventListener('mousedown', (e) => {
+      if (e.button !== 0) return; // Left click only
+
+      draggedIcon = icon;
+      isDragging = false;
+      dragStartPos = { x: e.clientX, y: e.clientY };
+
+      const rect = icon.getBoundingClientRect();
+      dragOffset = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+
+      // Select the icon
+      icons.forEach(i => i.classList.remove('selected'));
+      icon.classList.add('selected');
+
+      e.preventDefault();
+    });
+
     // Double click to open
     icon.addEventListener('dblclick', (e) => {
+      if (isDragging) return;
       const app = e.currentTarget.dataset.app;
       const file = e.currentTarget.dataset.file;
       openApp(app, file);
     });
 
-    // Single click to select
-    icon.addEventListener('click', (e) => {
-      icons.forEach(i => i.classList.remove('selected'));
-      e.currentTarget.classList.add('selected');
+    // Keyboard support - Enter or Space to open
+    icon.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      }
     });
+
+    // Touch support - single tap to open on mobile
+    icon.addEventListener('touchstart', (e) => {
+      const touch = e.touches[0];
+      draggedIcon = icon;
+      isDragging = false;
+      dragStartPos = { x: touch.clientX, y: touch.clientY };
+
+      const rect = icon.getBoundingClientRect();
+      dragOffset = {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top
+      };
+
+      // Select the icon
+      icons.forEach(i => i.classList.remove('selected'));
+      icon.classList.add('selected');
+    }, { passive: true });
+  });
+
+  // Mouse move - handle dragging
+  const iconsContainer = document.querySelector('.desktop-icons');
+
+  document.addEventListener('mousemove', (e) => {
+    if (!draggedIcon) return;
+
+    // Check if we've moved enough to consider it a drag
+    const dx = Math.abs(e.clientX - dragStartPos.x);
+    const dy = Math.abs(e.clientY - dragStartPos.y);
+
+    if (dx > 5 || dy > 5) {
+      isDragging = true;
+      draggedIcon.classList.add('dragging');
+
+      const containerRect = iconsContainer.getBoundingClientRect();
+      let newX = e.clientX - containerRect.left - dragOffset.x;
+      let newY = e.clientY - containerRect.top - dragOffset.y;
+
+      // Constrain to container area
+      newX = Math.max(0, Math.min(newX, containerRect.width - 70));
+      newY = Math.max(0, Math.min(newY, containerRect.height - 70));
+
+      draggedIcon.style.position = 'absolute';
+      draggedIcon.style.left = `${newX}px`;
+      draggedIcon.style.top = `${newY}px`;
+    }
+  });
+
+  // Mouse up - end drag
+  document.addEventListener('mouseup', () => {
+    if (draggedIcon) {
+      draggedIcon.classList.remove('dragging');
+
+      if (isDragging) {
+        saveIconPositions();
+      }
+
+      draggedIcon = null;
+      isDragging = false;
+    }
+  });
+
+  // Touch move - handle dragging on mobile
+  document.addEventListener('touchmove', (e) => {
+    if (!draggedIcon) return;
+
+    const touch = e.touches[0];
+    const dx = Math.abs(touch.clientX - dragStartPos.x);
+    const dy = Math.abs(touch.clientY - dragStartPos.y);
+
+    if (dx > 10 || dy > 10) {
+      isDragging = true;
+      draggedIcon.classList.add('dragging');
+
+      const containerRect = iconsContainer.getBoundingClientRect();
+      let newX = touch.clientX - containerRect.left - dragOffset.x;
+      let newY = touch.clientY - containerRect.top - dragOffset.y;
+
+      // Constrain to container area
+      newX = Math.max(0, Math.min(newX, containerRect.width - 70));
+      newY = Math.max(0, Math.min(newY, containerRect.height - 70));
+
+      draggedIcon.style.position = 'absolute';
+      draggedIcon.style.left = `${newX}px`;
+      draggedIcon.style.top = `${newY}px`;
+    }
+  }, { passive: true });
+
+  // Touch end - single tap opens, drag ends
+  document.addEventListener('touchend', () => {
+    if (draggedIcon) {
+      draggedIcon.classList.remove('dragging');
+
+      if (isDragging) {
+        // Was dragging - just save position
+        saveIconPositions();
+      } else {
+        // Was a tap - open the app (single click on mobile)
+        const app = draggedIcon.dataset.app;
+        const file = draggedIcon.dataset.file;
+        openApp(app, file);
+      }
+
+      draggedIcon = null;
+      isDragging = false;
+    }
   });
 
   // Click desktop to deselect
-  document.getElementById('desktop-area')?.addEventListener('click', (e) => {
+  desktopArea?.addEventListener('click', (e) => {
     if (e.target.id === 'desktop-area') {
       icons.forEach(i => i.classList.remove('selected'));
     }
   });
+}
+
+function saveIconPositions() {
+  const icons = document.querySelectorAll('.desktop-icon');
+  const positions = {};
+
+  icons.forEach(icon => {
+    const id = icon.dataset.app + (icon.dataset.file ? `-${icon.dataset.file}` : '');
+    if (icon.style.left && icon.style.top) {
+      positions[id] = {
+        left: icon.style.left,
+        top: icon.style.top
+      };
+    }
+  });
+
+  try {
+    localStorage.setItem('desktop-icon-positions', JSON.stringify(positions));
+  } catch (e) {
+    console.warn('Could not save icon positions:', e);
+  }
+}
+
+function loadIconPositions() {
+  try {
+    const saved = localStorage.getItem('desktop-icon-positions');
+    if (!saved) return;
+
+    const positions = JSON.parse(saved);
+    const icons = document.querySelectorAll('.desktop-icon');
+
+    icons.forEach(icon => {
+      const id = icon.dataset.app + (icon.dataset.file ? `-${icon.dataset.file}` : '');
+      if (positions[id]) {
+        icon.style.position = 'absolute';
+        icon.style.left = positions[id].left;
+        icon.style.top = positions[id].top;
+      }
+    });
+  } catch (e) {
+    console.warn('Could not load icon positions:', e);
+  }
 }
 
 function initTaskbar() {
@@ -612,6 +846,9 @@ function initStartMenu() {
           break;
         case 'chat':
           openApp('messenger', 'chat');
+          break;
+        case 'about-computer':
+          openApp('about-computer', 'specs');
           break;
         case 'email':
           window.location.href = 'mailto:' + SITE_DATA.email;
@@ -704,7 +941,14 @@ function getWindowSize(appType) {
     'work-detail': { width: '500px', height: '400px' },
     portfolio: { width: '550px', height: '450px' },
     'portfolio-viewer': { width: '600px', height: '500px' },
-    game: { width: '650px', height: '500px' }
+    game: { width: '650px', height: '500px' },
+    accessibility: { width: '450px', height: '520px' },
+    'about-computer': { width: '420px', height: '380px' },
+    raiders: { width: '550px', height: '480px' },
+    memory: { width: '420px', height: '500px' },
+    minesweeper: { width: '340px', height: '440px' },
+    casestudy: { width: '600px', height: '550px' },
+    presentation: { width: '700px', height: '520px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -725,7 +969,14 @@ function getWindowTitle(appType, fileId) {
     'work-detail': 'Project Details',
     portfolio: 'AI Portfolio - Explorer',
     'portfolio-viewer': 'Document Viewer',
-    game: 'Project Trail - A Business Adventure'
+    game: 'Project Trail - A Business Adventure',
+    accessibility: 'Accessibility Options',
+    'about-computer': 'About This Computer',
+    raiders: 'Raiders of the Lost Doc',
+    memory: 'Memory Match',
+    minesweeper: 'Meeting Minesweeper',
+    casestudy: 'Case Study',
+    presentation: 'Presentation'
   };
   return titles[appType] || 'Window';
 }
@@ -773,11 +1024,34 @@ function initWindowContent(windowEl, appType, fileId) {
       initPortfolioViewer(windowEl, fileId);
       windowEl.dataset.windowType = 'workExamples';
       break;
+    case 'casestudy':
+      initCaseStudy(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
+    case 'presentation':
+      initPresentation(windowEl, fileId);
+      windowEl.dataset.windowType = 'workExamples';
+      break;
     case 'game':
       initProjectTrail(windowEl);
       break;
     case 'catpong':
       initCatPong(windowEl);
+      break;
+    case 'raiders':
+      initRaiders(windowEl);
+      break;
+    case 'memory':
+      initMemory(windowEl);
+      break;
+    case 'minesweeper':
+      initMinesweeper(windowEl);
+      break;
+    case 'accessibility':
+      initAccessibilityWindow(windowEl);
+      break;
+    case 'about-computer':
+      initAboutComputer(windowEl);
       break;
   }
 }
@@ -916,6 +1190,50 @@ function initWordpad(windowEl) {
   if (content) {
     content.innerHTML = SITE_DATA.resume.content;
   }
+
+  // Download PDF button
+  const downloadBtn = windowEl.querySelector('#resume-download');
+  if (downloadBtn) {
+    downloadBtn.addEventListener('click', () => {
+      // Try to download the PDF file
+      const link = document.createElement('a');
+      link.href = 'assets/Ashley_Sarah_Resume.pdf';
+      link.download = 'Ashley_Sarah_Resume.pdf';
+      link.click();
+    });
+  }
+
+  // Print button - opens print dialog for the resume content
+  const printBtn = windowEl.querySelector('#resume-print');
+  if (printBtn) {
+    printBtn.addEventListener('click', () => {
+      const printContent = windowEl.querySelector('.wordpad-content').innerHTML;
+      const printWindow = window.open('', '_blank');
+      printWindow.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Ashley Sarah - Resume</title>
+          <style>
+            body { font-family: Georgia, serif; max-width: 800px; margin: 40px auto; padding: 20px; color: #333; line-height: 1.6; }
+            h1 { font-size: 28px; margin-bottom: 5px; }
+            h2 { font-size: 18px; border-bottom: 2px solid #333; padding-bottom: 5px; margin-top: 25px; }
+            h3 { font-size: 15px; margin-bottom: 5px; }
+            p { margin: 8px 0; }
+            ul { margin: 10px 0; padding-left: 25px; }
+            li { margin: 5px 0; }
+            .resume-header { text-align: center; margin-bottom: 20px; }
+            .resume-contact { font-size: 14px; color: #555; }
+            @media print { body { margin: 0; padding: 20px; } }
+          </style>
+        </head>
+        <body>${printContent}</body>
+        </html>
+      `);
+      printWindow.document.close();
+      printWindow.print();
+    });
+  }
 }
 
 function initMyspace(windowEl) {
@@ -1004,43 +1322,21 @@ function initMyspace(windowEl) {
 function initMessenger(windowEl) {
   const chatArea = windowEl.querySelector('.messenger-chat-area');
   const quickQuestions = windowEl.querySelector('.messenger-quick-questions');
-  const input = windowEl.querySelector('.messenger-input');
-  const sendBtn = windowEl.querySelector('.messenger-send');
 
   const chatData = SITE_DATA.chat;
 
   // Add welcome message
   addChatMessage(chatArea, chatData.welcomeMessage, 'bot');
 
-  // Add quick questions
+  // Add quick questions as the primary interaction method
   chatData.quickQuestions.forEach(q => {
     const btn = document.createElement('button');
     btn.className = 'quick-question';
     btn.textContent = q;
     btn.addEventListener('click', () => {
-      sendChatMessage(chatArea, q);
+      sendChatMessage(chatArea, q, quickQuestions);
     });
     quickQuestions.appendChild(btn);
-  });
-
-  // Send on button click
-  sendBtn?.addEventListener('click', () => {
-    const message = input.value.trim();
-    if (message) {
-      sendChatMessage(chatArea, message);
-      input.value = '';
-    }
-  });
-
-  // Send on enter
-  input?.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      const message = input.value.trim();
-      if (message) {
-        sendChatMessage(chatArea, message);
-        input.value = '';
-      }
-    }
   });
 }
 
@@ -1057,7 +1353,7 @@ function addChatMessage(chatArea, text, type) {
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-function sendChatMessage(chatArea, message) {
+function sendChatMessage(chatArea, message, quickQuestionsEl) {
   // Add user message
   addChatMessage(chatArea, message, 'user');
 
@@ -1088,39 +1384,64 @@ function sendChatMessage(chatArea, message) {
     responseText = responseData;
   }
 
+  // Get quickQuestions element if not passed
+  if (!quickQuestionsEl) {
+    quickQuestionsEl = chatArea.closest('.messenger-content')?.querySelector('.messenger-quick-questions');
+  }
+
   // Add bot response after delay
   setTimeout(() => {
     addChatMessage(chatArea, responseText, 'bot');
 
-    // If there's a follow-up question, add it as a clickable button
-    if (followUpQuestion) {
+    // Update the quick questions area with follow-up or reset to main questions
+    if (quickQuestionsEl) {
       setTimeout(() => {
-        const followUpDiv = document.createElement('div');
-        followUpDiv.className = 'chat-followup';
-        followUpDiv.innerHTML = `
-          <button class="chat-followup-btn">${followUpQuestion}</button>
-          <button class="chat-followup-btn chat-back-btn">[Back to questions]</button>
-        `;
-        chatArea.appendChild(followUpDiv);
+        quickQuestionsEl.innerHTML = '';
+
+        if (followUpQuestion) {
+          // Show follow-up question and back button
+          const followUpBtn = document.createElement('button');
+          followUpBtn.className = 'quick-question';
+          followUpBtn.textContent = followUpQuestion;
+          followUpBtn.addEventListener('click', () => {
+            sendChatMessage(chatArea, followUpQuestion, quickQuestionsEl);
+          });
+          quickQuestionsEl.appendChild(followUpBtn);
+
+          const backBtn = document.createElement('button');
+          backBtn.className = 'quick-question';
+          backBtn.textContent = '← Back to questions';
+          backBtn.style.background = '#f0f0f0';
+          backBtn.style.color = '#666';
+          backBtn.style.borderColor = '#ccc';
+          backBtn.addEventListener('click', () => {
+            resetQuickQuestions(quickQuestionsEl, chatArea);
+          });
+          quickQuestionsEl.appendChild(backBtn);
+        } else {
+          // Reset to main questions
+          resetQuickQuestions(quickQuestionsEl, chatArea);
+        }
+
         chatArea.scrollTop = chatArea.scrollHeight;
-
-        // Add click handlers
-        followUpDiv.querySelector('.chat-followup-btn:not(.chat-back-btn)').addEventListener('click', () => {
-          followUpDiv.remove();
-          sendChatMessage(chatArea, followUpQuestion);
-        });
-
-        followUpDiv.querySelector('.chat-back-btn').addEventListener('click', () => {
-          followUpDiv.remove();
-          // Re-show quick questions
-          const quickQuestionsDiv = chatArea.closest('.messenger-body').querySelector('.chat-quick-questions');
-          if (quickQuestionsDiv) {
-            quickQuestionsDiv.style.display = 'flex';
-          }
-        });
       }, 300);
     }
   }, 500 + Math.random() * 500);
+}
+
+function resetQuickQuestions(quickQuestionsEl, chatArea) {
+  const chatData = SITE_DATA.chat;
+  quickQuestionsEl.innerHTML = '';
+
+  chatData.quickQuestions.forEach(q => {
+    const btn = document.createElement('button');
+    btn.className = 'quick-question';
+    btn.textContent = q;
+    btn.addEventListener('click', () => {
+      sendChatMessage(chatArea, q, quickQuestionsEl);
+    });
+    quickQuestionsEl.appendChild(btn);
+  });
 }
 
 function initFolder(windowEl) {
@@ -1164,7 +1485,7 @@ function initMiscFolder(windowEl, folderId) {
   }
 
   content.innerHTML = folderData.items.map(item => `
-    <div class="folder-item" data-item-id="${item.id}" data-item-type="${item.type}" data-item-app="${item.app || ''}">
+    <div class="folder-item" data-item-id="${item.id}" data-item-type="${item.type}" data-item-app="${item.app || ''}" data-note-id="${item.noteId || ''}">
       <div class="folder-item-icon icon-${item.icon}"></div>
       <span class="folder-item-name">${item.name}</span>
     </div>
@@ -1176,10 +1497,17 @@ function initMiscFolder(windowEl, folderId) {
       const itemId = item.dataset.itemId;
       const itemType = item.dataset.itemType;
       const itemApp = item.dataset.itemApp;
+      const noteId = item.dataset.noteId;
 
       if (itemType === 'easter-egg') {
         // Open as notepad with easter egg content
         openApp('notepad', itemId);
+      } else if (itemType === 'notepad' && noteId) {
+        // Open notepad with specific content
+        openApp('notepad', noteId);
+      } else if (itemType === 'app' && itemApp) {
+        // Open specified app
+        openApp(itemApp, itemId);
       } else if (itemType === 'game' && itemApp) {
         // Open as game
         openApp(itemApp, itemId);
@@ -1283,6 +1611,92 @@ function getFileIcon(filename) {
 }
 
 // ============================================
+// ABOUT THIS COMPUTER
+// ============================================
+
+function initAboutComputer(windowEl) {
+  const content = windowEl.querySelector('.about-computer-content');
+  if (!content) return;
+
+  // Calculate some dynamic "specs"
+  const yearsExp = new Date().getFullYear() - 2011;
+  const remoteYears = new Date().getFullYear() - 2014;
+
+  content.innerHTML = `
+    <div class="about-computer-wrapper">
+      <div class="about-computer-header">
+        <div class="about-computer-logo">
+          <span class="about-logo-icon">👩‍💻</span>
+        </div>
+        <div class="about-computer-title">
+          <h2>HireMeOS 98</h2>
+          <p class="about-subtitle">Ashley Edition</p>
+        </div>
+      </div>
+
+      <div class="about-computer-specs">
+        <div class="about-spec-group">
+          <div class="about-spec">
+            <span class="spec-label">Processor:</span>
+            <span class="spec-value">Pattern Recognition Engine™ (${yearsExp} years optimized)</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Memory:</span>
+            <span class="spec-value">"I have a doc for that" - 2TB indexed</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Remote Mode:</span>
+            <span class="spec-value">Native since 2014 (${remoteYears} years)</span>
+          </div>
+        </div>
+
+        <div class="about-divider"></div>
+
+        <div class="about-spec-group">
+          <div class="about-spec">
+            <span class="spec-label">Gap Detection:</span>
+            <span class="spec-value">Real-time, high-precision</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Translation Layer:</span>
+            <span class="spec-value">Complex → Simple v3.0</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Async Support:</span>
+            <span class="spec-value">Multi-timezone enabled</span>
+          </div>
+        </div>
+
+        <div class="about-divider"></div>
+
+        <div class="about-spec-group">
+          <div class="about-spec">
+            <span class="spec-label">Preferred Input:</span>
+            <span class="spec-value">Context & clear goals</span>
+          </div>
+          <div class="about-spec">
+            <span class="spec-label">Output Format:</span>
+            <span class="spec-value">Actionable, documented, shipped</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-computer-footer">
+        <p>Serial No: ASHLEY-${new Date().getFullYear()}-OPS</p>
+        <button class="about-ok-btn" id="about-ok-btn">OK</button>
+      </div>
+    </div>
+  `;
+
+  // OK button closes the window
+  const okBtn = content.querySelector('#about-ok-btn');
+  okBtn?.addEventListener('click', () => {
+    const windowId = windowEl.id;
+    closeWindow(windowId);
+  });
+}
+
+// ============================================
 // AI PORTFOLIO
 // ============================================
 
@@ -1298,21 +1712,27 @@ function initPortfolio(windowEl) {
         <h2>${portfolio.title}</h2>
         <p>${portfolio.description}</p>
       </div>
-      <div class="portfolio-categories">
-        ${portfolio.categories.map(cat => `
-          <div class="portfolio-category" data-category="${cat.id}">
-            <div class="portfolio-category-header">
-              <span class="portfolio-category-icon">${cat.icon}</span>
-              <span class="portfolio-category-name">${cat.name}</span>
-              <span class="portfolio-category-count">${cat.items.length} items</span>
+      <div class="portfolio-projects">
+        ${portfolio.projects.map(project => `
+          <div class="portfolio-project" data-project-id="${project.id}">
+            <div class="portfolio-project-header">
+              <span class="portfolio-project-icon">${project.icon}</span>
+              <div class="portfolio-project-info">
+                <span class="portfolio-project-title">${project.title}</span>
+                <span class="portfolio-project-category">${project.category}</span>
+              </div>
             </div>
-            <div class="portfolio-items">
-              ${cat.items.map(item => `
-                <div class="portfolio-item" data-item-id="${item.id}" data-category="${cat.id}">
-                  <span class="portfolio-item-icon">📄</span>
-                  <span class="portfolio-item-name">${item.name}</span>
-                </div>
-              `).join('')}
+            <p class="portfolio-project-summary">${project.summary}</p>
+            <div class="portfolio-project-actions">
+              <button class="portfolio-action" data-action="casestudy" data-project="${project.id}">
+                📋 Case Study
+              </button>
+              <button class="portfolio-action" data-action="presentation" data-project="${project.id}">
+                📊 Presentation
+              </button>
+              <button class="portfolio-action" data-action="document" data-project="${project.id}">
+                📄 Full Document
+              </button>
             </div>
           </div>
         `).join('')}
@@ -1320,54 +1740,227 @@ function initPortfolio(windowEl) {
     </div>
   `;
 
-  // Add click handlers for categories (collapse/expand)
-  content.querySelectorAll('.portfolio-category-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const category = header.closest('.portfolio-category');
-      category.classList.toggle('collapsed');
+  // Add click handlers for action buttons
+  content.querySelectorAll('.portfolio-action').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const action = btn.dataset.action;
+      const projectId = btn.dataset.project;
+      const project = portfolio.projects.find(p => p.id === projectId);
+
+      if (!project) return;
+
+      if (action === 'casestudy') {
+        openApp('casestudy', projectId);
+      } else if (action === 'presentation') {
+        openApp('presentation', projectId);
+      } else if (action === 'document') {
+        // Open the HTML document in a new window/tab
+        window.open(project.documentUrl, '_blank');
+      }
     });
+  });
+}
+
+function initCaseStudy(windowEl, projectId) {
+  const content = windowEl.querySelector('.casestudy-content');
+  if (!content || !projectId) return;
+
+  const project = SITE_DATA.portfolio.projects.find(p => p.id === projectId);
+
+  if (!project) {
+    content.innerHTML = '<p>Project not found.</p>';
+    return;
+  }
+
+  const cs = project.caseStudy;
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = project.title + ' - Case Study';
+  }
+
+  content.innerHTML = `
+    <div class="casestudy-wrapper">
+      <div class="casestudy-header">
+        <span class="casestudy-icon">${project.icon}</span>
+        <div class="casestudy-title-area">
+          <h2>${project.title}</h2>
+          <span class="casestudy-category">${project.category}</span>
+        </div>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>🎯 The Challenge</h3>
+        <p>${cs.challenge}</p>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>💡 My Approach</h3>
+        <p>${cs.approach}</p>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>📦 Key Deliverables</h3>
+        <ul class="casestudy-deliverables">
+          ${cs.deliverables.map(d => `<li>${d}</li>`).join('')}
+        </ul>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>📈 The Impact</h3>
+        <p>${cs.impact}</p>
+      </div>
+
+      <div class="casestudy-section">
+        <h3>🛠️ Skills Applied</h3>
+        <div class="casestudy-skills">
+          ${cs.skills.map(s => `<span class="skill-tag">${s}</span>`).join('')}
+        </div>
+      </div>
+
+      <div class="casestudy-footer">
+        <button class="casestudy-btn" id="view-presentation" data-project="${projectId}">
+          📊 View Presentation
+        </button>
+        <button class="casestudy-btn secondary" id="view-document" data-url="${project.documentUrl}">
+          📄 View Full Document
+        </button>
+      </div>
+    </div>
+  `;
+
+  // Add button handlers
+  content.querySelector('#view-presentation')?.addEventListener('click', () => {
+    openApp('presentation', projectId);
   });
 
-  // Add click handlers for items
-  content.querySelectorAll('.portfolio-item').forEach(item => {
-    item.addEventListener('dblclick', () => {
-      const itemId = item.dataset.itemId;
-      const categoryId = item.dataset.category;
-      openApp('portfolio-viewer', `${categoryId}:${itemId}`);
-    });
+  content.querySelector('#view-document')?.addEventListener('click', () => {
+    window.open(project.documentUrl, '_blank');
   });
+}
+
+function initPresentation(windowEl, projectId) {
+  const content = windowEl.querySelector('.presentation-content');
+  if (!content || !projectId) return;
+
+  const project = SITE_DATA.portfolio.projects.find(p => p.id === projectId);
+
+  if (!project || !project.presentation) {
+    content.innerHTML = '<p>Presentation not found.</p>';
+    return;
+  }
+
+  const pres = project.presentation;
+  let currentSlide = 0;
+
+  // Update window title
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl) {
+    titleEl.textContent = pres.title + ' - Presentation';
+  }
+
+  function renderSlide() {
+    const slide = pres.slides[currentSlide];
+    const totalSlides = pres.slides.length;
+
+    content.innerHTML = `
+      <div class="presentation-wrapper">
+        <div class="presentation-slide">
+          ${currentSlide === 0 ? `
+            <div class="presentation-title-slide">
+              <span class="presentation-icon">${project.icon}</span>
+              <h1>${pres.title}</h1>
+              <p class="presentation-subtitle">${pres.subtitle}</p>
+              <p class="presentation-author">Ashley Sarah</p>
+            </div>
+          ` : `
+            <div class="presentation-content-slide">
+              <h2>${slide.title}</h2>
+              <div class="presentation-body">
+                ${slide.content.split('\n').map(line =>
+                  line.startsWith('•') ?
+                    `<p class="presentation-bullet">${line}</p>` :
+                    `<p>${line}</p>`
+                ).join('')}
+              </div>
+            </div>
+          `}
+        </div>
+
+        <div class="presentation-controls">
+          <button class="pres-nav-btn" id="pres-prev" ${currentSlide === 0 ? 'disabled' : ''}>
+            ◀ Prev
+          </button>
+          <span class="pres-counter">${currentSlide + 1} / ${totalSlides}</span>
+          <button class="pres-nav-btn" id="pres-next" ${currentSlide === totalSlides - 1 ? 'disabled' : ''}>
+            Next ▶
+          </button>
+        </div>
+
+        <div class="presentation-progress">
+          <div class="presentation-progress-bar" style="width: ${((currentSlide + 1) / totalSlides) * 100}%"></div>
+        </div>
+      </div>
+    `;
+
+    // Add navigation handlers
+    content.querySelector('#pres-prev')?.addEventListener('click', () => {
+      if (currentSlide > 0) {
+        currentSlide--;
+        renderSlide();
+      }
+    });
+
+    content.querySelector('#pres-next')?.addEventListener('click', () => {
+      if (currentSlide < pres.slides.length - 1) {
+        currentSlide++;
+        renderSlide();
+      }
+    });
+  }
+
+  renderSlide();
+
+  // Add keyboard navigation
+  const keyHandler = (e) => {
+    if (!document.contains(windowEl)) {
+      document.removeEventListener('keydown', keyHandler);
+      return;
+    }
+
+    // Only handle if this window is focused
+    const isActive = windowEl.style.zIndex === String(state.windowZIndex);
+    if (!isActive) return;
+
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      if (currentSlide < pres.slides.length - 1) {
+        currentSlide++;
+        renderSlide();
+      }
+    } else if (e.key === 'ArrowLeft') {
+      if (currentSlide > 0) {
+        currentSlide--;
+        renderSlide();
+      }
+    }
+  };
+
+  document.addEventListener('keydown', keyHandler);
 }
 
 function initPortfolioViewer(windowEl, fileId) {
   const content = windowEl.querySelector('.portfolio-viewer-content');
   if (!content || !fileId) return;
 
-  const [categoryId, itemId] = fileId.split(':');
-  const category = SITE_DATA.portfolio.categories.find(c => c.id === categoryId);
-  const item = category?.items.find(i => i.id === itemId);
-
-  if (!item) {
-    content.innerHTML = '<p>Document not found.</p>';
+  // Legacy support - redirect to case study
+  const project = SITE_DATA.portfolio.projects.find(p => p.id === fileId);
+  if (project) {
+    initCaseStudy(windowEl, fileId);
     return;
   }
 
-  // Update window title
-  const titleEl = windowEl.querySelector('.window-title');
-  if (titleEl) {
-    titleEl.textContent = item.name + ' - Document Viewer';
-  }
-
-  content.innerHTML = `
-    <div class="portfolio-viewer-wrapper">
-      <div class="portfolio-viewer-header">
-        <h2>${item.name}</h2>
-        <p class="portfolio-viewer-description">${item.description}</p>
-      </div>
-      <div class="portfolio-viewer-body">
-        <pre class="portfolio-document">${item.content}</pre>
-      </div>
-    </div>
-  `;
+  content.innerHTML = '<p>Document not found.</p>';
 }
 
 // ============================================
@@ -1531,6 +2124,10 @@ function showGameEnding(container) {
   const totalScore = Object.values(gameState.stats).reduce((a, b) => a + b, 0);
   const endings = SITE_DATA.projectTrail.endings;
 
+  // Track high score
+  const isNewBest = setHighScore('projecttrail', totalScore, 'high');
+  const bestScore = getHighScore('projecttrail');
+
   let ending;
   if (totalScore >= endings.excellent.threshold) {
     ending = endings.excellent;
@@ -1554,6 +2151,9 @@ function showGameEnding(container) {
           <div class="game-final-stat">💪 Morale: ${gameState.stats.teamMorale}</div>
         </div>
         <div class="game-total-score">Total Score: ${totalScore}</div>
+        <div class="game-best-score ${isNewBest ? 'new-best' : ''}">
+          ${isNewBest ? '🎉 New Personal Best!' : `Personal Best: ${bestScore}`}
+        </div>
       </div>
       <div class="game-ending-content">
         <h2 class="game-ending-title">${ending.title}</h2>
@@ -1564,7 +2164,7 @@ function showGameEnding(container) {
       <div class="game-ending-actions">
         <button class="game-restart-btn" id="game-restart">Play Again</button>
       </div>
-      <p class="game-credit">Project Trail - Inspired by the operations life of Ashley Sepers</p>
+      <p class="game-credit">Project Trail - Inspired by the operations life of Ashley Sarah</p>
     </div>
   `;
 
@@ -1589,6 +2189,13 @@ function initCatPong(windowEl) {
   const ctx = canvas.getContext('2d');
   const scoreLeftEl = windowEl.querySelector('#score-left');
   const scoreRightEl = windowEl.querySelector('#score-right');
+  const bestEl = windowEl.querySelector('#catpong-best');
+
+  // Load and display high score
+  const currentBest = getHighScore('catpong');
+  if (currentBest !== null && bestEl) {
+    bestEl.textContent = `Best: ${currentBest}`;
+  }
 
   // Game state
   const game = {
@@ -1661,20 +2268,20 @@ function initCatPong(windowEl) {
   function update() {
     if (!game.running || game.paused) return;
 
-    // Move paddles based on keys
-    if (game.keys['w'] || game.keys['W'] || game.keys['ArrowUp']) {
-      game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed);
-    }
-    if (game.keys['s'] || game.keys['S'] || game.keys['ArrowDown']) {
-      game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed);
+    // Simple AI for left paddle
+    const paddleCenter = game.paddleLeft.y + game.paddleLeft.height / 2;
+    if (paddleCenter < game.ball.y - 20) {
+      game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed * 0.7);
+    } else if (paddleCenter > game.ball.y + 20) {
+      game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed * 0.7);
     }
 
-    // Simple AI for right paddle
-    const paddleCenter = game.paddleRight.y + game.paddleRight.height / 2;
-    if (paddleCenter < game.ball.y - 20) {
-      game.paddleRight.y = Math.min(canvas.height - game.paddleRight.height, game.paddleRight.y + game.paddleSpeed * 0.7);
-    } else if (paddleCenter > game.ball.y + 20) {
-      game.paddleRight.y = Math.max(0, game.paddleRight.y - game.paddleSpeed * 0.7);
+    // Move player paddle (right) based on keys
+    if (game.keys['w'] || game.keys['W'] || game.keys['ArrowUp']) {
+      game.paddleRight.y = Math.max(0, game.paddleRight.y - game.paddleSpeed);
+    }
+    if (game.keys['s'] || game.keys['S'] || game.keys['ArrowDown']) {
+      game.paddleRight.y = Math.min(canvas.height - game.paddleRight.height, game.paddleRight.y + game.paddleSpeed);
     }
 
     // Move ball
@@ -1705,10 +2312,21 @@ function initCatPong(windowEl) {
 
     // Scoring
     if (game.ball.x < 0) {
+      // Ball went off left - player (right) scores
       game.scoreRight++;
       scoreRightEl.textContent = game.scoreRight;
+      // Track high score for player
+      const isNewBest = setHighScore('catpong', game.scoreRight, 'high');
+      if (bestEl) {
+        bestEl.textContent = `Best: ${getHighScore('catpong')}`;
+        if (isNewBest) {
+          bestEl.classList.add('new-best');
+          setTimeout(() => bestEl.classList.remove('new-best'), 1000);
+        }
+      }
       resetBall();
     } else if (game.ball.x > canvas.width) {
+      // Ball went off right - AI (left) scores
       game.scoreLeft++;
       scoreLeftEl.textContent = game.scoreLeft;
       resetBall();
@@ -1768,10 +2386,455 @@ function initCatPong(windowEl) {
 }
 
 // ============================================
-// GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
+// RAIDERS OF THE LOST DOC - Adventure Game
+// ============================================
+
+function initRaiders(windowEl) {
+  const content = windowEl.querySelector('.raiders-content');
+  if (!content) return;
+
+  const game = SITE_DATA.raiders;
+  showRaidersIntro(content, game);
+}
+
+function showRaidersIntro(container, game) {
+  container.innerHTML = `
+    <div class="raiders-intro">
+      <div class="raiders-title">
+        <pre class="raiders-ascii">
+  ____       _     _
+ |  _ \\ __ _(_) __| | ___ _ __ ___
+ | |_) / _\` | |/ _\` |/ _ \\ '__/ __|
+ |  _ < (_| | | (_| |  __/ |  \\__ \\
+ |_| \\_\\__,_|_|\\__,_|\\___|_|  |___/
+    of the Lost Doc
+        </pre>
+        <p class="raiders-subtitle">${game.subtitle}</p>
+      </div>
+      <div class="raiders-intro-text">
+        ${game.intro.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+      </div>
+      <button class="raiders-start-btn" id="raiders-start">Begin Your Quest</button>
+    </div>
+  `;
+
+  container.querySelector('#raiders-start').addEventListener('click', () => {
+    showRaidersScene(container, game, 'start');
+  });
+}
+
+function showRaidersScene(container, game, sceneId) {
+  const scene = game.scenes[sceneId];
+  if (!scene) {
+    showRaidersIntro(container, game);
+    return;
+  }
+
+  const isVictory = sceneId === 'q3-right';
+
+  container.innerHTML = `
+    <div class="raiders-scene ${isVictory ? 'raiders-victory' : ''}">
+      <div class="raiders-location">
+        <span class="raiders-location-icon">📍</span>
+        <span class="raiders-location-name">${scene.title}</span>
+      </div>
+      <div class="raiders-narrative">
+        ${scene.text.split('\n\n').map(p => `<p>${p}</p>`).join('')}
+      </div>
+      <div class="raiders-choices">
+        ${scene.choices.map((choice, i) => `
+          <button class="raiders-choice ${choice.text.includes('VICTORY') ? 'raiders-choice-victory' : ''}" data-next="${choice.next}">
+            ${choice.text}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  container.querySelectorAll('.raiders-choice').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const next = btn.dataset.next;
+      showRaidersScene(container, game, next);
+    });
+  });
+}
+
+// ============================================
+// MEMORY MATCH GAME
+// ============================================
+
+function initMemory(windowEl) {
+  const content = windowEl.querySelector('.memory-content');
+  if (!content) return;
+
+  // Office-themed icons for matching
+  const icons = ['📁', '📄', '💾', '🖨️', '📧', '📊', '🗂️', '💼'];
+  let cards = [...icons, ...icons]; // Pairs
+  let flipped = [];
+  let matched = [];
+  let moves = 0;
+  let canFlip = true;
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function render() {
+    const isWon = matched.length === cards.length;
+    const bestScore = getHighScore('memory');
+    let isNewBest = false;
+
+    // Check for new best when won
+    if (isWon && moves > 0) {
+      isNewBest = setHighScore('memory', moves, 'low');
+    }
+
+    content.innerHTML = `
+      <div class="memory-wrapper">
+        <div class="memory-header">
+          <span class="memory-moves">Moves: ${moves}</span>
+          <span class="memory-best">${bestScore ? `Best: ${bestScore}` : ''}</span>
+          <span class="memory-matched">Matched: ${matched.length / 2}/${icons.length}</span>
+        </div>
+        <div class="memory-grid">
+          ${cards.map((icon, i) => `
+            <button class="memory-card ${flipped.includes(i) || matched.includes(i) ? 'flipped' : ''} ${matched.includes(i) ? 'matched' : ''}" data-index="${i}">
+              <span class="memory-card-front">?</span>
+              <span class="memory-card-back">${icon}</span>
+            </button>
+          `).join('')}
+        </div>
+        ${isWon ? `
+          <div class="memory-win">
+            <p>🎉 You Win!</p>
+            <p>Completed in ${moves} moves${isNewBest ? ' - NEW BEST!' : ''}</p>
+            <button class="memory-restart" id="memory-restart">Play Again</button>
+          </div>
+        ` : ''}
+      </div>
+    `;
+
+    // Add click handlers
+    content.querySelectorAll('.memory-card:not(.matched)').forEach(card => {
+      card.addEventListener('click', () => {
+        if (!canFlip) return;
+        const index = parseInt(card.dataset.index);
+        if (flipped.includes(index)) return;
+
+        flipCard(index);
+      });
+    });
+
+    // Restart button
+    const restartBtn = content.querySelector('#memory-restart');
+    if (restartBtn) {
+      restartBtn.addEventListener('click', () => {
+        cards = shuffle([...icons, ...icons]);
+        flipped = [];
+        matched = [];
+        moves = 0;
+        canFlip = true;
+        render();
+      });
+    }
+  }
+
+  function flipCard(index) {
+    flipped.push(index);
+    render();
+
+    if (flipped.length === 2) {
+      moves++;
+      canFlip = false;
+
+      const [first, second] = flipped;
+      if (cards[first] === cards[second]) {
+        // Match found
+        matched.push(first, second);
+        flipped = [];
+        canFlip = true;
+        render();
+      } else {
+        // No match - flip back after delay
+        setTimeout(() => {
+          flipped = [];
+          canFlip = true;
+          render();
+        }, 1000);
+      }
+    }
+  }
+
+  // Shuffle and start
+  cards = shuffle(cards);
+  render();
+}
+
+// ============================================
+// MEETING MINESWEEPER
+// ============================================
+
+function initMinesweeper(windowEl) {
+  const content = windowEl.querySelector('.minesweeper-content');
+  if (!content) return;
+
+  const ROWS = 9;
+  const COLS = 9;
+  const MINES = 10;
+
+  let board = [];
+  let revealed = [];
+  let flagged = [];
+  let gameOver = false;
+  let gameWon = false;
+  let firstClick = true;
+  let minesLeft = MINES;
+  let timer = 0;
+  let timerInterval = null;
+
+  // Meeting-themed mine messages
+  const meetingTypes = [
+    '📅 "Quick sync"',
+    '📅 "Touch base"',
+    '📅 "All-hands"',
+    '📅 "Retro"',
+    '📅 "Brainstorm"',
+    '📅 "Status update"',
+    '📅 "1:1"',
+    '📅 "Planning"',
+    '📅 "Review"',
+    '📅 "Standup"'
+  ];
+
+  function initBoard(safeRow, safeCol) {
+    // Create empty board
+    board = Array(ROWS).fill(null).map(() => Array(COLS).fill(0));
+    revealed = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
+    flagged = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
+
+    // Place mines (avoiding first click area)
+    let minesPlaced = 0;
+    while (minesPlaced < MINES) {
+      const r = Math.floor(Math.random() * ROWS);
+      const c = Math.floor(Math.random() * COLS);
+
+      // Don't place mine on or adjacent to first click
+      const isSafe = Math.abs(r - safeRow) <= 1 && Math.abs(c - safeCol) <= 1;
+
+      if (board[r][c] !== -1 && !isSafe) {
+        board[r][c] = -1; // -1 = mine (meeting)
+        minesPlaced++;
+      }
+    }
+
+    // Calculate numbers
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        if (board[r][c] === -1) continue;
+        let count = 0;
+        for (let dr = -1; dr <= 1; dr++) {
+          for (let dc = -1; dc <= 1; dc++) {
+            const nr = r + dr, nc = c + dc;
+            if (nr >= 0 && nr < ROWS && nc >= 0 && nc < COLS && board[nr][nc] === -1) {
+              count++;
+            }
+          }
+        }
+        board[r][c] = count;
+      }
+    }
+  }
+
+  function reveal(r, c) {
+    if (r < 0 || r >= ROWS || c < 0 || c >= COLS) return;
+    if (revealed[r][c] || flagged[r][c]) return;
+
+    revealed[r][c] = true;
+
+    if (board[r][c] === -1) {
+      gameOver = true;
+      revealAll();
+      return;
+    }
+
+    // Auto-reveal adjacent cells if 0
+    if (board[r][c] === 0) {
+      for (let dr = -1; dr <= 1; dr++) {
+        for (let dc = -1; dc <= 1; dc++) {
+          reveal(r + dr, c + dc);
+        }
+      }
+    }
+
+    checkWin();
+  }
+
+  function revealAll() {
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        revealed[r][c] = true;
+      }
+    }
+  }
+
+  function toggleFlag(r, c) {
+    if (revealed[r][c] || gameOver || gameWon) return;
+    flagged[r][c] = !flagged[r][c];
+    minesLeft += flagged[r][c] ? -1 : 1;
+  }
+
+  function checkWin() {
+    let unrevealedSafe = 0;
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        if (!revealed[r][c] && board[r][c] !== -1) {
+          unrevealedSafe++;
+        }
+      }
+    }
+    if (unrevealedSafe === 0) {
+      gameWon = true;
+      revealAll();
+    }
+  }
+
+  function getCellContent(r, c) {
+    if (!revealed[r][c]) {
+      return flagged[r][c] ? '🚩' : '';
+    }
+    if (board[r][c] === -1) {
+      return '📅';
+    }
+    if (board[r][c] === 0) {
+      return '';
+    }
+    return board[r][c];
+  }
+
+  function getCellClass(r, c) {
+    let cls = 'ms-cell';
+    if (revealed[r][c]) {
+      cls += ' revealed';
+      if (board[r][c] === -1) {
+        cls += ' mine';
+      } else if (board[r][c] > 0) {
+        cls += ` num-${board[r][c]}`;
+      }
+    } else if (flagged[r][c]) {
+      cls += ' flagged';
+    }
+    return cls;
+  }
+
+  function render() {
+    const statusEmoji = gameOver ? '😵' : gameWon ? '😎' : '🙂';
+    const bestTime = getHighScore('minesweeper');
+    let isNewBest = false;
+
+    // Check for new best when won
+    if (gameWon && timer > 0) {
+      isNewBest = setHighScore('minesweeper', timer, 'low');
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    // Stop timer on game over
+    if (gameOver && timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+
+    content.innerHTML = `
+      <div class="ms-wrapper">
+        <div class="ms-header">
+          <div class="ms-counter">${String(minesLeft).padStart(3, '0')}</div>
+          <button class="ms-face" id="ms-reset">${statusEmoji}</button>
+          <div class="ms-counter">${String(Math.min(timer, 999)).padStart(3, '0')}</div>
+        </div>
+        ${bestTime ? `<div class="ms-best">Best: ${bestTime}s</div>` : ''}
+        <div class="ms-board">
+          ${board.map((row, r) =>
+            row.map((_, c) =>
+              `<button class="${getCellClass(r, c)}" data-r="${r}" data-c="${c}">${getCellContent(r, c)}</button>`
+            ).join('')
+          ).join('')}
+        </div>
+        ${gameOver ? `<div class="ms-message ms-lose">📅 Meeting ambush! You've been scheduled.</div>` : ''}
+        ${gameWon ? `<div class="ms-message ms-win">🎉 Calendar defended!${isNewBest ? ' NEW BEST TIME!' : ''}</div>` : ''}
+      </div>
+    `;
+
+    // Reset button
+    content.querySelector('#ms-reset').addEventListener('click', () => {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      board = [];
+      revealed = [];
+      flagged = [];
+      gameOver = false;
+      gameWon = false;
+      firstClick = true;
+      minesLeft = MINES;
+      timer = 0;
+      render();
+    });
+
+    // Cell clicks
+    content.querySelectorAll('.ms-cell').forEach(cell => {
+      const r = parseInt(cell.dataset.r);
+      const c = parseInt(cell.dataset.c);
+
+      cell.addEventListener('click', () => {
+        if (gameOver || gameWon) return;
+
+        if (firstClick) {
+          initBoard(r, c);
+          firstClick = false;
+          // Start timer
+          timerInterval = setInterval(() => {
+            timer++;
+            const timerEl = content.querySelector('.ms-counter:last-child');
+            if (timerEl) {
+              timerEl.textContent = String(Math.min(timer, 999)).padStart(3, '0');
+            }
+          }, 1000);
+        }
+
+        reveal(r, c);
+        render();
+      });
+
+      cell.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        if (gameOver || gameWon || firstClick) return;
+        toggleFlag(r, c);
+        render();
+      });
+    });
+  }
+
+  // Initial render (empty board until first click)
+  board = Array(ROWS).fill(null).map(() => Array(COLS).fill(0));
+  revealed = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
+  flagged = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
+  render();
+}
+
+// ============================================
+// GERTRUDE - PHILOSOPHICAL CAT (AUTO + CLICK)
 // ============================================
 
 let gertrudeThoughtIndex = 0;
+let gertrudeAutoTimer = null;
+let gertrudeHideTimer = null;
 
 function initGertrude() {
   const gertrudeIcon = document.getElementById('gertrude-click');
@@ -1785,10 +2848,10 @@ function initGertrude() {
     shuffleArray(SITE_DATA.gertrude.thoughts);
   }
 
-  // Click Gertrude to show a thought
+  // Click Gertrude to show a thought (and reset auto-timer)
   gertrudeIcon.addEventListener('click', () => {
     if (bubble.classList.contains('hidden')) {
-      showGertrudeThought();
+      showGertrudeThought(true); // true = manual trigger
     } else {
       hideGertrudeBubble();
     }
@@ -1798,14 +2861,50 @@ function initGertrude() {
   bubble.addEventListener('click', () => {
     hideGertrudeBubble();
   });
+
+  // Start the auto-thought timer
+  scheduleNextGertrudeThought();
 }
 
-function showGertrudeThought() {
+function scheduleNextGertrudeThought() {
+  // Clear any existing timer
+  if (gertrudeAutoTimer) {
+    clearTimeout(gertrudeAutoTimer);
+  }
+
+  // Schedule next thought in 45-75 seconds (randomized)
+  const delay = 45000 + Math.random() * 30000;
+  gertrudeAutoTimer = setTimeout(() => {
+    // Only auto-show if on desktop scene and bubble is hidden
+    const desktopScene = document.getElementById('desktop-scene');
+    const bubble = document.getElementById('gertrude-bubble');
+
+    if (desktopScene && !desktopScene.classList.contains('hidden') &&
+        bubble && bubble.classList.contains('hidden')) {
+      showGertrudeThought(false); // false = auto trigger
+    }
+
+    // Schedule the next one
+    scheduleNextGertrudeThought();
+  }, delay);
+}
+
+function showGertrudeThought(isManual = false) {
   const bubble = document.getElementById('gertrude-bubble');
   const messageEl = document.getElementById('gertrude-message');
   const thoughts = SITE_DATA.gertrude?.thoughts || [];
 
   if (!bubble || !messageEl || thoughts.length === 0) return;
+
+  // Clear any existing hide timer
+  if (gertrudeHideTimer) {
+    clearTimeout(gertrudeHideTimer);
+  }
+
+  // If manually triggered, reset the auto-timer
+  if (isManual) {
+    scheduleNextGertrudeThought();
+  }
 
   // Get next thought (cycles through all)
   const thought = thoughts[gertrudeThoughtIndex % thoughts.length];
@@ -1814,12 +2913,22 @@ function showGertrudeThought() {
   // Show the thought
   messageEl.textContent = thought;
   bubble.classList.remove('hidden');
+
+  // Auto-hide after 8 seconds (gives time to read)
+  gertrudeHideTimer = setTimeout(() => {
+    hideGertrudeBubble();
+  }, 8000);
 }
 
 function hideGertrudeBubble() {
   const bubble = document.getElementById('gertrude-bubble');
   if (bubble) {
     bubble.classList.add('hidden');
+  }
+  // Clear hide timer if manually dismissed
+  if (gertrudeHideTimer) {
+    clearTimeout(gertrudeHideTimer);
+    gertrudeHideTimer = null;
   }
 }
 
@@ -1896,6 +3005,9 @@ function initSite() {
   const bootScreen = document.getElementById('boot-screen');
   const roomScene = document.getElementById('room-scene');
 
+  // Initialize accessibility FIRST (before any visual rendering)
+  initAccessibility();
+
   // Hide boot screen, show room directly
   bootScreen.classList.add('hidden');
   roomScene.classList.remove('hidden');
@@ -1925,10 +3037,26 @@ function initSite() {
 function initImageLightbox() {
   const lightbox = document.getElementById('image-lightbox');
   const lightboxImg = document.getElementById('lightbox-image');
+  const closeBtn = lightbox?.querySelector('.image-lightbox-close');
 
-  // Close lightbox on click
-  lightbox?.addEventListener('click', () => {
-    lightbox.classList.add('hidden');
+  // Close lightbox on background click
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxImg) {
+      closeLightbox();
+    }
+  });
+
+  // Close button
+  closeBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox && !lightbox.classList.contains('hidden')) {
+      closeLightbox();
+    }
   });
 
   // Make dialog portrait image clickable to expand
@@ -1938,6 +3066,13 @@ function initImageLightbox() {
       openLightbox(portraitImg.src);
     }
   });
+}
+
+function closeLightbox() {
+  const lightbox = document.getElementById('image-lightbox');
+  if (lightbox) {
+    lightbox.classList.add('hidden');
+  }
 }
 
 function openLightbox(imageSrc) {
@@ -1955,4 +3090,288 @@ function showWelcomeDialog() {
   if (welcomeData) {
     openDialog('welcome', welcomeData);
   }
+}
+
+// ============================================
+// ACCESSIBILITY SETTINGS
+// ============================================
+
+const accessibilitySettings = {
+  highContrast: false,
+  largeText: false,
+  dyslexiaFont: false,
+  focusIndicators: false,
+  singleClick: false,
+  reducedMotion: false,
+  screenReaderMode: false
+};
+
+// CSS class mapping for each setting
+const settingClasses = {
+  highContrast: 'a11y-high-contrast',
+  largeText: 'a11y-large-text',
+  dyslexiaFont: 'a11y-dyslexia-font',
+  focusIndicators: 'a11y-focus-indicators',
+  singleClick: 'a11y-single-click',
+  reducedMotion: 'a11y-reduced-motion',
+  screenReaderMode: 'a11y-screen-reader'
+};
+
+function initAccessibility() {
+  // Load saved settings from localStorage
+  loadAccessibilitySettings();
+
+  // Apply loaded settings
+  applyAccessibilitySettings();
+
+  // Initialize room accessibility button
+  initRoomAccessibilityButton();
+
+  // Initialize quick panel
+  initQuickAccessibilityPanel();
+
+  // Respect prefers-reduced-motion on first load
+  if (!localStorage.getItem('a11y-settings')) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      accessibilitySettings.reducedMotion = true;
+      applyAccessibilitySettings();
+      saveAccessibilitySettings();
+    }
+  }
+}
+
+function loadAccessibilitySettings() {
+  try {
+    const saved = localStorage.getItem('a11y-settings');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      Object.assign(accessibilitySettings, parsed);
+    }
+  } catch (e) {
+    console.warn('Could not load accessibility settings:', e);
+  }
+}
+
+function saveAccessibilitySettings() {
+  try {
+    localStorage.setItem('a11y-settings', JSON.stringify(accessibilitySettings));
+  } catch (e) {
+    console.warn('Could not save accessibility settings:', e);
+  }
+}
+
+function applyAccessibilitySettings() {
+  // Apply/remove classes based on settings
+  for (const [setting, enabled] of Object.entries(accessibilitySettings)) {
+    const className = settingClasses[setting];
+    if (className) {
+      document.body.classList.toggle(className, enabled);
+    }
+  }
+
+  // Update single-click mode for desktop icons
+  updateSingleClickMode();
+
+  // Update all checkboxes in accessibility windows and quick panel
+  updateAccessibilityUI();
+
+  // Announce change for screen readers
+  if (accessibilitySettings.screenReaderMode) {
+    announceForScreenReader('Accessibility settings updated');
+  }
+}
+
+function updateSingleClickMode() {
+  // This is handled by checking accessibilitySettings.singleClick in click handlers
+  // Re-initialize desktop icons if they exist
+  const icons = document.querySelectorAll('.desktop-icon');
+  icons.forEach(icon => {
+    // Remove existing listeners by cloning
+    const newIcon = icon.cloneNode(true);
+    icon.parentNode.replaceChild(newIcon, icon);
+
+    // Add appropriate listener
+    if (accessibilitySettings.singleClick) {
+      newIcon.addEventListener('click', (e) => {
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      });
+    } else {
+      newIcon.addEventListener('dblclick', (e) => {
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      });
+      newIcon.addEventListener('click', (e) => {
+        document.querySelectorAll('.desktop-icon').forEach(i => i.classList.remove('selected'));
+        e.currentTarget.classList.add('selected');
+      });
+    }
+
+    // Add keyboard support
+    newIcon.setAttribute('tabindex', '0');
+    newIcon.setAttribute('role', 'button');
+    newIcon.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      }
+    });
+  });
+}
+
+function updateAccessibilityUI() {
+  // Update checkboxes in accessibility window
+  for (const [setting, enabled] of Object.entries(accessibilitySettings)) {
+    const checkbox = document.querySelector(`[data-setting="${setting}"]`);
+    if (checkbox && checkbox.type === 'checkbox') {
+      checkbox.checked = enabled;
+    }
+  }
+
+  // Update quick panel toggles
+  document.querySelectorAll('.a11y-quick-toggle').forEach(btn => {
+    const setting = btn.dataset.setting;
+    if (setting && accessibilitySettings[setting] !== undefined) {
+      btn.classList.toggle('active', accessibilitySettings[setting]);
+    }
+  });
+}
+
+function toggleAccessibilitySetting(setting, value = null) {
+  if (accessibilitySettings[setting] !== undefined) {
+    accessibilitySettings[setting] = value !== null ? value : !accessibilitySettings[setting];
+    applyAccessibilitySettings();
+    saveAccessibilitySettings();
+  }
+}
+
+function resetAccessibilitySettings() {
+  for (const key of Object.keys(accessibilitySettings)) {
+    accessibilitySettings[key] = false;
+  }
+  applyAccessibilitySettings();
+  saveAccessibilitySettings();
+}
+
+function initRoomAccessibilityButton() {
+  const btn = document.getElementById('room-accessibility-btn');
+  const panel = document.getElementById('a11y-quick-panel');
+
+  if (btn && panel) {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      panel.classList.toggle('visible');
+
+      // Focus first toggle when opening
+      if (panel.classList.contains('visible')) {
+        const firstToggle = panel.querySelector('.a11y-quick-toggle');
+        if (firstToggle) firstToggle.focus();
+      }
+    });
+  }
+}
+
+function initQuickAccessibilityPanel() {
+  const panel = document.getElementById('a11y-quick-panel');
+  const closeBtn = document.getElementById('a11y-quick-close');
+  const openFullBtn = document.getElementById('a11y-open-full');
+
+  if (!panel) return;
+
+  // Close button
+  closeBtn?.addEventListener('click', () => {
+    panel.classList.remove('visible');
+  });
+
+  // Close on click outside
+  document.addEventListener('click', (e) => {
+    if (panel.classList.contains('visible') &&
+        !panel.contains(e.target) &&
+        e.target.id !== 'room-accessibility-btn') {
+      panel.classList.remove('visible');
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panel.classList.contains('visible')) {
+      panel.classList.remove('visible');
+    }
+  });
+
+  // Quick toggles
+  panel.querySelectorAll('.a11y-quick-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const setting = btn.dataset.setting;
+      toggleAccessibilitySetting(setting);
+    });
+  });
+
+  // Open full settings
+  openFullBtn?.addEventListener('click', () => {
+    panel.classList.remove('visible');
+    // Go to desktop and open accessibility panel
+    if (state.currentScene !== 'desktop') {
+      transitionToDesktop(() => {
+        openApp('accessibility', 'settings');
+      });
+    } else {
+      openApp('accessibility', 'settings');
+    }
+  });
+}
+
+function initAccessibilityWindow(windowEl) {
+  const applyBtn = windowEl.querySelector('#a11y-apply');
+  const resetBtn = windowEl.querySelector('#a11y-reset');
+
+  // Set initial checkbox states
+  windowEl.querySelectorAll('[data-setting]').forEach(input => {
+    const setting = input.dataset.setting;
+    if (accessibilitySettings[setting] !== undefined) {
+      input.checked = accessibilitySettings[setting];
+    }
+
+    // Add change listeners
+    input.addEventListener('change', () => {
+      toggleAccessibilitySetting(setting, input.checked);
+    });
+  });
+
+  // Apply & Close button
+  applyBtn?.addEventListener('click', () => {
+    // Settings are already applied in real-time, just close
+    const windowId = windowEl.id;
+    closeWindow(windowId);
+  });
+
+  // Reset button
+  resetBtn?.addEventListener('click', () => {
+    resetAccessibilitySettings();
+    // Update all checkboxes
+    windowEl.querySelectorAll('[data-setting]').forEach(input => {
+      input.checked = false;
+    });
+  });
+}
+
+// Screen reader announcement helper
+function announceForScreenReader(message) {
+  let announcer = document.getElementById('sr-announcer');
+  if (!announcer) {
+    announcer = document.createElement('div');
+    announcer.id = 'sr-announcer';
+    announcer.setAttribute('aria-live', 'polite');
+    announcer.setAttribute('aria-atomic', 'true');
+    announcer.className = 'sr-only';
+    document.body.appendChild(announcer);
+  }
+  announcer.textContent = '';
+  setTimeout(() => {
+    announcer.textContent = message;
+  }, 100);
 }
