@@ -895,8 +895,9 @@ function openApp(appType, fileId) {
   const windowId = `window-${Date.now()}`;
   windowEl.id = windowId;
 
-  // Position window
-  const offset = state.windows.length * 30;
+  // Position window - cycle offset to prevent cascade off screen
+  const maxOffset = 150; // Max cascade before resetting
+  const offset = (state.windows.length * 30) % maxOffset;
   windowEl.style.left = `${50 + offset}px`;
   windowEl.style.top = `${30 + offset}px`;
   windowEl.style.width = getWindowSize(appType).width;
@@ -2268,12 +2269,15 @@ function initCatPong(windowEl) {
   function update() {
     if (!game.running || game.paused) return;
 
-    // Simple AI for left paddle
+    // Simple AI for left paddle (intentionally beatable)
     const paddleCenter = game.paddleLeft.y + game.paddleLeft.height / 2;
-    if (paddleCenter < game.ball.y - 20) {
-      game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed * 0.7);
-    } else if (paddleCenter > game.ball.y + 20) {
-      game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed * 0.7);
+    // Only react when ball is on AI's side of the court
+    if (game.ball.x < canvas.width / 2) {
+      if (paddleCenter < game.ball.y - 30) {
+        game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed * 0.45);
+      } else if (paddleCenter > game.ball.y + 30) {
+        game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed * 0.45);
+      }
     }
 
     // Move player paddle (right) based on keys
