@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .calculator-window {
+      background: #2d2d44;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 480px;
+      overflow: hidden;
+    }
+
+    .window-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .window-controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    .control {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .control.close { background: #ff5f57; }
+    .control.minimize { background: #ffbd2e; }
+    .control.maximize { background: #28ca41; }
+
+    .window-title {
+      color: white;
+      font-size: 13px;
+      font-weight: 600;
+      flex: 1;
+      text-align: center;
+      margin-right: 52px;
+    }
+
+    .calculator-body {
+      padding: 24px;
+    }
+
+    .calculator-intro {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .calculator-intro h1 {
+      color: #fff;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .calculator-intro p {
+      color: #a0a0b8;
+      font-size: 13px;
+    }
+
+    .input-group {
+      margin-bottom: 18px;
+    }
+
+    .input-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .input-label span {
+      color: #d0d0e0;
+      font-size: 13px;
+    }
+
+    .input-value {
+      color: #667eea;
+      font-weight: 600;
+      font-size: 13px;
+      min-width: 40px;
+      text-align: right;
+    }
+
+    .slider {
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #3d3d5c;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(102, 126, 234, 0.4);
+      transition: transform 0.15s ease;
+    }
+
+    .slider::-webkit-slider-thumb:hover {
+      transform: scale(1.1);
+    }
+
+    .slider::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 6px rgba(102, 126, 234, 0.4);
+    }
+
+    .divider {
+      height: 1px;
+      background: #3d3d5c;
+      margin: 24px 0;
+    }
+
+    .calculate-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .calculate-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+
+    .calculate-btn:active {
+      transform: translateY(0);
+    }
+
+    .results {
+      display: none;
+      text-align: center;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .results.show {
+      display: block;
+    }
+
+    .result-score {
+      font-size: 48px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .result-label {
+      color: #a0a0b8;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .result-message {
+      background: #3d3d5c;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .result-message p {
+      color: #d0d0e0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .result-breakdown {
+      text-align: left;
+      background: #252538;
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .breakdown-title {
+      color: #a0a0b8;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+
+    .breakdown-item {
+      display: flex;
+      justify-content: space-between;
+      color: #d0d0e0;
+      font-size: 12px;
+      padding: 4px 0;
+    }
+
+    .breakdown-item span:last-child {
+      color: #667eea;
+      font-weight: 600;
+    }
+
+    .recalculate-btn {
+      background: transparent;
+      color: #667eea;
+      border: 1px solid #667eea;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .recalculate-btn:hover {
+      background: #667eea;
+      color: white;
+    }
+
+    .inputs-section {
+      display: block;
+    }
+
+    .inputs-section.hidden {
+      display: none;
+    }
+
+    /* Fun tier badges */
+    .tier-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .tier-legendary { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; }
+    .tier-exceptional { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+    .tier-valuable { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: #1a1a2e; }
+    .tier-growing { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); color: #1a1a2e; }
+  </style>
+</head>
+<body>
+
+  <div class="calculator-window">
+    <div class="window-header">
+      <div class="window-controls">
+        <div class="control close"></div>
+        <div class="control minimize"></div>
+        <div class="control maximize"></div>
+      </div>
+      <div class="window-title">Value Calculator v1.0</div>
+    </div>
+
+    <div class="calculator-body">
+      <div class="calculator-intro">
+        <h1>How Valuable Am I?</h1>
+        <p>A deeply scientific* calculation of your worth<br><span style="font-size: 11px; opacity: 0.7;">*not scientific at all</span></p>
+      </div>
+
+      <div class="inputs-section" id="inputsSection">
+        <div class="input-group">
+          <div class="input-label">
+            <span>Years of experience</span>
+            <span class="input-value" id="experienceValue">5</span>
+          </div>
+          <input type="range" class="slider" id="experience" min="0" max="25" value="5">
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">
+            <span>Problems solved before anyone noticed</span>
+            <span class="input-value" id="proactiveValue">3</span>
+          </div>
+          <input type="range" class="slider" id="proactive" min="0" max="10" value="3">
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">
+            <span>Complex things made simple (this month)</span>
+            <span class="input-value" id="simplicityValue">4</span>
+          </div>
+          <input type="range" class="slider" id="simplicity" min="0" max="15" value="4">
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">
+            <span>Times you've said "I have a doc for that"</span>
+            <span class="input-value" id="docsValue">6</span>
+          </div>
+          <input type="range" class="slider" id="docs" min="0" max="20" value="6">
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">
+            <span>Questions answered before they were asked</span>
+            <span class="input-value" id="anticipateValue">2</span>
+          </div>
+          <input type="range" class="slider" id="anticipate" min="0" max="10" value="2">
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">
+            <span>Hours saved for others (weekly)</span>
+            <span class="input-value" id="hoursSavedValue">5</span>
+          </div>
+          <input type="range" class="slider" id="hoursSaved" min="0" max="40" value="5">
+        </div>
+
+        <div class="input-group">
+          <div class="input-label">
+            <span>Things built that are still being used</span>
+            <span class="input-value" id="lastingValue">3</span>
+          </div>
+          <input type="range" class="slider" id="lasting" min="0" max="20" value="3">
+        </div>
+
+        <div class="divider"></div>
+
+        <button class="calculate-btn" id="calculateBtn">Calculate My Value</button>
+      </div>
+
+      <div class="results" id="results">
+        <div class="tier-badge" id="tierBadge">Exceptional</div>
+        <div class="result-score" id="resultScore">847</div>
+        <div class="result-label">Arbitrary Value Units™</div>
+
+        <div class="result-message" id="resultMessage">
+          <p>Loading wisdom...</p>
+        </div>
+
+        <div class="result-breakdown">
+          <div class="breakdown-title">Value Breakdown</div>
+          <div class="breakdown-item">
+            <span>Foundation (experience)</span>
+            <span id="breakdownExp">+100</span>
+          </div>
+          <div class="breakdown-item">
+            <span>Prevention multiplier</span>
+            <span id="breakdownPrevention">×1.5</span>
+          </div>
+          <div class="breakdown-item">
+            <span>Clarity bonus</span>
+            <span id="breakdownClarity">+80</span>
+          </div>
+          <div class="breakdown-item">
+            <span>Documentation dividend</span>
+            <span id="breakdownDocs">+120</span>
+          </div>
+          <div class="breakdown-item">
+            <span>Time liberation index</span>
+            <span id="breakdownTime">+200</span>
+          </div>
+          <div class="breakdown-item">
+            <span>Legacy factor</span>
+            <span id="breakdownLegacy">+150</span>
+          </div>
+        </div>
+
+        <button class="recalculate-btn" id="recalculateBtn">Recalculate</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Slider value displays
+    const sliders = [
+      { id: 'experience', valueId: 'experienceValue' },
+      { id: 'proactive', valueId: 'proactiveValue' },
+      { id: 'simplicity', valueId: 'simplicityValue' },
+      { id: 'docs', valueId: 'docsValue' },
+      { id: 'anticipate', valueId: 'anticipateValue' },
+      { id: 'hoursSaved', valueId: 'hoursSavedValue' },
+      { id: 'lasting', valueId: 'lastingValue' }
+    ];
+
+    sliders.forEach(s => {
+      const slider = document.getElementById(s.id);
+      const valueDisplay = document.getElementById(s.valueId);
+      slider.addEventListener('input', () => {
+        valueDisplay.textContent = slider.value;
+      });
+    });
+
+    // Messages based on score tiers
+    const messages = {
+      legendary: [
+        "You're not just valuable—you're the reason things work smoothly while everyone else wonders how. The quiet architect of 'it just works.'",
+        "Your value isn't measured in what you do, but in all the chaos that never happens because you exist. That's rare.",
+        "You've reached the level where your absence would be felt for months. People would slowly realize all the things that 'used to just work.'"
+      ],
+      exceptional: [
+        "You're the person people don't realize they depend on until you take a vacation. That's not an accident—that's years of quiet excellence.",
+        "High value isn't always loud. Yours is the kind that compounds silently—each system improved, each problem prevented, each hour saved.",
+        "You've built the kind of value that outlasts projects. The templates, the docs, the 'oh, there's already a process for that'—that's legacy."
+      ],
+      valuable: [
+        "You're building something real. The instinct to document, to anticipate, to simplify—these aren't common skills. They're multipliers.",
+        "Your value shows up in the things that don't break, the questions that don't get asked, the time that doesn't get wasted. Keep going.",
+        "You're past the point of just doing tasks. You're making systems better. That's the difference between a contributor and a force multiplier."
+      ],
+      growing: [
+        "You're on the right path. Every problem you solve before it escalates, every doc you create—it's compounding into something significant.",
+        "Value isn't about being everywhere at once. It's about making your presence count. You're learning to do exactly that.",
+        "The foundation is there. Now it's about consistency—keep building those habits that turn good work into lasting impact."
+      ]
+    };
+
+    function calculate() {
+      const exp = parseInt(document.getElementById('experience').value);
+      const proactive = parseInt(document.getElementById('proactive').value);
+      const simplicity = parseInt(document.getElementById('simplicity').value);
+      const docs = parseInt(document.getElementById('docs').value);
+      const anticipate = parseInt(document.getElementById('anticipate').value);
+      const hoursSaved = parseInt(document.getElementById('hoursSaved').value);
+      const lasting = parseInt(document.getElementById('lasting').value);
+
+      // Calculate component scores
+      const foundationScore = exp * 20;
+      const preventionMultiplier = 1 + (proactive * 0.15);
+      const clarityBonus = simplicity * 18;
+      const docsBonus = docs * 15;
+      const timeBonus = hoursSaved * 25;
+      const legacyBonus = lasting * 40;
+      const anticipateBonus = anticipate * 30;
+
+      // Total calculation
+      let total = foundationScore + clarityBonus + docsBonus + timeBonus + legacyBonus + anticipateBonus;
+      total = Math.round(total * preventionMultiplier);
+
+      // Determine tier
+      let tier, tierClass, messagePool;
+      if (total >= 800) {
+        tier = 'Legendary';
+        tierClass = 'tier-legendary';
+        messagePool = messages.legendary;
+      } else if (total >= 500) {
+        tier = 'Exceptional';
+        tierClass = 'tier-exceptional';
+        messagePool = messages.exceptional;
+      } else if (total >= 250) {
+        tier = 'Valuable';
+        tierClass = 'tier-valuable';
+        messagePool = messages.valuable;
+      } else {
+        tier = 'Growing';
+        tierClass = 'tier-growing';
+        messagePool = messages.growing;
+      }
+
+      // Update display
+      document.getElementById('resultScore').textContent = total.toLocaleString();
+
+      const badge = document.getElementById('tierBadge');
+      badge.textContent = tier;
+      badge.className = 'tier-badge ' + tierClass;
+
+      const message = messagePool[Math.floor(Math.random() * messagePool.length)];
+      document.getElementById('resultMessage').innerHTML = `<p>${message}</p>`;
+
+      // Update breakdown
+      document.getElementById('breakdownExp').textContent = '+' + foundationScore;
+      document.getElementById('breakdownPrevention').textContent = '×' + preventionMultiplier.toFixed(2);
+      document.getElementById('breakdownClarity').textContent = '+' + clarityBonus;
+      document.getElementById('breakdownDocs').textContent = '+' + docsBonus;
+      document.getElementById('breakdownTime').textContent = '+' + timeBonus;
+      document.getElementById('breakdownLegacy').textContent = '+' + (legacyBonus + anticipateBonus);
+
+      // Show results
+      document.getElementById('inputsSection').classList.add('hidden');
+      document.getElementById('results').classList.add('show');
+    }
+
+    function recalculate() {
+      document.getElementById('inputsSection').classList.remove('hidden');
+      document.getElementById('results').classList.remove('show');
+    }
+
+    document.getElementById('calculateBtn').addEventListener('click', calculate);
+    document.getElementById('recalculateBtn').addEventListener('click', recalculate);
+  </script>
+
+</body>
+</html>

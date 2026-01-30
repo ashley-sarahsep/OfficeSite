@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Visual Language: Crafting Prompts for Data Visualizations</title>
+  <style>
+    :root {
+      --indigo: #4c1d95;
+      --indigo-mid: #6d28d9;
+      --violet: #8b5cf6;
+      --violet-light: #ede9fe;
+      --gold: #d97706;
+      --gold-light: #fef3c7;
+      --cream: #faf9f7;
+      --warm-white: #ffffff;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --sage: #059669;
+      --sage-light: #d1fae5;
+      --rose: #be123c;
+      --rose-light: #ffe4e6;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      background: linear-gradient(135deg, var(--indigo) 0%, var(--violet) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-light);
+      font-size: 15px;
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    .intro {
+      background: var(--warm-white);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 28px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .intro p {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      color: var(--indigo);
+      font-size: 21px;
+      margin: 32px 0 16px 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--violet-light);
+    }
+
+    h3 {
+      color: var(--indigo-mid);
+      font-size: 16px;
+      margin: 20px 0 10px 0;
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    /* Comparison Grid */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    @media (max-width: 640px) {
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ex-box {
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 13px;
+    }
+
+    .ex-box.basic {
+      background: var(--rose-light);
+      border: 1px solid #fecdd3;
+    }
+
+    .ex-box.enhanced {
+      background: var(--sage-light);
+      border: 1px solid #a7f3d0;
+    }
+
+    .ex-header {
+      padding: 5px 12px;
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ex-box.basic .ex-header {
+      background: #fecdd3;
+      color: var(--rose);
+    }
+
+    .ex-box.enhanced .ex-header {
+      background: #a7f3d0;
+      color: #047857;
+    }
+
+    .ex-content {
+      padding: 12px;
+    }
+
+    .prompt-text {
+      background: rgba(0,0,0,0.04);
+      padding: 8px 10px;
+      border-radius: 4px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 11px;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .result-text {
+      color: var(--text-light);
+      font-size: 11px;
+      font-style: italic;
+    }
+
+    /* Full-width Example */
+    .ex-full {
+      background: var(--sage-light);
+      border: 1px solid #a7f3d0;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 14px 0;
+    }
+
+    .ex-full .ex-header {
+      background: #a7f3d0;
+      color: #047857;
+    }
+
+    .ex-full .ex-content {
+      padding: 14px;
+    }
+
+    /* Tip Boxes */
+    .tip {
+      background: linear-gradient(135deg, var(--violet-light) 0%, #f5f3ff 100%);
+      border-left: 3px solid var(--indigo-mid);
+      padding: 14px 16px;
+      margin: 16px 0;
+      border-radius: 0 8px 8px 0;
+      font-size: 13px;
+    }
+
+    .tip-title {
+      font-weight: 600;
+      color: var(--indigo);
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .tip ul {
+      margin: 8px 0 0 18px;
+    }
+
+    .tip li {
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    /* Template Box */
+    .template {
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+      margin: 14px 0;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 12px;
+      line-height: 1.6;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .template-example {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      font-size: 11px;
+      color: var(--text-light);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Style Cards Grid */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    @media (max-width: 640px) {
+      .style-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .style-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .style-preview {
+      height: 100px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .style-preview .chart-title {
+      font-size: 9px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .style-preview .bars {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      padding: 0 8px;
+    }
+
+    .style-preview .bar {
+      width: 14%;
+      border-radius: 2px 2px 0 0;
+    }
+
+    .bar-1 { height: 55%; }
+    .bar-2 { height: 80%; }
+    .bar-3 { height: 35%; }
+    .bar-4 { height: 65%; }
+    .bar-5 { height: 45%; }
+
+    /* Style Variations */
+    .corporate-preview {
+      background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+      color: #334155;
+    }
+    .corporate-preview .bar { background: #3b82f6; }
+
+    .vibrant-preview {
+      background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+      color: white;
+    }
+    .vibrant-preview .bar { background: rgba(255,255,255,0.85); }
+
+    .minimal-preview {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      color: #374151;
+    }
+    .minimal-preview .bar { background: #6b7280; }
+
+    .dark-preview {
+      background: #1e293b;
+      color: #e2e8f0;
+    }
+    .dark-preview .bar { background: #4ade80; }
+
+    .style-info {
+      padding: 12px;
+      background: var(--warm-white);
+    }
+
+    .style-name {
+      font-weight: 600;
+      color: var(--indigo);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .style-desc {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .style-keywords {
+      font-family: 'SF Mono', Monaco, monospace;
+      background: var(--violet-light);
+      color: var(--indigo-mid);
+      padding: 3px 6px;
+      border-radius: 3px;
+      font-size: 10px;
+      display: inline-block;
+    }
+
+    .color-strip {
+      display: flex;
+      height: 12px;
+      margin-top: 8px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .color-strip span {
+      flex: 1;
+    }
+
+    /* Color Palette Demo */
+    .palette-demo {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .palette-swatch {
+      flex: 1;
+      text-align: center;
+    }
+
+    .palette-swatch .color {
+      height: 32px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+    }
+
+    .palette-swatch .hex {
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 9px;
+      color: var(--text-light);
+    }
+
+    /* Layout Examples */
+    .layout-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    @media (max-width: 640px) {
+      .layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .layout-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--warm-white);
+    }
+
+    .layout-label {
+      background: var(--border);
+      padding: 6px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 11px;
+      color: var(--text);
+    }
+
+    .layout-preview {
+      height: 100px;
+      padding: 8px;
+      background: #f9fafb;
+    }
+
+    .layout-mock {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .mock-header {
+      background: #d1d5db;
+      height: 16px;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7px;
+      color: #6b7280;
+    }
+
+    .mock-body {
+      flex: 1;
+      display: flex;
+      gap: 4px;
+    }
+
+    .mock-chart {
+      flex: 1;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 2px;
+    }
+
+    .mock-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .mock-tile {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 2px;
+    }
+
+    /* Audience Comparison */
+    .audience-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0;
+    }
+
+    @media (max-width: 640px) {
+      .audience-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .audience-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .audience-label {
+      padding: 8px 12px;
+      font-weight: 600;
+      font-size: 12px;
+      background: var(--violet-light);
+      color: var(--indigo);
+    }
+
+    .audience-preview {
+      height: 80px;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+
+    .audience-preview .mini-chart {
+      width: 100%;
+      height: 100%;
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      padding: 6px;
+    }
+
+    .mini-title {
+      font-size: 8px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .mini-bars {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+    }
+
+    .mini-bar {
+      width: 12%;
+      background: #6366f1;
+      border-radius: 1px;
+    }
+
+    .audience-tip {
+      padding: 10px 12px;
+      background: var(--warm-white);
+      font-size: 11px;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* Lists */
+    ul, ol {
+      margin: 10px 0 10px 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+      font-size: 13px;
+    }
+
+    li strong {
+      color: var(--indigo-mid);
+    }
+
+    /* Chart Selection Guide */
+    .chart-guide {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 12px 0;
+      font-size: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .chart-guide {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-guide-item {
+      background: var(--warm-white);
+      padding: 10px 12px;
+      border-radius: 6px;
+      border-left: 3px solid var(--violet);
+    }
+
+    .chart-guide-item strong {
+      color: var(--indigo);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 11px;
+    }
+
+    .chart-guide-item span {
+      color: var(--text-light);
+      font-size: 11px;
+    }
+
+    /* Exercise Box */
+    .exercise {
+      background: var(--gold-light);
+      border: 1px solid #fcd34d;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 18px 0;
+    }
+
+    .exercise-title {
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .exercise ol {
+      margin-left: 20px;
+    }
+
+    .exercise li {
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    /* Conclusion */
+    .conclusion {
+      background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-mid) 100%);
+      color: white;
+      padding: 24px;
+      border-radius: 10px;
+      margin-top: 28px;
+    }
+
+    .conclusion h2 {
+      color: white;
+      border-bottom-color: rgba(255,255,255,0.2);
+      margin-top: 0;
+    }
+
+    .conclusion p {
+      color: rgba(255,255,255,0.9);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 28px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--text-light);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>The Visual Language</h1>
+    <p class="subtitle">How to craft prompts that produce stunning data visualizations in your mAInEvent Agent</p>
+  </header>
+
+  <div class="intro">
+    <p>The mAInEvent Agent can create beautiful, informative visualizations—but quality depends entirely on how you request them.</p>
+    <p>This guide shows you how to control every aspect of your visuals: chart types, colors, layouts, and aesthetics. Master these techniques to create visualizations that are accurate, compelling, and perfectly tailored to your audience.</p>
+  </div>
+
+  <h2>The Anatomy of a Visual Prompt</h2>
+
+  <p>Effective visualization prompts contain specific elements that dramatically improve results:</p>
+
+  <div class="comparison">
+    <div class="ex-box basic">
+      <div class="ex-header">Basic Prompt</div>
+      <div class="ex-content">
+        <div class="prompt-text">Make a chart showing our event attendance.</div>
+        <div class="result-text">AI produces basic chart with default colors, guessing timeframe and data scope.</div>
+      </div>
+    </div>
+    <div class="ex-box enhanced">
+      <div class="ex-header">Enhanced Prompt</div>
+      <div class="ex-content">
+        <div class="prompt-text">Create a vertical bar chart comparing average attendance across our five top markets for Q2 2023 sampling events. Use blue-to-purple gradient, include error bars for std deviation, annotate markets exceeding 150-attendee target. Title: "Q2 2023: Market Attendance Performance"</div>
+        <div class="result-text">Precisely styled chart with branded colors, meaningful annotations, and clear story.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Key Elements of Effective Visual Prompts</h3>
+  <ol>
+    <li><strong>Visualization Type</strong> – Bar chart, line graph, scatter plot, pie chart, etc.</li>
+    <li><strong>Data Parameters</strong> – Metrics, time periods, segments to include</li>
+    <li><strong>Visual Style</strong> – Colors, fonts, overall aesthetic</li>
+    <li><strong>Annotations</strong> – Callouts, labels, highlights</li>
+    <li><strong>Context</strong> – How/where the visualization will be used</li>
+  </ol>
+
+  <div class="template">
+    Create a [CHART TYPE] showing [METRICS] for [DIMENSIONS] during [TIME PERIOD]. Style with [COLOR/STYLE], include [ANNOTATIONS]. Title: "[TITLE]" with subtitle [INSTRUCTION]. For [PURPOSE/AUDIENCE].
+    <div class="template-example">Example: "Create a stacked area chart showing cumulative impressions by channel (social, in-person, digital) for Q1-Q3. Use brand colors (navy #1a365d, teal #0bc5ea). Annotate key campaign dates. Title: 'Channel Performance: YTD Impressions'. For marketing executive strategy meeting."</div>
+  </div>
+
+  <h2>Chart Selection: Match Chart to Data Story</h2>
+
+  <div class="comparison">
+    <div class="ex-box basic">
+      <div class="ex-header">Basic</div>
+      <div class="ex-content">
+        <div class="prompt-text">Show me the breakdown of our events by type.</div>
+        <div class="result-text">May produce a pie chart—not ideal for many categories or time comparisons.</div>
+      </div>
+    </div>
+    <div class="ex-box enhanced">
+      <div class="ex-header">Enhanced</div>
+      <div class="ex-content">
+        <div class="prompt-text">Create a horizontal bar chart ranking event types by Q3 attendance, with sparklines showing 4-quarter trends. Color-code by YoY growth (red=negative, green=positive). Sort highest to lowest.</div>
+        <div class="result-text">Data-rich visualization showing performance, trends, and growth in one view.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Chart Type Selection Guide</h3>
+  <div class="chart-guide">
+    <div class="chart-guide-item">
+      <strong>Category Comparisons</strong>
+      <span>Bar charts (vertical for few, horizontal for many)</span>
+    </div>
+    <div class="chart-guide-item">
+      <strong>Changes Over Time</strong>
+      <span>Line charts, area charts, column charts</span>
+    </div>
+    <div class="chart-guide-item">
+      <strong>Part-to-Whole</strong>
+      <span>Pie charts (5 or fewer), stacked bars, treemaps</span>
+    </div>
+    <div class="chart-guide-item">
+      <strong>Distributions</strong>
+      <span>Histograms, box plots, violin plots</span>
+    </div>
+    <div class="chart-guide-item">
+      <strong>Correlations</strong>
+      <span>Scatter plots, bubble charts</span>
+    </div>
+    <div class="chart-guide-item">
+      <strong>Geographic Data</strong>
+      <span>Maps with data overlays</span>
+    </div>
+    <div class="chart-guide-item">
+      <strong>Multi-dimensional</strong>
+      <span>Radar/spider charts, parallel coordinates</span>
+    </div>
+    <div class="chart-guide-item">
+      <strong>Hierarchies</strong>
+      <span>Treemaps, sunburst diagrams, network graphs</span>
+    </div>
+  </div>
+
+  <h2>The Language of Color</h2>
+
+  <p>Color choices dramatically impact how visualizations are perceived. Be specific to ensure brand alignment and effective data communication.</p>
+
+  <div class="comparison">
+    <div class="ex-box basic">
+      <div class="ex-header">Basic</div>
+      <div class="ex-content">
+        <div class="prompt-text">Make a colorful chart of market performance.</div>
+        <div class="result-text">Default colors that may not align with brand or distinguish data well.</div>
+      </div>
+    </div>
+    <div class="ex-box enhanced">
+      <div class="ex-header">Enhanced</div>
+      <div class="ex-content">
+        <div class="prompt-text">Use brand colors: #3182CE primary, #805AD5 secondary, #D53F8C for highlights. Light gray background (#F7FAFC), subtle grid. Dark gray text (#2D3748) for readability.</div>
+        <div class="result-text">Precise color coordination with brand identity and visual hierarchy.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Color Specification Methods</h3>
+  <div class="palette-demo">
+    <div class="palette-swatch">
+      <div class="color" style="background: #3182CE;"></div>
+      <div class="hex">#3182CE</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="color" style="background: #805AD5;"></div>
+      <div class="hex">#805AD5</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="color" style="background: #D53F8C;"></div>
+      <div class="hex">#D53F8C</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="color" style="background: #F7FAFC;"></div>
+      <div class="hex">#F7FAFC</div>
+    </div>
+    <div class="palette-swatch">
+      <div class="color" style="background: #2D3748;"></div>
+      <div class="hex">#2D3748</div>
+    </div>
+  </div>
+
+  <ul>
+    <li><strong>Hex Codes</strong> – Most precise (e.g., "#3182CE")</li>
+    <li><strong>Named Colors</strong> – Less precise, easy to use ("navy blue", "forest green")</li>
+    <li><strong>Color Schemes</strong> – "Blue-to-purple gradient", "complementary colors"</li>
+    <li><strong>Semantic Colors</strong> – "Red for negative, green for positive"</li>
+    <li><strong>Design References</strong> – "Material Design palette", "IBM Carbon colors"</li>
+  </ul>
+
+  <div class="tip">
+    <div class="tip-title">Color Purpose Strategy</div>
+    <ul>
+      <li><strong>Primary data</strong> – Main brand color or prominent color</li>
+      <li><strong>Secondary data</strong> – Complementary or analogous colors</li>
+      <li><strong>Background</strong> – Light neutrals (grays, off-whites)</li>
+      <li><strong>Highlights</strong> – Bright accent colors that contrast</li>
+      <li><strong>Text</strong> – Dark, high-contrast for readability</li>
+    </ul>
+  </div>
+
+  <h2>Visual Styles & Aesthetics</h2>
+
+  <p>Request complete visual styles as shorthand for combinations of colors, fonts, and design elements.</p>
+
+  <div class="style-grid">
+    <div class="style-card">
+      <div class="style-preview corporate-preview">
+        <div class="chart-title">Regional Performance</div>
+        <div class="bars">
+          <div class="bar bar-1"></div>
+          <div class="bar bar-2"></div>
+          <div class="bar bar-3"></div>
+          <div class="bar bar-4"></div>
+          <div class="bar bar-5"></div>
+        </div>
+      </div>
+      <div class="style-info">
+        <div class="style-name">Corporate / Professional</div>
+        <div class="style-desc">Clean, formal with subdued colors and clarity emphasis</div>
+        <div class="style-keywords">professional, corporate, formal, clean</div>
+        <div class="color-strip">
+          <span style="background: #2c5282;"></span>
+          <span style="background: #3182ce;"></span>
+          <span style="background: #4299e1;"></span>
+          <span style="background: #63b3ed;"></span>
+          <span style="background: #90cdf4;"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <div class="style-preview vibrant-preview">
+        <div class="chart-title">Regional Performance</div>
+        <div class="bars">
+          <div class="bar bar-1"></div>
+          <div class="bar bar-2"></div>
+          <div class="bar bar-3"></div>
+          <div class="bar bar-4"></div>
+          <div class="bar bar-5"></div>
+        </div>
+      </div>
+      <div class="style-info">
+        <div class="style-name">Vibrant / Bold</div>
+        <div class="style-desc">Eye-catching with bright colors and dynamic elements</div>
+        <div class="style-keywords">vibrant, bold, colorful, energetic</div>
+        <div class="color-strip">
+          <span style="background: #6b46c1;"></span>
+          <span style="background: #805ad5;"></span>
+          <span style="background: #d53f8c;"></span>
+          <span style="background: #ed64a6;"></span>
+          <span style="background: #f687b3;"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <div class="style-preview minimal-preview">
+        <div class="chart-title">Regional Performance</div>
+        <div class="bars">
+          <div class="bar bar-1"></div>
+          <div class="bar bar-2"></div>
+          <div class="bar bar-3"></div>
+          <div class="bar bar-4"></div>
+          <div class="bar bar-5"></div>
+        </div>
+      </div>
+      <div class="style-info">
+        <div class="style-name">Minimalist</div>
+        <div class="style-desc">Simplified with ample white space, minimal elements</div>
+        <div class="style-keywords">minimalist, clean, simple, elegant</div>
+        <div class="color-strip">
+          <span style="background: #1a202c;"></span>
+          <span style="background: #2d3748;"></span>
+          <span style="background: #4a5568;"></span>
+          <span style="background: #718096;"></span>
+          <span style="background: #a0aec0;"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="style-card">
+      <div class="style-preview dark-preview">
+        <div class="chart-title">Regional Performance</div>
+        <div class="bars">
+          <div class="bar bar-1"></div>
+          <div class="bar bar-2"></div>
+          <div class="bar bar-3"></div>
+          <div class="bar bar-4"></div>
+          <div class="bar bar-5"></div>
+        </div>
+      </div>
+      <div class="style-info">
+        <div class="style-name">Dark Mode</div>
+        <div class="style-desc">Sophisticated dark background with bright data elements</div>
+        <div class="style-keywords">dark, sleek, modern, high-contrast</div>
+        <div class="color-strip">
+          <span style="background: #000000;"></span>
+          <span style="background: #1a365d;"></span>
+          <span style="background: #0bc5ea;"></span>
+          <span style="background: #76e4f7;"></span>
+          <span style="background: #ffffff;"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-title">Style Vocabulary</div>
+    <ul>
+      <li><strong>Professional:</strong> "Clean lines, subtle palette, emphasis on clarity"</li>
+      <li><strong>Minimalist:</strong> "Ample white space, thin lines, limited colors"</li>
+      <li><strong>Bold:</strong> "Strong colors, thick lines, prominent callouts"</li>
+      <li><strong>Creative:</strong> "Rounded corners, friendly typography, vibrant colors"</li>
+      <li><strong>Technical:</strong> "Detailed annotations, precise labels, data-dense"</li>
+      <li><strong>Executive:</strong> "Key insights emphasized, minimal detail"</li>
+    </ul>
+  </div>
+
+  <h2>Layout & Composition</h2>
+
+  <p>Structure affects how easily viewers interpret data. Specify layout elements to guide attention effectively.</p>
+
+  <div class="layout-grid">
+    <div class="layout-card">
+      <div class="layout-label">Standard Chart</div>
+      <div class="layout-preview">
+        <div class="layout-mock">
+          <div class="mock-header">Title + Subtitle</div>
+          <div class="mock-body">
+            <div class="mock-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="layout-card">
+      <div class="layout-label">Comparison</div>
+      <div class="layout-preview">
+        <div class="layout-mock">
+          <div class="mock-header">Comparison Title</div>
+          <div class="mock-body">
+            <div class="mock-chart"></div>
+            <div class="mock-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="layout-card">
+      <div class="layout-label">Dashboard</div>
+      <div class="layout-preview">
+        <div class="layout-mock">
+          <div class="mock-header">Dashboard</div>
+          <div class="mock-body">
+            <div class="mock-grid">
+              <div class="mock-tile"></div>
+              <div class="mock-tile"></div>
+              <div class="mock-tile"></div>
+              <div class="mock-tile"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-title">Layout Element Checklist</div>
+    <ul>
+      <li><strong>Title & subtitle</strong> – Position, size, emphasis</li>
+      <li><strong>Legend</strong> – Location (top, bottom, side) and style</li>
+      <li><strong>Axes</strong> – Scale, tick marks, labels, grid lines</li>
+      <li><strong>Data labels</strong> – When to show values directly on chart</li>
+      <li><strong>Annotations</strong> – Callouts, explanatory text, highlights</li>
+      <li><strong>Source info</strong> – Data citations, methodology notes</li>
+      <li><strong>Multiple panels</strong> – Side-by-side, stacked, or grid arrangement</li>
+    </ul>
+  </div>
+
+  <h2>Audience Adaptation</h2>
+
+  <p>Different audiences need different detail levels. Specify who will see your visualization to get appropriate design.</p>
+
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="audience-label">Executive Version</div>
+      <div class="audience-preview">
+        <div class="mini-chart">
+          <div class="mini-title">Q2: 12% Above Target</div>
+          <div class="mini-bars">
+            <div class="mini-bar bar-1"></div>
+            <div class="mini-bar bar-2"></div>
+            <div class="mini-bar bar-3"></div>
+            <div class="mini-bar bar-4"></div>
+            <div class="mini-bar bar-5"></div>
+          </div>
+        </div>
+      </div>
+      <div class="audience-tip">"High-level summary focusing on key outcomes vs benchmarks. Clean, minimal style with prominent headline results."</div>
+    </div>
+    <div class="audience-card">
+      <div class="audience-label">Analyst Version</div>
+      <div class="audience-preview">
+        <div class="mini-chart">
+          <div class="mini-title">Q2 Regional Analysis (N=1,243)</div>
+          <div class="mini-bars">
+            <div class="mini-bar bar-1" style="background: #6b7280;"></div>
+            <div class="mini-bar bar-2" style="background: #6b7280;"></div>
+            <div class="mini-bar bar-3" style="background: #6b7280;"></div>
+            <div class="mini-bar bar-4" style="background: #6b7280;"></div>
+            <div class="mini-bar bar-5" style="background: #6b7280;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="audience-tip">"Detailed analytical chart with statistical annotations, confidence intervals, sample sizes, and methodology notes."</div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-title">Audience-Specific Guidelines</div>
+    <ul>
+      <li><strong>Executives/Board:</strong> Outcomes vs targets, big-picture trends, business implications. Minimal technical detail.</li>
+      <li><strong>Marketing:</strong> Consumer metrics, competitive comparisons, brand impact. Align with marketing materials.</li>
+      <li><strong>Operations:</strong> Detailed breakdowns, efficiency metrics, process-focused annotations.</li>
+      <li><strong>Analysts:</strong> Technical detail, statistical context, methodology notes. Data-dense visualizations.</li>
+      <li><strong>External/Clients:</strong> Value delivered, simplified metrics, clear success stories. Accessible, minimal jargon.</li>
+    </ul>
+  </div>
+
+  <h2>Advanced Techniques</h2>
+
+  <h3>Annotations & Storytelling</h3>
+  <div class="ex-full">
+    <div class="ex-header">Rich Annotation Request</div>
+    <div class="ex-content">
+      <div class="prompt-text">Create a 2023 attendance line chart with: 1) Callout on March campaign launch showing 24% increase, 2) Peak August data label with specific figure, 3) Shaded area for competitor campaign (May-July), 4) Overall growth trendline, 5) Subtle background shading for our promo periods, 6) Text annotation explaining September dip due to weather.</div>
+      <div class="result-text">Richly annotated chart telling a complete story about trends and their context.</div>
+    </div>
+  </div>
+
+  <h3>Multi-Part Visualizations</h3>
+  <div class="ex-full">
+    <div class="ex-header">Coordinated Multi-View Request</div>
+    <div class="ex-content">
+      <div class="prompt-text">Create three-part sampling analysis: 1) Top: Map with locations, circles sized by attendance, colored by conversion rate, 2) Middle: Horizontal bar chart ranking top 10 venues by ROI, 3) Bottom: Line chart showing promotional spend vs attendance relationship. Consistent color scheme across all three. Title section explaining this is Q2 2023 comprehensive analysis.</div>
+      <div class="result-text">Cohesive multi-part visualization examining data from geographic, venue, and budget perspectives.</div>
+    </div>
+  </div>
+
+  <h3>Interactive Elements (Digital)</h3>
+  <div class="ex-full">
+    <div class="ex-header">Interactive Dashboard Request</div>
+    <div class="ex-content">
+      <div class="prompt-text">Create interactive Q3 dashboard with: 1) Dropdown to filter by market/event type, 2) Hover tooltips with detailed metrics, 3) Tabs to toggle between attendance/conversion/cost, 4) Date range selector, 5) Expandable sections for additional detail.</div>
+      <div class="result-text">Interactive elements enabling deeper data exploration in digital formats.</div>
+    </div>
+  </div>
+
+  <div class="exercise">
+    <div class="exercise-title">Practice: Transform These Prompts</div>
+    <ol>
+      <li><strong>Basic:</strong> "Show me a chart of attendance numbers."<br><em>Add: chart type, time period, comparisons, styling, annotations, purpose</em></li>
+      <li><strong>Basic:</strong> "Create a graph comparing our markets."<br><em>Add: specific metrics, visual style, color scheme, audience considerations</em></li>
+      <li><strong>Basic:</strong> "Make a dashboard of Q2 performance."<br><em>Add: multi-part layout, components, styling instructions, interactive elements</em></li>
+    </ol>
+  </div>
+
+  <div class="conclusion">
+    <h2>The Art of Visual Communication</h2>
+    <p>Creating effective visualizations combines data literacy, design sensibility, and clear communication. By mastering visual prompt language, you transform basic charts into compelling narratives that drive understanding and decisions.</p>
+    <p style="margin-top: 12px;">The most effective visualizations balance aesthetic appeal with analytical clarity—visually engaging enough to capture attention while remaining true to data and focused on key insights. Experiment with different styles, chart types, and approaches to discover what works best for your data stories and audiences.</p>
+  </div>
+
+  <footer>
+  </footer>
+
+</body>
+</html>
