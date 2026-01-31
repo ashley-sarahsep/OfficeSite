@@ -1109,6 +1109,9 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'about-computer':
       initAboutComputer(windowEl);
       break;
+    case 'calculator':
+      initCalculator(windowEl);
+      break;
   }
 }
 
@@ -2914,6 +2917,135 @@ function initMinesweeper(windowEl) {
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });
+}
+
+// ============================================
+// VALUE CALCULATOR
+// ============================================
+
+function initCalculator(windowEl) {
+  const sliders = windowEl.querySelectorAll('.calc-slider');
+  const calculateBtn = windowEl.querySelector('.calc-calculate-btn');
+  const recalculateBtn = windowEl.querySelector('.calc-recalculate-btn');
+  const inputsSection = windowEl.querySelector('.calc-inputs-section');
+  const resultsSection = windowEl.querySelector('.calc-results');
+
+  // Messages based on score tiers
+  const messages = {
+    legendary: [
+      "You're not just valuable—you're the reason things work smoothly while everyone else wonders how. The quiet architect of 'it just works.'",
+      "Your value isn't measured in what you do, but in all the chaos that never happens because you exist. That's rare.",
+      "You've reached the level where your absence would be felt for months. People would slowly realize all the things that 'used to just work.'"
+    ],
+    exceptional: [
+      "You're the person people don't realize they depend on until you take a vacation. That's not an accident—that's years of quiet excellence.",
+      "High value isn't always loud. Yours is the kind that compounds silently—each system improved, each problem prevented, each hour saved.",
+      "You've built the kind of value that outlasts projects. The templates, the docs, the 'oh, there's already a process for that'—that's legacy."
+    ],
+    valuable: [
+      "You're building something real. The instinct to document, to anticipate, to simplify—these aren't common skills. They're multipliers.",
+      "Your value shows up in the things that don't break, the questions that don't get asked, the time that doesn't get wasted. Keep going.",
+      "You're past the point of just doing tasks. You're making systems better. That's the difference between a contributor and a force multiplier."
+    ],
+    growing: [
+      "You're on the right path. Every problem you solve before it escalates, every doc you create—it's compounding into something significant.",
+      "Value isn't about being everywhere at once. It's about making your presence count. You're learning to do exactly that.",
+      "The foundation is there. Now it's about consistency—keep building those habits that turn good work into lasting impact."
+    ]
+  };
+
+  // Update slider value displays
+  sliders.forEach(slider => {
+    const calcType = slider.dataset.calc;
+    const valueDisplay = windowEl.querySelector(`.calc-input-value[data-for="${calcType}"]`);
+    if (valueDisplay) {
+      slider.addEventListener('input', () => {
+        valueDisplay.textContent = slider.value;
+      });
+    }
+  });
+
+  // Calculate button
+  calculateBtn?.addEventListener('click', () => {
+    const getValue = (name) => parseInt(windowEl.querySelector(`[data-calc="${name}"]`)?.value || 0);
+
+    const exp = getValue('experience');
+    const proactive = getValue('proactive');
+    const simplicity = getValue('simplicity');
+    const docs = getValue('docs');
+    const anticipate = getValue('anticipate');
+    const hoursSaved = getValue('hoursSaved');
+    const lasting = getValue('lasting');
+
+    // Calculate component scores
+    const foundationScore = exp * 20;
+    const preventionMultiplier = 1 + (proactive * 0.15);
+    const clarityBonus = simplicity * 18;
+    const docsBonus = docs * 15;
+    const timeBonus = hoursSaved * 25;
+    const legacyBonus = lasting * 40;
+    const anticipateBonus = anticipate * 30;
+
+    // Total calculation
+    let total = foundationScore + clarityBonus + docsBonus + timeBonus + legacyBonus + anticipateBonus;
+    total = Math.round(total * preventionMultiplier);
+
+    // Determine tier
+    let tier, tierClass, messagePool;
+    if (total >= 800) {
+      tier = 'Legendary';
+      tierClass = 'calc-tier-legendary';
+      messagePool = messages.legendary;
+    } else if (total >= 500) {
+      tier = 'Exceptional';
+      tierClass = 'calc-tier-exceptional';
+      messagePool = messages.exceptional;
+    } else if (total >= 250) {
+      tier = 'Valuable';
+      tierClass = 'calc-tier-valuable';
+      messagePool = messages.valuable;
+    } else {
+      tier = 'Growing';
+      tierClass = 'calc-tier-growing';
+      messagePool = messages.growing;
+    }
+
+    // Update display
+    const scoreEl = windowEl.querySelector('.calc-result-score');
+    if (scoreEl) scoreEl.textContent = total.toLocaleString();
+
+    const badge = windowEl.querySelector('.calc-tier-badge');
+    if (badge) {
+      badge.textContent = tier;
+      badge.className = 'calc-tier-badge ' + tierClass;
+    }
+
+    const message = messagePool[Math.floor(Math.random() * messagePool.length)];
+    const messageEl = windowEl.querySelector('.calc-result-message p');
+    if (messageEl) messageEl.textContent = message;
+
+    // Update breakdown
+    const setBreakdown = (key, value) => {
+      const el = windowEl.querySelector(`[data-breakdown="${key}"]`);
+      if (el) el.textContent = value;
+    };
+    setBreakdown('exp', '+' + foundationScore);
+    setBreakdown('prevention', '×' + preventionMultiplier.toFixed(2));
+    setBreakdown('clarity', '+' + clarityBonus);
+    setBreakdown('docs', '+' + docsBonus);
+    setBreakdown('time', '+' + timeBonus);
+    setBreakdown('legacy', '+' + (legacyBonus + anticipateBonus));
+
+    // Show results
+    inputsSection?.classList.add('hidden');
+    resultsSection?.classList.add('show');
+  });
+
+  // Recalculate button
+  recalculateBtn?.addEventListener('click', () => {
+    inputsSection?.classList.remove('hidden');
+    resultsSection?.classList.remove('show');
+  });
 }
 
 // ============================================
