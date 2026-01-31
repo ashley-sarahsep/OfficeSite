@@ -1586,18 +1586,18 @@ If that sounds like what you need, let's talk.
       takeabreak: {
         title: "Take a Break",
         items: [
-          { id: "bionicbrain", name: "The Bionic Brain.exe", icon: "exe", type: "game", app: "bionicbrain" },
-          { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "exe", type: "game", app: "raiders" },
-          { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "exe", type: "game", app: "minesweeper" },
-          { id: "memory", name: "Memory Match.exe", icon: "exe", type: "game", app: "memory" },
-          { id: "catpong", name: "Cat Pong.exe", icon: "exe", type: "game", app: "catpong" }
+          { id: "bionicbrain", name: "The Bionic Brain.exe", icon: "game-brain", type: "game", app: "bionicbrain" },
+          { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "game-raiders", type: "game", app: "raiders" },
+          { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "game-minesweeper", type: "game", app: "minesweeper" },
+          { id: "memory", name: "Memory Match.exe", icon: "game-memory", type: "game", app: "memory" },
+          { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" }
         ]
       },
       allthethings: {
         title: "All of the Things",
         items: [
-          { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "exe", type: "app", app: "workmatch" },
-          { id: "calculator", name: "ValueCalc.exe", icon: "exe", type: "app", app: "calculator" },
+          { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
+          { id: "calculator", name: "ValueCalc.exe", icon: "app-calc", type: "app", app: "calculator" },
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
           { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }

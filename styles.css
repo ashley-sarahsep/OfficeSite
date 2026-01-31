@@ -950,6 +950,91 @@ body {
   border: 1px solid #000;
 }
 
+/* Game-specific icons */
+.icon-game-brain {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-game-brain::after {
+  content: '🧠';
+  font-size: 24px;
+}
+
+.icon-game-raiders {
+  background: linear-gradient(135deg, #d4a574 0%, #8b6914 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-game-raiders::after {
+  content: '📜';
+  font-size: 24px;
+}
+
+.icon-game-minesweeper {
+  background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-game-minesweeper::after {
+  content: '💣';
+  font-size: 24px;
+}
+
+.icon-game-memory {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-game-memory::after {
+  content: '🃏';
+  font-size: 24px;
+}
+
+.icon-game-catpong {
+  background: linear-gradient(135deg, #a8e6cf 0%, #88d8b0 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-game-catpong::after {
+  content: '🐱';
+  font-size: 24px;
+}
+
+.icon-game-quiz {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44cff 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-game-quiz::after {
+  content: '💕';
+  font-size: 24px;
+}
+
+.icon-app-calc {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-app-calc::after {
+  content: '🧮';
+  font-size: 24px;
+}
+
 .icon-folder {
   background: linear-gradient(180deg, #ffcc00 0%, #cc9900 100%);
   border: 1px solid #000;
