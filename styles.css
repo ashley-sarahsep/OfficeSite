@@ -3247,6 +3247,61 @@ body {
 }
 
 /* ============================================
+   BIONIC BRAIN GAME
+   ============================================ */
+
+.window-bionicbrain {
+  width: 500px;
+}
+
+.bionicbrain-content {
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  min-height: 380px;
+}
+
+.bionicbrain-canvas {
+  border: 3px solid #667eea;
+  background: #0d0d1a;
+  image-rendering: pixelated;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.bionicbrain-info {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin-top: 10px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+}
+
+.bionicbrain-score {
+  color: #4ade80;
+}
+
+.bionicbrain-speed {
+  color: #60a5fa;
+}
+
+.bionicbrain-best {
+  color: var(--color-orange);
+  font-size: 12px;
+}
+
+.bionicbrain-controls {
+  font-family: var(--font-terminal);
+  font-size: 11px;
+  color: #a0a0b8;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+/* ============================================
    RAIDERS OF THE LOST DOC
    ============================================ */
 
@@ -4378,4 +4433,595 @@ body.a11y-screen-reader [aria-hidden="true"] {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+/* ============================================
+   VALUE CALCULATOR STYLES
+   ============================================ */
+
+.window-calculator {
+  width: 480px;
+  min-height: 400px;
+}
+
+.titlebar-calculator {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.calculator-content {
+  background: #2d2d44;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.calculator-body {
+  padding: 24px;
+}
+
+.calculator-intro {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.calculator-intro h1 {
+  color: #fff;
+  font-size: 20px;
+  font-family: var(--font-system);
+  margin-bottom: 8px;
+}
+
+.calculator-intro p {
+  color: #a0a0b8;
+  font-size: 13px;
+  font-family: var(--font-system);
+}
+
+.calc-disclaimer {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.calc-input-group {
+  margin-bottom: 16px;
+}
+
+.calc-input-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.calc-input-label span {
+  color: #d0d0e0;
+  font-size: 12px;
+  font-family: var(--font-system);
+}
+
+.calc-input-value {
+  color: #667eea;
+  font-weight: 600;
+  font-size: 12px;
+  min-width: 40px;
+  text-align: right;
+}
+
+.calc-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #3d3d5c;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.4);
+  transition: transform 0.15s ease;
+}
+
+.calc-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+.calc-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.4);
+}
+
+.calc-divider {
+  height: 1px;
+  background: #3d3d5c;
+  margin: 24px 0;
+}
+
+.calc-calculate-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-system);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.calc-calculate-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.calc-calculate-btn:active {
+  transform: translateY(0);
+}
+
+.calc-results {
+  display: none;
+  text-align: center;
+  animation: calcFadeIn 0.4s ease;
+}
+
+@keyframes calcFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.calc-results.show {
+  display: block;
+}
+
+.calc-inputs-section.hidden {
+  display: none;
+}
+
+.calc-result-score {
+  font-size: 42px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  font-family: var(--font-system);
+}
+
+.calc-result-label {
+  color: #a0a0b8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  font-family: var(--font-system);
+}
+
+.calc-result-message {
+  background: #3d3d5c;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.calc-result-message p {
+  color: #d0d0e0;
+  font-size: 13px;
+  line-height: 1.6;
+  font-family: var(--font-system);
+  margin: 0;
+}
+
+.calc-result-breakdown {
+  text-align: left;
+  background: #252538;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.calc-breakdown-title {
+  color: #a0a0b8;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  font-family: var(--font-system);
+}
+
+.calc-breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  color: #d0d0e0;
+  font-size: 11px;
+  padding: 3px 0;
+  font-family: var(--font-system);
+}
+
+.calc-breakdown-item span:last-child {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.calc-recalculate-btn {
+  background: transparent;
+  color: #667eea;
+  border: 1px solid #667eea;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: var(--font-system);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.calc-recalculate-btn:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Tier badges */
+.calc-tier-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  font-family: var(--font-system);
+}
+
+.calc-tier-legendary {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.calc-tier-exceptional {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.calc-tier-valuable {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #1a1a2e;
+}
+
+.calc-tier-growing {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: #1a1a2e;
+}
+
+/* ============================================
+   WORK MATCH QUIZ - 90s TEEN MAGAZINE STYLE
+   ============================================ */
+
+.window-workmatch {
+  width: 480px;
+  min-height: 450px;
+}
+
+.titlebar-workmatch {
+  background: linear-gradient(90deg, #ff6b9d 0%, #c44cff 50%, #6c5ce7 100%);
+}
+
+.workmatch-content {
+  background: linear-gradient(180deg, #fff5f8 0%, #ffeef4 100%);
+  padding: 0;
+  overflow-y: auto;
+  font-family: var(--font-system);
+}
+
+/* Quiz intro screen */
+.wm-intro {
+  padding: 25px;
+  text-align: center;
+}
+
+.wm-magazine-header {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+  color: white;
+  padding: 15px;
+  margin: -25px -25px 20px -25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.wm-magazine-header::before {
+  content: '★ ★ ★';
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.wm-magazine-header::after {
+  content: '★ ★ ★';
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.wm-title {
+  font-size: 28px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 0 #c44cff;
+  margin-bottom: 5px;
+}
+
+.wm-subtitle {
+  font-size: 12px;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.wm-intro-text {
+  color: #6b4c7a;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.wm-intro-text em {
+  color: #c44cff;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.wm-start-btn {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44cff 100%);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(196, 76, 255, 0.4);
+  transition: all 0.2s;
+}
+
+.wm-start-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(196, 76, 255, 0.5);
+}
+
+.wm-decorations {
+  font-size: 24px;
+  margin-top: 15px;
+  letter-spacing: 10px;
+}
+
+/* Quiz question screen */
+.wm-question {
+  padding: 20px;
+}
+
+.wm-progress {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.wm-progress-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e0d0e8;
+  transition: all 0.3s;
+}
+
+.wm-progress-dot.active {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44cff 100%);
+  transform: scale(1.2);
+}
+
+.wm-progress-dot.done {
+  background: #c44cff;
+}
+
+.wm-question-num {
+  text-align: center;
+  font-size: 11px;
+  color: #b08bc0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.wm-question-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #5a3d6a;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.wm-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wm-answer {
+  background: white;
+  border: 2px solid #e8d8f0;
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 13px;
+  color: #5a3d6a;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.wm-answer::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, #ff6b9d 0%, #c44cff 100%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.wm-answer:hover {
+  border-color: #c44cff;
+  background: #fef8ff;
+  transform: translateX(5px);
+}
+
+.wm-answer:hover::before {
+  opacity: 1;
+}
+
+.wm-answer-letter {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44cff 100%);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: 700;
+  margin-right: 12px;
+}
+
+/* Quiz results screen */
+.wm-results {
+  padding: 25px;
+  text-align: center;
+}
+
+.wm-results-header {
+  background: linear-gradient(135deg, #c44cff 0%, #6c5ce7 100%);
+  color: white;
+  padding: 15px;
+  margin: -25px -25px 20px -25px;
+}
+
+.wm-results-header h2 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+  opacity: 0.9;
+}
+
+.wm-results-header h3 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.wm-match-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid #c44cff;
+  margin: 0 auto 15px;
+  background: #f0e0f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+}
+
+.wm-match-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #5a3d6a;
+  margin-bottom: 5px;
+}
+
+.wm-match-title {
+  font-size: 12px;
+  color: #b08bc0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.wm-match-desc {
+  background: white;
+  border: 2px dashed #e8d8f0;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 13px;
+  color: #6b4c7a;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.wm-compatibility {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.wm-compat-label {
+  font-size: 11px;
+  color: #b08bc0;
+  text-transform: uppercase;
+}
+
+.wm-compat-hearts {
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+.wm-retake-btn {
+  background: transparent;
+  border: 2px solid #c44cff;
+  color: #c44cff;
+  padding: 10px 25px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.wm-retake-btn:hover {
+  background: #c44cff;
+  color: white;
+}
+
+.wm-magazine-footer {
+  margin-top: 20px;
+  font-size: 10px;
+  color: #c0a0d0;
+  font-style: italic;
 }
