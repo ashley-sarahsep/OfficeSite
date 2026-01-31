@@ -529,7 +529,17 @@ function showConversation(conversationId) {
       btn.className = 'dialog-response';
       btn.textContent = response.text;
       btn.addEventListener('click', () => {
-        if (response.next === null) {
+        if (response.action === 'inspect') {
+          closeDialog();
+          document.getElementById('inspect-menu')?.classList.remove('hidden');
+        } else if (response.action === 'desktop') {
+          closeDialog();
+          switchToDesktop();
+        } else if (response.action === 'talk') {
+          closeDialog();
+          // Open inspect menu to the "Talk to" section
+          document.getElementById('inspect-menu')?.classList.remove('hidden');
+        } else if (response.next === null) {
           closeDialog();
         } else {
           showConversation(response.next);
