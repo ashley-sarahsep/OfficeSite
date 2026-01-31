@@ -2952,132 +2952,164 @@ function initMinesweeper(windowEl) {
 }
 
 // ============================================
-// VALUE CALCULATOR
+// CALCULATOR
 // ============================================
 
 function initCalculator(windowEl) {
-  const sliders = windowEl.querySelectorAll('.calc-slider');
-  const calculateBtn = windowEl.querySelector('.calc-calculate-btn');
-  const recalculateBtn = windowEl.querySelector('.calc-recalculate-btn');
-  const inputsSection = windowEl.querySelector('.calc-inputs-section');
-  const resultsSection = windowEl.querySelector('.calc-results');
+  const display = windowEl.querySelector('.calc-display-text');
+  const buttons = windowEl.querySelectorAll('.calc-btn');
 
-  // Messages based on score tiers
-  const messages = {
-    legendary: [
-      "You're not just valuable—you're the reason things work smoothly while everyone else wonders how. The quiet architect of 'it just works.'",
-      "Your value isn't measured in what you do, but in all the chaos that never happens because you exist. That's rare.",
-      "You've reached the level where your absence would be felt for months. People would slowly realize all the things that 'used to just work.'"
-    ],
-    exceptional: [
-      "You're the person people don't realize they depend on until you take a vacation. That's not an accident—that's years of quiet excellence.",
-      "High value isn't always loud. Yours is the kind that compounds silently—each system improved, each problem prevented, each hour saved.",
-      "You've built the kind of value that outlasts projects. The templates, the docs, the 'oh, there's already a process for that'—that's legacy."
-    ],
-    valuable: [
-      "You're building something real. The instinct to document, to anticipate, to simplify—these aren't common skills. They're multipliers.",
-      "Your value shows up in the things that don't break, the questions that don't get asked, the time that doesn't get wasted. Keep going.",
-      "You're past the point of just doing tasks. You're making systems better. That's the difference between a contributor and a force multiplier."
-    ],
-    growing: [
-      "You're on the right path. Every problem you solve before it escalates, every doc you create—it's compounding into something significant.",
-      "Value isn't about being everywhere at once. It's about making your presence count. You're learning to do exactly that.",
-      "The foundation is there. Now it's about consistency—keep building those habits that turn good work into lasting impact."
-    ]
-  };
+  let currentValue = '0';
+  let previousValue = '';
+  let operation = null;
+  let shouldResetDisplay = false;
 
-  // Update slider value displays
-  sliders.forEach(slider => {
-    const calcType = slider.dataset.calc;
-    const valueDisplay = windowEl.querySelector(`.calc-input-value[data-for="${calcType}"]`);
-    if (valueDisplay) {
-      slider.addEventListener('input', () => {
-        valueDisplay.textContent = slider.value;
-      });
+  function updateDisplay() {
+    // Format large numbers and limit display length
+    let displayValue = currentValue;
+    if (displayValue.length > 12) {
+      const num = parseFloat(displayValue);
+      if (!isNaN(num)) {
+        displayValue = num.toExponential(6);
+      }
     }
-  });
+    display.textContent = displayValue;
+  }
 
-  // Calculate button
-  calculateBtn?.addEventListener('click', () => {
-    const getValue = (name) => parseInt(windowEl.querySelector(`[data-calc="${name}"]`)?.value || 0);
+  function calculate() {
+    const prev = parseFloat(previousValue);
+    const current = parseFloat(currentValue);
+    if (isNaN(prev) || isNaN(current)) return;
 
-    const exp = getValue('experience');
-    const proactive = getValue('proactive');
-    const simplicity = getValue('simplicity');
-    const docs = getValue('docs');
-    const anticipate = getValue('anticipate');
-    const hoursSaved = getValue('hoursSaved');
-    const lasting = getValue('lasting');
-
-    // Calculate component scores
-    const foundationScore = exp * 20;
-    const preventionMultiplier = 1 + (proactive * 0.15);
-    const clarityBonus = simplicity * 18;
-    const docsBonus = docs * 15;
-    const timeBonus = hoursSaved * 25;
-    const legacyBonus = lasting * 40;
-    const anticipateBonus = anticipate * 30;
-
-    // Total calculation
-    let total = foundationScore + clarityBonus + docsBonus + timeBonus + legacyBonus + anticipateBonus;
-    total = Math.round(total * preventionMultiplier);
-
-    // Determine tier
-    let tier, tierClass, messagePool;
-    if (total >= 800) {
-      tier = 'Legendary';
-      tierClass = 'calc-tier-legendary';
-      messagePool = messages.legendary;
-    } else if (total >= 500) {
-      tier = 'Exceptional';
-      tierClass = 'calc-tier-exceptional';
-      messagePool = messages.exceptional;
-    } else if (total >= 250) {
-      tier = 'Valuable';
-      tierClass = 'calc-tier-valuable';
-      messagePool = messages.valuable;
-    } else {
-      tier = 'Growing';
-      tierClass = 'calc-tier-growing';
-      messagePool = messages.growing;
+    let result;
+    switch (operation) {
+      case 'add':
+        result = prev + current;
+        break;
+      case 'subtract':
+        result = prev - current;
+        break;
+      case 'multiply':
+        result = prev * current;
+        break;
+      case 'divide':
+        result = current === 0 ? 'Error' : prev / current;
+        break;
+      default:
+        return;
     }
 
-    // Update display
-    const scoreEl = windowEl.querySelector('.calc-result-score');
-    if (scoreEl) scoreEl.textContent = total.toLocaleString();
+    currentValue = result === 'Error' ? 'Error' : String(result);
+    operation = null;
+    previousValue = '';
+    shouldResetDisplay = true;
+  }
 
-    const badge = windowEl.querySelector('.calc-tier-badge');
-    if (badge) {
-      badge.textContent = tier;
-      badge.className = 'calc-tier-badge ' + tierClass;
+  function handleButton(action) {
+    // Number buttons
+    if (/^[0-9]$/.test(action)) {
+      if (shouldResetDisplay || currentValue === '0' || currentValue === 'Error') {
+        currentValue = action;
+        shouldResetDisplay = false;
+      } else if (currentValue.length < 12) {
+        currentValue += action;
+      }
+      updateDisplay();
+      return;
     }
 
-    const message = messagePool[Math.floor(Math.random() * messagePool.length)];
-    const messageEl = windowEl.querySelector('.calc-result-message p');
-    if (messageEl) messageEl.textContent = message;
+    switch (action) {
+      case 'clear':
+        currentValue = '0';
+        previousValue = '';
+        operation = null;
+        shouldResetDisplay = false;
+        break;
 
-    // Update breakdown
-    const setBreakdown = (key, value) => {
-      const el = windowEl.querySelector(`[data-breakdown="${key}"]`);
-      if (el) el.textContent = value;
-    };
-    setBreakdown('exp', '+' + foundationScore);
-    setBreakdown('prevention', '×' + preventionMultiplier.toFixed(2));
-    setBreakdown('clarity', '+' + clarityBonus);
-    setBreakdown('docs', '+' + docsBonus);
-    setBreakdown('time', '+' + timeBonus);
-    setBreakdown('legacy', '+' + (legacyBonus + anticipateBonus));
+      case 'backspace':
+        if (currentValue.length > 1 && currentValue !== 'Error') {
+          currentValue = currentValue.slice(0, -1);
+        } else {
+          currentValue = '0';
+        }
+        break;
 
-    // Show results
-    inputsSection?.classList.add('hidden');
-    resultsSection?.classList.add('show');
+      case 'decimal':
+        if (shouldResetDisplay) {
+          currentValue = '0.';
+          shouldResetDisplay = false;
+        } else if (!currentValue.includes('.')) {
+          currentValue += '.';
+        }
+        break;
+
+      case 'percent':
+        currentValue = String(parseFloat(currentValue) / 100);
+        shouldResetDisplay = true;
+        break;
+
+      case 'add':
+      case 'subtract':
+      case 'multiply':
+      case 'divide':
+        if (operation && previousValue && !shouldResetDisplay) {
+          calculate();
+        }
+        previousValue = currentValue;
+        operation = action;
+        shouldResetDisplay = true;
+        break;
+
+      case 'equals':
+        if (operation && previousValue) {
+          calculate();
+        }
+        break;
+    }
+
+    updateDisplay();
+  }
+
+  // Button click handlers
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      handleButton(btn.dataset.action);
+    });
   });
 
-  // Recalculate button
-  recalculateBtn?.addEventListener('click', () => {
-    inputsSection?.classList.remove('hidden');
-    resultsSection?.classList.remove('show');
-  });
+  // Keyboard support
+  function handleKeydown(e) {
+    const key = e.key;
+
+    if (/^[0-9]$/.test(key)) {
+      handleButton(key);
+    } else if (key === '.') {
+      handleButton('decimal');
+    } else if (key === '+') {
+      handleButton('add');
+    } else if (key === '-') {
+      handleButton('subtract');
+    } else if (key === '*') {
+      handleButton('multiply');
+    } else if (key === '/') {
+      e.preventDefault();
+      handleButton('divide');
+    } else if (key === '%') {
+      handleButton('percent');
+    } else if (key === 'Enter' || key === '=') {
+      handleButton('equals');
+    } else if (key === 'Escape' || key === 'c' || key === 'C') {
+      handleButton('clear');
+    } else if (key === 'Backspace') {
+      handleButton('backspace');
+    }
+  }
+
+  windowEl.addEventListener('keydown', handleKeydown);
+
+  // Focus window to receive keyboard events
+  windowEl.setAttribute('tabindex', '0');
+  windowEl.focus();
 }
 
 // ============================================
