@@ -56,6 +56,24 @@ const state = {
   }
 };
 
+// Z-index management to prevent overflow
+const MAX_WINDOW_ZINDEX = 9000;
+function getNextWindowZIndex() {
+  state.windowZIndex++;
+  // Reset z-index if it gets too high
+  if (state.windowZIndex > MAX_WINDOW_ZINDEX) {
+    state.windowZIndex = 10;
+    // Reassign z-index to all windows based on their order
+    state.windows.forEach((w, i) => {
+      if (w.element) {
+        w.element.style.zIndex = 10 + i;
+      }
+    });
+    state.windowZIndex = 10 + state.windows.length;
+  }
+  return state.windowZIndex;
+}
+
 // ============================================
 // BOOT SEQUENCE
 // ============================================
@@ -255,6 +273,12 @@ function transitionToRoomFromDesktop() {
 
   desktopScene.style.opacity = '0';
   desktopScene.style.transition = 'opacity 0.5s ease';
+
+  // Stop clock when leaving desktop
+  if (clockInterval) {
+    clearInterval(clockInterval);
+    clockInterval = null;
+  }
 
   setTimeout(() => {
     desktopScene.classList.add('hidden');
@@ -529,7 +553,17 @@ function showConversation(conversationId) {
       btn.className = 'dialog-response';
       btn.textContent = response.text;
       btn.addEventListener('click', () => {
-        if (response.next === null) {
+        if (response.action === 'inspect') {
+          closeDialog();
+          document.getElementById('inspect-menu')?.classList.remove('hidden');
+        } else if (response.action === 'desktop') {
+          closeDialog();
+          switchToDesktop();
+        } else if (response.action === 'talk') {
+          closeDialog();
+          // Open inspect menu to the "Talk to" section
+          document.getElementById('inspect-menu')?.classList.remove('hidden');
+        } else if (response.next === null) {
           closeDialog();
         } else {
           showConversation(response.next);
@@ -540,11 +574,18 @@ function showConversation(conversationId) {
   });
 }
 
+// Track current typing operation to prevent race conditions
+let currentTypingId = 0;
+
 function typeText(element, text, callback) {
   element.textContent = '';
   let index = 0;
+  const typingId = ++currentTypingId; // Unique ID for this typing operation
 
   function type() {
+    // Stop if a new typing operation started
+    if (typingId !== currentTypingId) return;
+
     if (index < text.length) {
       element.textContent += text[index];
       index++;
@@ -587,9 +628,13 @@ function initDesktop() {
     initDesktopIcons();
     initTaskbar();
     initStartMenu();
-    updateClock();
-    clockInterval = setInterval(updateClock, 1000);
     desktopInitialized = true;
+  }
+
+  // Always restart clock when entering desktop (may have been cleared)
+  updateClock();
+  if (!clockInterval) {
+    clockInterval = setInterval(updateClock, 1000);
   }
 }
 
@@ -638,6 +683,16 @@ function initDesktopIcons() {
       const app = e.currentTarget.dataset.app;
       const file = e.currentTarget.dataset.file;
       openApp(app, file);
+    });
+
+    // Single click to open (accessibility mode)
+    icon.addEventListener('click', (e) => {
+      if (isDragging) return;
+      if (typeof accessibilitySettings !== 'undefined' && accessibilitySettings.singleClick) {
+        const app = e.currentTarget.dataset.app;
+        const file = e.currentTarget.dataset.file;
+        openApp(app, file);
+      }
     });
 
     // Keyboard support - Enter or Space to open
@@ -895,13 +950,14 @@ function openApp(appType, fileId) {
   const windowId = `window-${Date.now()}`;
   windowEl.id = windowId;
 
-  // Position window
-  const offset = state.windows.length * 30;
+  // Position window - cycle offset to prevent cascade off screen
+  const maxOffset = 150; // Max cascade before resetting
+  const offset = (state.windows.length * 30) % maxOffset;
   windowEl.style.left = `${50 + offset}px`;
   windowEl.style.top = `${30 + offset}px`;
   windowEl.style.width = getWindowSize(appType).width;
   windowEl.style.height = getWindowSize(appType).height;
-  windowEl.style.zIndex = ++state.windowZIndex;
+  windowEl.style.zIndex = getNextWindowZIndex();
 
   document.getElementById('windows-container').appendChild(windowEl);
 
@@ -1113,7 +1169,7 @@ function focusWindow(windowId) {
   state.windows.forEach(w => {
     const titlebar = w.element.querySelector('.window-titlebar');
     if (w.id === windowId) {
-      w.element.style.zIndex = ++state.windowZIndex;
+      w.element.style.zIndex = getNextWindowZIndex();
       titlebar?.classList.remove('inactive');
       state.activeWindow = w.element; // Store element reference for Gertrude
     } else {
@@ -1209,6 +1265,7 @@ function initWordpad(windowEl) {
     printBtn.addEventListener('click', () => {
       const printContent = windowEl.querySelector('.wordpad-content').innerHTML;
       const printWindow = window.open('', '_blank');
+      if (!printWindow) return; // Popup blocked
       printWindow.document.write(`
         <!DOCTYPE html>
         <html>
@@ -1231,6 +1288,8 @@ function initWordpad(windowEl) {
         </html>
       `);
       printWindow.document.close();
+      // Close window after print completes or is cancelled
+      printWindow.onafterprint = () => printWindow.close();
       printWindow.print();
     });
   }
@@ -2201,6 +2260,7 @@ function initCatPong(windowEl) {
   const game = {
     running: false,
     paused: false,
+    active: true, // Track if game window is still open
     scoreLeft: 0,
     scoreRight: 0,
     ball: { x: 200, y: 150, vx: 4, vy: 3, radius: 8 },
@@ -2268,12 +2328,15 @@ function initCatPong(windowEl) {
   function update() {
     if (!game.running || game.paused) return;
 
-    // Simple AI for left paddle
+    // Simple AI for left paddle (intentionally beatable)
     const paddleCenter = game.paddleLeft.y + game.paddleLeft.height / 2;
-    if (paddleCenter < game.ball.y - 20) {
-      game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed * 0.7);
-    } else if (paddleCenter > game.ball.y + 20) {
-      game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed * 0.7);
+    // Only react when ball is on AI's side of the court
+    if (game.ball.x < canvas.width / 2) {
+      if (paddleCenter < game.ball.y - 30) {
+        game.paddleLeft.y = Math.min(canvas.height - game.paddleLeft.height, game.paddleLeft.y + game.paddleSpeed * 0.45);
+      } else if (paddleCenter > game.ball.y + 30) {
+        game.paddleLeft.y = Math.max(0, game.paddleLeft.y - game.paddleSpeed * 0.45);
+      }
     }
 
     // Move player paddle (right) based on keys
@@ -2345,6 +2408,7 @@ function initCatPong(windowEl) {
   }
 
   function gameLoop() {
+    if (!game.active) return; // Stop loop if window closed
     update();
     draw();
     requestAnimationFrame(gameLoop);
@@ -2373,6 +2437,7 @@ function initCatPong(windowEl) {
   // Clean up when window closes
   const observer = new MutationObserver((mutations) => {
     if (!document.contains(windowEl)) {
+      game.active = false; // Stop the game loop
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('keyup', handleKeyUp);
       observer.disconnect();
@@ -2474,6 +2539,7 @@ function initMemory(windowEl) {
   let matched = [];
   let moves = 0;
   let canFlip = true;
+  let gameActive = true; // Track if window is still open
 
   function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -2561,6 +2627,7 @@ function initMemory(windowEl) {
       } else {
         // No match - flip back after delay
         setTimeout(() => {
+          if (!gameActive) return; // Don't update if window closed
           flipped = [];
           canFlip = true;
           render();
@@ -2572,6 +2639,15 @@ function initMemory(windowEl) {
   // Shuffle and start
   cards = shuffle(cards);
   render();
+
+  // Clean up when window closes
+  const observer = new MutationObserver(() => {
+    if (!document.contains(windowEl)) {
+      gameActive = false;
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 // ============================================
@@ -2826,6 +2902,18 @@ function initMinesweeper(windowEl) {
   revealed = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
   flagged = Array(ROWS).fill(null).map(() => Array(COLS).fill(false));
   render();
+
+  // Clean up timer when window closes
+  const observer = new MutationObserver(() => {
+    if (!document.contains(windowEl)) {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 // ============================================
@@ -2946,21 +3034,29 @@ function shuffleArray(array) {
 // ============================================
 
 let screensaverTimeout = null;
+let lastScreensaverReset = 0;
 const SCREENSAVER_DELAY = 120000; // 2 minutes of inactivity
+const SCREENSAVER_DEBOUNCE = 1000; // Only reset once per second max
 
 function initScreensaver() {
   const screensaver = document.getElementById('screensaver');
   if (!screensaver) return;
 
-  // Reset timer on any activity
+  // Reset timer on any activity (debounced)
   const resetScreensaver = () => {
-    if (screensaverTimeout) {
-      clearTimeout(screensaverTimeout);
-    }
+    const now = Date.now();
 
-    // Hide screensaver if visible
+    // Hide screensaver immediately if visible
     if (!screensaver.classList.contains('hidden')) {
       screensaver.classList.add('hidden');
+    }
+
+    // Debounce timer resets (only reset once per second)
+    if (now - lastScreensaverReset < SCREENSAVER_DEBOUNCE) return;
+    lastScreensaverReset = now;
+
+    if (screensaverTimeout) {
+      clearTimeout(screensaverTimeout);
     }
 
     // Set new timeout
@@ -3182,45 +3278,9 @@ function applyAccessibilitySettings() {
 }
 
 function updateSingleClickMode() {
-  // This is handled by checking accessibilitySettings.singleClick in click handlers
-  // Re-initialize desktop icons if they exist
-  const icons = document.querySelectorAll('.desktop-icon');
-  icons.forEach(icon => {
-    // Remove existing listeners by cloning
-    const newIcon = icon.cloneNode(true);
-    icon.parentNode.replaceChild(newIcon, icon);
-
-    // Add appropriate listener
-    if (accessibilitySettings.singleClick) {
-      newIcon.addEventListener('click', (e) => {
-        const app = e.currentTarget.dataset.app;
-        const file = e.currentTarget.dataset.file;
-        openApp(app, file);
-      });
-    } else {
-      newIcon.addEventListener('dblclick', (e) => {
-        const app = e.currentTarget.dataset.app;
-        const file = e.currentTarget.dataset.file;
-        openApp(app, file);
-      });
-      newIcon.addEventListener('click', (e) => {
-        document.querySelectorAll('.desktop-icon').forEach(i => i.classList.remove('selected'));
-        e.currentTarget.classList.add('selected');
-      });
-    }
-
-    // Add keyboard support
-    newIcon.setAttribute('tabindex', '0');
-    newIcon.setAttribute('role', 'button');
-    newIcon.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const app = e.currentTarget.dataset.app;
-        const file = e.currentTarget.dataset.file;
-        openApp(app, file);
-      }
-    });
-  });
+  // Single-click mode is now handled via accessibilitySettings.singleClick flag
+  // which is checked in the click handlers set up in initDesktopIcons.
+  // No DOM manipulation needed - this preserves drag handlers and positions.
 }
 
 function updateAccessibilityUI() {
