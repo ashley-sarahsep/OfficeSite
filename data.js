@@ -27,7 +27,7 @@ const SITE_DATA = {
       "What question would you ask if you weren't worried about the answer? *slow blink*",
       "What memory changed meaning as you got older? *thoughtful mrrp*",
       "Are you the same person you were ten years ago? How do you know? *whisker twitch*",
-      "What are you in the middle of that you won't recognize until later? *tail swish*",
+      "What are you in the middle of that you won't recognise until later? *tail swish*",
       "Sunbeams move across the floor all day. I follow them. What are you following? *warm purr*",
       "What would you do with an afternoon you didn't have to account for? *yawn*",
       "Words meant something different to the person who wrote them than they do to you now. Both are real. *blink*",
@@ -51,7 +51,7 @@ const SITE_DATA = {
       // Longer sits
       "Humans spend so much time preparing for conversations - what to say, how to say it, what you want the other person to understand. But understanding isn't something you do to someone. It's something that happens between you, if you let it. When was the last time you let a conversation go somewhere you didn't plan? *settles into loaf position*",
       "My human studies how people make meaning from things - words, experiences, each other. The interesting part isn't that we all understand differently. It's that we manage to understand each other at all. Every conversation is a small miracle of two entirely separate worlds overlapping for a moment. *slow blink* ...Anyway. I'm going to nap now.",
-      "You are in the middle of things right now that you won't have names for until much later. A chapter you won't recognize as a chapter until it's done. Humans are so eager to know what things mean while they're still happening. Sometimes meaning takes its time. That's not a flaw - that's how depth works. *long exhale, eyes half-closed*",
+      "You are in the middle of things right now that you won't have names for until much later. A chapter you won't recognise as a chapter until it's done. Humans are so eager to know what things mean while they're still happening. Sometimes meaning takes its time. That's not a flaw - that's how depth works. *long exhale, eyes half-closed*",
       "Play is a funny thing. Real play - not relaxation, not distraction, but actual play - requires you to take it seriously and hold it loosely at the same time. To be completely absorbed in something that doesn't matter. Humans forget how to do this. They turn everything into work or rest, nothing in between. When did you last lose yourself in something just because it was interesting? *rolls onto back, paws in air*",
       "There's a difference between listening to respond and listening to understand. Most people think they're doing the second when they're doing the first. The giveaway is what happens in your mind while the other person is talking - are you receiving, or are you preparing? It's hard to do both at once. Almost impossible, actually. But noticing is the first step. *ear twitch* ...I'm an excellent listener. Mostly to birds.",
       "Every person you've ever met understood the world through a completely different set of experiences than you. Not just different opinions - different foundations. Different ways of knowing what's true, what matters, what's obvious. And somehow we still manage to communicate, to collaborate, to love each other. The gaps are real, but so are the bridges. *contemplative purr*",
@@ -213,7 +213,7 @@ THE META OBSERVATION
 --------------------
 This site is a portfolio that demonstrates how
 Ashley works by literally BEING how Ashley works.
-The organizational thinking. The attention to
+The organisational thinking. The attention to
 different user needs. The balance of personality
 and professionalism. The willingness to build
 something unconventional if it serves the goal.
@@ -570,7 +570,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-ops-explain",
           portrait: "thoughtful2",
-          text: "The invisible systems that keep organizations from falling apart. Contract workflows, demo preparation processes, documentation standards, client handoff protocols. The stuff nobody thinks about until it's missing. I built all of that from zero.",
+          text: "The invisible systems that keep organisations from falling apart. Contract workflows, demo preparation processes, documentation standards, client handoff protocols. The stuff nobody thinks about until it's missing. I built all of that from zero.",
           responses: [
             { text: "How do you approach building new systems?", next: "desk-approach" },
             { text: "[Back to exploring]", next: null }
@@ -1050,7 +1050,7 @@ If that sounds like what you need, let's talk.
           text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes. Nothing too precious. Things that have been somewhere before they got to me.",
           responses: [
             { text: "They create a nice atmosphere", next: "art-atmosphere" },
-            { text: "Do you have a favorite?", next: "art-favorite" },
+            { text: "Do you have a favourite?", next: "art-favourite" },
             { text: "The frames are beautiful", next: "art-frames" },
             { text: "[Back to exploring]", next: null }
           ]
@@ -1060,13 +1060,13 @@ If that sounds like what you need, let's talk.
           portrait: "thoughtful1",
           text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
           responses: [
-            { text: "Do you have a favorite piece?", next: "art-favorite" },
+            { text: "Do you have a favourite piece?", next: "art-favourite" },
             { text: "Show me more of the office", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
-          id: "art-favorite",
+          id: "art-favourite",
           portrait: "thoughtful2",
           text: "It changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
           responses: [
@@ -1121,7 +1121,7 @@ If that sounds like what you need, let's talk.
         {
           id: "talk-gertrude-blink",
           portrait: "smiling2",
-          text: "Gertrude returns the slow blink - the highest honor a cat can bestow. \"You understand protocol. Good. My human values those who observe before acting. Who listen more than they speak. I am beginning to like you.\"",
+          text: "Gertrude returns the slow blink - the highest honour a cat can bestow. \"You understand protocol. Good. My human values those who observe before acting. Who listen more than they speak. I am beginning to like you.\"",
           responses: [
             { text: "What can you tell me about her?", next: "talk-gertrude-more" },
             { text: "[Accept this blessing and depart]", next: null }
@@ -1338,7 +1338,7 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-path",
           portrait: "thoughtful2",
-          text: "Philosophy taught me how to think - specifically hermeneutics, how people interpret and understand things. Social work taught me how to actually help people, not just theorize about it. Then I needed a job, started as a receptionist at an ad agency, got promoted to accounts receivable within six months. Did finance work in London for a while. Then fell into startups and discovered I'm good at building systems that make organizations work better. Every step taught me something I still use.",
+          text: "Philosophy taught me how to think - specifically hermeneutics, how people interpret and understand things. Social work taught me how to actually help people, not just theorise about it. Then I needed a job, started as a receptionist at an ad agency, got promoted to accounts receivable within six months. Did finance work in London for a while. Then fell into startups and discovered I'm good at building systems that make organisations work better. Every step taught me something I still use.",
           responses: [
             { text: "How does philosophy show up in tech work?", next: "coffee-philosophy-tech" },
             { text: "What was London like?", next: "coffee-london" },
@@ -1382,14 +1382,14 @@ If that sounds like what you need, let's talk.
           text: "Philosophy at Guelph, then social work at George Brown. Started as a receptionist at DDB - the ad agency - and got promoted to accounts receivable within six months. Moved to London, did accounts payable at a few agencies there, ended up implementing timesheet systems. Came back to Canada, landed at an IBM reseller doing sales ops, then spent 7+ years at a field marketing platform that became about five different jobs. The pattern started early: see a gap, fill it, build something that lasts.",
           responses: [
             { text: "That's a lot of pivots.", next: "coffee-pivots" },
-            { text: "What's your favourite part of what you do now?", next: "coffee-favorite" },
+            { text: "What's your favourite part of what you do now?", next: "coffee-favourite" },
             { text: "[Back to exploring]", next: null }
           ]
         },
         {
           id: "coffee-pivots",
           portrait: "smiling1",
-          text: "I prefer 'following the interesting problems.' Each role taught me something. Reception taught me how organizations actually function day-to-day. Finance taught me systems and accuracy. London taught me adaptability. Sales ops taught me pipelines and CRMs. By the time I landed at the startup, I had this weird grab-bag of skills that turned out to be exactly what a tiny company with no processes needed.",
+          text: "I prefer 'following the interesting problems.' Each role taught me something. Reception taught me how organisations actually function day-to-day. Finance taught me systems and accuracy. London taught me adaptability. Sales ops taught me pipelines and CRMs. By the time I landed at the startup, I had this weird grab-bag of skills that turned out to be exactly what a tiny company with no processes needed.",
           responses: [
             { text: "The generalist advantage.", next: "coffee-generalist" },
             { text: "[Back to exploring]", next: null }
@@ -1459,7 +1459,7 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-exhausting",
           portrait: "smiling1",
-          text: "My brain actually works better this way. Context-switching, seeing patterns across different domains - that's how I'm wired. What exhausts me is sitting in meetings that could've been async messages. Or when organizations cling to processes that don't work just because 'that's how we've always done it.'",
+          text: "My brain actually works better this way. Context-switching, seeing patterns across different domains - that's how I'm wired. What exhausts me is sitting in meetings that could've been async messages. Or when organisations cling to processes that don't work just because 'that's how we've always done it.'",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1521,7 +1521,7 @@ If that sounds like what you need, let's talk.
           ]
         },
         {
-          id: "coffee-favorite",
+          id: "coffee-favourite",
           portrait: "excited",
           text: "The moment when something clicks. When you've been working on a problem and suddenly you see the solution - not a band-aid, but the actual root cause fixed. That's the good stuff.",
           responses: [
@@ -1586,6 +1586,7 @@ If that sounds like what you need, let's talk.
       takeabreak: {
         title: "Take a Break",
         items: [
+          { id: "projecttrail", name: "Project Trail.exe", icon: "game-trail", type: "game", app: "game" },
           { id: "bionicbrain", name: "The Bionic Brain.exe", icon: "game-brain", type: "game", app: "bionicbrain" },
           { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "game-raiders", type: "game", app: "raiders" },
           { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "game-minesweeper", type: "game", app: "minesweeper" },
@@ -1597,7 +1598,7 @@ If that sounds like what you need, let's talk.
         title: "All of the Things",
         items: [
           { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
-          { id: "calculator", name: "ValueCalc.exe", icon: "app-calc", type: "app", app: "calculator" },
+          { id: "calculator", name: "Calculator", icon: "app-calc", type: "app", app: "calculator" },
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
           { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
@@ -1629,7 +1630,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <div class="resume-section">
 <h2>OH, HELLO!</h2>
-<p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience driving operational and product success through coordination across teams, technical translation, and operational excellence. I navigate ambiguous environments, identify organizational gaps, and build scalable systems that make everyone else's job easier.</p>
+<p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience driving operational and product success through coordination across teams, technical translation, and operational excellence. I navigate ambiguous environments, identify organisational gaps, and build scalable systems that make everyone else's job easier.</p>
 <p>I joined MainEvent when the team was ~10 people with no formal processes and built the operational infrastructure from scratch - sales operations, training programs, QA processes, and project management frameworks that enabled the team to support 32M+ visits, 576K+ client staff, and Fortune 500 brands at massive scale. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product including manual testing framework, client data reviews, 5-phase onboarding methodology, educational curriculum with enterprise analytical frameworks, and thought leadership content.</p>
 <p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviors. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
 </div>
@@ -1664,7 +1665,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <h3>AI PRODUCT ENABLEMENT & ADOPTION</h3>
 <p class="job-title">Network Ninja (MainEvent) | Head of Client Enablement & AI Adoption</p>
 <p class="job-meta">Jan 2025 - December 2025 | Remote</p>
-<p>Lead product adoption for AI-powered field marketing analysis agents, enabling experiential marketing agencies and CPG brands to query and analyze data from millions of field events using natural language.</p>
+<p>Lead product adoption for AI-powered field marketing analysis agents, enabling experiential marketing agencies and CPG brands to query and analyse data from millions of field events using natural language.</p>
 
 <p><strong>THE GAP:</strong> New AI agent product launching with no adoption infrastructure, quality assurance framework, or client training materials</p>
 
@@ -1672,7 +1673,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <ul>
 <li>Created manual testing framework for AI agent product from scratch - systematic process to test prompts and outputs for reliability, consistency, and accuracy before client deployment</li>
 <li>Applied philosophy background (hermeneutics) to understand how AI interprets and generates information - identified where models might misinterpret context or produce misleading results</li>
-<li>Developed enterprise-level analytical prompt frameworks (Power Prompts) enabling clients to extract business intelligence from field marketing data - created frameworks for program performance analysis, staff performance tracking, venue intelligence, pattern discovery, and data quality optimization</li>
+<li>Developed enterprise-level analytical prompt frameworks (Power Prompts) enabling clients to extract business intelligence from field marketing data - created frameworks for program performance analysis, staff performance tracking, venue intelligence, pattern discovery, and data quality optimisation</li>
 <li>Designed and implemented 5-phase onboarding methodology for AI agent adoption with complete educational curriculum including practical guides, onboarding documentation, prompting best practices, and enterprise analytical frameworks</li>
 <li>Built library of training videos and resources using Google Drive, Loom, and Notion for content delivery</li>
 <li>Created quality feedback loop between client usage and product development team - drove product improvements through documented testing, issue identification, and honest assessment of AI capabilities and limitations</li>
@@ -1711,7 +1712,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><em>Neptune Retail Solutions Project - End-to-End Ownership:</em></p>
 <ul>
 <li>Led complete project lifecycle: discovery, requirements gathering, workflow/wireframe design, QA process creation, development team leadership (4 people), project management, and account management</li>
-<li>Managed Jira board for entire project - prioritized tickets, triaged bugs, tracked feature development, and ensured all work passed testing standards</li>
+<li>Managed Jira board for entire project - prioritised tickets, triaged bugs, tracked feature development, and ensured all work passed testing standards</li>
 <li>Transitioned into account manager role post-launch - managed client relationship, handled escalations, ensured smooth operations</li>
 <li>Successfully handed off to dedicated account manager once platform was running smoothly with complete documentation and knowledge transfer</li>
 </ul>
@@ -1719,7 +1720,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><em>Sales Enablement & Demo Excellence:</em></p>
 <ul>
 <li>Own all sales materials including demo environments, pitch decks, competitive battle cards, and customer-facing documentation for lean sales team (2-4 people)</li>
-<li>Create 30+ customized demo environments and tailored sales packages annually - each researched and built specifically for prospect's business, industry challenges, and use cases</li>
+<li>Create 30+ customised demo environments and tailored sales packages annually - each researched and built specifically for prospect's business, industry challenges, and use cases</li>
 <li>Provide continuity and institutional knowledge as sales team composition changes - maintain consistency in demo quality and sales approach regardless of team turnover</li>
 <li>Develop discovery frameworks and qualification playbooks that help sellers identify best-fit opportunities across varying sales cycles</li>
 </ul>
@@ -1727,7 +1728,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><em>Strategic Operations & Gap Identification:</em></p>
 <ul>
 <li>Identify operational gaps, communication breakdowns, and work that doesn't clearly belong to one team - then take ownership</li>
-<li>Advise executive leadership on GTM, product roadmap priorities, organizational alignment, and operational efficiency</li>
+<li>Advise executive leadership on GTM, product roadmap priorities, organisational alignment, and operational efficiency</li>
 <li>Step in when ideas are lost in translation between teams - ensure equilibrium of understanding across technical and non-technical stakeholders</li>
 <li>Stepped up to cover PM responsibilities during team transitions - led daily scrums, managed sprint planning, triaged bugs, maintained delivery momentum without missing client commitments</li>
 </ul>
@@ -1766,7 +1767,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><em>Training & Enablement Programs:</em></p>
 <ul>
 <li>Designed and delivered onboarding and training programs on CRM systems, sales processes, product knowledge, and customer discovery</li>
-<li>Created 30+ customized demo environments and tailored sales packages annually - each specifically researched and built for individual prospect's business context, pitches, or RFPs</li>
+<li>Created 30+ customised demo environments and tailored sales packages annually - each specifically researched and built for individual prospect's business context, pitches, or RFPs</li>
 <li>Served as training constant and institutional knowledge across sales team changes - maintained demo quality and sales approach consistency</li>
 <li>Created discovery frameworks, qualification checklists, and sales playbooks that improved effectiveness across varying sales cycles (same-day SMB to year-long enterprise)</li>
 </ul>
@@ -1774,10 +1775,10 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><em>Product Operations & Quality:</em></p>
 <ul>
 <li>Partnered with Product and Engineering throughout full software development lifecycle - provided user perspective, seller and client feedback, ensured delivery met commitments</li>
-<li>Leveraged AI agents to analyze field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements</li>
+<li>Leveraged AI agents to analyse field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements</li>
 <li>Conducted win/loss analysis, competitive post-mortems, and gathered field feedback to identify product gaps and competitive advantages</li>
-<li>Managed client issues, triaged bugs in Jira, translated complex platform behavior into client-friendly explanations while coordinating resolution with engineering</li>
-<li>Led daily scrum calls with internal team to prioritize bugs, manage feature development, maintain delivery momentum</li>
+<li>Managed client issues, triaged bugs in Jira, translated complex platform behaviour into client-friendly explanations while coordinating resolution with engineering</li>
+<li>Led daily scrum calls with internal team to prioritise bugs, manage feature development, maintain delivery momentum</li>
 </ul>
 
 <p><strong>THE IMPACT:</strong></p>
@@ -1849,10 +1850,10 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <div class="resume-section">
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
-<p class="edu-detail">Specialized study in interpretation theory, meaning-making, communication, and how people understand and process information.</p>
+<p class="edu-detail">Specialised study in interpretation theory, meaning-making, communication, and how people understand and process information.</p>
 <p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 
-<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress) - SQL, data visualization, statistical analysis</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress) - SQL, data visualisation, statistical analysis</p>
 </div>
     `
   },
@@ -1872,7 +1873,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
     aboutText: `
 <p><strong>Hey there!</strong></p>
-<p>I'm Ashley - a human being who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recognizer. The connective tissue that keeps organizations from falling apart.</p>
+<p>I'm Ashley - a human being who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recogniser. The connective tissue that keeps organisations from falling apart.</p>
 <p>Philosophy background (hermeneutics - how people interpret information) + social work training = I design systems that respect how humans actually think, learn, and adopt new behaviors. Not how we wish they would. How they actually do.</p>
 <p>The path here was winding: philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops, then 7+ years at a startup that became about five different jobs. Every step taught me something I still use.</p>
 <p>Based in Guelph, Ontario. Remote worker since 2014. Pink office walls. A wall unit I got for $80 twelve years ago that stores all my favourite things. Two cats named Gertrude and Gherkin who have very different personalities and very strong opinions.</p>
@@ -1900,17 +1901,17 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       {
         name: "Sales Leader",
         title: "Ashley is the reason our demos actually close deals.",
-        text: "Every demo she builds is researched specifically for that prospect - she knows their business, their challenges, their language. Most sales support people give you generic decks. Ashley gives you a customized experience that makes prospects feel understood. She's been involved in every win we've had since 2018, and that's not a coincidence. Plus, she's genuinely great to work with."
+        text: "Every demo she builds is researched specifically for that prospect - she knows their business, their challenges, their language. Most sales support people give you generic decks. Ashley gives you a customised experience that makes prospects feel understood. She's been involved in every win we've had since 2018, and that's not a coincidence. Plus, she's genuinely great to work with."
       },
       {
         name: "Engineering Lead",
         title: "She's the only non-technical person I actually enjoy getting bug reports from.",
-        text: "Most people file tickets that say 'it's broken' and leave you guessing. Ashley's tickets have clear reproduction steps, expected behavior, actual behavior, and business impact. When she took over QA on a major project, our resolution time dropped because we weren't going back and forth trying to understand the issue. She catches edge cases our internal testing misses."
+        text: "Most people file tickets that say 'it's broken' and leave you guessing. Ashley's tickets have clear reproduction steps, expected behaviour, actual behaviour, and business impact. When she took over QA on a major project, our resolution time dropped because we weren't going back and forth trying to understand the issue. She catches edge cases our internal testing misses."
       },
       {
         name: "Executive / COO",
         title: "Ashley sees problems before they become problems.",
-        text: "What I value most is that she doesn't just execute - she thinks. She'll come to me and say 'I noticed this gap between how Sales and Product are communicating, and here's what I think we should do about it.' Half the time I didn't even know the gap existed. She's the kind of person who makes the whole organization run smoother just by being present and paying attention."
+        text: "What I value most is that she doesn't just execute - she thinks. She'll come to me and say 'I noticed this gap between how Sales and Product are communicating, and here's what I think we should do about it.' Half the time I didn't even know the gap existed. She's the kind of person who makes the whole organisation run smoother just by being present and paying attention."
       },
       {
         name: "Client Success Manager",
@@ -1944,7 +1945,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
     responses: {
       "What do you do?": {
-        text: "I find gaps and fill them. That's the short version.\n\nThe longer version: I'm a Product Operations and Enablement leader who builds systems that make organizations work better. Most recently, I built the entire adoption infrastructure for an AI agent product - testing framework, onboarding methodology, training curriculum, the works. Before that, I spent 7+ years at a field marketing platform building operational infrastructure from scratch, running QA, leading projects, creating sales enablement materials, and being the person who makes sure nothing falls through the cracks.\n\nThe pattern is always the same: see gaps, fill gaps, build systems, hand off.",
+        text: "I find gaps and fill them. That's the short version.\n\nThe longer version: I'm a Product Operations and Enablement leader who builds systems that make organisations work better. Most recently, I built the entire adoption infrastructure for an AI agent product - testing framework, onboarding methodology, training curriculum, the works. Before that, I spent 7+ years at a field marketing platform building operational infrastructure from scratch, running QA, leading projects, creating sales enablement materials, and being the person who makes sure nothing falls through the cracks.\n\nThe pattern is always the same: see gaps, fill gaps, build systems, hand off.",
         followUp: "How did you end up doing this kind of work?"
       },
 
@@ -1999,12 +2000,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       },
 
       "What are you looking for?": {
-        text: "Growth-stage companies where one person can have real impact. Small teams where relationships matter and I know everyone's name. Authentic cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board - someone who helps teams think through problems, not just execute tasks. Remote work is essential (I've been remote since 2014, I'm not going back). Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialized roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
+        text: "Growth-stage companies where one person can have real impact. Small teams where relationships matter and I know everyone's name. Authentic cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board - someone who helps teams think through problems, not just execute tasks. Remote work is essential (I've been remote since 2014, I'm not going back). Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialised roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
         followUp: "What does your ideal role look like?"
       },
 
       "What does your ideal role look like?": {
-        text: "Product Operations, Revenue Operations, Chief of Staff to someone who wants a strategic partner, or something in the AI/enablement space where I can help people actually adopt and use these tools well.\n\nSomewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my weird background is an asset, not a question mark.\n\nBasically: give me interesting problems, trust me to solve them, and let me make your organization work better. That's the job I want.",
+        text: "Product Operations, Revenue Operations, Chief of Staff to someone who wants a strategic partner, or something in the AI/enablement space where I can help people actually adopt and use these tools well.\n\nSomewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my weird background is an asset, not a question mark.\n\nBasically: give me interesting problems, trust me to solve them, and let me make your organisation work better. That's the job I want.",
         followUp: null
       }
     },
@@ -2028,7 +2029,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
         "Created wireframes and workflows translating business requirements into technical specifications",
         "Built comprehensive QA process from scratch - test plans, quality standards, coordination between internal dev team and client QA",
         "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs, kept everything moving",
-        "Transitioned to account manager role post-launch, stabilized the relationship, then successfully handed off with complete documentation"
+        "Transitioned to account manager role post-launch, stabilised the relationship, then successfully handed off with complete documentation"
       ],
       outcome: "Platform launched successfully and scaled to track 42,000+ retail installations. QA process became template for subsequent implementations. Classic pattern: see gap, fill gap, build system, hand off.",
       skills: ["Project Management", "QA Leadership", "Requirements Gathering", "Jira", "Agile", "Client Relations", "Technical Translation"],
@@ -2058,7 +2059,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       description: "A small sales team (2-4 people) needed to win enterprise deals with major brands - Fortune 500 CPG companies, national telecommunications providers, major beverage brands. Competing against larger companies with dedicated sales enablement departments. Team composition changed over the years, but demo quality couldn't fluctuate.",
       challenge: "Maintain enterprise-quality sales materials and institutional knowledge across team changes with limited resources. Be the constant when everything else shifted.",
       whatIDid: [
-        "Created 30+ customized demo environments annually - each specifically researched for that prospect's business, challenges, and use cases (no generic decks)",
+        "Created 30+ customised demo environments annually - each specifically researched for that prospect's business, challenges, and use cases (no generic decks)",
         "Built discovery frameworks and qualification playbooks for varying sales cycles (same-day SMB to year-long enterprise)",
         "Served as enablement constant across sales team changes - maintained demo quality and approach consistency regardless of who was on the team",
         "Reduced new hire ramp time from 90 to 60 days through structured onboarding and self-service resources"
@@ -2122,7 +2123,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
             "Ongoing office hours and support framework"
           ],
 
-          impact: "Became the go-to person for all AI-related questions across the organization. Training materials were used for every new client onboarding and internal hire. Reduced the 'I don't get it' support tickets dramatically by setting proper expectations upfront. Clients who went through the full curriculum showed notably higher engagement and satisfaction.",
+          impact: "Became the go-to person for all AI-related questions across the organisation. Training materials were used for every new client onboarding and internal hire. Reduced the 'I don't get it' support tickets dramatically by setting proper expectations upfront. Clients who went through the full curriculum showed notably higher engagement and satisfaction.",
 
           skills: ["Curriculum Design", "AI/ML Understanding", "Technical Writing", "Video Production", "Change Management", "Stakeholder Training"]
         },
@@ -2168,28 +2169,28 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       {
         id: "visual-language",
         title: "The Visual Language",
-        category: "Data Visualization",
+        category: "Data Visualisation",
         icon: "📊",
-        summary: "Developed standards for translating data queries into clear, actionable visualizations",
+        summary: "Developed standards for translating data queries into clear, actionable visualisations",
         documentUrl: "examples/visual-language-guide.html",
 
         caseStudy: {
           challenge: "AI agents could answer questions, but the answers were walls of text. Executives wanted charts. Analysts wanted tables. Field teams wanted simple numbers. Same data, completely different needs - and no standards for how to present any of it.",
 
-          approach: "Researched visualization best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness - same data, different presentations for different roles.",
+          approach: "Researched visualisation best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness - same data, different presentations for different roles.",
 
           deliverables: [
-            "Chart selection guide matching data types to visualization types",
+            "Chart selection guide matching data types to visualisation types",
             "Audience adaptation framework (Executive vs. Analyst vs. Field)",
-            "Color palette standards with accessibility compliance",
+            "Colour palette standards with accessibility compliance",
             "Template library for common report types",
-            "Prompt engineering patterns for visualization requests",
+            "Prompt engineering patterns for visualisation requests",
             "Style guide ensuring consistency across all outputs"
           ],
 
           impact: "Transformed raw AI outputs into presentation-ready insights. Executives actually started using the dashboards instead of asking for manual reports. Consistency across all client deliverables improved significantly. Became the standard for how data was presented company-wide.",
 
-          skills: ["Data Visualization", "UX Design", "Technical Documentation", "Accessibility", "Stakeholder Management", "Information Architecture"]
+          skills: ["Data Visualisation", "UX Design", "Technical Documentation", "Accessibility", "Stakeholder Management", "Information Architecture"]
         },
 
         presentation: {
@@ -2218,7 +2219,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
             },
             {
               title: "The Standards",
-              content: "• Consistent color palette\n• Accessibility-compliant contrast\n• Clear titles that answer 'so what?'\n• Source attribution\n• Data freshness indicators",
+              content: "• Consistent colour palette\n• Accessibility-compliant contrast\n• Clear titles that answer 'so what?'\n• Source attribution\n• Data freshness indicators",
               notes: "Consistency builds trust"
             },
             {
@@ -2241,12 +2242,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
         caseStudy: {
           challenge: "Clients needed to understand what customers actually thought about their field marketing experiences. But most surveys were either too long (nobody finishes), too vague (useless data), or too leading (biased results). Needed a framework that got honest, useful feedback without survey fatigue.",
 
-          approach: "Studied survey methodology research. Identified the sweet spot: 5-7 questions, specific but not leading, mix of quantitative (for tracking) and qualitative (for insights). Built in mobile-first design since most respondents were on phones. Created question banks organized by what you're trying to learn.",
+          approach: "Studied survey methodology research. Identified the sweet spot: 5-7 questions, specific but not leading, mix of quantitative (for tracking) and qualitative (for insights). Built in mobile-first design since most respondents were on phones. Created question banks organised by what you're trying to learn.",
 
           deliverables: [
             "Survey design principles document",
-            "Question bank organized by research objective",
-            "Mobile-optimized survey templates",
+            "Question bank organised by research objective",
+            "Mobile-optimised survey templates",
             "Response analysis framework",
             "Benchmark interpretation guide",
             "Common pitfalls and how to avoid them"
@@ -2278,7 +2279,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
             },
             {
               title: "Question Bank Approach",
-              content: "Pre-tested questions organized by objective:\n\n• Measuring satisfaction\n• Understanding drivers\n• Identifying problems\n• Capturing suggestions",
+              content: "Pre-tested questions organised by objective:\n\n• Measuring satisfaction\n• Understanding drivers\n• Identifying problems\n• Capturing suggestions",
               notes: "Don't reinvent the wheel"
             },
             {
@@ -2306,7 +2307,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
         caseStudy: {
           challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to bridge the gap between business questions and technical queries.",
 
-          approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively - same prompt, multiple datasets, consistent results. Created templates that non-technical users could customize. Built in guardrails to prevent misinterpretation.",
+          approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively - same prompt, multiple datasets, consistent results. Created templates that non-technical users could customise. Built in guardrails to prevent misinterpretation.",
 
           deliverables: [
             "Power Prompts library with 75+ tested templates",
@@ -2720,7 +2721,7 @@ Interesting...`,
 
       "archive-q4": {
         title: "Actually Final",
-        text: `The Q4 folder is surprisingly organized. Someone clearly did a cleanup before year-end.
+        text: `The Q4 folder is surprisingly organised. Someone clearly did a cleanup before year-end.
 
 You find a migration log: "All legacy documents moved to vault. Password protection added per security audit. See founders-notes for access."
 
@@ -2807,7 +2808,7 @@ But it's protected by one final guardian.`,
 
       guardian: {
         title: "The Guardian of Requirements",
-        text: `A holographic figure materializes. It's the ORIGINAL PRODUCT MANAGER - or at least, their documentation avatar.
+        text: `A holographic figure materialises. It's the ORIGINAL PRODUCT MANAGER - or at least, their documentation avatar.
 
 "So, you seek the Original Requirements," they speak. "Many have come. All have failed the Three Questions."
 
@@ -2880,7 +2881,7 @@ Try again.`,
 
       "q2-right": {
         title: "Wise Answer",
-        text: `"Yes! Documentation is not bureaucracy - it's organizational memory. Changes happen. Recording WHY they happen is what matters."
+        text: `"Yes! Documentation is not bureaucracy - it's organisational memory. Changes happen. Recording WHY they happen is what matters."
 
 Final Question: "The Lost Doc you seek - why do you truly want it?"`,
         choices: [
@@ -2949,7 +2950,7 @@ The ghost fades, leaving only the smell of old server rooms and regret.`,
 
       "docs-room": {
         title: "The Documentation Sanctuary",
-        text: `You land softly on a pile of well-maintained docs. It's beautiful here - organized, searchable, with clear ownership.
+        text: `You land softly on a pile of well-maintained docs. It's beautiful here - organised, searchable, with clear ownership.
 
 A librarian-bot approaches. "Welcome to the Documentation Sanctuary. Few find this place."
 
