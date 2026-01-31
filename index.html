@@ -189,17 +189,13 @@
                 <div class="icon-image icon-folder-special"></div>
                 <span class="icon-label">All of the Things</span>
               </div>
-              <div class="desktop-icon" data-app="calculator" data-file="valuecalc">
+              <div class="desktop-icon" data-app="calculator" data-file="calculator">
                 <div class="icon-image icon-app-calc"></div>
-                <span class="icon-label">ValueCalc.exe</span>
+                <span class="icon-label">Calculator</span>
               </div>
               <div class="desktop-icon" data-app="misc-folder" data-file="takeabreak">
                 <div class="icon-image icon-folder-games"></div>
                 <span class="icon-label">Take a Break</span>
-              </div>
-              <div class="desktop-icon" data-app="game" data-file="projecttrail">
-                <div class="icon-image icon-game"></div>
-                <span class="icon-label">ProjectTrail.exe</span>
               </div>
               <div class="desktop-icon" data-app="recycle" data-file="trash">
                 <div class="icon-image icon-recycle"></div>
@@ -757,11 +753,11 @@
     </div>
   </template>
 
-  <!-- Value Calculator Window Template -->
+  <!-- Calculator Window Template -->
   <template id="template-calculator">
     <div class="window window-calculator" data-window="calculator">
       <div class="window-titlebar titlebar-calculator">
-        <span class="window-title">Value Calculator v1.0</span>
+        <span class="window-title">Calculator</span>
         <div class="window-controls">
           <button class="window-btn window-minimize">_</button>
           <button class="window-btn window-maximize">[]</button>
@@ -769,113 +765,29 @@
         </div>
       </div>
       <div class="window-content calculator-content">
-        <div class="calculator-body">
-          <div class="calculator-intro">
-            <h1>How Valuable Am I?</h1>
-            <p>A deeply scientific* calculation of your worth<br><span class="calc-disclaimer">*not scientific at all</span></p>
-          </div>
-
-          <div class="calc-inputs-section">
-            <div class="calc-input-group">
-              <div class="calc-input-label">
-                <span>Years of experience</span>
-                <span class="calc-input-value" data-for="experience">5</span>
-              </div>
-              <input type="range" class="calc-slider" data-calc="experience" min="0" max="25" value="5">
-            </div>
-
-            <div class="calc-input-group">
-              <div class="calc-input-label">
-                <span>Problems solved before anyone noticed</span>
-                <span class="calc-input-value" data-for="proactive">3</span>
-              </div>
-              <input type="range" class="calc-slider" data-calc="proactive" min="0" max="10" value="3">
-            </div>
-
-            <div class="calc-input-group">
-              <div class="calc-input-label">
-                <span>Complex things made simple (this month)</span>
-                <span class="calc-input-value" data-for="simplicity">4</span>
-              </div>
-              <input type="range" class="calc-slider" data-calc="simplicity" min="0" max="15" value="4">
-            </div>
-
-            <div class="calc-input-group">
-              <div class="calc-input-label">
-                <span>Times you've said "I have a doc for that"</span>
-                <span class="calc-input-value" data-for="docs">6</span>
-              </div>
-              <input type="range" class="calc-slider" data-calc="docs" min="0" max="20" value="6">
-            </div>
-
-            <div class="calc-input-group">
-              <div class="calc-input-label">
-                <span>Questions answered before they were asked</span>
-                <span class="calc-input-value" data-for="anticipate">2</span>
-              </div>
-              <input type="range" class="calc-slider" data-calc="anticipate" min="0" max="10" value="2">
-            </div>
-
-            <div class="calc-input-group">
-              <div class="calc-input-label">
-                <span>Hours saved for others (weekly)</span>
-                <span class="calc-input-value" data-for="hoursSaved">5</span>
-              </div>
-              <input type="range" class="calc-slider" data-calc="hoursSaved" min="0" max="40" value="5">
-            </div>
-
-            <div class="calc-input-group">
-              <div class="calc-input-label">
-                <span>Things built that are still being used</span>
-                <span class="calc-input-value" data-for="lasting">3</span>
-              </div>
-              <input type="range" class="calc-slider" data-calc="lasting" min="0" max="20" value="3">
-            </div>
-
-            <div class="calc-divider"></div>
-
-            <button class="calc-calculate-btn">Calculate My Value</button>
-          </div>
-
-          <div class="calc-results">
-            <div class="calc-tier-badge">Exceptional</div>
-            <div class="calc-result-score">847</div>
-            <div class="calc-result-label">Arbitrary Value Units™</div>
-
-            <div class="calc-result-message">
-              <p>Loading wisdom...</p>
-            </div>
-
-            <div class="calc-result-breakdown">
-              <div class="calc-breakdown-title">Value Breakdown</div>
-              <div class="calc-breakdown-item">
-                <span>Foundation (experience)</span>
-                <span data-breakdown="exp">+100</span>
-              </div>
-              <div class="calc-breakdown-item">
-                <span>Prevention multiplier</span>
-                <span data-breakdown="prevention">×1.5</span>
-              </div>
-              <div class="calc-breakdown-item">
-                <span>Clarity bonus</span>
-                <span data-breakdown="clarity">+80</span>
-              </div>
-              <div class="calc-breakdown-item">
-                <span>Documentation dividend</span>
-                <span data-breakdown="docs">+120</span>
-              </div>
-              <div class="calc-breakdown-item">
-                <span>Time liberation index</span>
-                <span data-breakdown="time">+200</span>
-              </div>
-              <div class="calc-breakdown-item">
-                <span>Legacy factor</span>
-                <span data-breakdown="legacy">+150</span>
-              </div>
-            </div>
-
-            <button class="calc-recalculate-btn">Recalculate</button>
-          </div>
+        <div class="calc-display">
+          <div class="calc-display-text">0</div>
+        </div>
+        <div class="calc-buttons">
+          <button class="calc-btn calc-btn-clear" data-action="clear">C</button>
+          <button class="calc-btn calc-btn-clear" data-action="backspace">←</button>
+          <button class="calc-btn calc-btn-op" data-action="percent">%</button>
+          <button class="calc-btn calc-btn-op" data-action="divide">÷</button>
+          <button class="calc-btn" data-action="7">7</button>
+          <button class="calc-btn" data-action="8">8</button>
+          <button class="calc-btn" data-action="9">9</button>
+          <button class="calc-btn calc-btn-op" data-action="multiply">×</button>
+          <button class="calc-btn" data-action="4">4</button>
+          <button class="calc-btn" data-action="5">5</button>
+          <button class="calc-btn" data-action="6">6</button>
+          <button class="calc-btn calc-btn-op" data-action="subtract">−</button>
+          <button class="calc-btn" data-action="1">1</button>
+          <button class="calc-btn" data-action="2">2</button>
+          <button class="calc-btn" data-action="3">3</button>
+          <button class="calc-btn calc-btn-op" data-action="add">+</button>
+          <button class="calc-btn calc-btn-zero" data-action="0">0</button>
+          <button class="calc-btn" data-action="decimal">.</button>
+          <button class="calc-btn calc-btn-equals" data-action="equals">=</button>
         </div>
       </div>
     </div>
