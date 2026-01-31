@@ -1112,6 +1112,9 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'calculator':
       initCalculator(windowEl);
       break;
+    case 'bionicbrain':
+      initBionicBrain(windowEl);
+      break;
   }
 }
 
@@ -3046,6 +3049,378 @@ function initCalculator(windowEl) {
     inputsSection?.classList.remove('hidden');
     resultsSection?.classList.remove('show');
   });
+}
+
+// ============================================
+// BIONIC BRAIN GAME
+// ============================================
+
+function initBionicBrain(windowEl) {
+  const canvas = windowEl.querySelector('.bionicbrain-canvas');
+  const ctx = canvas.getContext('2d');
+  const scoreEl = windowEl.querySelector('.bb-score');
+  const speedEl = windowEl.querySelector('.bb-speed');
+  const bestEl = windowEl.querySelector('.bionicbrain-best');
+
+  const WIDTH = canvas.width;
+  const HEIGHT = canvas.height;
+
+  // Game state
+  const game = {
+    active: false,
+    started: false,
+    score: 0,
+    speed: 1.0,
+    distance: 0,
+    targetDistance: 3000,
+    animFrame: null
+  };
+
+  // Player (brain)
+  const player = {
+    x: 60,
+    y: HEIGHT / 2,
+    width: 30,
+    height: 24,
+    vy: 0
+  };
+
+  // Collectibles
+  const items = [];
+  const GOOD_ITEMS = [
+    { text: '✓ Review', color: '#4ade80', effect: 0.15 },
+    { text: '🔍 Verify', color: '#22d3ee', effect: 0.12 },
+    { text: '🔄 Iterate', color: '#a78bfa', effect: 0.1 },
+    { text: '📋 Context', color: '#60a5fa', effect: 0.08 }
+  ];
+  const BAD_ITEMS = [
+    { text: '❌ Blind Copy', color: '#f87171', effect: -0.2 },
+    { text: '💭 Hallucination', color: '#fb923c', effect: -0.15 },
+    { text: '⏭ Skip Review', color: '#f472b6', effect: -0.18 }
+  ];
+
+  // Background particles (data bits flowing)
+  const particles = [];
+  for (let i = 0; i < 30; i++) {
+    particles.push({
+      x: Math.random() * WIDTH,
+      y: Math.random() * HEIGHT,
+      speed: 1 + Math.random() * 2,
+      char: ['0', '1', '{', '}', '<', '>', '/', '*'][Math.floor(Math.random() * 8)]
+    });
+  }
+
+  // High score
+  let bestScore = parseInt(localStorage.getItem('bionicBrainBest') || '0');
+  if (bestScore > 0) {
+    bestEl.textContent = `Best: ${bestScore}`;
+  }
+
+  // Input handling
+  const keys = { up: false, down: false };
+
+  function handleKeyDown(e) {
+    if (!document.contains(windowEl)) return;
+    if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+      keys.up = true;
+      e.preventDefault();
+    }
+    if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+      keys.down = true;
+      e.preventDefault();
+    }
+    if (e.key === ' ' && !game.started) {
+      startGame();
+      e.preventDefault();
+    }
+  }
+
+  function handleKeyUp(e) {
+    if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') keys.up = false;
+    if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') keys.down = false;
+  }
+
+  document.addEventListener('keydown', handleKeyDown);
+  document.addEventListener('keyup', handleKeyUp);
+
+  function startGame() {
+    game.active = true;
+    game.started = true;
+    game.score = 0;
+    game.speed = 1.0;
+    game.distance = 0;
+    player.y = HEIGHT / 2;
+    player.vy = 0;
+    items.length = 0;
+    updateUI();
+    gameLoop();
+  }
+
+  function spawnItem() {
+    // 60% chance good, 40% chance bad
+    const isGood = Math.random() < 0.6;
+    const pool = isGood ? GOOD_ITEMS : BAD_ITEMS;
+    const template = pool[Math.floor(Math.random() * pool.length)];
+
+    items.push({
+      x: WIDTH + 20,
+      y: 30 + Math.random() * (HEIGHT - 60),
+      width: 80,
+      height: 24,
+      ...template
+    });
+  }
+
+  function updateUI() {
+    scoreEl.textContent = game.score;
+    const speedPct = Math.round(game.speed * 100);
+    speedEl.textContent = speedPct + '%';
+    speedEl.style.color = game.speed >= 1 ? '#4ade80' : '#f87171';
+  }
+
+  function drawBrain(x, y) {
+    // Simple brain emoji-style drawing
+    ctx.font = '24px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    // Glow effect based on speed
+    if (game.speed > 1) {
+      ctx.shadowColor = '#4ade80';
+      ctx.shadowBlur = 10 + (game.speed - 1) * 20;
+    } else if (game.speed < 1) {
+      ctx.shadowColor = '#f87171';
+      ctx.shadowBlur = 10;
+    } else {
+      ctx.shadowBlur = 0;
+    }
+    ctx.fillText('🧠', x, y);
+    ctx.shadowBlur = 0;
+  }
+
+  function drawItem(item) {
+    ctx.fillStyle = item.color;
+    ctx.globalAlpha = 0.9;
+    ctx.fillRect(item.x, item.y - 12, item.width, item.height);
+    ctx.globalAlpha = 1;
+
+    ctx.fillStyle = '#fff';
+    ctx.font = '11px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(item.text, item.x + item.width / 2, item.y);
+  }
+
+  function drawParticles() {
+    ctx.fillStyle = '#334155';
+    ctx.font = '12px monospace';
+    particles.forEach(p => {
+      ctx.fillText(p.char, p.x, p.y);
+    });
+  }
+
+  function drawProgressBar() {
+    const progress = Math.min(game.distance / game.targetDistance, 1);
+    const barWidth = WIDTH - 40;
+    const barX = 20;
+    const barY = 10;
+
+    // Background
+    ctx.fillStyle = '#1e293b';
+    ctx.fillRect(barX, barY, barWidth, 8);
+
+    // Progress
+    const gradient = ctx.createLinearGradient(barX, 0, barX + barWidth, 0);
+    gradient.addColorStop(0, '#667eea');
+    gradient.addColorStop(1, '#764ba2');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(barX, barY, barWidth * progress, 8);
+
+    // Border
+    ctx.strokeStyle = '#475569';
+    ctx.strokeRect(barX, barY, barWidth, 8);
+
+    // Label
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Project Progress', WIDTH / 2, barY + 18);
+  }
+
+  function checkCollision(item) {
+    return player.x < item.x + item.width &&
+           player.x + player.width > item.x &&
+           player.y - player.height/2 < item.y + 12 &&
+           player.y + player.height/2 > item.y - 12;
+  }
+
+  function endGame(won) {
+    game.active = false;
+
+    // Calculate final score with speed bonus
+    const finalScore = Math.round(game.score * (won ? game.speed : 0.5));
+
+    if (finalScore > bestScore) {
+      bestScore = finalScore;
+      localStorage.setItem('bionicBrainBest', bestScore.toString());
+      bestEl.textContent = `NEW BEST: ${bestScore}`;
+      bestEl.style.color = '#fbbf24';
+    }
+
+    // Draw end screen
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    ctx.fillStyle = won ? '#4ade80' : '#f87171';
+    ctx.font = 'bold 24px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText(won ? 'PROJECT COMPLETE!' : 'PROJECT STALLED', WIDTH / 2, HEIGHT / 2 - 30);
+
+    ctx.fillStyle = '#fff';
+    ctx.font = '16px Arial';
+    ctx.fillText(`Final Score: ${finalScore}`, WIDTH / 2, HEIGHT / 2 + 10);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '14px Arial';
+    const msg = won
+      ? 'Due diligence pays off!'
+      : 'Remember: verify AI outputs!';
+    ctx.fillText(msg, WIDTH / 2, HEIGHT / 2 + 40);
+
+    ctx.fillStyle = '#667eea';
+    ctx.font = '12px Arial';
+    ctx.fillText('Press SPACE to play again', WIDTH / 2, HEIGHT / 2 + 70);
+
+    game.started = false;
+  }
+
+  function gameLoop() {
+    if (!game.active) return;
+
+    // Clear
+    ctx.fillStyle = '#0d0d1a';
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    // Update particles
+    particles.forEach(p => {
+      p.x -= p.speed * game.speed;
+      if (p.x < 0) {
+        p.x = WIDTH;
+        p.y = Math.random() * HEIGHT;
+      }
+    });
+    drawParticles();
+
+    // Draw progress bar
+    drawProgressBar();
+
+    // Player movement
+    if (keys.up) player.vy = -5;
+    else if (keys.down) player.vy = 5;
+    else player.vy *= 0.8;
+
+    player.y += player.vy;
+    player.y = Math.max(40, Math.min(HEIGHT - 20, player.y));
+
+    // Update distance based on speed
+    game.distance += 2 * game.speed;
+
+    // Spawn items
+    if (Math.random() < 0.025 * game.speed) {
+      spawnItem();
+    }
+
+    // Update and draw items
+    for (let i = items.length - 1; i >= 0; i--) {
+      const item = items[i];
+      item.x -= 3 * game.speed;
+
+      // Check collision
+      if (checkCollision(item)) {
+        game.speed = Math.max(0.3, Math.min(2.0, game.speed + item.effect));
+        if (item.effect > 0) {
+          game.score += Math.round(10 * item.effect * 10);
+        }
+        items.splice(i, 1);
+        updateUI();
+        continue;
+      }
+
+      // Remove if off screen
+      if (item.x + item.width < 0) {
+        items.splice(i, 1);
+        continue;
+      }
+
+      drawItem(item);
+    }
+
+    // Gradually decay speed toward 1.0
+    if (game.speed > 1.0) {
+      game.speed = Math.max(1.0, game.speed - 0.001);
+    } else if (game.speed < 1.0) {
+      game.speed = Math.min(1.0, game.speed + 0.0005);
+    }
+    updateUI();
+
+    // Draw player
+    drawBrain(player.x, player.y);
+
+    // Check win condition
+    if (game.distance >= game.targetDistance) {
+      endGame(true);
+      return;
+    }
+
+    // Check lose condition (speed too low for too long)
+    if (game.speed <= 0.3) {
+      endGame(false);
+      return;
+    }
+
+    game.animFrame = requestAnimationFrame(gameLoop);
+  }
+
+  // Draw initial screen
+  function drawStartScreen() {
+    ctx.fillStyle = '#0d0d1a';
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+    drawParticles();
+
+    ctx.fillStyle = '#667eea';
+    ctx.font = 'bold 22px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('THE BIONIC BRAIN', WIDTH / 2, HEIGHT / 2 - 50);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '13px Arial';
+    ctx.fillText('AI accelerates productivity...', WIDTH / 2, HEIGHT / 2 - 15);
+    ctx.fillText('but only with due diligence!', WIDTH / 2, HEIGHT / 2 + 5);
+
+    ctx.fillStyle = '#4ade80';
+    ctx.font = '12px Arial';
+    ctx.fillText('✓ Collect: Review, Verify, Iterate', WIDTH / 2, HEIGHT / 2 + 35);
+
+    ctx.fillStyle = '#f87171';
+    ctx.fillText('✗ Avoid: Blind Copy, Skip Review', WIDTH / 2, HEIGHT / 2 + 55);
+
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '14px Arial';
+    ctx.fillText('Press SPACE to start', WIDTH / 2, HEIGHT / 2 + 90);
+  }
+
+  drawStartScreen();
+
+  // Cleanup when window closes
+  const observer = new MutationObserver(() => {
+    if (!document.contains(windowEl)) {
+      game.active = false;
+      if (game.animFrame) cancelAnimationFrame(game.animFrame);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
 // ============================================

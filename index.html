@@ -468,6 +468,29 @@
     </div>
   </template>
 
+  <!-- Bionic Brain Game Template -->
+  <template id="template-bionicbrain">
+    <div class="window window-bionicbrain" data-window="bionicbrain">
+      <div class="window-titlebar titlebar-game">
+        <span class="window-title">The Bionic Brain</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content bionicbrain-content">
+        <canvas class="bionicbrain-canvas" width="450" height="280"></canvas>
+        <div class="bionicbrain-info">
+          <span class="bionicbrain-score">Score: <span class="bb-score">0</span></span>
+          <span class="bionicbrain-speed">Speed: <span class="bb-speed">100%</span></span>
+          <span class="bionicbrain-best"></span>
+        </div>
+        <div class="bionicbrain-controls">↑/↓ to move | Collect green, avoid red | Space to start</div>
+      </div>
+    </div>
+  </template>
+
   <!-- Raiders of the Lost Doc Window Template -->
   <template id="template-raiders">
     <div class="window window-raiders" data-window="raiders">

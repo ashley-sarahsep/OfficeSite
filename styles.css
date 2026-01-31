@@ -3247,6 +3247,61 @@ body {
 }
 
 /* ============================================
+   BIONIC BRAIN GAME
+   ============================================ */
+
+.window-bionicbrain {
+  width: 500px;
+}
+
+.bionicbrain-content {
+  background: linear-gradient(180deg, #0a0a1a 0%, #1a1a2e 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  min-height: 380px;
+}
+
+.bionicbrain-canvas {
+  border: 3px solid #667eea;
+  background: #0d0d1a;
+  image-rendering: pixelated;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+.bionicbrain-info {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+  margin-top: 10px;
+  font-family: var(--font-terminal);
+  font-size: 14px;
+}
+
+.bionicbrain-score {
+  color: #4ade80;
+}
+
+.bionicbrain-speed {
+  color: #60a5fa;
+}
+
+.bionicbrain-best {
+  color: var(--color-orange);
+  font-size: 12px;
+}
+
+.bionicbrain-controls {
+  font-family: var(--font-terminal);
+  font-size: 11px;
+  color: #a0a0b8;
+  margin-top: 8px;
+  opacity: 0.8;
+}
+
+/* ============================================
    RAIDERS OF THE LOST DOC
    ============================================ */
 

@@ -1586,6 +1586,7 @@ If that sounds like what you need, let's talk.
       takeabreak: {
         title: "Take a Break",
         items: [
+          { id: "bionicbrain", name: "The Bionic Brain.exe", icon: "exe", type: "game", app: "bionicbrain" },
           { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "exe", type: "game", app: "raiders" },
           { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "exe", type: "game", app: "minesweeper" },
           { id: "memory", name: "Memory Match.exe", icon: "exe", type: "game", app: "memory" },
