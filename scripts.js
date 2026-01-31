@@ -1109,6 +1109,15 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'about-computer':
       initAboutComputer(windowEl);
       break;
+    case 'calculator':
+      initCalculator(windowEl);
+      break;
+    case 'bionicbrain':
+      initBionicBrain(windowEl);
+      break;
+    case 'workmatch':
+      initWorkMatch(windowEl);
+      break;
   }
 }
 
@@ -2914,6 +2923,704 @@ function initMinesweeper(windowEl) {
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });
+}
+
+// ============================================
+// VALUE CALCULATOR
+// ============================================
+
+function initCalculator(windowEl) {
+  const sliders = windowEl.querySelectorAll('.calc-slider');
+  const calculateBtn = windowEl.querySelector('.calc-calculate-btn');
+  const recalculateBtn = windowEl.querySelector('.calc-recalculate-btn');
+  const inputsSection = windowEl.querySelector('.calc-inputs-section');
+  const resultsSection = windowEl.querySelector('.calc-results');
+
+  // Messages based on score tiers
+  const messages = {
+    legendary: [
+      "You're not just valuable—you're the reason things work smoothly while everyone else wonders how. The quiet architect of 'it just works.'",
+      "Your value isn't measured in what you do, but in all the chaos that never happens because you exist. That's rare.",
+      "You've reached the level where your absence would be felt for months. People would slowly realize all the things that 'used to just work.'"
+    ],
+    exceptional: [
+      "You're the person people don't realize they depend on until you take a vacation. That's not an accident—that's years of quiet excellence.",
+      "High value isn't always loud. Yours is the kind that compounds silently—each system improved, each problem prevented, each hour saved.",
+      "You've built the kind of value that outlasts projects. The templates, the docs, the 'oh, there's already a process for that'—that's legacy."
+    ],
+    valuable: [
+      "You're building something real. The instinct to document, to anticipate, to simplify—these aren't common skills. They're multipliers.",
+      "Your value shows up in the things that don't break, the questions that don't get asked, the time that doesn't get wasted. Keep going.",
+      "You're past the point of just doing tasks. You're making systems better. That's the difference between a contributor and a force multiplier."
+    ],
+    growing: [
+      "You're on the right path. Every problem you solve before it escalates, every doc you create—it's compounding into something significant.",
+      "Value isn't about being everywhere at once. It's about making your presence count. You're learning to do exactly that.",
+      "The foundation is there. Now it's about consistency—keep building those habits that turn good work into lasting impact."
+    ]
+  };
+
+  // Update slider value displays
+  sliders.forEach(slider => {
+    const calcType = slider.dataset.calc;
+    const valueDisplay = windowEl.querySelector(`.calc-input-value[data-for="${calcType}"]`);
+    if (valueDisplay) {
+      slider.addEventListener('input', () => {
+        valueDisplay.textContent = slider.value;
+      });
+    }
+  });
+
+  // Calculate button
+  calculateBtn?.addEventListener('click', () => {
+    const getValue = (name) => parseInt(windowEl.querySelector(`[data-calc="${name}"]`)?.value || 0);
+
+    const exp = getValue('experience');
+    const proactive = getValue('proactive');
+    const simplicity = getValue('simplicity');
+    const docs = getValue('docs');
+    const anticipate = getValue('anticipate');
+    const hoursSaved = getValue('hoursSaved');
+    const lasting = getValue('lasting');
+
+    // Calculate component scores
+    const foundationScore = exp * 20;
+    const preventionMultiplier = 1 + (proactive * 0.15);
+    const clarityBonus = simplicity * 18;
+    const docsBonus = docs * 15;
+    const timeBonus = hoursSaved * 25;
+    const legacyBonus = lasting * 40;
+    const anticipateBonus = anticipate * 30;
+
+    // Total calculation
+    let total = foundationScore + clarityBonus + docsBonus + timeBonus + legacyBonus + anticipateBonus;
+    total = Math.round(total * preventionMultiplier);
+
+    // Determine tier
+    let tier, tierClass, messagePool;
+    if (total >= 800) {
+      tier = 'Legendary';
+      tierClass = 'calc-tier-legendary';
+      messagePool = messages.legendary;
+    } else if (total >= 500) {
+      tier = 'Exceptional';
+      tierClass = 'calc-tier-exceptional';
+      messagePool = messages.exceptional;
+    } else if (total >= 250) {
+      tier = 'Valuable';
+      tierClass = 'calc-tier-valuable';
+      messagePool = messages.valuable;
+    } else {
+      tier = 'Growing';
+      tierClass = 'calc-tier-growing';
+      messagePool = messages.growing;
+    }
+
+    // Update display
+    const scoreEl = windowEl.querySelector('.calc-result-score');
+    if (scoreEl) scoreEl.textContent = total.toLocaleString();
+
+    const badge = windowEl.querySelector('.calc-tier-badge');
+    if (badge) {
+      badge.textContent = tier;
+      badge.className = 'calc-tier-badge ' + tierClass;
+    }
+
+    const message = messagePool[Math.floor(Math.random() * messagePool.length)];
+    const messageEl = windowEl.querySelector('.calc-result-message p');
+    if (messageEl) messageEl.textContent = message;
+
+    // Update breakdown
+    const setBreakdown = (key, value) => {
+      const el = windowEl.querySelector(`[data-breakdown="${key}"]`);
+      if (el) el.textContent = value;
+    };
+    setBreakdown('exp', '+' + foundationScore);
+    setBreakdown('prevention', '×' + preventionMultiplier.toFixed(2));
+    setBreakdown('clarity', '+' + clarityBonus);
+    setBreakdown('docs', '+' + docsBonus);
+    setBreakdown('time', '+' + timeBonus);
+    setBreakdown('legacy', '+' + (legacyBonus + anticipateBonus));
+
+    // Show results
+    inputsSection?.classList.add('hidden');
+    resultsSection?.classList.add('show');
+  });
+
+  // Recalculate button
+  recalculateBtn?.addEventListener('click', () => {
+    inputsSection?.classList.remove('hidden');
+    resultsSection?.classList.remove('show');
+  });
+}
+
+// ============================================
+// BIONIC BRAIN GAME
+// ============================================
+
+function initBionicBrain(windowEl) {
+  const canvas = windowEl.querySelector('.bionicbrain-canvas');
+  const ctx = canvas.getContext('2d');
+  const scoreEl = windowEl.querySelector('.bb-score');
+  const speedEl = windowEl.querySelector('.bb-speed');
+  const bestEl = windowEl.querySelector('.bionicbrain-best');
+
+  const WIDTH = canvas.width;
+  const HEIGHT = canvas.height;
+
+  // Game state
+  const game = {
+    active: false,
+    started: false,
+    score: 0,
+    speed: 1.0,
+    distance: 0,
+    targetDistance: 3000,
+    animFrame: null
+  };
+
+  // Player (brain)
+  const player = {
+    x: 60,
+    y: HEIGHT / 2,
+    width: 30,
+    height: 24,
+    vy: 0
+  };
+
+  // Collectibles
+  const items = [];
+  const GOOD_ITEMS = [
+    { text: '✓ Review', color: '#4ade80', effect: 0.15 },
+    { text: '🔍 Verify', color: '#22d3ee', effect: 0.12 },
+    { text: '🔄 Iterate', color: '#a78bfa', effect: 0.1 },
+    { text: '📋 Context', color: '#60a5fa', effect: 0.08 }
+  ];
+  const BAD_ITEMS = [
+    { text: '❌ Blind Copy', color: '#f87171', effect: -0.2 },
+    { text: '💭 Hallucination', color: '#fb923c', effect: -0.15 },
+    { text: '⏭ Skip Review', color: '#f472b6', effect: -0.18 }
+  ];
+
+  // Background particles (data bits flowing)
+  const particles = [];
+  for (let i = 0; i < 30; i++) {
+    particles.push({
+      x: Math.random() * WIDTH,
+      y: Math.random() * HEIGHT,
+      speed: 1 + Math.random() * 2,
+      char: ['0', '1', '{', '}', '<', '>', '/', '*'][Math.floor(Math.random() * 8)]
+    });
+  }
+
+  // High score
+  let bestScore = parseInt(localStorage.getItem('bionicBrainBest') || '0');
+  if (bestScore > 0) {
+    bestEl.textContent = `Best: ${bestScore}`;
+  }
+
+  // Input handling
+  const keys = { up: false, down: false };
+
+  function handleKeyDown(e) {
+    if (!document.contains(windowEl)) return;
+    if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+      keys.up = true;
+      e.preventDefault();
+    }
+    if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+      keys.down = true;
+      e.preventDefault();
+    }
+    if (e.key === ' ' && !game.started) {
+      startGame();
+      e.preventDefault();
+    }
+  }
+
+  function handleKeyUp(e) {
+    if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') keys.up = false;
+    if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') keys.down = false;
+  }
+
+  document.addEventListener('keydown', handleKeyDown);
+  document.addEventListener('keyup', handleKeyUp);
+
+  function startGame() {
+    game.active = true;
+    game.started = true;
+    game.score = 0;
+    game.speed = 1.0;
+    game.distance = 0;
+    player.y = HEIGHT / 2;
+    player.vy = 0;
+    items.length = 0;
+    updateUI();
+    gameLoop();
+  }
+
+  function spawnItem() {
+    // 60% chance good, 40% chance bad
+    const isGood = Math.random() < 0.6;
+    const pool = isGood ? GOOD_ITEMS : BAD_ITEMS;
+    const template = pool[Math.floor(Math.random() * pool.length)];
+
+    items.push({
+      x: WIDTH + 20,
+      y: 30 + Math.random() * (HEIGHT - 60),
+      width: 80,
+      height: 24,
+      ...template
+    });
+  }
+
+  function updateUI() {
+    scoreEl.textContent = game.score;
+    const speedPct = Math.round(game.speed * 100);
+    speedEl.textContent = speedPct + '%';
+    speedEl.style.color = game.speed >= 1 ? '#4ade80' : '#f87171';
+  }
+
+  function drawBrain(x, y) {
+    // Simple brain emoji-style drawing
+    ctx.font = '24px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    // Glow effect based on speed
+    if (game.speed > 1) {
+      ctx.shadowColor = '#4ade80';
+      ctx.shadowBlur = 10 + (game.speed - 1) * 20;
+    } else if (game.speed < 1) {
+      ctx.shadowColor = '#f87171';
+      ctx.shadowBlur = 10;
+    } else {
+      ctx.shadowBlur = 0;
+    }
+    ctx.fillText('🧠', x, y);
+    ctx.shadowBlur = 0;
+  }
+
+  function drawItem(item) {
+    ctx.fillStyle = item.color;
+    ctx.globalAlpha = 0.9;
+    ctx.fillRect(item.x, item.y - 12, item.width, item.height);
+    ctx.globalAlpha = 1;
+
+    ctx.fillStyle = '#fff';
+    ctx.font = '11px Arial';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(item.text, item.x + item.width / 2, item.y);
+  }
+
+  function drawParticles() {
+    ctx.fillStyle = '#334155';
+    ctx.font = '12px monospace';
+    particles.forEach(p => {
+      ctx.fillText(p.char, p.x, p.y);
+    });
+  }
+
+  function drawProgressBar() {
+    const progress = Math.min(game.distance / game.targetDistance, 1);
+    const barWidth = WIDTH - 40;
+    const barX = 20;
+    const barY = 10;
+
+    // Background
+    ctx.fillStyle = '#1e293b';
+    ctx.fillRect(barX, barY, barWidth, 8);
+
+    // Progress
+    const gradient = ctx.createLinearGradient(barX, 0, barX + barWidth, 0);
+    gradient.addColorStop(0, '#667eea');
+    gradient.addColorStop(1, '#764ba2');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(barX, barY, barWidth * progress, 8);
+
+    // Border
+    ctx.strokeStyle = '#475569';
+    ctx.strokeRect(barX, barY, barWidth, 8);
+
+    // Label
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '10px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Project Progress', WIDTH / 2, barY + 18);
+  }
+
+  function checkCollision(item) {
+    return player.x < item.x + item.width &&
+           player.x + player.width > item.x &&
+           player.y - player.height/2 < item.y + 12 &&
+           player.y + player.height/2 > item.y - 12;
+  }
+
+  function endGame(won) {
+    game.active = false;
+
+    // Calculate final score with speed bonus
+    const finalScore = Math.round(game.score * (won ? game.speed : 0.5));
+
+    if (finalScore > bestScore) {
+      bestScore = finalScore;
+      localStorage.setItem('bionicBrainBest', bestScore.toString());
+      bestEl.textContent = `NEW BEST: ${bestScore}`;
+      bestEl.style.color = '#fbbf24';
+    }
+
+    // Draw end screen
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    ctx.fillStyle = won ? '#4ade80' : '#f87171';
+    ctx.font = 'bold 24px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText(won ? 'PROJECT COMPLETE!' : 'PROJECT STALLED', WIDTH / 2, HEIGHT / 2 - 30);
+
+    ctx.fillStyle = '#fff';
+    ctx.font = '16px Arial';
+    ctx.fillText(`Final Score: ${finalScore}`, WIDTH / 2, HEIGHT / 2 + 10);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '14px Arial';
+    const msg = won
+      ? 'Due diligence pays off!'
+      : 'Remember: verify AI outputs!';
+    ctx.fillText(msg, WIDTH / 2, HEIGHT / 2 + 40);
+
+    ctx.fillStyle = '#667eea';
+    ctx.font = '12px Arial';
+    ctx.fillText('Press SPACE to play again', WIDTH / 2, HEIGHT / 2 + 70);
+
+    game.started = false;
+  }
+
+  function gameLoop() {
+    if (!game.active) return;
+
+    // Clear
+    ctx.fillStyle = '#0d0d1a';
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    // Update particles
+    particles.forEach(p => {
+      p.x -= p.speed * game.speed;
+      if (p.x < 0) {
+        p.x = WIDTH;
+        p.y = Math.random() * HEIGHT;
+      }
+    });
+    drawParticles();
+
+    // Draw progress bar
+    drawProgressBar();
+
+    // Player movement
+    if (keys.up) player.vy = -5;
+    else if (keys.down) player.vy = 5;
+    else player.vy *= 0.8;
+
+    player.y += player.vy;
+    player.y = Math.max(40, Math.min(HEIGHT - 20, player.y));
+
+    // Update distance based on speed
+    game.distance += 2 * game.speed;
+
+    // Spawn items
+    if (Math.random() < 0.025 * game.speed) {
+      spawnItem();
+    }
+
+    // Update and draw items
+    for (let i = items.length - 1; i >= 0; i--) {
+      const item = items[i];
+      item.x -= 3 * game.speed;
+
+      // Check collision
+      if (checkCollision(item)) {
+        game.speed = Math.max(0.3, Math.min(2.0, game.speed + item.effect));
+        if (item.effect > 0) {
+          game.score += Math.round(10 * item.effect * 10);
+        }
+        items.splice(i, 1);
+        updateUI();
+        continue;
+      }
+
+      // Remove if off screen
+      if (item.x + item.width < 0) {
+        items.splice(i, 1);
+        continue;
+      }
+
+      drawItem(item);
+    }
+
+    // Gradually decay speed toward 1.0
+    if (game.speed > 1.0) {
+      game.speed = Math.max(1.0, game.speed - 0.001);
+    } else if (game.speed < 1.0) {
+      game.speed = Math.min(1.0, game.speed + 0.0005);
+    }
+    updateUI();
+
+    // Draw player
+    drawBrain(player.x, player.y);
+
+    // Check win condition
+    if (game.distance >= game.targetDistance) {
+      endGame(true);
+      return;
+    }
+
+    // Check lose condition (speed too low for too long)
+    if (game.speed <= 0.3) {
+      endGame(false);
+      return;
+    }
+
+    game.animFrame = requestAnimationFrame(gameLoop);
+  }
+
+  // Draw initial screen
+  function drawStartScreen() {
+    ctx.fillStyle = '#0d0d1a';
+    ctx.fillRect(0, 0, WIDTH, HEIGHT);
+    drawParticles();
+
+    ctx.fillStyle = '#667eea';
+    ctx.font = 'bold 22px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('THE BIONIC BRAIN', WIDTH / 2, HEIGHT / 2 - 50);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '13px Arial';
+    ctx.fillText('AI accelerates productivity...', WIDTH / 2, HEIGHT / 2 - 15);
+    ctx.fillText('but only with due diligence!', WIDTH / 2, HEIGHT / 2 + 5);
+
+    ctx.fillStyle = '#4ade80';
+    ctx.font = '12px Arial';
+    ctx.fillText('✓ Collect: Review, Verify, Iterate', WIDTH / 2, HEIGHT / 2 + 35);
+
+    ctx.fillStyle = '#f87171';
+    ctx.fillText('✗ Avoid: Blind Copy, Skip Review', WIDTH / 2, HEIGHT / 2 + 55);
+
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = '14px Arial';
+    ctx.fillText('Press SPACE to start', WIDTH / 2, HEIGHT / 2 + 90);
+  }
+
+  drawStartScreen();
+
+  // Cleanup when window closes
+  const observer = new MutationObserver(() => {
+    if (!document.contains(windowEl)) {
+      game.active = false;
+      if (game.animFrame) cancelAnimationFrame(game.animFrame);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keyup', handleKeyUp);
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+// ============================================
+// WORK MATCH QUIZ - 90s TEEN MAGAZINE STYLE
+// ============================================
+
+function initWorkMatch(windowEl) {
+  const content = windowEl.querySelector('.workmatch-content');
+  if (!content) return;
+
+  // Quiz questions - answer indices map to: 0=Ashley, 1=Chad, 2=Sandy
+  const questions = [
+    {
+      text: "A project needs fresh ideas. How do you approach it?",
+      answers: [
+        { text: "Research deeply, then brainstorm creative angles - both data AND intuition", match: 0 },
+        { text: "Jump straight into building something - we'll iterate!", match: 1 },
+        { text: "Wait for someone to assign me a specific piece to work on", match: 2 }
+      ]
+    },
+    {
+      text: "Your ideal work rhythm looks like:",
+      answers: [
+        { text: "Mix of collaborative sessions AND deep solo focus time - I need both", match: 0 },
+        { text: "Constant energy! Standups, pairing, always in the mix", match: 1 },
+        { text: "Mostly heads-down with occasional check-ins", match: 2 }
+      ]
+    },
+    {
+      text: "How do you tackle learning something new?",
+      answers: [
+        { text: "Dive in from multiple angles - docs, experiments, asking questions, building something", match: 0 },
+        { text: "Figure it out as I go - learning by doing only", match: 1 },
+        { text: "Follow a structured tutorial step by step", match: 2 }
+      ]
+    },
+    {
+      text: "A problem needs solving. What's your superpower?",
+      answers: [
+        { text: "Connecting dots others miss - creative solutions backed by solid analysis", match: 0 },
+        { text: "Speed - I'll have three prototypes before others finish planning", match: 1 },
+        { text: "Depth - I go deep on my specialty area", match: 2 }
+      ]
+    },
+    {
+      text: "How do you feel about wearing multiple hats?",
+      answers: [
+        { text: "Love it - jack of all trades, master of some. Variety keeps me sharp.", match: 0 },
+        { text: "Sure, as long as we're shipping something", match: 1 },
+        { text: "Prefer to stay in my lane and do that one thing really well", match: 2 }
+      ]
+    },
+    {
+      text: "When you document something, it's because:",
+      answers: [
+        { text: "Future-me (and others) will thank past-me. It's thoughtful, not bureaucratic.", match: 0 },
+        { text: "Someone made me. Where's the ticket?", match: 1 },
+        { text: "I keep notes for myself but sharing seems like extra work", match: 2 }
+      ]
+    },
+    {
+      text: "Your approach to helping teammates:",
+      answers: [
+        { text: "Share context generously, but also respect when people need space to figure things out", match: 0 },
+        { text: "Quick answer, back to my stuff - they'll ping if they need more", match: 1 },
+        { text: "They know where to find me if it's in my area", match: 2 }
+      ]
+    }
+  ];
+
+  // The three potential matches
+  const matches = [
+    {
+      name: "Ashley",
+      title: "The Creative Connector",
+      emoji: "✨",
+      desc: "You two are a PERFECT match! Ashley is a jack-of-all-trades who brings both creative vision AND analytical rigor. She values thoughtful collaboration but also knows when to dive deep solo. You'll brainstorm wild ideas, back them up with solid thinking, document the good stuff, and give each other space when needed. This is the dream team!",
+      hearts: 5
+    },
+    {
+      name: "Chad Hustle",
+      title: "The Move-Fast Maverick",
+      emoji: "🚀",
+      desc: "You matched with Chad! He's all about velocity, shipping fast, and figuring things out on the fly. If you love a fast-paced, break-things-and-fix-them-later vibe, you two will get along great. Just... maybe keep your own notes.",
+      hearts: 3
+    },
+    {
+      name: "Sandy Silo",
+      title: "The Deep Specialist",
+      emoji: "🔬",
+      desc: "You matched with Sandy! She goes incredibly deep in her specialty and prefers clear ownership. If you like well-defined swim lanes and focused expertise, you'll work well together. Cross-functional adventures might be... limited.",
+      hearts: 2
+    }
+  ];
+
+  let currentQuestion = 0;
+  let scores = [0, 0, 0]; // Ashley, Chad, Sandy
+
+  function showIntro() {
+    content.innerHTML = `
+      <div class="wm-intro">
+        <div class="wm-magazine-header">
+          <div class="wm-title">WorkMatch!</div>
+          <div class="wm-subtitle">The Ultimate Work Bestie Quiz</div>
+        </div>
+        <p class="wm-intro-text">
+          Ever wonder who your <em>perfect work partner</em> would be?
+          Take this totally scientific* quiz to find your ideal collaborator!
+          <br><br>
+          <span style="font-size: 11px; opacity: 0.7;">*not scientific at all</span>
+        </p>
+        <button class="wm-start-btn">Find My Match!</button>
+        <div class="wm-decorations">💼 ✨ 💕</div>
+      </div>
+    `;
+
+    content.querySelector('.wm-start-btn').addEventListener('click', () => {
+      currentQuestion = 0;
+      scores = [0, 0, 0];
+      showQuestion();
+    });
+  }
+
+  function showQuestion() {
+    const q = questions[currentQuestion];
+    const letters = ['A', 'B', 'C'];
+
+    content.innerHTML = `
+      <div class="wm-question">
+        <div class="wm-progress">
+          ${questions.map((_, i) => `
+            <div class="wm-progress-dot ${i < currentQuestion ? 'done' : ''} ${i === currentQuestion ? 'active' : ''}"></div>
+          `).join('')}
+        </div>
+        <div class="wm-question-num">Question ${currentQuestion + 1} of ${questions.length}</div>
+        <div class="wm-question-text">${q.text}</div>
+        <div class="wm-answers">
+          ${q.answers.map((a, i) => `
+            <button class="wm-answer" data-match="${a.match}">
+              <span class="wm-answer-letter">${letters[i]}</span>
+              ${a.text}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    content.querySelectorAll('.wm-answer').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const matchIndex = parseInt(btn.dataset.match);
+        scores[matchIndex]++;
+        currentQuestion++;
+
+        if (currentQuestion >= questions.length) {
+          showResults();
+        } else {
+          showQuestion();
+        }
+      });
+    });
+  }
+
+  function showResults() {
+    // Find the match with highest score
+    let maxScore = Math.max(...scores);
+    let matchIndex = scores.indexOf(maxScore);
+    const match = matches[matchIndex];
+
+    // Generate hearts display
+    const heartsDisplay = '❤️'.repeat(match.hearts) + '🤍'.repeat(5 - match.hearts);
+
+    content.innerHTML = `
+      <div class="wm-results">
+        <div class="wm-results-header">
+          <h2>Your Results Are In!</h2>
+          <h3>It's a Match!</h3>
+        </div>
+        <div class="wm-match-photo">${match.emoji}</div>
+        <div class="wm-match-name">${match.name}</div>
+        <div class="wm-match-title">${match.title}</div>
+        <div class="wm-match-desc">${match.desc}</div>
+        <div class="wm-compatibility">
+          <span class="wm-compat-label">Compatibility:</span>
+          <span class="wm-compat-hearts">${heartsDisplay}</span>
+        </div>
+        <button class="wm-retake-btn">Retake Quiz</button>
+        <div class="wm-magazine-footer">
+          WorkMatch Magazine™ - "Finding Your Perfect Pair Since 1997"
+        </div>
+      </div>
+    `;
+
+    content.querySelector('.wm-retake-btn').addEventListener('click', showIntro);
+  }
+
+  // Start with intro
+  showIntro();
 }
 
 // ============================================
