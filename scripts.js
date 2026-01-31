@@ -3437,51 +3437,59 @@ function initWorkMatch(windowEl) {
   // Quiz questions - answer indices map to: 0=Ashley, 1=Chad, 2=Sandy
   const questions = [
     {
-      text: "A project is running behind. What's your first move?",
+      text: "A project needs fresh ideas. How do you approach it?",
       answers: [
-        { text: "Check the docs to see what's blocking us, then sync with the team", match: 0 },
-        { text: "Just start shipping features faster - we'll figure it out!", match: 1 },
-        { text: "Put my head down and power through my tasks solo", match: 2 }
+        { text: "Research deeply, then brainstorm creative angles - both data AND intuition", match: 0 },
+        { text: "Jump straight into building something - we'll iterate!", match: 1 },
+        { text: "Wait for someone to assign me a specific piece to work on", match: 2 }
       ]
     },
     {
-      text: "How do you feel about documentation?",
+      text: "Your ideal work rhythm looks like:",
       answers: [
-        { text: "It's my love language. Future-me always thanks past-me.", match: 0 },
-        { text: "Docs slow us down - the code IS the documentation", match: 1 },
-        { text: "I document my own stuff but don't really read others'", match: 2 }
+        { text: "Mix of collaborative sessions AND deep solo focus time - I need both", match: 0 },
+        { text: "Constant energy! Standups, pairing, always in the mix", match: 1 },
+        { text: "Mostly heads-down with occasional check-ins", match: 2 }
       ]
     },
     {
-      text: "Your ideal way to solve a tricky problem:",
+      text: "How do you tackle learning something new?",
       answers: [
-        { text: "Whiteboard it with someone, talk through options together", match: 0 },
-        { text: "Move fast, try things, fail forward!", match: 1 },
-        { text: "Deep focus time alone until I crack it", match: 2 }
+        { text: "Dive in from multiple angles - docs, experiments, asking questions, building something", match: 0 },
+        { text: "Figure it out as I go - learning by doing only", match: 1 },
+        { text: "Follow a structured tutorial step by step", match: 2 }
       ]
     },
     {
-      text: "Someone asks 'how does this system work?' You:",
+      text: "A problem needs solving. What's your superpower?",
       answers: [
-        { text: "\"Great question! I actually have a diagram for that...\"", match: 0 },
-        { text: "\"Just look at the code, it's pretty self-explanatory\"", match: 1 },
-        { text: "\"Not sure, I only know my part of it\"", match: 2 }
+        { text: "Connecting dots others miss - creative solutions backed by solid analysis", match: 0 },
+        { text: "Speed - I'll have three prototypes before others finish planning", match: 1 },
+        { text: "Depth - I go deep on my specialty area", match: 2 }
       ]
     },
     {
-      text: "What's your communication style at work?",
+      text: "How do you feel about wearing multiple hats?",
       answers: [
-        { text: "Proactive updates, clear context, no surprises", match: 0 },
-        { text: "Quick pings, emoji reactions, keep it moving", match: 1 },
-        { text: "I'll reach out if I need something specific", match: 2 }
+        { text: "Love it - jack of all trades, master of some. Variety keeps me sharp.", match: 0 },
+        { text: "Sure, as long as we're shipping something", match: 1 },
+        { text: "Prefer to stay in my lane and do that one thing really well", match: 2 }
       ]
     },
     {
-      text: "A coworker is stuck. What do you do?",
+      text: "When you document something, it's because:",
       answers: [
-        { text: "Pair with them, share what I know, point to resources", match: 0 },
-        { text: "Send them a quick tip and get back to my sprint", match: 1 },
-        { text: "They'll figure it out - that's how I learned", match: 2 }
+        { text: "Future-me (and others) will thank past-me. It's thoughtful, not bureaucratic.", match: 0 },
+        { text: "Someone made me. Where's the ticket?", match: 1 },
+        { text: "I keep notes for myself but sharing seems like extra work", match: 2 }
+      ]
+    },
+    {
+      text: "Your approach to helping teammates:",
+      answers: [
+        { text: "Share context generously, but also respect when people need space to figure things out", match: 0 },
+        { text: "Quick answer, back to my stuff - they'll ping if they need more", match: 1 },
+        { text: "They know where to find me if it's in my area", match: 2 }
       ]
     }
   ];
@@ -3490,9 +3498,9 @@ function initWorkMatch(windowEl) {
   const matches = [
     {
       name: "Ashley",
-      title: "The Collaborative Documentarian",
+      title: "The Creative Connector",
       emoji: "✨",
-      desc: "You two are a PERFECT match! Ashley believes the best work happens through thoughtful collaboration, clear documentation, and making sure no one gets left behind. You'll build systems together, share knowledge freely, and always have each other's backs. This is the dream team energy!",
+      desc: "You two are a PERFECT match! Ashley is a jack-of-all-trades who brings both creative vision AND analytical rigor. She values thoughtful collaboration but also knows when to dive deep solo. You'll brainstorm wild ideas, back them up with solid thinking, document the good stuff, and give each other space when needed. This is the dream team!",
       hearts: 5
     },
     {
@@ -3504,9 +3512,9 @@ function initWorkMatch(windowEl) {
     },
     {
       name: "Sandy Silo",
-      title: "The Independent Operator",
-      emoji: "🏝️",
-      desc: "You matched with Sandy! She's a heads-down, independent worker who crushes her own tasks. If you prefer clear swim lanes and minimal meetings, you'll vibe. Collaboration might be... optional.",
+      title: "The Deep Specialist",
+      emoji: "🔬",
+      desc: "You matched with Sandy! She goes incredibly deep in her specialty and prefers clear ownership. If you like well-defined swim lanes and focused expertise, you'll work well together. Cross-functional adventures might be... limited.",
       hearts: 2
     }
   ];
