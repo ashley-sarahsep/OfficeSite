@@ -548,7 +548,22 @@ function showConversation(conversationId) {
     // Show responses after text is done
     responsesEl.innerHTML = '';
 
+    // Check if this is a "dead end" - no response leads to more conversation
+    const hasMoreConversation = conversation.responses.some(r =>
+      r.next !== null && !r.action
+    );
+
+    // Add the conversation's own responses (but filter out generic "back" ones we'll replace)
     conversation.responses.forEach(response => {
+      // Skip old-style back/close responses - we'll add standardized ones
+      if (response.next === null && !response.action &&
+          (response.text.toLowerCase().includes('back') ||
+           response.text.toLowerCase().includes('exploring') ||
+           response.text.toLowerCase().includes('leave') ||
+           response.text.toLowerCase().includes('goodbye'))) {
+        return;
+      }
+
       const btn = document.createElement('button');
       btn.className = 'dialog-response';
       btn.textContent = response.text;
@@ -561,7 +576,6 @@ function showConversation(conversationId) {
           switchToDesktop();
         } else if (response.action === 'talk') {
           closeDialog();
-          // Open inspect menu to the "Talk to" section
           document.getElementById('inspect-menu')?.classList.remove('hidden');
         } else if (response.next === null) {
           closeDialog();
@@ -571,6 +585,30 @@ function showConversation(conversationId) {
       });
       responsesEl.appendChild(btn);
     });
+
+    // If this is a dead end (or limited options), add "Continue Dialog" to restart
+    const firstConversationId = state.currentConversation[0]?.id;
+    const isFirstConversation = conversationId === firstConversationId;
+
+    if (!isFirstConversation && !hasMoreConversation) {
+      const continueBtn = document.createElement('button');
+      continueBtn.className = 'dialog-response';
+      continueBtn.textContent = '[Continue conversation]';
+      continueBtn.addEventListener('click', () => {
+        showConversation(firstConversationId);
+      });
+      responsesEl.appendChild(continueBtn);
+    }
+
+    // Always add "Back to exploring" option
+    const exploreBtn = document.createElement('button');
+    exploreBtn.className = 'dialog-response';
+    exploreBtn.textContent = '[Back to exploring]';
+    exploreBtn.addEventListener('click', () => {
+      closeDialog();
+      document.getElementById('inspect-menu')?.classList.remove('hidden');
+    });
+    responsesEl.appendChild(exploreBtn);
   });
 }
 
@@ -3422,108 +3460,137 @@ function initWorkMatch(windowEl) {
   const content = windowEl.querySelector('.workmatch-content');
   if (!content) return;
 
-  // Quiz questions - answer indices map to: 0=Ashley, 1=Chad, 2=Sandy
+  // Quiz questions with scoring: each answer gives points to [Ashley, Chad, Sandy]
   const questions = [
     {
-      text: "A project needs fresh ideas. How do you approach it?",
+      text: "You're starting a complex project with unclear requirements. What energizes you most?",
       answers: [
-        { text: "Research deeply, then brainstorm creative angles - both data AND intuition", match: 0 },
-        { text: "Jump straight into building something - we'll iterate!", match: 1 },
-        { text: "Wait for someone to assign me a specific piece to work on", match: 2 }
+        { text: "Mapping the ambiguity - finding patterns, asking the right questions, building clarity from chaos", scores: [5, 1, 2] },
+        { text: "Getting something tangible out fast so we can react to real feedback", scores: [2, 5, 1] },
+        { text: "Getting crystal clear on my specific deliverables before diving in", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "Your ideal work rhythm looks like:",
+      text: "A teammate messages you: 'I'm stuck and not sure where to start.' What's your instinct?",
       answers: [
-        { text: "Mix of collaborative sessions AND deep solo focus time - I need both", match: 0 },
-        { text: "Constant energy! Standups, pairing, always in the mix", match: 1 },
-        { text: "Mostly heads-down with occasional check-ins", match: 2 }
+        { text: "Jump on a quick call, think through it together, share relevant context I might have", scores: [5, 2, 1] },
+        { text: "Send a quick pointer and check back later - they probably just need a nudge", scores: [2, 4, 2] },
+        { text: "Point them to whoever owns that area - I don't want to give wrong info", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "How do you tackle learning something new?",
+      text: "The project scope just changed significantly. Your reaction?",
       answers: [
-        { text: "Dive in from multiple angles - docs, experiments, asking questions, building something", match: 0 },
-        { text: "Figure it out as I go - learning by doing only", match: 1 },
-        { text: "Follow a structured tutorial step by step", match: 2 }
+        { text: "Okay, let's reframe - what does this actually mean, and what creative angles does it open up?", scores: [5, 2, 1] },
+        { text: "Cool, we pivot. What can we ship by Friday with the new direction?", scores: [2, 5, 1] },
+        { text: "I need the new requirements documented before I can adjust my work", scores: [1, 1, 5] }
       ]
     },
     {
-      text: "A problem needs solving. What's your superpower?",
+      text: "How do you feel about the phrase 'that's not my job'?",
       answers: [
-        { text: "Connecting dots others miss - creative solutions backed by solid analysis", match: 0 },
-        { text: "Speed - I'll have three prototypes before others finish planning", match: 1 },
-        { text: "Depth - I go deep on my specialty area", match: 2 }
+        { text: "Rarely applies to me - I like filling gaps and connecting across boundaries", scores: [5, 2, 1] },
+        { text: "Boundaries are fuzzy anyway - I'll do whatever moves things forward", scores: [3, 5, 1] },
+        { text: "Clear ownership prevents chaos - it's healthy to have defined roles", scores: [1, 1, 5] }
       ]
     },
     {
-      text: "How do you feel about wearing multiple hats?",
+      text: "You discover a better way to do something the team's been doing for months. You:",
       answers: [
-        { text: "Love it - jack of all trades, master of some. Variety keeps me sharp.", match: 0 },
-        { text: "Sure, as long as we're shipping something", match: 1 },
-        { text: "Prefer to stay in my lane and do that one thing really well", match: 2 }
+        { text: "Document it, share it thoughtfully, help people transition when they're ready", scores: [5, 2, 2] },
+        { text: "Just start doing it the new way - others will catch on", scores: [2, 5, 1] },
+        { text: "Mention it to my manager and let them decide if it's worth changing", scores: [1, 2, 4] }
       ]
     },
     {
-      text: "When you document something, it's because:",
+      text: "What does 'thinking creatively' mean to you at work?",
       answers: [
-        { text: "Future-me (and others) will thank past-me. It's thoughtful, not bureaucratic.", match: 0 },
-        { text: "Someone made me. Where's the ticket?", match: 1 },
-        { text: "I keep notes for myself but sharing seems like extra work", match: 2 }
+        { text: "Synthesizing ideas from different domains, finding unexpected connections, both art and science", scores: [5, 2, 1] },
+        { text: "Finding the fastest path to something that works - creativity in execution", scores: [2, 5, 1] },
+        { text: "Optimizing deeply within my area of expertise", scores: [1, 1, 5] }
       ]
     },
     {
-      text: "Your approach to helping teammates:",
+      text: "When you're in flow, what does it look like?",
       answers: [
-        { text: "Share context generously, but also respect when people need space to figure things out", match: 0 },
-        { text: "Quick answer, back to my stuff - they'll ping if they need more", match: 1 },
-        { text: "They know where to find me if it's in my area", match: 2 }
+        { text: "Switching between creating, researching, collaborating - varied but intentional", scores: [5, 2, 2] },
+        { text: "Heads down shipping, visible progress, momentum building", scores: [2, 5, 1] },
+        { text: "Deep in my craft, no distractions, solving one thing excellently", scores: [1, 1, 5] }
+      ]
+    },
+    {
+      text: "A meeting ends without clear next steps. You:",
+      answers: [
+        { text: "Quickly summarize what I heard and suggest action items - someone has to", scores: [5, 2, 2] },
+        { text: "Follow up with whoever matters most and figure it out 1:1", scores: [3, 5, 1] },
+        { text: "Wait for direction - if it's important, someone will clarify", scores: [1, 1, 4] }
       ]
     }
   ];
 
-  // The three potential matches
+  // The three potential matches with dynamic scoring thresholds
   const matches = [
     {
       name: "Ashley",
       title: "The Creative Connector",
       emoji: "✨",
-      desc: "You two are a PERFECT match! Ashley is a jack-of-all-trades who brings both creative vision AND analytical rigor. She values thoughtful collaboration but also knows when to dive deep solo. You'll brainstorm wild ideas, back them up with solid thinking, document the good stuff, and give each other space when needed. This is the dream team!",
-      hearts: 5
+      getDesc: (score, total) => {
+        const pct = Math.round((score / total) * 100);
+        if (pct >= 85) return "This is rare compatibility! You and Ashley share a vision: creative problem-solving backed by thoughtfulness, ownership without ego, and genuine care for the people you work with. You'll challenge each other, document the wins, and build things that actually last. Dream team energy.";
+        if (pct >= 70) return "Strong match! You appreciate the balance Ashley brings - analytical when needed, creative when possible, always thinking about the bigger picture. You'd complement each other well, filling gaps and building shared understanding.";
+        return "You've got some real alignment with Ashley's collaborative, big-picture approach. There's potential here - especially if you value flexibility and cross-functional thinking.";
+      }
     },
     {
       name: "Chad Hustle",
-      title: "The Move-Fast Maverick",
+      title: "The Velocity Vector",
       emoji: "🚀",
-      desc: "You matched with Chad! He's all about velocity, shipping fast, and figuring things out on the fly. If you love a fast-paced, break-things-and-fix-them-later vibe, you two will get along great. Just... maybe keep your own notes.",
-      hearts: 3
+      getDesc: (score, total) => {
+        const pct = Math.round((score / total) * 100);
+        if (pct >= 85) return "You and Chad would be UNSTOPPABLE. Ship it, learn fast, keep moving. You both thrive on momentum and tangible progress. Just... maybe designate someone to write things down occasionally.";
+        if (pct >= 70) return "Good energy match! You appreciate Chad's bias toward action and getting things done. You'd move fast together, though you might occasionally need to pump the brakes for alignment.";
+        return "You've got some Chad energy - you appreciate speed and shipping. Paired up, you'd get a lot done fast, even if the process is a bit chaotic.";
+      }
     },
     {
       name: "Sandy Silo",
       title: "The Deep Specialist",
       emoji: "🔬",
-      desc: "You matched with Sandy! She goes incredibly deep in her specialty and prefers clear ownership. If you like well-defined swim lanes and focused expertise, you'll work well together. Cross-functional adventures might be... limited.",
-      hearts: 2
+      getDesc: (score, total) => {
+        const pct = Math.round((score / total) * 100);
+        if (pct >= 85) return "You and Sandy understand something important: mastery matters. Clear ownership, deep expertise, quality over quantity. You'd respect each other's lanes and produce excellent work within them.";
+        if (pct >= 70) return "Solid alignment! You both value clarity and expertise. Sandy's depth-first approach resonates with you. You'd work well in parallel, coming together when your areas intersect.";
+        return "There's some alignment here - you can appreciate Sandy's focused expertise. You might work best as specialists who collaborate at clear handoff points.";
+      }
     }
   ];
 
   let currentQuestion = 0;
   let scores = [0, 0, 0]; // Ashley, Chad, Sandy
 
+  function shuffleAnswers(answers) {
+    const shuffled = [...answers];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }
+
   function showIntro() {
     content.innerHTML = `
       <div class="wm-intro">
         <div class="wm-magazine-header">
           <div class="wm-title">WorkMatch!</div>
-          <div class="wm-subtitle">The Ultimate Work Bestie Quiz</div>
+          <div class="wm-subtitle">Find Your Ideal Collaborator</div>
         </div>
         <p class="wm-intro-text">
-          Ever wonder who your <em>perfect work partner</em> would be?
-          Take this totally scientific* quiz to find your ideal collaborator!
+          Work chemistry is real. Some people just <em>click</em> -
+          they complement your style, challenge you right, and make the work better.
           <br><br>
-          <span style="font-size: 11px; opacity: 0.7;">*not scientific at all</span>
+          Answer honestly. There's no wrong answers - just different working styles.
         </p>
-        <button class="wm-start-btn">Find My Match!</button>
+        <button class="wm-start-btn">Let's Find Out</button>
         <div class="wm-decorations">💼 ✨ 💕</div>
       </div>
     `;
@@ -3537,6 +3604,7 @@ function initWorkMatch(windowEl) {
 
   function showQuestion() {
     const q = questions[currentQuestion];
+    const shuffledAnswers = shuffleAnswers(q.answers);
     const letters = ['A', 'B', 'C'];
 
     content.innerHTML = `
@@ -3549,8 +3617,8 @@ function initWorkMatch(windowEl) {
         <div class="wm-question-num">Question ${currentQuestion + 1} of ${questions.length}</div>
         <div class="wm-question-text">${q.text}</div>
         <div class="wm-answers">
-          ${q.answers.map((a, i) => `
-            <button class="wm-answer" data-match="${a.match}">
+          ${shuffledAnswers.map((a, i) => `
+            <button class="wm-answer" data-scores="${a.scores.join(',')}">
               <span class="wm-answer-letter">${letters[i]}</span>
               ${a.text}
             </button>
@@ -3561,8 +3629,10 @@ function initWorkMatch(windowEl) {
 
     content.querySelectorAll('.wm-answer').forEach(btn => {
       btn.addEventListener('click', () => {
-        const matchIndex = parseInt(btn.dataset.match);
-        scores[matchIndex]++;
+        const answerScores = btn.dataset.scores.split(',').map(Number);
+        scores[0] += answerScores[0];
+        scores[1] += answerScores[1];
+        scores[2] += answerScores[2];
         currentQuestion++;
 
         if (currentQuestion >= questions.length) {
@@ -3576,30 +3646,33 @@ function initWorkMatch(windowEl) {
 
   function showResults() {
     // Find the match with highest score
-    let maxScore = Math.max(...scores);
-    let matchIndex = scores.indexOf(maxScore);
+    const maxScore = Math.max(...scores);
+    const matchIndex = scores.indexOf(maxScore);
     const match = matches[matchIndex];
+    const totalPossible = questions.length * 5; // Max 5 points per question
 
-    // Generate hearts display
-    const heartsDisplay = '❤️'.repeat(match.hearts) + '🤍'.repeat(5 - match.hearts);
+    // Calculate compatibility percentage
+    const compatibility = Math.round((maxScore / totalPossible) * 100);
+    const hearts = compatibility >= 85 ? 5 : compatibility >= 70 ? 4 : compatibility >= 55 ? 3 : 2;
+    const heartsDisplay = '❤️'.repeat(hearts) + '🤍'.repeat(5 - hearts);
 
     content.innerHTML = `
       <div class="wm-results">
         <div class="wm-results-header">
           <h2>Your Results Are In!</h2>
-          <h3>It's a Match!</h3>
+          <h3>${compatibility >= 70 ? "Strong Match!" : "A Match!"}</h3>
         </div>
         <div class="wm-match-photo">${match.emoji}</div>
         <div class="wm-match-name">${match.name}</div>
         <div class="wm-match-title">${match.title}</div>
-        <div class="wm-match-desc">${match.desc}</div>
+        <div class="wm-match-desc">${match.getDesc(maxScore, totalPossible)}</div>
         <div class="wm-compatibility">
           <span class="wm-compat-label">Compatibility:</span>
           <span class="wm-compat-hearts">${heartsDisplay}</span>
         </div>
         <button class="wm-retake-btn">Retake Quiz</button>
         <div class="wm-magazine-footer">
-          WorkMatch Magazine™ - "Finding Your Perfect Pair Since 1997"
+          WorkMatch™ - "Chemistry Can't Be Faked"
         </div>
       </div>
     `;
