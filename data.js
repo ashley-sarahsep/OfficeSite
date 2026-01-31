@@ -562,6 +562,8 @@ If that sounds like what you need, let's talk.
           portrait: "funny1",
           text: "My brain actually works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
           responses: [
+            { text: "I want to look around some more", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -588,6 +590,8 @@ If that sounds like what you need, let's talk.
           portrait: "thoughtful1",
           text: "I studied philosophy - hermeneutics, specifically. The study of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. If you don't account for how humans process things under real-world conditions, your technically correct solution will still fail.",
           responses: [
+            { text: "I'd like to see more of your office", action: "inspect" },
+            { text: "Show me your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -632,6 +636,8 @@ If that sounds like what you need, let's talk.
           portrait: "funny1",
           text: "She really is. Her favourite thing is rolling around on the ground waiting for belly rubs. Very dignified.",
           responses: [
+            { text: "Tell me about Gherkin", next: "gertrude-gherkin" },
+            { text: "I want to look around more", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -640,6 +646,8 @@ If that sounds like what you need, let's talk.
           portrait: "smiling1",
           text: "She's named after Drew Barrymore's character in ET. I love E.T. and I love Gertie.",
           responses: [
+            { text: "Does she get along with Gherkin?", next: "gertrude-gherkin" },
+            { text: "I want to explore more", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -657,6 +665,8 @@ If that sounds like what you need, let's talk.
           portrait: "funny1",
           text: "Sometimes there's a 3am slap in the cat-face. They sort it out.",
           responses: [
+            { text: "I want to meet Gherkin", action: "inspect" },
+            { text: "Show me the rest of the office", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         }
@@ -701,6 +711,8 @@ If that sounds like what you need, let's talk.
           portrait: "funny2",
           text: "He'd be great in a standup. Very concise. 'I need attention. Blocker: you are working. Action item: stop that.'",
           responses: [
+            { text: "Tell me about Gertrude", action: "inspect" },
+            { text: "What else is in your office?", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -709,6 +721,8 @@ If that sounds like what you need, let's talk.
           portrait: "smiling1",
           text: "He prefers quiet time. Unfortunately, I have a habit of laughing too hard at things and startling him. He puts up with me anyway.",
           responses: [
+            { text: "Does he help with work?", next: "gherkin-help" },
+            { text: "Show me more of the office", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -726,6 +740,8 @@ If that sounds like what you need, let's talk.
           portrait: "funny2",
           text: "Honestly? Sometimes he's right. If I've been at my desk for four hours and a cat is yelling at me, maybe I should take the hint.",
           responses: [
+            { text: "I'd like to see more of your office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         }
@@ -780,6 +796,8 @@ If that sounds like what you need, let's talk.
           portrait: "serious",
           text: "Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions, context, what questions you're asking. I've seen teams make confident decisions from dashboards that were technically accurate but fundamentally misleading. Hermeneutics taught me to ask: what's being measured, what's being missed, and who decided what counts?",
           responses: [
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -788,6 +806,8 @@ If that sounds like what you need, let's talk.
           portrait: "thoughtful1",
           text: "My favorites change depending on the day you ask. A little story: when I was about 12, my older brother gave me a book list. I finished every book on it by the time I was 17 - many are on these shelves still. Many of them I was too young to fully grasp, and only on reflection did their weight become apparent. But on any day, I'll tell you: my brain feels at home reading Vonnegut, I feel deeply reading Sylvia Plath, and a Confederacy of Dunces will always be somewhere in my top 5.",
           responses: [
+            { text: "I'd like to see more", action: "inspect" },
+            { text: "Show me your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -805,6 +825,8 @@ If that sounds like what you need, let's talk.
           portrait: "smiling1",
           text: "London, UK - just for a while. Worked at some agencies there. Started in accounts payable, ended up helping to implement a timesheet systems at a recruitment agency. The pattern started early: see a gap, fill it, build something that lasts.",
           responses: [
+            { text: "What else is in the office?", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -822,6 +844,8 @@ If that sounds like what you need, let's talk.
           portrait: "funny1",
           text: "Yeah, actually. Taking things that shouldn't quite fit - QA and sales enablement, philosophy and AI testing, technical translation and change management - and making them work together. Maybe I'm just collecting skills the way I collect vintage teapots.",
           responses: [
+            { text: "I want to explore more", action: "inspect" },
+            { text: "Show me your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         }
@@ -847,6 +871,8 @@ If that sounds like what you need, let's talk.
           portrait: "thoughtful2",
           text: "I like looking at the things I love. Some say it's a bit silly to love objects, but it's not just the object - it's the memories, the moments.",
           responses: [
+            { text: "What else is here?", next: "bookshelf-right-whats-here" },
+            { text: "Show me more of the office", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -855,6 +881,8 @@ If that sounds like what you need, let's talk.
           portrait: "smiling1",
           text: "Artifacts from a winding path. Bits and pieces from different careers, different cities, different versions of me. The eclectic collection of a self-taught generalist.",
           responses: [
+            { text: "What else can I see?", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         }
@@ -929,6 +957,8 @@ If that sounds like what you need, let's talk.
           portrait: "thoughtful2",
           text: "You have good taste. Understanding how people interpret information is literally my thing. Most of my work is applied hermeneutics, I just don't call it that.",
           responses: [
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -955,6 +985,8 @@ If that sounds like what you need, let's talk.
           portrait: "smiling2",
           text: "It really was. My mum brought her own flavour too - Prince, Talking Heads, Psychedelic Furs. Between the two of them, I got a pretty good musical education. Explains why my playlists are all over the place.",
           responses: [
+            { text: "I'd like to see more", action: "inspect" },
+            { text: "Show me your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -963,6 +995,7 @@ If that sounds like what you need, let's talk.
           portrait: "funny1",
           text: "He's been experimenting with ambient music. Mostly it sounds like keyboard mashing with occasional meowing. Very avant-garde.",
           responses: [
+            { text: "I want to explore more", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -980,6 +1013,8 @@ If that sounds like what you need, let's talk.
           portrait: "thoughtful1",
           text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music - I had too much good stuff thrown at me growing up to pick just one lane.",
           responses: [
+            { text: "Show me more of your office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -997,6 +1032,8 @@ If that sounds like what you need, let's talk.
           portrait: "smiling1",
           text: "Maybe. I'd rather be authentic than polished. Direct communication over corporate speak. Solutions that actually work for humans over technically correct approaches that nobody adopts. Character over perfection.",
           responses: [
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         }
@@ -1023,6 +1060,8 @@ If that sounds like what you need, let's talk.
           portrait: "thoughtful1",
           text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
           responses: [
+            { text: "Do you have a favorite piece?", next: "art-favorite" },
+            { text: "Show me more of the office", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -1031,6 +1070,8 @@ If that sounds like what you need, let's talk.
           portrait: "thoughtful2",
           text: "It changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
           responses: [
+            { text: "The frames are beautiful", next: "art-frames" },
+            { text: "I want to look around more", action: "inspect" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -1039,6 +1080,8 @@ If that sounds like what you need, let's talk.
           portrait: "smiling2",
           text: "Half the appeal, honestly. Ornate frames, a little worn, gold leaf that's seen better days. They've been somewhere, held something. The imperfections are the point. Perfect things are boring.",
           responses: [
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         }
