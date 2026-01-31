@@ -1023,6 +1023,18 @@ body {
   font-size: 24px;
 }
 
+.icon-game-trail {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-game-trail::after {
+  content: '🛤️';
+  font-size: 24px;
+}
+
 .icon-app-calc {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: 1px solid #000;
