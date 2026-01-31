@@ -1256,18 +1256,6 @@ function initWordpad(windowEl) {
     content.innerHTML = SITE_DATA.resume.content;
   }
 
-  // Download PDF button
-  const downloadBtn = windowEl.querySelector('#resume-download');
-  if (downloadBtn) {
-    downloadBtn.addEventListener('click', () => {
-      // Try to download the PDF file
-      const link = document.createElement('a');
-      link.href = 'assets/Ashley_Sarah_Resume.pdf';
-      link.download = 'Ashley_Sarah_Resume.pdf';
-      link.click();
-    });
-  }
-
   // Print button - opens print dialog for the resume content
   const printBtn = windowEl.querySelector('#resume-print');
   if (printBtn) {
