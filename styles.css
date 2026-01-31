@@ -2068,13 +2068,19 @@ body {
     font-size: 20px;
   }
 
-  /* Room navbar responsive */
+  /* Room navbar responsive - two rows on mobile */
   .room-navbar {
     padding: 8px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .navbar-title {
     font-size: 16px;
+    position: static;
+    width: 100%;
+    text-align: center;
+    order: -1;
   }
 
   .navbar-btn {
@@ -2319,8 +2325,13 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .gertrude-helper {
-    bottom: 70px;
+    bottom: 110px; /* Account for two-row navbar */
     right: 10px;
+  }
+
+  .gertrude-icon {
+    width: 55px;
+    height: 55px;
   }
 
   .gertrude-bubble {

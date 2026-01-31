@@ -132,7 +132,7 @@
   <!-- ============================================ -->
   <!-- OREGON TRAIL STYLE DIALOG BOX -->
   <!-- ============================================ -->
-  <div id="dialog-overlay" class="dialog-overlay hidden">
+  <div id="dialog-overlay" class="dialog-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
     <div class="dialog-box">
       <div class="dialog-header">
         <span class="dialog-title" id="dialog-title">Conversation</span>
@@ -775,7 +775,7 @@
   </div>
 
   <!-- Image Lightbox -->
-  <div class="image-lightbox hidden" id="image-lightbox" role="dialog" aria-label="Image preview">
+  <div class="image-lightbox hidden" id="image-lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
     <button class="image-lightbox-close" aria-label="Close image preview">&times;</button>
     <img src="" alt="Expanded image" id="lightbox-image">
     <span class="image-lightbox-hint">Click anywhere or press Escape to close</span>
