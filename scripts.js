@@ -1115,6 +1115,9 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'bionicbrain':
       initBionicBrain(windowEl);
       break;
+    case 'workmatch':
+      initWorkMatch(windowEl);
+      break;
   }
 }
 
@@ -3421,6 +3424,195 @@ function initBionicBrain(windowEl) {
     }
   });
   observer.observe(document.body, { childList: true, subtree: true });
+}
+
+// ============================================
+// WORK MATCH QUIZ - 90s TEEN MAGAZINE STYLE
+// ============================================
+
+function initWorkMatch(windowEl) {
+  const content = windowEl.querySelector('.workmatch-content');
+  if (!content) return;
+
+  // Quiz questions - answer indices map to: 0=Ashley, 1=Chad, 2=Sandy
+  const questions = [
+    {
+      text: "A project is running behind. What's your first move?",
+      answers: [
+        { text: "Check the docs to see what's blocking us, then sync with the team", match: 0 },
+        { text: "Just start shipping features faster - we'll figure it out!", match: 1 },
+        { text: "Put my head down and power through my tasks solo", match: 2 }
+      ]
+    },
+    {
+      text: "How do you feel about documentation?",
+      answers: [
+        { text: "It's my love language. Future-me always thanks past-me.", match: 0 },
+        { text: "Docs slow us down - the code IS the documentation", match: 1 },
+        { text: "I document my own stuff but don't really read others'", match: 2 }
+      ]
+    },
+    {
+      text: "Your ideal way to solve a tricky problem:",
+      answers: [
+        { text: "Whiteboard it with someone, talk through options together", match: 0 },
+        { text: "Move fast, try things, fail forward!", match: 1 },
+        { text: "Deep focus time alone until I crack it", match: 2 }
+      ]
+    },
+    {
+      text: "Someone asks 'how does this system work?' You:",
+      answers: [
+        { text: "\"Great question! I actually have a diagram for that...\"", match: 0 },
+        { text: "\"Just look at the code, it's pretty self-explanatory\"", match: 1 },
+        { text: "\"Not sure, I only know my part of it\"", match: 2 }
+      ]
+    },
+    {
+      text: "What's your communication style at work?",
+      answers: [
+        { text: "Proactive updates, clear context, no surprises", match: 0 },
+        { text: "Quick pings, emoji reactions, keep it moving", match: 1 },
+        { text: "I'll reach out if I need something specific", match: 2 }
+      ]
+    },
+    {
+      text: "A coworker is stuck. What do you do?",
+      answers: [
+        { text: "Pair with them, share what I know, point to resources", match: 0 },
+        { text: "Send them a quick tip and get back to my sprint", match: 1 },
+        { text: "They'll figure it out - that's how I learned", match: 2 }
+      ]
+    }
+  ];
+
+  // The three potential matches
+  const matches = [
+    {
+      name: "Ashley",
+      title: "The Collaborative Documentarian",
+      emoji: "✨",
+      desc: "You two are a PERFECT match! Ashley believes the best work happens through thoughtful collaboration, clear documentation, and making sure no one gets left behind. You'll build systems together, share knowledge freely, and always have each other's backs. This is the dream team energy!",
+      hearts: 5
+    },
+    {
+      name: "Chad Hustle",
+      title: "The Move-Fast Maverick",
+      emoji: "🚀",
+      desc: "You matched with Chad! He's all about velocity, shipping fast, and figuring things out on the fly. If you love a fast-paced, break-things-and-fix-them-later vibe, you two will get along great. Just... maybe keep your own notes.",
+      hearts: 3
+    },
+    {
+      name: "Sandy Silo",
+      title: "The Independent Operator",
+      emoji: "🏝️",
+      desc: "You matched with Sandy! She's a heads-down, independent worker who crushes her own tasks. If you prefer clear swim lanes and minimal meetings, you'll vibe. Collaboration might be... optional.",
+      hearts: 2
+    }
+  ];
+
+  let currentQuestion = 0;
+  let scores = [0, 0, 0]; // Ashley, Chad, Sandy
+
+  function showIntro() {
+    content.innerHTML = `
+      <div class="wm-intro">
+        <div class="wm-magazine-header">
+          <div class="wm-title">WorkMatch!</div>
+          <div class="wm-subtitle">The Ultimate Work Bestie Quiz</div>
+        </div>
+        <p class="wm-intro-text">
+          Ever wonder who your <em>perfect work partner</em> would be?
+          Take this totally scientific* quiz to find your ideal collaborator!
+          <br><br>
+          <span style="font-size: 11px; opacity: 0.7;">*not scientific at all</span>
+        </p>
+        <button class="wm-start-btn">Find My Match!</button>
+        <div class="wm-decorations">💼 ✨ 💕</div>
+      </div>
+    `;
+
+    content.querySelector('.wm-start-btn').addEventListener('click', () => {
+      currentQuestion = 0;
+      scores = [0, 0, 0];
+      showQuestion();
+    });
+  }
+
+  function showQuestion() {
+    const q = questions[currentQuestion];
+    const letters = ['A', 'B', 'C'];
+
+    content.innerHTML = `
+      <div class="wm-question">
+        <div class="wm-progress">
+          ${questions.map((_, i) => `
+            <div class="wm-progress-dot ${i < currentQuestion ? 'done' : ''} ${i === currentQuestion ? 'active' : ''}"></div>
+          `).join('')}
+        </div>
+        <div class="wm-question-num">Question ${currentQuestion + 1} of ${questions.length}</div>
+        <div class="wm-question-text">${q.text}</div>
+        <div class="wm-answers">
+          ${q.answers.map((a, i) => `
+            <button class="wm-answer" data-match="${a.match}">
+              <span class="wm-answer-letter">${letters[i]}</span>
+              ${a.text}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    content.querySelectorAll('.wm-answer').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const matchIndex = parseInt(btn.dataset.match);
+        scores[matchIndex]++;
+        currentQuestion++;
+
+        if (currentQuestion >= questions.length) {
+          showResults();
+        } else {
+          showQuestion();
+        }
+      });
+    });
+  }
+
+  function showResults() {
+    // Find the match with highest score
+    let maxScore = Math.max(...scores);
+    let matchIndex = scores.indexOf(maxScore);
+    const match = matches[matchIndex];
+
+    // Generate hearts display
+    const heartsDisplay = '❤️'.repeat(match.hearts) + '🤍'.repeat(5 - match.hearts);
+
+    content.innerHTML = `
+      <div class="wm-results">
+        <div class="wm-results-header">
+          <h2>Your Results Are In!</h2>
+          <h3>It's a Match!</h3>
+        </div>
+        <div class="wm-match-photo">${match.emoji}</div>
+        <div class="wm-match-name">${match.name}</div>
+        <div class="wm-match-title">${match.title}</div>
+        <div class="wm-match-desc">${match.desc}</div>
+        <div class="wm-compatibility">
+          <span class="wm-compat-label">Compatibility:</span>
+          <span class="wm-compat-hearts">${heartsDisplay}</span>
+        </div>
+        <button class="wm-retake-btn">Retake Quiz</button>
+        <div class="wm-magazine-footer">
+          WorkMatch Magazine™ - "Finding Your Perfect Pair Since 1997"
+        </div>
+      </div>
+    `;
+
+    content.querySelector('.wm-retake-btn').addEventListener('click', showIntro);
+  }
+
+  // Start with intro
+  showIntro();
 }
 
 // ============================================

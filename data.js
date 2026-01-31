@@ -1596,6 +1596,7 @@ If that sounds like what you need, let's talk.
       allthethings: {
         title: "All of the Things",
         items: [
+          { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "exe", type: "app", app: "workmatch" },
           { id: "calculator", name: "ValueCalc.exe", icon: "exe", type: "app", app: "calculator" },
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
