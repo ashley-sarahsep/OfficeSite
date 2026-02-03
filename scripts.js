@@ -3316,7 +3316,7 @@ function initPaint(windowEl) {
         setTimeout(() => {
           const subject = encodeURIComponent('I drew you something!');
           const body = encodeURIComponent('Hi Ashley,\n\nI drew this masterpiece for you in your Paint app! (See attached image)\n\n[Attach the downloaded drawing-for-ashley.png]\n\nEnjoy!\n');
-          window.open(`mailto:ashley@youremail.com?subject=${subject}&body=${body}`, '_blank');
+          window.open(`mailto:ash@stepinto-ashleysoffice.com?subject=${subject}&body=${body}`, '_blank');
         }, 500);
       }
     });
