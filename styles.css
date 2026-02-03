@@ -1047,6 +1047,18 @@ body {
   font-size: 24px;
 }
 
+.icon-app-paint {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-app-paint::after {
+  content: '🎨';
+  font-size: 24px;
+}
+
 .icon-folder {
   background: linear-gradient(180deg, #ffcc00 0%, #cc9900 100%);
   border: 1px solid #000;
@@ -4643,6 +4655,133 @@ body.a11y-screen-reader [aria-hidden="true"] {
 
 .calc-btn-zero {
   grid-column: span 2;
+}
+
+/* ============================================
+   PAINT - MS PAINT CLONE
+   ============================================ */
+
+.window-paint {
+  width: 500px;
+}
+
+.titlebar-paint {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.paint-toolbar {
+  display: flex;
+  gap: 12px;
+  padding: 6px 8px;
+  background: #c0c0c0;
+  border-bottom: 1px solid #808080;
+  flex-wrap: wrap;
+}
+
+.paint-tools,
+.paint-sizes,
+.paint-actions {
+  display: flex;
+  gap: 2px;
+  background: #fff;
+  border: 1px inset #808080;
+  padding: 2px;
+}
+
+.paint-tool,
+.paint-size,
+.paint-action {
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  background: #c0c0c0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.paint-tool:hover,
+.paint-size:hover,
+.paint-action:hover {
+  border: 1px solid #000;
+}
+
+.paint-tool.active,
+.paint-size.active {
+  background: #fff;
+  border: 1px inset #808080;
+}
+
+.paint-send {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 3px;
+}
+
+.paint-send:hover {
+  background: linear-gradient(135deg, #7b8eef 0%, #8b5bb2 100%);
+}
+
+.paint-main {
+  display: flex;
+  background: #808080;
+}
+
+.paint-colors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  padding: 4px;
+  background: #c0c0c0;
+  border-right: 1px solid #808080;
+}
+
+.paint-color {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #000;
+  cursor: pointer;
+  padding: 0;
+}
+
+.paint-color:hover {
+  transform: scale(1.1);
+}
+
+.paint-color.active {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+}
+
+.paint-canvas-container {
+  flex: 1;
+  padding: 4px;
+  overflow: auto;
+  background: #808080;
+}
+
+.paint-canvas {
+  background: #ffffff;
+  cursor: crosshair;
+  display: block;
+  border: 1px solid #000;
+}
+
+.paint-status {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  background: #c0c0c0;
+  border-top: 1px solid #808080;
+  font-family: var(--font-system);
+  font-size: 11px;
+  color: #000;
+}
+
+.paint-status-tool {
+  font-weight: bold;
 }
 
 /* ============================================
