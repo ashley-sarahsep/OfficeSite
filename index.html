@@ -193,6 +193,10 @@
                 <div class="icon-image icon-app-calc"></div>
                 <span class="icon-label">Calculator</span>
               </div>
+              <div class="desktop-icon" data-app="paint" data-file="paint">
+                <div class="icon-image icon-app-paint"></div>
+                <span class="icon-label">Paint</span>
+              </div>
               <div class="desktop-icon" data-app="misc-folder" data-file="takeabreak">
                 <div class="icon-image icon-folder-games"></div>
                 <span class="icon-label">Take a Break</span>
@@ -806,6 +810,68 @@
       </div>
       <div class="window-content workmatch-content">
         <!-- Quiz content loaded by JS -->
+      </div>
+    </div>
+  </template>
+
+  <!-- Paint Window Template -->
+  <template id="template-paint">
+    <div class="window window-paint" data-window="paint">
+      <div class="window-titlebar titlebar-paint">
+        <span class="window-title">Paint - untitled</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="paint-toolbar">
+        <div class="paint-tools">
+          <button class="paint-tool active" data-tool="brush" title="Brush">✏️</button>
+          <button class="paint-tool" data-tool="eraser" title="Eraser">🧹</button>
+          <button class="paint-tool" data-tool="fill" title="Fill">🪣</button>
+        </div>
+        <div class="paint-sizes">
+          <button class="paint-size" data-size="2" title="Small">•</button>
+          <button class="paint-size active" data-size="5" title="Medium">●</button>
+          <button class="paint-size" data-size="12" title="Large">⬤</button>
+        </div>
+        <div class="paint-actions">
+          <button class="paint-action" data-action="clear" title="Clear Canvas">🗑️</button>
+          <button class="paint-action" data-action="save" title="Save Image">💾</button>
+          <button class="paint-action paint-send" data-action="send" title="Send to Ashley">📧</button>
+        </div>
+      </div>
+      <div class="paint-main">
+        <div class="paint-colors">
+          <button class="paint-color active" data-color="#000000" style="background:#000000" title="Black"></button>
+          <button class="paint-color" data-color="#ffffff" style="background:#ffffff" title="White"></button>
+          <button class="paint-color" data-color="#808080" style="background:#808080" title="Grey"></button>
+          <button class="paint-color" data-color="#c0c0c0" style="background:#c0c0c0" title="Silver"></button>
+          <button class="paint-color" data-color="#800000" style="background:#800000" title="Maroon"></button>
+          <button class="paint-color" data-color="#ff0000" style="background:#ff0000" title="Red"></button>
+          <button class="paint-color" data-color="#ff6b6b" style="background:#ff6b6b" title="Coral"></button>
+          <button class="paint-color" data-color="#808000" style="background:#808000" title="Olive"></button>
+          <button class="paint-color" data-color="#ffff00" style="background:#ffff00" title="Yellow"></button>
+          <button class="paint-color" data-color="#00ff00" style="background:#00ff00" title="Lime"></button>
+          <button class="paint-color" data-color="#008000" style="background:#008000" title="Green"></button>
+          <button class="paint-color" data-color="#00ffff" style="background:#00ffff" title="Cyan"></button>
+          <button class="paint-color" data-color="#008080" style="background:#008080" title="Teal"></button>
+          <button class="paint-color" data-color="#0000ff" style="background:#0000ff" title="Blue"></button>
+          <button class="paint-color" data-color="#000080" style="background:#000080" title="Navy"></button>
+          <button class="paint-color" data-color="#C4A4A4" style="background:#C4A4A4" title="Ashley Rose"></button>
+          <button class="paint-color" data-color="#2D5A4A" style="background:#2D5A4A" title="Ashley Green"></button>
+          <button class="paint-color" data-color="#D4A017" style="background:#D4A017" title="Ashley Mustard"></button>
+          <button class="paint-color" data-color="#ff00ff" style="background:#ff00ff" title="Magenta"></button>
+          <button class="paint-color" data-color="#800080" style="background:#800080" title="Purple"></button>
+        </div>
+        <div class="paint-canvas-container">
+          <canvas class="paint-canvas" width="400" height="300"></canvas>
+        </div>
+      </div>
+      <div class="paint-status">
+        <span class="paint-status-tool">Brush</span>
+        <span class="paint-status-pos">0, 0</span>
       </div>
     </div>
   </template>
