@@ -548,11 +548,6 @@ function showConversation(conversationId) {
     // Show responses after text is done
     responsesEl.innerHTML = '';
 
-    // Check if this is a "dead end" - no response leads to more conversation
-    const hasMoreConversation = conversation.responses.some(r =>
-      r.next !== null && !r.action
-    );
-
     // Add the conversation's own responses (but filter out generic "back" ones we'll replace)
     conversation.responses.forEach(response => {
       // Skip old-style back/close responses - we'll add standardized ones
@@ -560,7 +555,8 @@ function showConversation(conversationId) {
           (response.text.toLowerCase().includes('back') ||
            response.text.toLowerCase().includes('exploring') ||
            response.text.toLowerCase().includes('leave') ||
-           response.text.toLowerCase().includes('goodbye'))) {
+           response.text.toLowerCase().includes('goodbye') ||
+           response.text.toLowerCase().includes('depart'))) {
         return;
       }
 
@@ -586,14 +582,15 @@ function showConversation(conversationId) {
       responsesEl.appendChild(btn);
     });
 
-    // If this is a dead end (or limited options), add "Continue Dialog" to restart
+    // Determine if we're on the first conversation screen
     const firstConversationId = state.currentConversation[0]?.id;
     const isFirstConversation = conversationId === firstConversationId;
 
-    if (!isFirstConversation && !hasMoreConversation) {
+    // If NOT on the first screen, add "Continue Dialog" to go back to start
+    if (!isFirstConversation) {
       const continueBtn = document.createElement('button');
-      continueBtn.className = 'dialog-response';
-      continueBtn.textContent = '[Continue conversation]';
+      continueBtn.className = 'dialog-response dialog-nav';
+      continueBtn.textContent = '[Continue dialog]';
       continueBtn.addEventListener('click', () => {
         showConversation(firstConversationId);
       });
@@ -602,7 +599,7 @@ function showConversation(conversationId) {
 
     // Always add "Back to exploring" option
     const exploreBtn = document.createElement('button');
-    exploreBtn.className = 'dialog-response';
+    exploreBtn.className = 'dialog-response dialog-nav';
     exploreBtn.textContent = '[Back to exploring]';
     exploreBtn.addEventListener('click', () => {
       closeDialog();
@@ -1042,7 +1039,9 @@ function getWindowSize(appType) {
     memory: { width: '420px', height: '500px' },
     minesweeper: { width: '340px', height: '440px' },
     casestudy: { width: '600px', height: '550px' },
-    presentation: { width: '700px', height: '520px' }
+    presentation: { width: '700px', height: '520px' },
+    paint: { width: '500px', height: '420px' },
+    readme: { width: '700px', height: '550px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -1155,6 +1154,12 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'workmatch':
       initWorkMatch(windowEl);
+      break;
+    case 'paint':
+      initPaint(windowEl);
+      break;
+    case 'readme':
+      initReadme(windowEl);
       break;
   }
 }
@@ -3113,6 +3118,250 @@ function initCalculator(windowEl) {
 }
 
 // ============================================
+// PAINT APP
+// ============================================
+
+function initPaint(windowEl) {
+  const canvas = windowEl.querySelector('.paint-canvas');
+  const ctx = canvas.getContext('2d');
+  const toolBtns = windowEl.querySelectorAll('.paint-tool');
+  const sizeBtns = windowEl.querySelectorAll('.paint-size');
+  const colorBtns = windowEl.querySelectorAll('.paint-color');
+  const actionBtns = windowEl.querySelectorAll('.paint-action');
+  const statusTool = windowEl.querySelector('.paint-status-tool');
+  const statusPos = windowEl.querySelector('.paint-status-pos');
+
+  let currentTool = 'brush';
+  let currentColor = '#000000';
+  let currentSize = 5;
+  let isDrawing = false;
+  let lastX = 0;
+  let lastY = 0;
+
+  // Fill canvas with white background
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // Tool selection
+  toolBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      toolBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentTool = btn.dataset.tool;
+      statusTool.textContent = currentTool.charAt(0).toUpperCase() + currentTool.slice(1);
+    });
+  });
+
+  // Size selection
+  sizeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      sizeBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentSize = parseInt(btn.dataset.size);
+    });
+  });
+
+  // Colour selection
+  colorBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      colorBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentColor = btn.dataset.color;
+    });
+  });
+
+  // Drawing functions
+  function getPos(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY
+    };
+  }
+
+  function startDrawing(e) {
+    if (currentTool === 'fill') {
+      const pos = getPos(e);
+      floodFill(Math.floor(pos.x), Math.floor(pos.y), currentColor);
+      return;
+    }
+    isDrawing = true;
+    const pos = getPos(e);
+    lastX = pos.x;
+    lastY = pos.y;
+  }
+
+  function draw(e) {
+    const pos = getPos(e);
+    statusPos.textContent = `${Math.floor(pos.x)}, ${Math.floor(pos.y)}`;
+
+    if (!isDrawing) return;
+
+    ctx.beginPath();
+    ctx.moveTo(lastX, lastY);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.strokeStyle = currentTool === 'eraser' ? '#ffffff' : currentColor;
+    ctx.lineWidth = currentSize;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+
+    lastX = pos.x;
+    lastY = pos.y;
+  }
+
+  function stopDrawing() {
+    isDrawing = false;
+  }
+
+  // Simple flood fill algorithm
+  function floodFill(startX, startY, fillColor) {
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const data = imageData.data;
+    const width = canvas.width;
+    const height = canvas.height;
+
+    // Convert hex to RGB
+    const fill = hexToRgb(fillColor);
+    const startIdx = (startY * width + startX) * 4;
+    const startR = data[startIdx];
+    const startG = data[startIdx + 1];
+    const startB = data[startIdx + 2];
+
+    // Don't fill if same colour
+    if (startR === fill.r && startG === fill.g && startB === fill.b) return;
+
+    const stack = [[startX, startY]];
+    const visited = new Set();
+
+    while (stack.length > 0) {
+      const [x, y] = stack.pop();
+      const key = `${x},${y}`;
+
+      if (visited.has(key)) continue;
+      if (x < 0 || x >= width || y < 0 || y >= height) continue;
+
+      const idx = (y * width + x) * 4;
+      if (data[idx] !== startR || data[idx + 1] !== startG || data[idx + 2] !== startB) continue;
+
+      visited.add(key);
+      data[idx] = fill.r;
+      data[idx + 1] = fill.g;
+      data[idx + 2] = fill.b;
+      data[idx + 3] = 255;
+
+      stack.push([x + 1, y], [x - 1, y], [x, y + 1], [x, y - 1]);
+
+      // Limit iterations to prevent freeze
+      if (visited.size > 100000) break;
+    }
+
+    ctx.putImageData(imageData, 0, 0);
+  }
+
+  function hexToRgb(hex) {
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : { r: 0, g: 0, b: 0 };
+  }
+
+  // Canvas events
+  canvas.addEventListener('mousedown', startDrawing);
+  canvas.addEventListener('mousemove', draw);
+  canvas.addEventListener('mouseup', stopDrawing);
+  canvas.addEventListener('mouseleave', stopDrawing);
+
+  // Touch support
+  canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    startDrawing({ clientX: touch.clientX, clientY: touch.clientY });
+  });
+  canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    draw({ clientX: touch.clientX, clientY: touch.clientY });
+  });
+  canvas.addEventListener('touchend', stopDrawing);
+
+  // Action buttons
+  actionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const action = btn.dataset.action;
+
+      if (action === 'clear') {
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      if (action === 'save') {
+        const link = document.createElement('a');
+        link.download = 'my-masterpiece.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      }
+
+      if (action === 'send') {
+        // Download the image
+        const link = document.createElement('a');
+        link.download = 'drawing-for-ashley.png';
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+
+        // Open email client after a short delay
+        setTimeout(() => {
+          const subject = encodeURIComponent('I drew you something!');
+          const body = encodeURIComponent('Hi Ashley,\n\nI drew this masterpiece for you in your Paint app! (See attached image)\n\n[Attach the downloaded drawing-for-ashley.png]\n\nEnjoy!\n');
+          window.open(`mailto:ash@stepinto-ashleysoffice.com?subject=${subject}&body=${body}`, '_blank');
+        }, 500);
+      }
+    });
+  });
+}
+
+// ============================================
+// README CASE STUDY - SCROLL EXPERIENCE
+// ============================================
+
+function initReadme(windowEl) {
+  const scrollContainer = windowEl.querySelector('.readme-scroll-container');
+  if (!scrollContainer) return;
+
+  const fadeElements = scrollContainer.querySelectorAll('.fade-in');
+
+  // Check which elements are visible and animate them
+  function checkVisibility() {
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const containerTop = containerRect.top;
+    const containerBottom = containerRect.bottom;
+
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elementMiddle = rect.top + rect.height / 2;
+
+      // Element is visible if its middle is within the container bounds
+      if (elementMiddle > containerTop && elementMiddle < containerBottom) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  // Run on scroll
+  scrollContainer.addEventListener('scroll', checkVisibility);
+
+  // Initial check after a brief delay to let the window render
+  setTimeout(checkVisibility, 100);
+
+  // Also check when window is focused
+  windowEl.addEventListener('mouseenter', checkVisibility);
+}
+
+// ============================================
 // BIONIC BRAIN GAME
 // ============================================
 
@@ -3492,113 +3741,113 @@ function initWorkMatch(windowEl) {
   const content = windowEl.querySelector('.workmatch-content');
   if (!content) return;
 
-  // Quiz questions with scoring: each answer gives points to [Ashley, Chad, Sandy]
+  // Quiz questions with scoring: each answer gives points to [Ops Ashley, CoS Ashley, Data Ashley]
   const questions = [
     {
-      text: "You're starting a complex project with unclear requirements. What energizes you most?",
+      text: "A new initiative is launching but nobody's quite sure who owns what. You:",
       answers: [
-        { text: "Mapping the ambiguity - finding patterns, asking the right questions, building clarity from chaos", scores: [5, 1, 2] },
-        { text: "Getting something tangible out fast so we can react to real feedback", scores: [2, 5, 1] },
-        { text: "Getting crystal clear on my specific deliverables before diving in", scores: [1, 2, 5] }
+        { text: "Build the workflow - map dependencies, create templates, establish the system", scores: [5, 2, 1] },
+        { text: "Get the key people aligned - facilitate clarity, connect the dots politically", scores: [2, 5, 1] },
+        { text: "Dig into the data - what does success look like? How will we measure it?", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "A teammate messages you: 'I'm stuck and not sure where to start.' What's your instinct?",
+      text: "Your favourite kind of problem to solve:",
       answers: [
-        { text: "Jump on a quick call, think through it together, share relevant context I might have", scores: [5, 2, 1] },
-        { text: "Send a quick pointer and check back later - they probably just need a nudge", scores: [2, 4, 2] },
-        { text: "Point them to whoever owns that area - I don't want to give wrong info", scores: [1, 2, 5] }
+        { text: "Chaos into order - messy processes into smooth, repeatable systems", scores: [5, 2, 1] },
+        { text: "Strategic alignment - getting people rowing in the same direction", scores: [1, 5, 2] },
+        { text: "Hidden patterns - finding the story the numbers are trying to tell", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "The project scope just changed significantly. Your reaction?",
+      text: "The CEO asks for a quick summary on something complex. Your instinct:",
       answers: [
-        { text: "Okay, let's reframe - what does this actually mean, and what creative angles does it open up?", scores: [5, 2, 1] },
-        { text: "Cool, we pivot. What can we ship by Friday with the new direction?", scores: [2, 5, 1] },
-        { text: "I need the new requirements documented before I can adjust my work", scores: [1, 1, 5] }
+        { text: "Show them the process - a clear visual of how it works and where we are", scores: [5, 2, 2] },
+        { text: "Frame the strategic context - what matters and why, with recommendations", scores: [1, 5, 1] },
+        { text: "Lead with the metrics - key numbers that tell the story at a glance", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "How do you feel about the phrase 'that's not my job'?",
+      text: "When you join a new team, what do you look for first?",
       answers: [
-        { text: "Rarely applies to me - I like filling gaps and connecting across boundaries", scores: [5, 2, 1] },
-        { text: "Boundaries are fuzzy anyway - I'll do whatever moves things forward", scores: [3, 5, 1] },
-        { text: "Clear ownership prevents chaos - it's healthy to have defined roles", scores: [1, 1, 5] }
+        { text: "Where are the bottlenecks? What's broken? What could be smoother?", scores: [5, 2, 1] },
+        { text: "Who are the key players? What are the team dynamics? Where's the friction?", scores: [1, 5, 2] },
+        { text: "What data exists? How are decisions being made? What's being measured?", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "You discover a better way to do something the team's been doing for months. You:",
+      text: "A project is going sideways. How do you help?",
       answers: [
-        { text: "Document it, share it thoughtfully, help people transition when they're ready", scores: [5, 2, 2] },
-        { text: "Just start doing it the new way - others will catch on", scores: [2, 5, 1] },
-        { text: "Mention it to my manager and let them decide if it's worth changing", scores: [1, 2, 4] }
+        { text: "Identify the process gaps - what's falling through the cracks?", scores: [5, 1, 2] },
+        { text: "Get the right people in the room - facilitate the hard conversation", scores: [1, 5, 1] },
+        { text: "Analyse what's actually happening - the data tells the real story", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "What does 'thinking creatively' mean to you at work?",
+      text: "You get excited when you can:",
       answers: [
-        { text: "Synthesizing ideas from different domains, finding unexpected connections, both art and science", scores: [5, 2, 1] },
-        { text: "Finding the fastest path to something that works - creativity in execution", scores: [2, 5, 1] },
-        { text: "Optimizing deeply within my area of expertise", scores: [1, 1, 5] }
+        { text: "Create a doc/system that saves hours every week forever", scores: [5, 2, 1] },
+        { text: "Help a leader see around corners and make better decisions", scores: [1, 5, 2] },
+        { text: "Find an insight in the data that changes how people think", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "When you're in flow, what does it look like?",
+      text: "How do you prefer to add value to a team?",
       answers: [
-        { text: "Switching between creating, researching, collaborating - varied but intentional", scores: [5, 2, 2] },
-        { text: "Heads down shipping, visible progress, momentum building", scores: [2, 5, 1] },
-        { text: "Deep in my craft, no distractions, solving one thing excellently", scores: [1, 1, 5] }
+        { text: "Building infrastructure - the systems, tools, and processes everyone relies on", scores: [5, 1, 2] },
+        { text: "Being the connective tissue - translating, facilitating, keeping things moving", scores: [2, 5, 1] },
+        { text: "Surfacing intelligence - turning information into actionable insights", scores: [1, 2, 5] }
       ]
     },
     {
-      text: "A meeting ends without clear next steps. You:",
+      text: "Your dream Monday morning involves:",
       answers: [
-        { text: "Quickly summarize what I heard and suggest action items - someone has to", scores: [5, 2, 2] },
-        { text: "Follow up with whoever matters most and figure it out 1:1", scores: [3, 5, 1] },
-        { text: "Wait for direction - if it's important, someone will clarify", scores: [1, 1, 4] }
+        { text: "A well-organized backlog of process improvements to tackle", scores: [5, 2, 1] },
+        { text: "A strategic planning session with leadership", scores: [1, 5, 2] },
+        { text: "Fresh data to explore and a question to answer", scores: [1, 2, 5] }
       ]
     }
   ];
 
-  // The three potential matches with dynamic scoring thresholds
+  // The three versions of Ashley
   const matches = [
     {
-      name: "Ashley",
-      title: "The Creative Connector",
-      emoji: "✨",
+      name: "Operations Ashley",
+      title: "The Systems Architect",
+      emoji: "⚙️",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "This is rare compatibility! You and Ashley share a vision: creative problem-solving backed by thoughtfulness, ownership without ego, and genuine care for the people you work with. You'll challenge each other, document the wins, and build things that actually last. Dream team energy.";
-        if (pct >= 70) return "Strong match! You appreciate the balance Ashley brings - analytical when needed, creative when possible, always thinking about the bigger picture. You'd complement each other well, filling gaps and building shared understanding.";
-        return "You've got some real alignment with Ashley's collaborative, big-picture approach. There's potential here - especially if you value flexibility and cross-functional thinking.";
+        if (pct >= 85) return "You want the Ashley who builds the machine. Documentation, workflows, automation, process design - the invisible infrastructure that makes everything work. This Ashley prevents fires before they start, creates order from chaos, and builds systems that outlast her involvement.";
+        if (pct >= 70) return "Strong ops alignment! You'd benefit from the Ashley who can untangle complexity, create repeatable processes, and make sure nothing falls through the cracks. She'll build you systems that actually get used.";
+        return "Some ops energy here - you appreciate good systems. This Ashley can help streamline what's messy and document what's tribal knowledge.";
       }
     },
     {
-      name: "Chad Hustle",
-      title: "The Velocity Vector",
-      emoji: "🚀",
+      name: "Chief of Staff Ashley",
+      title: "The Strategic Partner",
+      emoji: "🎯",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You and Chad would be UNSTOPPABLE. Ship it, learn fast, keep moving. You both thrive on momentum and tangible progress. Just... maybe designate someone to write things down occasionally.";
-        if (pct >= 70) return "Good energy match! You appreciate Chad's bias toward action and getting things done. You'd move fast together, though you might occasionally need to pump the brakes for alignment.";
-        return "You've got some Chad energy - you appreciate speed and shipping. Paired up, you'd get a lot done fast, even if the process is a bit chaotic.";
+        if (pct >= 85) return "You want the Ashley who thinks with you, not for you. The strategic sounding board, the one who sees around corners, connects across silos, and helps leadership make better decisions. This Ashley translates between teams, facilitates the hard conversations, and keeps the big picture in focus.";
+        if (pct >= 70) return "Strong alignment with the strategic Ashley! You'd benefit from someone who can be your thought partner, help with cross-functional challenges, and anticipate what's coming before it arrives.";
+        return "Some CoS energy here - you value strategic thinking and alignment. This Ashley can help you navigate complexity and get people rowing together.";
       }
     },
     {
-      name: "Sandy Silo",
-      title: "The Deep Specialist",
-      emoji: "🔬",
+      name: "Data Ashley",
+      title: "The Insight Hunter",
+      emoji: "📊",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You and Sandy understand something important: mastery matters. Clear ownership, deep expertise, quality over quantity. You'd respect each other's lanes and produce excellent work within them.";
-        if (pct >= 70) return "Solid alignment! You both value clarity and expertise. Sandy's depth-first approach resonates with you. You'd work well in parallel, coming together when your areas intersect.";
-        return "There's some alignment here - you can appreciate Sandy's focused expertise. You might work best as specialists who collaborate at clear handoff points.";
+        if (pct >= 85) return "You want the Ashley who finds the signal in the noise. Data analysis, visualization, metrics that matter, insights that change minds. This Ashley asks the questions nobody thought to ask and finds patterns that unlock new understanding.";
+        if (pct >= 70) return "Strong data alignment! You'd benefit from the Ashley who can turn information into intelligence. She'll help you measure what matters and tell the story your data is hiding.";
+        return "Some data energy here - you appreciate evidence-based decisions. This Ashley can help surface the insights you need to make smarter moves.";
       }
     }
   ];
 
   let currentQuestion = 0;
-  let scores = [0, 0, 0]; // Ashley, Chad, Sandy
+  let scores = [0, 0, 0]; // Ops, CoS, Data
 
   function shuffleAnswers(answers) {
     const shuffled = [...answers];
@@ -3614,16 +3863,18 @@ function initWorkMatch(windowEl) {
       <div class="wm-intro">
         <div class="wm-magazine-header">
           <div class="wm-title">WorkMatch!</div>
-          <div class="wm-subtitle">Find Your Ideal Collaborator</div>
+          <div class="wm-subtitle">Which Ashley Do You Need?</div>
         </div>
         <p class="wm-intro-text">
-          Work chemistry is real. Some people just <em>click</em> -
-          they complement your style, challenge you right, and make the work better.
+          Plot twist: I contain multitudes. ✨
           <br><br>
-          Answer honestly. There's no wrong answers - just different working styles.
+          Operations wizard? Strategic partner? Data detective?
+          Different challenges need different versions of me.
+          <br><br>
+          Let's figure out which Ashley would be your ideal collaborator.
         </p>
-        <button class="wm-start-btn">Let's Find Out</button>
-        <div class="wm-decorations">💼 ✨ 💕</div>
+        <button class="wm-start-btn">Find My Ashley</button>
+        <div class="wm-decorations">⚙️ 🎯 📊</div>
       </div>
     `;
 
@@ -3691,20 +3942,20 @@ function initWorkMatch(windowEl) {
     content.innerHTML = `
       <div class="wm-results">
         <div class="wm-results-header">
-          <h2>Your Results Are In!</h2>
-          <h3>${compatibility >= 70 ? "Strong Match!" : "A Match!"}</h3>
+          <h2>Your Match Is In!</h2>
+          <h3>You Need...</h3>
         </div>
         <div class="wm-match-photo">${match.emoji}</div>
         <div class="wm-match-name">${match.name}</div>
         <div class="wm-match-title">${match.title}</div>
         <div class="wm-match-desc">${match.getDesc(maxScore, totalPossible)}</div>
         <div class="wm-compatibility">
-          <span class="wm-compat-label">Compatibility:</span>
+          <span class="wm-compat-label">Alignment:</span>
           <span class="wm-compat-hearts">${heartsDisplay}</span>
         </div>
-        <button class="wm-retake-btn">Retake Quiz</button>
+        <button class="wm-retake-btn">Try Again</button>
         <div class="wm-magazine-footer">
-          WorkMatch™ - "Chemistry Can't Be Faked"
+          WorkMatch™ - "One Ashley, Many Hats"
         </div>
       </div>
     `;
