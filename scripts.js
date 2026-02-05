@@ -548,11 +548,6 @@ function showConversation(conversationId) {
     // Show responses after text is done
     responsesEl.innerHTML = '';
 
-    // Check if this is a "dead end" - no response leads to more conversation
-    const hasMoreConversation = conversation.responses.some(r =>
-      r.next !== null && !r.action
-    );
-
     // Add the conversation's own responses (but filter out generic "back" ones we'll replace)
     conversation.responses.forEach(response => {
       // Skip old-style back/close responses - we'll add standardized ones
@@ -560,7 +555,8 @@ function showConversation(conversationId) {
           (response.text.toLowerCase().includes('back') ||
            response.text.toLowerCase().includes('exploring') ||
            response.text.toLowerCase().includes('leave') ||
-           response.text.toLowerCase().includes('goodbye'))) {
+           response.text.toLowerCase().includes('goodbye') ||
+           response.text.toLowerCase().includes('depart'))) {
         return;
       }
 
@@ -586,14 +582,15 @@ function showConversation(conversationId) {
       responsesEl.appendChild(btn);
     });
 
-    // If this is a dead end (or limited options), add "Continue Dialog" to restart
+    // Determine if we're on the first conversation screen
     const firstConversationId = state.currentConversation[0]?.id;
     const isFirstConversation = conversationId === firstConversationId;
 
-    if (!isFirstConversation && !hasMoreConversation) {
+    // If NOT on the first screen, add "Continue Dialog" to go back to start
+    if (!isFirstConversation) {
       const continueBtn = document.createElement('button');
-      continueBtn.className = 'dialog-response';
-      continueBtn.textContent = '[Continue conversation]';
+      continueBtn.className = 'dialog-response dialog-nav';
+      continueBtn.textContent = '[Continue dialog]';
       continueBtn.addEventListener('click', () => {
         showConversation(firstConversationId);
       });
@@ -602,7 +599,7 @@ function showConversation(conversationId) {
 
     // Always add "Back to exploring" option
     const exploreBtn = document.createElement('button');
-    exploreBtn.className = 'dialog-response';
+    exploreBtn.className = 'dialog-response dialog-nav';
     exploreBtn.textContent = '[Back to exploring]';
     exploreBtn.addEventListener('click', () => {
       closeDialog();

@@ -696,6 +696,16 @@ body {
   color: var(--dialog-brown);
 }
 
+.dialog-response.dialog-nav {
+  opacity: 0.85;
+  font-size: 14px;
+  padding: 8px 15px;
+}
+
+.dialog-response.dialog-nav:hover {
+  opacity: 1;
+}
+
 /* Image Lightbox */
 .image-lightbox {
   position: fixed;
