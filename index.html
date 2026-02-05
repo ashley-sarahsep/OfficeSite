@@ -197,6 +197,10 @@
                 <div class="icon-image icon-app-paint"></div>
                 <span class="icon-label">Paint</span>
               </div>
+              <div class="desktop-icon" data-app="readme" data-file="readme">
+                <div class="icon-image icon-readme"></div>
+                <span class="icon-label">README_actually_read_me.txt</span>
+              </div>
               <div class="desktop-icon" data-app="misc-folder" data-file="takeabreak">
                 <div class="icon-image icon-folder-games"></div>
                 <span class="icon-label">Take a Break</span>
@@ -872,6 +876,174 @@
       <div class="paint-status">
         <span class="paint-status-tool">Brush</span>
         <span class="paint-status-pos">0, 0</span>
+      </div>
+    </div>
+  </template>
+
+  <!-- README Case Study Window Template -->
+  <template id="template-readme">
+    <div class="window window-readme" data-window="readme">
+      <div class="window-titlebar titlebar-readme">
+        <span class="window-title">README_actually_read_me.txt</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content readme-content">
+        <div class="readme-scroll-container">
+
+          <!-- Hero Section -->
+          <section class="readme-section readme-hero">
+            <div class="readme-hero-content fade-in">
+              <h1>Building This Site</h1>
+              <p class="readme-subtitle">A case study in AI collaboration, project management, and bringing a vision to life</p>
+              <div class="readme-scroll-hint">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow">↓</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- The Vision -->
+          <section class="readme-section">
+            <div class="readme-block fade-in">
+              <span class="readme-label">The Vision</span>
+              <h2>A portfolio that feels like somewhere you'd actually want to be</h2>
+              <p>I wanted something that reflected how I actually think—layered, a little playful, built with care. Not a template. Not a LinkedIn summary stretched across a page. Something that invited exploration and rewarded curiosity.</p>
+              <p>The concept: a point-and-click adventure through my home office. Visitors could look around, open drawers, talk to my cat, discover work samples organically. The kind of thing that sounds simple until you try to build it.</p>
+            </div>
+          </section>
+
+          <!-- The Challenge -->
+          <section class="readme-section">
+            <div class="readme-block fade-in">
+              <span class="readme-label">The Challenge</span>
+              <h2>I'm not a developer. But I know how to manage technical work.</h2>
+              <p>I understand HTML basics, some SQL, the logic of how systems connect. What I don't have is the ability to build a complex interactive site from scratch. What I do have is a decade of experience translating vision into requirements, managing iterative development, and knowing when something isn't right.</p>
+              <p>The question wasn't "can I code this?" It was "can I direct its creation effectively?"</p>
+            </div>
+          </section>
+
+          <!-- The Collaboration -->
+          <section class="readme-section">
+            <div class="readme-block fade-in">
+              <span class="readme-label">The Approach</span>
+              <h2>Working with AI is like working with any skilled collaborator</h2>
+              <p>There's a misconception that using AI tools means typing "make me a website" and watching magic happen. That's not how it works—at least not if you want something good.</p>
+              <p>Directing Claude Code required the same skills I use when working with developers, designers, or any technical partner:</p>
+              <ul class="readme-list">
+                <li><strong>Clear articulation</strong> — Knowing what I wanted and being specific about it</li>
+                <li><strong>Iterative refinement</strong> — Reviewing outputs, identifying what wasn't right, course-correcting</li>
+                <li><strong>Systems thinking</strong> — Understanding how pieces connect so I could spot gaps</li>
+                <li><strong>Quality standards</strong> — Not accepting "good enough" when it could be better</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- The Process -->
+          <section class="readme-section readme-process">
+            <div class="readme-block fade-in">
+              <span class="readme-label">The Process</span>
+              <h2>Four days from vision to deployment</h2>
+              <p>I applied the same methodology I'd use for any technical project: proper environments, version control, staged testing, and deliberate deployment.</p>
+            </div>
+
+            <div class="readme-pipeline fade-in">
+              <div class="pipeline-stage">
+                <div class="pipeline-icon">🔬</div>
+                <h3>Acceptance</h3>
+                <p>First-round testing. Rapid iterations. Break things, fix things, try ideas.</p>
+              </div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-stage">
+                <div class="pipeline-icon">🧪</div>
+                <h3>Staging</h3>
+                <p>Integration testing. Make sure features play nicely together. Validate before going live.</p>
+              </div>
+              <div class="pipeline-arrow">→</div>
+              <div class="pipeline-stage">
+                <div class="pipeline-icon">🚀</div>
+                <h3>Production</h3>
+                <p>Live deployment. Only after all testing gates passed.</p>
+              </div>
+            </div>
+
+            <div class="readme-block fade-in">
+              <p>This isn't overkill for a portfolio site. It's how I think about any deliverable. The discipline transfers whether you're shipping code, launching a campaign, or rolling out a new process.</p>
+            </div>
+          </section>
+
+          <!-- What This Took -->
+          <section class="readme-section">
+            <div class="readme-block fade-in">
+              <span class="readme-label">What This Actually Took</span>
+              <h2>The work behind "just ask AI to do it"</h2>
+              <div class="readme-stats">
+                <div class="stat-item">
+                  <span class="stat-number">4</span>
+                  <span class="stat-label">Days of focused work</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">50+</span>
+                  <span class="stat-label">Iterative refinements</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">3</span>
+                  <span class="stat-label">Deployment environments</span>
+                </div>
+              </div>
+              <p>Every feature required articulation, review, and refinement. The dialog system alone went through multiple iterations—getting the flow right, making navigation intuitive, ensuring users wouldn't get stuck. That's not AI doing the work. That's project management.</p>
+            </div>
+          </section>
+
+          <!-- The Skills -->
+          <section class="readme-section">
+            <div class="readme-block fade-in">
+              <span class="readme-label">Skills Demonstrated</span>
+              <h2>What this project actually shows</h2>
+              <div class="readme-skills">
+                <div class="skill-card">
+                  <h4>AI Tool Direction</h4>
+                  <p>Translating creative vision into technical requirements. Managing the development conversation. Knowing when outputs need refinement.</p>
+                </div>
+                <div class="skill-card">
+                  <h4>Technical Project Management</h4>
+                  <p>Environment strategy, version control, iterative testing, staged deployment. The same SDLC practices used in professional development.</p>
+                </div>
+                <div class="skill-card">
+                  <h4>User-Centred Design</h4>
+                  <p>Accessibility considerations, intuitive navigation, ensuring interactive elements enhance rather than obstruct.</p>
+                </div>
+                <div class="skill-card">
+                  <h4>Self-Directed Learning</h4>
+                  <p>Figuring out tools and workflows independently. Consistent with a career pattern of mastering new systems without formal training.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Why This Matters -->
+          <section class="readme-section">
+            <div class="readme-block fade-in">
+              <span class="readme-label">Why This Matters</span>
+              <h2>The emerging skill set</h2>
+              <p>Organisations increasingly need people who can bridge the gap between "what we need" and "what AI tools can deliver." Not prompt engineers. Not developers. People who understand requirements, can manage iterative work, and know how to get quality outputs from powerful tools.</p>
+              <p>That's the role I've been playing my entire career—just with different tools. Translating between technical and non-technical teams. Turning ambiguous needs into clear deliverables. Making sure what gets built actually serves the people using it.</p>
+              <p>This site is proof of concept. Not that AI can build websites, but that the skills to direct complex technical work effectively are valuable—and transferable.</p>
+            </div>
+          </section>
+
+          <!-- Closing -->
+          <section class="readme-section readme-closing">
+            <div class="readme-block fade-in">
+              <p class="readme-closing-text">Thanks for reading the actual README.</p>
+              <p class="readme-signature">— Ashley</p>
+            </div>
+          </section>
+
+        </div>
       </div>
     </div>
   </template>

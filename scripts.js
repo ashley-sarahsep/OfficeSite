@@ -1040,7 +1040,8 @@ function getWindowSize(appType) {
     minesweeper: { width: '340px', height: '440px' },
     casestudy: { width: '600px', height: '550px' },
     presentation: { width: '700px', height: '520px' },
-    paint: { width: '500px', height: '420px' }
+    paint: { width: '500px', height: '420px' },
+    readme: { width: '700px', height: '550px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -1156,6 +1157,9 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'paint':
       initPaint(windowEl);
+      break;
+    case 'readme':
+      initReadme(windowEl);
       break;
   }
 }
@@ -3318,6 +3322,43 @@ function initPaint(windowEl) {
       }
     });
   });
+}
+
+// ============================================
+// README CASE STUDY - SCROLL EXPERIENCE
+// ============================================
+
+function initReadme(windowEl) {
+  const scrollContainer = windowEl.querySelector('.readme-scroll-container');
+  if (!scrollContainer) return;
+
+  const fadeElements = scrollContainer.querySelectorAll('.fade-in');
+
+  // Check which elements are visible and animate them
+  function checkVisibility() {
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const containerTop = containerRect.top;
+    const containerBottom = containerRect.bottom;
+
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elementMiddle = rect.top + rect.height / 2;
+
+      // Element is visible if its middle is within the container bounds
+      if (elementMiddle > containerTop && elementMiddle < containerBottom) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  // Run on scroll
+  scrollContainer.addEventListener('scroll', checkVisibility);
+
+  // Initial check after a brief delay to let the window render
+  setTimeout(checkVisibility, 100);
+
+  // Also check when window is focused
+  windowEl.addEventListener('mouseenter', checkVisibility);
 }
 
 // ============================================
