@@ -201,6 +201,10 @@
                 <div class="icon-image icon-readme"></div>
                 <span class="icon-label">README_actually_read_me.txt</span>
               </div>
+              <div class="desktop-icon" data-app="guestbook" data-file="guestbook">
+                <div class="icon-image icon-guestbook"></div>
+                <span class="icon-label">Guest Book</span>
+              </div>
               <div class="desktop-icon" data-app="misc-folder" data-file="takeabreak">
                 <div class="icon-image icon-folder-games"></div>
                 <span class="icon-label">Take a Break</span>
@@ -347,26 +351,71 @@
     </div>
   </template>
 
-  <!-- Messenger Window Template -->
+  <!-- Messenger Window Template (MSN Messenger Style) -->
   <template id="template-messenger">
     <div class="window window-messenger" data-window="messenger">
       <div class="window-titlebar titlebar-messenger">
-        <span class="window-title">AshleyChat - Instant Messenger</span>
+        <span class="window-title">
+          <span class="msn-butterfly">🦋</span>
+          Ashley - Online
+        </span>
         <div class="window-controls">
           <button class="window-btn window-minimize">_</button>
           <button class="window-btn window-maximize">[]</button>
           <button class="window-btn window-close">&times;</button>
         </div>
       </div>
+      <div class="msn-toolbar">
+        <span class="msn-status">
+          <span class="msn-status-dot"></span>
+          Available
+        </span>
+        <span class="msn-branding">MSN Messenger</span>
+      </div>
       <div class="window-content messenger-content">
         <div class="messenger-chat-area" id="messenger-chat">
           <!-- Chat messages loaded by JS -->
         </div>
         <div class="messenger-input-area">
-          <div class="messenger-prompt">Ask me something:</div>
+          <div class="messenger-prompt">Click a topic to chat:</div>
           <div class="messenger-quick-questions" id="messenger-quick">
             <!-- Quick question buttons loaded by JS -->
           </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <!-- Guest Book Window Template -->
+  <template id="template-guestbook">
+    <div class="window window-guestbook" data-window="guestbook">
+      <div class="window-titlebar titlebar-guestbook">
+        <span class="window-title">Guest Book - Sign In!</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content guestbook-content">
+        <div class="guestbook-header">
+          <div class="guestbook-title">Welcome to Ashley's Guest Book!</div>
+          <div class="guestbook-subtitle">Leave your mark - say hi, share a thought, or just let me know you stopped by.</div>
+        </div>
+        <div class="guestbook-entries" id="guestbook-entries">
+          <!-- Seeded entries loaded by JS -->
+        </div>
+        <div class="guestbook-form">
+          <div class="guestbook-form-title">Sign the Guest Book</div>
+          <div class="guestbook-input-row">
+            <label for="guestbook-name">Name:</label>
+            <input type="text" id="guestbook-name" placeholder="Your name" maxlength="50">
+          </div>
+          <div class="guestbook-input-row">
+            <label for="guestbook-message">Message:</label>
+            <textarea id="guestbook-message" placeholder="Leave a message..." maxlength="200" rows="3"></textarea>
+          </div>
+          <button class="guestbook-submit" id="guestbook-submit">Sign Guest Book</button>
         </div>
       </div>
     </div>

@@ -1025,7 +1025,7 @@ function getWindowSize(appType) {
   const sizes = {
     wordpad: { width: '600px', height: '500px' },
     myspace: { width: '700px', height: '550px' },
-    messenger: { width: '400px', height: '450px' },
+    messenger: { width: '420px', height: '480px' },
     folder: { width: '500px', height: '400px' },
     recycle: { width: '450px', height: '350px' },
     notepad: { width: '500px', height: '400px' },
@@ -1042,7 +1042,8 @@ function getWindowSize(appType) {
     presentation: { width: '700px', height: '520px' },
     paint: { width: '500px', height: '420px' },
     readme: { width: '700px', height: '550px' },
-    blockbuster: { width: '580px', height: '480px' }
+    blockbuster: { width: '580px', height: '480px' },
+    guestbook: { width: '480px', height: '520px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -1165,7 +1166,39 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'blockbuster':
       initBlockbuster(windowEl);
       break;
+    case 'guestbook':
+      initGuestbook(windowEl);
+      break;
   }
+
+  // Trigger Gertrude contextual tips after a short delay
+  setTimeout(() => {
+    const tipMap = {
+      'messenger': 'chat',
+      'paint': 'paint',
+      'blockbuster': 'blockbuster',
+      'game': 'game',
+      'catpong': 'game',
+      'raiders': 'game',
+      'memory': 'game',
+      'minesweeper': 'game',
+      'bionicbrain': 'game',
+      'portfolio': 'portfolio',
+      'portfolio-viewer': 'portfolio',
+      'casestudy': 'portfolio',
+      'calculator': 'calculator',
+      'workmatch': 'workmatch',
+      'readme': 'readme',
+      'myspace': 'myspace',
+      'recycle': 'recycle',
+      'folder': 'firstFolder',
+      'misc-folder': 'firstFolder',
+      'guestbook': 'guestbook'
+    };
+    if (tipMap[appType]) {
+      showGertrudeContextualTip(tipMap[appType]);
+    }
+  }, 800);
 }
 
 function initWindowControls(windowEl, windowId) {
@@ -3493,6 +3526,89 @@ function initBlockbuster(windowEl) {
 }
 
 // ============================================
+// GUEST BOOK
+// ============================================
+
+function initGuestbook(windowEl) {
+  const entriesEl = windowEl.querySelector('#guestbook-entries');
+  const nameInput = windowEl.querySelector('#guestbook-name');
+  const messageInput = windowEl.querySelector('#guestbook-message');
+  const submitBtn = windowEl.querySelector('#guestbook-submit');
+
+  // Seeded entries (view-only, to set the tone)
+  const seededEntries = [
+    {
+      name: "Gertrude 🐱",
+      message: "I approve of this guest book. It's warm, like a sunbeam. *settles in*",
+      date: "Permanent Resident"
+    },
+    {
+      name: "Claude",
+      message: "It was a pleasure helping build this place. The attention to detail here reflects genuine care for craft.",
+      date: "February 2025"
+    },
+    {
+      name: "Mom",
+      message: "Very proud of you sweetheart! Still don't fully understand what you do but this website is very cute!",
+      date: "January 2025"
+    },
+    {
+      name: "Fellow Ops Person",
+      message: "Finally, someone who gets it. The documentation alone deserves an award.",
+      date: "January 2025"
+    }
+  ];
+
+  // Render seeded entries
+  function renderEntries() {
+    entriesEl.innerHTML = '';
+    seededEntries.forEach(entry => {
+      const entryEl = document.createElement('div');
+      entryEl.className = 'guestbook-entry';
+      entryEl.innerHTML = `
+        <div class="guestbook-entry-name">${entry.name}</div>
+        <div class="guestbook-entry-message">${entry.message}</div>
+        <div class="guestbook-entry-date">${entry.date}</div>
+      `;
+      entriesEl.appendChild(entryEl);
+    });
+  }
+
+  // Handle form submission (sends via mailto:)
+  submitBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !message) {
+      alert('Please fill in both your name and a message!');
+      return;
+    }
+
+    // Create mailto link
+    const subject = encodeURIComponent(`Guest Book Entry from ${name}`);
+    const body = encodeURIComponent(
+      `New Guest Book Entry!\n\n` +
+      `Name: ${name}\n` +
+      `Message: ${message}\n\n` +
+      `---\n` +
+      `Sent from Ashley's Office Guest Book`
+    );
+
+    window.location.href = `mailto:ash@stepinto-ashleysoffice.com?subject=${subject}&body=${body}`;
+
+    // Clear form
+    nameInput.value = '';
+    messageInput.value = '';
+
+    // Show a thank you message temporarily
+    alert('Thanks for signing the guest book! Your email app should open - just hit send!');
+  });
+
+  // Render initial entries
+  renderEntries();
+}
+
+// ============================================
 // BIONIC BRAIN GAME
 // ============================================
 
@@ -4200,6 +4316,51 @@ function hideGertrudeBubble() {
     clearTimeout(gertrudeHideTimer);
     gertrudeHideTimer = null;
   }
+}
+
+// Show a context-aware tip (Clippy-style) - only shows each tip once per session
+function showGertrudeContextualTip(context) {
+  const tips = SITE_DATA.gertrude?.contextualTips || {};
+  const shownTips = SITE_DATA.gertrude?.shownTips || [];
+
+  // Check if we have a tip for this context and haven't shown it yet
+  if (!tips[context] || shownTips.includes(context)) {
+    return false;
+  }
+
+  const bubble = document.getElementById('gertrude-bubble');
+  const messageEl = document.getElementById('gertrude-message');
+  const desktopScene = document.getElementById('desktop-scene');
+
+  // Only show if desktop is visible
+  if (!bubble || !messageEl || !desktopScene || desktopScene.classList.contains('hidden')) {
+    return false;
+  }
+
+  // Clear any existing timers
+  if (gertrudeHideTimer) {
+    clearTimeout(gertrudeHideTimer);
+  }
+  if (gertrudeAutoTimer) {
+    clearTimeout(gertrudeAutoTimer);
+  }
+
+  // Mark this tip as shown
+  SITE_DATA.gertrude.shownTips.push(context);
+
+  // Show the contextual tip
+  messageEl.textContent = tips[context];
+  bubble.classList.remove('hidden');
+
+  // Auto-hide after 6 seconds (slightly shorter for tips)
+  gertrudeHideTimer = setTimeout(() => {
+    hideGertrudeBubble();
+  }, 6000);
+
+  // Resume auto-thoughts after showing tip
+  scheduleNextGertrudeThought();
+
+  return true;
 }
 
 // Utility: Shuffle array in place
