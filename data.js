@@ -1591,7 +1591,8 @@ If that sounds like what you need, let's talk.
           { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "game-raiders", type: "game", app: "raiders" },
           { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "game-minesweeper", type: "game", app: "minesweeper" },
           { id: "memory", name: "Memory Match.exe", icon: "game-memory", type: "game", app: "memory" },
-          { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" }
+          { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" },
+          { id: "blockbuster", name: "Blockbuster Video.exe", icon: "game-blockbuster", type: "game", app: "blockbuster" }
         ]
       },
       allthethings: {

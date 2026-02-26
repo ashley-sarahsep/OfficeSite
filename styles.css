@@ -1045,6 +1045,18 @@ body {
   font-size: 24px;
 }
 
+.icon-game-blockbuster {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-game-blockbuster::after {
+  content: '📼';
+  font-size: 24px;
+}
+
 .icon-app-calc {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: 1px solid #000;
@@ -5099,6 +5111,239 @@ body.a11y-screen-reader [aria-hidden="true"] {
     transform: rotate(90deg);
   }
 }
+
+/* ============================================
+   BLOCKBUSTER VIDEO NIGHT
+   ============================================ */
+
+.window-blockbuster {
+  width: 580px;
+}
+
+.titlebar-blockbuster {
+  background: linear-gradient(90deg, #0d47a1 0%, #1565c0 100%);
+}
+
+.blockbuster-content {
+  background: #0a1628;
+  padding: 0;
+  overflow-y: auto;
+  font-family: var(--font-system);
+}
+
+/* Store view */
+.bb-store {
+  padding: 0;
+}
+
+.bb-header {
+  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
+  text-align: center;
+  padding: 20px;
+  border-bottom: 4px solid #ffd600;
+}
+
+.bb-logo {
+  font-family: var(--font-system);
+  font-size: 22px;
+  font-weight: 800;
+  color: #ffd600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.bb-tagline {
+  font-size: 12px;
+  color: rgba(255, 214, 0, 0.7);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Shelves */
+.bb-shelves {
+  padding: 16px;
+}
+
+.bb-shelf {
+  margin-bottom: 24px;
+}
+
+.bb-shelf-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #ffd600;
+  padding: 6px 12px;
+  background: rgba(255, 214, 0, 0.1);
+  border-left: 3px solid #ffd600;
+  margin-bottom: 12px;
+}
+
+.bb-shelf-tapes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* VHS Tape spine on shelf */
+.bb-tape {
+  width: 70px;
+  height: 100px;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 4px;
+  transition: all 0.2s ease;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.bb-tape:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+
+.bb-tape-spine-title {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 9px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 85px;
+}
+
+.bb-tape-spine-year {
+  font-size: 7px;
+  color: rgba(255,255,255,0.7);
+  margin-top: 4px;
+}
+
+/* Tape detail view */
+.bb-tape-view {
+  padding: 20px;
+}
+
+.bb-tape-view.hidden {
+  display: none;
+}
+
+.bb-tape-box {
+  display: flex;
+  gap: 0;
+  background: #1a1a2e;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #333;
+  min-height: 260px;
+}
+
+.bb-tape-cover {
+  width: 45%;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.bb-tape-genre-tag {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 16px;
+}
+
+.bb-tape-cover .bb-tape-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.bb-tape-cover .bb-tape-year {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+
+.bb-tape-back {
+  width: 55%;
+  padding: 24px;
+  background: #111;
+  border-left: 1px solid #333;
+}
+
+.bb-tape-review {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 16px;
+}
+
+.bb-tape-rating {
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.bb-back-btn {
+  display: block;
+  margin: 16px auto 0;
+  padding: 10px 24px;
+  background: transparent;
+  color: #ffd600;
+  border: 1px solid #ffd600;
+  border-radius: 4px;
+  font-family: var(--font-system);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bb-back-btn:hover {
+  background: #ffd600;
+  color: #0a1628;
+}
+
+/* Footer */
+.bb-footer {
+  text-align: center;
+  padding: 16px;
+  border-top: 1px solid rgba(255,214,0,0.2);
+}
+
+.bb-rewind {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255, 214, 0, 0.4);
+  text-transform: uppercase;
+}
+
+/* Genre colours for tape spines */
+.bb-tape-comedy { background: linear-gradient(180deg, #e65100 0%, #bf360c 100%); }
+.bb-tape-scifi { background: linear-gradient(180deg, #1a237e 0%, #0d47a1 100%); }
+.bb-tape-drama { background: linear-gradient(180deg, #4a148c 0%, #6a1b9a 100%); }
+.bb-tape-tv { background: linear-gradient(180deg, #1b5e20 0%, #2e7d32 100%); }
+.bb-tape-mystery { background: linear-gradient(180deg, #212121 0%, #424242 100%); }
+
+/* Genre colours for tape cover */
+.bb-cover-comedy { background: linear-gradient(135deg, #e65100 0%, #ff8f00 100%); }
+.bb-cover-scifi { background: linear-gradient(135deg, #1a237e 0%, #283593 100%); }
+.bb-cover-drama { background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 100%); }
+.bb-cover-tv { background: linear-gradient(135deg, #1b5e20 0%, #388e3c 100%); }
+.bb-cover-mystery { background: linear-gradient(135deg, #212121 0%, #37474f 100%); }
 
 /* ============================================
    WORK MATCH QUIZ - 90s TEEN MAGAZINE STYLE
