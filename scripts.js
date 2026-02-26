@@ -1025,7 +1025,7 @@ function getWindowSize(appType) {
   const sizes = {
     wordpad: { width: '600px', height: '500px' },
     myspace: { width: '700px', height: '550px' },
-    messenger: { width: '400px', height: '450px' },
+    messenger: { width: '420px', height: '480px' },
     folder: { width: '500px', height: '400px' },
     recycle: { width: '450px', height: '350px' },
     notepad: { width: '500px', height: '400px' },
@@ -1041,7 +1041,9 @@ function getWindowSize(appType) {
     casestudy: { width: '600px', height: '550px' },
     presentation: { width: '700px', height: '520px' },
     paint: { width: '500px', height: '420px' },
-    readme: { width: '700px', height: '550px' }
+    readme: { width: '700px', height: '550px' },
+    blockbuster: { width: '580px', height: '480px' },
+    guestbook: { width: '480px', height: '520px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -1161,7 +1163,42 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'readme':
       initReadme(windowEl);
       break;
+    case 'blockbuster':
+      initBlockbuster(windowEl);
+      break;
+    case 'guestbook':
+      initGuestbook(windowEl);
+      break;
   }
+
+  // Trigger Gertrude contextual tips after a short delay
+  setTimeout(() => {
+    const tipMap = {
+      'messenger': 'chat',
+      'paint': 'paint',
+      'blockbuster': 'blockbuster',
+      'game': 'game',
+      'catpong': 'game',
+      'raiders': 'game',
+      'memory': 'game',
+      'minesweeper': 'game',
+      'bionicbrain': 'game',
+      'portfolio': 'portfolio',
+      'portfolio-viewer': 'portfolio',
+      'casestudy': 'portfolio',
+      'calculator': 'calculator',
+      'workmatch': 'workmatch',
+      'readme': 'readme',
+      'myspace': 'myspace',
+      'recycle': 'recycle',
+      'folder': 'firstFolder',
+      'misc-folder': 'firstFolder',
+      'guestbook': 'guestbook'
+    };
+    if (tipMap[appType]) {
+      showGertrudeContextualTip(tipMap[appType]);
+    }
+  }, 800);
 }
 
 function initWindowControls(windowEl, windowId) {
@@ -3362,6 +3399,216 @@ function initReadme(windowEl) {
 }
 
 // ============================================
+// BLOCKBUSTER VIDEO NIGHT
+// ============================================
+
+function initBlockbuster(windowEl) {
+  const shelvesEl = windowEl.querySelector('.bb-shelves');
+  const storeEl = windowEl.querySelector('.bb-store');
+  const tapeViewEl = windowEl.querySelector('.bb-tape-view');
+  const backBtn = windowEl.querySelector('.bb-back-btn');
+
+  const shelves = [
+    {
+      label: 'Comedy',
+      genre: 'comedy',
+      tapes: [
+        {
+          title: 'Airplane!',
+          year: '1980',
+          review: "If you don't laugh at this, we can't work together. Every single frame has a joke in it. I've seen it dozens of times and I still catch new things. \"Surely you can't be serious.\" \"I am serious. And don't call me Shirley.\" Peak cinema.",
+          stars: '⭐⭐⭐⭐⭐'
+        },
+        {
+          title: 'The Naked Gun',
+          year: '1988',
+          review: "Leslie Nielsen was a gift. This whole franchise came from Police Squad, which was six perfect episodes that nobody watched the first time around. The baseball scene alone is worth the rental. Deadpan absurdity at its finest.",
+          stars: '⭐⭐⭐⭐⭐'
+        },
+        {
+          title: 'Police Squad!',
+          year: '1982',
+          review: "Six episodes. That's all we got. And every single one is flawless. The freeze-frame endings where everyone stops moving except the world around them. The \"Rex Hamilton as Abraham Lincoln\" bit. This is the show that taught me what comedy could be.",
+          stars: '⭐⭐⭐⭐⭐'
+        }
+      ]
+    },
+    {
+      label: 'Sci-Fi / Action',
+      genre: 'scifi',
+      tapes: [
+        {
+          title: 'Total Recall',
+          year: '1990',
+          review: "Schwarzenegger on Mars. Mutants. A woman with three... well, you know. The question of what's real and what's implanted memory is genuinely interesting if you think about it for more than ten seconds. But also: it's just a phenomenal ride. \"Consider that a divorce.\"",
+          stars: '⭐⭐⭐⭐⭐'
+        },
+        {
+          title: 'The Running Man',
+          year: '1987',
+          review: "A dystopian game show where convicts run for their lives while the audience cheers. It was supposed to be satire. We watched this over and over. Every kill has a one-liner. Peak 80s Schwarzenegger. \"Here is Sub-Zero. Now... plain zero.\"",
+          stars: '⭐⭐⭐⭐'
+        }
+      ]
+    },
+    {
+      label: 'The Feelings Shelf',
+      genre: 'drama',
+      tapes: [
+        {
+          title: 'Eternal Sunshine of the Spotless Mind',
+          year: '2004',
+          review: "What if you could erase someone from your memory? Would you? The answer this film gives is more complicated and more honest than anything else I've seen about love and loss. Jim Carrey doing something quiet and devastating. The kind of movie that rewires how you think about relationships.",
+          stars: '⭐⭐⭐⭐⭐'
+        }
+      ]
+    },
+    {
+      label: 'TV Wall',
+      genre: 'tv',
+      tapes: [
+        {
+          title: 'Unsolved Mysteries',
+          year: '1987',
+          review: "Robert Stack's trench coat. That theme music. The segments that made you check the locks twice before bed. This show shaped how I feel about storytelling — the power of an unanswered question, the way a good mystery pulls you in. I still think about some of these cases. Some of them were eventually solved. Most weren't. That's the point.",
+          stars: '⭐⭐⭐⭐⭐'
+        }
+      ]
+    }
+  ];
+
+  function renderStore() {
+    shelvesEl.innerHTML = '';
+    shelves.forEach(shelf => {
+      const shelfEl = document.createElement('div');
+      shelfEl.className = 'bb-shelf';
+      shelfEl.innerHTML = `<div class="bb-shelf-label">${shelf.label}</div>`;
+
+      const tapesRow = document.createElement('div');
+      tapesRow.className = 'bb-shelf-tapes';
+
+      shelf.tapes.forEach(tape => {
+        const tapeEl = document.createElement('div');
+        tapeEl.className = `bb-tape bb-tape-${shelf.genre}`;
+        tapeEl.innerHTML = `
+          <span class="bb-tape-spine-title">${tape.title}</span>
+          <span class="bb-tape-spine-year">${tape.year}</span>
+        `;
+        tapeEl.addEventListener('click', () => showTape(tape, shelf));
+        tapesRow.appendChild(tapeEl);
+      });
+
+      shelfEl.appendChild(tapesRow);
+      shelvesEl.appendChild(shelfEl);
+    });
+  }
+
+  function showTape(tape, shelf) {
+    storeEl.style.display = 'none';
+    tapeViewEl.classList.remove('hidden');
+
+    const cover = tapeViewEl.querySelector('.bb-tape-cover');
+    cover.className = `bb-tape-cover bb-cover-${shelf.genre}`;
+
+    tapeViewEl.querySelector('.bb-tape-genre-tag').textContent = shelf.label;
+    tapeViewEl.querySelector('.bb-tape-title').textContent = tape.title;
+    tapeViewEl.querySelector('.bb-tape-year').textContent = tape.year;
+    tapeViewEl.querySelector('.bb-tape-review').textContent = tape.review;
+    tapeViewEl.querySelector('.bb-tape-rating').textContent = tape.stars;
+  }
+
+  backBtn.addEventListener('click', () => {
+    tapeViewEl.classList.add('hidden');
+    storeEl.style.display = '';
+  });
+
+  renderStore();
+}
+
+// ============================================
+// GUEST BOOK
+// ============================================
+
+function initGuestbook(windowEl) {
+  const entriesEl = windowEl.querySelector('#guestbook-entries');
+  const nameInput = windowEl.querySelector('#guestbook-name');
+  const messageInput = windowEl.querySelector('#guestbook-message');
+  const submitBtn = windowEl.querySelector('#guestbook-submit');
+
+  // Seeded entries (view-only, to set the tone)
+  const seededEntries = [
+    {
+      name: "Gertrude 🐱",
+      message: "I approve of this guest book. It's warm, like a sunbeam. *settles in*",
+      date: "Permanent Resident"
+    },
+    {
+      name: "Claude",
+      message: "It was a pleasure helping build this place. The attention to detail here reflects genuine care for craft.",
+      date: "February 2025"
+    },
+    {
+      name: "Mom",
+      message: "Very proud of you sweetheart! Still don't fully understand what you do but this website is very cute!",
+      date: "January 2025"
+    },
+    {
+      name: "Fellow Ops Person",
+      message: "Finally, someone who gets it. The documentation alone deserves an award.",
+      date: "January 2025"
+    }
+  ];
+
+  // Render seeded entries
+  function renderEntries() {
+    entriesEl.innerHTML = '';
+    seededEntries.forEach(entry => {
+      const entryEl = document.createElement('div');
+      entryEl.className = 'guestbook-entry';
+      entryEl.innerHTML = `
+        <div class="guestbook-entry-name">${entry.name}</div>
+        <div class="guestbook-entry-message">${entry.message}</div>
+        <div class="guestbook-entry-date">${entry.date}</div>
+      `;
+      entriesEl.appendChild(entryEl);
+    });
+  }
+
+  // Handle form submission (sends via mailto:)
+  submitBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !message) {
+      alert('Please fill in both your name and a message!');
+      return;
+    }
+
+    // Create mailto link
+    const subject = encodeURIComponent(`Guest Book Entry from ${name}`);
+    const body = encodeURIComponent(
+      `New Guest Book Entry!\n\n` +
+      `Name: ${name}\n` +
+      `Message: ${message}\n\n` +
+      `---\n` +
+      `Sent from Ashley's Office Guest Book`
+    );
+
+    window.location.href = `mailto:ash@stepinto-ashleysoffice.com?subject=${subject}&body=${body}`;
+
+    // Clear form
+    nameInput.value = '';
+    messageInput.value = '';
+
+    // Show a thank you message temporarily
+    alert('Thanks for signing the guest book! Your email app should open - just hit send!');
+  });
+
+  // Render initial entries
+  renderEntries();
+}
+
+// ============================================
 // BIONIC BRAIN GAME
 // ============================================
 
@@ -4069,6 +4316,51 @@ function hideGertrudeBubble() {
     clearTimeout(gertrudeHideTimer);
     gertrudeHideTimer = null;
   }
+}
+
+// Show a context-aware tip (Clippy-style) - only shows each tip once per session
+function showGertrudeContextualTip(context) {
+  const tips = SITE_DATA.gertrude?.contextualTips || {};
+  const shownTips = SITE_DATA.gertrude?.shownTips || [];
+
+  // Check if we have a tip for this context and haven't shown it yet
+  if (!tips[context] || shownTips.includes(context)) {
+    return false;
+  }
+
+  const bubble = document.getElementById('gertrude-bubble');
+  const messageEl = document.getElementById('gertrude-message');
+  const desktopScene = document.getElementById('desktop-scene');
+
+  // Only show if desktop is visible
+  if (!bubble || !messageEl || !desktopScene || desktopScene.classList.contains('hidden')) {
+    return false;
+  }
+
+  // Clear any existing timers
+  if (gertrudeHideTimer) {
+    clearTimeout(gertrudeHideTimer);
+  }
+  if (gertrudeAutoTimer) {
+    clearTimeout(gertrudeAutoTimer);
+  }
+
+  // Mark this tip as shown
+  SITE_DATA.gertrude.shownTips.push(context);
+
+  // Show the contextual tip
+  messageEl.textContent = tips[context];
+  bubble.classList.remove('hidden');
+
+  // Auto-hide after 6 seconds (slightly shorter for tips)
+  gertrudeHideTimer = setTimeout(() => {
+    hideGertrudeBubble();
+  }, 6000);
+
+  // Resume auto-thoughts after showing tip
+  scheduleNextGertrudeThought();
+
+  return true;
 }
 
 // Utility: Shuffle array in place

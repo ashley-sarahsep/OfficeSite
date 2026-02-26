@@ -17,6 +17,25 @@ const SITE_DATA = {
   // ============================================
   // Click Gertrude to receive a thought. Click the bubble to dismiss.
   gertrude: {
+    // Context-aware tips (Clippy-style) - triggered by user actions
+    contextualTips: {
+      firstFolder: "Folders within folders... very organised. I approve. *slow blink*",
+      readme: "Ah, you want to know how this was made. Smart. I contributed by napping on the keyboard. *proud*",
+      chat: "Talking to my human? She's good at listening. I taught her. *smug purr*",
+      paint: "Creating something? I once painted with my paw. It was abstract. *artistic blink*",
+      blockbuster: "Movie night? I recommend anything with birds in it. Or fish. *intense stare*",
+      game: "Taking a break to play? Good instinct. Rest is productive. I'm an expert. *stretch*",
+      portfolio: "Looking at her work? She's quite capable. For a human. *approving nod*",
+      calculator: "Numbers. I don't understand them but I respect your interest. *head tilt*",
+      workmatch: "A quiz! I already know which Ashley you need. The one with the treats. *hopeful eyes*",
+      guestbook: "Signing the guest book? How civilised. Like leaving your scent, but polite. *dignified blink*",
+      idle: "Still here? Good. Patience is underrated. Most humans rush too much. *slow blink*",
+      exploring: "Exploring, are we? Curiosity is a virtue. Cats invented it. *proud tail swish*",
+      myspace: "Social media from before everything got complicated. *nostalgic mrrp*",
+      recycle: "Ah, the bin. I've knocked many things in there. On purpose. *innocent look*"
+    },
+    // Track which tips have been shown (reset on page load)
+    shownTips: [],
     thoughts: [
       // Short reflections
       "Every conversation changes both people. Even this one. *slow blink*",
@@ -1591,7 +1610,8 @@ If that sounds like what you need, let's talk.
           { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "game-raiders", type: "game", app: "raiders" },
           { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "game-minesweeper", type: "game", app: "minesweeper" },
           { id: "memory", name: "Memory Match.exe", icon: "game-memory", type: "game", app: "memory" },
-          { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" }
+          { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" },
+          { id: "blockbuster", name: "Blockbuster Video.exe", icon: "game-blockbuster", type: "game", app: "blockbuster" }
         ]
       },
       allthethings: {
