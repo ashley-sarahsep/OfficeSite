@@ -14,14 +14,6 @@
   --color-teal: #1e4d4d;
   --color-sage: #9ea890;
 
-  /* Boot screen colors */
-  --boot-bg: var(--color-teal);
-  --boot-frame: #3d3d3d;
-  --boot-frame-inner: #2a2a2a;
-  --boot-pink: var(--color-blush);
-  --boot-green: var(--color-sage);
-  --boot-cream: var(--color-cream);
-  --boot-text: #b8c4b0;
 
   /* Dialog/UI colors */
   --dialog-cream: var(--color-cream);
@@ -32,15 +24,17 @@
   --dialog-text: #3a3028;
   --dialog-accent: var(--color-orange);
 
-  /* Win98 desktop colors */
+  /* XP Luna desktop colors */
   --win-bg: var(--color-teal);
   --win-titlebar: var(--color-burgundy);
   --win-titlebar-inactive: var(--color-mauve);
-  --win-button-face: #c0c0c0;
+  --win-button-face: #ece9d8;
   --win-button-light: #ffffff;
-  --win-button-shadow: #808080;
-  --win-button-dark: #000000;
+  --win-button-shadow: #aca899;
+  --win-button-dark: #716f64;
   --win-text: #000000;
+  --win-border: #919b9c;
+  --win-shadow: rgba(0, 0, 0, 0.25);
 
   /* MySpace colors */
   --myspace-bg: var(--color-sage);
@@ -80,250 +74,6 @@ body {
   display: none !important;
 }
 
-/* ============================================
-   DOS BOOT SEQUENCE
-   ============================================ */
-
-.boot-screen {
-  position: fixed;
-  inset: 0;
-  background: #1a1a1a;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 20px;
-}
-
-/* CRT Monitor frame for boot screen */
-.boot-monitor-frame {
-  background: linear-gradient(180deg, #4a4a4a 0%, #3a3a3a 50%, #2a2a2a 100%);
-  border-radius: 15px;
-  padding: 15px 15px 25px 15px;
-  box-shadow:
-    inset 0 2px 4px rgba(255,255,255,0.1),
-    0 10px 30px rgba(0,0,0,0.5);
-  max-width: 700px;
-  width: 100%;
-}
-
-.boot-monitor-notch {
-  width: 80px;
-  height: 8px;
-  background: #2a2a2a;
-  border-radius: 4px;
-  margin: 0 auto 10px;
-}
-
-.boot-monitor-screen {
-  background: var(--boot-bg);
-  border-radius: 8px;
-  padding: 30px;
-  border: 4px solid #1a1a1a;
-  box-shadow: inset 0 0 30px rgba(0,0,0,0.4);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle scanline effect */
-.boot-monitor-screen::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.05) 0px,
-    rgba(0, 0, 0, 0.05) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  pointer-events: none;
-}
-
-.boot-monitor-brand {
-  text-align: center;
-  font-family: var(--font-terminal);
-  font-size: 12px;
-  color: #555;
-  margin-top: 10px;
-  letter-spacing: 3px;
-}
-
-.boot-monitor-led {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: #00aa00;
-  border-radius: 50%;
-  box-shadow: 0 0 4px #00aa00;
-  margin-left: 10px;
-  vertical-align: middle;
-}
-
-.boot-content {
-  width: 100%;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-.boot-logo {
-  font-family: var(--font-pixel);
-  font-size: 32px;
-  color: var(--boot-pink);
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
-  letter-spacing: 4px;
-}
-
-.boot-version {
-  font-family: var(--font-terminal);
-  font-size: 16px;
-  color: var(--boot-text);
-  margin-bottom: 40px;
-}
-
-#boot-text {
-  font-family: var(--font-terminal);
-  font-size: 18px;
-  color: var(--boot-green);
-  text-align: left;
-  line-height: 1.6;
-  min-height: 180px;
-  white-space: pre-wrap;
-}
-
-#boot-text .boot-title-text {
-  font-family: var(--font-pixel);
-  font-size: 28px;
-  color: var(--boot-pink);
-  display: block;
-  text-align: center;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-}
-
-#boot-text .ok-tag {
-  color: var(--boot-green);
-}
-
-#boot-text .message {
-  color: var(--boot-text);
-}
-
-.boot-select-text {
-  font-family: var(--font-terminal);
-  font-size: 20px;
-  color: var(--boot-cream);
-  margin: 20px 0 10px;
-  text-align: center;
-}
-
-.boot-cursor {
-  display: inline-block;
-  font-family: var(--font-terminal);
-  font-size: 18px;
-  color: var(--boot-cream);
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.boot-progress {
-  width: 100%;
-  max-width: 400px;
-  height: 20px;
-  background: var(--boot-bg);
-  border: 2px solid var(--boot-cream);
-  margin: 30px auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.boot-progress-bar {
-  height: 100%;
-  width: 0%;
-  background: var(--boot-cream);
-  transition: width 0.3s ease;
-}
-
-.boot-options {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-}
-
-.boot-option {
-  font-family: var(--font-terminal);
-  font-size: 18px;
-  background: transparent;
-  border: 2px solid var(--boot-text);
-  color: var(--boot-text);
-  padding: 15px 30px;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
-  max-width: 400px;
-  transition: all 0.2s ease;
-}
-
-.boot-option:hover,
-.boot-option:focus {
-  border-color: var(--boot-pink);
-  color: var(--boot-pink);
-}
-
-.boot-option.selected {
-  border-color: var(--boot-green);
-  background: rgba(139, 159, 122, 0.1);
-}
-
-.boot-option-key {
-  color: var(--boot-pink);
-  margin-right: 10px;
-}
-
-.boot-option-title {
-  display: block;
-  font-size: 20px;
-  color: var(--boot-pink);
-  margin-bottom: 5px;
-}
-
-.boot-option-desc {
-  font-size: 16px;
-  opacity: 0.8;
-}
-
-.boot-skip {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-terminal);
-  font-size: 16px;
-  color: var(--boot-text);
-  opacity: 0.6;
-}
-
-.boot-accessibility {
-  margin-top: 20px;
-  font-family: var(--font-terminal);
-  font-size: 14px;
-  color: var(--boot-text);
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.boot-accessibility:hover {
-  color: var(--boot-cream);
-}
 
 /* ============================================
    ROOM SCENE
@@ -565,7 +315,7 @@ body {
 }
 
 .dialog-close:hover {
-  background: var(--boot-pink);
+  background: var(--color-blush);
 }
 
 .dialog-content {
@@ -876,21 +626,24 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 4px;
   cursor: pointer;
-  padding: 3px;
+  padding: 5px;
   border: 1px solid transparent;
-  width: 64px;
+  border-radius: 3px;
+  width: 72px;
   user-select: none;
 }
 
 .desktop-icon:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .desktop-icon.selected {
-  background: rgba(0, 0, 128, 0.5);
-  border: 1px dotted #fff;
+  background: rgba(47, 106, 197, 0.4);
+  border: 1px solid rgba(53, 116, 210, 0.6);
+  border-radius: 3px;
 }
 
 .desktop-icon.dragging {
@@ -907,7 +660,6 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  image-rendering: pixelated;
 }
 
 /* Icon sprites - using CSS shapes as fallback */
@@ -1154,20 +906,27 @@ body {
 
 .icon-label {
   font-family: var(--font-system);
-  font-size: 10px;
+  font-size: 11px;
   color: #fff;
-  text-shadow: 1px 1px 1px #000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8), 0 0 4px rgba(0, 0, 0, 0.4);
   text-align: center;
-  max-width: 55px;
+  max-width: 64px;
   word-wrap: break-word;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 /* Taskbar */
 .taskbar {
-  height: 30px;
-  background: var(--win-button-face);
-  border-top: 2px solid var(--win-button-light);
+  height: 34px;
+  background: linear-gradient(180deg,
+    #3d6f3d 0%,
+    #295829 3%,
+    var(--color-teal) 6%,
+    #1a4040 50%,
+    var(--color-teal) 94%,
+    #2a5a5a 97%,
+    #3d6f6f 100%);
+  border-top: 1px solid #4a8a8a;
   display: flex;
   align-items: center;
   padding: 2px;
@@ -1177,39 +936,66 @@ body {
 .start-button {
   display: flex;
   align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
-  background: var(--win-button-face);
-  border: 2px outset var(--win-button-face);
+  gap: 5px;
+  padding: 2px 12px 2px 6px;
+  background: linear-gradient(180deg,
+    #a85070 0%,
+    var(--color-burgundy) 15%,
+    #5d2238 50%,
+    var(--color-burgundy) 85%,
+    #a85070 100%);
+  border: 1px solid #4a1530;
+  border-radius: 0 8px 8px 0;
   font-family: var(--font-system);
   font-size: 11px;
   font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   cursor: pointer;
+  height: 30px;
+}
+
+.start-button:hover {
+  background: linear-gradient(180deg,
+    #c06080 0%,
+    #8a3558 15%,
+    #6d2a45 50%,
+    #8a3558 85%,
+    #c06080 100%);
 }
 
 .start-button:active {
-  border-style: inset;
+  background: linear-gradient(180deg,
+    #6d2a45 0%,
+    var(--color-burgundy) 50%,
+    #6d2a45 100%);
 }
 
 .start-icon {
-  width: 16px;
-  height: 16px;
-  background: linear-gradient(135deg, #ff0000 25%, #00ff00 25%, #00ff00 50%, #0000ff 50%, #0000ff 75%, #ffff00 75%);
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #ff4444 25%, #44ff44 25%, #44ff44 50%, #4444ff 50%, #4444ff 75%, #ffff44 75%);
+  border-radius: 50%;
+  box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
 }
 
 .taskbar-items {
   flex: 1;
   display: flex;
-  gap: 2px;
+  gap: 3px;
   overflow: hidden;
+  padding: 0 4px;
 }
 
 .taskbar-item {
-  padding: 2px 8px;
-  background: var(--win-button-face);
-  border: 2px outset var(--win-button-face);
+  padding: 3px 10px;
+  background: linear-gradient(180deg, #3a7a7a 0%, #1e5555 40%, #1a4a4a 60%, #2a6a6a 100%);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
   font-family: var(--font-system);
   font-size: 11px;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
   cursor: pointer;
   white-space: nowrap;
   overflow: hidden;
@@ -1218,22 +1004,24 @@ body {
 }
 
 .taskbar-item.active {
-  border-style: inset;
-  background: #fff;
+  background: linear-gradient(180deg, #4a9a9a 0%, #2a7070 40%, #1e5555 60%, #3a8080 100%);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .taskbar-links {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   margin-left: auto;
-  padding: 0 10px;
+  padding: 0 8px;
 }
 
 .taskbar-link {
   padding: 3px 10px;
-  background: var(--color-cream);
-  border: 2px outset var(--win-button-face);
+  background: linear-gradient(180deg, #fff 0%, var(--color-cream) 100%);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
   font-family: var(--font-system);
   font-size: 11px;
   color: var(--color-burgundy);
@@ -1243,47 +1031,59 @@ body {
 }
 
 .taskbar-link:hover {
-  background: var(--color-blush);
+  background: linear-gradient(180deg, #fff 0%, var(--color-blush) 100%);
   color: var(--color-burgundy);
 }
 
 .taskbar-link.exit-btn {
-  background: var(--color-burgundy);
+  background: linear-gradient(180deg, #a85070 0%, var(--color-burgundy) 100%);
   color: var(--color-cream);
   font-weight: bold;
+  border-color: #4a1530;
 }
 
 .taskbar-link.exit-btn:hover {
-  background: var(--color-mauve);
+  background: linear-gradient(180deg, #c06080 0%, var(--color-mauve) 100%);
 }
 
 .taskbar-tray {
   display: flex;
   align-items: center;
   padding: 0 10px;
-  border-left: 2px inset var(--win-button-face);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
   height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 .tray-time {
   font-family: var(--font-system);
   font-size: 11px;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
 }
 
 /* Start Menu */
 .start-menu {
   position: absolute;
-  bottom: 30px;
+  bottom: 34px;
   left: 2px;
-  width: 200px;
+  width: 240px;
   background: var(--win-button-face);
-  border: 2px outset var(--win-button-face);
+  border: 1px solid var(--win-border);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 3px 3px 12px var(--win-shadow);
   z-index: 100;
+  overflow: hidden;
 }
 
 .start-menu-header {
-  background: linear-gradient(180deg, #000080 0%, #1084d0 100%);
-  padding: 10px;
+  background: linear-gradient(180deg,
+    #a85070 0%,
+    var(--color-burgundy) 15%,
+    #5d2238 50%,
+    var(--color-burgundy) 85%,
+    #a85070 100%);
+  padding: 10px 12px;
 }
 
 .start-menu-user {
@@ -1294,13 +1094,16 @@ body {
   font-family: var(--font-system);
   font-size: 12px;
   font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
 }
 
 .user-avatar {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background: #fff;
-  border: 1px solid #000;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .start-menu-items {
@@ -1311,21 +1114,21 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   font-family: var(--font-system);
   font-size: 11px;
   cursor: pointer;
 }
 
 .start-menu-item:hover {
-  background: #000080;
+  background: var(--color-burgundy);
   color: #fff;
 }
 
 .start-menu-divider {
   height: 1px;
-  background: #808080;
-  margin: 5px 10px;
+  background: var(--win-shadow);
+  margin: 4px 10px;
 }
 
 .menu-icon {
@@ -1347,12 +1150,15 @@ body {
 .window {
   position: absolute;
   background: var(--win-button-face);
-  border: 2px outset var(--win-button-face);
+  border: 1px solid var(--win-border);
+  border-radius: 8px 8px 4px 4px;
   display: flex;
   flex-direction: column;
   pointer-events: auto;
   min-width: 300px;
   min-height: 200px;
+  box-shadow: 2px 2px 10px var(--win-shadow), 0 0 1px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
 }
 
 .window.maximized {
@@ -1360,20 +1166,38 @@ body {
   left: 0 !important;
   width: 100% !important;
   height: calc(100% - 30px) !important;
+  border-radius: 0;
 }
 
 .window-titlebar {
-  background: linear-gradient(90deg, var(--color-burgundy) 0%, var(--color-mauve) 100%);
-  padding: 3px 5px;
+  background: linear-gradient(180deg,
+    #a85070 0%,
+    var(--color-burgundy) 8%,
+    #8a3558 40%,
+    #6b2444 50%,
+    #8a3558 52%,
+    var(--color-burgundy) 80%,
+    #a85070 95%,
+    #c0607a 100%);
+  padding: 5px 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: move;
   user-select: none;
+  min-height: 26px;
 }
 
 .window-titlebar.inactive {
-  background: linear-gradient(90deg, var(--color-mauve) 0%, #998888 100%);
+  background: linear-gradient(180deg,
+    #a08080 0%,
+    var(--color-mauve) 8%,
+    #6d4e4e 40%,
+    #5f4343 50%,
+    #6d4e4e 52%,
+    var(--color-mauve) 80%,
+    #a08080 95%,
+    #b09090 100%);
 }
 
 .window-title {
@@ -1381,6 +1205,7 @@ body {
   font-size: 12px;
   font-weight: bold;
   color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1392,20 +1217,36 @@ body {
 }
 
 .window-btn {
-  width: 16px;
-  height: 14px;
-  background: var(--win-button-face);
-  border: 2px outset var(--win-button-face);
+  width: 21px;
+  height: 21px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
   font-size: 10px;
   line-height: 1;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+  background: linear-gradient(180deg, #d4a9a0 0%, #c09088 45%, #a87878 55%, #c09088 100%);
+}
+
+.window-btn:hover {
+  background: linear-gradient(180deg, #e0b8b0 0%, #d0a098 45%, #b88888 55%, #d0a098 100%);
 }
 
 .window-btn:active {
-  border-style: inset;
+  background: linear-gradient(180deg, #a87878 0%, #c09088 100%);
+}
+
+.window-btn.close-btn {
+  background: linear-gradient(180deg, #d4a0a0 0%, #c08080 45%, #a06060 55%, #c08080 100%);
+  margin-left: 2px;
+}
+
+.window-btn.close-btn:hover {
+  background: linear-gradient(180deg, #e0b0b0 0%, #d09090 45%, #b07070 55%, #d09090 100%);
 }
 
 .window-menubar {
@@ -1413,40 +1254,44 @@ body {
   padding: 2px 5px;
   display: flex;
   gap: 15px;
-  border-bottom: 1px solid #808080;
+  border-bottom: 1px solid var(--win-shadow);
 }
 
 .menu-item {
   font-family: var(--font-system);
   font-size: 11px;
   cursor: pointer;
-  padding: 2px 5px;
+  padding: 3px 6px;
+  border-radius: 2px;
 }
 
 .menu-item:hover {
   background: var(--color-burgundy);
   color: #fff;
+  border-radius: 2px;
 }
 
 .window-toolbar {
-  background: var(--win-button-face);
+  background: linear-gradient(180deg, #f6f4ee 0%, var(--win-button-face) 100%);
   padding: 3px 5px;
   display: flex;
   gap: 5px;
-  border-bottom: 1px solid #808080;
+  border-bottom: 1px solid var(--win-shadow);
 }
 
 .toolbar-btn {
-  padding: 2px 8px;
-  background: var(--win-button-face);
-  border: 1px solid #808080;
+  padding: 3px 10px;
+  background: linear-gradient(180deg, #fff 0%, var(--win-button-face) 100%);
+  border: 1px solid var(--win-shadow);
+  border-radius: 3px;
   font-family: var(--font-system);
   font-size: 11px;
   cursor: pointer;
 }
 
 .toolbar-btn:hover {
-  border-color: #000;
+  background: linear-gradient(180deg, #fff 0%, #ddd8cc 100%);
+  border-color: var(--win-button-dark);
 }
 
 .toolbar-icon {
@@ -1472,17 +1317,17 @@ body {
 
 .toolbar-divider {
   width: 1px;
-  background: #808080;
+  background: var(--win-shadow);
   margin: 0 5px;
 }
 
 .window-addressbar {
-  background: var(--win-button-face);
+  background: linear-gradient(180deg, #f6f4ee 0%, var(--win-button-face) 100%);
   padding: 3px 5px;
   display: flex;
   gap: 5px;
   align-items: center;
-  border-bottom: 1px solid #808080;
+  border-bottom: 1px solid var(--win-shadow);
 }
 
 .address-label {
@@ -1492,16 +1337,19 @@ body {
 
 .address-input {
   flex: 1;
-  padding: 2px 5px;
-  border: 2px inset var(--win-button-face);
+  padding: 3px 5px;
+  border: 1px solid var(--win-shadow);
+  border-radius: 2px;
   font-family: var(--font-system);
   font-size: 11px;
+  background: #fff;
 }
 
 .address-go {
-  padding: 2px 10px;
-  background: var(--win-button-face);
-  border: 2px outset var(--win-button-face);
+  padding: 3px 10px;
+  background: linear-gradient(180deg, #fff 0%, var(--win-button-face) 100%);
+  border: 1px solid var(--win-shadow);
+  border-radius: 3px;
   font-family: var(--font-system);
   font-size: 11px;
   cursor: pointer;
@@ -1511,8 +1359,9 @@ body {
   flex: 1;
   overflow: auto;
   background: var(--color-cream);
-  border: 2px inset var(--win-button-face);
+  border: 1px solid var(--win-shadow);
   margin: 2px;
+  border-radius: 0 0 3px 3px;
   color: var(--color-burgundy);
 }
 
@@ -2448,10 +2297,6 @@ body {
 
   .monitor-bezel {
     padding: 10px;
-  }
-
-  .boot-logo {
-    font-size: 20px;
   }
 
   /* Room navbar responsive - two rows on mobile */
@@ -4197,7 +4042,8 @@ body {
 
 .about-computer-specs {
   background: #fff;
-  border: 2px inset var(--win-button-shadow);
+  border: 1px solid var(--win-shadow);
+  border-radius: 3px;
   padding: 12px;
   margin-bottom: 15px;
 }
@@ -4251,9 +4097,14 @@ body {
   padding: 5px 30px;
   font-family: var(--font-system);
   font-size: 12px;
-  background: var(--win-button-face);
-  border: 2px outset var(--win-button-light);
+  background: linear-gradient(180deg, #fff 0%, var(--win-button-face) 100%);
+  border: 1px solid var(--win-shadow);
+  border-radius: 3px;
   cursor: pointer;
+}
+
+.about-ok-btn:hover {
+  background: linear-gradient(180deg, #fff 0%, #ddd8cc 100%);
 }
 
 .about-ok-btn:hover {
@@ -4478,13 +4329,15 @@ body {
   padding: 8px 20px;
   font-family: var(--font-system);
   font-size: 12px;
-  border: 2px outset var(--win-button-face);
+  border: 1px solid var(--win-shadow);
+  border-radius: 3px;
+  background: linear-gradient(180deg, #fff 0%, var(--win-button-face) 100%);
   cursor: pointer;
   transition: all 0.1s ease;
 }
 
 .accessibility-btn:active {
-  border-style: inset;
+  background: linear-gradient(180deg, var(--win-button-face) 0%, #d5d0c4 100%);
 }
 
 .accessibility-btn-reset {
@@ -4734,10 +4587,11 @@ body.a11y-screen-reader [aria-hidden="true"] {
   bottom: 80px;
   right: 20px;
   background: var(--win-button-face);
-  border: 2px outset var(--win-button-face);
+  border: 1px solid var(--win-border);
+  border-radius: 6px;
   padding: 15px;
   z-index: 9998;
-  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 3px 3px 12px var(--win-shadow);
   max-width: 280px;
   display: none;
 }
@@ -4846,7 +4700,8 @@ body.a11y-screen-reader [aria-hidden="true"] {
 
 .calc-display {
   background: #1a1a2e;
-  border: 2px inset #3d3d5c;
+  border: 1px solid #3d3d5c;
+  border-radius: 3px;
   padding: 12px 16px;
   margin-bottom: 12px;
   border-radius: 4px;

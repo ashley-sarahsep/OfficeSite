@@ -1580,7 +1580,7 @@ If that sounds like what you need, let's talk.
   // ============================================
 
   desktop: {
-    osName: "HireMeOS 98",
+    osName: "HireMeOS XP",
     welcomeMessage: "Welcome, Visitor",
 
     icons: [
