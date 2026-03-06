@@ -556,22 +556,6 @@ body {
   box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
 }
 
-/* Scanline effect */
-.monitor-screen::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.1) 0px,
-    rgba(0, 0, 0, 0.1) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  pointer-events: none;
-  z-index: 1000;
-}
-
 .monitor-controls {
   display: flex;
   justify-content: flex-end;
@@ -1117,6 +1101,7 @@ body {
   padding: 6px 12px;
   font-family: var(--font-system);
   font-size: 11px;
+  color: var(--win-text);
   cursor: pointer;
 }
 
