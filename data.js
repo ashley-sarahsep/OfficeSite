@@ -23,7 +23,6 @@ const SITE_DATA = {
       readme: "Ah, you want to know how this was made. Smart. I contributed by napping on the keyboard. *proud*",
       chat: "Talking to my human? She's good at listening. I taught her. *smug purr*",
       paint: "Creating something? I once painted with my paw. It was abstract. *artistic blink*",
-      blockbuster: "Movie night? I recommend anything with birds in it. Or fish. *intense stare*",
       game: "Taking a break to play? Good instinct. Rest is productive. I'm an expert. *stretch*",
       portfolio: "Looking at her work? She's quite capable. For a human. *approving nod*",
       calculator: "Numbers. I don't understand them but I respect your interest. *head tilt*",
@@ -1610,8 +1609,7 @@ If that sounds like what you need, let's talk.
           { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "game-raiders", type: "game", app: "raiders" },
           { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "game-minesweeper", type: "game", app: "minesweeper" },
           { id: "memory", name: "Memory Match.exe", icon: "game-memory", type: "game", app: "memory" },
-          { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" },
-          { id: "blockbuster", name: "Blockbuster Video.exe", icon: "game-blockbuster", type: "game", app: "blockbuster" }
+          { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" }
         ]
       },
       allthethings: {
