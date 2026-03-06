@@ -39,7 +39,7 @@ function setHighScore(gameId, score, type = 'high') {
 
 // State management
 const state = {
-  currentScene: 'boot', // 'boot', 'room', 'desktop'
+  currentScene: 'room', // 'room', 'desktop'
   currentDialog: null,
   currentConversation: null,
   windows: [],
@@ -75,172 +75,12 @@ function getNextWindowZIndex() {
 }
 
 // ============================================
-// BOOT SEQUENCE
-// ============================================
-
-function initBoot() {
-  const bootScreen = document.getElementById('boot-screen');
-  const bootText = document.getElementById('boot-text');
-
-  // Use boot sequence from data.js - classic DOS style
-  const bootMessages = SITE_DATA.bootSequence || [
-    "BIOS Version 1.0.94 - Ashley Industries",
-    "Memory Test: 640K OK",
-    "Detecting IDE drives...",
-    "Primary Master: PERSONALITY.SYS",
-    "Primary Slave: EXPERIENCE.DAT",
-    "Secondary Master: CREATIVITY.DRV",
-    "Loading CONFIG.SYS...",
-    "Loading AUTOEXEC.BAT...",
-    "HIMEM.SYS loaded",
-    "EMM386.EXE loaded",
-    "Loading MOUSE.COM...",
-    "Loading SOUND.DRV...",
-    "Starting HireMeOS 98...",
-    "",
-    "Welcome to Ashley's Office"
-  ];
-
-  let currentLine = 0;
-  let bootContent = '';
-
-  function typeBootLine() {
-    if (currentLine >= bootMessages.length) {
-      // Show options after boot sequence
-      setTimeout(showBootOptions, 500);
-      return;
-    }
-
-    const msg = bootMessages[currentLine];
-    let lineHtml = '';
-
-    if (msg === '') {
-      lineHtml = '\n';
-    } else {
-      // Style the text with the warm color scheme
-      lineHtml = `<span class="message">${msg}</span>\n`;
-    }
-
-    bootContent += lineHtml;
-    bootText.innerHTML = bootContent;
-
-    currentLine++;
-    setTimeout(typeBootLine, 80 + Math.random() * 60);
-  }
-
-  function showBootOptions() {
-    const bootContentDiv = document.querySelector('.boot-content');
-
-    // Add progress bar
-    const progressHtml = `
-      <div class="boot-progress">
-        <div class="boot-progress-bar" id="boot-progress-bar"></div>
-      </div>
-    `;
-
-    // Add options
-    const optionsHtml = `
-      <p class="boot-select-text">Select Your Experience</p>
-      <div class="boot-options">
-        <button class="boot-option" data-mode="explore">
-          <span class="boot-option-key">[*]</span>
-          <span class="boot-option-title">EXPLORE MODE</span>
-          <span class="boot-option-desc">Full interactive OS experience<br>Best on: Desktop, 10+ minutes</span>
-        </button>
-        <button class="boot-option" data-mode="quick">
-          <span class="boot-option-key">[>]</span>
-          <span class="boot-option-title">QUICK ACCESS</span>
-          <span class="boot-option-desc">Resume & contact, no frills<br>Best for: Recruiters, mobile, time-sensitive</span>
-        </button>
-      </div>
-      <p class="boot-accessibility" id="accessibility-toggle">[+] Accessibility Settings</p>
-    `;
-
-    bootContentDiv.innerHTML += progressHtml + optionsHtml;
-
-    // Animate progress bar
-    const progressBar = document.getElementById('boot-progress-bar');
-    setTimeout(() => {
-      progressBar.style.width = '100%';
-    }, 100);
-
-    // Add event listeners to options
-    document.querySelectorAll('.boot-option').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const mode = e.currentTarget.dataset.mode;
-        selectBootOption(mode);
-      });
-    });
-  }
-
-  function selectBootOption(mode) {
-    // Mark selected
-    document.querySelectorAll('.boot-option').forEach(btn => {
-      btn.classList.remove('selected');
-      if (btn.dataset.mode === mode) {
-        btn.classList.add('selected');
-      }
-    });
-
-    setTimeout(() => {
-      if (mode === 'explore') {
-        transitionToRoom();
-      } else {
-        transitionToDesktop();
-      }
-    }, 500);
-  }
-
-  // Allow skipping with any key
-  document.addEventListener('keydown', function skipBoot(e) {
-    if (state.currentScene === 'boot') {
-      document.removeEventListener('keydown', skipBoot);
-      showBootOptions();
-      currentLine = bootMessages.length; // Stop typing
-    }
-  });
-
-  // Start boot sequence
-  setTimeout(typeBootLine, 500);
-}
-
-// ============================================
 // SCENE TRANSITIONS
 // ============================================
 
-function transitionToRoom() {
-  const bootScreen = document.getElementById('boot-screen');
-  const roomScene = document.getElementById('room-scene');
-
-  bootScreen.style.opacity = '0';
-  bootScreen.style.transition = 'opacity 0.5s ease';
-
-  setTimeout(() => {
-    bootScreen.classList.add('hidden');
-    roomScene.classList.remove('hidden');
-    roomScene.style.opacity = '0';
-    setTimeout(() => {
-      roomScene.style.opacity = '1';
-      roomScene.style.transition = 'opacity 0.5s ease';
-    }, 50);
-    state.currentScene = 'room';
-    initRoomMenu();
-  }, 500);
-}
-
 function transitionToDesktop(callback) {
-  const bootScreen = document.getElementById('boot-screen');
   const roomScene = document.getElementById('room-scene');
   const desktopScene = document.getElementById('desktop-scene');
-
-  // Hide boot if visible
-  if (!bootScreen.classList.contains('hidden')) {
-    bootScreen.style.opacity = '0';
-    bootScreen.style.transition = 'opacity 0.5s ease';
-    setTimeout(() => {
-      bootScreen.classList.add('hidden');
-    }, 500);
-  }
 
   // Hide room if visible
   if (!roomScene.classList.contains('hidden')) {
@@ -1765,7 +1605,7 @@ function initAboutComputer(windowEl) {
           <span class="about-logo-icon">👩‍💻</span>
         </div>
         <div class="about-computer-title">
-          <h2>HireMeOS 98</h2>
+          <h2>HireMeOS XP</h2>
           <p class="about-subtitle">Ashley Edition</p>
         </div>
       </div>
@@ -4441,14 +4281,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initSite() {
-  const bootScreen = document.getElementById('boot-screen');
   const roomScene = document.getElementById('room-scene');
 
   // Initialize accessibility FIRST (before any visual rendering)
   initAccessibility();
 
-  // Hide boot screen, show room directly
-  bootScreen.classList.add('hidden');
+  // Show room directly
   roomScene.classList.remove('hidden');
   roomScene.style.opacity = '1';
   state.currentScene = 'room';
