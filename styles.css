@@ -943,12 +943,9 @@ body {
     #6d2a45 100%);
 }
 
-.start-icon {
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(135deg, #ff4444 25%, #44ff44 25%, #44ff44 50%, #4444ff 50%, #4444ff 75%, #ffff44 75%);
-  border-radius: 50%;
-  box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+.start-icon::after {
+  content: '⚡';
+  font-size: 16px;
 }
 
 .taskbar-items {
