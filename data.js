@@ -1644,7 +1644,7 @@ If that sounds like what you need, let's talk.
   resume: {
     content: `
 <div class="resume-header">
-<h1>ASHLEY SEPERS</h1>
+<h1>ASHLEY S.</h1>
 <p class="resume-subtitle">Product Operations | Cross-Functional Leadership | Enablement | AI Adoption</p>
 <p class="resume-contact">
 Email: ashley@stepinto-ashleysoffice.com<br>

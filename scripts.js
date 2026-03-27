@@ -1362,7 +1362,7 @@ function initLiveJournal(windowEl) {
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Name:</div>
-              <div class="lj-info-value">Ashley Sepers</div>
+              <div class="lj-info-value">Ashley S.</div>
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Location:</div>
