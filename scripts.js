@@ -390,8 +390,9 @@ function showConversation(conversationId) {
 
     // Add the conversation's own responses (but filter out generic "back" ones we'll replace)
     conversation.responses.forEach(response => {
-      // Skip old-style back/close responses - we'll add standardized ones
-      if (response.next === null && !response.action &&
+      // Skip old-style back/close responses - we'll add standardized ones (but not for welcome dialog)
+      if (state.currentDialog !== 'welcome' &&
+          response.next === null && !response.action &&
           (response.text.toLowerCase().includes('back') ||
            response.text.toLowerCase().includes('exploring') ||
            response.text.toLowerCase().includes('leave') ||
