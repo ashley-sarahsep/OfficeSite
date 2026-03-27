@@ -5535,48 +5535,26 @@ body.a11y-screen-reader [aria-hidden="true"] {
 }
 
 /* ============================================
-   HIRING FAST-TRACK BAR
+   HIRING FAST-TRACK TAB (Taskbar)
    ============================================ */
 
-.hiring-bar {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 16px;
-  background: rgba(114, 47, 78, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(8px);
-}
-
-.hiring-bar-text {
-  color: rgba(255, 255, 255, 0.9);
-  font-family: var(--font-system);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.hiring-bar-btn {
-  background: #ffd600;
+.hiring-tab {
+  background: linear-gradient(180deg, #ffd600 0%, #f0c800 100%);
   color: var(--color-burgundy);
-  border: none;
-  padding: 4px 14px;
-  border-radius: 12px;
+  border: 1px solid #c8a000;
+  padding: 2px 14px;
   font-family: var(--font-system);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  border-radius: 3px;
 }
 
-.hiring-bar-btn:hover {
-  background: #fff;
-  transform: scale(1.05);
+.hiring-tab:hover {
+  background: linear-gradient(180deg, #ffe44d 0%, #ffd600 100%);
+  color: #4a1a30;
 }
 
 /* ============================================

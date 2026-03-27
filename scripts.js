@@ -1431,10 +1431,10 @@ function initRoleExplorer(windowEl) {
 }
 
 function initHiringBar() {
-  const bar = document.getElementById('hiring-bar');
-  if (!bar) return;
+  const tab = document.getElementById('hiring-tab');
+  if (!tab) return;
 
-  bar.querySelector('.hiring-bar-btn')?.addEventListener('click', () => {
+  tab.addEventListener('click', () => {
     openApp('roleexplorer', 'roles');
   });
 }
