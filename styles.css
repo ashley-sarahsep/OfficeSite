@@ -556,22 +556,6 @@ body {
   box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
 }
 
-/* Scanline effect */
-.monitor-screen::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.1) 0px,
-    rgba(0, 0, 0, 0.1) 1px,
-    transparent 1px,
-    transparent 2px
-  );
-  pointer-events: none;
-  z-index: 1000;
-}
-
 .monitor-controls {
   display: flex;
   justify-content: flex-end;
@@ -794,18 +778,6 @@ body {
 }
 .icon-game-trail::after {
   content: '🛤️';
-  font-size: 24px;
-}
-
-.icon-game-blockbuster {
-  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
-  border: 1px solid #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.icon-game-blockbuster::after {
-  content: '📼';
   font-size: 24px;
 }
 
@@ -1117,6 +1089,7 @@ body {
   padding: 6px 12px;
   font-family: var(--font-system);
   font-size: 11px;
+  color: var(--win-text);
   cursor: pointer;
 }
 
@@ -5210,239 +5183,6 @@ body.a11y-screen-reader [aria-hidden="true"] {
 }
 
 /* ============================================
-   BLOCKBUSTER VIDEO NIGHT
-   ============================================ */
-
-.window-blockbuster {
-  width: 580px;
-}
-
-.titlebar-blockbuster {
-  background: linear-gradient(90deg, #0d47a1 0%, #1565c0 100%);
-}
-
-.blockbuster-content {
-  background: #0a1628;
-  padding: 0;
-  overflow-y: auto;
-  font-family: var(--font-system);
-}
-
-/* Store view */
-.bb-store {
-  padding: 0;
-}
-
-.bb-header {
-  background: linear-gradient(135deg, #0d47a1 0%, #1565c0 100%);
-  text-align: center;
-  padding: 20px;
-  border-bottom: 4px solid #ffd600;
-}
-
-.bb-logo {
-  font-family: var(--font-system);
-  font-size: 22px;
-  font-weight: 800;
-  color: #ffd600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.bb-tagline {
-  font-size: 12px;
-  color: rgba(255, 214, 0, 0.7);
-  margin-top: 4px;
-  font-style: italic;
-}
-
-/* Shelves */
-.bb-shelves {
-  padding: 16px;
-}
-
-.bb-shelf {
-  margin-bottom: 24px;
-}
-
-.bb-shelf-label {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #ffd600;
-  padding: 6px 12px;
-  background: rgba(255, 214, 0, 0.1);
-  border-left: 3px solid #ffd600;
-  margin-bottom: 12px;
-}
-
-.bb-shelf-tapes {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-/* VHS Tape spine on shelf */
-.bb-tape {
-  width: 70px;
-  height: 100px;
-  border-radius: 3px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 4px;
-  transition: all 0.2s ease;
-  position: relative;
-  border: 1px solid rgba(255,255,255,0.1);
-}
-
-.bb-tape:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-}
-
-.bb-tape-spine-title {
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  font-size: 9px;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-height: 85px;
-}
-
-.bb-tape-spine-year {
-  font-size: 7px;
-  color: rgba(255,255,255,0.7);
-  margin-top: 4px;
-}
-
-/* Tape detail view */
-.bb-tape-view {
-  padding: 20px;
-}
-
-.bb-tape-view.hidden {
-  display: none;
-}
-
-.bb-tape-box {
-  display: flex;
-  gap: 0;
-  background: #1a1a2e;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 2px solid #333;
-  min-height: 260px;
-}
-
-.bb-tape-cover {
-  width: 45%;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-}
-
-.bb-tape-genre-tag {
-  font-size: 9px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 16px;
-}
-
-.bb-tape-cover .bb-tape-title {
-  font-size: 24px;
-  font-weight: 800;
-  color: #fff;
-  line-height: 1.2;
-  margin-bottom: 12px;
-}
-
-.bb-tape-cover .bb-tape-year {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-}
-
-.bb-tape-back {
-  width: 55%;
-  padding: 24px;
-  background: #111;
-  border-left: 1px solid #333;
-}
-
-.bb-tape-review {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #ccc;
-  margin-bottom: 16px;
-}
-
-.bb-tape-rating {
-  font-size: 18px;
-  letter-spacing: 2px;
-}
-
-.bb-back-btn {
-  display: block;
-  margin: 16px auto 0;
-  padding: 10px 24px;
-  background: transparent;
-  color: #ffd600;
-  border: 1px solid #ffd600;
-  border-radius: 4px;
-  font-family: var(--font-system);
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.bb-back-btn:hover {
-  background: #ffd600;
-  color: #0a1628;
-}
-
-/* Footer */
-.bb-footer {
-  text-align: center;
-  padding: 16px;
-  border-top: 1px solid rgba(255,214,0,0.2);
-}
-
-.bb-rewind {
-  font-size: 11px;
-  letter-spacing: 2px;
-  color: rgba(255, 214, 0, 0.4);
-  text-transform: uppercase;
-}
-
-/* Genre colours for tape spines */
-.bb-tape-comedy { background: linear-gradient(180deg, #e65100 0%, #bf360c 100%); }
-.bb-tape-scifi { background: linear-gradient(180deg, #1a237e 0%, #0d47a1 100%); }
-.bb-tape-drama { background: linear-gradient(180deg, #4a148c 0%, #6a1b9a 100%); }
-.bb-tape-tv { background: linear-gradient(180deg, #1b5e20 0%, #2e7d32 100%); }
-.bb-tape-mystery { background: linear-gradient(180deg, #212121 0%, #424242 100%); }
-
-/* Genre colours for tape cover */
-.bb-cover-comedy { background: linear-gradient(135deg, #e65100 0%, #ff8f00 100%); }
-.bb-cover-scifi { background: linear-gradient(135deg, #1a237e 0%, #283593 100%); }
-.bb-cover-drama { background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 100%); }
-.bb-cover-tv { background: linear-gradient(135deg, #1b5e20 0%, #388e3c 100%); }
-.bb-cover-mystery { background: linear-gradient(135deg, #212121 0%, #37474f 100%); }
-
-/* ============================================
    WORK MATCH QUIZ - 90s TEEN MAGAZINE STYLE
    ============================================ */
 
@@ -5760,4 +5500,617 @@ body.a11y-screen-reader [aria-hidden="true"] {
   font-size: 10px;
   color: #c0a0d0;
   font-style: italic;
+}
+
+/* ============================================
+   ROLE EXPLORER ICON
+   ============================================ */
+
+.icon-role-explorer {
+  background: linear-gradient(135deg, var(--color-burgundy) 0%, #a0445e 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-role-explorer::after {
+  content: '💼';
+  font-size: 24px;
+}
+
+.icon-chat {
+  background: linear-gradient(135deg, #1e88e5 0%, #42a5f5 100%);
+  border: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-chat::after {
+  content: '💬';
+  font-size: 24px;
+}
+
+.icon-role-small::after {
+  content: '💼';
+}
+
+/* ============================================
+   HIRING FAST-TRACK BAR
+   ============================================ */
+
+.hiring-bar {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  background: rgba(114, 47, 78, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.hiring-bar-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-system);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.hiring-bar-btn {
+  background: #ffd600;
+  color: var(--color-burgundy);
+  border: none;
+  padding: 4px 14px;
+  border-radius: 12px;
+  font-family: var(--font-system);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hiring-bar-btn:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+/* ============================================
+   ROLE EXPLORER WINDOW
+   ============================================ */
+
+.window-roleexplorer {
+  width: 650px;
+}
+
+.titlebar-roleexplorer {
+  background: linear-gradient(90deg, var(--color-burgundy) 0%, #a0445e 100%);
+}
+
+.roleexplorer-content {
+  background: #f8f5f0;
+  padding: 0;
+  overflow-y: auto;
+  font-family: var(--font-system);
+}
+
+.re-page {
+  padding: 0;
+}
+
+.re-header {
+  background: linear-gradient(135deg, var(--color-burgundy) 0%, #a0445e 100%);
+  padding: 24px 28px;
+  text-align: center;
+}
+
+.re-headline {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+.re-subheadline {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.re-availability {
+  font-size: 12px;
+  color: #ffd600;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+.re-roles {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.re-role-card {
+  background: #fff;
+  border: 1px solid #e0d8d0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.re-role-card:hover {
+  border-color: var(--color-burgundy);
+  box-shadow: 0 2px 8px rgba(114, 47, 78, 0.1);
+}
+
+.re-role-card.expanded {
+  border-color: var(--color-burgundy);
+  box-shadow: 0 4px 16px rgba(114, 47, 78, 0.15);
+}
+
+.re-role-header {
+  padding: 16px 20px;
+  cursor: pointer;
+}
+
+.re-role-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.re-role-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-burgundy);
+  margin: 0;
+}
+
+.re-role-expand {
+  font-size: 12px;
+  color: var(--color-burgundy);
+}
+
+.re-role-tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.re-tag {
+  background: var(--color-cream);
+  color: var(--color-mauve);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 10px;
+  border: 1px solid #e0d8d0;
+}
+
+.re-role-hook {
+  font-size: 13px;
+  color: #666;
+  margin: 8px 0 0;
+  font-style: italic;
+}
+
+.re-role-detail {
+  border-top: 1px solid #e0d8d0;
+  padding: 20px;
+  background: #faf8f5;
+}
+
+.re-detail-section {
+  margin-bottom: 16px;
+}
+
+.re-detail-section:last-of-type {
+  margin-bottom: 0;
+}
+
+.re-detail-section h4 {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-burgundy);
+  margin: 0 0 8px;
+}
+
+.re-detail-section p {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #444;
+  margin: 0;
+}
+
+.re-detail-section ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.re-detail-section li {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.re-tools {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.re-tool {
+  background: var(--color-teal);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+
+.re-role-cta {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.re-cta-btn {
+  display: inline-block;
+  background: var(--color-burgundy);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.re-cta-btn:hover {
+  background: #a0445e;
+  transform: translateY(-1px);
+}
+
+.re-footer {
+  padding: 16px 20px;
+  text-align: center;
+  border-top: 1px solid #e0d8d0;
+  background: #fff;
+}
+
+.re-footer-text {
+  font-size: 12px;
+  color: #888;
+  margin: 0;
+}
+
+.re-footer-link {
+  color: var(--color-burgundy);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.re-footer-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   LIVEJOURNAL ABOUT PAGE
+   ============================================ */
+
+.window-livejournal {
+  width: 700px;
+}
+
+.livejournal-content {
+  background: #e8e8e8;
+  padding: 0;
+  overflow-y: auto;
+  font-family: var(--font-system);
+}
+
+.lj-page {
+  min-height: 100%;
+}
+
+.lj-header {
+  background: #336699;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lj-logo {
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+}
+
+.lj-user-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lj-user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.lj-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.lj-username {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.lj-headline {
+  font-size: 10px;
+  color: rgba(255,255,255,0.7);
+}
+
+.lj-body {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0;
+  min-height: 400px;
+}
+
+.lj-sidebar {
+  background: #f0f0f0;
+  border-right: 1px solid #ccc;
+  padding: 12px;
+}
+
+.lj-sidebar-section {
+  margin-bottom: 16px;
+}
+
+.lj-sidebar-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #336699;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.lj-profile-pic {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  border: 2px solid #336699;
+}
+
+.lj-profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lj-stats {
+  font-size: 12px;
+  color: #555;
+}
+
+.lj-stats p {
+  margin: 4px 0;
+}
+
+.lj-top-eight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.lj-friend {
+  text-align: center;
+}
+
+.lj-friend img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.lj-friend-name {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  color: #336699;
+  margin-top: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lj-friend-role {
+  display: block;
+  font-size: 8px;
+  color: #888;
+}
+
+.lj-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.lj-link {
+  font-size: 12px;
+  color: #336699;
+  text-decoration: none;
+}
+
+.lj-link:hover {
+  text-decoration: underline;
+}
+
+.lj-main {
+  padding: 16px;
+  background: #fff;
+}
+
+.lj-entry {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.lj-entry:last-of-type {
+  border-bottom: none;
+}
+
+.lj-entry-pinned {
+  background: #faf8f2;
+  padding: 16px;
+  border: 1px dashed #d0c8b8;
+  border-radius: 4px;
+}
+
+.lj-entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.lj-entry-pin {
+  font-size: 11px;
+  font-weight: 700;
+  color: #336699;
+}
+
+.lj-entry-date {
+  font-size: 11px;
+  color: #999;
+}
+
+.lj-entry-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 11px;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+.lj-entry-subject {
+  font-size: 16px;
+  font-weight: 700;
+  color: #336699;
+  margin: 0 0 8px;
+}
+
+.lj-entry-body {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.lj-entry-body p {
+  margin: 0 0 10px;
+}
+
+.lj-entry-body h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #336699;
+  margin: 16px 0 8px;
+}
+
+.lj-interests {
+  margin: 0;
+}
+
+.lj-interests dt {
+  font-weight: 700;
+  color: #336699;
+  margin-top: 8px;
+  font-size: 12px;
+}
+
+.lj-interests dd {
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.lj-testimonial {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: #f8f8f8;
+  border-left: 3px solid #336699;
+  border-radius: 0 4px 4px 0;
+}
+
+.lj-testimonial-title {
+  font-weight: 700;
+  color: #336699;
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+.lj-testimonial-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+  margin: 0 0 6px;
+}
+
+.lj-testimonial-author {
+  font-size: 12px;
+  color: #999;
+  font-style: italic;
+  margin: 0;
+}
+
+.lj-visitor-counter {
+  text-align: center;
+  padding: 12px;
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+/* ============================================
+   CONTACT LINKS IN ROOM NAVBAR
+   ============================================ */
+
+.navbar-contact-link {
+  font-size: 14px;
+  text-decoration: none;
+  min-width: 24px;
+  text-align: center;
 }

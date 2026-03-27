@@ -66,8 +66,10 @@
       </div>
       <div class="navbar-quicklinks">
         <button class="navbar-link" data-window="resume">Resume</button>
-        <button class="navbar-link" data-window="myspace">About Me</button>
+        <button class="navbar-link" data-window="livejournal">About Me</button>
         <button class="navbar-link" data-window="chat">Chat</button>
+        <a class="navbar-link navbar-contact-link" href="mailto:ashley@stepinto-ashleysoffice.com" aria-label="Email">&#9993;</a>
+        <a class="navbar-link navbar-contact-link" href="https://linkedin.com/in/ashley-sarahsep" target="_blank" aria-label="LinkedIn">in</a>
         <button class="navbar-link navbar-accessibility-btn" id="room-accessibility-btn" aria-label="Accessibility Settings">
           <span aria-hidden="true">&#9855;</span>
         </button>
@@ -159,47 +161,28 @@
         <div class="monitor-screen">
           <!-- Desktop area -->
           <div class="desktop-area" id="desktop-area">
+            <!-- Recruiter fast-track bar -->
+            <div class="hiring-bar" id="hiring-bar">
+              <span class="hiring-bar-text">Hiring?</span>
+              <button class="hiring-bar-btn" data-action="roleexplorer">Start here &rarr;</button>
+            </div>
             <!-- Desktop icons -->
             <div class="desktop-icons" id="desktop-icons">
-              <div class="desktop-icon" data-app="wordpad" data-file="resume">
-                <div class="icon-image icon-doc"></div>
-                <span class="icon-label">Resume.doc</span>
-              </div>
-              <div class="desktop-icon" data-app="myspace" data-file="about">
-                <div class="icon-image icon-html"></div>
-                <span class="icon-label">AboutMe.html</span>
+              <div class="desktop-icon" data-app="roleexplorer" data-file="roles">
+                <div class="icon-image icon-role-explorer"></div>
+                <span class="icon-label">Hire Me.exe</span>
               </div>
               <div class="desktop-icon" data-app="messenger" data-file="chat">
-                <div class="icon-image icon-exe"></div>
+                <div class="icon-image icon-chat"></div>
                 <span class="icon-label">AshleyChat.exe</span>
               </div>
-              <div class="desktop-icon" data-app="folder" data-file="work">
+              <div class="desktop-icon" data-app="misc-folder" data-file="mywork">
                 <div class="icon-image icon-folder"></div>
-                <span class="icon-label">Work Examples</span>
+                <span class="icon-label">My Work</span>
               </div>
-              <div class="desktop-icon" data-app="portfolio" data-file="aiwork">
+              <div class="desktop-icon" data-app="misc-folder" data-file="gettoknowme">
                 <div class="icon-image icon-folder-special"></div>
-                <span class="icon-label">AI Portfolio</span>
-              </div>
-              <div class="desktop-icon" data-app="misc-folder" data-file="allthethings">
-                <div class="icon-image icon-folder-special"></div>
-                <span class="icon-label">All of the Things</span>
-              </div>
-              <div class="desktop-icon" data-app="calculator" data-file="calculator">
-                <div class="icon-image icon-app-calc"></div>
-                <span class="icon-label">Calculator</span>
-              </div>
-              <div class="desktop-icon" data-app="paint" data-file="paint">
-                <div class="icon-image icon-app-paint"></div>
-                <span class="icon-label">Paint</span>
-              </div>
-              <div class="desktop-icon" data-app="readme" data-file="readme">
-                <div class="icon-image icon-readme"></div>
-                <span class="icon-label">README_actually_read_me.txt</span>
-              </div>
-              <div class="desktop-icon" data-app="guestbook" data-file="guestbook">
-                <div class="icon-image icon-guestbook"></div>
-                <span class="icon-label">Guest Book</span>
+                <span class="icon-label">Get to Know Me</span>
               </div>
               <div class="desktop-icon" data-app="misc-folder" data-file="takeabreak">
                 <div class="icon-image icon-folder-games"></div>
@@ -249,6 +232,10 @@
               </div>
             </div>
             <div class="start-menu-items">
+              <div class="start-menu-item" data-action="roleexplorer">
+                <span class="menu-icon icon-role-small"></span>
+                <span>Hire Me</span>
+              </div>
               <div class="start-menu-item" data-action="resume">
                 <span class="menu-icon icon-doc-small"></span>
                 <span>Resume.doc</span>
@@ -326,8 +313,8 @@
   </template>
 
   <!-- MySpace Window Template -->
-  <template id="template-myspace">
-    <div class="window window-myspace" data-window="myspace">
+  <template id="template-livejournal">
+    <div class="window window-livejournal" data-window="livejournal">
       <div class="window-titlebar">
         <span class="window-title">AboutMe.html - Internet Explorer</span>
         <div class="window-controls">
@@ -338,11 +325,28 @@
       </div>
       <div class="window-addressbar">
         <span class="address-label">Address:</span>
-        <input type="text" class="address-input" value="http://www.myspace.com/ashley-sepers" readonly>
+        <input type="text" class="address-input" value="http://www.livejournal.com/users/ashley-sepers" readonly>
         <button class="address-go">Go</button>
       </div>
-      <div class="window-content myspace-content" id="myspace-content">
-        <!-- MySpace content loaded by JS -->
+      <div class="window-content livejournal-content" id="livejournal-content">
+        <!-- LiveJournal content loaded by JS -->
+      </div>
+    </div>
+  </template>
+
+  <!-- Role Explorer Window Template -->
+  <template id="template-roleexplorer">
+    <div class="window window-roleexplorer" data-window="roleexplorer">
+      <div class="window-titlebar titlebar-roleexplorer">
+        <span class="window-title">Hire Me - Role Explorer</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-content roleexplorer-content" id="roleexplorer-content">
+        <!-- Role Explorer content loaded by JS -->
       </div>
     </div>
   </template>
@@ -1088,46 +1092,6 @@
             </div>
           </section>
 
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <!-- Blockbuster Video Night Template -->
-  <template id="template-blockbuster">
-    <div class="window window-blockbuster" data-window="blockbuster">
-      <div class="window-titlebar titlebar-blockbuster">
-        <span class="window-title">Blockbuster Video - Friday Night</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content blockbuster-content">
-        <div class="bb-store">
-          <div class="bb-header">
-            <div class="bb-logo">BLOCKBUSTER VIDEO</div>
-            <div class="bb-tagline">Make it a Blockbuster Night</div>
-          </div>
-          <div class="bb-shelves"></div>
-          <div class="bb-footer">
-            <span class="bb-rewind">BE KIND, REWIND</span>
-          </div>
-        </div>
-        <div class="bb-tape-view hidden">
-          <div class="bb-tape-box">
-            <div class="bb-tape-cover">
-              <div class="bb-tape-genre-tag"></div>
-              <div class="bb-tape-title"></div>
-              <div class="bb-tape-year"></div>
-            </div>
-            <div class="bb-tape-back">
-              <div class="bb-tape-review"></div>
-              <div class="bb-tape-rating"></div>
-            </div>
-          </div>
-          <button class="bb-back-btn">Put it back</button>
         </div>
       </div>
     </div>
