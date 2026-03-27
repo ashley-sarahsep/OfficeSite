@@ -4157,10 +4157,11 @@ function showGertrudeThought(isManual = false) {
   messageEl.textContent = thought;
   bubble.classList.remove('hidden');
 
-  // Auto-hide after 8 seconds (gives time to read)
+  // Auto-hide based on text length (longer thoughts get more time)
+  const readTime = Math.max(10000, Math.min(thought.length * 60, 25000));
   gertrudeHideTimer = setTimeout(() => {
     hideGertrudeBubble();
-  }, 8000);
+  }, readTime);
 }
 
 function hideGertrudeBubble() {
@@ -4209,10 +4210,11 @@ function showGertrudeContextualTip(context) {
   messageEl.textContent = tips[context];
   bubble.classList.remove('hidden');
 
-  // Auto-hide after 6 seconds (slightly shorter for tips)
+  // Auto-hide based on text length
+  const tipReadTime = Math.max(8000, Math.min(tips[context].length * 60, 20000));
   gertrudeHideTimer = setTimeout(() => {
     hideGertrudeBubble();
-  }, 6000);
+  }, tipReadTime);
 
   // Resume auto-thoughts after showing tip
   scheduleNextGertrudeThought();
