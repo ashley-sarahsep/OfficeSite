@@ -1236,6 +1236,7 @@ body {
   cursor: pointer;
   padding: 3px 6px;
   border-radius: 2px;
+  color: var(--color-mauve);
 }
 
 .menu-item:hover {
