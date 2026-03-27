@@ -23,6 +23,7 @@ const SITE_DATA = {
       readme: "Ah, you want to know how this was made. Smart. I contributed by napping on the keyboard. *proud*",
       chat: "Talking to my human? She's good at listening. I taught her. *smug purr*",
       paint: "Creating something? I once painted with my paw. It was abstract. *artistic blink*",
+      roleexplorer: "Ah, the hiring conversation. Good. She deserves an excellent human to work with. *evaluating stare*",
       game: "Taking a break to play? Good instinct. Rest is productive. I'm an expert. *stretch*",
       portfolio: "Looking at her work? She's quite capable. For a human. *approving nod*",
       calculator: "Numbers. I don't understand them but I respect your interest. *head tilt*",
@@ -424,7 +425,7 @@ whether there's a fit.
 THE FINE PRINT
 --------------
 
-I work remotely (have since 2014, quite good at it).
+I work remotely (have since 2015, quite good at it).
 I'm in Ontario, Canada - Eastern time zone.
 I communicate clearly and often.
 I ask a lot of questions upfront so I don't waste your time later.
@@ -518,7 +519,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-intro",
           portrait: "smiling1",
-          text: "This is my work-from-home setup. I've been remote since 2014 - before it was a common thing. I know what works best for me to work my best.",
+          text: "This is my work-from-home setup. I've been remote since 2015 - before it was a common thing. I know what works best for me to work my best.",
           responses: [
             { text: "What do you love about remote work?", next: "desk-remote-love" },
             { text: "Tell me about your work history", next: "desk-work-history" },
@@ -1583,22 +1584,37 @@ If that sounds like what you need, let's talk.
     welcomeMessage: "Welcome, Visitor",
 
     icons: [
-      { id: "resumes", name: "Resumes", icon: "folder", app: "misc-folder", file: "resumes" },
-      { id: "about", name: "AboutMe.html", icon: "html", app: "myspace" },
-      { id: "chat", name: "AshleyChat.exe", icon: "exe", app: "messenger" },
-      { id: "work", name: "Work Examples", icon: "folder", app: "folder" },
+      { id: "roleexplorer", name: "Hire Me.exe", icon: "role-explorer", app: "roleexplorer" },
+      { id: "chat", name: "AshleyChat.exe", icon: "chat", app: "messenger" },
+      { id: "mywork", name: "My Work", icon: "folder", app: "misc-folder", file: "mywork" },
+      { id: "gettoknowme", name: "Get to Know Me", icon: "folder-special", app: "misc-folder", file: "gettoknowme" },
       { id: "takeabreak", name: "Take a Break", icon: "folder-games", app: "misc-folder", file: "takeabreak" },
-      { id: "allthethings", name: "All of the Things", icon: "folder-special", app: "misc-folder", file: "allthethings" },
-      { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" }
+      { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" },
+      { id: "accessibility", name: "Accessibility", icon: "accessibility", app: "accessibility" }
     ],
 
     // Misc folders content
     folders: {
-      resumes: {
-        title: "Resumes",
+      mywork: {
+        title: "My Work",
         items: [
           { id: "resume", name: "Resume.doc", icon: "doc", type: "app", app: "wordpad" },
-          { id: "collab", name: "Lets_Work_Together.txt", icon: "txt", type: "notepad", noteId: "collab" }
+          { id: "work", name: "Work Examples", icon: "folder", type: "app", app: "folder" },
+          { id: "aiportfolio", name: "AI Portfolio", icon: "folder-special", type: "app", app: "portfolio" },
+          { id: "collab", name: "Lets_Work_Together.txt", icon: "txt", type: "notepad", noteId: "collab" },
+          { id: "readme", name: "README_actually_read_me.txt", icon: "readme", type: "app", app: "readme" }
+        ]
+      },
+      gettoknowme: {
+        title: "Get to Know Me",
+        items: [
+          { id: "about", name: "AboutMe.html", icon: "html", type: "app", app: "livejournal" },
+          { id: "guestbook", name: "Guest Book", icon: "guestbook", type: "app", app: "guestbook" },
+          { id: "paint", name: "Paint", icon: "app-paint", type: "app", app: "paint" },
+          { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
+          { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
+          { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
+          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
         ]
       },
       takeabreak: {
@@ -1610,16 +1626,6 @@ If that sounds like what you need, let's talk.
           { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "game-minesweeper", type: "game", app: "minesweeper" },
           { id: "memory", name: "Memory Match.exe", icon: "game-memory", type: "game", app: "memory" },
           { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" }
-        ]
-      },
-      allthethings: {
-        title: "All of the Things",
-        items: [
-          { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
-          { id: "calculator", name: "Calculator", icon: "app-calc", type: "app", app: "calculator" },
-          { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
-          { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
-          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
         ]
       }
     },
@@ -1854,11 +1860,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <div class="resume-section">
 <h2>TECHNICAL CAPABILITIES</h2>
-<p><strong>Project Management:</strong> Jira (expert - bug tracking, sprint management, feature requests), Agile methodologies, daily scrum facilitation, sprint planning, stakeholder management, Asana</p>
-<p><strong>Data & Analytics:</strong> Data cleanup and validation, pattern identification, business intelligence frameworks, report building, sales analytics, forecasting, performance metrics tracking</p>
+<p><strong>Project Management:</strong> Jira (expert - bug tracking, sprint management, feature requests), Linear, ClickUp, Asana, Notion, Agile methodologies, daily scrum facilitation, sprint planning, stakeholder management</p>
+<p><strong>Data & Analytics:</strong> Data cleanup and validation, pattern identification, business intelligence frameworks, dashboards and analysis tools, report building, sales analytics, forecasting, performance metrics tracking</p>
 <p><strong>CRM & Sales Operations:</strong> SugarCRM, HubSpot, Salesforce integrations, pipeline management, sales process design, discovery frameworks, demo environment creation</p>
-<p><strong>AI & Technology:</strong> AI agent development, LLM implementation, prompt engineering, quality assurance for AI outputs, technical training delivery, adoption frameworks, onboarding materials</p>
-<p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, video training, Slack, Microsoft Teams, Zoom, Google Workspace</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub, LLMs, LLM Agents, prompt engineering, quality assurance for AI outputs, technical training delivery, adoption frameworks, onboarding materials</p>
+<p><strong>Design & Content:</strong> Canva, video production (Loom), training curriculum development, presentation design</p>
+<p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, Slack, Microsoft Teams, Zoom, Google Workspace, Microsoft Office</p>
 
 <div class="did-you-know">
 <strong>DID YOU KNOW?</strong> Every technical skill on this resume was self-taught through necessity and pattern recognition - from mastering multiple CRM platforms to building AI agent adoption frameworks to leading project management for development teams. Ashley's strength is figuring things out quickly and building systems that enable others to do the same.
@@ -1877,25 +1884,121 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
   },
 
   // ============================================
-  // MYSPACE-STYLE ABOUT PAGE
+  // ROLE EXPLORER
+  // ============================================
+
+  roleExplorer: {
+    headline: "Which Ashley Do You Need?",
+    subheadline: "I fit a lot of roles because I've done a lot of roles. Explore the ones that match what you're looking for.",
+    availability: "Remote | Open to local hybrid (Guelph, ON area)",
+    cta: {
+      text: "Let's talk about this",
+      email: "ashley@stepinto-ashleysoffice.com",
+      linkedin: "linkedin.com/in/ashley-sarahsep"
+    },
+    roles: [
+      {
+        id: "product-ops",
+        title: "Product Operations Lead",
+        tags: ["Operations", "Product", "QA", "Process"],
+        hook: "The person who makes sure your product actually works for your users.",
+        whatThisNeeds: "Someone who bridges product, engineering, and customers. Owns QA processes, manages releases, translates user needs into actionable feedback, and builds the operational systems that keep product delivery on track.",
+        whatIveDone: [
+          "Served as sole QA lead across 20+ implementations - testing, bug triage, edge case identification",
+          "Led Neptune Retail Solutions project end-to-end: discovery, requirements, wireframes, QA, daily scrums, Jira management, client delivery",
+          "Built operational infrastructure from scratch at a startup that grew to support 32M+ visits and Fortune 500 clients",
+          "Partnered with engineering throughout full SDLC - user perspective, seller feedback, delivery verification"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Enterprise Custom Platform Build",
+        tools: ["Jira", "Linear", "ClickUp", "GitHub", "Agile/Scrum", "Notion"]
+      },
+      {
+        id: "enablement",
+        title: "Enablement & Training Lead",
+        tags: ["Enablement", "Training", "Onboarding", "Content"],
+        hook: "The person who makes your team actually good at their jobs.",
+        whatThisNeeds: "Someone who designs learning experiences that stick - not info dumps, but actual behaviour change. Builds onboarding programs, training curricula, and knowledge bases that reduce ramp time and improve performance.",
+        whatIveDone: [
+          "Designed 5-phase onboarding methodology for AI product adoption with role-based learning tracks",
+          "Created 50+ training videos and comprehensive resource library using Google Drive, Loom, and Notion",
+          "Reduced new hire ramp time from 90 to 60 days through structured learning paths and self-service resources",
+          "Built discovery frameworks, qualification playbooks, and 30+ customised demo environments annually"
+        ],
+        proof: "portfolio",
+        proofLabel: "See: The Art of Prompt Crafting",
+        tools: ["Loom", "Notion", "Google Workspace", "Canva", "Slack"]
+      },
+      {
+        id: "ai-adoption",
+        title: "AI Adoption & Implementation Lead",
+        tags: ["AI", "LLM", "Prompt Engineering", "Change Management"],
+        hook: "The person who turns 'we have AI' into 'we use AI effectively.'",
+        whatThisNeeds: "Someone who understands both the technology and the humans using it. Builds testing frameworks, prompt libraries, adoption strategies, and training - with an ethical lens and quality-first mindset.",
+        whatIveDone: [
+          "Built manual testing framework for AI agent product - systematic QA for prompt reliability, consistency, and accuracy",
+          "Created enterprise-level Power Prompts library (75+ tested templates) for business intelligence extraction",
+          "Applied hermeneutics background to understand how LLMs interpret context and where they might mislead",
+          "Designed complete adoption infrastructure: testing → onboarding → training → feedback loop"
+        ],
+        proof: "portfolio",
+        proofLabel: "See: Enterprise Analytics Framework",
+        tools: ["Claude", "ChatGPT", "Gemini", "Claude Code", "GitHub", "LLM Agents", "Prompt Engineering"]
+      },
+      {
+        id: "chief-of-staff",
+        title: "Chief of Staff / Strategic Ops",
+        tags: ["Strategy", "Operations", "Leadership", "Cross-Functional"],
+        hook: "The person who sees problems before they become problems.",
+        whatThisNeeds: "Someone who operates as a force multiplier for leadership. Identifies gaps, connects teams, drives strategic initiatives, and handles the ambiguous work that doesn't cleanly belong to one department.",
+        whatIveDone: [
+          "Partnered with COO/Head of Sales as Chief of Staff - advised on GTM, product roadmap, organisational alignment",
+          "Identified and filled gaps between Sales, Product, and Engineering before they became blockers",
+          "Stepped into PM role during team transitions - daily scrums, sprint planning, bug triage, delivery momentum",
+          "Key contributor to 100% of sales wins since 2018 through custom preparation and institutional knowledge"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Lean Team, Enterprise Results",
+        tools: ["Jira", "HubSpot", "Slack", "Notion", "Google Workspace", "Microsoft Office"]
+      },
+      {
+        id: "other",
+        title: "Something Else Entirely",
+        tags: ["Flexible", "Generalist", "Problem-Solving", "Adaptable"],
+        hook: "Roles are tricky. Maybe what you need doesn't have a clean title yet.",
+        whatThisNeeds: "Someone who figures things out. The kind of person you hire when you know you need help but aren't sure how to scope it. The ambiguity-comfortable, pattern-recognising, system-building human who makes the whole org run smoother.",
+        whatIveDone: [
+          "Every role I've held was either created for me or evolved beyond its original description",
+          "Built five different jobs worth of infrastructure at a single company over 7+ years",
+          "Philosophy background (hermeneutics) + social work training = I design for how humans actually think and behave",
+          "Self-taught every technical tool on my resume through necessity and pattern recognition"
+        ],
+        proof: "collab",
+        proofLabel: "See: Let's Work Together",
+        tools: ["Whatever you need me to learn - I'm fast at it"]
+      }
+    ]
+  },
+
+  // ============================================
+  // LIVEJOURNAL-STYLE ABOUT PAGE
   // ============================================
 
   aboutMe: {
     displayName: "Ashley",
-    mood: "Filling gaps since 2014",
+    mood: "filling gaps since 2011",
+    music: "Bright Eyes - First Day of My Life",
     status: "Remote & thriving",
     lastLogin: "Today",
     profileViews: 1337,
 
     headline: "Professional Gap-Filler | Hermeneutics Enthusiast | Cat Mom",
 
-    aboutText: `
-<p><strong>Hey there!</strong></p>
+    bio: `<p><strong>Hey there!</strong></p>
 <p>I'm Ashley - a human being who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recogniser. The connective tissue that keeps organisations from falling apart.</p>
 <p>Philosophy background (hermeneutics - how people interpret information) + social work training = I design systems that respect how humans actually think, learn, and adopt new behaviors. Not how we wish they would. How they actually do.</p>
 <p>The path here was winding: philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops, then 7+ years at a startup that became about five different jobs. Every step taught me something I still use.</p>
-<p>Based in Guelph, Ontario. Remote worker since 2014. Pink office walls. A wall unit I got for $80 twelve years ago that stores all my favourite things. Two cats named Gertrude and Gherkin who have very different personalities and very strong opinions.</p>
-    `,
+<p>Based in Guelph, Ontario. Remote worker since 2015. Pink office walls. A wall unit I got for $80 twelve years ago that stores all my favourite things. Two cats named Gertrude and Gherkin who have very different personalities and very strong opinions.</p>`,
 
     interests: {
       general: "Hermeneutics, pattern recognition, thrift stores, vintage finds, point-and-click adventure games, MYST, mid-century modern furniture, estate sales, things with history",
@@ -1940,6 +2043,40 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
         name: "New Hire",
         title: "Her training materials are the reason I got up to speed so fast.",
         text: "When I joined, I was nervous about the learning curve. But Ashley had built out this whole library of training videos, documentation, and sandbox environments. It wasn't just 'here's how to click buttons' - it explained why things work the way they do. I went from nervous to confident in about half the time I expected."
+      }
+    ],
+
+    journalEntries: [
+      {
+        date: "March 2026",
+        mood: "thoughtful",
+        music: "Bright Eyes - A Perfect Sonnet",
+        subject: "Why I Design for Humans, Not Ideal Users",
+        content: `<p>Something I keep running into: systems designed for how people <em>should</em> behave instead of how they actually do.</p>
+<p>My philosophy background is in hermeneutics - the study of how people interpret and understand information. Combined with social work training, it means I think about the human on the other end of every process, every training module, every interface.</p>
+<p>When I build onboarding programs, I don't assume people will read the docs front to back. When I design training, I account for the fact that adults learn by doing, not by watching. When I write documentation, I structure it for the person who's searching for an answer at 4pm on a Friday, not the person leisurely reading a manual.</p>
+<p>This isn't just philosophy for philosophy's sake. It has practical outcomes: reduced ramp time, higher adoption rates, fewer support tickets, better data quality. Designing for real humans is better business.</p>`
+      },
+      {
+        date: "February 2026",
+        mood: "caffeinated",
+        music: "Talking Heads - This Must Be the Place",
+        subject: "The Case for Operational Infrastructure (Before You Think You Need It)",
+        content: `<p>I've watched the same pattern play out multiple times now: a small team grows, and suddenly the lack of documentation, process, and knowledge management becomes a crisis instead of an inconvenience.</p>
+<p>The thing about operational infrastructure is that it's invisible when it works. Nobody thanks you for the CRM being clean, the onboarding being smooth, or the knowledge base being searchable. But everyone notices when those things break.</p>
+<p>At MainEvent, I built these systems when we were ~10 people. They scaled to support 32M+ visits and Fortune 500 clients. The investment in 'boring' infrastructure paid off exponentially because we never had to stop and rebuild from scratch during growth.</p>
+<p>If you're a startup thinking "we'll figure out processes later" - later is more expensive than you think. And the person who builds your operational foundation should understand both the systems and the humans who'll use them.</p>`
+      },
+      {
+        date: "January 2026",
+        mood: "passionate",
+        music: "Against Me! - I Was a Teenage Anarchist",
+        subject: "AI Needs Critics Who Love It",
+        content: `<p>I love AI. I use Claude and ChatGPT daily. I built adoption infrastructure for an AI product. I created prompt engineering frameworks used by enterprise clients.</p>
+<p>And I'm deeply critical of it. Not because I'm a sceptic, but because I care about it being done right.</p>
+<p>My hermeneutics background helps me understand how LLMs interpret context - and where they might mislead. I catch hallucinations, test edge cases, question confident-sounding nonsense. This isn't being anti-AI. This is being pro-quality.</p>
+<p>The organisations that will win with AI aren't the ones that adopt fastest. They're the ones that adopt most thoughtfully - with appropriate guardrails, honest assessment of limitations, and someone asking "but does this actually work for our users?"</p>
+<p>That someone should probably have a philosophy degree and a stubborn commitment to asking why. Just saying.</p>`
       }
     ]
   },
@@ -2018,7 +2155,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       },
 
       "What are you looking for?": {
-        text: "Growth-stage companies where one person can have real impact. Small teams where relationships matter and I know everyone's name. Authentic cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board - someone who helps teams think through problems, not just execute tasks. Remote work is essential (I've been remote since 2014, I'm not going back). Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialised roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
+        text: "Growth-stage companies where one person can have real impact. Small teams where relationships matter and I know everyone's name. Authentic cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board - someone who helps teams think through problems, not just execute tasks. Remote work is essential (I've been remote since 2015, I'm not going back). Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialised roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
         followUp: "What does your ideal role look like?"
       },
 

@@ -197,8 +197,8 @@ function initRoomMenu() {
           case 'resume':
             openApp('wordpad', 'resume');
             break;
-          case 'myspace':
-            openApp('myspace', 'about');
+          case 'livejournal':
+            openApp('livejournal', 'about');
             break;
           case 'chat':
             openApp('messenger', 'chat');
@@ -503,6 +503,7 @@ function initDesktop() {
     initDesktopIcons();
     initTaskbar();
     initStartMenu();
+    initHiringBar();
     desktopInitialized = true;
   }
 
@@ -768,11 +769,14 @@ function initStartMenu() {
       startMenu.classList.add('hidden');
 
       switch (action) {
+        case 'roleexplorer':
+          openApp('roleexplorer', 'roles');
+          break;
         case 'resume':
           openApp('wordpad', 'resume');
           break;
         case 'about':
-          openApp('myspace', 'about');
+          openApp('livejournal', 'about');
           break;
         case 'chat':
           openApp('messenger', 'chat');
@@ -864,7 +868,8 @@ function openApp(appType, fileId) {
 function getWindowSize(appType) {
   const sizes = {
     wordpad: { width: '600px', height: '500px' },
-    myspace: { width: '700px', height: '550px' },
+    livejournal: { width: '700px', height: '600px' },
+    roleexplorer: { width: '650px', height: '520px' },
     messenger: { width: '420px', height: '480px' },
     folder: { width: '500px', height: '400px' },
     recycle: { width: '450px', height: '350px' },
@@ -895,7 +900,8 @@ function getWindowTitle(appType, fileId) {
 
   const titles = {
     wordpad: 'Resume.doc - WordPad',
-    myspace: 'AboutMe.html - Internet Explorer',
+    livejournal: 'AboutMe.html - Internet Explorer',
+    roleexplorer: 'Hire Me - Role Explorer',
     messenger: 'AshleyChat',
     folder: 'Work Examples',
     recycle: 'Recycle Bin',
@@ -924,9 +930,13 @@ function initWindowContent(windowEl, appType, fileId) {
       initWordpad(windowEl);
       windowEl.dataset.windowType = 'resume';
       break;
-    case 'myspace':
-      initMyspace(windowEl);
+    case 'livejournal':
+      initLiveJournal(windowEl);
       windowEl.dataset.windowType = 'myspace';
+      break;
+    case 'roleexplorer':
+      initRoleExplorer(windowEl);
+      windowEl.dataset.windowType = 'roleexplorer';
       break;
     case 'messenger':
       initMessenger(windowEl);
@@ -1024,7 +1034,8 @@ function initWindowContent(windowEl, appType, fileId) {
       'calculator': 'calculator',
       'workmatch': 'workmatch',
       'readme': 'readme',
-      'myspace': 'myspace',
+      'livejournal': 'myspace',
+      'roleexplorer': 'roleexplorer',
       'recycle': 'recycle',
       'folder': 'firstFolder',
       'misc-folder': 'firstFolder',
@@ -1207,74 +1218,120 @@ function initWordpad(windowEl) {
   }
 }
 
-function initMyspace(windowEl) {
-  const content = windowEl.querySelector('.myspace-content');
+function initLiveJournal(windowEl) {
+  const content = windowEl.querySelector('.livejournal-content');
   if (!content) return;
 
   const data = SITE_DATA.aboutMe;
 
   content.innerHTML = `
-    <div class="myspace-page">
-      <div class="myspace-header">
-        <h1>${data.displayName}</h1>
-        <p class="myspace-mood">"${data.mood}"</p>
-      </div>
-      <div class="myspace-body">
-        <div class="myspace-sidebar">
-          <div class="myspace-profile-pic">
-            <img src="assets/images/myspace.jpg" alt="Ashley" onerror="this.style.display='none'">
-          </div>
-          <div class="myspace-stats">
-            <p><strong>Status:</strong> ${data.status}</p>
-            <p><strong>Last Login:</strong> ${data.lastLogin}</p>
-            <p><strong>Profile Views:</strong> <span id="view-counter">${data.profileViews}</span></p>
+    <div class="lj-page">
+      <div class="lj-header">
+        <div class="lj-logo">LiveJournal</div>
+        <div class="lj-user-bar">
+          <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-user-avatar" onerror="this.style.display='none'">
+          <div class="lj-user-info">
+            <span class="lj-username">${data.displayName}</span>
+            <span class="lj-headline">${data.headline}</span>
           </div>
         </div>
-        <div class="myspace-main">
-          <div class="myspace-section">
-            <h3>${data.headline}</h3>
-            ${data.aboutText}
+      </div>
+      <div class="lj-body">
+        <div class="lj-sidebar">
+          <div class="lj-sidebar-section">
+            <div class="lj-sidebar-title">Profile</div>
+            <div class="lj-profile-pic">
+              <img src="assets/images/myspace.jpg" alt="Ashley" onerror="this.style.display='none'">
+            </div>
+            <div class="lj-stats">
+              <p><strong>Status:</strong> ${data.status}</p>
+              <p><strong>Entries:</strong> ${(data.journalEntries?.length || 0) + 1}</p>
+              <p><strong>Views:</strong> <span id="view-counter">${data.profileViews}</span></p>
+            </div>
           </div>
-          <div class="myspace-section">
-            <h3>Ashley's Top 8</h3>
-            <div class="top-eight">
+          <div class="lj-sidebar-section">
+            <div class="lj-sidebar-title">Top 8</div>
+            <div class="lj-top-eight">
               ${data.topEight.map(friend => `
-                <div class="top-eight-friend">
-                  <img src="${friend.image}" alt="${friend.name}" onerror="this.style.background='#ddd'">
-                  <p>${friend.name}</p>
-                  <span>${friend.role}</span>
+                <div class="lj-friend">
+                  <img src="${friend.image}" alt="${friend.name}" onerror="this.style.background='var(--color-sage)'">
+                  <span class="lj-friend-name">${friend.name}</span>
+                  <span class="lj-friend-role">${friend.role}</span>
                 </div>
               `).join('')}
             </div>
           </div>
-          <div class="myspace-section">
-            <h3>Interests</h3>
-            <dl class="myspace-interests">
-              <dt>General</dt>
-              <dd>${data.interests.general}</dd>
-              <dt>Music</dt>
-              <dd>${data.interests.music}</dd>
-              <dt>Movies</dt>
-              <dd>${data.interests.movies}</dd>
-              <dt>Books</dt>
-              <dd>${data.interests.books}</dd>
-            </dl>
+          <div class="lj-sidebar-section">
+            <div class="lj-sidebar-title">Links</div>
+            <div class="lj-links">
+              <a href="mailto:ashley@stepinto-ashleysoffice.com" class="lj-link">Email Ashley</a>
+              <a href="https://linkedin.com/in/ashley-sarahsep" target="_blank" class="lj-link">LinkedIn</a>
+            </div>
           </div>
+        </div>
+        <div class="lj-main">
+          <!-- Pinned bio entry -->
+          <div class="lj-entry lj-entry-pinned">
+            <div class="lj-entry-header">
+              <span class="lj-entry-pin">&#128204; Pinned</span>
+              <span class="lj-entry-date">Since forever</span>
+            </div>
+            <div class="lj-entry-meta">
+              <span><strong>Current mood:</strong> ${data.mood}</span>
+              <span><strong>Current music:</strong> ${data.music}</span>
+            </div>
+            <h3 class="lj-entry-subject">About Me</h3>
+            <div class="lj-entry-body">${data.bio}</div>
+            <div class="lj-entry-body">
+              <h4>Interests</h4>
+              <dl class="lj-interests">
+                <dt>General</dt>
+                <dd>${data.interests.general}</dd>
+                <dt>Music</dt>
+                <dd>${data.interests.music}</dd>
+                <dt>Books</dt>
+                <dd>${data.interests.books}</dd>
+                <dt>Heroes</dt>
+                <dd>${data.interests.heroes}</dd>
+              </dl>
+            </div>
+          </div>
+
+          <!-- Journal entries -->
+          ${(data.journalEntries || []).map(entry => `
+          <div class="lj-entry">
+            <div class="lj-entry-header">
+              <span class="lj-entry-date">${entry.date}</span>
+            </div>
+            <div class="lj-entry-meta">
+              <span><strong>Current mood:</strong> ${entry.mood}</span>
+              <span><strong>Current music:</strong> ${entry.music}</span>
+            </div>
+            <h3 class="lj-entry-subject">${entry.subject}</h3>
+            <div class="lj-entry-body">${entry.content}</div>
+          </div>
+          `).join('')}
+
+          <!-- Testimonials -->
           ${data.testimonials && data.testimonials.length > 0 ? `
-          <div class="myspace-section testimonials-section">
-            <h3>What People Say</h3>
-            <div class="testimonials-list">
+          <div class="lj-entry">
+            <div class="lj-entry-header">
+              <span class="lj-entry-date">Collected over the years</span>
+            </div>
+            <h3 class="lj-entry-subject">What People Say</h3>
+            <div class="lj-entry-body">
               ${data.testimonials.map(t => `
-                <div class="testimonial">
-                  <p class="testimonial-title">"${t.title}"</p>
-                  <p class="testimonial-text">${t.text}</p>
-                  <p class="testimonial-author">— ${t.name}</p>
+                <div class="lj-testimonial">
+                  <p class="lj-testimonial-title">"${t.title}"</p>
+                  <p class="lj-testimonial-text">${t.text}</p>
+                  <p class="lj-testimonial-author">&mdash; ${t.name}</p>
                 </div>
               `).join('')}
             </div>
           </div>
           ` : ''}
-          <div class="visitor-counter">
+
+          <div class="lj-visitor-counter">
             VISITORS: ${String(data.profileViews).padStart(6, '0')}
           </div>
         </div>
@@ -1288,6 +1345,96 @@ function initMyspace(windowEl) {
     let count = parseInt(counter.textContent);
     counter.textContent = ++count;
   }
+}
+
+// ============================================
+// ROLE EXPLORER
+// ============================================
+
+function initRoleExplorer(windowEl) {
+  const content = windowEl.querySelector('.roleexplorer-content');
+  if (!content) return;
+
+  const data = SITE_DATA.roleExplorer;
+  let selectedRoles = new Set();
+
+  function render() {
+    content.innerHTML = `
+      <div class="re-page">
+        <div class="re-header">
+          <h2 class="re-headline">${data.headline}</h2>
+          <p class="re-subheadline">${data.subheadline}</p>
+          <p class="re-availability">${data.availability}</p>
+        </div>
+        <div class="re-roles">
+          ${data.roles.map(role => `
+            <div class="re-role-card ${selectedRoles.has(role.id) ? 'expanded' : ''}" data-role="${role.id}">
+              <div class="re-role-header">
+                <div class="re-role-title-row">
+                  <h3 class="re-role-title">${role.title}</h3>
+                  <span class="re-role-expand">${selectedRoles.has(role.id) ? '&#9660;' : '&#9654;'}</span>
+                </div>
+                <div class="re-role-tags">
+                  ${role.tags.map(tag => `<span class="re-tag">${tag}</span>`).join('')}
+                </div>
+                <p class="re-role-hook">${role.hook}</p>
+              </div>
+              ${selectedRoles.has(role.id) ? `
+              <div class="re-role-detail">
+                <div class="re-detail-section">
+                  <h4>What This Role Needs</h4>
+                  <p>${role.whatThisNeeds}</p>
+                </div>
+                <div class="re-detail-section">
+                  <h4>What I've Actually Done</h4>
+                  <ul>
+                    ${role.whatIveDone.map(item => `<li>${item}</li>`).join('')}
+                  </ul>
+                </div>
+                <div class="re-detail-section re-tools-section">
+                  <h4>Tools & Skills</h4>
+                  <div class="re-tools">
+                    ${Array.isArray(role.tools) ? role.tools.map(tool => `<span class="re-tool">${tool}</span>`).join('') : `<span class="re-tool">${role.tools}</span>`}
+                  </div>
+                </div>
+                <div class="re-role-cta">
+                  <a href="mailto:${data.cta.email}?subject=${encodeURIComponent('Re: ' + role.title + ' - Let\'s Talk')}" class="re-cta-btn">Let's talk about this &rarr;</a>
+                </div>
+              </div>
+              ` : ''}
+            </div>
+          `).join('')}
+        </div>
+        <div class="re-footer">
+          <p class="re-footer-text">Have questions? <a href="mailto:${data.cta.email}" class="re-footer-link">${data.cta.email}</a> | <a href="https://${data.cta.linkedin}" target="_blank" class="re-footer-link">LinkedIn</a></p>
+        </div>
+      </div>
+    `;
+
+    // Add click handlers
+    content.querySelectorAll('.re-role-card').forEach(card => {
+      card.querySelector('.re-role-header').addEventListener('click', () => {
+        const roleId = card.dataset.role;
+        if (selectedRoles.has(roleId)) {
+          selectedRoles.delete(roleId);
+        } else {
+          selectedRoles.add(roleId);
+        }
+        render();
+      });
+    });
+  }
+
+  render();
+}
+
+function initHiringBar() {
+  const bar = document.getElementById('hiring-bar');
+  if (!bar) return;
+
+  bar.querySelector('.hiring-bar-btn')?.addEventListener('click', () => {
+    openApp('roleexplorer', 'roles');
+  });
 }
 
 function initMessenger(windowEl) {
