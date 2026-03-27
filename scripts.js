@@ -437,15 +437,17 @@ function showConversation(conversationId) {
       responsesEl.appendChild(continueBtn);
     }
 
-    // Always add "Back to exploring" option
-    const exploreBtn = document.createElement('button');
-    exploreBtn.className = 'dialog-response dialog-nav';
-    exploreBtn.textContent = '[Back to exploring]';
-    exploreBtn.addEventListener('click', () => {
-      closeDialog();
-      document.getElementById('inspect-menu')?.classList.remove('hidden');
-    });
-    responsesEl.appendChild(exploreBtn);
+    // Add "Back to exploring" option (except for welcome dialog)
+    if (state.currentDialog !== 'welcome') {
+      const exploreBtn = document.createElement('button');
+      exploreBtn.className = 'dialog-response dialog-nav';
+      exploreBtn.textContent = '[Back to exploring]';
+      exploreBtn.addEventListener('click', () => {
+        closeDialog();
+        document.getElementById('inspect-menu')?.classList.remove('hidden');
+      });
+      responsesEl.appendChild(exploreBtn);
+    }
   });
 }
 
@@ -1223,128 +1225,164 @@ function initLiveJournal(windowEl) {
   if (!content) return;
 
   const data = SITE_DATA.aboutMe;
+  let currentView = 'journal';
 
-  content.innerHTML = `
-    <div class="lj-page">
-      <div class="lj-header">
-        <div class="lj-logo">LiveJournal</div>
-        <div class="lj-user-bar">
-          <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-user-avatar" onerror="this.style.display='none'">
-          <div class="lj-user-info">
-            <span class="lj-username">${data.displayName}</span>
-            <span class="lj-headline">${data.headline}</span>
+  function renderJournal() {
+    return `
+      <div class="lj-journal">
+        <!-- Bio entry -->
+        <div class="lj-entry">
+          <div class="lj-entry-header-bar">
+            <span class="lj-entry-subject-bar">About Me</span>
+            <span class="lj-entry-date">Pinned Entry</span>
+          </div>
+          <div class="lj-entry-content">
+            <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-entry-userpic" onerror="this.style.display='none'">
+            <div class="lj-entry-text">
+              <div class="lj-entry-meta">
+                <strong>Current mood:</strong> ${data.mood}<br>
+                <strong>Current music:</strong> ${data.music}
+              </div>
+              <div class="lj-entry-body">${data.bio}</div>
+            </div>
+          </div>
+          <div class="lj-entry-footer">
+            <span class="lj-comment-link">read comments (3)</span>
+            <span class="lj-comment-link">leave a comment</span>
           </div>
         </div>
+
+        ${(data.journalEntries || []).map(entry => `
+        <div class="lj-entry">
+          <div class="lj-entry-header-bar">
+            <span class="lj-entry-subject-bar">${entry.subject}</span>
+            <span class="lj-entry-date">${entry.date}</span>
+          </div>
+          <div class="lj-entry-content">
+            <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-entry-userpic" onerror="this.style.display='none'">
+            <div class="lj-entry-text">
+              <div class="lj-entry-meta">
+                <strong>Current mood:</strong> ${entry.mood}<br>
+                <strong>Current music:</strong> ${entry.music}
+              </div>
+              <div class="lj-entry-body">${entry.content}</div>
+            </div>
+          </div>
+          <div class="lj-entry-footer">
+            <span class="lj-comment-link">leave a comment</span>
+          </div>
+        </div>
+        `).join('')}
       </div>
-      <div class="lj-body">
-        <div class="lj-sidebar">
-          <div class="lj-sidebar-section">
-            <div class="lj-sidebar-title">Profile</div>
-            <div class="lj-profile-pic">
-              <img src="assets/images/myspace.jpg" alt="Ashley" onerror="this.style.display='none'">
-            </div>
-            <div class="lj-stats">
-              <p><strong>Status:</strong> ${data.status}</p>
-              <p><strong>Entries:</strong> ${(data.journalEntries?.length || 0) + 1}</p>
-              <p><strong>Views:</strong> <span id="view-counter">${data.profileViews}</span></p>
-            </div>
-          </div>
-          <div class="lj-sidebar-section">
-            <div class="lj-sidebar-title">Top 8</div>
-            <div class="lj-top-eight">
-              ${data.topEight.map(friend => `
-                <div class="lj-friend">
-                  <img src="${friend.image}" alt="${friend.name}" onerror="this.style.background='var(--color-sage)'">
-                  <span class="lj-friend-name">${friend.name}</span>
-                  <span class="lj-friend-role">${friend.role}</span>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-          <div class="lj-sidebar-section">
-            <div class="lj-sidebar-title">Links</div>
-            <div class="lj-links">
-              <a href="mailto:ashley@stepinto-ashleysoffice.com" class="lj-link">Email Ashley</a>
-              <a href="https://linkedin.com/in/ashley-sarahsep" target="_blank" class="lj-link">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-        <div class="lj-main">
-          <!-- Pinned bio entry -->
-          <div class="lj-entry lj-entry-pinned">
-            <div class="lj-entry-header">
-              <span class="lj-entry-pin">&#128204; Pinned</span>
-              <span class="lj-entry-date">Since forever</span>
-            </div>
-            <div class="lj-entry-meta">
-              <span><strong>Current mood:</strong> ${data.mood}</span>
-              <span><strong>Current music:</strong> ${data.music}</span>
-            </div>
-            <h3 class="lj-entry-subject">About Me</h3>
-            <div class="lj-entry-body">${data.bio}</div>
-            <div class="lj-entry-body">
-              <h4>Interests</h4>
-              <dl class="lj-interests">
-                <dt>General</dt>
-                <dd>${data.interests.general}</dd>
-                <dt>Music</dt>
-                <dd>${data.interests.music}</dd>
-                <dt>Books</dt>
-                <dd>${data.interests.books}</dd>
-                <dt>Heroes</dt>
-                <dd>${data.interests.heroes}</dd>
-              </dl>
-            </div>
-          </div>
-
-          <!-- Journal entries -->
-          ${(data.journalEntries || []).map(entry => `
-          <div class="lj-entry">
-            <div class="lj-entry-header">
-              <span class="lj-entry-date">${entry.date}</span>
-            </div>
-            <div class="lj-entry-meta">
-              <span><strong>Current mood:</strong> ${entry.mood}</span>
-              <span><strong>Current music:</strong> ${entry.music}</span>
-            </div>
-            <h3 class="lj-entry-subject">${entry.subject}</h3>
-            <div class="lj-entry-body">${entry.content}</div>
-          </div>
-          `).join('')}
-
-          <!-- Testimonials -->
-          ${data.testimonials && data.testimonials.length > 0 ? `
-          <div class="lj-entry">
-            <div class="lj-entry-header">
-              <span class="lj-entry-date">Collected over the years</span>
-            </div>
-            <h3 class="lj-entry-subject">What People Say</h3>
-            <div class="lj-entry-body">
-              ${data.testimonials.map(t => `
-                <div class="lj-testimonial">
-                  <p class="lj-testimonial-title">"${t.title}"</p>
-                  <p class="lj-testimonial-text">${t.text}</p>
-                  <p class="lj-testimonial-author">&mdash; ${t.name}</p>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-          ` : ''}
-
-          <div class="lj-visitor-counter">
-            VISITORS: ${String(data.profileViews).padStart(6, '0')}
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-
-  // Increment view counter
-  const counter = content.querySelector('#view-counter');
-  if (counter) {
-    let count = parseInt(counter.textContent);
-    counter.textContent = ++count;
+    `;
   }
+
+  function renderUserInfo() {
+    const allInterests = [
+      ...data.interests.general.split(', '),
+      ...data.interests.music.split(', ').slice(0, 6),
+      ...data.interests.books.split(', ').slice(0, 3)
+    ];
+
+    return `
+      <div class="lj-userinfo">
+        <div class="lj-userinfo-header">User Info</div>
+        <div class="lj-userinfo-sub">Below is the user information for ${data.displayName}.</div>
+        <div class="lj-userinfo-content">
+          <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-userinfo-pic" onerror="this.style.display='none'">
+          <div class="lj-info-table">
+            <div class="lj-info-row">
+              <div class="lj-info-label">User:</div>
+              <div class="lj-info-value"><strong>${data.displayName.toLowerCase()}</strong></div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Name:</div>
+              <div class="lj-info-value">Ashley Sepers</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Location:</div>
+              <div class="lj-info-value">Guelph, Ontario, Canada</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Status:</div>
+              <div class="lj-info-value">${data.status}</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Bio:</div>
+              <div class="lj-info-value">${data.headline}</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Website:</div>
+              <div class="lj-info-value"><a href="mailto:ashley@stepinto-ashleysoffice.com">ashley@stepinto-ashleysoffice.com</a></div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Memories:</div>
+              <div class="lj-info-value">${(data.journalEntries?.length || 0) + 1} entries</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Account type:</div>
+              <div class="lj-info-value">Permanent Account, previously an Early Adopter</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Interests:</div>
+              <div class="lj-info-value">
+                <div class="lj-interests-list">
+                  ${allInterests.map(i => `<span class="lj-interest">${i.trim()}</span>`).join(' ')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function render() {
+    content.innerHTML = `
+      <div class="lj-page">
+        <div class="lj-header">
+          <div class="lj-header-top">
+            <div>
+              <span class="lj-logo">LiveJournal</span>
+              <span class="lj-logo-sub"> &mdash; ${data.displayName}'s Journal</span>
+            </div>
+            <div class="lj-search">
+              <input type="text" placeholder="Search..." readonly>
+              <button>Search</button>
+            </div>
+          </div>
+          <div class="lj-nav">
+            <button class="lj-nav-tab ${currentView === 'journal' ? 'active' : ''}" data-view="journal">Journal</button>
+            <button class="lj-nav-tab ${currentView === 'userinfo' ? 'active' : ''}" data-view="userinfo">User Info</button>
+            <button class="lj-nav-tab" data-view="archive">Archive</button>
+          </div>
+        </div>
+        <div class="lj-user-bar">
+          <div class="lj-user-identity">
+            <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-userpic-small" onerror="this.style.display='none'">
+            <span class="lj-user-name">${data.displayName}</span>
+          </div>
+          <div class="lj-user-links">
+            <a href="mailto:ashley@stepinto-ashleysoffice.com" class="lj-user-link">email</a>
+            <a href="https://linkedin.com/in/ashley-sarahsep" target="_blank" class="lj-user-link">linkedin</a>
+          </div>
+        </div>
+        ${currentView === 'journal' ? renderJournal() : renderUserInfo()}
+      </div>
+    `;
+
+    // Tab click handlers
+    content.querySelectorAll('.lj-nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const view = tab.dataset.view;
+        if (view === 'archive') return; // decorative
+        currentView = view;
+        render();
+      });
+    });
+  }
+
+  render();
 }
 
 // ============================================
@@ -1429,10 +1467,10 @@ function initRoleExplorer(windowEl) {
 }
 
 function initHiringBar() {
-  const bar = document.getElementById('hiring-bar');
-  if (!bar) return;
+  const tab = document.getElementById('hiring-tab');
+  if (!tab) return;
 
-  bar.querySelector('.hiring-bar-btn')?.addEventListener('click', () => {
+  tab.addEventListener('click', () => {
     openApp('roleexplorer', 'roles');
   });
 }
@@ -4155,10 +4193,11 @@ function showGertrudeThought(isManual = false) {
   messageEl.textContent = thought;
   bubble.classList.remove('hidden');
 
-  // Auto-hide after 8 seconds (gives time to read)
+  // Auto-hide based on text length (longer thoughts get more time)
+  const readTime = Math.max(10000, Math.min(thought.length * 60, 25000));
   gertrudeHideTimer = setTimeout(() => {
     hideGertrudeBubble();
-  }, 8000);
+  }, readTime);
 }
 
 function hideGertrudeBubble() {
@@ -4207,10 +4246,11 @@ function showGertrudeContextualTip(context) {
   messageEl.textContent = tips[context];
   bubble.classList.remove('hidden');
 
-  // Auto-hide after 6 seconds (slightly shorter for tips)
+  // Auto-hide based on text length
+  const tipReadTime = Math.max(8000, Math.min(tips[context].length * 60, 20000));
   gertrudeHideTimer = setTimeout(() => {
     hideGertrudeBubble();
-  }, 6000);
+  }, tipReadTime);
 
   // Resume auto-thoughts after showing tip
   scheduleNextGertrudeThought();
