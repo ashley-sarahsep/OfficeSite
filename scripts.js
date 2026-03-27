@@ -437,15 +437,17 @@ function showConversation(conversationId) {
       responsesEl.appendChild(continueBtn);
     }
 
-    // Always add "Back to exploring" option
-    const exploreBtn = document.createElement('button');
-    exploreBtn.className = 'dialog-response dialog-nav';
-    exploreBtn.textContent = '[Back to exploring]';
-    exploreBtn.addEventListener('click', () => {
-      closeDialog();
-      document.getElementById('inspect-menu')?.classList.remove('hidden');
-    });
-    responsesEl.appendChild(exploreBtn);
+    // Add "Back to exploring" option (except for welcome dialog)
+    if (state.currentDialog !== 'welcome') {
+      const exploreBtn = document.createElement('button');
+      exploreBtn.className = 'dialog-response dialog-nav';
+      exploreBtn.textContent = '[Back to exploring]';
+      exploreBtn.addEventListener('click', () => {
+        closeDialog();
+        document.getElementById('inspect-menu')?.classList.remove('hidden');
+      });
+      responsesEl.appendChild(exploreBtn);
+    }
   });
 }
 
