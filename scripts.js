@@ -390,8 +390,9 @@ function showConversation(conversationId) {
 
     // Add the conversation's own responses (but filter out generic "back" ones we'll replace)
     conversation.responses.forEach(response => {
-      // Skip old-style back/close responses - we'll add standardized ones
-      if (response.next === null && !response.action &&
+      // Skip old-style back/close responses - we'll add standardized ones (but not for welcome dialog)
+      if (state.currentDialog !== 'welcome' &&
+          response.next === null && !response.action &&
           (response.text.toLowerCase().includes('back') ||
            response.text.toLowerCase().includes('exploring') ||
            response.text.toLowerCase().includes('leave') ||
@@ -696,18 +697,34 @@ function initDesktopIcons() {
       icons.forEach(i => i.classList.remove('selected'));
     }
   });
+
+  // On resize, reposition icons proportionally and clamp to bounds
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      loadIconPositions();
+    }, 100);
+  });
 }
 
 function saveIconPositions() {
   const icons = document.querySelectorAll('.desktop-icon');
+  const container = document.querySelector('.desktop-icons');
+  if (!container) return;
+
+  const containerRect = container.getBoundingClientRect();
   const positions = {};
 
   icons.forEach(icon => {
     const id = icon.dataset.app + (icon.dataset.file ? `-${icon.dataset.file}` : '');
     if (icon.style.left && icon.style.top) {
+      // Store as percentages so positions scale with container
+      const leftPx = parseFloat(icon.style.left);
+      const topPx = parseFloat(icon.style.top);
       positions[id] = {
-        left: icon.style.left,
-        top: icon.style.top
+        leftPct: containerRect.width > 0 ? (leftPx / containerRect.width) * 100 : 0,
+        topPct: containerRect.height > 0 ? (topPx / containerRect.height) * 100 : 0
       };
     }
   });
@@ -725,19 +742,67 @@ function loadIconPositions() {
     if (!saved) return;
 
     const positions = JSON.parse(saved);
+    const container = document.querySelector('.desktop-icons');
+    if (!container) return;
+
+    const containerRect = container.getBoundingClientRect();
     const icons = document.querySelectorAll('.desktop-icon');
 
     icons.forEach(icon => {
       const id = icon.dataset.app + (icon.dataset.file ? `-${icon.dataset.file}` : '');
-      if (positions[id]) {
+      const pos = positions[id];
+      if (pos) {
         icon.style.position = 'absolute';
-        icon.style.left = positions[id].left;
-        icon.style.top = positions[id].top;
+        if (pos.leftPct !== undefined) {
+          // Percentage-based positions - convert back to pixels, clamped to bounds
+          let leftPx = (pos.leftPct / 100) * containerRect.width;
+          let topPx = (pos.topPct / 100) * containerRect.height;
+          leftPx = Math.max(0, Math.min(leftPx, containerRect.width - 72));
+          topPx = Math.max(0, Math.min(topPx, containerRect.height - 72));
+          icon.style.left = `${leftPx}px`;
+          icon.style.top = `${topPx}px`;
+        } else if (pos.left) {
+          // Legacy pixel positions - use as-is but clamp
+          let leftPx = parseFloat(pos.left);
+          let topPx = parseFloat(pos.top);
+          leftPx = Math.max(0, Math.min(leftPx, containerRect.width - 72));
+          topPx = Math.max(0, Math.min(topPx, containerRect.height - 72));
+          icon.style.left = `${leftPx}px`;
+          icon.style.top = `${topPx}px`;
+        }
       }
     });
   } catch (e) {
     console.warn('Could not load icon positions:', e);
   }
+}
+
+function clampIconPositions() {
+  const container = document.querySelector('.desktop-icons');
+  if (!container) return;
+
+  const containerRect = container.getBoundingClientRect();
+  const icons = document.querySelectorAll('.desktop-icon');
+  let changed = false;
+
+  icons.forEach(icon => {
+    if (icon.style.position !== 'absolute') return;
+
+    let leftPx = parseFloat(icon.style.left);
+    let topPx = parseFloat(icon.style.top);
+    if (isNaN(leftPx) || isNaN(topPx)) return;
+
+    const clampedLeft = Math.max(0, Math.min(leftPx, containerRect.width - 72));
+    const clampedTop = Math.max(0, Math.min(topPx, containerRect.height - 72));
+
+    if (clampedLeft !== leftPx || clampedTop !== topPx) {
+      icon.style.left = `${clampedLeft}px`;
+      icon.style.top = `${clampedTop}px`;
+      changed = true;
+    }
+  });
+
+  if (changed) saveIconPositions();
 }
 
 function initTaskbar() {
@@ -1297,7 +1362,7 @@ function initLiveJournal(windowEl) {
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Name:</div>
-              <div class="lj-info-value">Ashley Sepers</div>
+              <div class="lj-info-value">Ashley S.</div>
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Location:</div>
