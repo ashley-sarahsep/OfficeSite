@@ -1377,7 +1377,7 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-aesthetic",
           portrait: "funny1",
-          text: "That's completely valid. I spent way too long on this site. The point-and-click adventure vibe, the MYST energy... I'm firmly of the opinion that professional doesn't have to mean boring. Life's too short for generic portfolio templates.",
+          text: "That's completely valid. I spent way too long on this site. It's evolved a lot over time - it started as more of a point-and-click adventure thing, but honestly it's become its own weird creature now. It's inspired by the fact that I'm incredibly nosy, especially in digital spaces. I love poking around, opening things, seeing what's behind the next click. Professional doesn't have to mean boring - life's too short for generic portfolio templates.",
           responses: [
             { text: "Did you code all this yourself?", next: "coffee-coding" },
             { text: "What else reflects your style?", next: "coffee-style" },
