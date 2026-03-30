@@ -4007,7 +4007,7 @@ function initWorkMatch(windowEl) {
     {
       text: "Your dream Monday morning involves:",
       answers: [
-        { text: "A well-organized backlog of process improvements to tackle", scores: [5, 2, 1] },
+        { text: "A well-organised backlog of process improvements to tackle", scores: [5, 2, 1] },
         { text: "A strategic planning session with leadership", scores: [1, 5, 2] },
         { text: "Fresh data to explore and a question to answer", scores: [1, 2, 5] }
       ]

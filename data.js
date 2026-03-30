@@ -1656,7 +1656,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <h2>OH, HELLO!</h2>
 <p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience driving operational and product success through coordination across teams, technical translation, and operational excellence. I navigate ambiguous environments, identify organisational gaps, and build scalable systems that make everyone else's job easier.</p>
 <p>I joined MainEvent when the team was ~10 people with no formal processes and built the operational infrastructure from scratch - sales operations, training programs, QA processes, and project management frameworks that enabled the team to support 32M+ visits, 576K+ client staff, and Fortune 500 brands at massive scale. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product including manual testing framework, client data reviews, 5-phase onboarding methodology, educational curriculum with enterprise analytical frameworks, and thought leadership content.</p>
-<p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviors. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
+<p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviours. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
 </div>
 
 <div class="resume-section">
@@ -1678,7 +1678,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p>I love working with AI and ML as tools, but I'm not a blind advocate. I'm very critical and aware of limitations, hallucinations, and potential issues. My philosophy background helps me understand how LLMs interpret and generate information, which makes me effective at identifying where they might misinterpret context or produce misleading results. I advocate for ethical AI implementation, appropriate guardrails, transparency about limitations, and thoughtful consideration of how models are trained and deployed.</p>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley's unique combination of philosophy (hermeneutics), social work, and self-taught technical skills means she doesn't just build systems - she builds systems that account for how humans actually think, learn, and adopt new behaviors. This is why her training programs consistently reduce ramp time and her analytics work uncovers insights others miss.
+<strong>DID YOU KNOW?</strong> Ashley's unique combination of philosophy (hermeneutics), social work, and self-taught technical skills means she doesn't just build systems - she builds systems that account for how humans actually think, learn, and adopt new behaviours. This is why her training programs consistently reduce ramp time and her analytics work uncovers insights others miss.
 </div>
 </div>
 
@@ -2055,7 +2055,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       {
         date: "March 2026",
         mood: "thinking about the person who will read this at 4pm on a Friday",
-        music: "Bright Eyes — A Perfect Sonnet",
+        music: "Bright Eyes - A Perfect Sonnet",
         subject: "Why I Design for Humans, Not Ideal Users",
         content: `<p>There is a person who exists in the imagination of most system designers, documentation writers, and onboarding program architects. This person is focused. They have read everything that came before this page. They are approaching the material with curiosity and adequate time. They will not skip ahead. They will not search for the specific answer they need and ignore the rest. They are not tired. They are not doing three other things. They are not new and overwhelmed and quietly hoping nobody notices.</p>
 <p>This person does not exist. Every system built for them fails the actual humans who have to use it.</p>
@@ -2180,7 +2180,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       },
 
       "What makes you different?": {
-        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviors. That's why my training programs work and my documentation actually gets used. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
+        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviours. That's why my training programs work and my documentation actually gets used. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
         followUp: "You mentioned hermeneutics - how does that actually help?"
       },
 
