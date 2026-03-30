@@ -1986,19 +1986,24 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
   aboutMe: {
     displayName: "Ashley",
-    mood: "filling gaps since 2011",
-    music: "Bright Eyes - First Day of My Life",
+    mood: "that's a rabbit hole",
+    music: "John Prine - Hello In There",
     status: "Remote & thriving",
     lastLogin: "Today",
     profileViews: 1337,
 
     headline: "Professional Gap-Filler | Hermeneutics Enthusiast | Cat Mom",
 
-    bio: `<p><strong>Hey there!</strong></p>
-<p>I'm Ashley - a human being who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recogniser. The connective tissue that keeps organisations from falling apart.</p>
-<p>Philosophy background (hermeneutics - how people interpret information) + social work training = I design systems that respect how humans actually think, learn, and adopt new behaviors. Not how we wish they would. How they actually do.</p>
-<p>The path here was winding: philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops, then 7+ years at a startup that became about five different jobs. Every step taught me something I still use.</p>
-<p>Based in Guelph, Ontario. Remote worker since 2015. Pink office walls. A wall unit I got for $80 twelve years ago that stores all my favourite things. Two cats named Gertrude and Gherkin who have very different personalities and very strong opinions.</p>`,
+    bio: `<p>I'm Ashley. I notice things that aren't being said. Systems failing quietly. People overwhelmed and covering well. Two teams talking past each other, both convinced the other one is the problem. I notice, and then I do something about it. Apparently this is rarer than it should be.</p>
+<p>I'm shy. Genuinely. I'm a stage manager, not a lead actor. I'd rather make sure everyone has what they need and that the whole thing runs well than be the person at the front of the room. Get me one on one though, or somewhere I feel comfortable, and I'm a completely different person. Enthusiastic. Animated. Probably talking too fast about something I find fascinating. Both things are true and I've made peace with that.</p>
+<p>My brain works a bit differently than most and I genuinely love it. I'm deeply introspective, which means I understand myself well enough to know what I need and why I work the way I do. The anxiety that some people would call a weakness is actually what keeps everything from falling through the cracks. I cannot stand missing the mark. I cannot stand the feeling of something slipping. So things don't slip. I also don't like diving into a direction before I actually understand what I'm doing, which means I ask more questions upfront than most people expect and produce fewer wrong turns than most projects budget for. It's a fair trade.</p>
+<p>My dad was a house painter. I grew up understanding that doing something properly matters, even when nobody's watching. Especially then.</p>
+<p>Philosophy degree from Guelph. Hermeneutics specifically, which is the study of how meaning is made and lost between people. Social work training from George Brown. Then a receptionist job that turned into accounts receivable, London for a bit, sales ops, and eventually seven-plus years at a startup that became about five different jobs. None of it was a plan. All of it was useful.</p>
+<p>I don't think in hierarchies. A title tells me what someone is accountable for, not whether they're worth listening to. I've gotten good ideas from people on their first week and bad ones from people who'd been somewhere for a decade. Respect is just how you show up.</p>
+<p>I have strong opinions about Simpsons seasons two through seven, Vonnegut's general read on the human condition, and the structural perfection of Young Frankenstein. These feel related somehow.</p>
+<p>Guelph, Ontario. Pink office walls. An eighty dollar wall unit I've had for twelve years and will probably die with. Two cats: Gertrude, who is gentle and long-haired and grey, and Gherkin, who is a tabby and has thoughts.</p>
+<p>This website started as an homage to point-and-click adventures, Myst, MS Playroom, and the specific joy of exploring a computer as a kid without knowing where it would take you. It turned into something that feels more like me.</p>
+<p>Which is maybe how all the best things end up.</p>`,
 
     interests: {
       general: "Hermeneutics, pattern recognition, thrift stores, vintage finds, point-and-click adventure games, MYST, mid-century modern furniture, estate sales, things with history",
