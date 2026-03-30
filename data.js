@@ -1609,8 +1609,6 @@ If that sounds like what you need, let's talk.
         title: "Get to Know Me",
         items: [
           { id: "about", name: "AboutMe.html", icon: "html", type: "app", app: "livejournal" },
-          { id: "guestbook", name: "Guest Book", icon: "guestbook", type: "app", app: "guestbook" },
-          { id: "paint", name: "Paint", icon: "app-paint", type: "app", app: "paint" },
           { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
@@ -1620,6 +1618,7 @@ If that sounds like what you need, let's talk.
       takeabreak: {
         title: "Take a Break",
         items: [
+          { id: "paint", name: "Paint", icon: "app-paint", type: "app", app: "paint" },
           { id: "projecttrail", name: "Project Trail.exe", icon: "game-trail", type: "game", app: "game" },
           { id: "bionicbrain", name: "The Bionic Brain.exe", icon: "game-brain", type: "game", app: "bionicbrain" },
           { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "game-raiders", type: "game", app: "raiders" },
