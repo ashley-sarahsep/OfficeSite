@@ -2050,8 +2050,18 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       {
         date: "March 2026",
         mood: "thoughtful",
-        music: "Talking Heads - This Must Be the Place",
+        music: "Bright Eyes - A Perfect Sonnet",
         subject: "Why I Design for Humans, Not Ideal Users",
+        content: `<p>Something I keep running into: systems designed for how people <em>should</em> behave instead of how they actually do.</p>
+<p>My philosophy background is in hermeneutics - the study of how people interpret and understand information. Combined with social work training, it means I think about the human on the other end of every process, every training module, every interface.</p>
+<p>When I build onboarding programs, I don't assume people will read the docs front to back. When I design training, I account for the fact that adults learn by doing, not by watching. When I write documentation, I structure it for the person who's searching for an answer at 4pm on a Friday, not the person leisurely reading a manual.</p>
+<p>This isn't just philosophy for philosophy's sake. It has practical outcomes: reduced ramp time, higher adoption rates, fewer support tickets, better data quality. Designing for real humans is better business.</p>`
+      },
+      {
+        date: "February 2026",
+        mood: "caffeinated",
+        music: "Talking Heads - This Must Be the Place",
+        subject: "The Case for Operational Infrastructure (Before You Think You Need It)",
         content: `<p>There is a version of this post where I make a grand argument about operational infrastructure. I'm going to try to write a human one instead.</p>
 <p>I've watched the same pattern play out enough times now that I can see it coming. A small team is moving fast, which is correct, because moving fast when you're small is basically the whole advantage. Processes feel like friction. Documentation feels like a tax on momentum. The CRM is a mess but everyone kind of knows where everything is, sort of, mostly. It's fine. They'll sort it out later when there's more time.</p>
 <p>Later arrives. It always does. Usually right in the middle of something else.</p>
@@ -2066,16 +2076,6 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p>And when you do build it, the person doing it should probably understand systems and humans with roughly equal fluency. Because a system that's technically correct but doesn't account for how people actually behave isn't infrastructure. It's just documentation that nobody reads.</p>
 <p>I've built these things, handed them off, and watched them outlast my direct involvement. That's the goal, really. Not to be indispensable to the infrastructure but to build infrastructure that doesn't need you anymore. There's something quietly satisfying about that, like tidying a room you won't be in.</p>
 <p>This must be the place.</p>`
-      },
-      {
-        date: "February 2026",
-        mood: "caffeinated",
-        music: "Talking Heads - This Must Be the Place",
-        subject: "The Case for Operational Infrastructure (Before You Think You Need It)",
-        content: `<p>I've watched the same pattern play out multiple times now: a small team grows, and suddenly the lack of documentation, process, and knowledge management becomes a crisis instead of an inconvenience.</p>
-<p>The thing about operational infrastructure is that it's invisible when it works. Nobody thanks you for the CRM being clean, the onboarding being smooth, or the knowledge base being searchable. But everyone notices when those things break.</p>
-<p>At MainEvent, I built these systems when we were ~10 people. They scaled to support 32M+ visits and Fortune 500 clients. The investment in 'boring' infrastructure paid off exponentially because we never had to stop and rebuild from scratch during growth.</p>
-<p>If you're a startup thinking "we'll figure out processes later" - later is more expensive than you think. And the person who builds your operational foundation should understand both the systems and the humans who'll use them.</p>`
       },
       {
         date: "January 2026",
