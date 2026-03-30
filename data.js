@@ -1609,8 +1609,6 @@ If that sounds like what you need, let's talk.
         title: "Get to Know Me",
         items: [
           { id: "about", name: "AboutMe.html", icon: "html", type: "app", app: "livejournal" },
-          { id: "guestbook", name: "Guest Book", icon: "guestbook", type: "app", app: "guestbook" },
-          { id: "paint", name: "Paint", icon: "app-paint", type: "app", app: "paint" },
           { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
@@ -1620,6 +1618,7 @@ If that sounds like what you need, let's talk.
       takeabreak: {
         title: "Take a Break",
         items: [
+          { id: "paint", name: "Paint", icon: "app-paint", type: "app", app: "paint" },
           { id: "projecttrail", name: "Project Trail.exe", icon: "game-trail", type: "game", app: "game" },
           { id: "bionicbrain", name: "The Bionic Brain.exe", icon: "game-brain", type: "game", app: "bionicbrain" },
           { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "game-raiders", type: "game", app: "raiders" },
@@ -1656,7 +1655,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <h2>OH, HELLO!</h2>
 <p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience driving operational and product success through coordination across teams, technical translation, and operational excellence. I navigate ambiguous environments, identify organisational gaps, and build scalable systems that make everyone else's job easier.</p>
 <p>I joined MainEvent when the team was ~10 people with no formal processes and built the operational infrastructure from scratch - sales operations, training programs, QA processes, and project management frameworks that enabled the team to support 32M+ visits, 576K+ client staff, and Fortune 500 brands at massive scale. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product including manual testing framework, client data reviews, 5-phase onboarding methodology, educational curriculum with enterprise analytical frameworks, and thought leadership content.</p>
-<p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviors. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
+<p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviours. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
 </div>
 
 <div class="resume-section">
@@ -1678,7 +1677,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p>I love working with AI and ML as tools, but I'm not a blind advocate. I'm very critical and aware of limitations, hallucinations, and potential issues. My philosophy background helps me understand how LLMs interpret and generate information, which makes me effective at identifying where they might misinterpret context or produce misleading results. I advocate for ethical AI implementation, appropriate guardrails, transparency about limitations, and thoughtful consideration of how models are trained and deployed.</p>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley's unique combination of philosophy (hermeneutics), social work, and self-taught technical skills means she doesn't just build systems - she builds systems that account for how humans actually think, learn, and adopt new behaviors. This is why her training programs consistently reduce ramp time and her analytics work uncovers insights others miss.
+<strong>DID YOU KNOW?</strong> Ashley's unique combination of philosophy (hermeneutics), social work, and self-taught technical skills means she doesn't just build systems - she builds systems that account for how humans actually think, learn, and adopt new behaviours. This is why her training programs consistently reduce ramp time and her analytics work uncovers insights others miss.
 </div>
 </div>
 
@@ -1727,13 +1726,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <p><em>Quality Assurance Leadership:</em></p>
 <ul>
-<li>Served as sole QA Lead on major client projects (including Neptune project) - owned quality from testing through client delivery</li>
+<li>Served as sole QA Lead on major client projects (including a major enterprise retail client project) - owned quality from testing through client delivery</li>
 <li>Created and executed detailed test plans covering edge cases, user flows, regression testing, and emerging bugs</li>
 <li>Partnered with Product and Engineering to deeply understand platform functionality and technical architecture</li>
 <li>Wrote clear, actionable feedback on technical issues in Jira - detailed tickets for developers, client-friendly explanations for customers</li>
 </ul>
 
-<p><em>Neptune Retail Solutions Project - End-to-End Ownership:</em></p>
+<p><em>Enterprise Retail Marketing Services Client - End-to-End Ownership:</em></p>
 <ul>
 <li>Led complete project lifecycle: discovery, requirements gathering, workflow/wireframe design, QA process creation, development team leadership (4 people), project management, and account management</li>
 <li>Managed Jira board for entire project - prioritised tickets, triaged bugs, tracked feature development, and ensured all work passed testing standards</li>
@@ -1760,13 +1759,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><strong>THE IMPACT:</strong></p>
 <ul>
 <li>Key contributor to 100% of sales wins since 2018 - every deal involves custom demo preparation, prospect research, and materials development</li>
-<li>Successfully launched Neptune custom platform and transitioned to dedicated account manager</li>
+<li>Successfully launched enterprise retail client's custom platform and transitioned to dedicated account manager</li>
 <li>Maintained quality delivery standards across 20+ implementations as sole QA Lead</li>
 <li>Led trade show readiness and event planning including EMS Vegas booth materials, demo prep, lead qualification</li>
 </ul>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley's "Swiss Army Knife" approach means she's comfortable stepping into whatever role is needed - QA lead, project manager, sales enabler, account manager - often simultaneously. This flexibility enabled her to lead the Neptune project end-to-end from discovery to successful handoff while maintaining quality standards across 20+ other implementations.
+<strong>DID YOU KNOW?</strong> Ashley's "Swiss Army Knife" approach means she's comfortable stepping into whatever role is needed - QA lead, project manager, sales enabler, account manager - often simultaneously. This flexibility enabled her to lead a major enterprise retail client project end-to-end from discovery to successful handoff while maintaining quality standards across 20+ other implementations.
 </div>
 
 <hr class="section-divider">
@@ -1905,7 +1904,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
         whatThisNeeds: "Someone who bridges product, engineering, and customers. Owns QA processes, manages releases, translates user needs into actionable feedback, and builds the operational systems that keep product delivery on track.",
         whatIveDone: [
           "Served as sole QA lead across 20+ implementations - testing, bug triage, edge case identification",
-          "Led Neptune Retail Solutions project end-to-end: discovery, requirements, wireframes, QA, daily scrums, Jira management, client delivery",
+          "Led enterprise retail marketing services client project end-to-end: discovery, requirements, wireframes, QA, daily scrums, Jira management, client delivery",
           "Built operational infrastructure from scratch at a startup that grew to support 32M+ visits and Fortune 500 clients",
           "Partnered with engineering throughout full SDLC - user perspective, seller feedback, delivery verification"
         ],
@@ -1986,19 +1985,24 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
   aboutMe: {
     displayName: "Ashley",
-    mood: "filling gaps since 2011",
-    music: "Bright Eyes - First Day of My Life",
+    mood: "that's a rabbit hole",
+    music: "John Prine - Hello In There",
     status: "Remote & thriving",
     lastLogin: "Today",
     profileViews: 1337,
 
     headline: "Professional Gap-Filler | Hermeneutics Enthusiast | Cat Mom",
 
-    bio: `<p><strong>Hey there!</strong></p>
-<p>I'm Ashley - a human being who sees the gaps between teams and builds the systems to fill them. Self-taught generalist. Pattern recogniser. The connective tissue that keeps organisations from falling apart.</p>
-<p>Philosophy background (hermeneutics - how people interpret information) + social work training = I design systems that respect how humans actually think, learn, and adopt new behaviors. Not how we wish they would. How they actually do.</p>
-<p>The path here was winding: philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops, then 7+ years at a startup that became about five different jobs. Every step taught me something I still use.</p>
-<p>Based in Guelph, Ontario. Remote worker since 2015. Pink office walls. A wall unit I got for $80 twelve years ago that stores all my favourite things. Two cats named Gertrude and Gherkin who have very different personalities and very strong opinions.</p>`,
+    bio: `<p>I'm Ashley. I notice things that aren't being said. Systems failing quietly. People overwhelmed and covering well. Two teams talking past each other, both convinced the other one is the problem. I notice, and then I do something about it. Apparently this is rarer than it should be.</p>
+<p>I'm shy. Genuinely. I'm a stage manager, not a lead actor. I'd rather make sure everyone has what they need and that the whole thing runs well than be the person at the front of the room. Get me one on one though, or somewhere I feel comfortable, and I'm a completely different person. Enthusiastic. Animated. Probably talking too fast about something I find fascinating. Both things are true and I've made peace with that.</p>
+<p>My brain works a bit differently than most and I genuinely love it. I'm deeply introspective, which means I understand myself well enough to know what I need and why I work the way I do. The anxiety that some people would call a weakness is actually what keeps everything from falling through the cracks. I cannot stand missing the mark. I cannot stand the feeling of something slipping. So things don't slip. I also don't like diving into a direction before I actually understand what I'm doing, which means I ask more questions upfront than most people expect and produce fewer wrong turns than most projects budget for. It's a fair trade.</p>
+<p>My dad was a house painter. I grew up understanding that doing something properly matters, even when nobody's watching. Especially then.</p>
+<p>Philosophy degree from Guelph. Hermeneutics specifically, which is the study of how meaning is made and lost between people. Social work training from George Brown. Then a receptionist job that turned into accounts receivable, London for a bit, sales ops, and eventually seven-plus years at a startup that became about five different jobs. None of it was a plan. All of it was useful.</p>
+<p>I don't think in hierarchies. A title tells me what someone is accountable for, not whether they're worth listening to. I've gotten good ideas from people on their first week and bad ones from people who'd been somewhere for a decade. Respect is just how you show up.</p>
+<p>I have strong opinions about Simpsons seasons two through seven, Vonnegut's general read on the human condition, and the structural perfection of Young Frankenstein. These feel related somehow.</p>
+<p>Guelph, Ontario. Pink office walls. An eighty dollar wall unit I've had for twelve years and will probably die with. Two cats: Gertrude, who is gentle and long-haired and grey, and Gherkin, who is a tabby and has thoughts.</p>
+<p>This website started as an homage to point-and-click adventures, Myst, MS Playroom, and the specific joy of exploring a computer as a kid without knowing where it would take you. It turned into something that feels more like me.</p>
+<p>Which is maybe how all the best things end up.</p>`,
 
     interests: {
       general: "Hermeneutics, pattern recognition, thrift stores, vintage finds, point-and-click adventure games, MYST, mid-century modern furniture, estate sales, things with history",
@@ -2049,34 +2053,64 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
     journalEntries: [
       {
         date: "March 2026",
-        mood: "thoughtful",
+        mood: "thinking about the person who will read this at 4pm on a Friday",
         music: "Bright Eyes - A Perfect Sonnet",
         subject: "Why I Design for Humans, Not Ideal Users",
-        content: `<p>Something I keep running into: systems designed for how people <em>should</em> behave instead of how they actually do.</p>
-<p>My philosophy background is in hermeneutics - the study of how people interpret and understand information. Combined with social work training, it means I think about the human on the other end of every process, every training module, every interface.</p>
-<p>When I build onboarding programs, I don't assume people will read the docs front to back. When I design training, I account for the fact that adults learn by doing, not by watching. When I write documentation, I structure it for the person who's searching for an answer at 4pm on a Friday, not the person leisurely reading a manual.</p>
-<p>This isn't just philosophy for philosophy's sake. It has practical outcomes: reduced ramp time, higher adoption rates, fewer support tickets, better data quality. Designing for real humans is better business.</p>`
+        content: `<p>There is a person who exists in the imagination of most system designers, documentation writers, and onboarding program architects. This person is focused. They have read everything that came before this page. They are approaching the material with curiosity and adequate time. They will not skip ahead. They will not search for the specific answer they need and ignore the rest. They are not tired. They are not doing three other things. They are not new and overwhelmed and quietly hoping nobody notices.</p>
+<p>This person does not exist. Every system built for them fails the actual humans who have to use it.</p>
+<p>I think about this constantly. It is maybe the thing I think about most when I'm building anything, whether that's an onboarding program, a training module, a knowledge base, a process document, or a demo environment. Not "does this make sense" but "does this make sense to the person who is going to encounter it under real conditions."</p>
+<p>My undergraduate degree is in hermeneutics, which is a branch of philosophy concerned with interpretation: how meaning is made, how it's communicated, how it gets lost in the gap between the person who wrote something and the person who reads it. The thing that drew me to it, and the thing that has made it quietly useful in every job I've had since, is that it takes seriously the idea that the reader is not a passive recipient of meaning. They bring their own context, their own prior knowledge, their own state of mind. The same document lands completely differently depending on who's reading it and when.</p>
+<p>Combined with social work training, which is essentially applied human psychology with a strong emphasis on meeting people where they actually are rather than where you wish they were, this gives me a lens I can't really turn off. I am always thinking about the person on the other end. Not the ideal person. The actual one.</p>
+<p>In practice this changes almost every decision I make.</p>
+<p>When I build onboarding programs, I don't assume people will read the documentation front to back in order, because nobody does that, and building a program that only works if they do is building a program that doesn't work. I think about what someone is likely to search for, what question they'll have at the specific moment they need it answered, and whether the answer is actually findable at that moment or buried three pages into a document they've never opened. I think about what it feels like to be new, which is a state of information overload that makes linearity almost impossible. You're not learning one thing at a time. You're learning everything at once while also trying to do the job.</p>
+<p>Adults learn by doing. This sounds obvious and yet an extraordinary number of training programs are built around watching and listening, which produces the impression of learning without much of the actual thing. I build for doing because that's what sticks. Passive consumption is easy to design for and produces very little. Active application is harder to design for and produces people who can actually use the thing you just taught them.</p>
+<p>The documentation piece is where I think the gap between ideal users and real ones shows up most clearly. There is a particular kind of documentation that is complete, accurate, logically structured, and almost completely useless. It's written by someone who knows the system deeply, for someone who is assumed to be approaching it with the same depth of knowledge and similar amounts of time. It covers everything in the order that makes sense to the person who built it. It is a monument to thoroughness.</p>
+<p>The person who needs it at 4pm on a Friday, trying to answer a client question before the end of day, cannot find anything in it. It is not written for her. She is searching for one specific answer and the document does not believe in searching. It believes in reading.</p>
+<p>I write for her. I structure things so they're searchable. I put the answer before the explanation, because most of the time someone needs the answer and only wants the explanation if the answer doesn't make sense. I think about what the question is before I think about what the content should be, because the question is why the document exists.</p>
+<p>There's a version of this that sounds like I'm just describing good UX or content strategy, and I suppose I am, but I think the philosophical grounding matters more than it might seem. When you genuinely believe that interpretation is an active process that depends on who's doing it and under what conditions, you can't design for an abstract user. You have to design for a real one. That commitment changes things at a level below individual decisions. It's a different starting assumption.</p>
+<p>It also produces measurably better outcomes, which I mention because I'm aware that "I have a philosophy degree and it informs my work" can sound like a nice story without much substance. The onboarding programs I've built that account for how people actually learn have reduced ramp time. The documentation I've written for real humans under real conditions has reduced support tickets. The training I've designed around doing rather than watching has produced higher adoption rates. Designing for real humans is not a nice ethical position. It is better business.</p>
+<p>What I find frustrating is how rare this starting point seems to be. Not because people don't care about their users, but because designing for the ideal user is genuinely easier. You don't have to think as hard about the conditions under which someone encounters your system. You don't have to imagine being confused by something you understand completely. You don't have to account for Friday at 4pm, or the new person who's overwhelmed, or the experienced person who's moving too fast to read carefully.</p>
+<p>But those are the conditions under which real people actually use the things we build. And if the things we build don't work for real people under real conditions, they don't really work.</p>
+<p>The perfect sonnet is the one that lands. Not the one that was correctly constructed in ideal conditions for an attentive reader with plenty of time.</p>`
       },
       {
         date: "February 2026",
         mood: "caffeinated",
         music: "Talking Heads - This Must Be the Place",
         subject: "The Case for Operational Infrastructure (Before You Think You Need It)",
-        content: `<p>I've watched the same pattern play out multiple times now: a small team grows, and suddenly the lack of documentation, process, and knowledge management becomes a crisis instead of an inconvenience.</p>
-<p>The thing about operational infrastructure is that it's invisible when it works. Nobody thanks you for the CRM being clean, the onboarding being smooth, or the knowledge base being searchable. But everyone notices when those things break.</p>
-<p>At MainEvent, I built these systems when we were ~10 people. They scaled to support 32M+ visits and Fortune 500 clients. The investment in 'boring' infrastructure paid off exponentially because we never had to stop and rebuild from scratch during growth.</p>
-<p>If you're a startup thinking "we'll figure out processes later" - later is more expensive than you think. And the person who builds your operational foundation should understand both the systems and the humans who'll use them.</p>`
+        content: `<p>There is a version of this post where I make a grand argument about operational infrastructure. I'm going to try to write a human one instead.</p>
+<p>I've watched the same pattern play out enough times now that I can see it coming. A small team is moving fast, which is correct, because moving fast when you're small is basically the whole advantage. Processes feel like friction. Documentation feels like a tax on momentum. The CRM is a mess but everyone kind of knows where everything is, sort of, mostly. It's fine. They'll sort it out later when there's more time.</p>
+<p>Later arrives. It always does. Usually right in the middle of something else.</p>
+<p>A new person joins and there's no onboarding process, so someone senior has to stop what they're doing and walk them through everything manually. A client asks a question and the person who knew the answer left six months ago and nobody wrote it down. A deal is almost closed and the demo environment is broken because it was built by hand and never documented and the person who built it is on holiday. The CRM data is so inconsistent that any report you pull out of it is basically fiction.</p>
+<p>None of these are catastrophes on their own. Together, at scale, under pressure, they are genuinely expensive. Not just in time, though the time cost is real. In trust. In the confidence your team has that the ground beneath them is solid.</p>
+<p>I joined MainEvent when there were roughly ten people and no formal processes to speak of. I don't say that as a criticism; it's just where early-stage companies are. You're trying to exist before you can worry about how you exist. But I came in with a particular instinct, which is that I can't function in a system I don't understand, and I really can't leave a system worse than I found it. So I started building.</p>
+<p>CRM hygiene. Sales processes. Onboarding documentation. Knowledge bases. QA frameworks. Training materials. Demo environments with actual logic behind them instead of just vibes. None of it was glamorous. Some of it was genuinely tedious. All of it was invisible to everyone who wasn't looking for it.</p>
+<p>That's the thing about operational infrastructure that makes it such an odd thing to build a career around: it only gets noticed when it breaks. Nobody pulls you aside to say "the onboarding was so smooth." Nobody sends you a thank you note because the knowledge base was searchable and they found the answer in two minutes instead of interrupting someone. The good outcome is the absence of a bad outcome, which is a strange thing to take satisfaction in, but I do. I genuinely do.</p>
+<p>This is where the philosophy background earns its keep in a way I find hard to explain but feel quite strongly about. There is a meaningful difference between building a system that makes sense to you and building a system that works for the humans who are going to use it under real conditions, when they're tired or rushed or new or handling three other things at once. Most documentation fails not because it's inaccurate but because it was written by someone who already knew everything it was trying to explain, for someone who was assumed to be paying full attention in ideal circumstances. Real people are not like that. Systems that account for real people look quite different from systems that account for ideal ones.</p>
+<p>My hermeneutics training, which I bring up more than most people are probably comfortable with, is essentially the study of how meaning is made and lost in interpretation. How the same text can be read completely differently depending on who's reading it and what they're bringing to it. Applied to operational systems, this means I'm always asking what this looks like to the person encountering it for the first time, under pressure, without context. That question changes almost every decision.</p>
+<p>The "we'll figure out processes later" instinct is understandable. It is also, in my experience, the most expensive sentence in early-stage company culture. Not because process is sacred but because the moment when you can build it cheaply is always earlier than you think, and the moment when you absolutely have to build it is always more costly than you planned for. You will build the foundation eventually. The question is whether you build it before or after it becomes a crisis.</p>
+<p>And when you do build it, the person doing it should probably understand systems and humans with roughly equal fluency. Because a system that's technically correct but doesn't account for how people actually behave isn't infrastructure. It's just documentation that nobody reads.</p>
+<p>I've built these things, handed them off, and watched them outlast my direct involvement. That's the goal, really. Not to be indispensable to the infrastructure but to build infrastructure that doesn't need you anymore. There's something quietly satisfying about that, like tidying a room you won't be in.</p>
+<p>This must be the place.</p>`
       },
       {
         date: "January 2026",
         mood: "passionate",
-        music: "Against Me! - I Was a Teenage Anarchist",
+        music: "Against Me! - I Still Love You Julie",
         subject: "AI Needs Critics Who Love It",
-        content: `<p>I love AI. I use Claude and ChatGPT daily. I built adoption infrastructure for an AI product. I created prompt engineering frameworks used by enterprise clients.</p>
-<p>And I'm deeply critical of it. Not because I'm a sceptic, but because I care about it being done right.</p>
-<p>My hermeneutics background helps me understand how LLMs interpret context - and where they might mislead. I catch hallucinations, test edge cases, question confident-sounding nonsense. This isn't being anti-AI. This is being pro-quality.</p>
-<p>The organisations that will win with AI aren't the ones that adopt fastest. They're the ones that adopt most thoughtfully - with appropriate guardrails, honest assessment of limitations, and someone asking "but does this actually work for our users?"</p>
-<p>That someone should probably have a philosophy degree and a stubborn commitment to asking why. Just saying.</p>`
+        content: `<p>My current AI setup, for context: Claude is my primary. Gemini when I want a second opinion. Lovable when I'm playing around with app ideas. Manus when I want to see what the agentic stuff actually does in practice. I've read enough about agent workflows, LLM architecture, and integration patterns to have opinions about them. I am not, in other words, someone who opened ChatGPT once and decided they understood AI.</p>
+<p>I say this not to flex but because it matters for what I want to talk about, which is output. Specifically, why nobody seems to be taking it seriously enough.</p>
+<p>There's a lot of conversation about AI adoption. Which tools to use, how fast to move, what it means for jobs, whether we're all doomed or saved or both. What I hear much less of is a serious conversation about what good output actually looks like, how you get there, and how you know when you haven't. That gap worries me more than most of the things people are worried about.</p>
+<p>Here's an analogy that might date me: remember when you could mod your Xbox? Or root your Android? There was this whole culture of people who just wanted to understand how the thing worked, who were willing to spend a weekend in forums figuring out exactly which steps to follow and in which order, and who got genuine satisfaction from making the device do something it wasn't supposed to. It rewarded curiosity. It had a community. It had shared knowledge about what you were trying to achieve and why.</p>
+<p>AI has that same energy, at least for some people. The tinkering instinct is absolutely there. But what's missing is any kind of unified understanding of what we're actually trying to do with it. Modding your Xbox had a clear goal: get more out of the hardware. What's the goal with AI? Efficiency? Creativity? Augmentation? Replacement? Everybody has a different answer, and most organisations haven't really sat down to figure out theirs. So people are tinkering without a target, which is fun right up until something goes wrong and nobody knows why.</p>
+<p>The output problem gets worse when you factor in critical thinking, which I genuinely believe is the most underrated skill for working with AI well, and also a completely insufficient safeguard on its own.</p>
+<p>Here's why. Critical thinking lets you interrogate what you're given. It makes you ask "does this actually make sense" and "where did this come from" and "what's missing here." Those are the right questions. But they only work if you have enough base knowledge to recognise when something is off. If you don't know the domain well, you won't catch the confident-sounding gaps the model is filling in with plausible nonsense. You'll read it, it'll feel coherent, and you'll move on. The model isn't lying to you. It's just completing a pattern. The distinction doesn't matter much if the result is that you've built something on a foundation that isn't solid.</p>
+<p>This is why I keep coming back to output as the thing that needs more attention. Not "are we adopting AI" but "what is it actually producing, and how would we know if it was wrong." That's a much harder question to answer, and most of the frameworks I see for AI adoption skip past it entirely.</p>
+<p>One thing I've noticed Anthropic doing recently that I think is genuinely good: the guided questions. The multiple choice prompts that help you figure out what you're actually asking for before you ask it. I was a bit sceptical at first because I'm the kind of person who already knows what she wants and types it directly, but I've come around on it. For people who aren't used to articulating things in a digital interface, or who haven't yet developed the instinct for how to scope a prompt, it's a meaningful on-ramp. It also does something useful that I don't think gets enough credit: it limits where the AI goes. It keeps the scope from expanding into territory you didn't ask for.</p>
+<p>Because here's my other frustration, and it's a small one but it accumulates: LLMs are inclined to be helpful. Agreeable. Thorough. Which sounds like a feature until you get three paragraphs of context you didn't need wrapped around the one sentence you asked for. It's not the model's fault exactly. It's optimising for something. But the result can feel wasteful, and it muddies the output in ways that matter if you're trying to actually evaluate what you've been given.</p>
+<p>The tension is real though. Because sometimes the thing you didn't ask for is the most interesting part. Sometimes the tangent the model goes off on opens a door you didn't know was there. I've had genuine insights come from exactly those moments of over-delivery. So I'm not saying constrain everything. I'm saying the question of how much is enough, and who gets to decide, is one we haven't figured out yet.</p>
+<p>And until we do, output quality is going to keep being treated as a nice-to-have instead of the whole point.</p>
+<p>It is the whole point.</p>`
       }
     ]
   },
@@ -2145,7 +2179,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
       },
 
       "What makes you different?": {
-        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviors. That's why my training programs work and my documentation actually gets used. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
+        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviours. That's why my training programs work and my documentation actually gets used. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
         followUp: "You mentioned hermeneutics - how does that actually help?"
       },
 
