@@ -1726,13 +1726,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <p><em>Quality Assurance Leadership:</em></p>
 <ul>
-<li>Served as sole QA Lead on major client projects (including Neptune project) - owned quality from testing through client delivery</li>
+<li>Served as sole QA Lead on major client projects (including a major enterprise retail client project) - owned quality from testing through client delivery</li>
 <li>Created and executed detailed test plans covering edge cases, user flows, regression testing, and emerging bugs</li>
 <li>Partnered with Product and Engineering to deeply understand platform functionality and technical architecture</li>
 <li>Wrote clear, actionable feedback on technical issues in Jira - detailed tickets for developers, client-friendly explanations for customers</li>
 </ul>
 
-<p><em>Neptune Retail Solutions Project - End-to-End Ownership:</em></p>
+<p><em>Enterprise Retail Marketing Services Client - End-to-End Ownership:</em></p>
 <ul>
 <li>Led complete project lifecycle: discovery, requirements gathering, workflow/wireframe design, QA process creation, development team leadership (4 people), project management, and account management</li>
 <li>Managed Jira board for entire project - prioritised tickets, triaged bugs, tracked feature development, and ensured all work passed testing standards</li>
@@ -1759,13 +1759,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><strong>THE IMPACT:</strong></p>
 <ul>
 <li>Key contributor to 100% of sales wins since 2018 - every deal involves custom demo preparation, prospect research, and materials development</li>
-<li>Successfully launched Neptune custom platform and transitioned to dedicated account manager</li>
+<li>Successfully launched enterprise retail client's custom platform and transitioned to dedicated account manager</li>
 <li>Maintained quality delivery standards across 20+ implementations as sole QA Lead</li>
 <li>Led trade show readiness and event planning including EMS Vegas booth materials, demo prep, lead qualification</li>
 </ul>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley's "Swiss Army Knife" approach means she's comfortable stepping into whatever role is needed - QA lead, project manager, sales enabler, account manager - often simultaneously. This flexibility enabled her to lead the Neptune project end-to-end from discovery to successful handoff while maintaining quality standards across 20+ other implementations.
+<strong>DID YOU KNOW?</strong> Ashley's "Swiss Army Knife" approach means she's comfortable stepping into whatever role is needed - QA lead, project manager, sales enabler, account manager - often simultaneously. This flexibility enabled her to lead a major enterprise retail client project end-to-end from discovery to successful handoff while maintaining quality standards across 20+ other implementations.
 </div>
 
 <hr class="section-divider">
@@ -1904,7 +1904,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
         whatThisNeeds: "Someone who bridges product, engineering, and customers. Owns QA processes, manages releases, translates user needs into actionable feedback, and builds the operational systems that keep product delivery on track.",
         whatIveDone: [
           "Served as sole QA lead across 20+ implementations - testing, bug triage, edge case identification",
-          "Led Neptune Retail Solutions project end-to-end: discovery, requirements, wireframes, QA, daily scrums, Jira management, client delivery",
+          "Led enterprise retail marketing services client project end-to-end: discovery, requirements, wireframes, QA, daily scrums, Jira management, client delivery",
           "Built operational infrastructure from scratch at a startup that grew to support 32M+ visits and Fortune 500 clients",
           "Partnered with engineering throughout full SDLC - user perspective, seller feedback, delivery verification"
         ],
