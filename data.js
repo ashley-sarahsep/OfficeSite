@@ -1653,8 +1653,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <div class="resume-section">
 <h2>OH, HELLO!</h2>
-<p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience driving operational and product success through coordination across teams, technical translation, and operational excellence. I navigate ambiguous environments, identify organisational gaps, and build scalable systems that make everyone else's job easier.</p>
-<p>I joined MainEvent when the team was ~10 people with no formal processes and built the operational infrastructure from scratch - sales operations, training programs, QA processes, and project management frameworks that enabled the team to support 32M+ visits, 576K+ client staff, and Fortune 500 brands at massive scale. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product including manual testing framework, client data reviews, 5-phase onboarding methodology, educational curriculum with enterprise analytical frameworks, and thought leadership content.</p>
+<p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience making sure the operational and product side of things actually holds together - particularly in the gaps between teams where work tends to get lost. I work well in environments where nothing is formally documented yet, and most of the important work doesn't clearly belong to one team. I identify organisational gaps and build systems that don't collapse the moment the company outgrows the conditions they were designed for.</p>
+<p>I joined MainEvent when the team was ~10 people with no formal processes and built the operational infrastructure from scratch - sales operations, training programs, QA processes, and project management frameworks that enabled the team to support 32M+ visits, 576K+ client staff, and Fortune 500 brands at massive scale. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product including manual testing framework, client data reviews, 5-phase onboarding methodology, educational curriculum with enterprise analytical frameworks, and strategic content.</p>
 <p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviours. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
 </div>
 
@@ -1710,7 +1710,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 </ul>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley's philosophy background in hermeneutics (how people interpret information) makes her uniquely effective at identifying where AI models might misinterpret context or produce misleading results - turning her into an invaluable quality advocate for AI products before they reach clients.
+<strong>DID YOU KNOW?</strong> Ashley's philosophy background in hermeneutics (how people interpret information) makes her uniquely effective at identifying where AI models might misinterpret context or produce misleading results - the person who will not sign off on something that isn't ready, and who understands the product well enough to know the difference.
 </div>
 
 <hr class="section-divider">
@@ -1798,7 +1798,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><em>Product Operations & Quality:</em></p>
 <ul>
 <li>Partnered with Product and Engineering throughout full software development lifecycle - provided user perspective, seller and client feedback, ensured delivery met commitments</li>
-<li>Leveraged AI agents to analyse field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements</li>
+<li>Used AI agents to analyse field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements</li>
 <li>Conducted win/loss analysis, competitive post-mortems, and gathered field feedback to identify product gaps and competitive advantages</li>
 <li>Managed client issues, triaged bugs in Jira, translated complex platform behaviour into client-friendly explanations while coordinating resolution with engineering</li>
 <li>Led daily scrum calls with internal team to prioritise bugs, manage feature development, maintain delivery momentum</li>
@@ -1859,10 +1859,10 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <div class="resume-section">
 <h2>TECHNICAL CAPABILITIES</h2>
-<p><strong>Project Management:</strong> Jira (expert - bug tracking, sprint management, feature requests), Linear, ClickUp, Asana, Notion, Agile methodologies, daily scrum facilitation, sprint planning, stakeholder management</p>
-<p><strong>Data & Analytics:</strong> Data cleanup and validation, pattern identification, business intelligence frameworks, dashboards and analysis tools, report building, sales analytics, forecasting, performance metrics tracking</p>
-<p><strong>CRM & Sales Operations:</strong> SugarCRM, HubSpot, Salesforce integrations, pipeline management, sales process design, discovery frameworks, demo environment creation</p>
-<p><strong>AI & Technology:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub, LLMs, LLM Agents, prompt engineering, quality assurance for AI outputs, technical training delivery, adoption frameworks, onboarding materials</p>
+<p><strong>Project Management:</strong> Jira (expert - bug tracking, sprint management, feature requests), Linear, ClickUp, Asana, Notion, Agile methodologies, daily scrum facilitation, sprint planning, stakeholder management, OKR/KPI tracking</p>
+<p><strong>Data & Analytics:</strong> Data cleanup and validation, pattern identification, business intelligence frameworks, dashboards and analysis tools, report building, sales analytics, forecasting, performance metrics tracking, knowledge management</p>
+<p><strong>CRM & Sales Operations:</strong> SugarCRM, HubSpot, Salesforce integrations, pipeline management, revenue operations, sales process design, go-to-market support, discovery frameworks, demo environment creation</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub, LLMs, LLM Agents, prompt engineering, quality assurance for AI outputs, user adoption strategy, workflow design, technical training delivery, onboarding materials</p>
 <p><strong>Design & Content:</strong> Canva, video production (Loom), training curriculum development, presentation design</p>
 <p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, Slack, Microsoft Teams, Zoom, Google Workspace, Microsoft Office</p>
 

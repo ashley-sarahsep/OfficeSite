@@ -4044,7 +4044,7 @@ function initWorkMatch(windowEl) {
       emoji: "📊",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Ashley who finds the signal in the noise. Data analysis, visualization, metrics that matter, insights that change minds. This Ashley asks the questions nobody thought to ask and finds patterns that unlock new understanding.";
+        if (pct >= 85) return "You want the Ashley who finds the signal in the noise. Data analysis, visualization, metrics that matter, insights that change minds. This Ashley asks the questions nobody thought to ask and finds patterns that shift how you think about the data.";
         if (pct >= 70) return "Strong data alignment! You'd benefit from the Ashley who can turn information into intelligence. She'll help you measure what matters and tell the story your data is hiding.";
         return "Some data energy here - you appreciate evidence-based decisions. This Ashley can help surface the insights you need to make smarter moves.";
       }
