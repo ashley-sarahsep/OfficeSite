@@ -889,7 +889,10 @@ function openApp(appType, fileId) {
     return;
   }
 
-  const template = document.getElementById(`template-${appType}`);
+  // Map app types that share a template
+  const templateMap = { 'wordpad-ats': 'wordpad' };
+  const templateId = templateMap[appType] || appType;
+  const template = document.getElementById(`template-${templateId}`);
   if (!template) return;
 
   const windowEl = template.content.cloneNode(true).firstElementChild;
@@ -935,6 +938,7 @@ function openApp(appType, fileId) {
 function getWindowSize(appType) {
   const sizes = {
     wordpad: { width: '600px', height: '500px' },
+    'wordpad-ats': { width: '600px', height: '500px' },
     livejournal: { width: '700px', height: '600px' },
     roleexplorer: { width: '650px', height: '520px' },
     messenger: { width: '420px', height: '480px' },
@@ -967,6 +971,7 @@ function getWindowTitle(appType, fileId) {
 
   const titles = {
     wordpad: 'Resume.doc - WordPad',
+    'wordpad-ats': 'Resume_ATS.doc - WordPad',
     livejournal: 'AboutMe.html - Internet Explorer',
     roleexplorer: 'Hire Me - Role Explorer',
     messenger: 'AshleyChat',
@@ -994,7 +999,11 @@ function initWindowContent(windowEl, appType, fileId) {
 
   switch (appType) {
     case 'wordpad':
-      initWordpad(windowEl);
+      initWordpad(windowEl, 'resume');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-ats':
+      initWordpad(windowEl, 'resumeATS');
       windowEl.dataset.windowType = 'resume';
       break;
     case 'livejournal':
@@ -1243,10 +1252,11 @@ function addTaskbarItem(windowId, title) {
 // APP CONTENT INITIALIZATION
 // ============================================
 
-function initWordpad(windowEl) {
+function initWordpad(windowEl, dataKey) {
   const content = windowEl.querySelector('.wordpad-content');
-  if (content) {
-    content.innerHTML = SITE_DATA.resume.content;
+  const source = dataKey === 'resumeATS' ? SITE_DATA.resumeATS : SITE_DATA.resume;
+  if (content && source) {
+    content.innerHTML = source.content;
   }
 
   // Print button - opens print dialog for the resume content
