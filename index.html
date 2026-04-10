@@ -177,8 +177,8 @@
                 <span class="icon-label">Hire Me.exe</span>
               </div>
               <div class="desktop-icon" data-app="messenger" data-file="chat">
-                <div class="icon-image icon-chat"></div>
-                <span class="icon-label">AshleyChat.exe</span>
+                <div class="icon-image icon-hal"></div>
+                <span class="icon-label">HAL.exe</span>
               </div>
               <div class="desktop-icon" data-app="misc-folder" data-file="mywork">
                 <div class="icon-image icon-folder"></div>
@@ -251,7 +251,7 @@
               </div>
               <div class="start-menu-item" data-action="chat">
                 <span class="menu-icon icon-exe-small"></span>
-                <span>AshleyChat.exe</span>
+                <span>HAL.exe</span>
               </div>
               <div class="start-menu-divider"></div>
               <div class="start-menu-item" data-action="about-computer">
@@ -361,8 +361,8 @@
     <div class="window window-messenger" data-window="messenger">
       <div class="window-titlebar titlebar-messenger">
         <span class="window-title">
-          <span class="msn-butterfly">🦋</span>
-          Ashley - Online
+          <span class="hal-eye-icon"></span>
+          HAL - Helpful Ashley Likeness
         </span>
         <div class="window-controls">
           <button class="window-btn window-minimize">_</button>
@@ -370,19 +370,23 @@
           <button class="window-btn window-close">&times;</button>
         </div>
       </div>
-      <div class="msn-toolbar">
-        <span class="msn-status">
-          <span class="msn-status-dot"></span>
-          Available
+      <div class="hal-toolbar">
+        <span class="hal-status">
+          <span class="hal-status-dot"></span>
+          Online
         </span>
-        <span class="msn-branding">MSN Messenger</span>
+        <span class="hal-branding">HAL v9000.1</span>
       </div>
       <div class="window-content messenger-content">
         <div class="messenger-chat-area" id="messenger-chat">
           <!-- Chat messages loaded by JS -->
         </div>
         <div class="messenger-input-area">
-          <div class="messenger-prompt">Click a topic to chat:</div>
+          <div class="hal-input-row">
+            <input type="text" class="hal-text-input" id="hal-text-input" placeholder="Type something..." autocomplete="off">
+            <button class="hal-send-btn" id="hal-send-btn">Send</button>
+          </div>
+          <div class="messenger-prompt">Or select a topic:</div>
           <div class="messenger-quick-questions" id="messenger-quick">
             <!-- Quick question buttons loaded by JS -->
           </div>

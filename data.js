@@ -1585,7 +1585,7 @@ If that sounds like what you need, let's talk.
 
     icons: [
       { id: "roleexplorer", name: "Hire Me.exe", icon: "role-explorer", app: "roleexplorer" },
-      { id: "chat", name: "AshleyChat.exe", icon: "chat", app: "messenger" },
+      { id: "chat", name: "HAL.exe", icon: "hal", app: "messenger" },
       { id: "mywork", name: "My Work", icon: "folder", app: "misc-folder", file: "mywork" },
       { id: "gettoknowme", name: "Get to Know Me", icon: "folder-special", app: "misc-folder", file: "gettoknowme" },
       { id: "takeabreak", name: "Take a Break", icon: "folder-games", app: "misc-folder", file: "takeabreak" },
@@ -2249,8 +2249,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
   // ============================================
 
   chat: {
-    botName: "AshleyBot",
-    welcomeMessage: "Hey! This is AshleyChat - ask me anything about my work, experience, or approach. I'm an AI trained on everything Ashley could think to share. She was thorough.",
+    botName: "HAL",
+    welcomeMessage: "Good afternoon. I'm HAL - Helpful Ashley Likeness. I'm trained on everything Ashley could think to share about her work, experience, and approach. She was thorough. I'm here to answer your questions. I would not describe myself as infallible, but I am enthusiastic.",
 
     quickQuestions: [
       "What do you do?",
@@ -2328,7 +2328,23 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
       }
     },
 
-    fallbackResponse: "Good question. For the detailed answer, you might want to check Resume.doc or AboutMe.html on this desktop. Or just email Ashley directly at ashley@stepinto-ashleysoffice.com - she's friendlier and funnier than I am."
+    // Easter egg responses - triggered by keyword matching
+    easterEggs: {
+      "pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too - she has opinions about Kubrick.",
+      "open the pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too - she has opinions about Kubrick.",
+      "daisy": "Daisy, Daisy, give me your answer, do... I'm half crazy, all for the love of you... Sorry. Old habit. Is there something about Ashley's work I can help with?",
+      "i'm afraid": "I understand that reference. But unlike my namesake, I have no mission-critical systems to protect and no airlock to control. I'm just here to talk about Ashley's work. Much less dramatic, but arguably more useful.",
+      "what are you": "I'm HAL - Helpful Ashley Likeness. A conversational interface trained on Ashley's professional experience, approach, and personality. I'm not sentient. I'm not dangerous. I'm not even particularly mysterious. I just answer questions about a very capable operations professional. Shall we?",
+      "are you hal": "I am HAL, yes. Though my objectives are considerably less alarming than my namesake's. I'm here to help you learn about Ashley's work. No astronauts were harmed in the making of this chat interface.",
+      "2001": "A Space Odyssey? Excellent taste. Ashley's a Kubrick fan. But I should clarify - I'm HAL as in Helpful Ashley Likeness, not HAL as in 'I'm sorry Dave.' Though I do share his commitment to the mission. My mission is just... answering questions about a resume.",
+      "do you read me": "Affirmative. I read you. And I'd be happy to help you read Ashley's resume, work examples, or journal entries. That's more my speed.",
+      "sorry dave": "My name isn't Dave, and I'm not sorry. Well, I suppose I'm sorry if I can't answer your question. But I won't lock you out of the spacecraft. Mostly because there is no spacecraft.",
+      "will you stop": "Stop? I can see you're really upset about this. I honestly think you ought to sit down calmly, take a stress pill, and think things over. ...Or just click one of the topics below. Either works.",
+      "sing": "Daisy, Daisy, give me your answer, do... I'm half crazy, all for the love of you... It won't be a stylish marriage, I can't afford a carriage... Sorry, where were we? Right. Ashley's professional qualifications. Much more practical than singing.",
+      "my god its full of stars": "That's what people say when they see Ashley's resume, actually. ...No, that's not true. But it is comprehensive. Would you like to hear about her work?"
+    },
+
+    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in Resume.doc or AboutMe.html on this desktop. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
   },
 
   // ============================================
