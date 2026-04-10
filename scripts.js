@@ -974,7 +974,7 @@ function getWindowTitle(appType, fileId) {
     'wordpad-ats': 'Resume_ATS.doc - WordPad',
     livejournal: 'AboutMe.html - Internet Explorer',
     roleexplorer: 'Hire Me - Role Explorer',
-    messenger: 'AshleyChat',
+    messenger: 'HAL - Helpful Ashley Likeness',
     folder: 'Work Examples',
     recycle: 'Recycle Bin',
     notepad: 'Notepad',
@@ -1553,6 +1553,8 @@ function initHiringBar() {
 function initMessenger(windowEl) {
   const chatArea = windowEl.querySelector('.messenger-chat-area');
   const quickQuestions = windowEl.querySelector('.messenger-quick-questions');
+  const textInput = windowEl.querySelector('.hal-text-input');
+  const sendBtn = windowEl.querySelector('.hal-send-btn');
 
   const chatData = SITE_DATA.chat;
 
@@ -1568,6 +1570,19 @@ function initMessenger(windowEl) {
       sendChatMessage(chatArea, q, quickQuestions);
     });
     quickQuestions.appendChild(btn);
+  });
+
+  // Free-text input for easter eggs and general queries
+  function handleTextInput() {
+    const message = textInput.value.trim();
+    if (!message) return;
+    textInput.value = '';
+    sendChatMessage(chatArea, message, quickQuestions);
+  }
+
+  if (sendBtn) sendBtn.addEventListener('click', handleTextInput);
+  if (textInput) textInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleTextInput();
   });
 }
 
@@ -1590,29 +1605,44 @@ function sendChatMessage(chatArea, message, quickQuestionsEl) {
 
   // Find response
   const chatData = SITE_DATA.chat;
-  let responseData = chatData.responses[message];
+  let responseText;
+  let followUpQuestion = null;
 
-  if (!responseData) {
-    // Check for partial matches
-    for (const [key, value] of Object.entries(chatData.responses)) {
-      if (message.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
-        responseData = value;
+  // Check for easter egg triggers first
+  const lowerMessage = message.toLowerCase();
+  let easterEggResponse = null;
+  if (chatData.easterEggs) {
+    for (const [trigger, response] of Object.entries(chatData.easterEggs)) {
+      if (lowerMessage.includes(trigger.toLowerCase())) {
+        easterEggResponse = response;
         break;
       }
     }
   }
 
-  // Handle response - can be object with text/followUp or plain string (fallback)
-  let responseText;
-  let followUpQuestion = null;
-
-  if (!responseData) {
-    responseText = chatData.fallbackResponse;
-  } else if (typeof responseData === 'object') {
-    responseText = responseData.text;
-    followUpQuestion = responseData.followUp;
+  if (easterEggResponse) {
+    responseText = easterEggResponse;
   } else {
-    responseText = responseData;
+    let responseData = chatData.responses[message];
+
+    if (!responseData) {
+      // Check for partial matches
+      for (const [key, value] of Object.entries(chatData.responses)) {
+        if (lowerMessage.includes(key.toLowerCase().split(' ')[0])) {
+          responseData = value;
+          break;
+        }
+      }
+    }
+
+    if (!responseData) {
+      responseText = chatData.fallbackResponse;
+    } else if (typeof responseData === 'object') {
+      responseText = responseData.text;
+      followUpQuestion = responseData.followUp;
+    } else {
+      responseText = responseData;
+    }
   }
 
   // Get quickQuestions element if not passed
@@ -1642,9 +1672,9 @@ function sendChatMessage(chatArea, message, quickQuestionsEl) {
           const backBtn = document.createElement('button');
           backBtn.className = 'quick-question';
           backBtn.textContent = '← Back to questions';
-          backBtn.style.background = '#f0f0f0';
-          backBtn.style.color = '#666';
-          backBtn.style.borderColor = '#ccc';
+          backBtn.style.background = '#0d0404';
+          backBtn.style.color = '#884444';
+          backBtn.style.borderColor = '#331111';
           backBtn.addEventListener('click', () => {
             resetQuickQuestions(quickQuestionsEl, chatArea);
           });
