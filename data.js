@@ -504,7 +504,7 @@ If that sounds like what you need, let's talk.
         {
           id: "welcome-intro",
           portrait: "smiling1",
-          text: "Hiya! I'm Ashley - this is my office. Want to know more? Take a look around.",
+          text: "Oh, hello there! I'm Ashley. Welcome to my office - it's meant to be explored, so go ahead: open things, dig around, be nosy; I would be.",
           responses: [
             { text: "[Start exploring]", next: null }
           ]
@@ -2250,7 +2250,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
 
   chat: {
     botName: "HAL",
-    welcomeMessage: "Good afternoon. I'm HAL - Helpful Ashley Likeness. I'm trained on everything Ashley could think to share about her work, experience, and approach. She was thorough. I'm here to answer your questions. I would not describe myself as infallible, but I am enthusiastic.",
+    welcomeMessage: "Good afternoon. I'm HAL - Helpful Ashley Likeness. I speak as Ashley - her words, her experience, her perspective. She trained me on everything she could think to share. She was thorough. Select a topic below, or type something and I'll do my best.",
 
     quickQuestions: [
       "What do you do?",
