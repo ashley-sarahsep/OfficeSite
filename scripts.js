@@ -890,7 +890,14 @@ function openApp(appType, fileId) {
   }
 
   // Map app types that share a template
-  const templateMap = { 'wordpad-ats': 'wordpad' };
+  const templateMap = {
+    'wordpad-cos': 'wordpad',
+    'wordpad-prodops': 'wordpad',
+    'wordpad-sales': 'wordpad',
+    'wordpad-ai': 'wordpad',
+    'wordpad-revops': 'wordpad',
+    'wordpad-impl': 'wordpad'
+  };
   const templateId = templateMap[appType] || appType;
   const template = document.getElementById(`template-${templateId}`);
   if (!template) return;
@@ -1002,8 +1009,28 @@ function initWindowContent(windowEl, appType, fileId) {
       initWordpad(windowEl, 'resume');
       windowEl.dataset.windowType = 'resume';
       break;
-    case 'wordpad-ats':
-      initWordpad(windowEl, 'resumeATS');
+    case 'wordpad-cos':
+      initWordpad(windowEl, 'resumeCOS');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-prodops':
+      initWordpad(windowEl, 'resumeProdOps');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-sales':
+      initWordpad(windowEl, 'resumeSalesEnable');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-ai':
+      initWordpad(windowEl, 'resumeAI');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-revops':
+      initWordpad(windowEl, 'resumeRevOps');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-impl':
+      initWordpad(windowEl, 'resumeImpl');
       windowEl.dataset.windowType = 'resume';
       break;
     case 'livejournal':
@@ -1254,7 +1281,7 @@ function addTaskbarItem(windowId, title) {
 
 function initWordpad(windowEl, dataKey) {
   const content = windowEl.querySelector('.wordpad-content');
-  const source = dataKey === 'resumeATS' ? SITE_DATA.resumeATS : SITE_DATA.resume;
+  const source = SITE_DATA[dataKey] || SITE_DATA.resume;
   if (content && source) {
     content.innerHTML = source.content;
   }
@@ -1511,6 +1538,7 @@ function initRoleExplorer(windowEl) {
                   </div>
                 </div>
                 <div class="re-role-cta">
+                  ${role.resumeApp ? `<button class="re-cta-btn re-cta-btn-secondary" data-resume-app="${role.resumeApp}">See full resume &rarr;</button>` : ''}
                   <a href="mailto:${data.cta.email}?subject=${encodeURIComponent('Re: ' + role.title + ' - Let\'s Talk')}" class="re-cta-btn">Let's talk about this &rarr;</a>
                 </div>
               </div>
@@ -1534,6 +1562,15 @@ function initRoleExplorer(windowEl) {
           selectedRoles.add(roleId);
         }
         render();
+      });
+    });
+
+    // "See full resume" buttons open the matching WordPad window
+    content.querySelectorAll('[data-resume-app]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const appType = btn.dataset.resumeApp;
+        openApp(appType, 'resume');
       });
     });
   }

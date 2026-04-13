@@ -5740,6 +5740,10 @@ body.a11y-screen-reader [aria-hidden="true"] {
 .re-role-cta {
   margin-top: 16px;
   text-align: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .re-cta-btn {
@@ -5752,11 +5756,24 @@ body.a11y-screen-reader [aria-hidden="true"] {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
+  border: 1px solid var(--color-burgundy);
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .re-cta-btn:hover {
   background: #a0445e;
   transform: translateY(-1px);
+}
+
+.re-cta-btn-secondary {
+  background: #fff;
+  color: var(--color-burgundy);
+}
+
+.re-cta-btn-secondary:hover {
+  background: var(--color-cream);
+  color: var(--color-burgundy);
 }
 
 .re-footer {
