@@ -39,7 +39,7 @@ function setHighScore(gameId, score, type = 'high') {
 
 // State management
 const state = {
-  currentScene: 'boot', // 'boot', 'room', 'desktop'
+  currentScene: 'room', // 'room', 'desktop'
   currentDialog: null,
   currentConversation: null,
   windows: [],
@@ -75,172 +75,12 @@ function getNextWindowZIndex() {
 }
 
 // ============================================
-// BOOT SEQUENCE
-// ============================================
-
-function initBoot() {
-  const bootScreen = document.getElementById('boot-screen');
-  const bootText = document.getElementById('boot-text');
-
-  // Use boot sequence from data.js - classic DOS style
-  const bootMessages = SITE_DATA.bootSequence || [
-    "BIOS Version 1.0.94 - Ashley Industries",
-    "Memory Test: 640K OK",
-    "Detecting IDE drives...",
-    "Primary Master: PERSONALITY.SYS",
-    "Primary Slave: EXPERIENCE.DAT",
-    "Secondary Master: CREATIVITY.DRV",
-    "Loading CONFIG.SYS...",
-    "Loading AUTOEXEC.BAT...",
-    "HIMEM.SYS loaded",
-    "EMM386.EXE loaded",
-    "Loading MOUSE.COM...",
-    "Loading SOUND.DRV...",
-    "Starting HireMeOS 98...",
-    "",
-    "Welcome to Ashley's Office"
-  ];
-
-  let currentLine = 0;
-  let bootContent = '';
-
-  function typeBootLine() {
-    if (currentLine >= bootMessages.length) {
-      // Show options after boot sequence
-      setTimeout(showBootOptions, 500);
-      return;
-    }
-
-    const msg = bootMessages[currentLine];
-    let lineHtml = '';
-
-    if (msg === '') {
-      lineHtml = '\n';
-    } else {
-      // Style the text with the warm color scheme
-      lineHtml = `<span class="message">${msg}</span>\n`;
-    }
-
-    bootContent += lineHtml;
-    bootText.innerHTML = bootContent;
-
-    currentLine++;
-    setTimeout(typeBootLine, 80 + Math.random() * 60);
-  }
-
-  function showBootOptions() {
-    const bootContentDiv = document.querySelector('.boot-content');
-
-    // Add progress bar
-    const progressHtml = `
-      <div class="boot-progress">
-        <div class="boot-progress-bar" id="boot-progress-bar"></div>
-      </div>
-    `;
-
-    // Add options
-    const optionsHtml = `
-      <p class="boot-select-text">Select Your Experience</p>
-      <div class="boot-options">
-        <button class="boot-option" data-mode="explore">
-          <span class="boot-option-key">[*]</span>
-          <span class="boot-option-title">EXPLORE MODE</span>
-          <span class="boot-option-desc">Full interactive OS experience<br>Best on: Desktop, 10+ minutes</span>
-        </button>
-        <button class="boot-option" data-mode="quick">
-          <span class="boot-option-key">[>]</span>
-          <span class="boot-option-title">QUICK ACCESS</span>
-          <span class="boot-option-desc">Resume & contact, no frills<br>Best for: Recruiters, mobile, time-sensitive</span>
-        </button>
-      </div>
-      <p class="boot-accessibility" id="accessibility-toggle">[+] Accessibility Settings</p>
-    `;
-
-    bootContentDiv.innerHTML += progressHtml + optionsHtml;
-
-    // Animate progress bar
-    const progressBar = document.getElementById('boot-progress-bar');
-    setTimeout(() => {
-      progressBar.style.width = '100%';
-    }, 100);
-
-    // Add event listeners to options
-    document.querySelectorAll('.boot-option').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const mode = e.currentTarget.dataset.mode;
-        selectBootOption(mode);
-      });
-    });
-  }
-
-  function selectBootOption(mode) {
-    // Mark selected
-    document.querySelectorAll('.boot-option').forEach(btn => {
-      btn.classList.remove('selected');
-      if (btn.dataset.mode === mode) {
-        btn.classList.add('selected');
-      }
-    });
-
-    setTimeout(() => {
-      if (mode === 'explore') {
-        transitionToRoom();
-      } else {
-        transitionToDesktop();
-      }
-    }, 500);
-  }
-
-  // Allow skipping with any key
-  document.addEventListener('keydown', function skipBoot(e) {
-    if (state.currentScene === 'boot') {
-      document.removeEventListener('keydown', skipBoot);
-      showBootOptions();
-      currentLine = bootMessages.length; // Stop typing
-    }
-  });
-
-  // Start boot sequence
-  setTimeout(typeBootLine, 500);
-}
-
-// ============================================
 // SCENE TRANSITIONS
 // ============================================
 
-function transitionToRoom() {
-  const bootScreen = document.getElementById('boot-screen');
-  const roomScene = document.getElementById('room-scene');
-
-  bootScreen.style.opacity = '0';
-  bootScreen.style.transition = 'opacity 0.5s ease';
-
-  setTimeout(() => {
-    bootScreen.classList.add('hidden');
-    roomScene.classList.remove('hidden');
-    roomScene.style.opacity = '0';
-    setTimeout(() => {
-      roomScene.style.opacity = '1';
-      roomScene.style.transition = 'opacity 0.5s ease';
-    }, 50);
-    state.currentScene = 'room';
-    initRoomMenu();
-  }, 500);
-}
-
 function transitionToDesktop(callback) {
-  const bootScreen = document.getElementById('boot-screen');
   const roomScene = document.getElementById('room-scene');
   const desktopScene = document.getElementById('desktop-scene');
-
-  // Hide boot if visible
-  if (!bootScreen.classList.contains('hidden')) {
-    bootScreen.style.opacity = '0';
-    bootScreen.style.transition = 'opacity 0.5s ease';
-    setTimeout(() => {
-      bootScreen.classList.add('hidden');
-    }, 500);
-  }
 
   // Hide room if visible
   if (!roomScene.classList.contains('hidden')) {
@@ -357,8 +197,8 @@ function initRoomMenu() {
           case 'resume':
             openApp('wordpad', 'resume');
             break;
-          case 'myspace':
-            openApp('myspace', 'about');
+          case 'livejournal':
+            openApp('livejournal', 'about');
             break;
           case 'chat':
             openApp('messenger', 'chat');
@@ -548,19 +388,16 @@ function showConversation(conversationId) {
     // Show responses after text is done
     responsesEl.innerHTML = '';
 
-    // Check if this is a "dead end" - no response leads to more conversation
-    const hasMoreConversation = conversation.responses.some(r =>
-      r.next !== null && !r.action
-    );
-
     // Add the conversation's own responses (but filter out generic "back" ones we'll replace)
     conversation.responses.forEach(response => {
-      // Skip old-style back/close responses - we'll add standardized ones
-      if (response.next === null && !response.action &&
+      // Skip old-style back/close responses - we'll add standardized ones (but not for welcome dialog)
+      if (state.currentDialog !== 'welcome' &&
+          response.next === null && !response.action &&
           (response.text.toLowerCase().includes('back') ||
            response.text.toLowerCase().includes('exploring') ||
            response.text.toLowerCase().includes('leave') ||
-           response.text.toLowerCase().includes('goodbye'))) {
+           response.text.toLowerCase().includes('goodbye') ||
+           response.text.toLowerCase().includes('depart'))) {
         return;
       }
 
@@ -586,29 +423,32 @@ function showConversation(conversationId) {
       responsesEl.appendChild(btn);
     });
 
-    // If this is a dead end (or limited options), add "Continue Dialog" to restart
+    // Determine if we're on the first conversation screen
     const firstConversationId = state.currentConversation[0]?.id;
     const isFirstConversation = conversationId === firstConversationId;
 
-    if (!isFirstConversation && !hasMoreConversation) {
+    // If NOT on the first screen, add "Continue Dialog" to go back to start
+    if (!isFirstConversation) {
       const continueBtn = document.createElement('button');
-      continueBtn.className = 'dialog-response';
-      continueBtn.textContent = '[Continue conversation]';
+      continueBtn.className = 'dialog-response dialog-nav';
+      continueBtn.textContent = '[Continue dialog]';
       continueBtn.addEventListener('click', () => {
         showConversation(firstConversationId);
       });
       responsesEl.appendChild(continueBtn);
     }
 
-    // Always add "Back to exploring" option
-    const exploreBtn = document.createElement('button');
-    exploreBtn.className = 'dialog-response';
-    exploreBtn.textContent = '[Back to exploring]';
-    exploreBtn.addEventListener('click', () => {
-      closeDialog();
-      document.getElementById('inspect-menu')?.classList.remove('hidden');
-    });
-    responsesEl.appendChild(exploreBtn);
+    // Add "Back to exploring" option (except for welcome dialog)
+    if (state.currentDialog !== 'welcome') {
+      const exploreBtn = document.createElement('button');
+      exploreBtn.className = 'dialog-response dialog-nav';
+      exploreBtn.textContent = '[Back to exploring]';
+      exploreBtn.addEventListener('click', () => {
+        closeDialog();
+        document.getElementById('inspect-menu')?.classList.remove('hidden');
+      });
+      responsesEl.appendChild(exploreBtn);
+    }
   });
 }
 
@@ -666,6 +506,7 @@ function initDesktop() {
     initDesktopIcons();
     initTaskbar();
     initStartMenu();
+    initHiringBar();
     desktopInitialized = true;
   }
 
@@ -856,18 +697,34 @@ function initDesktopIcons() {
       icons.forEach(i => i.classList.remove('selected'));
     }
   });
+
+  // On resize, reposition icons proportionally and clamp to bounds
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      loadIconPositions();
+    }, 100);
+  });
 }
 
 function saveIconPositions() {
   const icons = document.querySelectorAll('.desktop-icon');
+  const container = document.querySelector('.desktop-icons');
+  if (!container) return;
+
+  const containerRect = container.getBoundingClientRect();
   const positions = {};
 
   icons.forEach(icon => {
     const id = icon.dataset.app + (icon.dataset.file ? `-${icon.dataset.file}` : '');
     if (icon.style.left && icon.style.top) {
+      // Store as percentages so positions scale with container
+      const leftPx = parseFloat(icon.style.left);
+      const topPx = parseFloat(icon.style.top);
       positions[id] = {
-        left: icon.style.left,
-        top: icon.style.top
+        leftPct: containerRect.width > 0 ? (leftPx / containerRect.width) * 100 : 0,
+        topPct: containerRect.height > 0 ? (topPx / containerRect.height) * 100 : 0
       };
     }
   });
@@ -885,19 +742,67 @@ function loadIconPositions() {
     if (!saved) return;
 
     const positions = JSON.parse(saved);
+    const container = document.querySelector('.desktop-icons');
+    if (!container) return;
+
+    const containerRect = container.getBoundingClientRect();
     const icons = document.querySelectorAll('.desktop-icon');
 
     icons.forEach(icon => {
       const id = icon.dataset.app + (icon.dataset.file ? `-${icon.dataset.file}` : '');
-      if (positions[id]) {
+      const pos = positions[id];
+      if (pos) {
         icon.style.position = 'absolute';
-        icon.style.left = positions[id].left;
-        icon.style.top = positions[id].top;
+        if (pos.leftPct !== undefined) {
+          // Percentage-based positions - convert back to pixels, clamped to bounds
+          let leftPx = (pos.leftPct / 100) * containerRect.width;
+          let topPx = (pos.topPct / 100) * containerRect.height;
+          leftPx = Math.max(0, Math.min(leftPx, containerRect.width - 72));
+          topPx = Math.max(0, Math.min(topPx, containerRect.height - 72));
+          icon.style.left = `${leftPx}px`;
+          icon.style.top = `${topPx}px`;
+        } else if (pos.left) {
+          // Legacy pixel positions - use as-is but clamp
+          let leftPx = parseFloat(pos.left);
+          let topPx = parseFloat(pos.top);
+          leftPx = Math.max(0, Math.min(leftPx, containerRect.width - 72));
+          topPx = Math.max(0, Math.min(topPx, containerRect.height - 72));
+          icon.style.left = `${leftPx}px`;
+          icon.style.top = `${topPx}px`;
+        }
       }
     });
   } catch (e) {
     console.warn('Could not load icon positions:', e);
   }
+}
+
+function clampIconPositions() {
+  const container = document.querySelector('.desktop-icons');
+  if (!container) return;
+
+  const containerRect = container.getBoundingClientRect();
+  const icons = document.querySelectorAll('.desktop-icon');
+  let changed = false;
+
+  icons.forEach(icon => {
+    if (icon.style.position !== 'absolute') return;
+
+    let leftPx = parseFloat(icon.style.left);
+    let topPx = parseFloat(icon.style.top);
+    if (isNaN(leftPx) || isNaN(topPx)) return;
+
+    const clampedLeft = Math.max(0, Math.min(leftPx, containerRect.width - 72));
+    const clampedTop = Math.max(0, Math.min(topPx, containerRect.height - 72));
+
+    if (clampedLeft !== leftPx || clampedTop !== topPx) {
+      icon.style.left = `${clampedLeft}px`;
+      icon.style.top = `${clampedTop}px`;
+      changed = true;
+    }
+  });
+
+  if (changed) saveIconPositions();
 }
 
 function initTaskbar() {
@@ -931,11 +836,14 @@ function initStartMenu() {
       startMenu.classList.add('hidden');
 
       switch (action) {
+        case 'roleexplorer':
+          openApp('roleexplorer', 'roles');
+          break;
         case 'resume':
           openApp('wordpad', 'resume');
           break;
         case 'about':
-          openApp('myspace', 'about');
+          openApp('livejournal', 'about');
           break;
         case 'chat':
           openApp('messenger', 'chat');
@@ -981,7 +889,10 @@ function openApp(appType, fileId) {
     return;
   }
 
-  const template = document.getElementById(`template-${appType}`);
+  // Map app types that share a template
+  const templateMap = { 'wordpad-ats': 'wordpad' };
+  const templateId = templateMap[appType] || appType;
+  const template = document.getElementById(`template-${templateId}`);
   if (!template) return;
 
   const windowEl = template.content.cloneNode(true).firstElementChild;
@@ -1027,8 +938,10 @@ function openApp(appType, fileId) {
 function getWindowSize(appType) {
   const sizes = {
     wordpad: { width: '600px', height: '500px' },
-    myspace: { width: '700px', height: '550px' },
-    messenger: { width: '400px', height: '450px' },
+    'wordpad-ats': { width: '600px', height: '500px' },
+    livejournal: { width: '700px', height: '600px' },
+    roleexplorer: { width: '650px', height: '520px' },
+    messenger: { width: '420px', height: '480px' },
     folder: { width: '500px', height: '400px' },
     recycle: { width: '450px', height: '350px' },
     notepad: { width: '500px', height: '400px' },
@@ -1043,7 +956,9 @@ function getWindowSize(appType) {
     minesweeper: { width: '340px', height: '440px' },
     casestudy: { width: '600px', height: '550px' },
     presentation: { width: '700px', height: '520px' },
-    paint: { width: '500px', height: '420px' }
+    paint: { width: '500px', height: '420px' },
+    readme: { width: '700px', height: '550px' },
+    guestbook: { width: '480px', height: '520px' }
   };
   return sizes[appType] || { width: '500px', height: '400px' };
 }
@@ -1056,8 +971,10 @@ function getWindowTitle(appType, fileId) {
 
   const titles = {
     wordpad: 'Resume.doc - WordPad',
-    myspace: 'AboutMe.html - Internet Explorer',
-    messenger: 'AshleyChat',
+    'wordpad-ats': 'Resume_ATS.doc - WordPad',
+    livejournal: 'AboutMe.html - Internet Explorer',
+    roleexplorer: 'Hire Me - Role Explorer',
+    messenger: 'HAL - Helpful Ashley Likeness',
     folder: 'Work Examples',
     recycle: 'Recycle Bin',
     notepad: 'Notepad',
@@ -1082,12 +999,20 @@ function initWindowContent(windowEl, appType, fileId) {
 
   switch (appType) {
     case 'wordpad':
-      initWordpad(windowEl);
+      initWordpad(windowEl, 'resume');
       windowEl.dataset.windowType = 'resume';
       break;
-    case 'myspace':
-      initMyspace(windowEl);
+    case 'wordpad-ats':
+      initWordpad(windowEl, 'resumeATS');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'livejournal':
+      initLiveJournal(windowEl);
       windowEl.dataset.windowType = 'myspace';
+      break;
+    case 'roleexplorer':
+      initRoleExplorer(windowEl);
+      windowEl.dataset.windowType = 'roleexplorer';
       break;
     case 'messenger':
       initMessenger(windowEl);
@@ -1160,7 +1085,42 @@ function initWindowContent(windowEl, appType, fileId) {
     case 'paint':
       initPaint(windowEl);
       break;
+    case 'readme':
+      initReadme(windowEl);
+      break;
+    case 'guestbook':
+      initGuestbook(windowEl);
+      break;
   }
+
+  // Trigger Gertrude contextual tips after a short delay
+  setTimeout(() => {
+    const tipMap = {
+      'messenger': 'chat',
+      'paint': 'paint',
+      'game': 'game',
+      'catpong': 'game',
+      'raiders': 'game',
+      'memory': 'game',
+      'minesweeper': 'game',
+      'bionicbrain': 'game',
+      'portfolio': 'portfolio',
+      'portfolio-viewer': 'portfolio',
+      'casestudy': 'portfolio',
+      'calculator': 'calculator',
+      'workmatch': 'workmatch',
+      'readme': 'readme',
+      'livejournal': 'myspace',
+      'roleexplorer': 'roleexplorer',
+      'recycle': 'recycle',
+      'folder': 'firstFolder',
+      'misc-folder': 'firstFolder',
+      'guestbook': 'guestbook'
+    };
+    if (tipMap[appType]) {
+      showGertrudeContextualTip(tipMap[appType]);
+    }
+  }, 800);
 }
 
 function initWindowControls(windowEl, windowId) {
@@ -1292,10 +1252,11 @@ function addTaskbarItem(windowId, title) {
 // APP CONTENT INITIALIZATION
 // ============================================
 
-function initWordpad(windowEl) {
+function initWordpad(windowEl, dataKey) {
   const content = windowEl.querySelector('.wordpad-content');
-  if (content) {
-    content.innerHTML = SITE_DATA.resume.content;
+  const source = dataKey === 'resumeATS' ? SITE_DATA.resumeATS : SITE_DATA.resume;
+  if (content && source) {
+    content.innerHTML = source.content;
   }
 
   // Print button - opens print dialog for the resume content
@@ -1334,92 +1295,266 @@ function initWordpad(windowEl) {
   }
 }
 
-function initMyspace(windowEl) {
-  const content = windowEl.querySelector('.myspace-content');
+function initLiveJournal(windowEl) {
+  const content = windowEl.querySelector('.livejournal-content');
   if (!content) return;
 
   const data = SITE_DATA.aboutMe;
+  let currentView = 'journal';
 
-  content.innerHTML = `
-    <div class="myspace-page">
-      <div class="myspace-header">
-        <h1>${data.displayName}</h1>
-        <p class="myspace-mood">"${data.mood}"</p>
-      </div>
-      <div class="myspace-body">
-        <div class="myspace-sidebar">
-          <div class="myspace-profile-pic">
-            <img src="assets/images/myspace.jpg" alt="Ashley" onerror="this.style.display='none'">
+  function renderJournal() {
+    return `
+      <div class="lj-journal">
+        <!-- Bio entry -->
+        <div class="lj-entry">
+          <div class="lj-entry-header-bar">
+            <span class="lj-entry-subject-bar">About Me</span>
+            <span class="lj-entry-date">Pinned Entry</span>
           </div>
-          <div class="myspace-stats">
-            <p><strong>Status:</strong> ${data.status}</p>
-            <p><strong>Last Login:</strong> ${data.lastLogin}</p>
-            <p><strong>Profile Views:</strong> <span id="view-counter">${data.profileViews}</span></p>
-          </div>
-        </div>
-        <div class="myspace-main">
-          <div class="myspace-section">
-            <h3>${data.headline}</h3>
-            ${data.aboutText}
-          </div>
-          <div class="myspace-section">
-            <h3>Ashley's Top 8</h3>
-            <div class="top-eight">
-              ${data.topEight.map(friend => `
-                <div class="top-eight-friend">
-                  <img src="${friend.image}" alt="${friend.name}" onerror="this.style.background='#ddd'">
-                  <p>${friend.name}</p>
-                  <span>${friend.role}</span>
-                </div>
-              `).join('')}
+          <div class="lj-entry-content">
+            <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-entry-userpic" onerror="this.style.display='none'">
+            <div class="lj-entry-text">
+              <div class="lj-entry-meta">
+                <strong>Current mood:</strong> ${data.mood}<br>
+                <strong>Current music:</strong> ${data.music}
+              </div>
+              <div class="lj-entry-body">${data.bio}</div>
             </div>
           </div>
-          <div class="myspace-section">
-            <h3>Interests</h3>
-            <dl class="myspace-interests">
-              <dt>General</dt>
-              <dd>${data.interests.general}</dd>
-              <dt>Music</dt>
-              <dd>${data.interests.music}</dd>
-              <dt>Movies</dt>
-              <dd>${data.interests.movies}</dd>
-              <dt>Books</dt>
-              <dd>${data.interests.books}</dd>
-            </dl>
-          </div>
-          ${data.testimonials && data.testimonials.length > 0 ? `
-          <div class="myspace-section testimonials-section">
-            <h3>What People Say</h3>
-            <div class="testimonials-list">
-              ${data.testimonials.map(t => `
-                <div class="testimonial">
-                  <p class="testimonial-title">"${t.title}"</p>
-                  <p class="testimonial-text">${t.text}</p>
-                  <p class="testimonial-author">— ${t.name}</p>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-          ` : ''}
-          <div class="visitor-counter">
-            VISITORS: ${String(data.profileViews).padStart(6, '0')}
+          <div class="lj-entry-footer">
+            <span class="lj-comment-link">read comments (3)</span>
+            <span class="lj-comment-link">leave a comment</span>
           </div>
         </div>
-      </div>
-    </div>
-  `;
 
-  // Increment view counter
-  const counter = content.querySelector('#view-counter');
-  if (counter) {
-    let count = parseInt(counter.textContent);
-    counter.textContent = ++count;
+        ${(data.journalEntries || []).map(entry => `
+        <div class="lj-entry">
+          <div class="lj-entry-header-bar">
+            <span class="lj-entry-subject-bar">${entry.subject}</span>
+            <span class="lj-entry-date">${entry.date}</span>
+          </div>
+          <div class="lj-entry-content">
+            <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-entry-userpic" onerror="this.style.display='none'">
+            <div class="lj-entry-text">
+              <div class="lj-entry-meta">
+                <strong>Current mood:</strong> ${entry.mood}<br>
+                <strong>Current music:</strong> ${entry.music}
+              </div>
+              <div class="lj-entry-body">${entry.content}</div>
+            </div>
+          </div>
+          <div class="lj-entry-footer">
+            <span class="lj-comment-link">leave a comment</span>
+          </div>
+        </div>
+        `).join('')}
+      </div>
+    `;
   }
+
+  function renderUserInfo() {
+    const allInterests = [
+      ...data.interests.general.split(', '),
+      ...data.interests.music.split(', ').slice(0, 6),
+      ...data.interests.books.split(', ').slice(0, 3)
+    ];
+
+    return `
+      <div class="lj-userinfo">
+        <div class="lj-userinfo-header">User Info</div>
+        <div class="lj-userinfo-sub">Below is the user information for ${data.displayName}.</div>
+        <div class="lj-userinfo-content">
+          <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-userinfo-pic" onerror="this.style.display='none'">
+          <div class="lj-info-table">
+            <div class="lj-info-row">
+              <div class="lj-info-label">User:</div>
+              <div class="lj-info-value"><strong>${data.displayName.toLowerCase()}</strong></div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Name:</div>
+              <div class="lj-info-value">Ashley S.</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Location:</div>
+              <div class="lj-info-value">Guelph, Ontario, Canada</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Status:</div>
+              <div class="lj-info-value">${data.status}</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Bio:</div>
+              <div class="lj-info-value">${data.headline}</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Website:</div>
+              <div class="lj-info-value"><a href="mailto:ashley@stepinto-ashleysoffice.com">ashley@stepinto-ashleysoffice.com</a></div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Memories:</div>
+              <div class="lj-info-value">${(data.journalEntries?.length || 0) + 1} entries</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Account type:</div>
+              <div class="lj-info-value">Permanent Account, previously an Early Adopter</div>
+            </div>
+            <div class="lj-info-row">
+              <div class="lj-info-label">Interests:</div>
+              <div class="lj-info-value">
+                <div class="lj-interests-list">
+                  ${allInterests.map(i => `<span class="lj-interest">${i.trim()}</span>`).join(' ')}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  function render() {
+    content.innerHTML = `
+      <div class="lj-page">
+        <div class="lj-header">
+          <div class="lj-header-top">
+            <div>
+              <span class="lj-logo">LiveJournal</span>
+              <span class="lj-logo-sub"> &mdash; ${data.displayName}'s Journal</span>
+            </div>
+            <div class="lj-search">
+              <input type="text" placeholder="Search..." readonly>
+              <button>Search</button>
+            </div>
+          </div>
+          <div class="lj-nav">
+            <button class="lj-nav-tab ${currentView === 'journal' ? 'active' : ''}" data-view="journal">Journal</button>
+            <button class="lj-nav-tab ${currentView === 'userinfo' ? 'active' : ''}" data-view="userinfo">User Info</button>
+            <button class="lj-nav-tab" data-view="archive">Archive</button>
+          </div>
+        </div>
+        <div class="lj-user-bar">
+          <div class="lj-user-identity">
+            <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-userpic-small" onerror="this.style.display='none'">
+            <span class="lj-user-name">${data.displayName}</span>
+          </div>
+          <div class="lj-user-links">
+            <a href="mailto:ashley@stepinto-ashleysoffice.com" class="lj-user-link">email</a>
+            <a href="https://linkedin.com/in/ashley-sarahsep" target="_blank" class="lj-user-link">linkedin</a>
+          </div>
+        </div>
+        ${currentView === 'journal' ? renderJournal() : renderUserInfo()}
+      </div>
+    `;
+
+    // Tab click handlers
+    content.querySelectorAll('.lj-nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const view = tab.dataset.view;
+        if (view === 'archive') return; // decorative
+        currentView = view;
+        render();
+      });
+    });
+  }
+
+  render();
+}
+
+// ============================================
+// ROLE EXPLORER
+// ============================================
+
+function initRoleExplorer(windowEl) {
+  const content = windowEl.querySelector('.roleexplorer-content');
+  if (!content) return;
+
+  const data = SITE_DATA.roleExplorer;
+  let selectedRoles = new Set();
+
+  function render() {
+    content.innerHTML = `
+      <div class="re-page">
+        <div class="re-header">
+          <h2 class="re-headline">${data.headline}</h2>
+          <p class="re-subheadline">${data.subheadline}</p>
+          <p class="re-availability">${data.availability}</p>
+        </div>
+        <div class="re-roles">
+          ${data.roles.map(role => `
+            <div class="re-role-card ${selectedRoles.has(role.id) ? 'expanded' : ''}" data-role="${role.id}">
+              <div class="re-role-header">
+                <div class="re-role-title-row">
+                  <h3 class="re-role-title">${role.title}</h3>
+                  <span class="re-role-expand">${selectedRoles.has(role.id) ? '&#9660;' : '&#9654;'}</span>
+                </div>
+                <div class="re-role-tags">
+                  ${role.tags.map(tag => `<span class="re-tag">${tag}</span>`).join('')}
+                </div>
+                <p class="re-role-hook">${role.hook}</p>
+              </div>
+              ${selectedRoles.has(role.id) ? `
+              <div class="re-role-detail">
+                <div class="re-detail-section">
+                  <h4>What This Role Needs</h4>
+                  <p>${role.whatThisNeeds}</p>
+                </div>
+                <div class="re-detail-section">
+                  <h4>What I've Actually Done</h4>
+                  <ul>
+                    ${role.whatIveDone.map(item => `<li>${item}</li>`).join('')}
+                  </ul>
+                </div>
+                <div class="re-detail-section re-tools-section">
+                  <h4>Tools & Skills</h4>
+                  <div class="re-tools">
+                    ${Array.isArray(role.tools) ? role.tools.map(tool => `<span class="re-tool">${tool}</span>`).join('') : `<span class="re-tool">${role.tools}</span>`}
+                  </div>
+                </div>
+                <div class="re-role-cta">
+                  <a href="mailto:${data.cta.email}?subject=${encodeURIComponent('Re: ' + role.title + ' - Let\'s Talk')}" class="re-cta-btn">Let's talk about this &rarr;</a>
+                </div>
+              </div>
+              ` : ''}
+            </div>
+          `).join('')}
+        </div>
+        <div class="re-footer">
+          <p class="re-footer-text">Have questions? <a href="mailto:${data.cta.email}" class="re-footer-link">${data.cta.email}</a> | <a href="https://${data.cta.linkedin}" target="_blank" class="re-footer-link">LinkedIn</a></p>
+        </div>
+      </div>
+    `;
+
+    // Add click handlers
+    content.querySelectorAll('.re-role-card').forEach(card => {
+      card.querySelector('.re-role-header').addEventListener('click', () => {
+        const roleId = card.dataset.role;
+        if (selectedRoles.has(roleId)) {
+          selectedRoles.delete(roleId);
+        } else {
+          selectedRoles.add(roleId);
+        }
+        render();
+      });
+    });
+  }
+
+  render();
+}
+
+function initHiringBar() {
+  const tab = document.getElementById('hiring-tab');
+  if (!tab) return;
+
+  tab.addEventListener('click', () => {
+    openApp('roleexplorer', 'roles');
+  });
 }
 
 function initMessenger(windowEl) {
   const chatArea = windowEl.querySelector('.messenger-chat-area');
   const quickQuestions = windowEl.querySelector('.messenger-quick-questions');
+  const textInput = windowEl.querySelector('.hal-text-input');
+  const sendBtn = windowEl.querySelector('.hal-send-btn');
 
   const chatData = SITE_DATA.chat;
 
@@ -1435,6 +1570,19 @@ function initMessenger(windowEl) {
       sendChatMessage(chatArea, q, quickQuestions);
     });
     quickQuestions.appendChild(btn);
+  });
+
+  // Free-text input for easter eggs and general queries
+  function handleTextInput() {
+    const message = textInput.value.trim();
+    if (!message) return;
+    textInput.value = '';
+    sendChatMessage(chatArea, message, quickQuestions);
+  }
+
+  if (sendBtn) sendBtn.addEventListener('click', handleTextInput);
+  if (textInput) textInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleTextInput();
   });
 }
 
@@ -1457,29 +1605,44 @@ function sendChatMessage(chatArea, message, quickQuestionsEl) {
 
   // Find response
   const chatData = SITE_DATA.chat;
-  let responseData = chatData.responses[message];
+  let responseText;
+  let followUpQuestion = null;
 
-  if (!responseData) {
-    // Check for partial matches
-    for (const [key, value] of Object.entries(chatData.responses)) {
-      if (message.toLowerCase().includes(key.toLowerCase().split(' ')[0])) {
-        responseData = value;
+  // Check for easter egg triggers first
+  const lowerMessage = message.toLowerCase();
+  let easterEggResponse = null;
+  if (chatData.easterEggs) {
+    for (const [trigger, response] of Object.entries(chatData.easterEggs)) {
+      if (lowerMessage.includes(trigger.toLowerCase())) {
+        easterEggResponse = response;
         break;
       }
     }
   }
 
-  // Handle response - can be object with text/followUp or plain string (fallback)
-  let responseText;
-  let followUpQuestion = null;
-
-  if (!responseData) {
-    responseText = chatData.fallbackResponse;
-  } else if (typeof responseData === 'object') {
-    responseText = responseData.text;
-    followUpQuestion = responseData.followUp;
+  if (easterEggResponse) {
+    responseText = easterEggResponse;
   } else {
-    responseText = responseData;
+    let responseData = chatData.responses[message];
+
+    if (!responseData) {
+      // Check for partial matches
+      for (const [key, value] of Object.entries(chatData.responses)) {
+        if (lowerMessage.includes(key.toLowerCase().split(' ')[0])) {
+          responseData = value;
+          break;
+        }
+      }
+    }
+
+    if (!responseData) {
+      responseText = chatData.fallbackResponse;
+    } else if (typeof responseData === 'object') {
+      responseText = responseData.text;
+      followUpQuestion = responseData.followUp;
+    } else {
+      responseText = responseData;
+    }
   }
 
   // Get quickQuestions element if not passed
@@ -1509,9 +1672,9 @@ function sendChatMessage(chatArea, message, quickQuestionsEl) {
           const backBtn = document.createElement('button');
           backBtn.className = 'quick-question';
           backBtn.textContent = '← Back to questions';
-          backBtn.style.background = '#f0f0f0';
-          backBtn.style.color = '#666';
-          backBtn.style.borderColor = '#ccc';
+          backBtn.style.background = '#0d0404';
+          backBtn.style.color = '#884444';
+          backBtn.style.borderColor = '#331111';
           backBtn.addEventListener('click', () => {
             resetQuickQuestions(quickQuestionsEl, chatArea);
           });
@@ -1727,7 +1890,7 @@ function initAboutComputer(windowEl) {
           <span class="about-logo-icon">👩‍💻</span>
         </div>
         <div class="about-computer-title">
-          <h2>HireMeOS 98</h2>
+          <h2>HireMeOS XP</h2>
           <p class="about-subtitle">Ashley Edition</p>
         </div>
       </div>
@@ -3324,6 +3487,126 @@ function initPaint(windowEl) {
 }
 
 // ============================================
+// README CASE STUDY - SCROLL EXPERIENCE
+// ============================================
+
+function initReadme(windowEl) {
+  const scrollContainer = windowEl.querySelector('.readme-scroll-container');
+  if (!scrollContainer) return;
+
+  const fadeElements = scrollContainer.querySelectorAll('.fade-in');
+
+  // Check which elements are visible and animate them
+  function checkVisibility() {
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const containerTop = containerRect.top;
+    const containerBottom = containerRect.bottom;
+
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elementMiddle = rect.top + rect.height / 2;
+
+      // Element is visible if its middle is within the container bounds
+      if (elementMiddle > containerTop && elementMiddle < containerBottom) {
+        el.classList.add('visible');
+      }
+    });
+  }
+
+  // Run on scroll
+  scrollContainer.addEventListener('scroll', checkVisibility);
+
+  // Initial check after a brief delay to let the window render
+  setTimeout(checkVisibility, 100);
+
+  // Also check when window is focused
+  windowEl.addEventListener('mouseenter', checkVisibility);
+}
+
+// ============================================
+// GUEST BOOK
+// ============================================
+
+function initGuestbook(windowEl) {
+  const entriesEl = windowEl.querySelector('#guestbook-entries');
+  const nameInput = windowEl.querySelector('#guestbook-name');
+  const messageInput = windowEl.querySelector('#guestbook-message');
+  const submitBtn = windowEl.querySelector('#guestbook-submit');
+
+  // Seeded entries (view-only, to set the tone)
+  const seededEntries = [
+    {
+      name: "Gertrude 🐱",
+      message: "I approve of this guest book. It's warm, like a sunbeam. *settles in*",
+      date: "Permanent Resident"
+    },
+    {
+      name: "Claude",
+      message: "It was a pleasure helping build this place. The attention to detail here reflects genuine care for craft.",
+      date: "February 2025"
+    },
+    {
+      name: "Mom",
+      message: "Very proud of you sweetheart! Still don't fully understand what you do but this website is very cute!",
+      date: "January 2025"
+    },
+    {
+      name: "Fellow Ops Person",
+      message: "Finally, someone who gets it. The documentation alone deserves an award.",
+      date: "January 2025"
+    }
+  ];
+
+  // Render seeded entries
+  function renderEntries() {
+    entriesEl.innerHTML = '';
+    seededEntries.forEach(entry => {
+      const entryEl = document.createElement('div');
+      entryEl.className = 'guestbook-entry';
+      entryEl.innerHTML = `
+        <div class="guestbook-entry-name">${entry.name}</div>
+        <div class="guestbook-entry-message">${entry.message}</div>
+        <div class="guestbook-entry-date">${entry.date}</div>
+      `;
+      entriesEl.appendChild(entryEl);
+    });
+  }
+
+  // Handle form submission (sends via mailto:)
+  submitBtn.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    const message = messageInput.value.trim();
+
+    if (!name || !message) {
+      alert('Please fill in both your name and a message!');
+      return;
+    }
+
+    // Create mailto link
+    const subject = encodeURIComponent(`Guest Book Entry from ${name}`);
+    const body = encodeURIComponent(
+      `New Guest Book Entry!\n\n` +
+      `Name: ${name}\n` +
+      `Message: ${message}\n\n` +
+      `---\n` +
+      `Sent from Ashley's Office Guest Book`
+    );
+
+    window.location.href = `mailto:ash@stepinto-ashleysoffice.com?subject=${subject}&body=${body}`;
+
+    // Clear form
+    nameInput.value = '';
+    messageInput.value = '';
+
+    // Show a thank you message temporarily
+    alert('Thanks for signing the guest book! Your email app should open - just hit send!');
+  });
+
+  // Render initial entries
+  renderEntries();
+}
+
+// ============================================
 // BIONIC BRAIN GAME
 // ============================================
 
@@ -3764,7 +4047,7 @@ function initWorkMatch(windowEl) {
     {
       text: "Your dream Monday morning involves:",
       answers: [
-        { text: "A well-organized backlog of process improvements to tackle", scores: [5, 2, 1] },
+        { text: "A well-organised backlog of process improvements to tackle", scores: [5, 2, 1] },
         { text: "A strategic planning session with leadership", scores: [1, 5, 2] },
         { text: "Fresh data to explore and a question to answer", scores: [1, 2, 5] }
       ]
@@ -3801,7 +4084,7 @@ function initWorkMatch(windowEl) {
       emoji: "📊",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Ashley who finds the signal in the noise. Data analysis, visualization, metrics that matter, insights that change minds. This Ashley asks the questions nobody thought to ask and finds patterns that unlock new understanding.";
+        if (pct >= 85) return "You want the Ashley who finds the signal in the noise. Data analysis, visualization, metrics that matter, insights that change minds. This Ashley asks the questions nobody thought to ask and finds patterns that shift how you think about the data.";
         if (pct >= 70) return "Strong data alignment! You'd benefit from the Ashley who can turn information into intelligence. She'll help you measure what matters and tell the story your data is hiding.";
         return "Some data energy here - you appreciate evidence-based decisions. This Ashley can help surface the insights you need to make smarter moves.";
       }
@@ -4015,10 +4298,11 @@ function showGertrudeThought(isManual = false) {
   messageEl.textContent = thought;
   bubble.classList.remove('hidden');
 
-  // Auto-hide after 8 seconds (gives time to read)
+  // Auto-hide based on text length (longer thoughts get more time)
+  const readTime = Math.max(10000, Math.min(thought.length * 60, 25000));
   gertrudeHideTimer = setTimeout(() => {
     hideGertrudeBubble();
-  }, 8000);
+  }, readTime);
 }
 
 function hideGertrudeBubble() {
@@ -4031,6 +4315,52 @@ function hideGertrudeBubble() {
     clearTimeout(gertrudeHideTimer);
     gertrudeHideTimer = null;
   }
+}
+
+// Show a context-aware tip (Clippy-style) - only shows each tip once per session
+function showGertrudeContextualTip(context) {
+  const tips = SITE_DATA.gertrude?.contextualTips || {};
+  const shownTips = SITE_DATA.gertrude?.shownTips || [];
+
+  // Check if we have a tip for this context and haven't shown it yet
+  if (!tips[context] || shownTips.includes(context)) {
+    return false;
+  }
+
+  const bubble = document.getElementById('gertrude-bubble');
+  const messageEl = document.getElementById('gertrude-message');
+  const desktopScene = document.getElementById('desktop-scene');
+
+  // Only show if desktop is visible
+  if (!bubble || !messageEl || !desktopScene || desktopScene.classList.contains('hidden')) {
+    return false;
+  }
+
+  // Clear any existing timers
+  if (gertrudeHideTimer) {
+    clearTimeout(gertrudeHideTimer);
+  }
+  if (gertrudeAutoTimer) {
+    clearTimeout(gertrudeAutoTimer);
+  }
+
+  // Mark this tip as shown
+  SITE_DATA.gertrude.shownTips.push(context);
+
+  // Show the contextual tip
+  messageEl.textContent = tips[context];
+  bubble.classList.remove('hidden');
+
+  // Auto-hide based on text length
+  const tipReadTime = Math.max(8000, Math.min(tips[context].length * 60, 20000));
+  gertrudeHideTimer = setTimeout(() => {
+    hideGertrudeBubble();
+  }, tipReadTime);
+
+  // Resume auto-thoughts after showing tip
+  scheduleNextGertrudeThought();
+
+  return true;
 }
 
 // Utility: Shuffle array in place
@@ -4111,14 +4441,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initSite() {
-  const bootScreen = document.getElementById('boot-screen');
   const roomScene = document.getElementById('room-scene');
 
   // Initialize accessibility FIRST (before any visual rendering)
   initAccessibility();
 
-  // Hide boot screen, show room directly
-  bootScreen.classList.add('hidden');
+  // Show room directly
   roomScene.classList.remove('hidden');
   roomScene.style.opacity = '1';
   state.currentScene = 'room';
