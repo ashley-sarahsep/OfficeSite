@@ -570,9 +570,10 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-swiss-army",
           portrait: "smiling1",
-          text: "I've been the QA lead, project manager, sales enablement owner, strategic advisor, and account manager - often simultaneously. I'm good at identifying what's missing and taking ownership without waiting for someone to assign it. Some people find ambiguity stressful. I find it interesting.",
+          text: "I've been the QA lead, project manager, sales enablement owner, strategic advisor, and account manager - often simultaneously. I'm good at identifying what's missing and taking ownership without waiting for someone to assign it. Some people find ambiguity stressful. I find it interesting. If you want the shape of all of that written up as actual resumes, I have six flavours sitting in HireMeOS (my computer over there) - one for each way the work tends to get packaged.",
           responses: [
             { text: "That sounds exhausting", next: "desk-exhausting" },
+            { text: "Show me your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -1367,10 +1368,11 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-curious",
           portrait: "excited",
-          text: "The honest answer is I'm a professional gap-filler. Give me something ambiguous and messy - an unclear process, a communication breakdown, a project nobody wants to own - and I'll figure it out. See gaps, fill gaps, build systems, hand off. That's the pattern.",
+          text: "The honest answer is I'm a professional gap-filler who happens to wear a few titles at once. See gaps, fill gaps, build systems, hand off - that's the pattern. But if you want the shape of it written up properly, I've put six resumes inside HireMeOS (Hire Me.exe on the desktop, or the Resume folder): Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. All real, all the same person, depending on what you're hiring for.",
           responses: [
             { text: "That sounds exhausting.", next: "coffee-exhausting" },
             { text: "Got a good example?", next: "coffee-example" },
+            { text: "Show me your computer", action: "desktop" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -1599,7 +1601,12 @@ If that sounds like what you need, let's talk.
         title: "My Work",
         items: [
           { id: "resume", name: "Resume.doc", icon: "doc", type: "app", app: "wordpad" },
-          { id: "resume-ats", name: "Resume_ATS.doc", icon: "doc", type: "app", app: "wordpad-ats" },
+          { id: "resume-cos", name: "Resume_ChiefOfStaff.doc", icon: "doc", type: "app", app: "wordpad-cos" },
+          { id: "resume-prodops", name: "Resume_ProductOps.doc", icon: "doc", type: "app", app: "wordpad-prodops" },
+          { id: "resume-sales", name: "Resume_SalesEnablement.doc", icon: "doc", type: "app", app: "wordpad-sales" },
+          { id: "resume-ai", name: "Resume_AIAdoption.doc", icon: "doc", type: "app", app: "wordpad-ai" },
+          { id: "resume-revops", name: "Resume_RevOps.doc", icon: "doc", type: "app", app: "wordpad-revops" },
+          { id: "resume-impl", name: "Resume_Implementation.doc", icon: "doc", type: "app", app: "wordpad-impl" },
           { id: "work", name: "Work Examples", icon: "folder", type: "app", app: "folder" },
           { id: "aiportfolio", name: "AI Portfolio", icon: "folder-special", type: "app", app: "portfolio" },
           { id: "collab", name: "Lets_Work_Together.txt", icon: "txt", type: "notepad", noteId: "collab" },
@@ -1673,6 +1680,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <h3>BRIDGE BUILDER BETWEEN TECHNICAL & BUSINESS</h3>
 <p>Translate technical capabilities into business value and user-friendly language. Help engineers understand user challenges. Help business stakeholders understand technical constraints. Create shared understanding across groups that typically struggle to communicate. When ideas are lost in translation between teams, I step in to ensure equilibrium of understanding - I can articulate complex concepts clearly for any audience.</p>
+
+<h3>SHARING &gt; SELLING</h3>
+<p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. If it isn't good, no amount of pressure will save you. That belief shapes everything I build for sales teams: demos are research made visible, discovery frameworks come from genuine curiosity about the prospect, and the training I design teaches reps to actually know what they're talking about rather than perform a script.</p>
 
 <h3>CRITICAL AI ADVOCATE WITH ETHICAL LENS</h3>
 <p>I love working with AI and ML as tools, but I'm not a blind advocate. I'm very critical and aware of limitations, hallucinations, and potential issues. My philosophy background helps me understand how LLMs interpret and generate information, which makes me effective at identifying where they might misinterpret context or produce misleading results. I advocate for ethical AI implementation, appropriate guardrails, transparency about limitations, and thoughtful consideration of how models are trained and deployed.</p>
@@ -1883,130 +1893,921 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
     `
   },
 
-  resumeATS: {
+  resumeCOS: {
     content: `
 <div class="resume-header">
-<h1>ASHLEY S.</h1>
-<p class="resume-subtitle">Product Operations | Sales Enablement | AI Adoption | Cross-Functional Leadership</p>
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Chief of Staff | Strategic Operations</p>
 <p class="resume-contact">
 Email: ashley@stepinto-ashleysoffice.com<br>
-LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 </p>
 </div>
 
 <div class="resume-section">
-<h2>PROFESSIONAL SUMMARY</h2>
-<p>Strategic operations leader with 10+ years of experience in product operations, sales enablement, change management, and AI adoption. Built operational infrastructure from scratch at a B2B SaaS startup, scaling systems from a 10-person team to a platform supporting 400,000+ field representatives, 32M+ annual visits, and Fortune 500 clients. Skilled in cross-functional coordination, quality assurance, go-to-market execution, revenue operations, and user adoption strategy. Background in philosophy (hermeneutics) and social work informs a human-centred approach to training design, knowledge management, and process development.</p>
+<h2>SUMMARY</h2>
+<p>Strategic right hand with 10+ years doing the thinking, holding the context, and seeing what others miss. Joined Network Ninja when the team was ~10 people with no processes - built the infrastructure, then became the person leadership relied on to pressure-test decisions, flag blind spots, and make sure the right things actually happened.</p>
+<p>In the Chief of Staff role, I was the steady presence behind executive decisions: the one who noticed the downstream impact that hadn't been considered, surfaced the team dynamics that weren't visible from the top, and advocated for what was actually needed when the picture wasn't complete. I ran the Neptune project end-to-end - discovery through handoff - including leading a development team of four. I owned QA when there was no QA lead, PM when there was no PM, and strategic advisory whenever leadership needed someone to think it through before committing.</p>
+<p>My background in philosophy (hermeneutics - how people interpret information) and social work gives me an unusual lens on organisations: I read rooms, track power dynamics, and catch what's not being said. I build systems for how people actually behave, not how we wish they would. And I build for the person who inherits the work.</p>
 </div>
 
 <div class="resume-section">
-<h2>CORE COMPETENCIES</h2>
-<p><strong>Project Management:</strong> Jira, Linear, ClickUp, Asana, Notion, Agile/Scrum, Sprint Planning, OKR/KPI Tracking, Stakeholder Management</p>
-<p><strong>CRM & Revenue Operations:</strong> SugarCRM, HubSpot, Salesforce, Pipeline Management, Sales Process Design, Forecasting, Go-to-Market Strategy</p>
-<p><strong>AI & Technology:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub, LLM Agents, Prompt Engineering, AI QA, Workflow Design, User Adoption Strategy</p>
-<p><strong>Data & Analytics:</strong> Business Intelligence, Data Validation, Performance Metrics, Sales Analytics, Knowledge Management, Report Building</p>
-<p><strong>Enablement & Training:</strong> Curriculum Development, Onboarding Programme Design, Change Management, Training Delivery, Content Strategy</p>
-<p><strong>Tools & Collaboration:</strong> Canva, Loom, Google Workspace, Microsoft Office, Slack, Microsoft Teams, Zoom, Technical Writing, Process Documentation</p>
+<h2>SKILLS</h2>
+<p><strong>Strategic Operations:</strong> Executive partnership, cross-functional alignment, gap identification, GTM readiness, organisational change management, board-level communication</p>
+<p><strong>Project Management:</strong> Jira (expert), Agile/Scrum, sprint planning, daily standups, backlog prioritisation, risk identification, Asana</p>
+<p><strong>Quality Assurance:</strong> QA leadership, test plan creation, bug triage, edge case identification, regression testing, UAT coordination</p>
+<p><strong>Enablement & Training:</strong> Onboarding programme design, curriculum development, discovery frameworks, sales playbooks, demo customisation</p>
+<p><strong>AI & Technology:</strong> Claude, Claude Code, ChatGPT, AI agent implementation, prompt engineering, AI quality assurance, adoption frameworks</p>
+<p><strong>CRM & Operations:</strong> HubSpot, Salesforce, SugarCRM, pipeline management, forecasting, KPI tracking</p>
+<p><strong>Tools:</strong> Jira, Slack, Microsoft Teams, Google Workspace, Loom, Notion, GitHub, Zoom</p>
 </div>
 
 <div class="resume-section">
-<h2>PROFESSIONAL EXPERIENCE</h2>
+<h2>EXPERIENCE</h2>
 <hr class="section-divider">
 
-<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
-<p class="job-title">Network Ninja (MainEvent)</p>
-<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
-<ul>
-<li>Led product adoption for AI-powered field marketing analysis agents serving experiential marketing agencies and CPG brands</li>
-<li>Created manual testing framework for AI agent product, establishing systematic QA process for prompt reliability, consistency, and accuracy</li>
-<li>Developed 75+ enterprise-level analytical prompt templates (Power Prompts) for business intelligence extraction across programme performance, staff tracking, venue intelligence, and data quality</li>
-<li>Designed and implemented 5-phase onboarding methodology for AI agent adoption with role-based educational curriculum</li>
-<li>Built training resource library using Google Drive, Loom, and Notion for scalable content delivery</li>
-<li>Established quality feedback loop between client usage data and product development team, driving product improvements through documented testing and issue identification</li>
-<li>Onboarded enterprise clients with custom analytical frameworks tailored to client-specific business requirements</li>
-<li>Owned Experiential Marketing Summit (EMS Vegas) booth presence end-to-end: video production, product demonstrations, outreach materials</li>
-</ul>
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes and held progressively expanding roles as the company scaled.</p>
 
 <hr class="section-divider">
 
 <h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
-<p class="job-title">Network Ninja (MainEvent)</p>
+<p class="job-title">Network Ninja</p>
 <p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic partner to the COO and executive team. Owned the operational and strategic gaps between Product, Engineering, Sales, and Customer Success - including QA leadership, PM coverage during transitions, and executive advisory on high-stakes decisions.</p>
+
+<p><strong>Executive partnership & strategic advisory</strong></p>
 <ul>
-<li>Partnered with COO and executive team for field marketing SaaS platform serving Fortune 500 brands (Kraft Heinz, U.S. Cellular, Monster Energy) across 1.9M+ locations</li>
-<li>Served as sole QA Lead across 20+ client implementations, owning quality assurance from test planning through client delivery</li>
-<li>Led enterprise retail client project end-to-end: discovery, requirements gathering, wireframe design, QA process creation, development team leadership (4 people), project management, and account management</li>
-<li>Created and managed Jira boards for project delivery: ticket prioritisation, bug triage, feature tracking, sprint management</li>
-<li>Built 30+ customised demo environments annually, each researched and tailored to prospect business context, industry challenges, and use cases</li>
-<li>Developed discovery frameworks and qualification processes that improved sales effectiveness across SMB to enterprise cycles</li>
-<li>Advised executive leadership on go-to-market strategy, product roadmap priorities, organisational alignment, and operational efficiency</li>
-<li>Covered PM responsibilities during team transitions: daily scrums, sprint planning, bug triage, delivery management</li>
-<li>Contributed to 100% of sales wins since 2018 through custom demo preparation, prospect research, and materials development</li>
-<li>Maintained quality delivery standards across 20+ simultaneous implementations</li>
+<li>Served as strategic right hand to the COO - turned incomplete direction into clear decisions, filled in the thinking that wasn't happening at the executive level, and made sure what needed to be considered actually was</li>
+<li>Consistently identified what leadership was missing or overlooking - surfaced blind spots, flagged downstream consequences of decisions before they were made, and advocated for what was actually needed rather than what was easiest</li>
+<li>Present in executive reviews and performance discussions - read power dynamics carefully, gave voice to team and client perspectives that weren't represented, and steered outcomes when the full picture wasn't visible from the top</li>
+<li>Managed up as a core function - not reactively, but as part of how I operated: tracking what leadership was overlooking, bringing it forward with context and evidence, and helping protect the team and clients from incomplete decisions</li>
+<li>Identified operational gaps and work that didn't clearly belong to any team - took ownership without being asked, built the process, handed it off when it was stable</li>
+</ul>
+
+<p><strong>Neptune Retail Solutions - end-to-end project ownership</strong></p>
+<ul>
+<li>Owned the complete lifecycle of a major custom platform build: discovery, requirements gathering, wireframe design, QA process creation, development team leadership, Jira board management, and client account management through successful handoff</li>
+<li>Led a team of four developers through daily scrums, ticket prioritisation, and quality assurance - made decisions on scope, sequencing, and standards throughout</li>
+<li>Transitioned into account manager post-launch, then handed off to a dedicated AM with complete documentation and knowledge transfer</li>
+</ul>
+
+<p><strong>Quality assurance leadership</strong></p>
+<ul>
+<li>Sole QA Lead across major projects - created and executed test plans covering edge cases, user flows, and regression testing across 20+ implementations</li>
+<li>Set quality standards and enforced them - partnered with Product and Engineering to ensure quality was built in, not caught at the end</li>
+<li>Wrote detailed Jira tickets for developers and translated the same issues into plain language for clients simultaneously</li>
+</ul>
+
+<p><strong>PM coverage & delivery momentum</strong></p>
+<ul>
+<li>Stepped into PM during team transitions - led daily scrums, managed sprint planning, triaged bugs, and maintained delivery commitments without missing client deadlines</li>
+<li>Coordinated work across Sales, Product, Engineering, AI, and Customer Success - kept stakeholders aligned and expectations managed during periods of organisational change</li>
+</ul>
+
+<p><strong>Sales enablement & institutional knowledge</strong></p>
+<ul>
+<li>Owned all sales enablement for a lean team (2-4 people) closing enterprise deals - demo environments, pitch decks, competitive battle cards, discovery frameworks, and qualification playbooks</li>
+<li>Created 30+ customised demo environments annually, each researched and built specifically for the prospect's business context and use cases</li>
+<li>Key contributor to 100% of sales wins since 2018 through tailored demos, prospect research, and materials development</li>
+<li>Maintained consistency and institutional knowledge as sales team composition changed - the one constant across turnover</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Sole owner of AI agent product adoption. Built the entire enablement infrastructure for mAInevent Agents - an AI-powered analytics tool for experiential marketing data - with no playbook, no precedent, and no team.</p>
+<ul>
+<li>Built manual testing framework from scratch - systematic QA process to evaluate prompt reliability, output accuracy, and edge case behaviour before client deployment</li>
+<li>Designed 5-phase onboarding methodology with complete educational curriculum across 8 guides for different user levels (everyday users through power users and executives)</li>
+<li>Advocated internally for appropriate AI guardrails, transparency about limitations, and ethical deployment - identified quality issues and hallucinations before they reached clients</li>
+<li>Owned EMS Vegas trade show presence from concept to execution - created all demonstrations, video examples, and outreach materials</li>
+<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch with custom analytical frameworks</li>
 </ul>
 
 <hr class="section-divider">
 
 <h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
-<p class="job-title">Network Ninja (MainEvent)</p>
-<p class="job-meta">Oct 2018 - Jul 2025 | Remote</p>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>First operations hire. Built the foundational infrastructure that the company scaled on - from a team of ~10 with no processes to an organisation supporting Fortune 500 clients.</p>
 <ul>
-<li>Built sales operations, training programmes, QA processes, and project management frameworks from zero for early-stage SaaS company</li>
-<li>Managed sales pipeline across multiple CRM platforms (SugarCRM, HubSpot), maintaining data integrity, forecasting accuracy, and performance analytics</li>
-<li>Designed and delivered onboarding and training programmes on CRM systems, sales processes, product knowledge, and customer discovery</li>
-<li>Created evaluation frameworks and KPI tracking systems to measure feature adoption and training effectiveness</li>
-<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes, learning paths, and self-service resources</li>
-<li>Partnered with Product and Engineering throughout full SDLC, providing user perspective, client feedback, and delivery verification</li>
-<li>Used AI agents to analyse field reports, customer interactions, and usage patterns to surface product improvement insights</li>
-<li>Conducted win/loss analysis, competitive post-mortems, and field feedback collection to identify product gaps</li>
-<li>Led daily scrum calls to prioritise bugs, manage feature development, and maintain delivery momentum</li>
-<li>Enabled platform growth to 400,000+ field reps, 32M+ annual visits, and Fortune 500 client portfolio</li>
+<li>Built sales operations, training programmes, QA processes, and project management frameworks from zero</li>
+<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes and self-service resources</li>
+<li>Managed pipeline in SugarCRM and HubSpot (self-taught on both) - maintained data integrity, forecasting accuracy, and performance analytics</li>
+<li>Led daily scrum calls, triaged Jira bugs, and coordinated resolution between engineering and clients across platform issues</li>
+<li>Partnered with Product and Engineering through the full software development lifecycle - conducted win/loss analysis and surfaced field feedback to inform product decisions</li>
 </ul>
 
 <hr class="section-divider">
 
-<h3>SALES OPERATIONS SPECIALIST</h3>
-<p class="job-title">All Blue Solutions Inc.</p>
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
 <p class="job-meta">May 2015 - Oct 2018 | Remote</p>
 <ul>
-<li>Managed sales operations and CRM infrastructure for IBM reseller</li>
-<li>Designed and delivered new hire training programmes on CRM systems, sales processes, and product knowledge</li>
-<li>Administered SugarCRM system with 200+ opportunities; trained team on pipeline management and reporting</li>
-<li>Created process documentation and self-service resources to enable team autonomy</li>
-<li>Coordinated IBM co-marketing funds and outbound demand generation campaigns</li>
+<li>Managed SugarCRM pipeline with 200+ opportunities; designed new hire training on CRM systems, sales processes, and product knowledge</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns; maximised margins through strategic management of IBM incentives across multiple regions</li>
+<li>Created documentation and self-service resources that enabled team autonomy</li>
 </ul>
 
 <hr class="section-divider">
 
-<h3>EARLIER CAREER</h3>
-
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
 <p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
-<p class="job-meta">Jun 2014 - Jan 2015</p>
 <ul>
-<li>Led implementation of online timesheet system for contract workforce</li>
-<li>Processed high-volume payroll operations; extended from 6-month contract based on performance</li>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
 </ul>
-
-<p class="job-title">Accounts Payable Specialist | Essence Digital & GroupM, London, UK</p>
-<p class="job-meta">Feb 2014 - Mar 2014</p>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
 <ul>
-<li>Managed accounts payable for high-profile clients including Google, IGN, Financial Times</li>
-<li>Promoted to high-volume national accounts based on performance</li>
+<li>Managed AP for high-profile clients including Google, IGN, and Financial Times; promoted to national accounts</li>
 </ul>
-
-<p class="job-title">Accounts Receivable Coordinator | DDB Canada, Toronto</p>
-<p class="job-meta">Aug 2011 - Dec 2012</p>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
 <ul>
-<li>Promoted from Receptionist to Accounts Receivable Specialist within 6 months</li>
-<li>Managed financial operations and client relationships across six Canadian offices</li>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
 </ul>
 </div>
 
 <div class="resume-section">
 <h2>EDUCATION</h2>
-<p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory, meaning-making, and how people understand and process information.</p>
 <p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
-<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress) - SQL, Data Visualisation, Statistical Analysis</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeProdOps: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Product Operations Manager | Cross-Functional Coordination | Go-to-Market | AI Adoption</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Product operations leader who keeps the space between Product, Engineering, Sales, and Customer Success from becoming a gap. At Network Ninja, I was the person who made sure what was being built matched what was being sold, what was being sold matched what clients actually needed, and that none of it fell apart during the handoffs in between.</p>
+<p>I've owned go-to-market readiness for product launches, QA across 20+ implementations, PM coverage during team transitions, field feedback loops that actually reached the roadmap, and the translation layer between technical teams and everyone else. I've also led a complete custom platform build end-to-end - discovery through handoff - and built the entire adoption infrastructure for a new AI product from scratch.</p>
+<p>My background in philosophy (hermeneutics - how people interpret information) and social work shapes how I approach product operations: I don't just track what's shipping, I think about what users actually need versus what they say they need, and I design the systems that bridge that gap. I ask "why" constantly, identify root causes rather than symptoms, and build for the person who inherits the work.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Product Operations:</strong> Go-to-market readiness, product launch coordination, field readiness, cross-functional alignment, product feedback synthesis, user needs analysis, roadmap influence</p>
+<p><strong>Project Management:</strong> Jira (expert), Agile/Scrum, sprint planning, daily standups, backlog prioritisation, risk identification, stakeholder management, Asana</p>
+<p><strong>Quality Assurance:</strong> QA leadership, test plan creation, bug triage and prioritisation, edge case identification, regression testing, UAT coordination</p>
+<p><strong>Enablement & Training:</strong> Onboarding programme design, curriculum development, adoption frameworks, discovery frameworks, sales playbooks, demo customisation</p>
+<p><strong>AI & Technology:</strong> Claude, Claude Code, ChatGPT, AI agent implementation, prompt engineering, AI quality assurance, LLM evaluation</p>
+<p><strong>CRM & Analytics:</strong> HubSpot, SugarCRM, Salesforce, pipeline management, performance metrics, KPI tracking, win/loss analysis</p>
+<p><strong>Tools:</strong> Jira, HubSpot, SugarCRM, Slack, Google Workspace, Loom, Notion, GitHub, Zoom, Asana</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes; built product operations infrastructure across every role I held as the company scaled.</p>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic partner to the COO and executive team. Owned the operational layer connecting Product, Engineering, Sales, and Customer Success - including QA leadership, PM coverage, go-to-market readiness, and strategic advisory on product decisions that affected the revenue motion.</p>
+
+<p><strong>Cross-functional coordination & product feedback</strong></p>
+<ul>
+<li>Owned the feedback loop between clients, sellers, and the product team - synthesised what was actually happening in the field and made sure it reached the roadmap in a form that was actionable</li>
+<li>Translated technical capabilities into business value for Sales and Customer Success, and translated business requirements into technical specifications for Engineering - reduced the back-and-forth that slowed delivery</li>
+<li>Identified misalignments between what Product was building and what Sales was promising - surfaced these early and helped steer both sides toward shared understanding before they became client problems</li>
+<li>Advised COO on product roadmap priorities and GTM decisions - brought the cross-functional perspective that wasn't always visible at the executive level</li>
+<li>Served as central communication hub across Sales, Product, Engineering, AI, and Customer Success during periods of significant organisational change</li>
+</ul>
+
+<p><strong>Go-to-market readiness & field enablement</strong></p>
+<ul>
+<li>Owned field readiness for product launches - ensured sales and CS teams had training, documentation, and support materials in place before anything shipped to clients</li>
+<li>Coordinated internal training rollouts and communications when new features or product changes affected the sales motion or client experience</li>
+<li>Led trade show enablement including EMS Vegas: booth concept, demo preparation, outreach materials, and lead qualification - owned the full event presence from concept to execution</li>
+<li>Created vertical-specific enablement materials for retail, CPG, and experiential marketing segments - kept positioning current and grounded in real client use cases</li>
+</ul>
+
+<p><strong>QA leadership & quality standards</strong></p>
+<ul>
+<li>Sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing for each</li>
+<li>Set quality standards and enforced them - partnered with Product and Engineering to catch issues before they reached clients rather than after</li>
+<li>Built comprehensive, repeatable test plans that were adoptable as a standard across the organisation, not just useful for individual projects</li>
+<li>Wrote detailed Jira tickets for developers and translated the same issues into plain language for clients - managed both audiences without conflating them</li>
+</ul>
+
+<p><strong>Project management & PM coverage</strong></p>
+<ul>
+<li>Led Neptune Retail Solutions custom platform build end-to-end: discovery, requirements gathering, wireframe design, QA process creation, development team leadership (4 developers), Jira board management, and account management through successful handoff</li>
+<li>Stepped into PM during team transitions - led daily scrums, managed sprint planning, triaged bugs, and maintained delivery commitments without missing client deadlines</li>
+<li>Managed stakeholder communications throughout complex implementations - kept technical and business stakeholders aligned, surfaced risks early, and kept delivery momentum going under pressure</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Sole owner of product adoption for a new AI product. Responsible for everything that happened between the product shipping and clients successfully using it - which is where most AI products actually fail.</p>
+
+<p><strong>AI product operations & quality assurance</strong></p>
+<ul>
+<li>Built manual testing framework for AI agent product from scratch - systematic QA process to evaluate prompt reliability, output accuracy, and edge case behaviour before client deployment</li>
+<li>Identified hallucinations and inaccurate outputs through systematic testing - raised quality concerns to the product team and drove continuous improvements before issues reached clients</li>
+<li>Created quality feedback loop between client usage patterns and the product development team - documented failure modes and tracked recurring issues to drive product improvements through evidence</li>
+<li>Advocated internally for appropriate guardrails, transparent communication about AI limitations, and ethical deployment - the critical voice on a product team that needed one</li>
+</ul>
+
+<p><strong>Adoption infrastructure & onboarding</strong></p>
+<ul>
+<li>Designed 5-phase onboarding methodology covering the full client journey: Discovery, Implementation, Testing & Validation, User Training, and Ongoing Support</li>
+<li>Built complete educational curriculum across 8 guides for different user levels - everyday users, power users, executives, and internal account managers</li>
+<li>Created enterprise-level prompt frameworks enabling clients to extract strategic business intelligence from field marketing data - built to scale self-service usage, not create ongoing support dependency</li>
+<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch with custom frameworks tailored to their specific data and business questions</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>First operations hire. Built the product operations foundation the company scaled on - feedback loops, QA coordination, CRM infrastructure, and the enablement programmes that kept the revenue motion coherent as the team grew.</p>
+<ul>
+<li>Partnered with Product and Engineering through the full software development lifecycle - provided the seller and client perspective that kept delivery grounded in actual usage</li>
+<li>Conducted win/loss analysis and competitive post-mortems - surfaced field feedback to Product in a form that was actionable for roadmap decisions</li>
+<li>Managed client issues end-to-end: triaged bugs in Jira, coordinated resolution with engineering, and translated complex platform behaviour into plain language for clients throughout</li>
+<li>Led daily scrum calls with internal team - prioritised bugs, managed feature development, and maintained delivery momentum during critical periods</li>
+<li>Built evaluation frameworks and KPI tracking systems to measure feature adoption and training effectiveness - iterated programmes based on data rather than assumption</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Managed SugarCRM pipeline with 200+ opportunities; designed new hire training on CRM, sales processes, and product knowledge</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns; created documentation and self-service resources that enabled team autonomy</li>
+<li>Maximised margins through strategic management of IBM incentives across multiple regions</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for high-profile clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory and meaning-making - applied to user needs analysis, product feedback synthesis, and designing systems that account for how people actually interpret and use information.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeSalesEnable: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Sales Enablement Manager | Training & Curriculum Design | Revenue Enablement</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Sales enablement leader with 10+ years as the strategic constant behind a sales function that punched well above its weight. At Network Ninja, I was the person the COO and company owner came to for sales strategy - pitches, demo positioning, pricing conversations, feature prioritisation for prospects - regardless of who held the sales title at the time.</p>
+<p>Sales reps came and went. The strategic sales relationship didn't. I held the institutional knowledge, built the tools, trained whoever was new, and kept the conversation with leadership going on what we were selling, how we were selling it, and why we were or weren't winning. For most of my tenure I was the only enablement person - which meant I owned everything: discovery frameworks, demo customisation, competitive intelligence, onboarding curriculum, and the ongoing sales strategy work that didn't belong to any single rep.</p>
+<p>My background in philosophy (hermeneutics - how people interpret and understand information) and social work shapes how I design learning: I build programmes for how adults actually retain and apply new information, not for how we wish they would. That's the difference between training that gets completed and training that changes behaviour.</p>
+<p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. Everything I build for a sales team is in service of that: the demo is research made visible, the discovery framework is genuine curiosity about the prospect's business, and the training teaches reps to actually know what they're talking about rather than perform a script. That's why the sales motion I supported punched above its weight - not because we were pushy, but because every prospect interaction demonstrated we'd actually understood their business before we showed up.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Sales Enablement:</strong> Onboarding programme design, curriculum development, ramp optimisation, discovery frameworks, qualification playbooks, sales process design</p>
+<p><strong>Content & Tools:</strong> Demo environment creation and customisation, pitch deck development, competitive battle cards, objection-handling guides, win/loss analysis</p>
+<p><strong>Training Design:</strong> Adult learning principles, instructional design, self-service resource development, video training (Loom), structured learning paths</p>
+<p><strong>CRM & Pipeline:</strong> HubSpot, SugarCRM, Salesforce, pipeline management, data integrity, forecasting, performance analytics</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, AI agent implementation, prompt engineering, AI adoption frameworks, technical training delivery</p>
+<p><strong>Cross-Functional:</strong> Product feedback loops, cross-team communication, stakeholder management, field readiness for product launches</p>
+<p><strong>Tools:</strong> Jira, HubSpot, SugarCRM, Slack, Google Workspace, Loom, Notion, Zoom, Asana</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes; built the enablement infrastructure from scratch across every role I held.</p>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic sales partner to the COO and company owner. Owned all enablement for a lean sales team closing enterprise deals - and held the ongoing strategic conversation with leadership about positioning, pricing, demo approach, and what we were and weren't winning. Sales reps rotated; the strategy relationship didn't.</p>
+
+<p><strong>Strategic sales partnership with ownership</strong></p>
+<ul>
+<li>Primary strategic partner to the COO on all sales decisions - pitches, demo positioning, pricing conversations, feature prioritisation for specific prospects, and win/loss analysis</li>
+<li>Held the sales intelligence that sales reps didn't have time to accumulate - understood the product deeply, knew the competitive landscape, and knew what resonated with which buyer type</li>
+<li>When new sales hires came in, I was the one who got them functional - and when they left, I was the one who made sure nothing was lost with them</li>
+<li>Maintained sales continuity through significant team turnover - the programmes, the tools, and the strategic conversation with leadership stayed consistent regardless of who held the sales title</li>
+<li>Created 30+ customised demo environments annually - each one researched and built specifically for the prospect's business, industry context, and use cases rather than adapted from a generic template</li>
+<li>Owned every stage of demo preparation: prospect research, sandbox environment build, tailored walkthrough design, and materials development for the sales conversation</li>
+<li>Key contributor to 100% of sales wins since 2018 - every deal involved custom demo preparation and prospect-specific research</li>
+<li>Ensured every customer interaction demonstrated deep familiarity with their business - cited their work, spoke their language, addressed their specific challenges</li>
+</ul>
+
+<p><strong>Curriculum, playbooks & sales tools</strong></p>
+<ul>
+<li>Owned all sales enablement materials: demo environments, pitch decks, competitive battle cards, objection-handling guides, and discovery frameworks for the full sales team</li>
+<li>Developed discovery frameworks and qualification playbooks that worked across sales cycles ranging from same-day SMB deals to year-long enterprise engagements</li>
+<li>Created vertical-specific enablement materials for retail, CPG, and experiential marketing segments</li>
+<li>Partnered with Product Marketing on competitive intelligence, updated battle cards based on win/loss findings, and kept messaging aligned with what was actually resonating in the field</li>
+</ul>
+
+<p><strong>Onboarding & ramp optimisation</strong></p>
+<ul>
+<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes, defined learning paths, and self-service resources that didn't require hand-holding</li>
+<li>Designed and delivered onboarding programmes covering CRM systems, sales processes, product knowledge, and customer discovery - tailored to the specific gaps of each new hire</li>
+<li>Maintained consistency and institutional knowledge as sales team composition changed - the programmes survived personnel turnover because they were built to be handed off, not held</li>
+</ul>
+
+<p><strong>Field readiness & product launches</strong></p>
+<ul>
+<li>Owned field readiness for product launches - ensured sales and CS teams had training, documentation, and support materials before anything shipped</li>
+<li>Led trade show enablement including EMS Vegas: booth materials, demo preparation, lead qualification framework, and follow-up strategy</li>
+<li>Coordinated internal communications and training rollouts across departments when new features or product changes affected the sales motion</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>First enablement hire. Built sales enablement, operations, and training infrastructure from zero as the company grew from a ~10-person team with no formal processes to an organisation supporting Fortune 500 clients at scale.</p>
+
+<p><strong>Building from scratch</strong></p>
+<ul>
+<li>Built the entire enablement function from nothing - no playbook, no existing materials, no processes to inherit. Created the foundation that the sales team relied on for years</li>
+<li>Established sales processes, reporting standards, and operational infrastructure that scaled with team growth</li>
+<li>Created documentation and self-service resources that enabled team autonomy and reduced reliance on informal knowledge transfer</li>
+</ul>
+
+<p><strong>Training & programme design</strong></p>
+<ul>
+<li>Designed and delivered comprehensive training programmes on CRM systems, sales processes, product knowledge, and customer discovery for a lean, evolving team</li>
+<li>Applied adult learning principles throughout - designed for how people actually retain and apply information, not just what gets completed</li>
+<li>Collected and analysed feedback through surveys, observation, and performance data to iterate on programme design continuously</li>
+</ul>
+
+<p><strong>Product feedback loops</strong></p>
+<ul>
+<li>Conducted win/loss analysis and competitive post-mortems - surfaced field feedback to Product and Engineering to inform roadmap decisions</li>
+<li>Partnered with Product and Engineering through the full software development lifecycle - provided the seller and client perspective that kept delivery grounded in real usage</li>
+<li>Managed client issues, triaged bugs, and translated complex platform behaviour into plain language for clients and prospects</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Sole owner of adoption and enablement for a new AI product with no existing infrastructure, no team, and no precedent. Built the entire curriculum and onboarding methodology from scratch.</p>
+<ul>
+<li>Designed 5-phase onboarding methodology with complete educational curriculum across 8 guides covering different user levels - from non-technical everyday users to executives and power users</li>
+<li>Created enterprise-level prompt frameworks enabling clients to extract strategic business intelligence from field marketing data - designed to teach prompting principles, not just provide templates</li>
+<li>Built 50+ training videos and resources using Loom, Google Drive, and Notion for content delivery</li>
+<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch with custom frameworks tailored to their data structures and business questions</li>
+<li>Applied hermeneutics background directly to AI enablement design - built materials that account for how users interpret AI outputs and where misunderstanding is most likely to occur</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Designed and delivered new hire training programmes on CRM systems, sales processes, and product knowledge</li>
+<li>Managed SugarCRM pipeline with 200+ opportunities; trained team members on pipeline management, reporting, and process adherence</li>
+<li>Created documentation and self-service resources that enabled team autonomy; coordinated IBM co-marketing funds and outbound campaigns</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory, meaning-making, and how people understand and process information - directly applied to enablement design and adult learning methodology.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeAI: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">AI Adoption & Enablement | Curriculum Design | Prompt Engineering | Change Management</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>AI adoption and enablement leader who builds the bridge between what a technology can do and what real users need it to do. At Network Ninja, I was handed a new AI product with no onboarding infrastructure, no quality assurance framework, no training materials, and no team - and built all of it from scratch.</p>
+<p>What makes this work different from generic enablement is the combination: I understand how LLMs interpret and generate information well enough to catch where they'll go wrong before a client does, and I understand how people learn well enough to design adoption programmes that actually change behaviour. My background in philosophy (hermeneutics - how people interpret information) isn't a decorative detail. It's the reason I can look at an AI output, identify where the model misread the intent, and build a prompt framework that prevents it from happening again.</p>
+<p>I'm not a blind AI advocate. I push for guardrails, transparency about limitations, and honest communication with clients about what the technology can and can't do. That critical lens is what makes adoption programmes trustworthy - and what makes them last.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>AI Adoption & Enablement:</strong> Adoption strategy, onboarding methodology design, change management, user training, prompt engineering, AI quality assurance, hallucination identification</p>
+<p><strong>Curriculum Design:</strong> Adult learning principles, multi-level curriculum development, instructional design, self-service resource creation, video training (Loom), structured learning paths</p>
+<p><strong>Prompt Engineering:</strong> Framework development, prompt library creation, output optimisation, edge case testing, enterprise analytical frameworks</p>
+<p><strong>Quality Assurance:</strong> Manual testing framework creation, AI output evaluation, systematic prompt testing, issue documentation, feedback loop design</p>
+<p><strong>AI Tools:</strong> Claude, Claude Code, ChatGPT, Manus, Lovable, LLM implementation, agent configuration, technical training delivery</p>
+<p><strong>Cross-Functional:</strong> Stakeholder communication, client onboarding, executive training, product feedback loops, go-to-market readiness</p>
+<p><strong>Tools:</strong> Jira, Notion, Loom, Google Workspace, Slack, GitHub, HubSpot, Zoom</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations.</p>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Sole owner of adoption and enablement for mAInevent Agents - an AI-powered analytics tool enabling experiential marketing agencies and CPG brands to query millions of field events using natural language. No existing infrastructure, no team, no precedent. Built everything from scratch.</p>
+
+<p><strong>Quality assurance & AI evaluation</strong></p>
+<ul>
+<li>Built manual testing framework for AI agent product from scratch - created systematic process to evaluate prompt reliability, output accuracy, and edge case behaviour before any client deployment</li>
+<li>Identified hallucinations and inaccurate outputs through systematic prompt testing and input refinement - raised quality concerns to the product team and drove continuous improvements before issues reached clients</li>
+<li>Applied philosophy background (hermeneutics) directly to AI quality work - used understanding of how LLMs interpret context to identify where models were likely to misread intent or produce misleading results</li>
+<li>Advocated internally for appropriate guardrails, honest communication about AI limitations, and ethical deployment - pushed back when outputs weren't ready for client use</li>
+<li>Created quality feedback loop between client usage patterns and the product development team - documented failure modes, tracked recurring issues, and drove product improvements through evidence</li>
+</ul>
+
+<p><strong>Onboarding methodology & curriculum design</strong></p>
+<ul>
+<li>Designed 5-phase onboarding methodology covering the full client journey: Initial Discovery, Agent Implementation, Testing & Validation, User Training, and Ongoing Support & Evaluation</li>
+<li>Built complete educational curriculum from scratch across 8 guides for different user levels - from non-technical everyday users through power users and executives, each with appropriate depth and language</li>
+<li>Created enterprise-level prompt frameworks (Power Prompts) enabling clients to extract strategic business intelligence from field marketing data - designed to teach prompting principles, not just hand over templates</li>
+<li>Built 50+ training videos and resources using Loom, Google Drive, and Notion - structured for self-service so clients could progress without requiring dedicated support time</li>
+<li>Developed troubleshooting guides, use case libraries, and best practice documentation that reduced client support burden and enabled independent problem-solving</li>
+</ul>
+
+<p><strong>Prompt engineering & framework development</strong></p>
+<ul>
+<li>Developed comprehensive prompt libraries for multiple audiences: basic user guides, advanced analytical frameworks, agency white-label libraries, and client-specific custom sets</li>
+<li>Created Agent Prompting Tips and Agent Visualisation Tips guides - built to teach the reasoning behind effective prompts, not just provide examples to copy</li>
+<li>Built Public Label prompt libraries for agencies to use with their own clients - covering brand analysis, programme type analysis, market and location analysis, and customisation techniques</li>
+<li>Designed 10-prompt structured learning sequence to progressively build user confidence and capability - from basic data exploration through advanced interactive analysis</li>
+<li>Created enterprise analytical frameworks including programme performance intelligence, staff performance analysis, venue intelligence, pattern discovery, and data quality optimisation</li>
+</ul>
+
+<p><strong>Client onboarding & technical delivery</strong></p>
+<ul>
+<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch - each with custom analytical frameworks tailored to their specific data structures and business questions</li>
+<li>Led technical discovery sessions to understand client data requirements, field structure, and desired analytical outcomes before implementation</li>
+<li>Created custom prompt frameworks and visualisation guides for individual clients - including brand-specific colour palettes, chart recommendations, and data interpretation guidance</li>
+<li>Ran product demonstrations and built custom sandbox environments tailored to prospect technical requirements and use cases</li>
+<li>Featured in client success case studies demonstrating AI agent impact for Transformative Marketing Services and Peralta Experiences</li>
+</ul>
+
+<p><strong>Go-to-market & thought leadership</strong></p>
+<ul>
+<li>Owned EMS Vegas (Experiential Marketing Summit) booth presence from concept to execution - created all video examples, product demonstrations, and outreach materials</li>
+<li>Created thought leadership content educating the experiential marketing industry on AI-powered analytics and field marketing intelligence</li>
+<li>Developed 12+ innovative use case frameworks showing practical applications across different field marketing programme types - from predictive event performance to anomaly detection to geographic expansion planning</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic partner to the COO. Alongside CoS responsibilities, served as the institutional knowledge base and strategic constant for the sales function - which informed the AI adoption work directly: I understood the client problems the AI was meant to solve because I'd been helping clients solve them manually for years.</p>
+<ul>
+<li>Led daily scrums, managed sprint planning, and triaged bugs in Jira during team transitions - maintained delivery momentum without missing commitments</li>
+<li>Served as sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing</li>
+<li>Translated complex technical issues for non-technical clients and non-technical business requirements for engineering teams simultaneously</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>First operations hire. Built the enablement infrastructure and operational foundation the company scaled on. Relevant to AI adoption work: built a pattern of designing systems for how people actually behave rather than ideal users.</p>
+<ul>
+<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes, defined learning paths, and self-service resources</li>
+<li>Used early AI tools to analyse field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements before formal AI products existed</li>
+<li>Designed and delivered training programmes for evolving team composition - applied adult learning principles to build programmes that changed behaviour, not just completed checkboxes</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Managed SugarCRM pipeline with 200+ opportunities; designed and delivered new hire training on CRM systems, sales processes, and product knowledge</li>
+<li>Created documentation and self-service resources that enabled team autonomy; coordinated IBM co-marketing funds and outbound campaigns</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory, meaning-making, and how people understand and process information - directly applied to AI quality assurance, prompt engineering, and adoption design.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools (Claude Code) through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeRevOps: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Revenue Operations | CRM Architecture | Pipeline Management | Sales Process Design</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Revenue operations generalist who has owned both sides of the function: the infrastructure that makes a sales process work and the execution that fills the pipeline. At Network Ninja, I designed the CRM architecture, defined pipeline stages and data fields, built the forecasting model, and ran outbound prospecting, email sequencing, and demo coordination - as a one-person operation supporting a sales team closing enterprise deals with Fortune 500 CPG brands.</p>
+<p>The work I called "sales operations" at the time is what most companies now call RevOps. I just didn't have the title. I owned the system design decisions - what data to collect, how to structure stages, what a qualified lead actually looked like, and how to make sure nothing fell through the cracks. I also owned the execution: finding prospects, entering them, following up, running sequential outreach, and converting them into demos.</p>
+<p>I'm the person who notices when a CRM is lying to you - when the data looks clean but the definitions are wrong, when leads are being counted twice, when the forecast is optimistic because nobody defined what 'qualified' means. I fix that before it costs someone a quarter.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Revenue Operations:</strong> Pipeline architecture, stage definition, data field design, lead management, forecasting (3-6-9 month), win/loss analysis, process documentation</p>
+<p><strong>CRM:</strong> HubSpot, SugarCRM, Salesforce - system configuration, data integrity management, pipeline management, reporting, team training and adoption</p>
+<p><strong>Pipeline Execution:</strong> Prospecting, lead entry and qualification, sequential email marketing, outbound outreach, demo coordination, follow-up management</p>
+<p><strong>Analytics & Reporting:</strong> Performance metrics, forecasting, KPI tracking, sales analytics, competitive intelligence, pattern identification</p>
+<p><strong>Sales Enablement:</strong> Discovery frameworks, qualification playbooks, demo customisation, onboarding programmes, competitive battle cards</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, AI agent implementation, prompt engineering, process automation, technical training delivery</p>
+<p><strong>Tools:</strong> HubSpot, SugarCRM, Salesforce, Jira, Slack, Google Workspace, Loom, Notion, Asana, Zoom</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes; built sales operations and revenue infrastructure from scratch.</p>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>Sole revenue operations owner for a B2B SaaS company with no prior infrastructure. Designed and built the entire sales operations function - CRM architecture, pipeline design, forecasting, outbound execution, and lead management - while simultaneously owning sales enablement for a lean team closing enterprise deals.</p>
+
+<p><strong>CRM architecture & pipeline design</strong></p>
+<ul>
+<li>Designed CRM pipeline from scratch - defined pipeline stages, qualification criteria, required data fields, and the logic that determined when a lead moved forward or stalled</li>
+<li>Determined what information to collect at each stage and why - made deliberate decisions about data structure to ensure the pipeline reflected reality, not wishful thinking</li>
+<li>Maintained data integrity across the system - caught and corrected duplicate entries, inconsistent definitions, and reporting gaps that would have distorted forecasting</li>
+<li>Self-taught on both SugarCRM and HubSpot - configured and administered each system, trained team members on pipeline management, reporting, and process adherence</li>
+<li>Changed CRM platforms as the company evolved - managed the transition, preserved data integrity, and got the team functional without losing pipeline visibility</li>
+</ul>
+
+<p><strong>Forecasting & pipeline management</strong></p>
+<ul>
+<li>Built and maintained 3-6-9 month forecasting model - assessed deal probability, tracked pipeline health, and presented revenue projections to leadership</li>
+<li>Identified deals that were stalling, leads that were being neglected, and patterns in what was and wasn't converting - surfaced these proactively rather than waiting for someone to ask</li>
+<li>Conducted win/loss analysis and competitive post-mortems - used findings to refine qualification criteria, update forecasting assumptions, and sharpen the sales approach</li>
+<li>Tracked performance metrics and identified trends across the pipeline - flagged risks early and recommended adjustments before they affected results</li>
+</ul>
+
+<p><strong>Outbound execution & lead management</strong></p>
+<ul>
+<li>Ran full outbound operation as a one-person show - found prospects, entered them into the CRM, built and executed sequential email marketing campaigns, followed up, and coordinated demos</li>
+<li>Ensured no leads were wasted - built follow-up sequences, tracked response rates, and made sure every prospect in the pipeline had a clear next action and owner</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns at All Blue Solutions - managed demand generation end-to-end across multiple regions</li>
+<li>Created outreach templates and sequences that balanced volume with personalisation - designed for the buyer, not for the sender's convenience</li>
+</ul>
+
+<p><strong>Process design & documentation</strong></p>
+<ul>
+<li>Established sales processes and reporting standards that scaled with team growth - built for the person who would inherit the work, not just for current use</li>
+<li>Created documentation and self-service resources that reduced reliance on tribal knowledge and enabled new hires to get functional without hand-holding</li>
+<li>Built evaluation frameworks and KPI tracking systems to measure what was working and what wasn't - iterated based on data rather than instinct</li>
+<li>Identified and fixed process gaps proactively - noticed where leads fell through the cracks, where definitions were ambiguous, and where the system was creating more confusion than clarity</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>As the company grew and a dedicated sales team came on, I transitioned from running RevOps execution to owning the strategic layer - keeping the sales motion coherent, the pipeline honest, and the enablement infrastructure current. Still the institutional memory for how the revenue function was supposed to work.</p>
+<ul>
+<li>Maintained oversight of pipeline health and sales process integrity as team composition changed - ensured the systems I built were being used correctly and updated when product or market conditions shifted</li>
+<li>Advised COO on GTM strategy, pricing conversations, and deal-level decisions - brought revenue operations context to strategic discussions that might otherwise have been made without it</li>
+<li>Owned competitive intelligence and battle cards - kept positioning current based on win/loss findings and field feedback</li>
+<li>Served as backup account manager across multiple client accounts - managed relationships, handled escalations, and ensured smooth operations when bandwidth was tight</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Built adoption infrastructure for an AI-powered analytics product. Relevant to RevOps: designed systems for how clients extracted and interpreted data from field marketing operations - the same analytical lens applied internally to pipeline and forecasting work.</p>
+<ul>
+<li>Built manual testing framework and quality assurance process for AI outputs - applied same data integrity mindset to AI evaluation that I applied to CRM management</li>
+<li>Created enterprise analytical frameworks enabling clients to extract strategic business intelligence from large datasets - designed for rigour and repeatability</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<p>Full sales operations ownership for an IBM reseller - CRM management, pipeline tracking, outbound coordination, and team training. Revenue operations work was valued and visible at leadership level.</p>
+<ul>
+<li>Managed SugarCRM system with 200+ opportunities - maintained pipeline accuracy, trained team members on process adherence, and reported on pipeline health to leadership</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns across multiple regions - managed demand generation end-to-end</li>
+<li>Maximised margins and bonuses through strategic management of IBM incentives - tracked programme requirements and ensured the team was positioned to hit targets</li>
+<li>Designed and delivered new hire training on CRM systems, sales processes, and product knowledge - created self-service resources that reduced onboarding dependency</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory and meaning-making - applied to how data is structured, interpreted, and acted on in revenue operations contexts.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeImpl: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Implementation Manager | Client Onboarding | Technical Project Management | QA</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Implementation leader who owns the full lifecycle - discovery through clean handoff - and builds the documentation that makes the handoff actually work. At Network Ninja, I led the Neptune Retail Solutions custom platform build end-to-end: requirements gathering, workflow and wireframe design, QA process creation, development team leadership, and account management through to a successful transition to a dedicated AM.</p>
+<p>Across 20+ implementations as sole QA lead, I built the testing frameworks, set the quality standards, and made sure nothing shipped until it was ready. I also designed the 5-phase onboarding methodology for Network Ninja's AI agent product - from initial discovery through ongoing support - with complete documentation for each phase.</p>
+<p>The through-line across all of it: I build for the person who inherits the work. Every process I design, every handoff document I write, every training programme I create is built with the assumption that someone else will need to pick it up and run with it without me in the room. That's what makes implementations last.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Implementation & Project Management:</strong> Full lifecycle ownership, discovery and requirements gathering, workflow and wireframe design, stakeholder management, risk identification, Agile/Scrum, sprint planning, daily standups</p>
+<p><strong>Quality Assurance:</strong> QA leadership, test plan creation, bug triage and prioritisation, edge case identification, regression testing, UAT coordination, Jira (expert)</p>
+<p><strong>Client Onboarding:</strong> Onboarding methodology design, technical discovery, user training, adoption frameworks, self-service resource development, success criteria definition</p>
+<p><strong>Technical Translation:</strong> Business requirements to technical specifications, technical issues to client-friendly language, cross-functional stakeholder alignment</p>
+<p><strong>Documentation:</strong> Process documentation, knowledge transfer, SOW development, user guides, training materials, handoff documentation</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, AI agent implementation, prompt engineering, AI quality assurance, adoption frameworks</p>
+<p><strong>Tools:</strong> Jira, HubSpot, SugarCRM, Slack, Google Workspace, Loom, Notion, GitHub, Zoom, Asana</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes; led implementations and built the QA infrastructure from scratch.</p>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic partner to the COO and executive team, with direct ownership of major client implementations, QA leadership, and PM coverage during team transitions. The Neptune project - the most complex custom build in the company's history at that point - was mine from start to finish.</p>
+
+<p><strong>Neptune Retail Solutions - end-to-end implementation ownership</strong></p>
+<ul>
+<li>Led complete lifecycle of major custom platform build: discovery sessions, requirements gathering, workflow and wireframe design, QA process creation, development team leadership (4 developers), Jira board management, and client account management</li>
+<li>Translated client business requirements into technical specifications - created workflows and wireframes that bridged what the client needed and what the development team could build</li>
+<li>Built QA process from scratch - established testing protocols and quality standards, coordinated between internal dev team and client QA leads, and ensured every feature met requirements before release</li>
+<li>Led daily scrums with development team throughout the build - made decisions on ticket prioritisation, scope questions, and sequencing, and kept delivery on track</li>
+<li>Transitioned into account manager post-launch - managed the client relationship, handled escalations, and kept operations stable until a dedicated AM was ready to take over</li>
+<li>Handed off with complete documentation and knowledge transfer - built for the person inheriting the account, not just for closure</li>
+</ul>
+
+<p><strong>QA leadership across implementations</strong></p>
+<ul>
+<li>Sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing for each</li>
+<li>Set quality standards and enforced them throughout - partnered with Product and Engineering to catch issues before they reached clients rather than after</li>
+<li>Wrote detailed Jira tickets for developers and translated the same issues into plain language for clients simultaneously - managed both audiences without conflating them</li>
+<li>Built comprehensive test plans that were repeatable and transferable - not just useful for one project but adoptable as a standard across the organisation</li>
+</ul>
+
+<p><strong>Project management & delivery continuity</strong></p>
+<ul>
+<li>Stepped into PM during team transitions - led daily scrums, managed sprint planning, triaged bugs, and maintained delivery commitments without missing client deadlines</li>
+<li>Managed stakeholder communications throughout complex implementations - kept technical teams and clients aligned, managed expectations on both sides, and surfaced risks before they became incidents</li>
+<li>Coordinated cross-functional work across Sales, Product, Engineering, AI, and Customer Success - served as the central communication point when no single team owned the full picture</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Designed and implemented the complete onboarding methodology for a new AI product - no existing infrastructure, no team, no precedent. Built the process that took clients from initial discovery through to independent, confident usage.</p>
+
+<p><strong>5-phase onboarding methodology</strong></p>
+<ul>
+<li>Designed full 5-phase implementation methodology: Initial Discovery (data analysis requirements, field structure assessment), Agent Implementation (technical deployment, custom prompt development), Testing & Validation (historical data validation, prompt refinement), User Training (capability training, prompting techniques), and Ongoing Support & Evaluation</li>
+<li>Built complete documentation for each phase - client-facing guides, internal process documentation, and success criteria that made it clear when a client was ready to move forward</li>
+<li>Created onboarding materials for varying technical proficiency levels - from non-technical everyday users through power users and executives, each with appropriate depth and language</li>
+<li>Developed troubleshooting guides and best practice documentation that enabled client self-service and reduced ongoing support dependency</li>
+</ul>
+
+<p><strong>Technical discovery & client implementation</strong></p>
+<ul>
+<li>Led technical discovery sessions to understand each client's data requirements, field structure, and desired analytical outcomes before implementation began</li>
+<li>Built custom sandbox environments and tailored demo configurations for prospects during the sales process - translated prospect requirements into proof-of-concept setups</li>
+<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch - each with custom frameworks built around their specific data structures and business questions</li>
+<li>Created Sales-to-Accounts handoff process - structured guide covering demo site setup, client pitch requests, development scoping, contract management, and new client onboarding workflows</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>Built the operational infrastructure the company scaled on. Implementation work in this role centred on internal systems, client issue management, and QA coordination alongside the product team.</p>
+<ul>
+<li>Managed client issues end-to-end - triaged bugs in Jira, coordinated resolution with engineering, and translated complex platform behaviour into plain language for clients throughout</li>
+<li>Led daily scrum calls with internal team to prioritise bugs, manage feature development, and maintain delivery momentum during critical periods</li>
+<li>Partnered with Product and Engineering through the full software development lifecycle - provided user and client perspective to keep delivery grounded in real usage</li>
+<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes and self-service resources built for the person who inherits them</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Managed SugarCRM implementation and ongoing system administration for a 200+ opportunity pipeline - trained team members on process adherence and reporting</li>
+<li>Designed and delivered new hire onboarding programmes covering CRM systems, sales processes, and product knowledge</li>
+<li>Created documentation and self-service resources that enabled team autonomy and reduced reliance on informal knowledge transfer</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system across a large contract workforce; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory and meaning-making - applied to how requirements are gathered, how users understand new systems, and how to design implementation processes that account for how people actually adopt new tools.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
 </div>
     `
   },
@@ -2017,7 +2818,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
 
   roleExplorer: {
     headline: "Which Ashley Do You Need?",
-    subheadline: "I fit a lot of roles because I've done a lot of roles. Explore the ones that match what you're looking for.",
+    subheadline: "I'm a generalist who happens to do a lot of these at once. Pick the flavour that matches what you're looking for and read the full resume for that shape of the work.",
     availability: "Remote | Open to local hybrid (Guelph, ON area)",
     cta: {
       text: "Let's talk about this",
@@ -2026,80 +2827,118 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
     },
     roles: [
       {
-        id: "product-ops",
-        title: "Product Operations Lead",
-        tags: ["Operations", "Product", "QA", "Process"],
-        hook: "The person who makes sure your product actually works for your users.",
-        whatThisNeeds: "Someone who bridges product, engineering, and customers. Owns QA processes, manages releases, translates user needs into actionable feedback, and builds the operational systems that keep product delivery on track.",
-        whatIveDone: [
-          "Served as sole QA lead across 20+ implementations - testing, bug triage, edge case identification",
-          "Led enterprise retail marketing services client project end-to-end: discovery, requirements, wireframes, QA, daily scrums, Jira management, client delivery",
-          "Built operational infrastructure from scratch at a startup that grew to support 32M+ visits and Fortune 500 clients",
-          "Partnered with engineering throughout full SDLC - user perspective, seller feedback, delivery verification"
-        ],
-        proof: "workExamples",
-        proofLabel: "See: Enterprise Custom Platform Build",
-        tools: ["Jira", "Linear", "ClickUp", "GitHub", "Agile/Scrum", "Notion"]
-      },
-      {
-        id: "enablement",
-        title: "Enablement & Training Lead",
-        tags: ["Enablement", "Training", "Onboarding", "Content"],
-        hook: "The person who makes your team actually good at their jobs.",
-        whatThisNeeds: "Someone who designs learning experiences that stick - not info dumps, but actual behaviour change. Builds onboarding programs, training curricula, and knowledge bases that reduce ramp time and improve performance.",
-        whatIveDone: [
-          "Designed 5-phase onboarding methodology for AI product adoption with role-based learning tracks",
-          "Created 50+ training videos and comprehensive resource library using Google Drive, Loom, and Notion",
-          "Reduced new hire ramp time from 90 to 60 days through structured learning paths and self-service resources",
-          "Built discovery frameworks, qualification playbooks, and 30+ customised demo environments annually"
-        ],
-        proof: "portfolio",
-        proofLabel: "See: The Art of Prompt Crafting",
-        tools: ["Loom", "Notion", "Google Workspace", "Canva", "Slack"]
-      },
-      {
-        id: "ai-adoption",
-        title: "AI Adoption & Implementation Lead",
-        tags: ["AI", "LLM", "Prompt Engineering", "Change Management"],
-        hook: "The person who turns 'we have AI' into 'we use AI effectively.'",
-        whatThisNeeds: "Someone who understands both the technology and the humans using it. Builds testing frameworks, prompt libraries, adoption strategies, and training - with an ethical lens and quality-first mindset.",
-        whatIveDone: [
-          "Built manual testing framework for AI agent product - systematic QA for prompt reliability, consistency, and accuracy",
-          "Created enterprise-level Power Prompts library (75+ tested templates) for business intelligence extraction",
-          "Applied hermeneutics background to understand how LLMs interpret context and where they might mislead",
-          "Designed complete adoption infrastructure: testing → onboarding → training → feedback loop"
-        ],
-        proof: "portfolio",
-        proofLabel: "See: Enterprise Analytics Framework",
-        tools: ["Claude", "ChatGPT", "Gemini", "Claude Code", "GitHub", "LLM Agents", "Prompt Engineering"]
-      },
-      {
         id: "chief-of-staff",
         title: "Chief of Staff / Strategic Ops",
-        tags: ["Strategy", "Operations", "Leadership", "Cross-Functional"],
-        hook: "The person who sees problems before they become problems.",
-        whatThisNeeds: "Someone who operates as a force multiplier for leadership. Identifies gaps, connects teams, drives strategic initiatives, and handles the ambiguous work that doesn't cleanly belong to one department.",
+        tags: ["Strategy", "Executive Partnership", "Cross-Functional", "Leadership"],
+        hook: "The strategic right hand who notices what leadership is missing and says so before it costs anyone.",
+        whatThisNeeds: "Someone who holds the context, pressure-tests decisions, reads power dynamics, and makes sure the right things actually happen. The steady presence behind executive calls - the one who catches blind spots, surfaces downstream consequences, and advocates for what's actually needed rather than what's easiest.",
         whatIveDone: [
-          "Partnered with COO/Head of Sales as Chief of Staff - advised on GTM, product roadmap, organisational alignment",
-          "Identified and filled gaps between Sales, Product, and Engineering before they became blockers",
-          "Stepped into PM role during team transitions - daily scrums, sprint planning, bug triage, delivery momentum",
-          "Key contributor to 100% of sales wins since 2018 through custom preparation and institutional knowledge"
+          "Strategic partner to a COO for two years - turned incomplete direction into clear decisions and filled the thinking that wasn't happening at the executive level",
+          "Led the Neptune Retail Solutions custom platform build end-to-end: discovery, requirements, wireframes, QA process, a team of four developers, and clean handoff to a dedicated AM",
+          "Sole QA Lead across 20+ implementations; stepped into PM coverage during team transitions without missing client deadlines",
+          "Key contributor to 100% of sales wins since 2018 through 30+ custom demo environments a year built from scratch for each prospect"
         ],
         proof: "workExamples",
         proofLabel: "See: Lean Team, Enterprise Results",
-        tools: ["Jira", "HubSpot", "Slack", "Notion", "Google Workspace", "Microsoft Office"]
+        tools: ["Jira", "HubSpot", "Salesforce", "Slack", "Notion", "Google Workspace", "Claude", "Claude Code"],
+        resumeApp: "wordpad-cos"
+      },
+      {
+        id: "product-ops",
+        title: "Product Operations Manager",
+        tags: ["Product Ops", "GTM Readiness", "QA", "Cross-Functional"],
+        hook: "The person who keeps the space between Product, Engineering, Sales, and CS from becoming a gap.",
+        whatThisNeeds: "Someone who makes sure what's being built matches what's being sold matches what clients actually need - and that none of it falls apart during the handoffs. Owns go-to-market readiness, field feedback loops that reach the roadmap, QA standards, and the translation layer between technical teams and everyone else.",
+        whatIveDone: [
+          "Owned field readiness for product launches - training, documentation, and support materials in place before anything shipped",
+          "Synthesised field feedback into product input that Engineering could actually act on; caught misalignments between Sales promises and Product roadmap before they became client problems",
+          "Built comprehensive, repeatable QA test plans adoptable as an org standard - not just useful for one project",
+          "Led the Neptune custom platform build end-to-end including 4 developers, plus PM coverage during team transitions"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Enterprise Custom Platform Build",
+        tools: ["Jira", "HubSpot", "SugarCRM", "Notion", "Loom", "GitHub", "Claude", "Agile/Scrum"],
+        resumeApp: "wordpad-prodops"
+      },
+      {
+        id: "sales-enablement",
+        title: "Sales Enablement Manager",
+        tags: ["Enablement", "Curriculum Design", "Demo Strategy", "Revenue"],
+        hook: "The institutional constant behind a sales function that punched well above its weight.",
+        whatThisNeeds: "Someone who lives by 'sharing over selling' - the belief that a good product sells itself when you share it well, so everything downstream is in service of that. Designs learning adults actually retain and apply, owns discovery frameworks, qualification playbooks, demo environments, competitive battle cards, onboarding curriculum, and the ongoing strategic sales conversation with leadership that doesn't belong to any single rep.",
+        whatIveDone: [
+          "Primary strategic sales partner to a COO for two years - pitches, demo positioning, pricing conversations, and win/loss analysis; reps rotated, the strategic relationship didn't",
+          "Built 30+ customised demo environments annually - each researched and built for the specific prospect's business rather than adapted from a generic template",
+          "Reduced new hire ramp time from 90 to 60 days through structured onboarding, defined learning paths, and self-service resources that didn't require hand-holding",
+          "Designed 5-phase AI adoption methodology plus 8 guides for different user levels when the company launched an AI product with no enablement infrastructure"
+        ],
+        proof: "portfolio",
+        proofLabel: "See: The Art of Prompt Crafting",
+        tools: ["HubSpot", "SugarCRM", "Loom", "Notion", "Google Workspace", "Canva", "Jira", "Claude"],
+        resumeApp: "wordpad-sales"
+      },
+      {
+        id: "ai-adoption",
+        title: "AI Adoption & Enablement",
+        tags: ["AI Adoption", "Prompt Engineering", "AI QA", "Change Management"],
+        hook: "The bridge between what an LLM can do and what real users actually need it to do.",
+        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and understands how people learn well enough to design adoption programmes that change behaviour. Not a blind advocate - the critical voice who pushes for guardrails, honest limitations, and ethical deployment.",
+        whatIveDone: [
+          "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries",
+          "Applied hermeneutics directly to AI quality work - used understanding of how models interpret context to find where they were likely to misread intent",
+          "Created enterprise Power Prompts library plus 8 guides spanning non-technical everyday users through executives and power users",
+          "Built 50+ training videos and resources structured for self-service so clients could progress without dedicated support time"
+        ],
+        proof: "portfolio",
+        proofLabel: "See: Enterprise Analytics Framework",
+        tools: ["Claude", "Claude Code", "ChatGPT", "Manus", "Lovable", "Notion", "Loom", "GitHub"],
+        resumeApp: "wordpad-ai"
+      },
+      {
+        id: "revops",
+        title: "Revenue Operations",
+        tags: ["RevOps", "CRM Architecture", "Pipeline", "Forecasting"],
+        hook: "The person who notices when a CRM is lying to you - and fixes it before it costs anyone a quarter.",
+        whatThisNeeds: "Someone who owns both sides of the function: the infrastructure decisions (stage definitions, data fields, what 'qualified' actually means, forecasting logic) and the execution (prospecting, lead entry, sequential outreach, follow-up). The person who spots duplicate leads, ambiguous definitions, and wishful-thinking pipelines.",
+        whatIveDone: [
+          "Designed CRM pipeline from scratch - defined stages, qualification criteria, required data fields, and the logic determining when a lead moved forward or stalled",
+          "Built and maintained a 3-6-9 month forecasting model; self-taught on both SugarCRM and HubSpot and migrated the team between them without losing pipeline visibility",
+          "Ran the full outbound operation as a one-person show - prospect research, CRM entry, sequential email marketing, follow-up, and demo coordination",
+          "Maintained data integrity by catching duplicate entries, inconsistent definitions, and reporting gaps before they distorted forecasting"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Lean Team, Enterprise Results",
+        tools: ["HubSpot", "SugarCRM", "Salesforce", "Jira", "Google Workspace", "Notion", "Loom", "Claude"],
+        resumeApp: "wordpad-revops"
+      },
+      {
+        id: "implementation",
+        title: "Implementation Manager",
+        tags: ["Implementation", "Client Onboarding", "Technical PM", "QA"],
+        hook: "Full lifecycle ownership - discovery through clean handoff - with documentation that actually works.",
+        whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff doc, every training programme is built assuming someone else needs to pick it up and run with it without you in the room.",
+        whatIveDone: [
+          "Led the Neptune Retail Solutions custom platform build end-to-end: discovery, requirements, workflow and wireframe design, QA process creation, 4 developers, Jira board management, and account management through successful handoff",
+          "Sole QA Lead across 20+ major implementations - built repeatable test plans, set quality standards, and enforced them with Product and Engineering",
+          "Designed 5-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing & Validation, User Training, Ongoing Support - with full documentation for each phase",
+          "Stepped into PM coverage during team transitions without missing client deadlines; created a Sales-to-Accounts handoff process used across the organisation"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Enterprise Custom Platform Build",
+        tools: ["Jira", "Notion", "Loom", "GitHub", "Agile/Scrum", "Google Workspace", "Slack", "Claude"],
+        resumeApp: "wordpad-impl"
       },
       {
         id: "other",
         title: "Something Else Entirely",
-        tags: ["Flexible", "Generalist", "Problem-Solving", "Adaptable"],
-        hook: "Roles are tricky. Maybe what you need doesn't have a clean title yet.",
-        whatThisNeeds: "Someone who figures things out. The kind of person you hire when you know you need help but aren't sure how to scope it. The ambiguity-comfortable, pattern-recognising, system-building human who makes the whole org run smoother.",
+        tags: ["Generalist", "Pattern Recognition", "System Building", "Curious"],
+        hook: "The six flavours above are real, but they all live inside the same person. Sometimes what you need doesn't have a clean title yet.",
+        whatThisNeeds: "A generalist who happens to do a lot of these at once. The kind of person you hire when you know something's missing but aren't sure how to scope it - the ambiguity-comfortable, pattern-recognising, system-building human who makes the whole org run smoother without needing to be told what to do.",
         whatIveDone: [
-          "Every role I've held was either created for me or evolved beyond its original description",
-          "Built five different jobs worth of infrastructure at a single company over 7+ years",
-          "Philosophy background (hermeneutics) + social work training = I design for how humans actually think and behave",
-          "Self-taught every technical tool on my resume through necessity and pattern recognition"
+          "Every role I've held was either created for me or evolved past its original description - five jobs worth of infrastructure at one company over 7+ years",
+          "Philosophy background (hermeneutics) + social work training = I design for how humans actually think and behave, not how we wish they would",
+          "Self-taught every technical tool on my resume through necessity and pattern recognition - CRMs, Jira, AI tooling, the whole shelf",
+          "The through-line across all six resumes: see gaps, fill gaps, build systems, hand off"
         ],
         proof: "collab",
         proofLabel: "See: Let's Work Together",
@@ -2255,6 +3094,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
     quickQuestions: [
       "What do you do?",
       "Tell me about your AI work",
+      "How do you think about sales?",
       "What's your work style?",
       "Why should I hire you?",
       "What makes you different?",
@@ -2263,7 +3103,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
 
     responses: {
       "What do you do?": {
-        text: "I find gaps and fill them. That's the short version.\n\nThe longer version: I'm a Product Operations and Enablement leader who builds systems that make organisations work better. Most recently, I built the entire adoption infrastructure for an AI agent product - testing framework, onboarding methodology, training curriculum, the works. Before that, I spent 7+ years at a field marketing platform building operational infrastructure from scratch, running QA, leading projects, creating sales enablement materials, and being the person who makes sure nothing falls through the cracks.\n\nThe pattern is always the same: see gaps, fill gaps, build systems, hand off.",
+        text: "I find gaps and fill them. That's the short version.\n\nThe longer version is that I'm a generalist who happens to do a lot of things at once, so the honest answer is 'it depends what you need.' I've written this up six ways - Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager - each a real resume for a real shape of the work. They all live inside the same person. If you open Hire Me.exe on this desktop you can pick the flavour that matches what you're hiring for and read the full resume for that version.\n\nThe pattern underneath all of it is the same: see gaps, fill gaps, build systems, hand off.",
         followUp: "How did you end up doing this kind of work?"
       },
 
@@ -2279,6 +3119,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
 
       "What do you mean by catching where things go wrong?": {
         text: "My brain doesn't let things rest when something feels off. That's actually useful in AI work - I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong. Things not functioning properly doesn't sit well with me, so I test thoroughly and catch issues others might accept or miss.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of missed responses or loose threads. My brain tracks these things whether I want it to or not. I've learned to make that work for me.",
+        followUp: null
+      },
+
+      "How do you think about sales?": {
+        text: "Sharing over selling, always. I genuinely believe that if a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. And if it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around genuine curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've ever been in didn't feel like a sale - it felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
         followUp: null
       },
 
@@ -2323,7 +3168,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
       },
 
       "What does your ideal role look like?": {
-        text: "Product Operations, Revenue Operations, Chief of Staff to someone who wants a strategic partner, or something in the AI/enablement space where I can help people actually adopt and use these tools well.\n\nSomewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my weird background is an asset, not a question mark.\n\nBasically: give me interesting problems, trust me to solve them, and let me make your organisation work better. That's the job I want.",
+        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation behind a lean team. AI Adoption lead where I can bring the critical lens that most AI programmes don't have. Revenue Operations building the pipeline infrastructure from scratch. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape if you want to see the detail - Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my weird background is an asset, not a question mark.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
         followUp: null
       }
     },
@@ -2344,7 +3189,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario, Canada | Remote
       "my god its full of stars": "That's what people say when they see Ashley's resume, actually. ...No, that's not true. But it is comprehensive. Would you like to hear about her work?"
     },
 
-    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in Resume.doc or AboutMe.html on this desktop. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
+    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in one of the resumes on this desktop - there are six role-specific versions in the My Work folder, or you can open Hire Me.exe and pick the flavour that matches what you're hiring for. AboutMe.html covers the non-work side. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
   },
 
   // ============================================

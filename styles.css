@@ -5476,7 +5476,16 @@ body.a11y-screen-reader [aria-hidden="true"] {
   letter-spacing: 3px;
 }
 
-.wm-retake-btn {
+.wm-result-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.wm-retake-btn,
+.wm-resume-btn {
   background: transparent;
   border: 2px solid #c44cff;
   color: #c44cff;
@@ -5488,11 +5497,23 @@ body.a11y-screen-reader [aria-hidden="true"] {
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.2s;
+  font-family: inherit;
 }
 
-.wm-retake-btn:hover {
+.wm-retake-btn:hover,
+.wm-resume-btn:hover {
   background: #c44cff;
   color: white;
+}
+
+.wm-resume-btn {
+  background: #c44cff;
+  color: white;
+}
+
+.wm-resume-btn:hover {
+  background: #a030d0;
+  border-color: #a030d0;
 }
 
 .wm-magazine-footer {
@@ -5740,6 +5761,10 @@ body.a11y-screen-reader [aria-hidden="true"] {
 .re-role-cta {
   margin-top: 16px;
   text-align: center;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .re-cta-btn {
@@ -5752,11 +5777,24 @@ body.a11y-screen-reader [aria-hidden="true"] {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
+  border: 1px solid var(--color-burgundy);
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .re-cta-btn:hover {
   background: #a0445e;
   transform: translateY(-1px);
+}
+
+.re-cta-btn-secondary {
+  background: #fff;
+  color: var(--color-burgundy);
+}
+
+.re-cta-btn-secondary:hover {
+  background: var(--color-cream);
+  color: var(--color-burgundy);
 }
 
 .re-footer {

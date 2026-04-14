@@ -890,7 +890,14 @@ function openApp(appType, fileId) {
   }
 
   // Map app types that share a template
-  const templateMap = { 'wordpad-ats': 'wordpad' };
+  const templateMap = {
+    'wordpad-cos': 'wordpad',
+    'wordpad-prodops': 'wordpad',
+    'wordpad-sales': 'wordpad',
+    'wordpad-ai': 'wordpad',
+    'wordpad-revops': 'wordpad',
+    'wordpad-impl': 'wordpad'
+  };
   const templateId = templateMap[appType] || appType;
   const template = document.getElementById(`template-${templateId}`);
   if (!template) return;
@@ -1002,8 +1009,28 @@ function initWindowContent(windowEl, appType, fileId) {
       initWordpad(windowEl, 'resume');
       windowEl.dataset.windowType = 'resume';
       break;
-    case 'wordpad-ats':
-      initWordpad(windowEl, 'resumeATS');
+    case 'wordpad-cos':
+      initWordpad(windowEl, 'resumeCOS');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-prodops':
+      initWordpad(windowEl, 'resumeProdOps');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-sales':
+      initWordpad(windowEl, 'resumeSalesEnable');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-ai':
+      initWordpad(windowEl, 'resumeAI');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-revops':
+      initWordpad(windowEl, 'resumeRevOps');
+      windowEl.dataset.windowType = 'resume';
+      break;
+    case 'wordpad-impl':
+      initWordpad(windowEl, 'resumeImpl');
       windowEl.dataset.windowType = 'resume';
       break;
     case 'livejournal':
@@ -1254,7 +1281,7 @@ function addTaskbarItem(windowId, title) {
 
 function initWordpad(windowEl, dataKey) {
   const content = windowEl.querySelector('.wordpad-content');
-  const source = dataKey === 'resumeATS' ? SITE_DATA.resumeATS : SITE_DATA.resume;
+  const source = SITE_DATA[dataKey] || SITE_DATA.resume;
   if (content && source) {
     content.innerHTML = source.content;
   }
@@ -1511,6 +1538,7 @@ function initRoleExplorer(windowEl) {
                   </div>
                 </div>
                 <div class="re-role-cta">
+                  ${role.resumeApp ? `<button class="re-cta-btn re-cta-btn-secondary" data-resume-app="${role.resumeApp}">See full resume &rarr;</button>` : ''}
                   <a href="mailto:${data.cta.email}?subject=${encodeURIComponent('Re: ' + role.title + ' - Let\'s Talk')}" class="re-cta-btn">Let's talk about this &rarr;</a>
                 </div>
               </div>
@@ -1534,6 +1562,15 @@ function initRoleExplorer(windowEl) {
           selectedRoles.add(roleId);
         }
         render();
+      });
+    });
+
+    // "See full resume" buttons open the matching WordPad window
+    content.querySelectorAll('[data-resume-app]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const appType = btn.dataset.resumeApp;
+        openApp(appType, 'resume');
       });
     });
   }
@@ -3986,113 +4023,198 @@ function initWorkMatch(windowEl) {
   const content = windowEl.querySelector('.workmatch-content');
   if (!content) return;
 
-  // Quiz questions with scoring: each answer gives points to [Ops Ashley, CoS Ashley, Data Ashley]
+  // Scoring order across all questions: [CoS, ProdOps, SalesEnable, AI, RevOps, Impl]
   const questions = [
     {
       text: "A new initiative is launching but nobody's quite sure who owns what. You:",
       answers: [
-        { text: "Build the workflow - map dependencies, create templates, establish the system", scores: [5, 2, 1] },
-        { text: "Get the key people aligned - facilitate clarity, connect the dots politically", scores: [2, 5, 1] },
-        { text: "Dig into the data - what does success look like? How will we measure it?", scores: [1, 2, 5] }
+        { text: "Read the room - figure out what leadership isn't saying yet and surface what they're missing before they commit", scores: [5, 2, 1, 1, 1, 2] },
+        { text: "Map the work across Product, Eng, Sales, and CS - make sure what's being built matches what's being sold", scores: [2, 5, 1, 1, 1, 2] },
+        { text: "Build the discovery framework - what are we actually selling, to whom, and how will the team describe it?", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "Ask what 'working' looks like - define the user's interpretation before anyone writes a prompt or a spec", scores: [1, 2, 1, 5, 1, 2] },
+        { text: "Check the pipeline first - is the CRM even capturing what we'll need to measure this?", scores: [1, 1, 2, 1, 5, 1] },
+        { text: "Draft the full project plan - discovery through handoff - so the team knows the shape before we start", scores: [2, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "Your favourite kind of problem to solve:",
       answers: [
-        { text: "Chaos into order - messy processes into smooth, repeatable systems", scores: [5, 2, 1] },
-        { text: "Strategic alignment - getting people rowing in the same direction", scores: [1, 5, 2] },
-        { text: "Hidden patterns - finding the story the numbers are trying to tell", scores: [1, 2, 5] }
+        { text: "The decision nobody has surfaced yet - the blind spot that will bite us later if someone doesn't name it now", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "The disconnect between what Product shipped and what Sales is actually promising in demos", scores: [2, 5, 2, 1, 1, 1] },
+        { text: "The new hire who's technically onboarded but still doesn't sound confident on discovery calls", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "The AI output that sounds right but isn't - and explaining to the team why we can't ship it yet", scores: [1, 1, 1, 5, 1, 2] },
+        { text: "The pipeline that looks healthy on the dashboard but is secretly full of stale duplicates", scores: [1, 1, 2, 1, 5, 1] },
+        { text: "The custom build where the client, the dev team, and the spec all disagree about what 'done' means", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "The CEO asks for a quick summary on something complex. Your instinct:",
       answers: [
-        { text: "Show them the process - a clear visual of how it works and where we are", scores: [5, 2, 2] },
-        { text: "Frame the strategic context - what matters and why, with recommendations", scores: [1, 5, 1] },
-        { text: "Lead with the metrics - key numbers that tell the story at a glance", scores: [1, 2, 5] }
+        { text: "Frame what they're actually deciding - what matters, what the downstream consequences are, and what I'd recommend", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Walk through how it lands across Product, Sales, and CS - because those three often need different framings", scores: [2, 5, 2, 1, 1, 1] },
+        { text: "Translate it into what the sales team will say to a prospect when this hits the pitch deck", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "Explain it the way a non-technical user will need to understand it - plain language, no jargon, no hand-waving", scores: [1, 1, 1, 5, 1, 2] },
+        { text: "Lead with what the numbers actually show - pipeline, forecast, and what's quietly trending in the wrong direction", scores: [1, 1, 1, 1, 5, 1] },
+        { text: "Walk them through the project plan - where we are, what's coming, and the risks I've already flagged", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "When you join a new team, what do you look for first?",
       answers: [
-        { text: "Where are the bottlenecks? What's broken? What could be smoother?", scores: [5, 2, 1] },
-        { text: "Who are the key players? What are the team dynamics? Where's the friction?", scores: [1, 5, 2] },
-        { text: "What data exists? How are decisions being made? What's being measured?", scores: [1, 2, 5] }
+        { text: "Who's talking to whom and who isn't - the dynamics nobody puts on a wiki but everybody operates around", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Where the handoffs are breaking - the moments where one team thinks another is covering something, and neither is", scores: [2, 5, 1, 1, 1, 2] },
+        { text: "How new reps are onboarded and whether the demo environment actually reflects the current product", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "Whether anyone is honestly testing the AI outputs before they go to clients - or whether hope is the plan", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "What the CRM says is 'qualified' - and whether that definition actually means anything", scores: [1, 1, 2, 1, 5, 1] },
+        { text: "How implementations are tracked end-to-end and whether the handoff documentation exists at all", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "A project is going sideways. How do you help?",
       answers: [
-        { text: "Identify the process gaps - what's falling through the cracks?", scores: [5, 1, 2] },
-        { text: "Get the right people in the room - facilitate the hard conversation", scores: [1, 5, 1] },
-        { text: "Analyse what's actually happening - the data tells the real story", scores: [1, 2, 5] }
+        { text: "Pressure-test the decisions that got us here - which assumption turned out to be wrong, and who needs to know now?", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Find the translation gap - usually Sales and Engineering have different mental models and nobody has noticed", scores: [2, 5, 2, 1, 1, 1] },
+        { text: "Check whether the team is confident in what they're selling - sometimes 'going sideways' is a pitch problem, not a product one", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "Run the AI outputs through a proper test plan - the model is probably confident about something it shouldn't be", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "Audit the pipeline and the forecast - the real story is usually in the data people stopped looking at three weeks ago", scores: [1, 1, 1, 1, 5, 2] },
+        { text: "Take over the Jira board, rebuild the test plan, get the scrums on track - stabilise before we diagnose", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "You get excited when you can:",
       answers: [
-        { text: "Create a doc/system that saves hours every week forever", scores: [5, 2, 1] },
-        { text: "Help a leader see around corners and make better decisions", scores: [1, 5, 2] },
-        { text: "Find an insight in the data that changes how people think", scores: [1, 2, 5] }
+        { text: "Save a leader from a decision they would've regretted by surfacing what they couldn't see from the top", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Ship a product launch where every team actually knows what they're doing before it goes live", scores: [2, 5, 2, 1, 1, 2] },
+        { text: "Watch a new sales rep go from nervous to confident because the training was actually built for how adults learn", scores: [1, 1, 5, 2, 1, 1] },
+        { text: "Catch an AI hallucination on test data before it ever reaches a client - and build the framework that stops the next one", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "Build a forecasting model so clean that leadership stops flying blind and starts making real decisions", scores: [1, 1, 2, 1, 5, 1] },
+        { text: "Hand off a completed implementation with documentation so good the new AM doesn't need to ask a single question", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "How do you prefer to add value to a team?",
       answers: [
-        { text: "Building infrastructure - the systems, tools, and processes everyone relies on", scores: [5, 1, 2] },
-        { text: "Being the connective tissue - translating, facilitating, keeping things moving", scores: [2, 5, 1] },
-        { text: "Surfacing intelligence - turning information into actionable insights", scores: [1, 2, 5] }
+        { text: "Being the steady presence in the room where high-stakes decisions happen - the one advocating for what's actually needed", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Keeping the space between teams from becoming a gap - translation, QA, field feedback, GTM readiness", scores: [2, 5, 2, 1, 1, 2] },
+        { text: "Being the institutional constant behind the sales motion while reps come and go", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "Being the critical voice on an AI product team - the one who insists on guardrails and testing", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "Building the CRM architecture and pipeline infrastructure the revenue function actually depends on", scores: [1, 1, 2, 1, 5, 1] },
+        { text: "Owning projects end to end and handing them off cleaner than they were picked up", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "Your dream Monday morning involves:",
       answers: [
-        { text: "A well-organised backlog of process improvements to tackle", scores: [5, 2, 1] },
-        { text: "A strategic planning session with leadership", scores: [1, 5, 2] },
-        { text: "Fresh data to explore and a question to answer", scores: [1, 2, 5] }
+        { text: "A working session with a leader who wants me to tell them what they're missing before they move", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "A launch checklist that cuts across four teams and my job is making sure none of the edges drop", scores: [2, 5, 1, 1, 1, 2] },
+        { text: "A demo to build from scratch for a prospect whose business I've already spent two hours researching", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "A pile of fresh AI outputs to stress-test and a prompt framework to refine", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "A CRM audit, a forecast to rebuild, and a quiet morning to untangle something that's been wrong for a while", scores: [1, 1, 1, 1, 5, 1] },
+        { text: "A kickoff call for a complex custom build where I get to lead the scope conversation", scores: [1, 2, 1, 1, 1, 5] }
+      ]
+    },
+    {
+      text: "What's the thing that most exhausts you about how most orgs operate?",
+      answers: [
+        { text: "Watching leadership make a call that nobody around them had the context to question in time", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Product, Sales, and CS all using different words for the same thing and blaming each other for the confusion", scores: [2, 5, 2, 1, 1, 1] },
+        { text: "Training programmes built for the ideal user who reads everything front to back - nobody does that", scores: [1, 1, 5, 2, 1, 1] },
+        { text: "People treating AI output as authoritative because it sounds confident, without testing whether it's right", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "A forecast everyone pretends to believe because nobody wants to redefine what 'qualified' actually means", scores: [1, 1, 1, 1, 5, 1] },
+        { text: "Implementations that get handed off with a wave and a prayer instead of actual documentation", scores: [1, 2, 1, 1, 1, 5] }
+      ]
+    },
+    {
+      text: "When you describe your 'superpower' honestly, it's:",
+      answers: [
+        { text: "Reading what isn't being said in the room and deciding whether to say it", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Holding the whole org in my head at once and knowing which thread to pull to unblock delivery", scores: [2, 5, 1, 1, 1, 2] },
+        { text: "Turning what we do into something a sales team can say out loud and a prospect can actually understand", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "Catching AI outputs that are confidently wrong before a client reads them", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "Spotting the moment a CRM starts lying to you and fixing the definitions before it costs anyone a quarter", scores: [1, 1, 1, 1, 5, 1] },
+        { text: "Writing documentation so usable that the next person doesn't need me in the room", scores: [1, 2, 1, 1, 1, 5] }
       ]
     }
   ];
 
-  // The three versions of Ashley
+  // Six flavours of Ashley. Taglines allude to the actual resume titles.
   const matches = [
     {
-      name: "Operations Ashley",
-      title: "The Systems Architect",
-      emoji: "⚙️",
-      getDesc: (score, total) => {
-        const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Ashley who builds the machine. Documentation, workflows, automation, process design - the invisible infrastructure that makes everything work. This Ashley prevents fires before they start, creates order from chaos, and builds systems that outlast her involvement.";
-        if (pct >= 70) return "Strong ops alignment! You'd benefit from the Ashley who can untangle complexity, create repeatable processes, and make sure nothing falls through the cracks. She'll build you systems that actually get used.";
-        return "Some ops energy here - you appreciate good systems. This Ashley can help streamline what's messy and document what's tribal knowledge.";
-      }
-    },
-    {
       name: "Chief of Staff Ashley",
-      title: "The Strategic Partner",
+      title: "The One Who Sees Around Corners",
       emoji: "🎯",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Ashley who thinks with you, not for you. The strategic sounding board, the one who sees around corners, connects across silos, and helps leadership make better decisions. This Ashley translates between teams, facilitates the hard conversations, and keeps the big picture in focus.";
-        if (pct >= 70) return "Strong alignment with the strategic Ashley! You'd benefit from someone who can be your thought partner, help with cross-functional challenges, and anticipate what's coming before it arrives.";
-        return "Some CoS energy here - you value strategic thinking and alignment. This Ashley can help you navigate complexity and get people rowing together.";
-      }
+        if (pct >= 85) return "You want the strategic right hand. The one who holds the context leadership doesn't have time to, pressure-tests decisions before they get made, reads power dynamics in the room, and advocates for what's actually needed rather than what's easiest. She'll manage up as a core function, not a reaction - and save you from the decisions you would've regretted.";
+        if (pct >= 70) return "Strong Chief of Staff alignment. You'd benefit from someone who thinks with you rather than for you, who catches blind spots before they cost anyone, and who makes sure the downstream consequences get considered before the call gets made.";
+        return "Some strategic right-hand energy here. This Ashley can be your thought partner on the harder decisions and make sure what leadership is missing gets surfaced in time.";
+      },
+      resumeApp: "wordpad-cos"
     },
     {
-      name: "Data Ashley",
-      title: "The Insight Hunter",
-      emoji: "📊",
+      name: "Product Operations Ashley",
+      title: "The One Who Won't Let The Handoffs Fall",
+      emoji: "🔁",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Ashley who finds the signal in the noise. Data analysis, visualization, metrics that matter, insights that change minds. This Ashley asks the questions nobody thought to ask and finds patterns that shift how you think about the data.";
-        if (pct >= 70) return "Strong data alignment! You'd benefit from the Ashley who can turn information into intelligence. She'll help you measure what matters and tell the story your data is hiding.";
-        return "Some data energy here - you appreciate evidence-based decisions. This Ashley can help surface the insights you need to make smarter moves.";
-      }
+        if (pct >= 85) return "You want the Product Operations Manager who keeps the space between Product, Engineering, Sales, and CS from becoming a gap. The translation layer, the GTM readiness owner, the field feedback loop that actually reaches the roadmap, and the QA standard that catches issues before clients do. The one who makes sure what's shipped matches what's sold matches what users actually need.";
+        if (pct >= 70) return "Strong Product Ops alignment. You'd benefit from someone who owns the cross-functional layer - launches land with every team ready, bugs get caught before clients see them, and product feedback actually reaches Engineering in a form they can act on.";
+        return "Some Product Ops energy here. This Ashley can be your translation layer between technical and business teams and keep things from slipping through the cracks.";
+      },
+      resumeApp: "wordpad-prodops"
+    },
+    {
+      name: "Sales Enablement Ashley",
+      title: "The One Who Makes The Whole Sales Motion Punch Above Its Weight",
+      emoji: "🎓",
+      getDesc: (score, total) => {
+        const pct = Math.round((score / total) * 100);
+        if (pct >= 85) return "You want the Sales Enablement Manager who can be the institutional constant behind a sales function. Strategic partner to leadership on pitches, pricing, and demo positioning. 30+ custom demo environments a year, each built from real research on the prospect. Onboarding programmes that actually reduce ramp time because they're built for how adults learn. The person who stays even when the sales team turns over. Lives by sharing over selling - the belief that if a product is good, you share it well enough that the sharing does the work, and the whole sales motion she built is downstream of that.";
+        if (pct >= 70) return "Strong Sales Enablement alignment. You'd benefit from someone who owns discovery frameworks, qualification playbooks, demo customisation, and the strategic sales conversation that doesn't belong to any single rep.";
+        return "Some Sales Enablement energy here. This Ashley can help a sales team get sharper, faster, and more consistent - and build the training that actually changes behaviour.";
+      },
+      resumeApp: "wordpad-sales"
+    },
+    {
+      name: "AI Adoption Ashley",
+      title: "The One Who Isn't A Blind AI Advocate",
+      emoji: "🧠",
+      getDesc: (score, total) => {
+        const pct = Math.round((score / total) * 100);
+        if (pct >= 85) return "You want the AI Adoption & Enablement lead who brings the critical lens most AI programmes don't have. Philosophy background applied directly to understanding how LLMs interpret context, where they'll go wrong, and how to build prompt frameworks that prevent it. Onboarding methodology, testing framework, honest limitations documentation - and the push for guardrails that makes adoption programmes trustworthy enough to last.";
+        if (pct >= 70) return "Strong AI Adoption alignment. You'd benefit from someone who understands both how these models interpret context and how people actually learn to use them - plus the willingness to say 'this isn't ready yet' out loud.";
+        return "Some AI Adoption energy here. This Ashley can help turn 'we have AI' into 'we use AI honestly and well' without handing over templates nobody understands.";
+      },
+      resumeApp: "wordpad-ai"
+    },
+    {
+      name: "Revenue Operations Ashley",
+      title: "The One Who Notices When Your CRM Is Lying To You",
+      emoji: "📐",
+      getDesc: (score, total) => {
+        const pct = Math.round((score / total) * 100);
+        if (pct >= 85) return "You want the Revenue Operations generalist who has owned both sides of the function - the infrastructure decisions (stage definitions, data fields, forecasting logic) and the execution (prospecting, sequencing, follow-up, demo coordination). The one who self-taught SugarCRM and HubSpot, built a 3-6-9 forecasting model from scratch, and spots the duplicate leads and ambiguous definitions before they distort the picture for a whole quarter.";
+        if (pct >= 70) return "Strong RevOps alignment. You'd benefit from someone who'll build the CRM architecture properly, keep the forecast honest, and notice the moment the pipeline definitions stop matching reality.";
+        return "Some Revenue Operations energy here. This Ashley can help clean up what's lying in your CRM and build the pipeline hygiene your forecast actually depends on.";
+      },
+      resumeApp: "wordpad-revops"
+    },
+    {
+      name: "Implementation Ashley",
+      title: "The One Who Builds For The Person Who Inherits The Work",
+      emoji: "🧱",
+      getDesc: (score, total) => {
+        const pct = Math.round((score / total) * 100);
+        if (pct >= 85) return "You want the Implementation Manager who owns the full lifecycle - discovery through clean handoff - and writes the documentation that actually makes the handoff work. Led the Neptune custom platform build end to end with 4 developers. Sole QA Lead across 20+ implementations. Designed the 5-phase AI adoption methodology with complete docs for each phase. The through-line: every handoff doc, every test plan, every training programme is built assuming someone else has to pick it up and run with it without you in the room.";
+        if (pct >= 70) return "Strong Implementation alignment. You'd benefit from someone who takes projects from requirements gathering through wireframes, QA process, team leadership, and clean handoff - and leaves documentation good enough to be used.";
+        return "Some Implementation Manager energy here. This Ashley can own a complex project end to end and make sure what gets handed off is actually usable.";
+      },
+      resumeApp: "wordpad-impl"
     }
   ];
 
   let currentQuestion = 0;
-  let scores = [0, 0, 0]; // Ops, CoS, Data
+  let scores = [0, 0, 0, 0, 0, 0]; // CoS, ProdOps, SalesEnable, AI, RevOps, Impl
 
   function shuffleAnswers(answers) {
     const shuffled = [...answers];
@@ -4113,19 +4235,20 @@ function initWorkMatch(windowEl) {
         <p class="wm-intro-text">
           Plot twist: I contain multitudes. ✨
           <br><br>
-          Operations wizard? Strategic partner? Data detective?
-          Different challenges need different versions of me.
+          Chief of Staff. Product Operations. Sales Enablement.
+          AI Adoption. Revenue Operations. Implementation Manager.
+          Six flavours of the same person, depending on what you're hiring for.
           <br><br>
-          Let's figure out which Ashley would be your ideal collaborator.
+          Let's figure out which one you actually need.
         </p>
         <button class="wm-start-btn">Find My Ashley</button>
-        <div class="wm-decorations">⚙️ 🎯 📊</div>
+        <div class="wm-decorations">🎯 🔁 🎓 🧠 📐 🧱</div>
       </div>
     `;
 
     content.querySelector('.wm-start-btn').addEventListener('click', () => {
       currentQuestion = 0;
-      scores = [0, 0, 0];
+      scores = [0, 0, 0, 0, 0, 0];
       showQuestion();
     });
   }
@@ -4158,9 +4281,9 @@ function initWorkMatch(windowEl) {
     content.querySelectorAll('.wm-answer').forEach(btn => {
       btn.addEventListener('click', () => {
         const answerScores = btn.dataset.scores.split(',').map(Number);
-        scores[0] += answerScores[0];
-        scores[1] += answerScores[1];
-        scores[2] += answerScores[2];
+        for (let i = 0; i < scores.length; i++) {
+          scores[i] += answerScores[i] || 0;
+        }
         currentQuestion++;
 
         if (currentQuestion >= questions.length) {
@@ -4198,7 +4321,10 @@ function initWorkMatch(windowEl) {
           <span class="wm-compat-label">Alignment:</span>
           <span class="wm-compat-hearts">${heartsDisplay}</span>
         </div>
-        <button class="wm-retake-btn">Try Again</button>
+        <div class="wm-result-actions">
+          ${match.resumeApp ? `<button class="wm-resume-btn" data-resume-app="${match.resumeApp}">See full resume &rarr;</button>` : ''}
+          <button class="wm-retake-btn">Try Again</button>
+        </div>
         <div class="wm-magazine-footer">
           WorkMatch™ - "One Ashley, Many Hats"
         </div>
@@ -4206,6 +4332,12 @@ function initWorkMatch(windowEl) {
     `;
 
     content.querySelector('.wm-retake-btn').addEventListener('click', showIntro);
+    const resumeBtn = content.querySelector('.wm-resume-btn');
+    if (resumeBtn) {
+      resumeBtn.addEventListener('click', () => {
+        openApp(resumeBtn.dataset.resumeApp, 'resume');
+      });
+    }
   }
 
   // Start with intro
