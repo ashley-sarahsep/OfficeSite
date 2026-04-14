@@ -4169,7 +4169,7 @@ function initWorkMatch(windowEl) {
       emoji: "🎓",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Sales Enablement Manager who can be the institutional constant behind a sales function. Strategic partner to leadership on pitches, pricing, and demo positioning. 30+ custom demo environments a year, each built from real research on the prospect. Onboarding programmes that actually reduce ramp time because they're built for how adults learn. The person who stays even when the sales team turns over.";
+        if (pct >= 85) return "You want the Sales Enablement Manager who can be the institutional constant behind a sales function. Strategic partner to leadership on pitches, pricing, and demo positioning. 30+ custom demo environments a year, each built from real research on the prospect. Onboarding programmes that actually reduce ramp time because they're built for how adults learn. The person who stays even when the sales team turns over. Lives by sharing over selling - the belief that if a product is good, you share it well enough that the sharing does the work, and the whole sales motion she built is downstream of that.";
         if (pct >= 70) return "Strong Sales Enablement alignment. You'd benefit from someone who owns discovery frameworks, qualification playbooks, demo customisation, and the strategic sales conversation that doesn't belong to any single rep.";
         return "Some Sales Enablement energy here. This Ashley can help a sales team get sharper, faster, and more consistent - and build the training that actually changes behaviour.";
       },

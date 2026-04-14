@@ -1681,6 +1681,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <h3>BRIDGE BUILDER BETWEEN TECHNICAL & BUSINESS</h3>
 <p>Translate technical capabilities into business value and user-friendly language. Help engineers understand user challenges. Help business stakeholders understand technical constraints. Create shared understanding across groups that typically struggle to communicate. When ideas are lost in translation between teams, I step in to ensure equilibrium of understanding - I can articulate complex concepts clearly for any audience.</p>
 
+<h3>SHARING &gt; SELLING</h3>
+<p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. If it isn't good, no amount of pressure will save you. That belief shapes everything I build for sales teams: demos are research made visible, discovery frameworks come from genuine curiosity about the prospect, and the training I design teaches reps to actually know what they're talking about rather than perform a script.</p>
+
 <h3>CRITICAL AI ADVOCATE WITH ETHICAL LENS</h3>
 <p>I love working with AI and ML as tools, but I'm not a blind advocate. I'm very critical and aware of limitations, hallucinations, and potential issues. My philosophy background helps me understand how LLMs interpret and generate information, which makes me effective at identifying where they might misinterpret context or produce misleading results. I advocate for ethical AI implementation, appropriate guardrails, transparency about limitations, and thoughtful consideration of how models are trained and deployed.</p>
 
@@ -2214,6 +2217,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>Sales enablement leader with 10+ years as the strategic constant behind a sales function that punched well above its weight. At Network Ninja, I was the person the COO and company owner came to for sales strategy - pitches, demo positioning, pricing conversations, feature prioritisation for prospects - regardless of who held the sales title at the time.</p>
 <p>Sales reps came and went. The strategic sales relationship didn't. I held the institutional knowledge, built the tools, trained whoever was new, and kept the conversation with leadership going on what we were selling, how we were selling it, and why we were or weren't winning. For most of my tenure I was the only enablement person - which meant I owned everything: discovery frameworks, demo customisation, competitive intelligence, onboarding curriculum, and the ongoing sales strategy work that didn't belong to any single rep.</p>
 <p>My background in philosophy (hermeneutics - how people interpret and understand information) and social work shapes how I design learning: I build programmes for how adults actually retain and apply new information, not for how we wish they would. That's the difference between training that gets completed and training that changes behaviour.</p>
+<p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. Everything I build for a sales team is in service of that: the demo is research made visible, the discovery framework is genuine curiosity about the prospect's business, and the training teaches reps to actually know what they're talking about rather than perform a script. That's why the sales motion I supported punched above its weight - not because we were pushy, but because every prospect interaction demonstrated we'd actually understood their business before we showed up.</p>
 </div>
 
 <div class="resume-section">
@@ -2861,7 +2865,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         title: "Sales Enablement Manager",
         tags: ["Enablement", "Curriculum Design", "Demo Strategy", "Revenue"],
         hook: "The institutional constant behind a sales function that punched well above its weight.",
-        whatThisNeeds: "Someone who designs learning that adults actually retain and apply - not training that gets completed. Owns discovery frameworks, qualification playbooks, demo environments, competitive battle cards, onboarding curriculum, and the ongoing strategic sales conversation with leadership that doesn't belong to any single rep.",
+        whatThisNeeds: "Someone who lives by 'sharing over selling' - the belief that a good product sells itself when you share it well, so everything downstream is in service of that. Designs learning adults actually retain and apply, owns discovery frameworks, qualification playbooks, demo environments, competitive battle cards, onboarding curriculum, and the ongoing strategic sales conversation with leadership that doesn't belong to any single rep.",
         whatIveDone: [
           "Primary strategic sales partner to a COO for two years - pitches, demo positioning, pricing conversations, and win/loss analysis; reps rotated, the strategic relationship didn't",
           "Built 30+ customised demo environments annually - each researched and built for the specific prospect's business rather than adapted from a generic template",
@@ -3090,6 +3094,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     quickQuestions: [
       "What do you do?",
       "Tell me about your AI work",
+      "How do you think about sales?",
       "What's your work style?",
       "Why should I hire you?",
       "What makes you different?",
@@ -3114,6 +3119,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
       "What do you mean by catching where things go wrong?": {
         text: "My brain doesn't let things rest when something feels off. That's actually useful in AI work - I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong. Things not functioning properly doesn't sit well with me, so I test thoroughly and catch issues others might accept or miss.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of missed responses or loose threads. My brain tracks these things whether I want it to or not. I've learned to make that work for me.",
+        followUp: null
+      },
+
+      "How do you think about sales?": {
+        text: "Sharing over selling, always. I genuinely believe that if a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. And if it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around genuine curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've ever been in didn't feel like a sale - it felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
         followUp: null
       },
 
