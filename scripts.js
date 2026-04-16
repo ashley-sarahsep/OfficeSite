@@ -410,7 +410,7 @@ function showConversation(conversationId) {
           document.getElementById('inspect-menu')?.classList.remove('hidden');
         } else if (response.action === 'desktop') {
           closeDialog();
-          switchToDesktop();
+          transitionToDesktop();
         } else if (response.action === 'talk') {
           closeDialog();
           document.getElementById('inspect-menu')?.classList.remove('hidden');
@@ -1936,7 +1936,7 @@ function initAboutComputer(windowEl) {
         <div class="about-spec-group">
           <div class="about-spec">
             <span class="spec-label">Processor:</span>
-            <span class="spec-value">Pattern Recognition Engine™ (${yearsExp} years optimized)</span>
+            <span class="spec-value">Pattern Recognition Engine™ (${yearsExp} years optimised)</span>
           </div>
           <div class="about-spec">
             <span class="spec-label">Memory:</span>

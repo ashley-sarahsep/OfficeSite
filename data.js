@@ -1339,6 +1339,7 @@ If that sounds like what you need, let's talk.
           portrait: "smiling2",
           text: "No problem. So, what's on your mind?",
           responses: [
+            { text: "Tell me a bit about yourself.", next: "coffee-about" },
             { text: "Tell me about your career journey.", next: "coffee-journey" },
             { text: "What do you do for fun?", next: "coffee-fun" },
             { text: "[Back to exploring]", next: null }
@@ -1370,6 +1371,7 @@ If that sounds like what you need, let's talk.
           portrait: "excited",
           text: "The honest answer is I'm a professional gap-filler who happens to wear a few titles at once. See gaps, fill gaps, build systems, hand off - that's the pattern. But if you want the shape of it written up properly, I've put six resumes inside HireMeOS (Hire Me.exe on the desktop, or the Resume folder): Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. All real, all the same person, depending on what you're hiring for.",
           responses: [
+            { text: "What kind of systems?", next: "coffee-systems" },
             { text: "That sounds exhausting.", next: "coffee-exhausting" },
             { text: "Got a good example?", next: "coffee-example" },
             { text: "Show me your computer", action: "desktop" },
@@ -1462,7 +1464,7 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-systems",
           portrait: "excited",
-          text: "The invisible infrastructure. Contract workflows, onboarding programs, documentation standards, QA processes. The stuff nobody thinks about until it's missing. When it works, everyone just... works better. That's the goal.",
+          text: "The invisible infrastructure. Contract workflows, onboarding programmes, documentation standards, QA processes. The stuff nobody thinks about until it's missing. When it works, everyone just... works better. That's the goal.",
           responses: [
             { text: "Give me an example.", next: "coffee-example" },
             { text: "[Back to exploring]", next: null }
@@ -1482,6 +1484,7 @@ If that sounds like what you need, let's talk.
           portrait: "smiling1",
           text: "My brain actually works better this way. Context-switching, seeing patterns across different domains - that's how I'm wired. What exhausts me is sitting in meetings that could've been async messages. Or when organisations cling to processes that don't work just because 'that's how we've always done it.'",
           responses: [
+            { text: "You like the chaos?", next: "coffee-chaos" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -4092,7 +4095,7 @@ Final Question: "The Lost Doc you seek - why do you truly want it?"`,
 
 The display case opens. You carefully take THE ORIGINAL REQUIREMENTS DOCUMENT.
 
-As you hold it, knowledge flows through you. You understand now - the document itself was never the treasure. It was the journey of learning to ask the right questions, navigate complexity, and value documentation as a tool for understanding.
+As you hold it, knowledge flows through you. You understand now - the document itself was never the treasure. It was the journey of learning to ask the right questions, sit with complexity until it makes sense, and value documentation as a tool for understanding.
 
 "Go forth, Document Archaeologist," the guardian says, fading away. "May your READMEs be thorough and your changelogs complete."`,
         choices: [
