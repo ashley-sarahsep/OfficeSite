@@ -1320,6 +1320,7 @@ If that sounds like what you need, let's talk.
             { text: "I'm curious about your work.", next: "coffee-curious" },
             { text: "Tell me a bit about yourself.", next: "coffee-about" },
             { text: "Tell me about your career journey.", next: "coffee-journey" },
+            { text: "What do you do for fun?", next: "coffee-fun" },
             { text: "I like the aesthetic of this place.", next: "coffee-aesthetic" },
             { text: "Tell me something surprising.", next: "coffee-surprise" },
             { text: "[Maybe another time]", next: null }
