@@ -1315,34 +1315,14 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-intro",
           portrait: "smiling1",
-          text: "You settle into the cozy chair nearby. Ashley notices and gets up. Nice to see you here! she says - care for a hot beverage and a chat?",
+          text: "You settle into the chair nearby. Ashley looks up and smiles. Oh, hi! Want to chat for a bit?",
           responses: [
-            { text: "Coffee sounds great.", next: "coffee-yes" },
-            { text: "Tea, please.", next: "coffee-yes" },
-            { text: "I'm good, but let's talk.", next: "coffee-good" },
-            { text: "[Maybe another time]", next: null }
-          ]
-        },
-        {
-          id: "coffee-yes",
-          portrait: "excited",
-          text: "*hands you a warm mug* So, what brings you to my little corner of the internet? Just browsing, or actually curious about what I do?",
-          responses: [
-            { text: "I'm genuinely curious about your work.", next: "coffee-curious" },
-            { text: "I like the aesthetic, honestly.", next: "coffee-aesthetic" },
-            { text: "Tell me something surprising about yourself.", next: "coffee-surprise" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-good",
-          portrait: "smiling2",
-          text: "No problem. So, what's on your mind?",
-          responses: [
+            { text: "I'm curious about your work.", next: "coffee-curious" },
             { text: "Tell me a bit about yourself.", next: "coffee-about" },
             { text: "Tell me about your career journey.", next: "coffee-journey" },
-            { text: "What do you do for fun?", next: "coffee-fun" },
-            { text: "[Back to exploring]", next: null }
+            { text: "I like the aesthetic of this place.", next: "coffee-aesthetic" },
+            { text: "Tell me something surprising.", next: "coffee-surprise" },
+            { text: "[Maybe another time]", next: null }
           ]
         },
         {
