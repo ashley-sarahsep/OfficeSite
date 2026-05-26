@@ -207,6 +207,17 @@ function initRoomMenu() {
       });
     });
   });
+
+  // "Hiring? Start here" button - go to desktop and open role explorer
+  const roomHiringBtn = document.getElementById('room-hiring-btn');
+  if (roomHiringBtn) {
+    roomHiringBtn.addEventListener('click', () => {
+      inspectMenu.classList.add('hidden');
+      transitionToDesktop(() => {
+        openApp('roleexplorer', 'roles');
+      });
+    });
+  }
 }
 
 function handleRoomAction(actionId) {
@@ -4382,14 +4393,18 @@ function initGertrude() {
   scheduleNextGertrudeThought();
 }
 
+let gertrudeFirstThoughtShown = false;
+
 function scheduleNextGertrudeThought() {
   // Clear any existing timer
   if (gertrudeAutoTimer) {
     clearTimeout(gertrudeAutoTimer);
   }
 
-  // Schedule next thought in 45-75 seconds (randomized)
-  const delay = 45000 + Math.random() * 30000;
+  // First auto-thought delayed 2.5-3 min so visitors can read a resume uninterrupted
+  const delay = gertrudeFirstThoughtShown
+    ? 45000 + Math.random() * 30000
+    : 150000 + Math.random() * 30000;
   gertrudeAutoTimer = setTimeout(() => {
     // Only auto-show if on desktop scene and bubble is hidden
     const desktopScene = document.getElementById('desktop-scene');
@@ -4398,6 +4413,7 @@ function scheduleNextGertrudeThought() {
     if (desktopScene && !desktopScene.classList.contains('hidden') &&
         bubble && bubble.classList.contains('hidden')) {
       showGertrudeThought(false); // false = auto trigger
+      gertrudeFirstThoughtShown = true;
     }
 
     // Schedule the next one

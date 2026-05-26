@@ -504,7 +504,7 @@ If that sounds like what you need, let's talk.
         {
           id: "welcome-intro",
           portrait: "smiling1",
-          text: "Oh, hello there! I'm Ashley. Welcome to my office - it's meant to be explored, so go ahead: open things, dig around, be nosy; I would be.",
+          text: "Oh, hello! I'm Ashley - operations, enablement, AI adoption, depending on which version you need. This is my office. The computer has everything: resumes, work examples, a chat with a likeness of me. But the whole place is meant to be explored, so go ahead - open things, dig around. Be nosy; I would be.",
           responses: [
             { text: "[Start exploring]", next: null }
           ]
