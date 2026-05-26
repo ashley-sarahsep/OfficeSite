@@ -193,6 +193,18 @@ body {
   transform: translateY(-1px);
 }
 
+.navbar-hiring-link {
+  background: #ffd600;
+  color: var(--color-burgundy);
+  border-color: #c8a000;
+  font-weight: 700;
+}
+
+.navbar-hiring-link:hover {
+  background: #ffe44d;
+  color: #4a1a30;
+}
+
 /* Inspect menu popup */
 .inspect-menu {
   position: fixed;
