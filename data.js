@@ -306,7 +306,7 @@ I built prompt frameworks that helped clients move from
 actually happening and what I should do about it."
 
 
-THE GAP I'M GOOD AT FILLING
+WHERE I ADD VALUE
 ---------------------------
 
 Technical people can build dashboards.
@@ -387,7 +387,7 @@ THINGS I'M GOOD AT
   Clear, searchable, maintained.
 
 → Technical Translation
-  Bridging the gap between technical teams and everyone else.
+  The translation layer between technical teams and everyone else.
   Making complex capabilities understandable without
   dumbing them down.
 
@@ -560,7 +560,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-neptune",
           portrait: "excited",
-          text: "A major retail client needed a very complex custom platform build. With a slim team, I became the core person doing discovery, requirements, wireframes, and QA process. Then after it went live and into hyper-care, I stepped into the PM role. Daily scrums with the dev team, Jira board management, client communications. Got it stable, then handed it off clean to an account manager. That's my pattern: see gaps, fill gaps, build systems, hand off.",
+          text: "A major retail client needed a very complex custom platform build. With a slim team, I became the core person doing discovery, requirements, wireframes, and QA process. Then after it went live and into hyper-care, I stepped into the PM role. Daily scrums with the dev team, Jira board management, client communications. Got it stable, then handed it off clean to an account manager. Start to finish, then hand it off clean so the next person can run with it.",
           responses: [
             { text: "That's a lot of hats", next: "desk-swiss-army" },
             { text: "Tell me more about your approach", next: "desk-approach" },
@@ -618,7 +618,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-problems",
           portrait: "thoughtful2",
-          text: "Gaps. I solve gaps. Work that doesn't clearly belong to one team. Communication breakdowns between technical and business people. New products that need adoption infrastructure. Projects that need someone to just own them. I spot what's missing and take responsibility.",
+          text: "The work that doesn't clearly belong to one team. Communication breakdowns between technical and business people. New products that need adoption infrastructure. Projects that need someone to just own them. I'm good at noticing what's not working and taking responsibility for fixing it.",
           responses: [
             { text: "Give me an example", next: "desk-neptune" },
             { text: "[Back to exploring]", next: null }
@@ -843,7 +843,7 @@ If that sounds like what you need, let's talk.
         {
           id: "bookshelf-left-london",
           portrait: "smiling1",
-          text: "London, UK - just for a while. Worked at some agencies there. Started in accounts payable, ended up helping to implement a timesheet systems at a recruitment agency. The pattern started early: see a gap, fill it, build something that lasts.",
+          text: "London, UK - just for a while. Worked at some agencies there. Started in accounts payable, ended up helping to implement a timesheet systems at a recruitment agency. Even then, I was spotting what was missing and building something to fix it.",
           responses: [
             { text: "What else is in the office?", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -1350,7 +1350,7 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-curious",
           portrait: "excited",
-          text: "The honest answer is I'm a professional gap-filler who happens to wear a few titles at once. See gaps, fill gaps, build systems, hand off - that's the pattern. But if you want the shape of it written up properly, I've put six resumes inside HireMeOS (Hire Me.exe on the desktop, or the Resume folder): Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. All real, all the same person, depending on what you're hiring for.",
+          text: "The honest answer is I'm a generalist who happens to wear a few titles at once. Start with whatever isn't working, build the system to fix it, document it well enough that someone else can take over. But if you want the shape of it written up properly, I've put six resumes inside HireMeOS (Hire Me.exe on the desktop, or the Resume folder): Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. All real, all the same person, depending on what you're hiring for.",
           responses: [
             { text: "What kind of systems?", next: "coffee-systems" },
             { text: "That sounds exhausting.", next: "coffee-exhausting" },
@@ -1383,7 +1383,7 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-journey",
           portrait: "thoughtful1",
-          text: "Philosophy at Guelph, then social work at George Brown. Started as a receptionist at DDB - the ad agency - and got promoted to accounts receivable within six months. Moved to London, did accounts payable at a few agencies there, ended up implementing timesheet systems. Came back to Canada, landed at an IBM reseller doing sales ops, then spent 7+ years at a field marketing platform that became about five different jobs. The pattern started early: see a gap, fill it, build something that lasts.",
+          text: "Philosophy at Guelph, then social work at George Brown. Started as a receptionist at DDB - the ad agency - and got promoted to accounts receivable within six months. Moved to London, did accounts payable at a few agencies there, ended up implementing timesheet systems. Came back to Canada, landed at an IBM reseller doing sales ops, then spent 7+ years at a field marketing platform that became about five different jobs. None of it was planned, but each role taught me how to build things that outlast the person who made them.",
           responses: [
             { text: "That's a lot of pivots.", next: "coffee-pivots" },
             { text: "What's your favourite part of what you do now?", next: "coffee-favourite" },
@@ -1410,7 +1410,7 @@ If that sounds like what you need, let's talk.
         {
           id: "coffee-london",
           portrait: "smiling2",
-          text: "It was an adventure. Worked at a few agencies - Essence Digital, GroupM, Robert Walters. Started in accounts payable, ended up implementing an online timesheet system that cut their processing time significantly. The pattern started there, really. Show up, find the gap, build something useful.",
+          text: "It was an adventure. Worked at a few agencies - Essence Digital, GroupM, Robert Walters. Started in accounts payable, ended up implementing an online timesheet system that cut their processing time significantly. The pattern started there, really. Show up, figure out what's needed, build something that works.",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
@@ -1645,8 +1645,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <div class="resume-section">
 <h2>OH, HELLO!</h2>
-<p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience making sure the operational and product side of things actually holds together - particularly in the gaps between teams where work tends to get lost. I work well in environments where nothing is formally documented yet, and most of the important work doesn't clearly belong to one team. I identify organisational gaps and build systems that don't collapse the moment the company outgrows the conditions they were designed for.</p>
-<p>I joined MainEvent when the team was ~10 people with no formal processes and built the operational infrastructure from scratch - sales operations, training programs, QA processes, and project management frameworks that enabled the team to support 32M+ visits, 576K+ client staff, and Fortune 500 brands at massive scale. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product including manual testing framework, client data reviews, 5-phase onboarding methodology, educational curriculum with enterprise analytical frameworks, and strategic content.</p>
+<p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience making sure the operational and product side of things actually holds together. I work well in environments where nothing is formally documented yet and most of the important context lives in people's heads. I build systems and documentation designed for the person who inherits the work, not just for the person doing it right now.</p>
+<p>I joined MainEvent when the team was ~8 people with no formal processes and built operational infrastructure from scratch: sales operations, onboarding programmes, QA processes, and project management frameworks. Over 7 years the company grew to 18 people and 46 enterprise clients including Fortune 500 brands, supported by a platform tracking 19.5M+ executions across 576K+ client staff. I was directly involved in the sales process for 30 of those clients. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product: manual testing framework, 5-phase onboarding methodology, 8-guide educational curriculum, and enterprise analytical frameworks.</p>
 <p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviours. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
 </div>
 
@@ -1654,10 +1654,10 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <h2>WHAT MAKES ME DIFFERENT</h2>
 
 <h3>HERMENEUTICS ADVANTAGE IN OPERATIONS & ANALYTICS</h3>
-<p>My background in philosophy (hermeneutics) and social work gives me a unique advantage in both operations and data analytics. I don't just create training - I design learning experiences based on how humans actually process, retain, and apply information. I approach data with multiple perspectives before arriving at conclusions - I don't just look at what the numbers say, I ask what story the data is really telling, what patterns exist and why, whether those patterns are helping or hindering outcomes, and whether successes are replicable. My brain gets genuinely excited about digging deeper into the "why" behind data patterns, which makes analytics work both strategic and deeply satisfying.</p>
+<p>My background in philosophy (hermeneutics) and social work gives me a unique advantage in both operations and data analytics. My training programmes are designed around how humans actually process, retain, and apply information, not around what's easiest to produce. I approach data the same way: what story is it actually telling, what patterns exist and why, whether those patterns are helping or hindering outcomes, and whether successes are replicable. I like data work because it's the same kind of question: what's actually going on here, and does the obvious answer hold up?</p>
 
-<h3>SWISS ARMY KNIFE OPERATOR</h3>
-<p>Comfortable wearing multiple hats and stepping into gaps without being asked. Have served as QA lead, project manager, product operations lead, sales training owner, advisor, and backup account manager - often simultaneously. Excel at identifying what's missing and taking ownership without needing direction. People consistently come to me for answers, to work through problems, to test things, and to run ideas by - I become the go-to person across teams because I genuinely care about solving problems thoroughly and building sustainable solutions.</p>
+<h3>THE PERSON EVERYONE ASKS</h3>
+<p>Over 7 years I held QA lead, project manager, product operations lead, sales enablement owner, strategic advisor, and account manager responsibilities - often simultaneously, for a team that grew from 8 to 18 people. People came to me to work through problems, test ideas, and get answers because I understood the platform, the clients, and the context better than anyone who wasn't a developer. That institutional knowledge is what let a small team support 46 enterprise clients including Fortune 500 brands.</p>
 
 <h3>SELF-TAUGHT TECHNOLOGY ADOPTER</h3>
 <p>Mastered every system and tool through self-directed learning - from CRM platforms to AI agent development to project management tools. At MainEvent, I was the first person to really take to the AI Agents and became the go-to for everything related to them (minus the actual development). I build technical solutions, implement new technologies, and adapt to new platforms rapidly without extensive training or hand-holding. This self-learning approach informs how I design training programs for others - I understand the learning journey because I've walked it myself.</p>
@@ -1672,7 +1672,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p>I love working with AI and ML as tools, but I'm not a blind advocate. I'm very critical and aware of limitations, hallucinations, and potential issues. My philosophy background helps me understand how LLMs interpret and generate information, which makes me effective at identifying where they might misinterpret context or produce misleading results. I advocate for ethical AI implementation, appropriate guardrails, transparency about limitations, and thoughtful consideration of how models are trained and deployed.</p>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley's unique combination of philosophy (hermeneutics), social work, and self-taught technical skills means she doesn't just build systems - she builds systems that account for how humans actually think, learn, and adopt new behaviours. This is why her training programs consistently reduce ramp time and her analytics work uncovers insights others miss.
+<strong>DID YOU KNOW?</strong> Ashley reduced client onboarding timelines from 90 to 45 days by building structured handoff processes and self-service documentation. One of her AI agent clients (Advantage Solutions, managing Anheuser-Busch activations) went on to use the platform to analyse 13,000+ events across 625+ field staff per year - capabilities enabled by the training and prompt frameworks Ashley built from scratch.
 </div>
 </div>
 
@@ -1685,9 +1685,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p class="job-meta">Jan 2025 - December 2025 | Remote</p>
 <p>Lead product adoption for AI-powered field marketing analysis agents, enabling experiential marketing agencies and CPG brands to query and analyse data from millions of field events using natural language.</p>
 
-<p><strong>THE GAP:</strong> New AI agent product launching with no adoption infrastructure, quality assurance framework, or client training materials</p>
+<p><strong>THE SITUATION:</strong> New AI agent product launching with no adoption infrastructure, no QA framework, no training materials, and no team. Just me.</p>
 
-<p><strong>THE SYSTEMS I BUILT:</strong></p>
+<p><strong>WHAT I OWNED:</strong></p>
 <ul>
 <li>Created manual testing framework for AI agent product from scratch - systematic process to test prompts and outputs for reliability, consistency, and accuracy before client deployment</li>
 <li>Applied philosophy background (hermeneutics) to understand how AI interprets and generates information - identified where models might misinterpret context or produce misleading results</li>
@@ -1697,15 +1697,15 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <li>Created quality feedback loop between client usage and product development team - drove product improvements through documented testing, issue identification, and honest assessment of AI capabilities and limitations</li>
 </ul>
 
-<p><strong>THE IMPACT:</strong></p>
+<p><strong>THE RESULTS:</strong></p>
 <ul>
-<li>Onboarded major clients with custom analytical frameworks tailored to client-specific business needs</li>
-<li>Featured in client success case studies demonstrating AI agent impact for major brands</li>
-<li>Owned and executed Experiential Marketing Summit (EMS Vegas) booth presence from concept to execution - created all video examples, product demonstrations, and outreach materials</li>
+<li>Onboarded 5 enterprise clients to the AI agent platform with custom analytical frameworks, including one whose team used it to analyse 13,000+ annual events across 625+ field staff (featured in a published case study)</li>
+<li>Created 8 training guides spanning non-technical users through executives, plus 75+ tested prompt templates in the Power Prompts library</li>
+<li>Owned EMS Vegas booth presence from concept to execution: created all demo materials, video examples, and outreach content. Generated 5 prospect conversations from 50 targeted cold messages during the event</li>
 </ul>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley's philosophy background in hermeneutics (how people interpret information) makes her uniquely effective at identifying where AI models might misinterpret context or produce misleading results - the person who will not sign off on something that isn't ready, and who understands the product well enough to know the difference.
+<strong>DID YOU KNOW?</strong> Ashley onboarded every AI agent client the company had: 5 enterprise accounts, each with custom analytical frameworks. She also built the QA testing framework that caught hallucinations and accuracy issues before they reached clients. The onboarding methodology and 8-guide curriculum she created became the standard for every deployment.
 </div>
 
 <hr class="section-divider">
@@ -1715,9 +1715,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
 <p>Partner to COO/Head of Sales and executive team for field marketing software platform serving experiential marketing agencies and major CPG brands (Kraft Heinz, U.S. Cellular, Monster Energy), managing mobile tours, product sampling, brand activations, and event staffing across 1.9+ million locations.</p>
 
-<p><strong>THE GAP:</strong> No QA lead on major projects, inconsistent demo quality across sales team changes, gaps between technical and business teams</p>
+<p><strong>THE SITUATION:</strong> Enterprise clients, a rotating sales team, no dedicated QA, and a COO who needed a strategic partner to hold everything together</p>
 
-<p><strong>THE SYSTEMS I BUILT:</strong></p>
+<p><strong>WHAT I OWNED:</strong></p>
 
 <p><em>Quality Assurance Leadership:</em></p>
 <ul>
@@ -1745,22 +1745,22 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 
 <p><em>Strategic Operations & Gap Identification:</em></p>
 <ul>
-<li>Identify operational gaps, communication breakdowns, and work that doesn't clearly belong to one team - then take ownership</li>
+<li>Identify where work is falling between teams, where communication is breaking down, and where ownership is unclear - then take it on</li>
 <li>Advise executive leadership on GTM, product roadmap priorities, organisational alignment, and operational efficiency</li>
 <li>Step in when ideas are lost in translation between teams - ensure equilibrium of understanding across technical and non-technical stakeholders</li>
 <li>Stepped up to cover PM responsibilities during team transitions - led daily scrums, managed sprint planning, triaged bugs, maintained delivery momentum without missing client commitments</li>
 </ul>
 
-<p><strong>THE IMPACT:</strong></p>
+<p><strong>THE RESULTS:</strong></p>
 <ul>
-<li>Key contributor to 100% of sales wins since 2018 - every deal involves custom demo preparation, prospect research, and materials development</li>
-<li>Successfully launched enterprise retail client's custom platform and transitioned to dedicated account manager</li>
-<li>Maintained quality delivery standards across 20+ implementations as sole QA Lead</li>
-<li>Led trade show readiness and event planning including EMS Vegas booth materials, demo prep, lead qualification</li>
+<li>Directly involved in the sales process for 30 of 46 enterprise clients: prepared every custom demo, researched every prospect, created contracts, and managed handoffs</li>
+<li>Led a $500K+ custom platform build for an enterprise retail client operating across 48,000+ locations, then transitioned to account management and clean handoff</li>
+<li>Sole QA Lead across 20+ implementations, managing 100+ tickets during peak project periods</li>
+<li>Near-zero client churn: only 2-3 offboards during entire 7-year tenure</li>
 </ul>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley's "Swiss Army Knife" approach means she's comfortable stepping into whatever role is needed - QA lead, project manager, sales enabler, account manager - often simultaneously. This flexibility enabled her to lead a major enterprise retail client project end-to-end from discovery to successful handoff while maintaining quality standards across 20+ other implementations.
+<strong>DID YOU KNOW?</strong> Ashley was directly involved in the sales and onboarding process for 30 of MainEvent's 46 enterprise clients. She prepared every custom demo, researched every prospect, created the contracts, and in many cases managed the account after close. Only 2-3 clients offboarded during her entire 7-year tenure.
 </div>
 
 <hr class="section-divider">
@@ -1768,11 +1768,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <h3>SALES OPERATIONS & ENABLEMENT FOUNDATION</h3>
 <p class="job-title">Network Ninja (MainEvent) | Sales Operations & Enablement Lead</p>
 <p class="job-meta">Oct 2018 - Jul 2025 (6+ yrs) | Remote</p>
-<p>End-to-end operations and training leadership for field marketing SaaS platform. Joined when MainEvent team was ~10 people with no formal processes.</p>
+<p>End-to-end operations and training leadership for field marketing SaaS platform. Joined when MainEvent team was ~8 people with no formal processes.</p>
 
-<p><strong>THE GAP:</strong> No operational infrastructure, no sales processes, no training programs, no CRM management</p>
+<p><strong>THE SITUATION:</strong> A team of ~8 people, zero formal processes, and a COO managing all sales and operations solo</p>
 
-<p><strong>THE SYSTEMS I BUILT:</strong></p>
+<p><strong>WHAT I BUILT FROM ZERO:</strong></p>
 
 <p><em>Operational Infrastructure from Scratch:</em></p>
 <ul>
@@ -1799,16 +1799,15 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <li>Led daily scrum calls with internal team to prioritise bugs, manage feature development, maintain delivery momentum</li>
 </ul>
 
-<p><strong>THE IMPACT:</strong></p>
+<p><strong>THE RESULTS:</strong></p>
 <ul>
-<li>Enabled small team to support a platform that now manages 400,000+ field reps executing 32+ million visits annually serving Fortune 500 clients</li>
-<li>Reduced new hire ramp time from 90 to 60 days through improved onboarding programs, structured learning paths, and self-service resources</li>
-<li>Contributed to 100% of sales wins since 2018 through custom demo preparation, prospect research, and materials development</li>
-<li>Researched prospects' businesses to create tailored demos that showcased platform value in their specific context</li>
+<li>Built the operational infrastructure that grew with the company from ~8 people to 18, supporting 46 enterprise clients including Fortune 500 brands at a platform scale of 19.5M+ executions and 576K+ client staff</li>
+<li>Reduced contractual onboarding timeline from 90 to 45 days, with many clients completing onboarding in weeks due to better handoff materials and documentation</li>
+<li>Prepared ~50 custom demos per year, each researched and built specifically for the prospect's business. Average close rate of roughly 10 new clients annually during peak years</li>
 </ul>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> The operational infrastructure Ashley built from scratch when MainEvent was ~10 people now supports a platform managing 400,000+ field reps, 32+ million visits annually, and Fortune 500 clients at massive scale - proving her systems are built to last and scale.
+<strong>DID YOU KNOW?</strong> The operational infrastructure Ashley built from scratch when MainEvent was ~8 people still supports the platform today: 19.5M+ executions tracked, 576K+ client staff managed, 46 enterprise clients served. Only 2-3 of those clients ever left during her 7-year tenure. The systems she built outlasted multiple team turnovers and are still in use.
 </div>
 
 <hr class="section-divider">
@@ -1862,7 +1861,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
 <p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, Slack, Microsoft Teams, Zoom, Google Workspace, Microsoft Office</p>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Every technical skill on this resume was self-taught through necessity and pattern recognition - from mastering multiple CRM platforms to building AI agent adoption frameworks to leading project management for development teams. Ashley's strength is figuring things out quickly and building systems that enable others to do the same.
+<strong>DID YOU KNOW?</strong> Ashley self-taught every system on this list: SugarCRM, HubSpot, Salesforce, Jira, Claude, ChatGPT. She also designed and built the first mobile tour management workflow for a client (Deep Eddy Vodka) using MainEvent's asset management system before it was a standard feature. When the company launched an AI product, she was the first non-developer to adopt it and became the sole person responsible for client enablement.
 </div>
 </div>
 
@@ -1890,14 +1889,14 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <div class="resume-section">
 <h2>SUMMARY</h2>
-<p>Strategic right hand with 10+ years doing the thinking, holding the context, and seeing what others miss. Joined Network Ninja when the team was ~10 people with no processes - built the infrastructure, then became the person leadership relied on to pressure-test decisions, flag blind spots, and make sure the right things actually happened.</p>
+<p>Strategic right hand with 10+ years doing the thinking, holding the context, and seeing what others miss. Joined Network Ninja when the team was ~8 people with no processes - built the infrastructure, then became the person leadership relied on to pressure-test decisions, flag blind spots, and make sure the right things actually happened.</p>
 <p>In the Chief of Staff role, I was the steady presence behind executive decisions: the one who noticed the downstream impact that hadn't been considered, surfaced the team dynamics that weren't visible from the top, and advocated for what was actually needed when the picture wasn't complete. I ran the Neptune project end-to-end - discovery through handoff - including leading a development team of four. I owned QA when there was no QA lead, PM when there was no PM, and strategic advisory whenever leadership needed someone to think it through before committing.</p>
 <p>My background in philosophy (hermeneutics - how people interpret information) and social work gives me an unusual lens on organisations: I read rooms, track power dynamics, and catch what's not being said. I build systems for how people actually behave, not how we wish they would. And I build for the person who inherits the work.</p>
 </div>
 
 <div class="resume-section">
 <h2>SKILLS</h2>
-<p><strong>Strategic Operations:</strong> Executive partnership, cross-functional alignment, gap identification, GTM readiness, organisational change management, board-level communication</p>
+<p><strong>Strategic Operations:</strong> Executive partnership, cross-functional alignment, operational needs assessment, GTM readiness, organisational change management, board-level communication</p>
 <p><strong>Project Management:</strong> Jira (expert), Agile/Scrum, sprint planning, daily standups, backlog prioritisation, risk identification, Asana</p>
 <p><strong>Quality Assurance:</strong> QA leadership, test plan creation, bug triage, edge case identification, regression testing, UAT coordination</p>
 <p><strong>Enablement & Training:</strong> Onboarding programme design, curriculum development, discovery frameworks, sales playbooks, demo customisation</p>
@@ -1912,14 +1911,14 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes and held progressively expanding roles as the company scaled.</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes and held progressively expanding roles as the company scaled.</p>
 
 <hr class="section-divider">
 
 <h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
-<p>Strategic partner to the COO and executive team. Owned the operational and strategic gaps between Product, Engineering, Sales, and Customer Success - including QA leadership, PM coverage during transitions, and executive advisory on high-stakes decisions.</p>
+<p>Strategic partner to the COO and executive team. Owned the operational and strategic space between Product, Engineering, Sales, and Customer Success - including QA leadership, PM coverage during transitions, and executive advisory on high-stakes decisions.</p>
 
 <p><strong>Executive partnership & strategic advisory</strong></p>
 <ul>
@@ -1927,7 +1926,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Consistently identified what leadership was missing or overlooking - surfaced blind spots, flagged downstream consequences of decisions before they were made, and advocated for what was actually needed rather than what was easiest</li>
 <li>Present in executive reviews and performance discussions - read power dynamics carefully, gave voice to team and client perspectives that weren't represented, and steered outcomes when the full picture wasn't visible from the top</li>
 <li>Managed up as a core function - not reactively, but as part of how I operated: tracking what leadership was overlooking, bringing it forward with context and evidence, and helping protect the team and clients from incomplete decisions</li>
-<li>Identified operational gaps and work that didn't clearly belong to any team - took ownership without being asked, built the process, handed it off when it was stable</li>
+<li>Took ownership of work that didn't clearly belong to any team - built the process, ran it until stable, and handed it off with documentation</li>
 </ul>
 
 <p><strong>Neptune Retail Solutions - end-to-end project ownership</strong></p>
@@ -1954,8 +1953,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Owned all sales enablement for a lean team (2-4 people) closing enterprise deals - demo environments, pitch decks, competitive battle cards, discovery frameworks, and qualification playbooks</li>
 <li>Created 30+ customised demo environments annually, each researched and built specifically for the prospect's business context and use cases</li>
-<li>Key contributor to 100% of sales wins since 2018 through tailored demos, prospect research, and materials development</li>
+<li>Directly involved in the sales process for 30 of 46 enterprise clients through tailored demos, prospect research, and materials development</li>
 <li>Maintained consistency and institutional knowledge as sales team composition changed - the one constant across turnover</li>
+<li>Near-zero client churn across 7 years: only 2-3 offboards during entire tenure</li>
 </ul>
 
 <hr class="section-divider">
@@ -1969,7 +1969,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Designed 5-phase onboarding methodology with complete educational curriculum across 8 guides for different user levels (everyday users through power users and executives)</li>
 <li>Advocated internally for appropriate AI guardrails, transparency about limitations, and ethical deployment - identified quality issues and hallucinations before they reached clients</li>
 <li>Owned EMS Vegas trade show presence from concept to execution - created all demonstrations, video examples, and outreach materials</li>
-<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch with custom analytical frameworks</li>
+<li>Onboarded all 5 enterprise AI agent clients (TMS, Peralta, Advantage Solutions/AB, Public Label, TEAM Enterprises) with custom analytical frameworks</li>
 </ul>
 
 <hr class="section-divider">
@@ -1977,10 +1977,10 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
-<p>First operations hire. Built the foundational infrastructure that the company scaled on - from a team of ~10 with no processes to an organisation supporting Fortune 500 clients.</p>
+<p>First operations hire. Built the foundational infrastructure that the company scaled on - from a team of ~8 with no processes to an organisation supporting Fortune 500 clients.</p>
 <ul>
 <li>Built sales operations, training programmes, QA processes, and project management frameworks from zero</li>
-<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes and self-service resources</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes and self-service resources</li>
 <li>Managed pipeline in SugarCRM and HubSpot (self-taught on both) - maintained data integrity, forecasting accuracy, and performance analytics</li>
 <li>Led daily scrum calls, triaged Jira bugs, and coordinated resolution between engineering and clients across platform issues</li>
 <li>Partnered with Product and Engineering through the full software development lifecycle - conducted win/loss analysis and surfaced field feedback to inform product decisions</li>
@@ -2044,7 +2044,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>SUMMARY</h2>
 <p>Product operations leader who keeps the space between Product, Engineering, Sales, and Customer Success from becoming a gap. At Network Ninja, I was the person who made sure what was being built matched what was being sold, what was being sold matched what clients actually needed, and that none of it fell apart during the handoffs in between.</p>
 <p>I've owned go-to-market readiness for product launches, QA across 20+ implementations, PM coverage during team transitions, field feedback loops that actually reached the roadmap, and the translation layer between technical teams and everyone else. I've also led a complete custom platform build end-to-end - discovery through handoff - and built the entire adoption infrastructure for a new AI product from scratch.</p>
-<p>My background in philosophy (hermeneutics - how people interpret information) and social work shapes how I approach product operations: I don't just track what's shipping, I think about what users actually need versus what they say they need, and I design the systems that bridge that gap. I ask "why" constantly, identify root causes rather than symptoms, and build for the person who inherits the work.</p>
+<p>My background in philosophy (hermeneutics - how people interpret information) and social work shapes how I approach product operations: I think about what users actually need versus what they say they need, and I design the handoff systems that keep the difference from becoming a problem. I ask "why" constantly, identify root causes rather than symptoms, and build for the person who inherits the work.</p>
 </div>
 
 <div class="resume-section">
@@ -2064,7 +2064,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes; built product operations infrastructure across every role I held as the company scaled.</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes; built product operations infrastructure across every role I held as the company scaled.</p>
 
 <hr class="section-divider">
 
@@ -2094,14 +2094,14 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing for each</li>
 <li>Set quality standards and enforced them - partnered with Product and Engineering to catch issues before they reached clients rather than after</li>
-<li>Built comprehensive, repeatable test plans that were adoptable as a standard across the organisation, not just useful for individual projects</li>
-<li>Wrote detailed Jira tickets for developers and translated the same issues into plain language for clients - managed both audiences without conflating them</li>
+<li>Built repeatable test plans that were adoptable as a standard across the organisation</li>
+<li>Managed the translation layer between developers and clients: detailed technical tickets for engineering, plain-language updates for clients, without conflating the two</li>
 </ul>
 
 <p><strong>Project management & PM coverage</strong></p>
 <ul>
 <li>Led Neptune Retail Solutions custom platform build end-to-end: discovery, requirements gathering, wireframe design, QA process creation, development team leadership (4 developers), Jira board management, and account management through successful handoff</li>
-<li>Stepped into PM during team transitions - led daily scrums, managed sprint planning, triaged bugs, and maintained delivery commitments without missing client deadlines</li>
+<li>Covered PM during team transitions: daily scrums, sprint planning, bug triage, delivery momentum, all without missing client commitments</li>
 <li>Managed stakeholder communications throughout complex implementations - kept technical and business stakeholders aligned, surfaced risks early, and kept delivery momentum going under pressure</li>
 </ul>
 
@@ -2125,7 +2125,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Designed 5-phase onboarding methodology covering the full client journey: Discovery, Implementation, Testing & Validation, User Training, and Ongoing Support</li>
 <li>Built complete educational curriculum across 8 guides for different user levels - everyday users, power users, executives, and internal account managers</li>
 <li>Created enterprise-level prompt frameworks enabling clients to extract strategic business intelligence from field marketing data - built to scale self-service usage, not create ongoing support dependency</li>
-<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch with custom frameworks tailored to their specific data and business questions</li>
+<li>Onboarded all 5 enterprise AI agent clients with custom frameworks tailored to their specific data structures and business questions</li>
 </ul>
 
 <hr class="section-divider">
@@ -2221,7 +2221,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes; built the enablement infrastructure from scratch across every role I held.</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes; built the enablement infrastructure from scratch across every role I held.</p>
 
 <hr class="section-divider">
 
@@ -2238,7 +2238,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Maintained sales continuity through significant team turnover - the programmes, the tools, and the strategic conversation with leadership stayed consistent regardless of who held the sales title</li>
 <li>Created 30+ customised demo environments annually - each one researched and built specifically for the prospect's business, industry context, and use cases rather than adapted from a generic template</li>
 <li>Owned every stage of demo preparation: prospect research, sandbox environment build, tailored walkthrough design, and materials development for the sales conversation</li>
-<li>Key contributor to 100% of sales wins since 2018 - every deal involved custom demo preparation and prospect-specific research</li>
+<li>Directly involved in the sales process for 30 of 46 enterprise clients - every deal involved custom demo preparation and prospect-specific research</li>
 <li>Ensured every customer interaction demonstrated deep familiarity with their business - cited their work, spoke their language, addressed their specific challenges</li>
 </ul>
 
@@ -2252,7 +2252,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Onboarding & ramp optimisation</strong></p>
 <ul>
-<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes, defined learning paths, and self-service resources that didn't require hand-holding</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes, defined learning paths, and self-service resources that didn't require hand-holding</li>
 <li>Designed and delivered onboarding programmes covering CRM systems, sales processes, product knowledge, and customer discovery - tailored to the specific gaps of each new hire</li>
 <li>Maintained consistency and institutional knowledge as sales team composition changed - the programmes survived personnel turnover because they were built to be handed off, not held</li>
 </ul>
@@ -2269,7 +2269,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
-<p>First enablement hire. Built sales enablement, operations, and training infrastructure from zero as the company grew from a ~10-person team with no formal processes to an organisation supporting Fortune 500 clients at scale.</p>
+<p>First enablement hire. Built sales enablement, operations, and training infrastructure from zero as the company grew from ~8 people with no formal processes to an organisation supporting Fortune 500 clients at scale.</p>
 
 <p><strong>Building from scratch</strong></p>
 <ul>
@@ -2280,7 +2280,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Training & programme design</strong></p>
 <ul>
-<li>Designed and delivered comprehensive training programmes on CRM systems, sales processes, product knowledge, and customer discovery for a lean, evolving team</li>
+<li>Designed and delivered training programmes on CRM systems, sales processes, product knowledge, and customer discovery for a lean, evolving team</li>
 <li>Applied adult learning principles throughout - designed for how people actually retain and apply information, not just what gets completed</li>
 <li>Collected and analysed feedback through surveys, observation, and performance data to iterate on programme design continuously</li>
 </ul>
@@ -2302,7 +2302,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Designed 5-phase onboarding methodology with complete educational curriculum across 8 guides covering different user levels - from non-technical everyday users to executives and power users</li>
 <li>Created enterprise-level prompt frameworks enabling clients to extract strategic business intelligence from field marketing data - designed to teach prompting principles, not just provide templates</li>
 <li>Built 50+ training videos and resources using Loom, Google Drive, and Notion for content delivery</li>
-<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch with custom frameworks tailored to their data structures and business questions</li>
+<li>Onboarded all 5 enterprise AI agent clients with custom frameworks tailored to their data structures and business questions</li>
 <li>Applied hermeneutics background directly to AI enablement design - built materials that account for how users interpret AI outputs and where misunderstanding is most likely to occur</li>
 </ul>
 
@@ -2384,7 +2384,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations.</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
 
 <hr class="section-divider">
 
@@ -2413,7 +2413,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Prompt engineering & framework development</strong></p>
 <ul>
-<li>Developed comprehensive prompt libraries for multiple audiences: basic user guides, advanced analytical frameworks, agency white-label libraries, and client-specific custom sets</li>
+<li>Developed prompt libraries for multiple audiences: basic user guides, advanced analytical frameworks, agency white-label libraries, and client-specific custom sets</li>
 <li>Created Agent Prompting Tips and Agent Visualisation Tips guides - built to teach the reasoning behind effective prompts, not just provide examples to copy</li>
 <li>Built Public Label prompt libraries for agencies to use with their own clients - covering brand analysis, programme type analysis, market and location analysis, and customisation techniques</li>
 <li>Designed 10-prompt structured learning sequence to progressively build user confidence and capability - from basic data exploration through advanced interactive analysis</li>
@@ -2422,17 +2422,17 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Client onboarding & technical delivery</strong></p>
 <ul>
-<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch - each with custom analytical frameworks tailored to their specific data structures and business questions</li>
+<li>Onboarded all 5 enterprise AI agent clients (TMS, Peralta, Advantage Solutions/AB, Public Label, TEAM Enterprises) - each with custom analytical frameworks tailored to their specific data structures and business questions</li>
 <li>Led technical discovery sessions to understand client data requirements, field structure, and desired analytical outcomes before implementation</li>
 <li>Created custom prompt frameworks and visualisation guides for individual clients - including brand-specific colour palettes, chart recommendations, and data interpretation guidance</li>
 <li>Ran product demonstrations and built custom sandbox environments tailored to prospect technical requirements and use cases</li>
 <li>Featured in client success case studies demonstrating AI agent impact for Transformative Marketing Services and Peralta Experiences</li>
 </ul>
 
-<p><strong>Go-to-market & thought leadership</strong></p>
+<p><strong>Go-to-market & industry content</strong></p>
 <ul>
 <li>Owned EMS Vegas (Experiential Marketing Summit) booth presence from concept to execution - created all video examples, product demonstrations, and outreach materials</li>
-<li>Created thought leadership content educating the experiential marketing industry on AI-powered analytics and field marketing intelligence</li>
+<li>Created industry content on AI-powered analytics for the experiential marketing space, used for both prospect education and conference materials</li>
 <li>Developed 12+ innovative use case frameworks showing practical applications across different field marketing programme types - from predictive event performance to anomaly detection to geographic expansion planning</li>
 </ul>
 
@@ -2455,7 +2455,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
 <p>First operations hire. Built the enablement infrastructure and operational foundation the company scaled on. Relevant to AI adoption work: built a pattern of designing systems for how people actually behave rather than ideal users.</p>
 <ul>
-<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes, defined learning paths, and self-service resources</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes, defined learning paths, and self-service resources</li>
 <li>Used early AI tools to analyse field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements before formal AI products existed</li>
 <li>Designed and delivered training programmes for evolving team composition - applied adult learning principles to build programmes that changed behaviour, not just completed checkboxes</li>
 </ul>
@@ -2537,7 +2537,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes; built sales operations and revenue infrastructure from scratch.</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes; built sales operations and revenue infrastructure from scratch.</p>
 
 <hr class="section-divider">
 
@@ -2558,7 +2558,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>Forecasting & pipeline management</strong></p>
 <ul>
 <li>Built and maintained 3-6-9 month forecasting model - assessed deal probability, tracked pipeline health, and presented revenue projections to leadership</li>
-<li>Identified deals that were stalling, leads that were being neglected, and patterns in what was and wasn't converting - surfaced these proactively rather than waiting for someone to ask</li>
+<li>Identified deals that were stalling, leads that were being neglected, and patterns in what was and wasn't converting - surfaced these before anyone had to ask</li>
 <li>Conducted win/loss analysis and competitive post-mortems - used findings to refine qualification criteria, update forecasting assumptions, and sharpen the sales approach</li>
 <li>Tracked performance metrics and identified trends across the pipeline - flagged risks early and recommended adjustments before they affected results</li>
 </ul>
@@ -2576,7 +2576,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Established sales processes and reporting standards that scaled with team growth - built for the person who would inherit the work, not just for current use</li>
 <li>Created documentation and self-service resources that reduced reliance on tribal knowledge and enabled new hires to get functional without hand-holding</li>
 <li>Built evaluation frameworks and KPI tracking systems to measure what was working and what wasn't - iterated based on data rather than instinct</li>
-<li>Identified and fixed process gaps proactively - noticed where leads fell through the cracks, where definitions were ambiguous, and where the system was creating more confusion than clarity</li>
+<li>Identified and fixed process breakdowns before they became client-facing problems - noticed where leads fell through the cracks, where definitions were ambiguous, and where the system was creating more confusion than clarity</li>
 </ul>
 
 <hr class="section-divider">
@@ -2683,7 +2683,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Comprehensive field marketing software serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform manages 400,000+ field reps and 32M+ visits annually across 1.9M+ locations. Joined when the team was ~10 people with no formal processes; led implementations and built the QA infrastructure from scratch.</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes; led implementations and built the QA infrastructure from scratch.</p>
 
 <hr class="section-divider">
 
@@ -2694,7 +2694,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Neptune Retail Solutions - end-to-end implementation ownership</strong></p>
 <ul>
-<li>Led complete lifecycle of major custom platform build: discovery sessions, requirements gathering, workflow and wireframe design, QA process creation, development team leadership (4 developers), Jira board management, and client account management</li>
+<li>Led complete lifecycle of a $500K+ custom platform build for a client operating across 48,000+ retail locations with 3,800+ field staff: discovery, requirements gathering, workflow and wireframe design, QA process creation, development team leadership (4 developers), Jira board management, and client account management</li>
 <li>Translated client business requirements into technical specifications - created workflows and wireframes that bridged what the client needed and what the development team could build</li>
 <li>Built QA process from scratch - established testing protocols and quality standards, coordinated between internal dev team and client QA leads, and ensured every feature met requirements before release</li>
 <li>Led daily scrums with development team throughout the build - made decisions on ticket prioritisation, scope questions, and sequencing, and kept delivery on track</li>
@@ -2706,13 +2706,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing for each</li>
 <li>Set quality standards and enforced them throughout - partnered with Product and Engineering to catch issues before they reached clients rather than after</li>
-<li>Wrote detailed Jira tickets for developers and translated the same issues into plain language for clients simultaneously - managed both audiences without conflating them</li>
-<li>Built comprehensive test plans that were repeatable and transferable - not just useful for one project but adoptable as a standard across the organisation</li>
+<li>Wrote Jira tickets at the technical level developers needed and communicated the same issues to clients in their language</li>
+<li>Built repeatable, transferable test plans adoptable as a standard across the organisation</li>
 </ul>
 
 <p><strong>Project management & delivery continuity</strong></p>
 <ul>
-<li>Stepped into PM during team transitions - led daily scrums, managed sprint planning, triaged bugs, and maintained delivery commitments without missing client deadlines</li>
+<li>Picked up PM responsibilities during team transitions and kept delivery on track: scrums, sprint planning, bug triage, and client-facing commitments</li>
 <li>Managed stakeholder communications throughout complex implementations - kept technical teams and clients aligned, managed expectations on both sides, and surfaced risks before they became incidents</li>
 <li>Coordinated cross-functional work across Sales, Product, Engineering, AI, and Customer Success - served as the central communication point when no single team owned the full picture</li>
 </ul>
@@ -2736,7 +2736,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Led technical discovery sessions to understand each client's data requirements, field structure, and desired analytical outcomes before implementation began</li>
 <li>Built custom sandbox environments and tailored demo configurations for prospects during the sales process - translated prospect requirements into proof-of-concept setups</li>
-<li>Onboarded major clients including Transformative Marketing Services, Peralta Experiences, and Anheuser-Busch - each with custom frameworks built around their specific data structures and business questions</li>
+<li>Onboarded all 5 enterprise AI agent clients - each with custom frameworks built around their specific data structures and business questions</li>
 <li>Created Sales-to-Accounts handoff process - structured guide covering demo site setup, client pitch requests, development scoping, contract management, and new client onboarding workflows</li>
 </ul>
 
@@ -2750,7 +2750,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Managed client issues end-to-end - triaged bugs in Jira, coordinated resolution with engineering, and translated complex platform behaviour into plain language for clients throughout</li>
 <li>Led daily scrum calls with internal team to prioritise bugs, manage feature development, and maintain delivery momentum during critical periods</li>
 <li>Partnered with Product and Engineering through the full software development lifecycle - provided user and client perspective to keep delivery grounded in real usage</li>
-<li>Reduced new hire ramp time from 90 to 60 days through structured onboarding programmes and self-service resources built for the person who inherits them</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes and self-service resources built for the person who inherits them</li>
 </ul>
 
 <hr class="section-divider">
@@ -2820,7 +2820,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
           "Strategic partner to a COO for two years - turned incomplete direction into clear decisions and filled the thinking that wasn't happening at the executive level",
           "Led the Neptune Retail Solutions custom platform build end-to-end: discovery, requirements, wireframes, QA process, a team of four developers, and clean handoff to a dedicated AM",
           "Sole QA Lead across 20+ implementations; stepped into PM coverage during team transitions without missing client deadlines",
-          "Key contributor to 100% of sales wins since 2018 through 30+ custom demo environments a year built from scratch for each prospect"
+          "Directly involved in the sales process for 30 of 46 enterprise clients, preparing ~50 custom demos per year, each researched and built for the specific prospect's business"
         ],
         proof: "workExamples",
         proofLabel: "See: Lean Team, Enterprise Results",
@@ -2836,7 +2836,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         whatIveDone: [
           "Owned field readiness for product launches - training, documentation, and support materials in place before anything shipped",
           "Synthesised field feedback into product input that Engineering could actually act on; caught misalignments between Sales promises and Product roadmap before they became client problems",
-          "Built comprehensive, repeatable QA test plans adoptable as an org standard - not just useful for one project",
+          "Built repeatable QA test plans adoptable as an org standard, not just useful for one project",
           "Led the Neptune custom platform build end-to-end including 4 developers, plus PM coverage during team transitions"
         ],
         proof: "workExamples",
@@ -2853,7 +2853,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         whatIveDone: [
           "Primary strategic sales partner to a COO for two years - pitches, demo positioning, pricing conversations, and win/loss analysis; reps rotated, the strategic relationship didn't",
           "Built 30+ customised demo environments annually - each researched and built for the specific prospect's business rather than adapted from a generic template",
-          "Reduced new hire ramp time from 90 to 60 days through structured onboarding, defined learning paths, and self-service resources that didn't require hand-holding",
+          "Reduced contractual onboarding timeline from 90 to 45 days through structured handoff processes and self-service documentation, with some clients completing onboarding in weeks",
           "Designed 5-phase AI adoption methodology plus 8 guides for different user levels when the company launched an AI product with no enablement infrastructure"
         ],
         proof: "portfolio",
@@ -2922,7 +2922,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
           "Every role I've held was either created for me or evolved past its original description - five jobs worth of infrastructure at one company over 7+ years",
           "Philosophy background (hermeneutics) + social work training = I design for how humans actually think and behave, not how we wish they would",
           "Self-taught every technical tool on my resume through necessity and pattern recognition - CRMs, Jira, AI tooling, the whole shelf",
-          "The through-line across all six resumes: see gaps, fill gaps, build systems, hand off"
+          "The through-line: every role I've held started with 'nobody owns this yet' and ended with documentation good enough for someone else to take over"
         ],
         proof: "collab",
         proofLabel: "See: Let's Work Together",
@@ -2943,7 +2943,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     lastLogin: "Today",
     profileViews: 1337,
 
-    headline: "Professional Gap-Filler | Hermeneutics Enthusiast | Cat Mom",
+    headline: "Operational Infrastructure Nerd | Hermeneutics Enthusiast | Cat Mom",
 
     bio: `<p>I'm Ashley. I notice things that aren't being said. Systems failing quietly. People overwhelmed and covering well. Two teams talking past each other, both convinced the other one is the problem. I notice, and then I do something about it. Apparently this is rarer than it should be.</p>
 <p>I'm shy. Genuinely. I'm a stage manager, not a lead actor. I'd rather make sure everyone has what they need and that the whole thing runs well than be the person at the front of the room. Get me one on one though, or somewhere I feel comfortable, and I'm a completely different person. Enthusiastic. Animated. Probably talking too fast about something I find fascinating. Both things are true and I've made peace with that.</p>
@@ -3087,7 +3087,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
     responses: {
       "What do you do?": {
-        text: "I find gaps and fill them. That's the short version.\n\nThe longer version is that I'm a generalist who happens to do a lot of things at once, so the honest answer is 'it depends what you need.' I've written this up six ways - Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager - each a real resume for a real shape of the work. They all live inside the same person. If you open Hire Me.exe on this desktop you can pick the flavour that matches what you're hiring for and read the full resume for that version.\n\nThe pattern underneath all of it is the same: see gaps, fill gaps, build systems, hand off.",
+        text: "I notice what's not working and take ownership of fixing it. That's the short version.\n\nThe longer version is that I'm a generalist who happens to do a lot of things at once, so the honest answer is 'it depends what you need.' I've written this up six ways - Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager - each a real resume for a real shape of the work. They all live inside the same person. If you open Hire Me.exe on this desktop you can pick the flavour that matches what you're hiring for and read the full resume for that version.\n\nThe pattern underneath all of it is the same: figure out what isn't working, build the system to fix it, document it so the next person can take over.",
         followUp: "How did you end up doing this kind of work?"
       },
 
@@ -3127,7 +3127,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "Why should I hire you?": {
-        text: "Because I'm the person who makes everyone else's job easier.\n\nI see gaps that others miss or ignore, build systems to address them, and hand them off when they're working. I bridge technical and business teams and create shared understanding where there wasn't any. I actually get things done without needing to be told what to do.\n\nI'll also tell you what I actually think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing rather than threatening, we'd probably work well together.",
+        text: "Because I'm the person who makes everyone else's job easier.\n\nI notice what's not working before it becomes a crisis, build the systems to fix it, and document everything so it runs without me. I bridge technical and business teams and create shared understanding where there wasn't any. I actually get things done without needing to be told what to do.\n\nI'll also tell you what I actually think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing rather than threatening, we'd probably work well together.",
         followUp: "What do people say about working with you?"
       },
 
@@ -3137,7 +3137,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "What makes you different?": {
-        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI don't just build systems - I build systems that account for how humans actually think, learn, and adopt new behaviours. That's why my training programs work and my documentation actually gets used. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
+        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI reduced onboarding timelines from 90 to 45 days by designing processes for how people actually learn, not how we wish they would. And the documentation I write actually gets used because I build it for the person who comes next, not for the person who asked for it. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
         followUp: "You mentioned hermeneutics - how does that actually help?"
       },
 
@@ -3190,11 +3190,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       whatIDid: [
         "Led discovery process - mapped existing workflows against platform capabilities, conducted stakeholder interviews, documented gap analysis",
         "Created wireframes and workflows translating business requirements into technical specifications",
-        "Built comprehensive QA process from scratch - test plans, quality standards, coordination between internal dev team and client QA",
+        "Built QA process from scratch - test plans, quality standards, coordination between internal dev team and client QA",
         "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs, kept everything moving",
         "Transitioned to account manager role post-launch, stabilised the relationship, then successfully handed off with complete documentation"
       ],
-      outcome: "Platform launched successfully and scaled to track 42,000+ retail installations. QA process became template for subsequent implementations. Classic pattern: see gap, fill gap, build system, hand off.",
+      outcome: "Platform launched successfully, supporting a client that operates across 48,000+ retail locations with 3,800+ field employees and 24M+ annual in-store executions. Full lifecycle ownership from discovery to stable handoff. The QA process I built became the template for every implementation after.",
       skills: ["Project Management", "QA Leadership", "Requirements Gathering", "Jira", "Agile", "Client Relations", "Technical Translation"],
       image: "assets/images/work-enterprise.jpg"
     },
@@ -3211,7 +3211,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         "Developed 'Power Prompts' library of enterprise analytical frameworks",
         "Served as internal advocate for AI quality, ethical implementation, and transparency about limitations (I'm not a blind AI enthusiast - these tools need someone asking hard questions)"
       ],
-      outcome: "Successfully onboarded enterprise clients including major experiential marketing agencies and beverage brands. Featured in client success case studies. Adoption infrastructure became standard for all AI agent deployments. Owned industry trade show booth from concept to execution.",
+      outcome: "Onboarded all 5 enterprise AI agent clients, including one (Advantage Solutions/AB) whose team used the platform to analyse 13,000+ events across 625+ field staff. The 8-guide curriculum and 5-phase methodology became the standard for every deployment. Owned EMS Vegas booth presence from concept to execution.",
       skills: ["AI/LLM", "Prompt Engineering", "Training Design", "QA", "Documentation", "Change Management", "Ethics"],
       image: "assets/images/work-ai.jpg"
     },
@@ -3225,9 +3225,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         "Created 30+ customised demo environments annually - each specifically researched for that prospect's business, challenges, and use cases (no generic decks)",
         "Built discovery frameworks and qualification playbooks for varying sales cycles (same-day SMB to year-long enterprise)",
         "Served as enablement constant across sales team changes - maintained demo quality and approach consistency regardless of who was on the team",
-        "Reduced new hire ramp time from 90 to 60 days through structured onboarding and self-service resources"
+        "Reduced new hire ramp time from 90 to 45 days through structured onboarding and self-service resources"
       ],
-      outcome: "Contributed to 100% of sales wins since 2018. Lean team consistently closed enterprise deals competing against much larger competitors. Turns out thorough research and genuine understanding of a prospect's business beats a big team with generic materials.",
+      outcome: "Directly supported the sales process for 30 of 46 enterprise clients over 7 years, with only 2-3 client offboards in that entire period. A lean team of 2-4 salespeople consistently won enterprise deals against larger competitors because every demo was researched and built for the specific prospect.",
       skills: ["Sales Enablement", "Demo Excellence", "CRM", "Competitive Intel", "Training", "Onboarding"],
       image: "assets/images/work-sales.jpg"
     },
@@ -3235,7 +3235,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       id: "ops-infrastructure",
       name: "Building Operations from Zero",
       type: "0-to-1 Infrastructure Development",
-      description: "Joined a field marketing SaaS company when the team was about 10 people with no formal processes, no workflows, no documentation. The COO was managing all sales and operations solo. It was the kind of chaos that's either terrifying or exciting depending on how you're wired.",
+      description: "Joined a field marketing SaaS company when the team was about 8 people with no formal processes, no workflows, no documentation. The COO was managing all sales and operations solo. It was the kind of chaos that's either terrifying or exciting depending on how you're wired.",
       challenge: "Build everything needed to scale from startup chaos to enterprise-ready operations. From scratch. While also doing the day-to-day work.",
       whatIDid: [
         "Created complete operational infrastructure: sales operations, contract workflows, demo preparation processes, enablement programs",
@@ -3243,7 +3243,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         "Designed training programs, onboarding flows, and process documentation used company-wide",
         "Built systems that maintained consistency across multiple team composition changes over 7+ years"
       ],
-      outcome: "Operational systems enabled company to scale from about 10 people to supporting 32M+ visits, 576K+ client staff, and Fortune 500 clients at massive scale. The invisible infrastructure that let a small team do big things.",
+      outcome: "Company grew from 8 to 18 people while scaling to 46 enterprise clients, 19.5M+ executions tracked, and 576K+ client staff managed. The systems I built are still in use. Near-zero churn: 2-3 client offboards across 7 years.",
       skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
       image: "assets/images/work-ops.jpg"
     },
@@ -3269,7 +3269,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         title: "The Art of Prompt Crafting",
         category: "AI Training & Enablement",
         icon: "📚",
-        summary: "Created comprehensive onboarding curriculum for enterprise AI agent adoption",
+        summary: "Created onboarding curriculum for enterprise AI agent adoption",
         documentUrl: "examples/prompt-crafting-guide.html",
 
         caseStudy: {
@@ -3286,7 +3286,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             "Ongoing office hours and support framework"
           ],
 
-          impact: "Became the go-to person for all AI-related questions across the organisation. Training materials were used for every new client onboarding and internal hire. Reduced the 'I don't get it' support tickets dramatically by setting proper expectations upfront. Clients who went through the full curriculum showed notably higher engagement and satisfaction.",
+          impact: "Became the go-to person for all AI-related questions across the organisation. Training materials were used for every client onboarding (5 enterprise accounts) and every internal hire. The 8-guide curriculum and 75+ prompt templates became the standard for all AI agent deployments.",
 
           skills: ["Curriculum Design", "AI/ML Understanding", "Technical Writing", "Video Production", "Change Management", "Stakeholder Training"]
         },
@@ -3322,7 +3322,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             },
             {
               title: "The Impact",
-              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\nSupport tickets about 'I don't get it' dropped significantly.",
+              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\n5 enterprise clients onboarded with custom frameworks.",
               notes: "My fingerprints on every success"
             }
           ]
@@ -3351,7 +3351,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             "Style guide ensuring consistency across all outputs"
           ],
 
-          impact: "Transformed raw AI outputs into presentation-ready insights. Executives actually started using the dashboards instead of asking for manual reports. Consistency across all client deliverables improved significantly. Became the standard for how data was presented company-wide.",
+          impact: "Executives started using the dashboards directly instead of requesting manual reports. The visualisation standards were adopted across all client deliverables and became the default for how data was presented company-wide.",
 
           skills: ["Data Visualisation", "UX Design", "Technical Documentation", "Accessibility", "Stakeholder Management", "Information Architecture"]
         },
@@ -3416,7 +3416,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             "Common pitfalls and how to avoid them"
           ],
 
-          impact: "Survey completion rates improved compared to previous approaches. Data quality was markedly better - fewer 'straight-line' responses, more thoughtful feedback. Clients could actually make decisions based on results. Framework was adopted as the standard for all experience measurement.",
+          impact: "Framework was adopted as the standard for all experience measurement. Designed for mobile completion in under 3 minutes, which addressed the main barrier to usable response data.",
 
           skills: ["Survey Design", "Research Methodology", "Data Analysis", "UX Writing", "Mobile Design", "Client Training"]
         },
@@ -3452,7 +3452,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             },
             {
               title: "The Impact",
-              content: "Completion rates improved significantly.\n\nData quality measurably better.\n\nClients could make decisions.\n\nBecame the standard framework.",
+              content: "Under 3 minutes on mobile.\n\nUsable response data from the field.\n\nClients could act on results.\n\nAdopted as the standard framework.",
               notes: "Better data, better decisions"
             }
           ]
@@ -3468,7 +3468,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         documentUrl: "examples/advanced-ai-prompts-guide.html",
 
         caseStudy: {
-          challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to bridge the gap between business questions and technical queries.",
+          challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to translate business questions into prompts that actually got useful answers.",
 
           approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively - same prompt, multiple datasets, consistent results. Created templates that non-technical users could customise. Built in guardrails to prevent misinterpretation.",
 
@@ -3481,7 +3481,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             "Continuous improvement process for prompt refinement"
           ],
 
-          impact: "Transformed how clients extracted value from their data. Analysts who previously did manual Excel work could get answers in seconds. Executives got strategic insights they didn't know were possible. Several major sales wins directly cited the analytical capabilities as decision factors.",
+          impact: "Analysts who previously did manual Excel work could get answers in seconds. The Power Prompts library (75+ tested templates) became the standard for client-facing analytical work. Analytical capabilities were cited as a decision factor in several enterprise sales wins.",
 
           skills: ["Prompt Engineering", "Business Intelligence", "Data Analysis", "Technical Writing", "QA Testing", "Client Training"]
         },
@@ -3491,7 +3491,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
           subtitle: "Power Prompts for Business Intelligence",
           slides: [
             {
-              title: "The Gap",
+              title: "The Problem",
               content: "Business Question:\n'How are we doing vs. last year?'\n\nBasic Prompt:\n'Compare this year to last year'\n\nResult: Wall of unusable text",
               notes: "Good questions need good translation"
             },
