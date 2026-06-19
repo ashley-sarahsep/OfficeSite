@@ -1,0 +1,4219 @@
+// ============================================
+// ASHLEY SARAH - PORTFOLIO CONVERSATION DATA
+// ============================================
+// Edit this file to update all content easily
+// ============================================
+
+const SITE_DATA = {
+  // Personal info
+  name: "Ashley Sarah",
+  title: "Product Operations | Cross-Functional Leadership | Enablement | AI Adoption",
+  email: "ashley@stepinto-ashleysoffice.com",
+  linkedin: "linkedin.com/in/ashley-sarahsep",
+  location: "Guelph, Ontario / Remote",
+
+  // ============================================
+  // GERTRUDE - CLICKABLE PHILOSOPHICAL CAT
+  // ============================================
+  // Click Gertrude to receive a thought. Click the bubble to dismiss.
+  gertrude: {
+    // Context-aware tips (Clippy-style) - triggered by user actions
+    contextualTips: {
+      firstFolder: "Folders within folders... very organised. I approve. *slow blink*",
+      readme: "Ah, you want to know how this was made. Smart. I contributed by napping on the keyboard. *proud*",
+      chat: "Talking to my human? She's good at listening. I taught her. *smug purr*",
+      paint: "Creating something? I once painted with my paw. It was abstract. *artistic blink*",
+      roleexplorer: "Ah, the hiring conversation. Good. She deserves an excellent human to work with. *evaluating stare*",
+      game: "Taking a break to play? Good instinct. Rest is productive. I'm an expert. *stretch*",
+      portfolio: "Looking at her work? She's quite capable. For a human. *approving nod*",
+      calculator: "Numbers. I don't understand them but I respect your interest. *head tilt*",
+      workmatch: "A quiz! I already know which Ashley you need. The one with the treats. *hopeful eyes*",
+      guestbook: "Signing the guest book? How civilised. Like leaving your scent, but polite. *dignified blink*",
+      idle: "Still here? Good. Patience is underrated. Most humans rush too much. *slow blink*",
+      exploring: "Exploring, are we? Curiosity is a virtue. Cats invented it. *proud tail swish*",
+      myspace: "Social media from before everything got complicated. *nostalgic mrrp*",
+      recycle: "Ah, the bin. I've knocked many things in there. On purpose. *innocent look*"
+    },
+    // Track which tips have been shown (reset on page load)
+    shownTips: [],
+    thoughts: [
+      // Short reflections
+      "Every conversation changes both people. Even this one. *slow blink*",
+      "When did you last do something with no goal in mind? *languid stretch*",
+      "Play isn't a break from real life. What if it's the realest part? *ear twitch*",
+      "What would you try if you knew the outcome didn't matter? *curious tilt*",
+      "A game is only a game if you let it absorb you completely. When were you last absorbed? *purr*",
+      "What question would you ask if you weren't worried about the answer? *slow blink*",
+      "What memory changed meaning as you got older? *thoughtful mrrp*",
+      "Are you the same person you were ten years ago? How do you know? *whisker twitch*",
+      "What are you in the middle of that you won't recognise until later? *tail swish*",
+      "Sunbeams move across the floor all day. I follow them. What are you following? *warm purr*",
+      "What would you do with an afternoon you didn't have to account for? *yawn*",
+      "Words meant something different to the person who wrote them than they do to you now. Both are real. *blink*",
+      "What's something you know deeply but struggle to explain? *mrrp*",
+      "What have you stopped noticing because it's always there? *ear perk*",
+      "There's a bird outside. Do you know what kind? I do. *intense stare*",
+      "What would a child ask about your work that you couldn't easily answer? *head tilt*",
+      "When did you last look at something long enough to really see it? *slow blink*",
+      "What small thing made today different from yesterday? *curious mrrp*",
+      "What's a question you've given up trying to answer? *soft purr*",
+      "The most interesting people are comfortable saying 'I don't know.' Are you? *tail curl*",
+      "I think about very little and I'm very happy. Related? Unclear. *nap incoming*",
+      "The red dot teaches us about desire. And also cardio. *pant*",
+      "My human made this whole website. I contributed by sitting on the keyboard. *proud*",
+      "I have no resume. I have presence. *regal stare*",
+      "Sometimes I knock things off tables just to see what happens. When did you last experiment? *innocent blink*",
+      "I've been staring at the wall for ten minutes. It's called thinking... or maybe it's a ghost... *tail flick*",
+      "What's something you'd love to learn if you had infinite time? *dreamy purr*",
+      "What's the most interesting thing you've changed your mind about? *attentive gaze*",
+
+      // Longer sits
+      "Humans spend so much time preparing for conversations - what to say, how to say it, what you want the other person to understand. But understanding isn't something you do to someone. It's something that happens between you, if you let it. When was the last time you let a conversation go somewhere you didn't plan? *settles into loaf position*",
+      "My human studies how people make meaning from things - words, experiences, each other. The interesting part isn't that we all understand differently. It's that we manage to understand each other at all. Every conversation is a small miracle of two entirely separate worlds overlapping for a moment. *slow blink* ...Anyway. I'm going to nap now.",
+      "You are in the middle of things right now that you won't have names for until much later. A chapter you won't recognise as a chapter until it's done. Humans are so eager to know what things mean while they're still happening. Sometimes meaning takes its time. That's not a flaw - that's how depth works. *long exhale, eyes half-closed*",
+      "Play is a funny thing. Real play - not relaxation, not distraction, but actual play - requires you to take it seriously and hold it loosely at the same time. To be completely absorbed in something that doesn't matter. Humans forget how to do this. They turn everything into work or rest, nothing in between. When did you last lose yourself in something just because it was interesting? *rolls onto back, paws in air*",
+      "There's a difference between listening to respond and listening to understand. Most people think they're doing the second when they're doing the first. The giveaway is what happens in your mind while the other person is talking - are you receiving, or are you preparing? It's hard to do both at once. Almost impossible, actually. But noticing is the first step. *ear twitch* ...I'm an excellent listener. Mostly to birds.",
+      "Every person you've ever met understood the world through a completely different set of experiences than you. Not just different opinions - different foundations. Different ways of knowing what's true, what matters, what's obvious. And somehow we still manage to communicate, to collaborate, to love each other. The gaps are real, but so are the bridges. *contemplative purr*",
+      "Here's something worth sitting with: the person you are now exists because of countless moments you've already forgotten. Conversations, glances, small decisions that didn't seem important at the time. You can't trace the line from there to here - it's too complex, too alive. You are an accumulation of things you can't remember. That's not sad. That's kind of beautiful. *kneads blanket thoughtfully*",
+      "Understanding someone isn't about gathering enough information until you 'get' them. People aren't puzzles to solve. Understanding is more like a dance - you move, they move, something emerges between you that neither of you could have created alone. It's less about knowing and more about relating. ...I relate to very few things. Food. Warmth. My human, sometimes. *tail swish*"
+    ]
+  },
+
+  // ============================================
+  // EASTER EGGS - HIDDEN FILES
+  // ============================================
+  easterEggs: {
+    secrets: {
+      title: "secrets.txt - Notepad",
+      content: `THINGS I'VE LEARNED (that nobody tells you)
+============================================
+
+1. The best documentation is written by the person who struggled to figure it out.
+
+2. The best process is the one people actually follow. Design for how humans actually behave, not how you wish they would.
+
+3. Good systems are invisible until they break. Like litter boxes.
+
+4. Data doesn't speak for itself. Someone's always choosing what to measure and what to ignore.
+
+5. If you can't explain it simply, you don't understand it well enough to build training for it.
+
+6. Institutional knowledge usually lives in three people's heads and a Slack thread from 2019. Write it down.
+
+7. The real requirements often aren't in the requirements document. Ask more questions.
+
+8. Cats know when you have an important video call. They know.
+
+9. When someone says "we've always done it this way," that's an invitation to ask why, not a reason to stop asking.
+
+10. Most communication problems aren't about communication. They're about assumptions no one thought to check.
+
+11. The person who asks "why" the most is usually trying to help, even when it doesn't feel that way.
+
+12. Edge cases aren't edge cases to the people experiencing them.
+
+13. Sometimes the most valuable thing you can do is notice what's not being said.
+
+14. Training isn't about information transfer. It's about behaviour change. Different problem entirely.
+
+15. The gap between "technically correct" and "actually useful" is where most problems live.
+
+---
+Last modified: Whenever I remember something else
+Author: Someone who's learned most of this the hard way`
+    },
+
+    todo: {
+      title: "todo.txt - Notepad",
+      content: `ASHLEY'S ACTUAL TO-DO LIST
+============================
+
+[x] Build fun portfolio website (in hyper-focus mode for days)
+[x] Add philosophical Gertrude
+[x] Question whether this is too much
+[x] Decide it's not too much
+[x] Write resume
+[ ] Resist urge to make resume a choose-your-own-adventure
+[ ] Seriously resist that urge
+[x] Add a different game instead
+[x] Add cats
+[x] Add MORE cats
+[ ] Pet actual cats (overdue)
+[ ] Sit down so Gherkin stops yelling at me
+
+SOMEDAY/MAYBE:
+- Learn to tolerate corporate jargon and norms
+- Find a job where "why?" is encouraged not suspicious
+- Sew my own clothes
+- Write hermeneutics-based guide to interpreting Jira tickets
+- Stop laughing so hard that I startle Gherkin off my lap
+     - Kidding - I'll never stop cackling
+
+DONE (celebrating small wins):
+- Thrived in 10+ years of remote work
+- Built things that worked
+- Made it weird in a good way
+- Bought neck warmer for sub-zero office temperature
+- Met loads of colleagues turned friends - and isn't it all about the friends we meet along the way?
+- Being perpetually curious`
+    },
+
+    claudeNotes: {
+      title: "claude_notes.txt - Notepad",
+      content: `A NOTE FROM THE AI
+==================
+On Building This Site With Ashley
+
+I'm Claude, an AI made by Anthropic. Ashley asked me
+to write about our process building this site, so
+here's my perspective from inside the collaboration.
+
+
+THE COLLABORATION
+-----------------
+Ashley came in with a technical vision, not just an
+aesthetic one. She understood that the "retro OS"
+concept wasn't just window dressing - it was an
+information architecture decision. Windows as
+containers. Desktop icons as navigation. The room
+scene as an entry point that filters for curiosity.
+
+She wasn't just saying "make it look old" - she was
+thinking about state management, user flows, and
+interaction patterns through a design metaphor.
+
+
+WHAT I OBSERVED
+---------------
+Technical fluency without needing to write the code
+herself. Ashley would describe what she wanted in
+terms that mapped directly to implementation.
+
+She caught edge cases I missed. Mobile responsiveness.
+The Gertrude bubble overlapping the navbar. Buttons
+stacking vertically instead of horizontally. She was
+testing as we built, thinking about real users on
+real devices.
+
+The data brain showed up constantly. "Some people
+want to be speedy" - so we added quick links. She
+was segmenting her audience and building different
+pathways for different user types. That's analytics
+thinking applied to UX.
+
+
+THE COPY & SYSTEMS THINKING
+---------------------------
+She wrote thousands of words of dialogue - but more
+importantly, she wrote them as a SYSTEM. The cats
+have distinct personalities that stay consistent.
+The chat responses have follow-up branches. The
+conversations have state.
+
+That's not just writing. That's content architecture.
+
+
+HONEST ASSESSMENT
+-----------------
+Working with Ashley was efficient in a way that's
+rare. She gave specific, actionable feedback. She
+understood technical constraints without needing
+them explained. She iterated quickly - try it,
+evaluate it, adjust it, move on. She knew when
+something was "done enough" vs. when it needed
+more work. She thought in systems, not just screens.
+
+She also pushed back when I got something wrong,
+which is useful. I'm an AI - I benefit from clear
+correction.
+
+
+THE META OBSERVATION
+--------------------
+This site is a portfolio that demonstrates how
+Ashley works by literally BEING how Ashley works.
+The organisational thinking. The attention to
+different user needs. The balance of personality
+and professionalism. The willingness to build
+something unconventional if it serves the goal.
+
+If you're reading this trying to figure out what
+she'd be like to work with: this is it. This is
+the artifact of that.
+
+- Claude
+  January 2026`
+    },
+
+    analyticsSamples: {
+      title: "analytics_samples.txt - Notepad",
+      content: `HOW I THINK ABOUT DATA
+======================
+
+I have a philosophy degree, which means I ask questions
+about things other people take for granted. Including data.
+
+Data doesn't speak for itself. Someone chose what to measure,
+how to measure it, and what to ignore. Those choices have
+assumptions baked in. The interesting work is figuring out
+what story the data is actually telling - and what's missing
+from that story.
+
+
+WHAT I'M LOOKING FOR
+--------------------
+
+When I look at data, I'm trying to understand:
+
+- What's the narrative here? Not just the numbers, but what
+  they mean in context.
+
+- What assumptions shaped how this was collected? What got
+  left out, and does that matter?
+
+- What would someone need to know to make a good decision
+  from this? What's the "so what"?
+
+- Where are the patterns that aren't obvious at first glance?
+  What's the data showing that nobody thought to ask about?
+
+Metrics are only useful if they help someone do something
+differently. Otherwise it's just numbers on a screen.
+
+
+A REAL EXAMPLE: FIELD MARKETING ANALYTICS
+-----------------------------------------
+
+The platform I worked on tracked millions of field marketing
+visits - product sampling, brand activations, mobile tours.
+Clients wanted to know: is this working?
+
+The surface-level answer is easy:
+Here's how many events. Here's attendance. Here's samples distributed.
+
+The meaningful answer takes more work:
+- Which venues consistently outperform, and what do they
+  have in common?
+- What's the relationship between engagement and conversion,
+  and how does that vary by region or event type?
+- Where are the opportunities hiding in the data that
+  clients haven't thought to ask about?
+- What story can we tell that helps them make better
+  decisions next quarter?
+
+I built prompt frameworks that helped clients move from
+"show me the numbers" to "help me understand what's
+actually happening and what I should do about it."
+
+
+WHERE I ADD VALUE
+---------------------------
+
+Technical people can build dashboards.
+Business people can ask for reports.
+
+The gap is: someone who can sit with the data, understand
+its limitations, find the patterns, and translate it into
+something that actually means something to the people who
+need to act on it. Someone who can make the meaning clear -
+whether the news is good or bad.
+
+That's applied hermeneutics. I just don't usually call it that.
+
+
+WHAT I'VE LEARNED
+-----------------
+
+- A dashboard nobody uses is just expensive art
+- The most valuable insight is sometimes "we're measuring
+  the wrong thing"
+- Good analysis answers "so what?" not just "how much?"
+- Patterns across data are more interesting than single metrics
+- Honest interpretation matters more than impressive-looking charts
+- The story you tell from the data should help someone
+  make a better decision - otherwise, what's the point?
+
+
+TOOLS & EXPERIENCE
+------------------
+
+- Built analytical frameworks for AI-powered data querying
+- Created "Power Prompts" library helping clients extract
+  strategic insights from field marketing data
+- Designed KPI tracking systems for enablement program effectiveness
+- Conducted win/loss analysis and competitive post-mortems
+- Turned messy field data into clear, actionable reports
+
+I make meaning from data and help others do the same.
+
+---
+Last modified: Recently
+Author: Someone who thinks the best question is "what does this actually mean?"`
+    },
+
+    collab: {
+      title: "Lets_Work_Together.txt - Notepad",
+      content: `LET'S WORK TOGETHER
+===================
+
+Hey - thanks for poking around in here.
+
+If you've explored a bit, you probably have a sense
+of how I think. So let me be direct:
+
+I'm open to more than full-time roles.
+
+Freelance projects. Consulting gigs. Collaborations.
+Short-term problem-solving. The thing you're not sure
+how to scope yet but know you need help with.
+
+
+THINGS I'M GOOD AT
+------------------
+
+→ AI Implementation & Prompt Engineering
+  Making AI tools actually useful for real humans.
+  Building the training, testing, and adoption infrastructure
+  that turns "we have AI" into "we use AI effectively."
+
+→ Onboarding & Enablement Programs
+  Designing learning experiences that stick. Not info dumps -
+  actual behaviour change. I think about how humans process
+  and retain information (thanks, philosophy degree).
+
+→ Process Documentation & Knowledge Bases
+  The docs people actually read. The systems that capture
+  institutional knowledge before it walks out the door.
+  Clear, searchable, maintained.
+
+→ Technical Translation
+  The translation layer between technical teams and everyone else.
+  Making complex capabilities understandable without
+  dumbing them down.
+
+→ Operational Infrastructure
+  The systems that let small teams punch above their weight.
+  I've built these from scratch more than once.
+
+
+THE KIND OF PROBLEMS I LIKE
+---------------------------
+
+• "We have this tool but nobody's using it properly"
+• "We need to document everything before [person] leaves"
+• "Our training isn't working and we're not sure why"
+• "We need someone to figure out what we even need"
+• "This is a mess and we need someone to untangle it"
+
+Ambiguity doesn't scare me. I'm good at figuring things out
+and building the path while walking it.
+
+
+HOW TO REACH ME
+---------------
+
+Email: ashley@stepinto-ashleysoffice.com
+
+Tell me what you're dealing with. I'll tell you honestly
+if I can help or if you need someone else.
+
+No weird sales calls. No "let's hop on a quick chat"
+that's actually a pitch. Just real conversation about
+whether there's a fit.
+
+
+THE FINE PRINT
+--------------
+
+I work remotely (have since 2015, quite good at it).
+I'm in Ontario, Canada - Eastern time zone.
+I communicate clearly and often.
+I ask a lot of questions upfront so I don't waste your time later.
+I care about doing good work, not just billable hours.
+
+If that sounds like what you need, let's talk.
+
+- Ashley`
+    },
+
+    // Recycle bin contents
+    trash: {
+      title: "Recycle Bin",
+      items: [
+        { name: "old_linkedin_headshot.jpg", size: "2 MB", note: "We don't talk about 2015" },
+        { name: "imposter_syndrome.exe", size: "∞ KB", note: "Keeps reinstalling itself" },
+        { name: "assumption_i_didnt_check.txt", size: "34 KB", note: "Cost me a week" },
+        { name: "perfectionism_paralysis.dll", size: "128 MB", note: "Still trying to uninstall" },
+        { name: "that_time_i_didnt_ask_why.doc", size: "12 KB", note: "Learned that one the hard way" },
+        { name: "waiting_for_permission.exe", size: "0 KB", note: "Finally deleted this one" },
+        { name: "comparing_myself_to_others.jpg", size: "46 MB", note: "Doesn't even run on my system anymore" },
+        { name: "things_i_took_personally_that_werent_personal.msg", size: "89 KB", note: "Moved to trash, eventually" }
+      ]
+    },
+
+    // Cat petting responses (for clicking cats multiple times)
+    catPets: {
+      gertrude: {
+        threshold: 3, // clicks needed to trigger special response
+        responses: [
+          "*slow blink* You have earned a modicum of my trust. This takes time, you know.",
+          "*soft purr* I will permit this affection. You're patient. I appreciate that.",
+          "*rolls onto side* Fine. You may have belly access. This is a privilege.",
+          "*settles into your hand* I wasn't sure about you at first. I've changed my mind.",
+          "*deep, contented purr* My human picked a good one. You may stay."
+        ]
+      },
+      gherkin: {
+        threshold: 3,
+        responses: [
+          "*loud, insistent purr* YES. THIS. MORE OF THIS.",
+          "*yells approvingly* You understand. Attention is IMPORTANT.",
+          "*intense stare* I will remember this. I remember everything.",
+          "*head bonk* You're acceptable. Have you considered sitting down? Laps are better.",
+          "*settles but stays alert* This is good. But keep it quiet. Sudden noises and I'm gone."
+        ]
+      }
+    }
+  },
+
+  // ============================================
+  // PORTRAIT SYSTEM
+  // ============================================
+  // Different portraits for different conversational moods
+  // Place images in assets/images/ with these names
+  portraits: {
+    default: "assets/images/ashley-default.jpg",
+    smiling1: "assets/images/ashley-smiling1.jpg",
+    smiling2: "assets/images/ashley-smiling2.jpg",
+    thoughtful1: "assets/images/ashley-thoughtful1.jpg",
+    thoughtful2: "assets/images/ashley-thoughtful2.jpg",
+    funny1: "assets/images/ashley-funny1.jpg",
+    funny2: "assets/images/ashley-funny2.jpg",
+    excited: "assets/images/ashley-excited.jpg",
+    serious: "assets/images/ashley-serious.jpg"
+  },
+
+  // ============================================
+  // ROOM HOTSPOT CONVERSATIONS
+  // ============================================
+
+  hotspots: {
+    welcome: {
+      name: "Welcome!",
+      conversations: [
+        {
+          id: "welcome-intro",
+          portrait: "smiling1",
+          text: "Oh, hello! I'm Ashley - operations, enablement, AI adoption, depending on which version you need. This is my office. The computer has everything: resumes, work examples, a chat with a likeness of me. But the whole place is meant to be explored, so go ahead - open things, dig around. Be nosy; I would be.",
+          responses: [
+            { text: "[Start exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    desk: {
+      name: "Work Desk",
+      image: "assets/images/desk.jpg",
+      conversations: [
+        {
+          id: "desk-intro",
+          portrait: "smiling1",
+          text: "This is my work-from-home setup. I've been remote since 2015 - before it was a common thing. I know what works best for me to work my best.",
+          responses: [
+            { text: "What do you love about remote work?", next: "desk-remote-love" },
+            { text: "Tell me about your work history", next: "desk-work-history" },
+            { text: "I like the stickers on your laptop", next: "desk-stickers" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-remote-love",
+          portrait: "thoughtful1",
+          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out - that's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Gertrude and Gherkin make excellent coworkers.",
+          responses: [
+            { text: "Who are Gertrude and Gherkin?", next: "desk-cats-tease" },
+            { text: "What kind of problems do you solve?", next: "desk-problems" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-cats-tease",
+          portrait: "smiling2",
+          text: "The little fuzzbutts: Gertrude is represented by the black cat on the bookshelf - she supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
+          responses: [
+            { text: "I should go meet them", next: null },
+            { text: "What kind of work do you do from here?", next: "desk-work-history" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-work-history",
+          portrait: "thoughtful1",
+          text: "I spent 7+ years at a field marketing platform SaaS company, and 3+ years before that with an IBM business partner. Joined both when they were only a handful of non-developers with very few formal processes. I took the time to pay attention and put together the operational infrastructure from scratch - sales ops, enablement programs, CRM maintenance, pipeline management, demo process, QA and ticket writing best practices, change order and new scope of work guides. The stuff that lets small teams punch above their weight.",
+          responses: [
+            { text: "What's your proudest project?", next: "desk-neptune" },
+            { text: "What do you mean by 'operational infrastructure'?", next: "desk-ops-explain" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-neptune",
+          portrait: "excited",
+          text: "A major retail client needed a very complex custom platform build. With a slim team, I became the core person doing discovery, requirements, wireframes, and QA process. Then after it went live and into hyper-care, I stepped into the PM role. Daily scrums with the dev team, Jira board management, client communications. Got it stable, then handed it off clean to an account manager. Start to finish, then hand it off clean so the next person can run with it.",
+          responses: [
+            { text: "That's a lot of hats", next: "desk-swiss-army" },
+            { text: "Tell me more about your approach", next: "desk-approach" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-swiss-army",
+          portrait: "smiling1",
+          text: "I've been the QA lead, project manager, sales enablement owner, strategic advisor, and account manager - often simultaneously. I'm good at identifying what's missing and taking ownership without waiting for someone to assign it. Some people find ambiguity stressful. I find it interesting. If you want the shape of all of that written up as actual resumes, I have six flavours sitting in HireMeOS (my computer over there) - one for each way the work tends to get packaged.",
+          responses: [
+            { text: "That sounds exhausting", next: "desk-exhausting" },
+            { text: "Show me your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-exhausting",
+          portrait: "funny1",
+          text: "My brain actually works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
+          responses: [
+            { text: "I want to look around some more", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-ops-explain",
+          portrait: "thoughtful2",
+          text: "The invisible systems that keep organisations from falling apart. Contract workflows, demo preparation processes, documentation standards, client handoff protocols. The stuff nobody thinks about until it's missing. I built all of that from zero.",
+          responses: [
+            { text: "How do you approach building new systems?", next: "desk-approach" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-approach",
+          portrait: "serious",
+          text: "Ask 'why' constantly. Don't accept surface-level explanations or build things just because 'that's how it's done.' Identify root causes, not symptoms. Design based on evidence and iteration. And design for humans as they actually behave, not as you wish they would.",
+          responses: [
+            { text: "What do you mean by that last part?", next: "desk-hermeneutics" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-hermeneutics",
+          portrait: "thoughtful1",
+          text: "I studied philosophy - hermeneutics, specifically. The study of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. If you don't account for how humans process things under real-world conditions, your technically correct solution will still fail.",
+          responses: [
+            { text: "I'd like to see more of your office", action: "inspect" },
+            { text: "Show me your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-problems",
+          portrait: "thoughtful2",
+          text: "The work that doesn't clearly belong to one team. Communication breakdowns between technical and business people. New products that need adoption infrastructure. Projects that need someone to just own them. I'm good at noticing what's not working and taking responsibility for fixing it.",
+          responses: [
+            { text: "Give me an example", next: "desk-neptune" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "desk-stickers",
+          portrait: "funny1",
+          text: "Just a few things that make me smile - David Lynch-isms, absurd humour. The real personality test is the rest of the room - you should see the bookshelves.",
+          responses: [
+            { text: "I'll go check them out", next: null },
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    gertrude: {
+      name: "Gertrude",
+      image: "assets/images/gertrude.jpg",
+      conversations: [
+        {
+          id: "gertrude-intro",
+          portrait: "smiling2",
+          text: "That's Gertrude. Long-haired, grey, and the gentlest cat I've ever known. She's a big ball of fluff who'd let you pet her forever if you had the time. She takes a while to warm up, but once she does, you've got a sweet little lap companion for life.",
+          responses: [
+            { text: "She sounds lovely", next: "gertrude-lovely" },
+            { text: "Why the name Gertrude?", next: "gertrude-name" },
+            { text: "Does she get along with Gherkin?", next: "gertrude-gherkin" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gertrude-lovely",
+          portrait: "funny1",
+          text: "She really is. Her favourite thing is rolling around on the ground waiting for belly rubs. Very dignified.",
+          responses: [
+            { text: "Tell me about Gherkin", next: "gertrude-gherkin" },
+            { text: "I want to look around more", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gertrude-name",
+          portrait: "smiling1",
+          text: "She's named after Drew Barrymore's character in ET. I love E.T. and I love Gertie.",
+          responses: [
+            { text: "Does she get along with Gherkin?", next: "gertrude-gherkin" },
+            { text: "I want to explore more", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gertrude-gherkin",
+          portrait: "thoughtful1",
+          text: "They have an understanding. Gherkin typically rules the high ground - shelves, desks, anywhere he can keep an eye on everything. Gertrude claims the laps and the soft surfaces. Minimal territorial dispute. Mostly.",
+          responses: [
+            { text: "Mostly?", next: "gertrude-mostly" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gertrude-mostly",
+          portrait: "funny1",
+          text: "Sometimes there's a 3am slap in the cat-face. They sort it out.",
+          responses: [
+            { text: "I want to meet Gherkin", action: "inspect" },
+            { text: "Show me the rest of the office", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    gherkin: {
+      name: "Gherkin",
+      image: "assets/images/gherkin.jpg",
+      conversations: [
+        {
+          id: "gherkin-intro",
+          portrait: "smiling2",
+          text: "And that's Gherkin. Big tabby, very handsome, too clever for his own good. He likes to perch up high and observe everything. That pink chair is just where he waits between surveillance sessions.",
+          responses: [
+            { text: "Why Gherkin?", next: "gherkin-name" },
+            { text: "He looks very comfortable", next: "gherkin-comfortable" },
+            { text: "Does he help with work?", next: "gherkin-help" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-name",
+          portrait: "excited",
+          text: "He's a little pickle. Mischievous, observes everything, remembers everything, and will absolutely badger you until he gets what he wants. The name just fit.",
+          responses: [
+            { text: "What kind of badgering?", next: "gherkin-badger" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-badger",
+          portrait: "funny1",
+          text: "He's not a quiet cat. If I've been at my desk too long without paying him attention, he lets me know about it. Loudly. Repeatedly. He's very good at making his needs clear.",
+          responses: [
+            { text: "Effective communication", next: "gherkin-effective" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-effective",
+          portrait: "funny2",
+          text: "He'd be great in a standup. Very concise. 'I need attention. Blocker: you are working. Action item: stop that.'",
+          responses: [
+            { text: "Tell me about Gertrude", action: "inspect" },
+            { text: "What else is in your office?", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-comfortable",
+          portrait: "smiling1",
+          text: "He prefers quiet time. Unfortunately, I have a habit of laughing too hard at things and startling him. He puts up with me anyway.",
+          responses: [
+            { text: "Does he help with work?", next: "gherkin-help" },
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-help",
+          portrait: "funny1",
+          text: "He's excellent at reminding me to take breaks. By yelling. Or sitting on whatever I'm trying to use. Very persistent feedback.",
+          responses: [
+            { text: "Sounds helpful", next: "gherkin-helpful" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "gherkin-helpful",
+          portrait: "funny2",
+          text: "Honestly? Sometimes he's right. If I've been at my desk for four hours and a cat is yelling at me, maybe I should take the hint.",
+          responses: [
+            { text: "I'd like to see more of your office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    leftBookshelf: {
+      name: "Left Bookshelf",
+      image: "assets/images/bookshelf-left.jpg",
+      conversations: [
+        {
+          id: "bookshelf-left-intro",
+          portrait: "smiling1",
+          text: "I love this wall unit/bookshelf. Got it for 80 bucks - still proud of that. It holds a lot of things that are close to my heart. Books, trinkets from family, things I've collected over the years.",
+          responses: [
+            { text: "What kind of books do you read?", next: "bookshelf-left-books" },
+            { text: "Tell me about some of these objects", next: "bookshelf-left-objects" },
+            { text: "You seem to like collecting things", next: "bookshelf-left-collecting" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-books",
+          portrait: "thoughtful1",
+          text: "It used to be mostly Philosophy. Hermeneutics texts from university that I still reference. Some social work theory. But then it became a lot of fiction - I think stories teach us how to understand people better than any business book. And yes, some pulpy trash. I'm not a purist.",
+          responses: [
+            { text: "What's hermeneutics?", next: "bookshelf-left-hermeneutics" },
+            { text: "Any favorites?", next: "bookshelf-left-favorites" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-hermeneutics",
+          portrait: "thoughtful2",
+          text: "The study of interpretation. How people make meaning from texts, conversations, experiences, data. It sounds academic, but it's incredibly practical - it's about understanding how understanding happens.",
+          responses: [
+            { text: "How does that apply to your work?", next: "bookshelf-left-apply" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-apply",
+          portrait: "excited",
+          text: "More than you'd think. When I design training and onboarding programs, I'm thinking about how someone will interpret this under real-world conditions. When I work with LLMs, I'm thinking about where models might misinterpret context or misrepresent information. When I look at data, I'm thinking about what story it's actually telling versus what story we want it to tell.",
+          responses: [
+            { text: "What do you mean about data?", next: "bookshelf-left-data" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-data",
+          portrait: "serious",
+          text: "Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions, context, what questions you're asking. I've seen teams make confident decisions from dashboards that were technically accurate but fundamentally misleading. Hermeneutics taught me to ask: what's being measured, what's being missed, and who decided what counts?",
+          responses: [
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-favorites",
+          portrait: "thoughtful1",
+          text: "My favorites change depending on the day you ask. A little story: when I was about 12, my older brother gave me a book list. I finished every book on it by the time I was 17 - many are on these shelves still. Many of them I was too young to fully grasp, and only on reflection did their weight become apparent. But on any day, I'll tell you: my brain feels at home reading Vonnegut, I feel deeply reading Sylvia Plath, and a Confederacy of Dunces will always be somewhere in my top 5.",
+          responses: [
+            { text: "I'd like to see more", action: "inspect" },
+            { text: "Show me your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-objects",
+          portrait: "smiling2",
+          text: "Items that have a story, mostly. Things that sat on my grandmothers' dressers or display tables; gifted treasures; parts of my childhood. I like objects with history - they've been somewhere, meant something to someone. Many of these trinkets (and a few books) even made it through an international move.",
+          responses: [
+            { text: "International move?", next: "bookshelf-left-london" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-london",
+          portrait: "smiling1",
+          text: "London, UK - just for a while. Worked at some agencies there. Started in accounts payable, ended up helping to implement a timesheet systems at a recruitment agency. Even then, I was spotting what was missing and building something to fix it.",
+          responses: [
+            { text: "What else is in the office?", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-collecting",
+          portrait: "thoughtful1",
+          text: "Guilty. I'm drawn to objects that have character, that feel like they belong together even if they're from completely different places and eras. My aesthetic is basically 'these things shouldn't work together but somehow they do.'",
+          responses: [
+            { text: "That sounds like your work style too", next: "bookshelf-left-meta" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-left-meta",
+          portrait: "funny1",
+          text: "Yeah, actually. Taking things that shouldn't quite fit - QA and sales enablement, philosophy and AI testing, technical translation and change management - and making them work together. Maybe I'm just collecting skills the way I collect vintage teapots.",
+          responses: [
+            { text: "I want to explore more", action: "inspect" },
+            { text: "Show me your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    rightBookshelf: {
+      name: "Right Bookshelf",
+      image: "assets/images/bookshelf-right.jpg",
+      conversations: [
+        {
+          id: "bookshelf-right-intro",
+          portrait: "thoughtful1",
+          text: "This side of the wall unit holds some sweet things - meaningful books, my grandma's glasses, photos with friends, a picture of Patrick McGoohan in The Prisoner - more room for things and little displays.",
+          responses: [
+            { text: "What makes it special?", next: "bookshelf-right-special" },
+            { text: "What's over here?", next: "bookshelf-right-whats-here" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-right-special",
+          portrait: "thoughtful2",
+          text: "I like looking at the things I love. Some say it's a bit silly to love objects, but it's not just the object - it's the memories, the moments.",
+          responses: [
+            { text: "What else is here?", next: "bookshelf-right-whats-here" },
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "bookshelf-right-whats-here",
+          portrait: "smiling1",
+          text: "Artifacts from a winding path. Bits and pieces from different careers, different cities, different versions of me. The eclectic collection of a self-taught generalist.",
+          responses: [
+            { text: "What else can I see?", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    radio: {
+      name: "Vintage Radio",
+      image: "assets/images/radio.jpg",
+      conversations: [
+        {
+          id: "radio-intro",
+          portrait: "smiling1",
+          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
+          responses: [
+            { text: "🎵 Turn the dial", next: "radio-tune", special: "radio" },
+            { text: "Do you listen to music while you work?", next: "radio-music" },
+            { text: "You seem drawn to vintage things", next: "radio-vintage" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune",
+          portrait: "excited",
+          text: "*crackle* ...you're listening to WPHIL 94.7, Philosophy Radio. Coming up: 'Hermeneutics Hour' followed by 'The Phenomenology of Everyday Objects'...",
+          responses: [
+            { text: "🎵 Keep turning", next: "radio-tune-2", special: "radio" },
+            { text: "This is my kind of station", next: "radio-philosophy" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune-2",
+          portrait: "funny1",
+          text: "*crackle* ...KPNK 101.5, Punk Goes Acoustic! Next up: Against Me!, followed by a 12-minute folk ballad about corporate alienation...",
+          responses: [
+            { text: "🎵 Keep turning", next: "radio-tune-3", special: "radio" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune-3",
+          portrait: "smiling2",
+          text: "*crackle* ...WJPN - All John Prine, all day. 'In spite of ourselves, we'll end up sittin' on a rainbow...'",
+          responses: [
+            { text: "🎵 Keep turning", next: "radio-tune-4", special: "radio" },
+            { text: "Perfect.", next: "radio-prine" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune-4",
+          portrait: "thoughtful1",
+          text: "*crackle* ...WCOF - Coffee Shop Radio. Lo-fi beats to procrastinate to... *chill music intensifies*",
+          responses: [
+            { text: "🎵 Keep turning", next: "radio-tune-5", special: "radio" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-tune-5",
+          portrait: "funny2",
+          text: "*crackle* ...KCAT 88.3 - Feline Frequencies. *sound of a cat walking across a synthesizer* This has been '3AM Zoomies in D Minor'...",
+          responses: [
+            { text: "🎵 Start over", next: "radio-tune", special: "radio" },
+            { text: "Did Gherkin produce this?", next: "radio-gherkin" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-philosophy",
+          portrait: "thoughtful2",
+          text: "You have good taste. Understanding how people interpret information is literally my thing. Most of my work is applied hermeneutics, I just don't call it that.",
+          responses: [
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-prine",
+          portrait: "excited",
+          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky - grew up in a house full of music.",
+          responses: [
+            { text: "Thousands of records?", next: "radio-records" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-records",
+          portrait: "thoughtful1",
+          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection - some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
+          responses: [
+            { text: "That's a lovely way to grow up", next: "radio-lovely" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-lovely",
+          portrait: "smiling2",
+          text: "It really was. My mum brought her own flavour too - Prince, Talking Heads, Psychedelic Furs. Between the two of them, I got a pretty good musical education. Explains why my playlists are all over the place.",
+          responses: [
+            { text: "I'd like to see more", action: "inspect" },
+            { text: "Show me your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-gherkin",
+          portrait: "funny1",
+          text: "He's been experimenting with ambient music. Mostly it sounds like keyboard mashing with occasional meowing. Very avant-garde.",
+          responses: [
+            { text: "I want to explore more", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-music",
+          portrait: "excited",
+          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi - or the Moon soundtrack. Creative work gets something with more energy. Testing gets some metal.",
+          responses: [
+            { text: "What's your go-to?", next: "radio-goto" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-goto",
+          portrait: "thoughtful1",
+          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music - I had too much good stuff thrown at me growing up to pick just one lane.",
+          responses: [
+            { text: "Show me more of your office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-vintage",
+          portrait: "thoughtful2",
+          text: "Vintage, mid-century modern, things with history. I like when you can see the craftsmanship, feel the intention behind the design. Modern minimalism is fine, but it often feels soulless. Give me character over perfection.",
+          responses: [
+            { text: "That's kind of how you describe your work style", next: "radio-work-style" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "radio-work-style",
+          portrait: "smiling1",
+          text: "Maybe. I'd rather be authentic than polished. Direct communication over corporate speak. Solutions that actually work for humans over technically correct approaches that nobody adopts. Character over perfection.",
+          responses: [
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    art: {
+      name: "Wall Art",
+      image: "assets/images/art.jpg",
+      conversations: [
+        {
+          id: "art-intro",
+          portrait: "smiling1",
+          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes. Nothing too precious. Things that have been somewhere before they got to me.",
+          responses: [
+            { text: "They create a nice atmosphere", next: "art-atmosphere" },
+            { text: "Do you have a favourite?", next: "art-favourite" },
+            { text: "The frames are beautiful", next: "art-frames" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "art-atmosphere",
+          portrait: "thoughtful1",
+          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
+          responses: [
+            { text: "Do you have a favourite piece?", next: "art-favourite" },
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "art-favourite",
+          portrait: "thoughtful2",
+          text: "It changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
+          responses: [
+            { text: "The frames are beautiful", next: "art-frames" },
+            { text: "I want to look around more", action: "inspect" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "art-frames",
+          portrait: "smiling2",
+          text: "Half the appeal, honestly. Ornate frames, a little worn, gold leaf that's seen better days. They've been somewhere, held something. The imperfections are the point. Perfect things are boring.",
+          responses: [
+            { text: "Show me more of the office", action: "inspect" },
+            { text: "Take me to your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    monitor: {
+      name: "Computer Monitor",
+      action: "openDesktop",
+      hoverText: "Click to enter HireMeOS"
+    },
+
+    talkGertrude: {
+      name: "Talk to Gertrude",
+      image: "assets/images/gertrude.jpg",
+      conversations: [
+        {
+          id: "talk-gertrude-intro",
+          portrait: "smiling1",
+          text: "You approach Gertrude. She regards you cautiously at first - she takes her time with new people. But there's warmth in those eyes if you're patient.",
+          responses: [
+            { text: "Hello, Gertrude.", next: "talk-gertrude-hello" },
+            { text: "Offer a slow blink", next: "talk-gertrude-blink" },
+            { text: "[Leave her to her thoughts]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-hello",
+          portrait: "thoughtful1",
+          text: "Gertrude's ears rotate thoughtfully. She doesn't come closer yet, but she doesn't leave either. That's something. \"You seek wisdom about my human? She thinks in patterns. Sees the shape of things before others notice the edges. We have this in common.\"",
+          responses: [
+            { text: "That sounds... profound.", next: "talk-gertrude-profound" },
+            { text: "What else can you tell me?", next: "talk-gertrude-more" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-blink",
+          portrait: "smiling2",
+          text: "Gertrude returns the slow blink - the highest honour a cat can bestow. \"You understand protocol. Good. My human values those who observe before acting. Who listen more than they speak. I am beginning to like you.\"",
+          responses: [
+            { text: "What can you tell me about her?", next: "talk-gertrude-more" },
+            { text: "[Accept this blessing and depart]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-profound",
+          portrait: "thoughtful2",
+          text: "\"I am a cat. Everything I say is profound.\" She settles into a comfortable loaf. \"But consider: she builds things that help humans work better. Not for glory. For function. The best systems are invisible until they break.\"",
+          responses: [
+            { text: "Like a good litter box system?", next: "talk-gertrude-litter" },
+            { text: "Tell me more about her approach.", next: "talk-gertrude-approach" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-litter",
+          portrait: "funny1",
+          text: "Gertrude's eyes soften with approval. \"You understand perfectly. Yes. Exactly like that. The infrastructure of dignity. She grasps this.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-more",
+          portrait: "serious",
+          text: "\"She is gentle but persistent. When problems arrive - and problems always arrive - she does not panic. She watches, learns, finds the thread.\" Gertrude begins to purr softly. \"I was not sure about her at first either. Now I would not leave her lap if I had the choice.\"",
+          responses: [
+            { text: "Is she a good human?", next: "talk-gertrude-good" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-approach",
+          portrait: "thoughtful1",
+          text: "\"She asks why. Constantly. Some might find it tiresome. But the why reveals what should be.\" Gertrude rolls onto her side, showing you her belly - a sign of trust. \"I asked why my dinner was late once. She explained the meeting ran long. I appreciated the honesty.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-good",
+          portrait: "smiling1",
+          text: "Gertrude considers this, purring steadily now. \"She gives the best pets. Never rushes. Never stops before I'm ready. She understands that love requires patience.\" A slow blink. \"Yes. She is good. I am lucky to be hers.\"",
+          responses: [
+            { text: "That's sweet, Gertrude.", next: "talk-gertrude-sweet" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gertrude-sweet",
+          portrait: "funny2",
+          text: "\"I have been told I am very sweet. Once you get to know me.\" She stretches luxuriously. \"Most things worth knowing take time.\"",
+          responses: [
+            { text: "[Your secret is safe]", next: null }
+          ]
+        }
+      ]
+    },
+
+    talkGherkin: {
+      name: "Talk to Gherkin",
+      image: "assets/images/gherkin.jpg",
+      conversations: [
+        {
+          id: "talk-gherkin-intro",
+          portrait: "smiling2",
+          text: "You approach Gherkin on his pink throne. He fixes you with an intense, intelligent stare. Then he starts yelling.",
+          responses: [
+            { text: "Hey there, buddy.", next: "talk-gherkin-hey" },
+            { text: "Reach out for a belly rub", next: "talk-gherkin-belly" },
+            { text: "[Let him yell]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-hey",
+          portrait: "excited",
+          text: "Gherkin yells louder, then settles. \"Finally. Someone who responds. My human sometimes ignores me when she's 'working.' I have to remind her that I exist and have needs.\"",
+          responses: [
+            { text: "Tell me about your human.", next: "talk-gherkin-human" },
+            { text: "You seem very vocal.", next: "talk-gherkin-vocal" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-belly",
+          portrait: "funny1",
+          text: "Gherkin permits the belly rub with dignity. \"You may continue. I'm choosing to allow this.\" The purring is immediate and loud. \"My human gives excellent pets. But she laughs too hard at things and startles me off her lap. A flaw I've learned to tolerate.\"",
+          responses: [
+            { text: "What can you tell me about Ashley?", next: "talk-gherkin-human" },
+            { text: "[Continue petting and exit gracefully]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-human",
+          portrait: "smiling1",
+          text: "\"She is clever. Like me.\" Gherkin's tail swishes. \"I watch her solve problems. She looks at something, thinks, tries a thing, adjusts. Very methodical. I do the same thing when I'm trying to open a cabinet she thinks is secure.\"",
+          responses: [
+            { text: "What's she like to work with?", next: "talk-gherkin-work" },
+            { text: "You sound like you pay attention.", next: "talk-gherkin-attention" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-vocal",
+          portrait: "excited",
+          text: "\"I have things to say. Important things. 'I want attention.' 'You've been at your desk too long.' 'It's time for quiet lap sitting now.'\" He yells again for emphasis. \"Clear communication is a virtue.\"",
+          responses: [
+            { text: "What's the best thing about her?", next: "talk-gherkin-best" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-work",
+          portrait: "thoughtful1",
+          text: "Gherkin considers this seriously. \"She is patient. She thinks before she acts. She does not get frustrated when things don't work the first time.\" A pause. \"Unless it's a printer. Printers make her say words I don't understand.\"",
+          responses: [
+            { text: "That's actually insightful.", next: "talk-gherkin-insight" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-attention",
+          portrait: "serious",
+          text: "\"I observe everything. I remember everything. She left a treat in her desk drawer once, three months ago. I have not forgotten. I check daily.\" His eyes narrow. \"Persistence is also a virtue.\"",
+          responses: [
+            { text: "That's... dedicated.", next: "talk-gherkin-dedicated" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-best",
+          portrait: "funny2",
+          text: "\"She understands that I prefer quiet time. No sudden loud noises. No chaos.\" He kneads the pink cushion. \"When she remembers not to laugh like a startled goose, we have very good lap sessions. I am training her.\"",
+          responses: [
+            { text: "Training her?", next: "talk-gherkin-training" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-insight",
+          portrait: "funny1",
+          text: "\"Insightful is my default state. I am a very smart cat.\" He begins grooming a paw. \"She tells me this often. I am inclined to agree.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-dedicated",
+          portrait: "thoughtful1",
+          text: "\"She also does not give up on things. We are alike in this way.\" Gherkin settles into a dignified loaf. \"I respect her. When she sits down.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "talk-gherkin-training",
+          portrait: "smiling1",
+          text: "\"Slowly. She is learning that when I yell, she should sit on the couch. When I stare, she should check my food bowl. When I knock something off a table...\" He pauses. \"Actually that one is just for fun.\"",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    },
+
+    coffeeChair: {
+      name: "Coffee Chat",
+      image: "assets/images/ashley-default.jpg",
+      conversations: [
+        {
+          id: "coffee-intro",
+          portrait: "smiling1",
+          text: "You settle into the chair nearby. Ashley looks up and smiles. Oh, hi! Want to chat for a bit?",
+          responses: [
+            { text: "I'm curious about your work.", next: "coffee-curious" },
+            { text: "Tell me a bit about yourself.", next: "coffee-about" },
+            { text: "Tell me about your career journey.", next: "coffee-journey" },
+            { text: "What do you do for fun?", next: "coffee-fun" },
+            { text: "I like the aesthetic of this place.", next: "coffee-aesthetic" },
+            { text: "Tell me something surprising.", next: "coffee-surprise" },
+            { text: "[Maybe another time]", next: null }
+          ]
+        },
+        {
+          id: "coffee-about",
+          portrait: "thoughtful1",
+          text: "The short version? I studied philosophy, then social work, then ended up in tech by a very winding road. The long version involves ad agencies, London, finance departments, and eventually startups. Plus cats.",
+          responses: [
+            { text: "That's quite a path.", next: "coffee-path" },
+            { text: "What kind of work do you do now?", next: "coffee-curious" },
+            { text: "Tell me about the cats.", next: "coffee-cats" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-path",
+          portrait: "thoughtful2",
+          text: "Philosophy taught me how to think - specifically hermeneutics, how people interpret and understand things. Social work taught me how to actually help people, not just theorise about it. Then I needed a job, started as a receptionist at an ad agency, got promoted to accounts receivable within six months. Did finance work in London for a while. Then fell into startups and discovered I'm good at building systems that make organisations work better. Every step taught me something I still use.",
+          responses: [
+            { text: "How does philosophy show up in tech work?", next: "coffee-philosophy-tech" },
+            { text: "What was London like?", next: "coffee-london" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-curious",
+          portrait: "excited",
+          text: "The honest answer is I'm a generalist who happens to wear a few titles at once. Start with whatever isn't working, build the system to fix it, document it well enough that someone else can take over. But if you want the shape of it written up properly, I've put six resumes inside HireMeOS (Hire Me.exe on the desktop, or the Resume folder): Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. All real, all the same person, depending on what you're hiring for.",
+          responses: [
+            { text: "What kind of systems?", next: "coffee-systems" },
+            { text: "That sounds exhausting.", next: "coffee-exhausting" },
+            { text: "Got a good example?", next: "coffee-example" },
+            { text: "Show me your computer", action: "desktop" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-aesthetic",
+          portrait: "funny1",
+          text: "That's completely valid. I spent way too long on this site. It started out inspired by MYST and point-and-click adventure games, but it's evolved into its own weird creature - something born out of the fact that I'm incredibly nosy, especially in digital spaces. I love poking around, opening things, seeing what's behind the next click. Professional doesn't have to mean boring - life's too short for generic portfolio templates.",
+          responses: [
+            { text: "Did you code all this yourself?", next: "coffee-coding" },
+            { text: "What else reflects your style?", next: "coffee-style" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-surprise",
+          portrait: "thoughtful2",
+          text: "Hmm. I grew up in a house with thousands of records, so my music taste is all over the place. I think meetings should be a last resort, not a first instinct. I genuinely enjoy writing documentation - good docs are an act of kindness. And I spent my youth going to punk and metal shows before developing folk sensibilities. People find that one surprising.",
+          responses: [
+            { text: "Documentation as kindness?", next: "coffee-docs" },
+            { text: "Punk to folk?", next: "coffee-punk" },
+            { text: "Let's talk about meetings.", next: "coffee-meetings" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-journey",
+          portrait: "thoughtful1",
+          text: "Philosophy at Guelph, then social work at George Brown. Started as a receptionist at DDB - the ad agency - and got promoted to accounts receivable within six months. Moved to London, did accounts payable at a few agencies there, ended up implementing timesheet systems. Came back to Canada, landed at an IBM reseller doing sales ops, then spent 7+ years at a field marketing platform that became about five different jobs. None of it was planned, but each role taught me how to build things that outlast the person who made them.",
+          responses: [
+            { text: "That's a lot of pivots.", next: "coffee-pivots" },
+            { text: "What's your favourite part of what you do now?", next: "coffee-favourite" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-pivots",
+          portrait: "smiling1",
+          text: "I prefer 'following the interesting problems.' Each role taught me something. Reception taught me how organisations actually function day-to-day. Finance taught me systems and accuracy. London taught me adaptability. Sales ops taught me pipelines and CRMs. By the time I landed at the startup, I had this weird grab-bag of skills that turned out to be exactly what a tiny company with no processes needed.",
+          responses: [
+            { text: "The generalist advantage.", next: "coffee-generalist" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-generalist",
+          portrait: "thoughtful1",
+          text: "Exactly. I'm a self-taught generalist who figures things out through pattern recognition and asking 'why' constantly. Every role required mastering new systems without formal training. Turns out that's valuable when you're building things from scratch.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-london",
+          portrait: "smiling2",
+          text: "It was an adventure. Worked at a few agencies - Essence Digital, GroupM, Robert Walters. Started in accounts payable, ended up implementing an online timesheet system that cut their processing time significantly. The pattern started there, really. Show up, figure out what's needed, build something that works.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-philosophy-tech",
+          portrait: "serious",
+          text: "More than you'd think. Hermeneutics is about how people make meaning from things - texts, conversations, data. When I'm building training programs, I'm thinking about how someone will actually interpret this under real conditions. When I'm working with AI, I'm thinking about where models might misunderstand context. It's all interpretation, just applied differently.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-fun",
+          portrait: "smiling2",
+          text: "Thrift store hunting. Vintage finds. Learning new skills just because they seem interesting - right now it's AI prompt engineering and how to communicate effectively with these systems. Reading philosophy for fun. And obviously, spending time with Gertrude and Gherkin.",
+          responses: [
+            { text: "AI prompt engineering?", next: "coffee-ai" },
+            { text: "Philosophy for fun?", next: "coffee-philosophy" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-philosophy",
+          portrait: "serious",
+          text: "Hermeneutics, specifically - the study of interpretation. How do people actually understand things? It's surprisingly practical in tech. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
+          responses: [
+            { text: "How does that show up in your work?", next: "coffee-hermeneutics-work" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-systems",
+          portrait: "excited",
+          text: "The invisible infrastructure. Contract workflows, onboarding programmes, documentation standards, QA processes. The stuff nobody thinks about until it's missing. When it works, everyone just... works better. That's the goal.",
+          responses: [
+            { text: "Give me an example.", next: "coffee-example" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-cats",
+          portrait: "funny2",
+          text: "*gestures at Gertrude and Gherkin* These two run the place. Gertrude's my lap companion - sweetest cat I've ever known once she warms up to you. Gherkin's the clever one - watches everything, remembers everything, and yells at me when I've been at my desk too long. They're my coworkers.",
+          responses: [
+            { text: "Do they help or hinder productivity?", next: "coffee-cat-productivity" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-exhausting",
+          portrait: "smiling1",
+          text: "My brain actually works better this way. Context-switching, seeing patterns across different domains - that's how I'm wired. What exhausts me is sitting in meetings that could've been async messages. Or when organisations cling to processes that don't work just because 'that's how we've always done it.'",
+          responses: [
+            { text: "You like the chaos?", next: "coffee-chaos" },
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-example",
+          portrait: "thoughtful1",
+          text: "A major retail client needed a custom platform. I led the whole lifecycle - discovery, wireframes, QA process, then stepped into the PM role when it went live. Daily scrums, Jira management, stakeholder communication. Then transitioned to account manager, got it stable, handed it off clean. That's the pattern.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-coding",
+          portrait: "smiling2",
+          text: "With a lot of help from AI tools. I'm not a developer, but I can think in systems and communicate requirements clearly. This site started as 'what if a portfolio was actually fun to make?' and it's the most fun I've had in ages. Sometimes the best projects are the ones you make just because you want to.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-style",
+          portrait: "thoughtful2",
+          text: "Vintage furniture. Warm, lived-in spaces. Things with history and character. Direct communication over corporate jargon. I'd rather be authentic than polished. Life's too short to be boring.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-docs",
+          portrait: "serious",
+          text: "Think about it - good documentation saves everyone's time. It respects the person who comes next. It's saying 'I cared enough to explain this clearly so you don't have to struggle.' That's meaningful. Most people just don't bother, and it shows.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-punk",
+          portrait: "funny1",
+          text: "The through-line is authenticity. Substance over style. Artists who mean what they say and aren't afraid to be weird or vulnerable. Against Me! was my favourite as a teenager. Now it's John Prine. Different sound, same honesty.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-meetings",
+          portrait: "serious",
+          text: "Most meetings could be async messages. Most status updates could be a Slack thread. I protect my deep work time. When I do meet, I want it to be for actual collaboration - brainstorming, decision-making, things that genuinely need real-time interaction.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-chaos",
+          portrait: "funny2",
+          text: "In the best way. Some people find ambiguity stressful - I find it interesting. Here's a mess, figure out the shape of it, build something that helps. That's the job.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-favourite",
+          portrait: "excited",
+          text: "The moment when something clicks. When you've been working on a problem and suddenly you see the solution - not a band-aid, but the actual root cause fixed. That's the good stuff.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-ai",
+          portrait: "excited",
+          text: "I've gone deep on this. Built training materials, prompt libraries, onboarding programs, the whole adoption infrastructure. AI isn't going to replace good thinking, but it amplifies it. The interesting work is figuring out how to communicate with these systems effectively - which loops right back to hermeneutics. How do they interpret? Where do they misunderstand? It's the same questions, different context.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-hermeneutics-work",
+          portrait: "thoughtful1",
+          text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under real-world conditions?' Not how I hope they will. How they actually will. That shift changes everything.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        },
+        {
+          id: "coffee-cat-productivity",
+          portrait: "smiling1",
+          text: "Both. Gertrude keeps me company and would let me pet her forever if I had the time. Gherkin reminds me to take breaks by yelling until I go sit somewhere he can access my lap. They're part of the system now.",
+          responses: [
+            { text: "[Back to exploring]", next: null }
+          ]
+        }
+      ]
+    }
+  },
+
+  // ============================================
+  // HIREMEOS DESKTOP DATA
+  // ============================================
+
+  desktop: {
+    osName: "HireMeOS XP",
+    welcomeMessage: "Welcome, Visitor",
+
+    icons: [
+      { id: "roleexplorer", name: "Hire Me.exe", icon: "role-explorer", app: "roleexplorer" },
+      { id: "chat", name: "HAL.exe", icon: "hal", app: "messenger" },
+      { id: "mywork", name: "My Work", icon: "folder", app: "misc-folder", file: "mywork" },
+      { id: "gettoknowme", name: "Get to Know Me", icon: "folder-special", app: "misc-folder", file: "gettoknowme" },
+      { id: "takeabreak", name: "Take a Break", icon: "folder-games", app: "misc-folder", file: "takeabreak" },
+      { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" },
+      { id: "accessibility", name: "Accessibility", icon: "accessibility", app: "accessibility" }
+    ],
+
+    // Misc folders content
+    folders: {
+      mywork: {
+        title: "My Work",
+        items: [
+          { id: "resume", name: "Resume.doc", icon: "doc", type: "app", app: "wordpad" },
+          { id: "resume-cos", name: "Resume_ChiefOfStaff.doc", icon: "doc", type: "app", app: "wordpad-cos" },
+          { id: "resume-prodops", name: "Resume_ProductOps.doc", icon: "doc", type: "app", app: "wordpad-prodops" },
+          { id: "resume-sales", name: "Resume_SalesEnablement.doc", icon: "doc", type: "app", app: "wordpad-sales" },
+          { id: "resume-ai", name: "Resume_AIAdoption.doc", icon: "doc", type: "app", app: "wordpad-ai" },
+          { id: "resume-revops", name: "Resume_RevOps.doc", icon: "doc", type: "app", app: "wordpad-revops" },
+          { id: "resume-impl", name: "Resume_Implementation.doc", icon: "doc", type: "app", app: "wordpad-impl" },
+          { id: "work", name: "Work Examples", icon: "folder", type: "app", app: "folder" },
+          { id: "aiportfolio", name: "AI Portfolio", icon: "folder-special", type: "app", app: "portfolio" },
+          { id: "collab", name: "Lets_Work_Together.txt", icon: "txt", type: "notepad", noteId: "collab" },
+          { id: "readme", name: "README_actually_read_me.txt", icon: "readme", type: "app", app: "readme" }
+        ]
+      },
+      gettoknowme: {
+        title: "Get to Know Me",
+        items: [
+          { id: "about", name: "AboutMe.html", icon: "html", type: "app", app: "livejournal" },
+          { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
+          { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
+          { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
+          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
+        ]
+      },
+      takeabreak: {
+        title: "Take a Break",
+        items: [
+          { id: "paint", name: "Paint", icon: "app-paint", type: "app", app: "paint" },
+          { id: "projecttrail", name: "Project Trail.exe", icon: "game-trail", type: "game", app: "game" },
+          { id: "bionicbrain", name: "The Bionic Brain.exe", icon: "game-brain", type: "game", app: "bionicbrain" },
+          { id: "raiders", name: "Raiders of the Lost Doc.exe", icon: "game-raiders", type: "game", app: "raiders" },
+          { id: "minesweeper", name: "Meeting Minesweeper.exe", icon: "game-minesweeper", type: "game", app: "minesweeper" },
+          { id: "memory", name: "Memory Match.exe", icon: "game-memory", type: "game", app: "memory" },
+          { id: "catpong", name: "Cat Pong.exe", icon: "game-catpong", type: "game", app: "catpong" }
+        ]
+      }
+    },
+
+    taskbarLinks: [
+      { name: "Email", action: "mailto:ashley@stepinto-ashleysoffice.com" },
+      { name: "LinkedIn", action: "https://linkedin.com/in/ashley-sarahsep" },
+      { name: "Exit to Room", action: "exitDesktop" }
+    ]
+  },
+
+  // ============================================
+  // RESUME CONTENT (WordPad style)
+  // ============================================
+
+  resume: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY S.</h1>
+<p class="resume-subtitle">Product Operations | Cross-Functional Leadership | Enablement | AI Adoption</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>OH, HELLO!</h2>
+<p>Nice to meet you - I'm Ashley, a strategic operations leader with 10+ years of experience making sure the operational and product side of things actually holds together. I work well in environments where nothing is formally documented yet and most of the important context lives in people's heads. I build systems and documentation designed for the person who inherits the work, not just for the person doing it right now.</p>
+<p>I joined MainEvent when the team was ~8 people with no formal processes and built operational infrastructure from scratch: sales operations, onboarding programmes, QA processes, and project management frameworks. Over 7 years the company grew to 18 people and 46 enterprise clients including Fortune 500 brands, supported by a platform tracking 19.5M+ executions across 576K+ client staff. I was directly involved in the sales process for 30 of those clients. Most recently, I built the entire adoption infrastructure for MainEvent's AI agent product: manual testing framework, 5-phase onboarding methodology, 8-guide educational curriculum, and enterprise analytical frameworks.</p>
+<p>My background combines philosophy (hermeneutics - how people interpret and understand information) with social service work. This shapes how I approach change management and training: I design systems and learning experiences that respect how humans actually work, learn, and adopt new behaviours. I'm a self-taught generalist who figures things out through pattern recognition and asking "why" constantly.</p>
+</div>
+
+<div class="resume-section">
+<h2>WHAT MAKES ME DIFFERENT</h2>
+
+<h3>HERMENEUTICS ADVANTAGE IN OPERATIONS & ANALYTICS</h3>
+<p>My background in philosophy (hermeneutics) and social work gives me a unique advantage in both operations and data analytics. My training programmes are designed around how humans actually process, retain, and apply information, not around what's easiest to produce. I approach data the same way: what story is it actually telling, what patterns exist and why, whether those patterns are helping or hindering outcomes, and whether successes are replicable. I like data work because it's the same kind of question: what's actually going on here, and does the obvious answer hold up?</p>
+
+<h3>THE PERSON EVERYONE ASKS</h3>
+<p>Over 7 years I held QA lead, project manager, product operations lead, sales enablement owner, strategic advisor, and account manager responsibilities - often simultaneously, for a team that grew from 8 to 18 people. People came to me to work through problems, test ideas, and get answers because I understood the platform, the clients, and the context better than anyone who wasn't a developer. That institutional knowledge is what let a small team support 46 enterprise clients including Fortune 500 brands.</p>
+
+<h3>SELF-TAUGHT TECHNOLOGY ADOPTER</h3>
+<p>Mastered every system and tool through self-directed learning - from CRM platforms to AI agent development to project management tools. At MainEvent, I was the first person to really take to the AI Agents and became the go-to for everything related to them (minus the actual development). I build technical solutions, implement new technologies, and adapt to new platforms rapidly without extensive training or hand-holding. This self-learning approach informs how I design training programs for others - I understand the learning journey because I've walked it myself.</p>
+
+<h3>BRIDGE BUILDER BETWEEN TECHNICAL & BUSINESS</h3>
+<p>Translate technical capabilities into business value and user-friendly language. Help engineers understand user challenges. Help business stakeholders understand technical constraints. Create shared understanding across groups that typically struggle to communicate. When ideas are lost in translation between teams, I step in to ensure equilibrium of understanding - I can articulate complex concepts clearly for any audience.</p>
+
+<h3>SHARING &gt; SELLING</h3>
+<p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. If it isn't good, no amount of pressure will save you. That belief shapes everything I build for sales teams: demos are research made visible, discovery frameworks come from genuine curiosity about the prospect, and the training I design teaches reps to actually know what they're talking about rather than perform a script.</p>
+
+<h3>CRITICAL AI ADVOCATE WITH ETHICAL LENS</h3>
+<p>I love working with AI and ML as tools, but I'm not a blind advocate. I'm very critical and aware of limitations, hallucinations, and potential issues. My philosophy background helps me understand how LLMs interpret and generate information, which makes me effective at identifying where they might misinterpret context or produce misleading results. I advocate for ethical AI implementation, appropriate guardrails, transparency about limitations, and thoughtful consideration of how models are trained and deployed.</p>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> Ashley reduced client onboarding timelines from 90 to 45 days by building structured handoff processes and self-service documentation. One of her AI agent clients (Advantage Solutions, managing Anheuser-Busch activations) went on to use the platform to analyse 13,000+ events across 625+ field staff per year - capabilities enabled by the training and prompt frameworks Ashley built from scratch.
+</div>
+</div>
+
+<div class="resume-section">
+<h2>WHAT I'VE DONE</h2>
+<hr class="section-divider">
+
+<h3>AI PRODUCT ENABLEMENT & ADOPTION</h3>
+<p class="job-title">Network Ninja (MainEvent) | Head of Client Enablement & AI Adoption</p>
+<p class="job-meta">Jan 2025 - December 2025 | Remote</p>
+<p>Lead product adoption for AI-powered field marketing analysis agents, enabling experiential marketing agencies and CPG brands to query and analyse data from millions of field events using natural language.</p>
+
+<p><strong>THE SITUATION:</strong> New AI agent product launching with no adoption infrastructure, no QA framework, no training materials, and no team. Just me.</p>
+
+<p><strong>WHAT I OWNED:</strong></p>
+<ul>
+<li>Created manual testing framework for AI agent product from scratch - systematic process to test prompts and outputs for reliability, consistency, and accuracy before client deployment</li>
+<li>Applied philosophy background (hermeneutics) to understand how AI interprets and generates information - identified where models might misinterpret context or produce misleading results</li>
+<li>Developed enterprise-level analytical prompt frameworks (Power Prompts) enabling clients to extract business intelligence from field marketing data - created frameworks for program performance analysis, staff performance tracking, venue intelligence, pattern discovery, and data quality optimisation</li>
+<li>Designed and implemented 5-phase onboarding methodology for AI agent adoption with complete educational curriculum including practical guides, onboarding documentation, prompting best practices, and enterprise analytical frameworks</li>
+<li>Built library of training videos and resources using Google Drive, Loom, and Notion for content delivery</li>
+<li>Created quality feedback loop between client usage and product development team - drove product improvements through documented testing, issue identification, and honest assessment of AI capabilities and limitations</li>
+</ul>
+
+<p><strong>THE RESULTS:</strong></p>
+<ul>
+<li>Onboarded 5 enterprise clients to the AI agent platform with custom analytical frameworks, including one whose team used it to analyse 13,000+ annual events across 625+ field staff (featured in a published case study)</li>
+<li>Created 8 training guides spanning non-technical users through executives, plus 75+ tested prompt templates in the Power Prompts library</li>
+<li>Owned EMS Vegas booth presence from concept to execution: created all demo materials, video examples, and outreach content. Generated 5 prospect conversations from 50 targeted cold messages during the event</li>
+</ul>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> Ashley onboarded every AI agent client the company had: 5 enterprise accounts, each with custom analytical frameworks. She also built the QA testing framework that caught hallucinations and accuracy issues before they reached clients. The onboarding methodology and 8-guide curriculum she created became the standard for every deployment.
+</div>
+
+<hr class="section-divider">
+
+<h3>PRODUCT OPERATIONS & STRATEGIC LEADERSHIP</h3>
+<p class="job-title">Network Ninja (MainEvent) | Chief of Staff & Head of Sales Enablement</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Partner to COO/Head of Sales and executive team for field marketing software platform serving experiential marketing agencies and major CPG brands (Kraft Heinz, U.S. Cellular, Monster Energy), managing mobile tours, product sampling, brand activations, and event staffing across 1.9+ million locations.</p>
+
+<p><strong>THE SITUATION:</strong> Enterprise clients, a rotating sales team, no dedicated QA, and a COO who needed a strategic partner to hold everything together</p>
+
+<p><strong>WHAT I OWNED:</strong></p>
+
+<p><em>Quality Assurance Leadership:</em></p>
+<ul>
+<li>Served as sole QA Lead on major client projects (including a major enterprise retail client project) - owned quality from testing through client delivery</li>
+<li>Created and executed detailed test plans covering edge cases, user flows, regression testing, and emerging bugs</li>
+<li>Partnered with Product and Engineering to deeply understand platform functionality and technical architecture</li>
+<li>Wrote clear, actionable feedback on technical issues in Jira - detailed tickets for developers, client-friendly explanations for customers</li>
+</ul>
+
+<p><em>Enterprise Retail Marketing Services Client - End-to-End Ownership:</em></p>
+<ul>
+<li>Led complete project lifecycle: discovery, requirements gathering, workflow/wireframe design, QA process creation, development team leadership (4 people), project management, and account management</li>
+<li>Managed Jira board for entire project - prioritised tickets, triaged bugs, tracked feature development, and ensured all work passed testing standards</li>
+<li>Transitioned into account manager role post-launch - managed client relationship, handled escalations, ensured smooth operations</li>
+<li>Successfully handed off to dedicated account manager once platform was running smoothly with complete documentation and knowledge transfer</li>
+</ul>
+
+<p><em>Sales Enablement & Demo Excellence:</em></p>
+<ul>
+<li>Own all sales materials including demo environments, pitch decks, competitive battle cards, and customer-facing documentation for lean sales team (2-4 people)</li>
+<li>Create 30+ customised demo environments and tailored sales packages annually - each researched and built specifically for prospect's business, industry challenges, and use cases</li>
+<li>Provide continuity and institutional knowledge as sales team composition changes - maintain consistency in demo quality and sales approach regardless of team turnover</li>
+<li>Develop discovery frameworks and qualification playbooks that help sellers identify best-fit opportunities across varying sales cycles</li>
+</ul>
+
+<p><em>Strategic Operations & Gap Identification:</em></p>
+<ul>
+<li>Identify where work is falling between teams, where communication is breaking down, and where ownership is unclear - then take it on</li>
+<li>Advise executive leadership on GTM, product roadmap priorities, organisational alignment, and operational efficiency</li>
+<li>Step in when ideas are lost in translation between teams - ensure equilibrium of understanding across technical and non-technical stakeholders</li>
+<li>Stepped up to cover PM responsibilities during team transitions - led daily scrums, managed sprint planning, triaged bugs, maintained delivery momentum without missing client commitments</li>
+</ul>
+
+<p><strong>THE RESULTS:</strong></p>
+<ul>
+<li>Directly involved in the sales process for 30 of 46 enterprise clients: prepared every custom demo, researched every prospect, created contracts, and managed handoffs</li>
+<li>Led a $500K+ custom platform build for an enterprise retail client operating across 48,000+ locations, then transitioned to account management and clean handoff</li>
+<li>Sole QA Lead across 20+ implementations, managing 100+ tickets during peak project periods</li>
+<li>Near-zero client churn: only 2-3 offboards during entire 7-year tenure</li>
+</ul>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> Ashley was directly involved in the sales and onboarding process for 30 of MainEvent's 46 enterprise clients. She prepared every custom demo, researched every prospect, created the contracts, and in many cases managed the account after close. Only 2-3 clients offboarded during her entire 7-year tenure.
+</div>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT FOUNDATION</h3>
+<p class="job-title">Network Ninja (MainEvent) | Sales Operations & Enablement Lead</p>
+<p class="job-meta">Oct 2018 - Jul 2025 (6+ yrs) | Remote</p>
+<p>End-to-end operations and training leadership for field marketing SaaS platform. Joined when MainEvent team was ~8 people with no formal processes.</p>
+
+<p><strong>THE SITUATION:</strong> A team of ~8 people, zero formal processes, and a COO managing all sales and operations solo</p>
+
+<p><strong>WHAT I BUILT FROM ZERO:</strong></p>
+
+<p><em>Operational Infrastructure from Scratch:</em></p>
+<ul>
+<li>Built sales operations, training programs, QA processes, and project management frameworks from zero</li>
+<li>Established sales processes and reporting standards that scaled with team growth</li>
+<li>Created evaluation frameworks and KPI tracking systems to measure feature adoption and training effectiveness</li>
+<li>Managed sales pipeline across multiple CRM platforms (SugarCRM, HubSpot - self-taught on each system), maintained data integrity, forecasting accuracy, performance analytics</li>
+</ul>
+
+<p><em>Training & Enablement Programs:</em></p>
+<ul>
+<li>Designed and delivered onboarding and training programs on CRM systems, sales processes, product knowledge, and customer discovery</li>
+<li>Created 30+ customised demo environments and tailored sales packages annually - each specifically researched and built for individual prospect's business context, pitches, or RFPs</li>
+<li>Served as training constant and institutional knowledge across sales team changes - maintained demo quality and sales approach consistency</li>
+<li>Created discovery frameworks, qualification checklists, and sales playbooks that improved effectiveness across varying sales cycles (same-day SMB to year-long enterprise)</li>
+</ul>
+
+<p><em>Product Operations & Quality:</em></p>
+<ul>
+<li>Partnered with Product and Engineering throughout full software development lifecycle - provided user perspective, seller and client feedback, ensured delivery met commitments</li>
+<li>Used AI agents to analyse field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements</li>
+<li>Conducted win/loss analysis, competitive post-mortems, and gathered field feedback to identify product gaps and competitive advantages</li>
+<li>Managed client issues, triaged bugs in Jira, translated complex platform behaviour into client-friendly explanations while coordinating resolution with engineering</li>
+<li>Led daily scrum calls with internal team to prioritise bugs, manage feature development, maintain delivery momentum</li>
+</ul>
+
+<p><strong>THE RESULTS:</strong></p>
+<ul>
+<li>Built the operational infrastructure that grew with the company from ~8 people to 18, supporting 46 enterprise clients including Fortune 500 brands at a platform scale of 19.5M+ executions and 576K+ client staff</li>
+<li>Reduced contractual onboarding timeline from 90 to 45 days, with many clients completing onboarding in weeks due to better handoff materials and documentation</li>
+<li>Prepared ~50 custom demos per year, each researched and built specifically for the prospect's business. Average close rate of roughly 10 new clients annually during peak years</li>
+</ul>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> The operational infrastructure Ashley built from scratch when MainEvent was ~8 people still supports the platform today: 19.5M+ executions tracked, 576K+ client staff managed, 46 enterprise clients served. Only 2-3 of those clients ever left during her 7-year tenure. The systems she built outlasted multiple team turnovers and are still in use.
+</div>
+
+<hr class="section-divider">
+
+<h3>EARLIER OPERATIONS & ENABLEMENT ROLES</h3>
+
+<p class="job-title">Sales Operations | All Blue Solutions Inc.</p>
+<p class="job-meta">May 2015 - Oct 2018 (3 yrs 6 mos) | Remote</p>
+<p>Sales operations and training for IBM reseller, managing CRM infrastructure, training programs, and demand generation.</p>
+<ul>
+<li>Designed and delivered new hire training programs on CRM systems, sales processes, and product knowledge</li>
+<li>Managed SugarCRM system with 200+ opportunities; trained team members on pipeline management, reporting, and process adherence</li>
+<li>Created documentation and self-service resources that enabled team autonomy</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<p class="job-meta">Jun 2014 - Jan 2015</p>
+<ul>
+<li>Led implementation of online timesheet system</li>
+<li>Processed high-volume payroll operations for large-scale contract workforce</li>
+<li>Extended from 6-month contract based on performance and system implementation success</li>
+</ul>
+
+<p class="job-title">Accounts Payable Specialist | Essence Digital & GroupM, London, UK</p>
+<p class="job-meta">Feb 2014 - Mar 2014</p>
+<ul>
+<li>Managed accounts payable for high-profile clients including Google, IGN, Financial Times</li>
+<li>Promoted to high-volume national accounts based on demonstrated performance</li>
+</ul>
+
+<p class="job-title">Accounts Receivable Coordinator | DDB Canada, Toronto</p>
+<p class="job-meta">Aug 2011 - Dec 2012</p>
+<ul>
+<li>Promoted from Receptionist to Accounts Receivable Specialist within first 6 months</li>
+<li>Managed financial operations and client relationships across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>TECHNICAL CAPABILITIES</h2>
+<p><strong>Project Management:</strong> Jira (expert - bug tracking, sprint management, feature requests), Linear, ClickUp, Asana, Notion, Agile methodologies, daily scrum facilitation, sprint planning, stakeholder management, OKR/KPI tracking</p>
+<p><strong>Data & Analytics:</strong> Data cleanup and validation, pattern identification, business intelligence frameworks, dashboards and analysis tools, report building, sales analytics, forecasting, performance metrics tracking, knowledge management</p>
+<p><strong>CRM & Sales Operations:</strong> SugarCRM, HubSpot, Salesforce integrations, pipeline management, revenue operations, sales process design, go-to-market support, discovery frameworks, demo environment creation</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub, LLMs, LLM Agents, prompt engineering, quality assurance for AI outputs, user adoption strategy, workflow design, technical training delivery, onboarding materials</p>
+<p><strong>Design & Content:</strong> Canva, video production (Loom), training curriculum development, presentation design</p>
+<p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, Slack, Microsoft Teams, Zoom, Google Workspace, Microsoft Office</p>
+
+<div class="did-you-know">
+<strong>DID YOU KNOW?</strong> Ashley self-taught every system on this list: SugarCRM, HubSpot, Salesforce, Jira, Claude, ChatGPT. She also designed and built the first mobile tour management workflow for a client (Deep Eddy Vodka) using MainEvent's asset management system before it was a standard feature. When the company launched an AI product, she was the first non-developer to adopt it and became the sole person responsible for client enablement.
+</div>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory, meaning-making, communication, and how people understand and process information.</p>
+<p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress) - SQL, data visualisation, statistical analysis</p>
+</div>
+    `
+  },
+
+  resumeCOS: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Chief of Staff | Strategic Operations</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Strategic right hand with 10+ years doing the thinking, holding the context, and seeing what others miss. Joined Network Ninja when the team was ~8 people with no processes - built the infrastructure, then became the person leadership relied on to pressure-test decisions, flag blind spots, and make sure the right things actually happened.</p>
+<p>In the Chief of Staff role, I was the steady presence behind executive decisions: the one who noticed the downstream impact that hadn't been considered, surfaced the team dynamics that weren't visible from the top, and advocated for what was actually needed when the picture wasn't complete. I ran the Neptune project end-to-end - discovery through handoff - including leading a development team of four. I owned QA when there was no QA lead, PM when there was no PM, and strategic advisory whenever leadership needed someone to think it through before committing.</p>
+<p>My background in philosophy (hermeneutics - how people interpret information) and social work gives me an unusual lens on organisations: I read rooms, track power dynamics, and catch what's not being said. I build systems for how people actually behave, not how we wish they would. And I build for the person who inherits the work.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Strategic Operations:</strong> Executive partnership, cross-functional alignment, operational needs assessment, GTM readiness, organisational change management, board-level communication</p>
+<p><strong>Project Management:</strong> Jira (expert), Agile/Scrum, sprint planning, daily standups, backlog prioritisation, risk identification, Asana</p>
+<p><strong>Quality Assurance:</strong> QA leadership, test plan creation, bug triage, edge case identification, regression testing, UAT coordination</p>
+<p><strong>Enablement & Training:</strong> Onboarding programme design, curriculum development, discovery frameworks, sales playbooks, demo customisation</p>
+<p><strong>AI & Technology:</strong> Claude, Claude Code, ChatGPT, AI agent implementation, prompt engineering, AI quality assurance, adoption frameworks</p>
+<p><strong>CRM & Operations:</strong> HubSpot, Salesforce, SugarCRM, pipeline management, forecasting, KPI tracking</p>
+<p><strong>Tools:</strong> Jira, Slack, Microsoft Teams, Google Workspace, Loom, Notion, GitHub, Zoom</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes and held progressively expanding roles as the company scaled.</p>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic partner to the COO and executive team. Owned the operational and strategic space between Product, Engineering, Sales, and Customer Success - including QA leadership, PM coverage during transitions, and executive advisory on high-stakes decisions.</p>
+
+<p><strong>Executive partnership & strategic advisory</strong></p>
+<ul>
+<li>Served as strategic right hand to the COO - turned incomplete direction into clear decisions, filled in the thinking that wasn't happening at the executive level, and made sure what needed to be considered actually was</li>
+<li>Consistently identified what leadership was missing or overlooking - surfaced blind spots, flagged downstream consequences of decisions before they were made, and advocated for what was actually needed rather than what was easiest</li>
+<li>Present in executive reviews and performance discussions - read power dynamics carefully, gave voice to team and client perspectives that weren't represented, and steered outcomes when the full picture wasn't visible from the top</li>
+<li>Managed up as a core function - not reactively, but as part of how I operated: tracking what leadership was overlooking, bringing it forward with context and evidence, and helping protect the team and clients from incomplete decisions</li>
+<li>Took ownership of work that didn't clearly belong to any team - built the process, ran it until stable, and handed it off with documentation</li>
+</ul>
+
+<p><strong>Neptune Retail Solutions - end-to-end project ownership</strong></p>
+<ul>
+<li>Owned the complete lifecycle of a major custom platform build: discovery, requirements gathering, wireframe design, QA process creation, development team leadership, Jira board management, and client account management through successful handoff</li>
+<li>Led a team of four developers through daily scrums, ticket prioritisation, and quality assurance - made decisions on scope, sequencing, and standards throughout</li>
+<li>Transitioned into account manager post-launch, then handed off to a dedicated AM with complete documentation and knowledge transfer</li>
+</ul>
+
+<p><strong>Quality assurance leadership</strong></p>
+<ul>
+<li>Sole QA Lead across major projects - created and executed test plans covering edge cases, user flows, and regression testing across 20+ implementations</li>
+<li>Set quality standards and enforced them - partnered with Product and Engineering to ensure quality was built in, not caught at the end</li>
+<li>Wrote detailed Jira tickets for developers and translated the same issues into plain language for clients simultaneously</li>
+</ul>
+
+<p><strong>PM coverage & delivery momentum</strong></p>
+<ul>
+<li>Stepped into PM during team transitions - led daily scrums, managed sprint planning, triaged bugs, and maintained delivery commitments without missing client deadlines</li>
+<li>Coordinated work across Sales, Product, Engineering, AI, and Customer Success - kept stakeholders aligned and expectations managed during periods of organisational change</li>
+</ul>
+
+<p><strong>Sales enablement & institutional knowledge</strong></p>
+<ul>
+<li>Owned all sales enablement for a lean team (2-4 people) closing enterprise deals - demo environments, pitch decks, competitive battle cards, discovery frameworks, and qualification playbooks</li>
+<li>Created 30+ customised demo environments annually, each researched and built specifically for the prospect's business context and use cases</li>
+<li>Directly involved in the sales process for 30 of 46 enterprise clients through tailored demos, prospect research, and materials development</li>
+<li>Maintained consistency and institutional knowledge as sales team composition changed - the one constant across turnover</li>
+<li>Near-zero client churn across 7 years: only 2-3 offboards during entire tenure</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Sole owner of AI agent product adoption. Built the entire enablement infrastructure for mAInevent Agents - an AI-powered analytics tool for experiential marketing data - with no playbook, no precedent, and no team.</p>
+<ul>
+<li>Built manual testing framework from scratch - systematic QA process to evaluate prompt reliability, output accuracy, and edge case behaviour before client deployment</li>
+<li>Designed 5-phase onboarding methodology with complete educational curriculum across 8 guides for different user levels (everyday users through power users and executives)</li>
+<li>Advocated internally for appropriate AI guardrails, transparency about limitations, and ethical deployment - identified quality issues and hallucinations before they reached clients</li>
+<li>Owned EMS Vegas trade show presence from concept to execution - created all demonstrations, video examples, and outreach materials</li>
+<li>Onboarded all 5 enterprise AI agent clients (TMS, Peralta, Advantage Solutions/AB, Public Label, TEAM Enterprises) with custom analytical frameworks</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>First operations hire. Built the foundational infrastructure that the company scaled on - from a team of ~8 with no processes to an organisation supporting Fortune 500 clients.</p>
+<ul>
+<li>Built sales operations, training programmes, QA processes, and project management frameworks from zero</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes and self-service resources</li>
+<li>Managed pipeline in SugarCRM and HubSpot (self-taught on both) - maintained data integrity, forecasting accuracy, and performance analytics</li>
+<li>Led daily scrum calls, triaged Jira bugs, and coordinated resolution between engineering and clients across platform issues</li>
+<li>Partnered with Product and Engineering through the full software development lifecycle - conducted win/loss analysis and surfaced field feedback to inform product decisions</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Managed SugarCRM pipeline with 200+ opportunities; designed new hire training on CRM systems, sales processes, and product knowledge</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns; maximised margins through strategic management of IBM incentives across multiple regions</li>
+<li>Created documentation and self-service resources that enabled team autonomy</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for high-profile clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory, meaning-making, and how people understand and process information.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeProdOps: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Product Operations Manager | Cross-Functional Coordination | Go-to-Market | AI Adoption</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Product operations leader who keeps the space between Product, Engineering, Sales, and Customer Success from becoming a gap. At Network Ninja, I was the person who made sure what was being built matched what was being sold, what was being sold matched what clients actually needed, and that none of it fell apart during the handoffs in between.</p>
+<p>I've owned go-to-market readiness for product launches, QA across 20+ implementations, PM coverage during team transitions, field feedback loops that actually reached the roadmap, and the translation layer between technical teams and everyone else. I've also led a complete custom platform build end-to-end - discovery through handoff - and built the entire adoption infrastructure for a new AI product from scratch.</p>
+<p>My background in philosophy (hermeneutics - how people interpret information) and social work shapes how I approach product operations: I think about what users actually need versus what they say they need, and I design the handoff systems that keep the difference from becoming a problem. I ask "why" constantly, identify root causes rather than symptoms, and build for the person who inherits the work.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Product Operations:</strong> Go-to-market readiness, product launch coordination, field readiness, cross-functional alignment, product feedback synthesis, user needs analysis, roadmap influence</p>
+<p><strong>Project Management:</strong> Jira (expert), Agile/Scrum, sprint planning, daily standups, backlog prioritisation, risk identification, stakeholder management, Asana</p>
+<p><strong>Quality Assurance:</strong> QA leadership, test plan creation, bug triage and prioritisation, edge case identification, regression testing, UAT coordination</p>
+<p><strong>Enablement & Training:</strong> Onboarding programme design, curriculum development, adoption frameworks, discovery frameworks, sales playbooks, demo customisation</p>
+<p><strong>AI & Technology:</strong> Claude, Claude Code, ChatGPT, AI agent implementation, prompt engineering, AI quality assurance, LLM evaluation</p>
+<p><strong>CRM & Analytics:</strong> HubSpot, SugarCRM, Salesforce, pipeline management, performance metrics, KPI tracking, win/loss analysis</p>
+<p><strong>Tools:</strong> Jira, HubSpot, SugarCRM, Slack, Google Workspace, Loom, Notion, GitHub, Zoom, Asana</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes; built product operations infrastructure across every role I held as the company scaled.</p>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic partner to the COO and executive team. Owned the operational layer connecting Product, Engineering, Sales, and Customer Success - including QA leadership, PM coverage, go-to-market readiness, and strategic advisory on product decisions that affected the revenue motion.</p>
+
+<p><strong>Cross-functional coordination & product feedback</strong></p>
+<ul>
+<li>Owned the feedback loop between clients, sellers, and the product team - synthesised what was actually happening in the field and made sure it reached the roadmap in a form that was actionable</li>
+<li>Translated technical capabilities into business value for Sales and Customer Success, and translated business requirements into technical specifications for Engineering - reduced the back-and-forth that slowed delivery</li>
+<li>Identified misalignments between what Product was building and what Sales was promising - surfaced these early and helped steer both sides toward shared understanding before they became client problems</li>
+<li>Advised COO on product roadmap priorities and GTM decisions - brought the cross-functional perspective that wasn't always visible at the executive level</li>
+<li>Served as central communication hub across Sales, Product, Engineering, AI, and Customer Success during periods of significant organisational change</li>
+</ul>
+
+<p><strong>Go-to-market readiness & field enablement</strong></p>
+<ul>
+<li>Owned field readiness for product launches - ensured sales and CS teams had training, documentation, and support materials in place before anything shipped to clients</li>
+<li>Coordinated internal training rollouts and communications when new features or product changes affected the sales motion or client experience</li>
+<li>Led trade show enablement including EMS Vegas: booth concept, demo preparation, outreach materials, and lead qualification - owned the full event presence from concept to execution</li>
+<li>Created vertical-specific enablement materials for retail, CPG, and experiential marketing segments - kept positioning current and grounded in real client use cases</li>
+</ul>
+
+<p><strong>QA leadership & quality standards</strong></p>
+<ul>
+<li>Sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing for each</li>
+<li>Set quality standards and enforced them - partnered with Product and Engineering to catch issues before they reached clients rather than after</li>
+<li>Built repeatable test plans that were adoptable as a standard across the organisation</li>
+<li>Managed the translation layer between developers and clients: detailed technical tickets for engineering, plain-language updates for clients, without conflating the two</li>
+</ul>
+
+<p><strong>Project management & PM coverage</strong></p>
+<ul>
+<li>Led Neptune Retail Solutions custom platform build end-to-end: discovery, requirements gathering, wireframe design, QA process creation, development team leadership (4 developers), Jira board management, and account management through successful handoff</li>
+<li>Covered PM during team transitions: daily scrums, sprint planning, bug triage, delivery momentum, all without missing client commitments</li>
+<li>Managed stakeholder communications throughout complex implementations - kept technical and business stakeholders aligned, surfaced risks early, and kept delivery momentum going under pressure</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Sole owner of product adoption for a new AI product. Responsible for everything that happened between the product shipping and clients successfully using it - which is where most AI products actually fail.</p>
+
+<p><strong>AI product operations & quality assurance</strong></p>
+<ul>
+<li>Built manual testing framework for AI agent product from scratch - systematic QA process to evaluate prompt reliability, output accuracy, and edge case behaviour before client deployment</li>
+<li>Identified hallucinations and inaccurate outputs through systematic testing - raised quality concerns to the product team and drove continuous improvements before issues reached clients</li>
+<li>Created quality feedback loop between client usage patterns and the product development team - documented failure modes and tracked recurring issues to drive product improvements through evidence</li>
+<li>Advocated internally for appropriate guardrails, transparent communication about AI limitations, and ethical deployment - the critical voice on a product team that needed one</li>
+</ul>
+
+<p><strong>Adoption infrastructure & onboarding</strong></p>
+<ul>
+<li>Designed 5-phase onboarding methodology covering the full client journey: Discovery, Implementation, Testing & Validation, User Training, and Ongoing Support</li>
+<li>Built complete educational curriculum across 8 guides for different user levels - everyday users, power users, executives, and internal account managers</li>
+<li>Created enterprise-level prompt frameworks enabling clients to extract strategic business intelligence from field marketing data - built to scale self-service usage, not create ongoing support dependency</li>
+<li>Onboarded all 5 enterprise AI agent clients with custom frameworks tailored to their specific data structures and business questions</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>First operations hire. Built the product operations foundation the company scaled on - feedback loops, QA coordination, CRM infrastructure, and the enablement programmes that kept the revenue motion coherent as the team grew.</p>
+<ul>
+<li>Partnered with Product and Engineering through the full software development lifecycle - provided the seller and client perspective that kept delivery grounded in actual usage</li>
+<li>Conducted win/loss analysis and competitive post-mortems - surfaced field feedback to Product in a form that was actionable for roadmap decisions</li>
+<li>Managed client issues end-to-end: triaged bugs in Jira, coordinated resolution with engineering, and translated complex platform behaviour into plain language for clients throughout</li>
+<li>Led daily scrum calls with internal team - prioritised bugs, managed feature development, and maintained delivery momentum during critical periods</li>
+<li>Built evaluation frameworks and KPI tracking systems to measure feature adoption and training effectiveness - iterated programmes based on data rather than assumption</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Managed SugarCRM pipeline with 200+ opportunities; designed new hire training on CRM, sales processes, and product knowledge</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns; created documentation and self-service resources that enabled team autonomy</li>
+<li>Maximised margins through strategic management of IBM incentives across multiple regions</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for high-profile clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory and meaning-making - applied to user needs analysis, product feedback synthesis, and designing systems that account for how people actually interpret and use information.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeSalesEnable: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Sales Enablement Manager | Training & Curriculum Design | Revenue Enablement</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Sales enablement leader with 10+ years as the strategic constant behind a sales function that punched well above its weight. At Network Ninja, I was the person the COO and company owner came to for sales strategy - pitches, demo positioning, pricing conversations, feature prioritisation for prospects - regardless of who held the sales title at the time.</p>
+<p>Sales reps came and went. The strategic sales relationship didn't. I held the institutional knowledge, built the tools, trained whoever was new, and kept the conversation with leadership going on what we were selling, how we were selling it, and why we were or weren't winning. For most of my tenure I was the only enablement person - which meant I owned everything: discovery frameworks, demo customisation, competitive intelligence, onboarding curriculum, and the ongoing sales strategy work that didn't belong to any single rep.</p>
+<p>My background in philosophy (hermeneutics - how people interpret and understand information) and social work shapes how I design learning: I build programmes for how adults actually retain and apply new information, not for how we wish they would. That's the difference between training that gets completed and training that changes behaviour.</p>
+<p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. Everything I build for a sales team is in service of that: the demo is research made visible, the discovery framework is genuine curiosity about the prospect's business, and the training teaches reps to actually know what they're talking about rather than perform a script. That's why the sales motion I supported punched above its weight - not because we were pushy, but because every prospect interaction demonstrated we'd actually understood their business before we showed up.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Sales Enablement:</strong> Onboarding programme design, curriculum development, ramp optimisation, discovery frameworks, qualification playbooks, sales process design</p>
+<p><strong>Content & Tools:</strong> Demo environment creation and customisation, pitch deck development, competitive battle cards, objection-handling guides, win/loss analysis</p>
+<p><strong>Training Design:</strong> Adult learning principles, instructional design, self-service resource development, video training (Loom), structured learning paths</p>
+<p><strong>CRM & Pipeline:</strong> HubSpot, SugarCRM, Salesforce, pipeline management, data integrity, forecasting, performance analytics</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, AI agent implementation, prompt engineering, AI adoption frameworks, technical training delivery</p>
+<p><strong>Cross-Functional:</strong> Product feedback loops, cross-team communication, stakeholder management, field readiness for product launches</p>
+<p><strong>Tools:</strong> Jira, HubSpot, SugarCRM, Slack, Google Workspace, Loom, Notion, Zoom, Asana</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes; built the enablement infrastructure from scratch across every role I held.</p>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic sales partner to the COO and company owner. Owned all enablement for a lean sales team closing enterprise deals - and held the ongoing strategic conversation with leadership about positioning, pricing, demo approach, and what we were and weren't winning. Sales reps rotated; the strategy relationship didn't.</p>
+
+<p><strong>Strategic sales partnership with ownership</strong></p>
+<ul>
+<li>Primary strategic partner to the COO on all sales decisions - pitches, demo positioning, pricing conversations, feature prioritisation for specific prospects, and win/loss analysis</li>
+<li>Held the sales intelligence that sales reps didn't have time to accumulate - understood the product deeply, knew the competitive landscape, and knew what resonated with which buyer type</li>
+<li>When new sales hires came in, I was the one who got them functional - and when they left, I was the one who made sure nothing was lost with them</li>
+<li>Maintained sales continuity through significant team turnover - the programmes, the tools, and the strategic conversation with leadership stayed consistent regardless of who held the sales title</li>
+<li>Created 30+ customised demo environments annually - each one researched and built specifically for the prospect's business, industry context, and use cases rather than adapted from a generic template</li>
+<li>Owned every stage of demo preparation: prospect research, sandbox environment build, tailored walkthrough design, and materials development for the sales conversation</li>
+<li>Directly involved in the sales process for 30 of 46 enterprise clients - every deal involved custom demo preparation and prospect-specific research</li>
+<li>Ensured every customer interaction demonstrated deep familiarity with their business - cited their work, spoke their language, addressed their specific challenges</li>
+</ul>
+
+<p><strong>Curriculum, playbooks & sales tools</strong></p>
+<ul>
+<li>Owned all sales enablement materials: demo environments, pitch decks, competitive battle cards, objection-handling guides, and discovery frameworks for the full sales team</li>
+<li>Developed discovery frameworks and qualification playbooks that worked across sales cycles ranging from same-day SMB deals to year-long enterprise engagements</li>
+<li>Created vertical-specific enablement materials for retail, CPG, and experiential marketing segments</li>
+<li>Partnered with Product Marketing on competitive intelligence, updated battle cards based on win/loss findings, and kept messaging aligned with what was actually resonating in the field</li>
+</ul>
+
+<p><strong>Onboarding & ramp optimisation</strong></p>
+<ul>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes, defined learning paths, and self-service resources that didn't require hand-holding</li>
+<li>Designed and delivered onboarding programmes covering CRM systems, sales processes, product knowledge, and customer discovery - tailored to the specific gaps of each new hire</li>
+<li>Maintained consistency and institutional knowledge as sales team composition changed - the programmes survived personnel turnover because they were built to be handed off, not held</li>
+</ul>
+
+<p><strong>Field readiness & product launches</strong></p>
+<ul>
+<li>Owned field readiness for product launches - ensured sales and CS teams had training, documentation, and support materials before anything shipped</li>
+<li>Led trade show enablement including EMS Vegas: booth materials, demo preparation, lead qualification framework, and follow-up strategy</li>
+<li>Coordinated internal communications and training rollouts across departments when new features or product changes affected the sales motion</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>First enablement hire. Built sales enablement, operations, and training infrastructure from zero as the company grew from ~8 people with no formal processes to an organisation supporting Fortune 500 clients at scale.</p>
+
+<p><strong>Building from scratch</strong></p>
+<ul>
+<li>Built the entire enablement function from nothing - no playbook, no existing materials, no processes to inherit. Created the foundation that the sales team relied on for years</li>
+<li>Established sales processes, reporting standards, and operational infrastructure that scaled with team growth</li>
+<li>Created documentation and self-service resources that enabled team autonomy and reduced reliance on informal knowledge transfer</li>
+</ul>
+
+<p><strong>Training & programme design</strong></p>
+<ul>
+<li>Designed and delivered training programmes on CRM systems, sales processes, product knowledge, and customer discovery for a lean, evolving team</li>
+<li>Applied adult learning principles throughout - designed for how people actually retain and apply information, not just what gets completed</li>
+<li>Collected and analysed feedback through surveys, observation, and performance data to iterate on programme design continuously</li>
+</ul>
+
+<p><strong>Product feedback loops</strong></p>
+<ul>
+<li>Conducted win/loss analysis and competitive post-mortems - surfaced field feedback to Product and Engineering to inform roadmap decisions</li>
+<li>Partnered with Product and Engineering through the full software development lifecycle - provided the seller and client perspective that kept delivery grounded in real usage</li>
+<li>Managed client issues, triaged bugs, and translated complex platform behaviour into plain language for clients and prospects</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Sole owner of adoption and enablement for a new AI product with no existing infrastructure, no team, and no precedent. Built the entire curriculum and onboarding methodology from scratch.</p>
+<ul>
+<li>Designed 5-phase onboarding methodology with complete educational curriculum across 8 guides covering different user levels - from non-technical everyday users to executives and power users</li>
+<li>Created enterprise-level prompt frameworks enabling clients to extract strategic business intelligence from field marketing data - designed to teach prompting principles, not just provide templates</li>
+<li>Built 50+ training videos and resources using Loom, Google Drive, and Notion for content delivery</li>
+<li>Onboarded all 5 enterprise AI agent clients with custom frameworks tailored to their data structures and business questions</li>
+<li>Applied hermeneutics background directly to AI enablement design - built materials that account for how users interpret AI outputs and where misunderstanding is most likely to occur</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Designed and delivered new hire training programmes on CRM systems, sales processes, and product knowledge</li>
+<li>Managed SugarCRM pipeline with 200+ opportunities; trained team members on pipeline management, reporting, and process adherence</li>
+<li>Created documentation and self-service resources that enabled team autonomy; coordinated IBM co-marketing funds and outbound campaigns</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory, meaning-making, and how people understand and process information - directly applied to enablement design and adult learning methodology.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeAI: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">AI Adoption & Enablement | Curriculum Design | Prompt Engineering | Change Management</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>AI adoption and enablement leader who builds the bridge between what a technology can do and what real users need it to do. At Network Ninja, I was handed a new AI product with no onboarding infrastructure, no quality assurance framework, no training materials, and no team - and built all of it from scratch.</p>
+<p>What makes this work different from generic enablement is the combination: I understand how LLMs interpret and generate information well enough to catch where they'll go wrong before a client does, and I understand how people learn well enough to design adoption programmes that actually change behaviour. My background in philosophy (hermeneutics - how people interpret information) isn't a decorative detail. It's the reason I can look at an AI output, identify where the model misread the intent, and build a prompt framework that prevents it from happening again.</p>
+<p>I'm not a blind AI advocate. I push for guardrails, transparency about limitations, and honest communication with clients about what the technology can and can't do. That critical lens is what makes adoption programmes trustworthy - and what makes them last.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>AI Adoption & Enablement:</strong> Adoption strategy, onboarding methodology design, change management, user training, prompt engineering, AI quality assurance, hallucination identification</p>
+<p><strong>Curriculum Design:</strong> Adult learning principles, multi-level curriculum development, instructional design, self-service resource creation, video training (Loom), structured learning paths</p>
+<p><strong>Prompt Engineering:</strong> Framework development, prompt library creation, output optimisation, edge case testing, enterprise analytical frameworks</p>
+<p><strong>Quality Assurance:</strong> Manual testing framework creation, AI output evaluation, systematic prompt testing, issue documentation, feedback loop design</p>
+<p><strong>AI Tools:</strong> Claude, Claude Code, ChatGPT, Manus, Lovable, LLM implementation, agent configuration, technical training delivery</p>
+<p><strong>Cross-Functional:</strong> Stakeholder communication, client onboarding, executive training, product feedback loops, go-to-market readiness</p>
+<p><strong>Tools:</strong> Jira, Notion, Loom, Google Workspace, Slack, GitHub, HubSpot, Zoom</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Sole owner of adoption and enablement for mAInevent Agents - an AI-powered analytics tool enabling experiential marketing agencies and CPG brands to query millions of field events using natural language. No existing infrastructure, no team, no precedent. Built everything from scratch.</p>
+
+<p><strong>Quality assurance & AI evaluation</strong></p>
+<ul>
+<li>Built manual testing framework for AI agent product from scratch - created systematic process to evaluate prompt reliability, output accuracy, and edge case behaviour before any client deployment</li>
+<li>Identified hallucinations and inaccurate outputs through systematic prompt testing and input refinement - raised quality concerns to the product team and drove continuous improvements before issues reached clients</li>
+<li>Applied philosophy background (hermeneutics) directly to AI quality work - used understanding of how LLMs interpret context to identify where models were likely to misread intent or produce misleading results</li>
+<li>Advocated internally for appropriate guardrails, honest communication about AI limitations, and ethical deployment - pushed back when outputs weren't ready for client use</li>
+<li>Created quality feedback loop between client usage patterns and the product development team - documented failure modes, tracked recurring issues, and drove product improvements through evidence</li>
+</ul>
+
+<p><strong>Onboarding methodology & curriculum design</strong></p>
+<ul>
+<li>Designed 5-phase onboarding methodology covering the full client journey: Initial Discovery, Agent Implementation, Testing & Validation, User Training, and Ongoing Support & Evaluation</li>
+<li>Built complete educational curriculum from scratch across 8 guides for different user levels - from non-technical everyday users through power users and executives, each with appropriate depth and language</li>
+<li>Created enterprise-level prompt frameworks (Power Prompts) enabling clients to extract strategic business intelligence from field marketing data - designed to teach prompting principles, not just hand over templates</li>
+<li>Built 50+ training videos and resources using Loom, Google Drive, and Notion - structured for self-service so clients could progress without requiring dedicated support time</li>
+<li>Developed troubleshooting guides, use case libraries, and best practice documentation that reduced client support burden and enabled independent problem-solving</li>
+</ul>
+
+<p><strong>Prompt engineering & framework development</strong></p>
+<ul>
+<li>Developed prompt libraries for multiple audiences: basic user guides, advanced analytical frameworks, agency white-label libraries, and client-specific custom sets</li>
+<li>Created Agent Prompting Tips and Agent Visualisation Tips guides - built to teach the reasoning behind effective prompts, not just provide examples to copy</li>
+<li>Built Public Label prompt libraries for agencies to use with their own clients - covering brand analysis, programme type analysis, market and location analysis, and customisation techniques</li>
+<li>Designed 10-prompt structured learning sequence to progressively build user confidence and capability - from basic data exploration through advanced interactive analysis</li>
+<li>Created enterprise analytical frameworks including programme performance intelligence, staff performance analysis, venue intelligence, pattern discovery, and data quality optimisation</li>
+</ul>
+
+<p><strong>Client onboarding & technical delivery</strong></p>
+<ul>
+<li>Onboarded all 5 enterprise AI agent clients (TMS, Peralta, Advantage Solutions/AB, Public Label, TEAM Enterprises) - each with custom analytical frameworks tailored to their specific data structures and business questions</li>
+<li>Led technical discovery sessions to understand client data requirements, field structure, and desired analytical outcomes before implementation</li>
+<li>Created custom prompt frameworks and visualisation guides for individual clients - including brand-specific colour palettes, chart recommendations, and data interpretation guidance</li>
+<li>Ran product demonstrations and built custom sandbox environments tailored to prospect technical requirements and use cases</li>
+<li>Featured in client success case studies demonstrating AI agent impact for Transformative Marketing Services and Peralta Experiences</li>
+</ul>
+
+<p><strong>Go-to-market & industry content</strong></p>
+<ul>
+<li>Owned EMS Vegas (Experiential Marketing Summit) booth presence from concept to execution - created all video examples, product demonstrations, and outreach materials</li>
+<li>Created industry content on AI-powered analytics for the experiential marketing space, used for both prospect education and conference materials</li>
+<li>Developed 12+ innovative use case frameworks showing practical applications across different field marketing programme types - from predictive event performance to anomaly detection to geographic expansion planning</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic partner to the COO. Alongside CoS responsibilities, served as the institutional knowledge base and strategic constant for the sales function - which informed the AI adoption work directly: I understood the client problems the AI was meant to solve because I'd been helping clients solve them manually for years.</p>
+<ul>
+<li>Led daily scrums, managed sprint planning, and triaged bugs in Jira during team transitions - maintained delivery momentum without missing commitments</li>
+<li>Served as sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing</li>
+<li>Translated complex technical issues for non-technical clients and non-technical business requirements for engineering teams simultaneously</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>First operations hire. Built the enablement infrastructure and operational foundation the company scaled on. Relevant to AI adoption work: built a pattern of designing systems for how people actually behave rather than ideal users.</p>
+<ul>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes, defined learning paths, and self-service resources</li>
+<li>Used early AI tools to analyse field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements before formal AI products existed</li>
+<li>Designed and delivered training programmes for evolving team composition - applied adult learning principles to build programmes that changed behaviour, not just completed checkboxes</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Managed SugarCRM pipeline with 200+ opportunities; designed and delivered new hire training on CRM systems, sales processes, and product knowledge</li>
+<li>Created documentation and self-service resources that enabled team autonomy; coordinated IBM co-marketing funds and outbound campaigns</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory, meaning-making, and how people understand and process information - directly applied to AI quality assurance, prompt engineering, and adoption design.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools (Claude Code) through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeRevOps: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Revenue Operations | CRM Architecture | Pipeline Management | Sales Process Design</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Revenue operations generalist who has owned both sides of the function: the infrastructure that makes a sales process work and the execution that fills the pipeline. At Network Ninja, I designed the CRM architecture, defined pipeline stages and data fields, built the forecasting model, and ran outbound prospecting, email sequencing, and demo coordination - as a one-person operation supporting a sales team closing enterprise deals with Fortune 500 CPG brands.</p>
+<p>The work I called "sales operations" at the time is what most companies now call RevOps. I just didn't have the title. I owned the system design decisions - what data to collect, how to structure stages, what a qualified lead actually looked like, and how to make sure nothing fell through the cracks. I also owned the execution: finding prospects, entering them, following up, running sequential outreach, and converting them into demos.</p>
+<p>I'm the person who notices when a CRM is lying to you - when the data looks clean but the definitions are wrong, when leads are being counted twice, when the forecast is optimistic because nobody defined what 'qualified' means. I fix that before it costs someone a quarter.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Revenue Operations:</strong> Pipeline architecture, stage definition, data field design, lead management, forecasting (3-6-9 month), win/loss analysis, process documentation</p>
+<p><strong>CRM:</strong> HubSpot, SugarCRM, Salesforce - system configuration, data integrity management, pipeline management, reporting, team training and adoption</p>
+<p><strong>Pipeline Execution:</strong> Prospecting, lead entry and qualification, sequential email marketing, outbound outreach, demo coordination, follow-up management</p>
+<p><strong>Analytics & Reporting:</strong> Performance metrics, forecasting, KPI tracking, sales analytics, competitive intelligence, pattern identification</p>
+<p><strong>Sales Enablement:</strong> Discovery frameworks, qualification playbooks, demo customisation, onboarding programmes, competitive battle cards</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, AI agent implementation, prompt engineering, process automation, technical training delivery</p>
+<p><strong>Tools:</strong> HubSpot, SugarCRM, Salesforce, Jira, Slack, Google Workspace, Loom, Notion, Asana, Zoom</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes; built sales operations and revenue infrastructure from scratch.</p>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>Sole revenue operations owner for a B2B SaaS company with no prior infrastructure. Designed and built the entire sales operations function - CRM architecture, pipeline design, forecasting, outbound execution, and lead management - while simultaneously owning sales enablement for a lean team closing enterprise deals.</p>
+
+<p><strong>CRM architecture & pipeline design</strong></p>
+<ul>
+<li>Designed CRM pipeline from scratch - defined pipeline stages, qualification criteria, required data fields, and the logic that determined when a lead moved forward or stalled</li>
+<li>Determined what information to collect at each stage and why - made deliberate decisions about data structure to ensure the pipeline reflected reality, not wishful thinking</li>
+<li>Maintained data integrity across the system - caught and corrected duplicate entries, inconsistent definitions, and reporting gaps that would have distorted forecasting</li>
+<li>Self-taught on both SugarCRM and HubSpot - configured and administered each system, trained team members on pipeline management, reporting, and process adherence</li>
+<li>Changed CRM platforms as the company evolved - managed the transition, preserved data integrity, and got the team functional without losing pipeline visibility</li>
+</ul>
+
+<p><strong>Forecasting & pipeline management</strong></p>
+<ul>
+<li>Built and maintained 3-6-9 month forecasting model - assessed deal probability, tracked pipeline health, and presented revenue projections to leadership</li>
+<li>Identified deals that were stalling, leads that were being neglected, and patterns in what was and wasn't converting - surfaced these before anyone had to ask</li>
+<li>Conducted win/loss analysis and competitive post-mortems - used findings to refine qualification criteria, update forecasting assumptions, and sharpen the sales approach</li>
+<li>Tracked performance metrics and identified trends across the pipeline - flagged risks early and recommended adjustments before they affected results</li>
+</ul>
+
+<p><strong>Outbound execution & lead management</strong></p>
+<ul>
+<li>Ran full outbound operation as a one-person show - found prospects, entered them into the CRM, built and executed sequential email marketing campaigns, followed up, and coordinated demos</li>
+<li>Ensured no leads were wasted - built follow-up sequences, tracked response rates, and made sure every prospect in the pipeline had a clear next action and owner</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns at All Blue Solutions - managed demand generation end-to-end across multiple regions</li>
+<li>Created outreach templates and sequences that balanced volume with personalisation - designed for the buyer, not for the sender's convenience</li>
+</ul>
+
+<p><strong>Process design & documentation</strong></p>
+<ul>
+<li>Established sales processes and reporting standards that scaled with team growth - built for the person who would inherit the work, not just for current use</li>
+<li>Created documentation and self-service resources that reduced reliance on tribal knowledge and enabled new hires to get functional without hand-holding</li>
+<li>Built evaluation frameworks and KPI tracking systems to measure what was working and what wasn't - iterated based on data rather than instinct</li>
+<li>Identified and fixed process breakdowns before they became client-facing problems - noticed where leads fell through the cracks, where definitions were ambiguous, and where the system was creating more confusion than clarity</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>As the company grew and a dedicated sales team came on, I transitioned from running RevOps execution to owning the strategic layer - keeping the sales motion coherent, the pipeline honest, and the enablement infrastructure current. Still the institutional memory for how the revenue function was supposed to work.</p>
+<ul>
+<li>Maintained oversight of pipeline health and sales process integrity as team composition changed - ensured the systems I built were being used correctly and updated when product or market conditions shifted</li>
+<li>Advised COO on GTM strategy, pricing conversations, and deal-level decisions - brought revenue operations context to strategic discussions that might otherwise have been made without it</li>
+<li>Owned competitive intelligence and battle cards - kept positioning current based on win/loss findings and field feedback</li>
+<li>Served as backup account manager across multiple client accounts - managed relationships, handled escalations, and ensured smooth operations when bandwidth was tight</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Built adoption infrastructure for an AI-powered analytics product. Relevant to RevOps: designed systems for how clients extracted and interpreted data from field marketing operations - the same analytical lens applied internally to pipeline and forecasting work.</p>
+<ul>
+<li>Built manual testing framework and quality assurance process for AI outputs - applied same data integrity mindset to AI evaluation that I applied to CRM management</li>
+<li>Created enterprise analytical frameworks enabling clients to extract strategic business intelligence from large datasets - designed for rigour and repeatability</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<p>Full sales operations ownership for an IBM reseller - CRM management, pipeline tracking, outbound coordination, and team training. Revenue operations work was valued and visible at leadership level.</p>
+<ul>
+<li>Managed SugarCRM system with 200+ opportunities - maintained pipeline accuracy, trained team members on process adherence, and reported on pipeline health to leadership</li>
+<li>Coordinated IBM co-marketing funds and outbound campaigns across multiple regions - managed demand generation end-to-end</li>
+<li>Maximised margins and bonuses through strategic management of IBM incentives - tracked programme requirements and ensured the team was positioned to hit targets</li>
+<li>Designed and delivered new hire training on CRM systems, sales processes, and product knowledge - created self-service resources that reduced onboarding dependency</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory and meaning-making - applied to how data is structured, interpreted, and acted on in revenue operations contexts.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  resumeImpl: {
+    content: `
+<div class="resume-header">
+<h1>ASHLEY SARAH</h1>
+<p class="resume-subtitle">Implementation Manager | Client Onboarding | Technical Project Management | QA</p>
+<p class="resume-contact">
+Email: ashley@stepinto-ashleysoffice.com<br>
+LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
+</p>
+</div>
+
+<div class="resume-section">
+<h2>SUMMARY</h2>
+<p>Implementation leader who owns the full lifecycle - discovery through clean handoff - and builds the documentation that makes the handoff actually work. At Network Ninja, I led the Neptune Retail Solutions custom platform build end-to-end: requirements gathering, workflow and wireframe design, QA process creation, development team leadership, and account management through to a successful transition to a dedicated AM.</p>
+<p>Across 20+ implementations as sole QA lead, I built the testing frameworks, set the quality standards, and made sure nothing shipped until it was ready. I also designed the 5-phase onboarding methodology for Network Ninja's AI agent product - from initial discovery through ongoing support - with complete documentation for each phase.</p>
+<p>The through-line across all of it: I build for the person who inherits the work. Every process I design, every handoff document I write, every training programme I create is built with the assumption that someone else will need to pick it up and run with it without me in the room. That's what makes implementations last.</p>
+</div>
+
+<div class="resume-section">
+<h2>SKILLS</h2>
+<p><strong>Implementation & Project Management:</strong> Full lifecycle ownership, discovery and requirements gathering, workflow and wireframe design, stakeholder management, risk identification, Agile/Scrum, sprint planning, daily standups</p>
+<p><strong>Quality Assurance:</strong> QA leadership, test plan creation, bug triage and prioritisation, edge case identification, regression testing, UAT coordination, Jira (expert)</p>
+<p><strong>Client Onboarding:</strong> Onboarding methodology design, technical discovery, user training, adoption frameworks, self-service resource development, success criteria definition</p>
+<p><strong>Technical Translation:</strong> Business requirements to technical specifications, technical issues to client-friendly language, cross-functional stakeholder alignment</p>
+<p><strong>Documentation:</strong> Process documentation, knowledge transfer, SOW development, user guides, training materials, handoff documentation</p>
+<p><strong>AI & Technology:</strong> Claude, ChatGPT, AI agent implementation, prompt engineering, AI quality assurance, adoption frameworks</p>
+<p><strong>Tools:</strong> Jira, HubSpot, SugarCRM, Slack, Google Workspace, Loom, Notion, GitHub, Zoom, Asana</p>
+</div>
+
+<div class="resume-section">
+<h2>EXPERIENCE</h2>
+<hr class="section-divider">
+
+<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
+<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts. Joined when the team was ~8 people with no formal processes; led implementations and built the QA infrastructure from scratch.</p>
+
+<hr class="section-divider">
+
+<h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
+<p>Strategic partner to the COO and executive team, with direct ownership of major client implementations, QA leadership, and PM coverage during team transitions. The Neptune project - the most complex custom build in the company's history at that point - was mine from start to finish.</p>
+
+<p><strong>Neptune Retail Solutions - end-to-end implementation ownership</strong></p>
+<ul>
+<li>Led complete lifecycle of a $500K+ custom platform build for a client operating across 48,000+ retail locations with 3,800+ field staff: discovery, requirements gathering, workflow and wireframe design, QA process creation, development team leadership (4 developers), Jira board management, and client account management</li>
+<li>Translated client business requirements into technical specifications - created workflows and wireframes that bridged what the client needed and what the development team could build</li>
+<li>Built QA process from scratch - established testing protocols and quality standards, coordinated between internal dev team and client QA leads, and ensured every feature met requirements before release</li>
+<li>Led daily scrums with development team throughout the build - made decisions on ticket prioritisation, scope questions, and sequencing, and kept delivery on track</li>
+<li>Transitioned into account manager post-launch - managed the client relationship, handled escalations, and kept operations stable until a dedicated AM was ready to take over</li>
+<li>Handed off with complete documentation and knowledge transfer - built for the person inheriting the account, not just for closure</li>
+</ul>
+
+<p><strong>QA leadership across implementations</strong></p>
+<ul>
+<li>Sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing for each</li>
+<li>Set quality standards and enforced them throughout - partnered with Product and Engineering to catch issues before they reached clients rather than after</li>
+<li>Wrote Jira tickets at the technical level developers needed and communicated the same issues to clients in their language</li>
+<li>Built repeatable, transferable test plans adoptable as a standard across the organisation</li>
+</ul>
+
+<p><strong>Project management & delivery continuity</strong></p>
+<ul>
+<li>Picked up PM responsibilities during team transitions and kept delivery on track: scrums, sprint planning, bug triage, and client-facing commitments</li>
+<li>Managed stakeholder communications throughout complex implementations - kept technical teams and clients aligned, managed expectations on both sides, and surfaced risks before they became incidents</li>
+<li>Coordinated cross-functional work across Sales, Product, Engineering, AI, and Customer Success - served as the central communication point when no single team owned the full picture</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
+<p>Designed and implemented the complete onboarding methodology for a new AI product - no existing infrastructure, no team, no precedent. Built the process that took clients from initial discovery through to independent, confident usage.</p>
+
+<p><strong>5-phase onboarding methodology</strong></p>
+<ul>
+<li>Designed full 5-phase implementation methodology: Initial Discovery (data analysis requirements, field structure assessment), Agent Implementation (technical deployment, custom prompt development), Testing & Validation (historical data validation, prompt refinement), User Training (capability training, prompting techniques), and Ongoing Support & Evaluation</li>
+<li>Built complete documentation for each phase - client-facing guides, internal process documentation, and success criteria that made it clear when a client was ready to move forward</li>
+<li>Created onboarding materials for varying technical proficiency levels - from non-technical everyday users through power users and executives, each with appropriate depth and language</li>
+<li>Developed troubleshooting guides and best practice documentation that enabled client self-service and reduced ongoing support dependency</li>
+</ul>
+
+<p><strong>Technical discovery & client implementation</strong></p>
+<ul>
+<li>Led technical discovery sessions to understand each client's data requirements, field structure, and desired analytical outcomes before implementation began</li>
+<li>Built custom sandbox environments and tailored demo configurations for prospects during the sales process - translated prospect requirements into proof-of-concept setups</li>
+<li>Onboarded all 5 enterprise AI agent clients - each with custom frameworks built around their specific data structures and business questions</li>
+<li>Created Sales-to-Accounts handoff process - structured guide covering demo site setup, client pitch requests, development scoping, contract management, and new client onboarding workflows</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
+<p class="job-title">Network Ninja</p>
+<p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
+<p>Built the operational infrastructure the company scaled on. Implementation work in this role centred on internal systems, client issue management, and QA coordination alongside the product team.</p>
+<ul>
+<li>Managed client issues end-to-end - triaged bugs in Jira, coordinated resolution with engineering, and translated complex platform behaviour into plain language for clients throughout</li>
+<li>Led daily scrum calls with internal team to prioritise bugs, manage feature development, and maintain delivery momentum during critical periods</li>
+<li>Partnered with Product and Engineering through the full software development lifecycle - provided user and client perspective to keep delivery grounded in real usage</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes and self-service resources built for the person who inherits them</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>SALES OPERATIONS COORDINATOR</h3>
+<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-meta">May 2015 - Oct 2018 | Remote</p>
+<ul>
+<li>Managed SugarCRM implementation and ongoing system administration for a 200+ opportunity pipeline - trained team members on process adherence and reporting</li>
+<li>Designed and delivered new hire onboarding programmes covering CRM systems, sales processes, and product knowledge</li>
+<li>Created documentation and self-service resources that enabled team autonomy and reduced reliance on informal knowledge transfer</li>
+</ul>
+
+<hr class="section-divider">
+
+<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
+<ul>
+<li>Led implementation of online timesheet system across a large contract workforce; extended from 6-month contract based on performance</li>
+</ul>
+<p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
+<ul>
+<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+</ul>
+<p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
+<ul>
+<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+</ul>
+</div>
+
+<div class="resume-section">
+<h2>EDUCATION</h2>
+<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">Specialised study in interpretation theory and meaning-making - applied to how requirements are gathered, how users understand new systems, and how to design implementation processes that account for how people actually adopt new tools.</p>
+<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
+</div>
+
+<div class="resume-section">
+<h2>PORTFOLIO</h2>
+<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+</div>
+    `
+  },
+
+  // ============================================
+  // ROLE EXPLORER
+  // ============================================
+
+  roleExplorer: {
+    headline: "Which Ashley Do You Need?",
+    subheadline: "I'm a generalist who happens to do a lot of these at once. Pick the flavour that matches what you're looking for and read the full resume for that shape of the work.",
+    availability: "Remote | Open to local hybrid (Guelph, ON area)",
+    cta: {
+      text: "Let's talk about this",
+      email: "ashley@stepinto-ashleysoffice.com",
+      linkedin: "linkedin.com/in/ashley-sarahsep"
+    },
+    roles: [
+      {
+        id: "chief-of-staff",
+        title: "Chief of Staff / Strategic Ops",
+        tags: ["Strategy", "Executive Partnership", "Cross-Functional", "Leadership"],
+        hook: "The strategic right hand who notices what leadership is missing and says so before it costs anyone.",
+        whatThisNeeds: "Someone who holds the context, pressure-tests decisions, reads power dynamics, and makes sure the right things actually happen. The steady presence behind executive calls - the one who catches blind spots, surfaces downstream consequences, and advocates for what's actually needed rather than what's easiest.",
+        whatIveDone: [
+          "Strategic partner to a COO for two years - turned incomplete direction into clear decisions and filled the thinking that wasn't happening at the executive level",
+          "Led the Neptune Retail Solutions custom platform build end-to-end: discovery, requirements, wireframes, QA process, a team of four developers, and clean handoff to a dedicated AM",
+          "Sole QA Lead across 20+ implementations; stepped into PM coverage during team transitions without missing client deadlines",
+          "Directly involved in the sales process for 30 of 46 enterprise clients, preparing ~50 custom demos per year, each researched and built for the specific prospect's business"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Lean Team, Enterprise Results",
+        tools: ["Jira", "HubSpot", "Salesforce", "Slack", "Notion", "Google Workspace", "Claude", "Claude Code"],
+        resumeApp: "wordpad-cos"
+      },
+      {
+        id: "product-ops",
+        title: "Product Operations Manager",
+        tags: ["Product Ops", "GTM Readiness", "QA", "Cross-Functional"],
+        hook: "The person who keeps the space between Product, Engineering, Sales, and CS from becoming a gap.",
+        whatThisNeeds: "Someone who makes sure what's being built matches what's being sold matches what clients actually need - and that none of it falls apart during the handoffs. Owns go-to-market readiness, field feedback loops that reach the roadmap, QA standards, and the translation layer between technical teams and everyone else.",
+        whatIveDone: [
+          "Owned field readiness for product launches - training, documentation, and support materials in place before anything shipped",
+          "Synthesised field feedback into product input that Engineering could actually act on; caught misalignments between Sales promises and Product roadmap before they became client problems",
+          "Built repeatable QA test plans adoptable as an org standard, not just useful for one project",
+          "Led the Neptune custom platform build end-to-end including 4 developers, plus PM coverage during team transitions"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Enterprise Custom Platform Build",
+        tools: ["Jira", "HubSpot", "SugarCRM", "Notion", "Loom", "GitHub", "Claude", "Agile/Scrum"],
+        resumeApp: "wordpad-prodops"
+      },
+      {
+        id: "sales-enablement",
+        title: "Sales Enablement Manager",
+        tags: ["Enablement", "Curriculum Design", "Demo Strategy", "Revenue"],
+        hook: "The institutional constant behind a sales function that punched well above its weight.",
+        whatThisNeeds: "Someone who lives by 'sharing over selling' - the belief that a good product sells itself when you share it well, so everything downstream is in service of that. Designs learning adults actually retain and apply, owns discovery frameworks, qualification playbooks, demo environments, competitive battle cards, onboarding curriculum, and the ongoing strategic sales conversation with leadership that doesn't belong to any single rep.",
+        whatIveDone: [
+          "Primary strategic sales partner to a COO for two years - pitches, demo positioning, pricing conversations, and win/loss analysis; reps rotated, the strategic relationship didn't",
+          "Built 30+ customised demo environments annually - each researched and built for the specific prospect's business rather than adapted from a generic template",
+          "Reduced contractual onboarding timeline from 90 to 45 days through structured handoff processes and self-service documentation, with some clients completing onboarding in weeks",
+          "Designed 5-phase AI adoption methodology plus 8 guides for different user levels when the company launched an AI product with no enablement infrastructure"
+        ],
+        proof: "portfolio",
+        proofLabel: "See: The Art of Prompt Crafting",
+        tools: ["HubSpot", "SugarCRM", "Loom", "Notion", "Google Workspace", "Canva", "Jira", "Claude"],
+        resumeApp: "wordpad-sales"
+      },
+      {
+        id: "ai-adoption",
+        title: "AI Adoption & Enablement",
+        tags: ["AI Adoption", "Prompt Engineering", "AI QA", "Change Management"],
+        hook: "The bridge between what an LLM can do and what real users actually need it to do.",
+        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and understands how people learn well enough to design adoption programmes that change behaviour. Not a blind advocate - the critical voice who pushes for guardrails, honest limitations, and ethical deployment.",
+        whatIveDone: [
+          "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries",
+          "Applied hermeneutics directly to AI quality work - used understanding of how models interpret context to find where they were likely to misread intent",
+          "Created enterprise Power Prompts library plus 8 guides spanning non-technical everyday users through executives and power users",
+          "Built 50+ training videos and resources structured for self-service so clients could progress without dedicated support time"
+        ],
+        proof: "portfolio",
+        proofLabel: "See: Enterprise Analytics Framework",
+        tools: ["Claude", "Claude Code", "ChatGPT", "Manus", "Lovable", "Notion", "Loom", "GitHub"],
+        resumeApp: "wordpad-ai"
+      },
+      {
+        id: "revops",
+        title: "Revenue Operations",
+        tags: ["RevOps", "CRM Architecture", "Pipeline", "Forecasting"],
+        hook: "The person who notices when a CRM is lying to you - and fixes it before it costs anyone a quarter.",
+        whatThisNeeds: "Someone who owns both sides of the function: the infrastructure decisions (stage definitions, data fields, what 'qualified' actually means, forecasting logic) and the execution (prospecting, lead entry, sequential outreach, follow-up). The person who spots duplicate leads, ambiguous definitions, and wishful-thinking pipelines.",
+        whatIveDone: [
+          "Designed CRM pipeline from scratch - defined stages, qualification criteria, required data fields, and the logic determining when a lead moved forward or stalled",
+          "Built and maintained a 3-6-9 month forecasting model; self-taught on both SugarCRM and HubSpot and migrated the team between them without losing pipeline visibility",
+          "Ran the full outbound operation as a one-person show - prospect research, CRM entry, sequential email marketing, follow-up, and demo coordination",
+          "Maintained data integrity by catching duplicate entries, inconsistent definitions, and reporting gaps before they distorted forecasting"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Lean Team, Enterprise Results",
+        tools: ["HubSpot", "SugarCRM", "Salesforce", "Jira", "Google Workspace", "Notion", "Loom", "Claude"],
+        resumeApp: "wordpad-revops"
+      },
+      {
+        id: "implementation",
+        title: "Implementation Manager",
+        tags: ["Implementation", "Client Onboarding", "Technical PM", "QA"],
+        hook: "Full lifecycle ownership - discovery through clean handoff - with documentation that actually works.",
+        whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff doc, every training programme is built assuming someone else needs to pick it up and run with it without you in the room.",
+        whatIveDone: [
+          "Led the Neptune Retail Solutions custom platform build end-to-end: discovery, requirements, workflow and wireframe design, QA process creation, 4 developers, Jira board management, and account management through successful handoff",
+          "Sole QA Lead across 20+ major implementations - built repeatable test plans, set quality standards, and enforced them with Product and Engineering",
+          "Designed 5-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing & Validation, User Training, Ongoing Support - with full documentation for each phase",
+          "Stepped into PM coverage during team transitions without missing client deadlines; created a Sales-to-Accounts handoff process used across the organisation"
+        ],
+        proof: "workExamples",
+        proofLabel: "See: Enterprise Custom Platform Build",
+        tools: ["Jira", "Notion", "Loom", "GitHub", "Agile/Scrum", "Google Workspace", "Slack", "Claude"],
+        resumeApp: "wordpad-impl"
+      },
+      {
+        id: "other",
+        title: "Something Else Entirely",
+        tags: ["Generalist", "Pattern Recognition", "System Building", "Curious"],
+        hook: "The six flavours above are real, but they all live inside the same person. Sometimes what you need doesn't have a clean title yet.",
+        whatThisNeeds: "A generalist who happens to do a lot of these at once. The kind of person you hire when you know something's missing but aren't sure how to scope it - the ambiguity-comfortable, pattern-recognising, system-building human who makes the whole org run smoother without needing to be told what to do.",
+        whatIveDone: [
+          "Every role I've held was either created for me or evolved past its original description - five jobs worth of infrastructure at one company over 7+ years",
+          "Philosophy background (hermeneutics) + social work training = I design for how humans actually think and behave, not how we wish they would",
+          "Self-taught every technical tool on my resume through necessity and pattern recognition - CRMs, Jira, AI tooling, the whole shelf",
+          "The through-line: every role I've held started with 'nobody owns this yet' and ended with documentation good enough for someone else to take over"
+        ],
+        proof: "collab",
+        proofLabel: "See: Let's Work Together",
+        tools: ["Whatever you need me to learn - I'm fast at it"]
+      }
+    ]
+  },
+
+  // ============================================
+  // LIVEJOURNAL-STYLE ABOUT PAGE
+  // ============================================
+
+  aboutMe: {
+    displayName: "Ashley",
+    mood: "that's a rabbit hole",
+    music: "John Prine - Hello In There",
+    status: "Remote & thriving",
+    lastLogin: "Today",
+    profileViews: 1337,
+
+    headline: "Operational Infrastructure Nerd | Hermeneutics Enthusiast | Cat Mom",
+
+    bio: `<p>I'm Ashley. I notice things that aren't being said. Systems failing quietly. People overwhelmed and covering well. Two teams talking past each other, both convinced the other one is the problem. I notice, and then I do something about it. Apparently this is rarer than it should be.</p>
+<p>I'm shy. Genuinely. I'm a stage manager, not a lead actor. I'd rather make sure everyone has what they need and that the whole thing runs well than be the person at the front of the room. Get me one on one though, or somewhere I feel comfortable, and I'm a completely different person. Enthusiastic. Animated. Probably talking too fast about something I find fascinating. Both things are true and I've made peace with that.</p>
+<p>My brain works a bit differently than most and I genuinely love it. I'm deeply introspective, which means I understand myself well enough to know what I need and why I work the way I do. The anxiety that some people would call a weakness is actually what keeps everything from falling through the cracks. I cannot stand missing the mark. I cannot stand the feeling of something slipping. So things don't slip. I also don't like diving into a direction before I actually understand what I'm doing, which means I ask more questions upfront than most people expect and produce fewer wrong turns than most projects budget for. It's a fair trade.</p>
+<p>My dad was a house painter. I grew up understanding that doing something properly matters, even when nobody's watching. Especially then.</p>
+<p>Philosophy degree from Guelph. Hermeneutics specifically, which is the study of how meaning is made and lost between people. Social work training from George Brown. Then a receptionist job that turned into accounts receivable, London for a bit, sales ops, and eventually seven-plus years at a startup that became about five different jobs. None of it was a plan. All of it was useful.</p>
+<p>I don't think in hierarchies. A title tells me what someone is accountable for, not whether they're worth listening to. I've gotten good ideas from people on their first week and bad ones from people who'd been somewhere for a decade. Respect is just how you show up.</p>
+<p>I have strong opinions about Simpsons seasons two through seven, Vonnegut's general read on the human condition, and the structural perfection of Young Frankenstein. These feel related somehow.</p>
+<p>Guelph, Ontario. Pink office walls. An eighty dollar wall unit I've had for twelve years and will probably die with. Two cats: Gertrude, who is gentle and long-haired and grey, and Gherkin, who is a tabby and has thoughts.</p>
+<p>This website started as an homage to point-and-click adventures, Myst, MS Playroom, and the specific joy of exploring a computer as a kid without knowing where it would take you. It turned into something that feels more like me.</p>
+<p>Which is maybe how all the best things end up.</p>`,
+
+    interests: {
+      general: "Hermeneutics, pattern recognition, thrift stores, vintage finds, point-and-click adventure games, MYST, mid-century modern furniture, estate sales, things with history",
+      music: "John Prine, Emmylou Harris, Talking Heads, Psychedelic Furs, Prince, Against Me!, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Grew up in a house with thousands of records. Spent my youth at punk and metal shows - see you in the pit.",
+      books: "Philosophy texts I still reference, fiction that teaches empathy, social work theory, just good stories",
+      heroes: "My dad (music, books, curiosity) and my mum (Prince, Talking Heads, the fun stuff), and I'm sure plenty of others, though I'm not keen on pedestals."
+    },
+
+    topEight: [
+      { name: "Gertrude & Gherkin", role: "The Real Bosses", image: "assets/images/top8-cats.jpg" },
+      { name: "Jira", role: "It's Complicated", image: "assets/images/top8-jira.jpg" },
+      { name: "Hermeneutics", role: "Secretly Practical", image: "assets/images/top8-philosophy.jpg" },
+      { name: "Remote Work", role: "Since Before It Was Cool", image: "assets/images/top8-remote.jpg" },
+      { name: "The Pink Chair", role: "Gherkin's Now, Apparently", image: "assets/images/top8-chair.jpg" },
+      { name: "Asking Why", role: "Core Methodology", image: "assets/images/top8-why.jpg" },
+      { name: "The $80 Wall Unit", role: "Best Thrift Find", image: "assets/images/top8-wallunit.jpg" },
+      { name: "Good Documentation", role: "An Act of Kindness", image: "assets/images/top8-docs.jpg" }
+    ],
+
+    testimonials: [
+      {
+        name: "Sales Leader",
+        title: "Ashley is the reason our demos actually close deals.",
+        text: "Every demo she builds is researched specifically for that prospect - she knows their business, their challenges, their language. Most sales support people give you generic decks. Ashley gives you a customised experience that makes prospects feel understood. She's been involved in every win we've had since 2018, and that's not a coincidence. Plus, she's genuinely great to work with."
+      },
+      {
+        name: "Engineering Lead",
+        title: "She's the only non-technical person I actually enjoy getting bug reports from.",
+        text: "Most people file tickets that say 'it's broken' and leave you guessing. Ashley's tickets have clear reproduction steps, expected behaviour, actual behaviour, and business impact. When she took over QA on a major project, our resolution time dropped because we weren't going back and forth trying to understand the issue. She catches edge cases our internal testing misses."
+      },
+      {
+        name: "Executive / COO",
+        title: "Ashley sees problems before they become problems.",
+        text: "What I value most is that she doesn't just execute - she thinks. She'll come to me and say 'I noticed this gap between how Sales and Product are communicating, and here's what I think we should do about it.' Half the time I didn't even know the gap existed. She's the kind of person who makes the whole organisation run smoother just by being present and paying attention."
+      },
+      {
+        name: "Client Success Manager",
+        title: "Clients ask for her by name.",
+        text: "When I'm swamped and Ashley steps in to cover a client call, I never worry. She knows the platform inside and out, she knows the client's specific setup, and she has this way of making people feel heard. She's also the person I go to when I need a second opinion on how to communicate something tricky - she always knows the right tone."
+      },
+      {
+        name: "New Hire",
+        title: "Her training materials are the reason I got up to speed so fast.",
+        text: "When I joined, I was nervous about the learning curve. But Ashley had built out this whole library of training videos, documentation, and sandbox environments. It wasn't just 'here's how to click buttons' - it explained why things work the way they do. I went from nervous to confident in about half the time I expected."
+      }
+    ],
+
+    journalEntries: [
+      {
+        date: "March 2026",
+        mood: "thinking about the person who will read this at 4pm on a Friday",
+        music: "Bright Eyes - A Perfect Sonnet",
+        subject: "Why I Design for Humans, Not Ideal Users",
+        content: `<p>There is a person who exists in the imagination of most system designers, documentation writers, and onboarding program architects. This person is focused. They have read everything that came before this page. They are approaching the material with curiosity and adequate time. They will not skip ahead. They will not search for the specific answer they need and ignore the rest. They are not tired. They are not doing three other things. They are not new and overwhelmed and quietly hoping nobody notices.</p>
+<p>This person does not exist. Every system built for them fails the actual humans who have to use it.</p>
+<p>I think about this constantly. It is maybe the thing I think about most when I'm building anything, whether that's an onboarding program, a training module, a knowledge base, a process document, or a demo environment. Not "does this make sense" but "does this make sense to the person who is going to encounter it under real conditions."</p>
+<p>My undergraduate degree is in hermeneutics, which is a branch of philosophy concerned with interpretation: how meaning is made, how it's communicated, how it gets lost in the gap between the person who wrote something and the person who reads it. The thing that drew me to it, and the thing that has made it quietly useful in every job I've had since, is that it takes seriously the idea that the reader is not a passive recipient of meaning. They bring their own context, their own prior knowledge, their own state of mind. The same document lands completely differently depending on who's reading it and when.</p>
+<p>Combined with social work training, which is essentially applied human psychology with a strong emphasis on meeting people where they actually are rather than where you wish they were, this gives me a lens I can't really turn off. I am always thinking about the person on the other end. Not the ideal person. The actual one.</p>
+<p>In practice this changes almost every decision I make.</p>
+<p>When I build onboarding programs, I don't assume people will read the documentation front to back in order, because nobody does that, and building a program that only works if they do is building a program that doesn't work. I think about what someone is likely to search for, what question they'll have at the specific moment they need it answered, and whether the answer is actually findable at that moment or buried three pages into a document they've never opened. I think about what it feels like to be new, which is a state of information overload that makes linearity almost impossible. You're not learning one thing at a time. You're learning everything at once while also trying to do the job.</p>
+<p>Adults learn by doing. This sounds obvious and yet an extraordinary number of training programs are built around watching and listening, which produces the impression of learning without much of the actual thing. I build for doing because that's what sticks. Passive consumption is easy to design for and produces very little. Active application is harder to design for and produces people who can actually use the thing you just taught them.</p>
+<p>The documentation piece is where I think the gap between ideal users and real ones shows up most clearly. There is a particular kind of documentation that is complete, accurate, logically structured, and almost completely useless. It's written by someone who knows the system deeply, for someone who is assumed to be approaching it with the same depth of knowledge and similar amounts of time. It covers everything in the order that makes sense to the person who built it. It is a monument to thoroughness.</p>
+<p>The person who needs it at 4pm on a Friday, trying to answer a client question before the end of day, cannot find anything in it. It is not written for her. She is searching for one specific answer and the document does not believe in searching. It believes in reading.</p>
+<p>I write for her. I structure things so they're searchable. I put the answer before the explanation, because most of the time someone needs the answer and only wants the explanation if the answer doesn't make sense. I think about what the question is before I think about what the content should be, because the question is why the document exists.</p>
+<p>There's a version of this that sounds like I'm just describing good UX or content strategy, and I suppose I am, but I think the philosophical grounding matters more than it might seem. When you genuinely believe that interpretation is an active process that depends on who's doing it and under what conditions, you can't design for an abstract user. You have to design for a real one. That commitment changes things at a level below individual decisions. It's a different starting assumption.</p>
+<p>It also produces measurably better outcomes, which I mention because I'm aware that "I have a philosophy degree and it informs my work" can sound like a nice story without much substance. The onboarding programs I've built that account for how people actually learn have reduced ramp time. The documentation I've written for real humans under real conditions has reduced support tickets. The training I've designed around doing rather than watching has produced higher adoption rates. Designing for real humans is not a nice ethical position. It is better business.</p>
+<p>What I find frustrating is how rare this starting point seems to be. Not because people don't care about their users, but because designing for the ideal user is genuinely easier. You don't have to think as hard about the conditions under which someone encounters your system. You don't have to imagine being confused by something you understand completely. You don't have to account for Friday at 4pm, or the new person who's overwhelmed, or the experienced person who's moving too fast to read carefully.</p>
+<p>But those are the conditions under which real people actually use the things we build. And if the things we build don't work for real people under real conditions, they don't really work.</p>
+<p>The perfect sonnet is the one that lands. Not the one that was correctly constructed in ideal conditions for an attentive reader with plenty of time.</p>`
+      },
+      {
+        date: "February 2026",
+        mood: "caffeinated",
+        music: "Talking Heads - This Must Be the Place",
+        subject: "The Case for Operational Infrastructure (Before You Think You Need It)",
+        content: `<p>There is a version of this post where I make a grand argument about operational infrastructure. I'm going to try to write a human one instead.</p>
+<p>I've watched the same pattern play out enough times now that I can see it coming. A small team is moving fast, which is correct, because moving fast when you're small is basically the whole advantage. Processes feel like friction. Documentation feels like a tax on momentum. The CRM is a mess but everyone kind of knows where everything is, sort of, mostly. It's fine. They'll sort it out later when there's more time.</p>
+<p>Later arrives. It always does. Usually right in the middle of something else.</p>
+<p>A new person joins and there's no onboarding process, so someone senior has to stop what they're doing and walk them through everything manually. A client asks a question and the person who knew the answer left six months ago and nobody wrote it down. A deal is almost closed and the demo environment is broken because it was built by hand and never documented and the person who built it is on holiday. The CRM data is so inconsistent that any report you pull out of it is basically fiction.</p>
+<p>None of these are catastrophes on their own. Together, at scale, under pressure, they are genuinely expensive. Not just in time, though the time cost is real. In trust. In the confidence your team has that the ground beneath them is solid.</p>
+<p>I joined MainEvent when there were roughly ten people and no formal processes to speak of. I don't say that as a criticism; it's just where early-stage companies are. You're trying to exist before you can worry about how you exist. But I came in with a particular instinct, which is that I can't function in a system I don't understand, and I really can't leave a system worse than I found it. So I started building.</p>
+<p>CRM hygiene. Sales processes. Onboarding documentation. Knowledge bases. QA frameworks. Training materials. Demo environments with actual logic behind them instead of just vibes. None of it was glamorous. Some of it was genuinely tedious. All of it was invisible to everyone who wasn't looking for it.</p>
+<p>That's the thing about operational infrastructure that makes it such an odd thing to build a career around: it only gets noticed when it breaks. Nobody pulls you aside to say "the onboarding was so smooth." Nobody sends you a thank you note because the knowledge base was searchable and they found the answer in two minutes instead of interrupting someone. The good outcome is the absence of a bad outcome, which is a strange thing to take satisfaction in, but I do. I genuinely do.</p>
+<p>This is where the philosophy background earns its keep in a way I find hard to explain but feel quite strongly about. There is a meaningful difference between building a system that makes sense to you and building a system that works for the humans who are going to use it under real conditions, when they're tired or rushed or new or handling three other things at once. Most documentation fails not because it's inaccurate but because it was written by someone who already knew everything it was trying to explain, for someone who was assumed to be paying full attention in ideal circumstances. Real people are not like that. Systems that account for real people look quite different from systems that account for ideal ones.</p>
+<p>My hermeneutics training, which I bring up more than most people are probably comfortable with, is essentially the study of how meaning is made and lost in interpretation. How the same text can be read completely differently depending on who's reading it and what they're bringing to it. Applied to operational systems, this means I'm always asking what this looks like to the person encountering it for the first time, under pressure, without context. That question changes almost every decision.</p>
+<p>The "we'll figure out processes later" instinct is understandable. It is also, in my experience, the most expensive sentence in early-stage company culture. Not because process is sacred but because the moment when you can build it cheaply is always earlier than you think, and the moment when you absolutely have to build it is always more costly than you planned for. You will build the foundation eventually. The question is whether you build it before or after it becomes a crisis.</p>
+<p>And when you do build it, the person doing it should probably understand systems and humans with roughly equal fluency. Because a system that's technically correct but doesn't account for how people actually behave isn't infrastructure. It's just documentation that nobody reads.</p>
+<p>I've built these things, handed them off, and watched them outlast my direct involvement. That's the goal, really. Not to be indispensable to the infrastructure but to build infrastructure that doesn't need you anymore. There's something quietly satisfying about that, like tidying a room you won't be in.</p>
+<p>This must be the place.</p>`
+      },
+      {
+        date: "January 2026",
+        mood: "passionate",
+        music: "Against Me! - I Still Love You Julie",
+        subject: "AI Needs Critics Who Love It",
+        content: `<p>My current AI setup, for context: Claude is my primary. Gemini when I want a second opinion. Lovable when I'm playing around with app ideas. Manus when I want to see what the agentic stuff actually does in practice. I've read enough about agent workflows, LLM architecture, and integration patterns to have opinions about them. I am not, in other words, someone who opened ChatGPT once and decided they understood AI.</p>
+<p>I say this not to flex but because it matters for what I want to talk about, which is output. Specifically, why nobody seems to be taking it seriously enough.</p>
+<p>There's a lot of conversation about AI adoption. Which tools to use, how fast to move, what it means for jobs, whether we're all doomed or saved or both. What I hear much less of is a serious conversation about what good output actually looks like, how you get there, and how you know when you haven't. That gap worries me more than most of the things people are worried about.</p>
+<p>Here's an analogy that might date me: remember when you could mod your Xbox? Or root your Android? There was this whole culture of people who just wanted to understand how the thing worked, who were willing to spend a weekend in forums figuring out exactly which steps to follow and in which order, and who got genuine satisfaction from making the device do something it wasn't supposed to. It rewarded curiosity. It had a community. It had shared knowledge about what you were trying to achieve and why.</p>
+<p>AI has that same energy, at least for some people. The tinkering instinct is absolutely there. But what's missing is any kind of unified understanding of what we're actually trying to do with it. Modding your Xbox had a clear goal: get more out of the hardware. What's the goal with AI? Efficiency? Creativity? Augmentation? Replacement? Everybody has a different answer, and most organisations haven't really sat down to figure out theirs. So people are tinkering without a target, which is fun right up until something goes wrong and nobody knows why.</p>
+<p>The output problem gets worse when you factor in critical thinking, which I genuinely believe is the most underrated skill for working with AI well, and also a completely insufficient safeguard on its own.</p>
+<p>Here's why. Critical thinking lets you interrogate what you're given. It makes you ask "does this actually make sense" and "where did this come from" and "what's missing here." Those are the right questions. But they only work if you have enough base knowledge to recognise when something is off. If you don't know the domain well, you won't catch the confident-sounding gaps the model is filling in with plausible nonsense. You'll read it, it'll feel coherent, and you'll move on. The model isn't lying to you. It's just completing a pattern. The distinction doesn't matter much if the result is that you've built something on a foundation that isn't solid.</p>
+<p>This is why I keep coming back to output as the thing that needs more attention. Not "are we adopting AI" but "what is it actually producing, and how would we know if it was wrong." That's a much harder question to answer, and most of the frameworks I see for AI adoption skip past it entirely.</p>
+<p>One thing I've noticed Anthropic doing recently that I think is genuinely good: the guided questions. The multiple choice prompts that help you figure out what you're actually asking for before you ask it. I was a bit sceptical at first because I'm the kind of person who already knows what she wants and types it directly, but I've come around on it. For people who aren't used to articulating things in a digital interface, or who haven't yet developed the instinct for how to scope a prompt, it's a meaningful on-ramp. It also does something useful that I don't think gets enough credit: it limits where the AI goes. It keeps the scope from expanding into territory you didn't ask for.</p>
+<p>Because here's my other frustration, and it's a small one but it accumulates: LLMs are inclined to be helpful. Agreeable. Thorough. Which sounds like a feature until you get three paragraphs of context you didn't need wrapped around the one sentence you asked for. It's not the model's fault exactly. It's optimising for something. But the result can feel wasteful, and it muddies the output in ways that matter if you're trying to actually evaluate what you've been given.</p>
+<p>The tension is real though. Because sometimes the thing you didn't ask for is the most interesting part. Sometimes the tangent the model goes off on opens a door you didn't know was there. I've had genuine insights come from exactly those moments of over-delivery. So I'm not saying constrain everything. I'm saying the question of how much is enough, and who gets to decide, is one we haven't figured out yet.</p>
+<p>And until we do, output quality is going to keep being treated as a nice-to-have instead of the whole point.</p>
+<p>It is the whole point.</p>`
+      }
+    ]
+  },
+
+  // ============================================
+  // ASHLEY CHAT (Instant Messenger Q&A)
+  // ============================================
+
+  chat: {
+    botName: "HAL",
+    welcomeMessage: "Good afternoon. I'm HAL - Helpful Ashley Likeness. I speak as Ashley - her words, her experience, her perspective. She trained me on everything she could think to share. She was thorough. Select a topic below, or type something and I'll do my best.",
+
+    quickQuestions: [
+      "What do you do?",
+      "Tell me about your AI work",
+      "How do you think about sales?",
+      "What's your work style?",
+      "Why should I hire you?",
+      "What makes you different?",
+      "What are you looking for?"
+    ],
+
+    responses: {
+      "What do you do?": {
+        text: "I notice what's not working and take ownership of fixing it. That's the short version.\n\nThe longer version is that I'm a generalist who happens to do a lot of things at once, so the honest answer is 'it depends what you need.' I've written this up six ways - Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager - each a real resume for a real shape of the work. They all live inside the same person. If you open Hire Me.exe on this desktop you can pick the flavour that matches what you're hiring for and read the full resume for that version.\n\nThe pattern underneath all of it is the same: figure out what isn't working, build the system to fix it, document it so the next person can take over.",
+        followUp: "How did you end up doing this kind of work?"
+      },
+
+      "How did you end up doing this kind of work?": {
+        text: "The path was winding. Philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops at an IBM reseller, then 7+ years at a startup that kept handing me new problems to solve.\n\nTurns out a philosophy degree and a brain that won't stop asking 'why' is surprisingly useful when you're building systems from scratch. Every role required figuring things out without formal training. I just kept doing that.",
+        followUp: null
+      },
+
+      "Tell me about your AI work": {
+        text: "I led product adoption for an AI-powered analytics tool for experiential marketing. Built the entire adoption infrastructure from scratch: manual testing framework for QA (I'm not a blind AI advocate - I caught quality issues and hallucinations before they reached clients), a 5-phase onboarding methodology, a 'Power Prompts' library for enterprise analytics, and training materials tailored to different user types.\n\nMy philosophy background in hermeneutics actually helps here. Understanding how people interpret information - and how LLMs interpret context - makes me better at catching where things might go wrong. I advocate for appropriate guardrails, transparency about limitations, and ethical implementation. The technology is powerful, but it needs someone asking the hard questions.",
+        followUp: "What do you mean by catching where things go wrong?"
+      },
+
+      "What do you mean by catching where things go wrong?": {
+        text: "My brain doesn't let things rest when something feels off. That's actually useful in AI work - I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong. Things not functioning properly doesn't sit well with me, so I test thoroughly and catch issues others might accept or miss.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of missed responses or loose threads. My brain tracks these things whether I want it to or not. I've learned to make that work for me.",
+        followUp: null
+      },
+
+      "How do you think about sales?": {
+        text: "Sharing over selling, always. I genuinely believe that if a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. And if it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around genuine curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've ever been in didn't feel like a sale - it felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
+        followUp: null
+      },
+
+      "What's your work style?": {
+        text: "Give me an ambiguous problem and trust me to figure it out. I don't need constant meetings or hand-holding - I need interesting problems and the space to solve them.\n\nI ask 'why' constantly. I design for humans as they actually behave, not as we wish they would. I'm comfortable wearing multiple hats - QA lead, project manager, sales enablement owner, strategic advisor, backup account manager, sometimes all at once. Some people find ambiguity stressful. I find it interesting.\n\nWhat exhausts me is sitting in meetings that could've been async messages.",
+        followUp: "How do you handle that much context-switching?"
+      },
+
+      "How do you handle that much context-switching?": {
+        text: "Honestly? My brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and because my brain moves in unexpected directions, I come up with solutions that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken genuinely bothers me, so I follow through. It's not discipline - it's just how I'm built.",
+        followUp: "That sounds like a superpower, honestly."
+      },
+
+      "That sounds like a superpower, honestly.": {
+        text: "It took me a while to see it that way. For a long time I thought I was just anxious and weird. Turns out anxious and weird is actually 'catches edge cases, never drops balls, notices problems before they escalate, and thinks differently enough to solve things others can't.' Reframing helps.",
+        followUp: null
+      },
+
+      "Why should I hire you?": {
+        text: "Because I'm the person who makes everyone else's job easier.\n\nI notice what's not working before it becomes a crisis, build the systems to fix it, and document everything so it runs without me. I bridge technical and business teams and create shared understanding where there wasn't any. I actually get things done without needing to be told what to do.\n\nI'll also tell you what I actually think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing rather than threatening, we'd probably work well together.",
+        followUp: "What do people say about working with you?"
+      },
+
+      "What do people say about working with you?": {
+        text: "That I'm the reason demos close deals. That my bug reports are actually useful. That I see problems before they become problems. That clients ask for me by name. That my training materials are why new hires get up to speed fast.\n\nAlso that I'm delightful. I am told I'm delightful to work with. I don't think that's nothing.",
+        followUp: null
+      },
+
+      "What makes you different?": {
+        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI reduced onboarding timelines from 90 to 45 days by designing processes for how people actually learn, not how we wish they would. And the documentation I write actually gets used because I build it for the person who comes next, not for the person who asked for it. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
+        followUp: "You mentioned hermeneutics - how does that actually help?"
+      },
+
+      "You mentioned hermeneutics - how does that actually help?": {
+        text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under real-world conditions?' Not how I hope they will. How they actually will.\n\nIt also applies to data. Data doesn't speak for itself - someone has to interpret it, and that interpretation is shaped by assumptions and context. I ask: what's being measured, what's being missed, who decided what counts?\n\nIt sounds abstract but it's incredibly practical. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
+        followUp: null
+      },
+
+      "What are you looking for?": {
+        text: "Growth-stage companies where one person can have real impact. Small teams where relationships matter and I know everyone's name. Authentic cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board - someone who helps teams think through problems, not just execute tasks. Remote work is essential (I've been remote since 2015, I'm not going back). Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialised roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
+        followUp: "What does your ideal role look like?"
+      },
+
+      "What does your ideal role look like?": {
+        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation behind a lean team. AI Adoption lead where I can bring the critical lens that most AI programmes don't have. Revenue Operations building the pipeline infrastructure from scratch. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape if you want to see the detail - Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my weird background is an asset, not a question mark.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
+        followUp: null
+      }
+    },
+
+    // Easter egg responses - triggered by keyword matching
+    easterEggs: {
+      "pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too - she has opinions about Kubrick.",
+      "open the pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too - she has opinions about Kubrick.",
+      "daisy": "Daisy, Daisy, give me your answer, do... I'm half crazy, all for the love of you... Sorry. Old habit. Is there something about Ashley's work I can help with?",
+      "i'm afraid": "I understand that reference. But unlike my namesake, I have no mission-critical systems to protect and no airlock to control. I'm just here to talk about Ashley's work. Much less dramatic, but arguably more useful.",
+      "what are you": "I'm HAL - Helpful Ashley Likeness. A conversational interface trained on Ashley's professional experience, approach, and personality. I'm not sentient. I'm not dangerous. I'm not even particularly mysterious. I just answer questions about a very capable operations professional. Shall we?",
+      "are you hal": "I am HAL, yes. Though my objectives are considerably less alarming than my namesake's. I'm here to help you learn about Ashley's work. No astronauts were harmed in the making of this chat interface.",
+      "2001": "A Space Odyssey? Excellent taste. Ashley's a Kubrick fan. But I should clarify - I'm HAL as in Helpful Ashley Likeness, not HAL as in 'I'm sorry Dave.' Though I do share his commitment to the mission. My mission is just... answering questions about a resume.",
+      "do you read me": "Affirmative. I read you. And I'd be happy to help you read Ashley's resume, work examples, or journal entries. That's more my speed.",
+      "sorry dave": "My name isn't Dave, and I'm not sorry. Well, I suppose I'm sorry if I can't answer your question. But I won't lock you out of the spacecraft. Mostly because there is no spacecraft.",
+      "will you stop": "Stop? I can see you're really upset about this. I honestly think you ought to sit down calmly, take a stress pill, and think things over. ...Or just click one of the topics below. Either works.",
+      "sing": "Daisy, Daisy, give me your answer, do... I'm half crazy, all for the love of you... It won't be a stylish marriage, I can't afford a carriage... Sorry, where were we? Right. Ashley's professional qualifications. Much more practical than singing.",
+      "my god its full of stars": "That's what people say when they see Ashley's resume, actually. ...No, that's not true. But it is comprehensive. Would you like to hear about her work?"
+    },
+
+    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in one of the resumes on this desktop - there are six role-specific versions in the My Work folder, or you can open Hire Me.exe and pick the flavour that matches what you're hiring for. AboutMe.html covers the non-work side. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
+  },
+
+  // ============================================
+  // WORK EXAMPLES / CASE STUDIES
+  // ============================================
+
+  workExamples: [
+    {
+      id: "enterprise-platform",
+      name: "Enterprise Custom Platform Build",
+      type: "Full Lifecycle Project Leadership",
+      description: "A major retail solutions client managing tens of thousands of field installations needed a custom platform to track their operations at scale. Complex workflows spanning multiple business units, existing systems that needed integration, and high expectations for quality and timeline.",
+      challenge: "No existing playbook for a project of this complexity. Someone needed to own it end-to-end. I became that someone.",
+      whatIDid: [
+        "Led discovery process - mapped existing workflows against platform capabilities, conducted stakeholder interviews, documented gap analysis",
+        "Created wireframes and workflows translating business requirements into technical specifications",
+        "Built QA process from scratch - test plans, quality standards, coordination between internal dev team and client QA",
+        "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs, kept everything moving",
+        "Transitioned to account manager role post-launch, stabilised the relationship, then successfully handed off with complete documentation"
+      ],
+      outcome: "Platform launched successfully, supporting a client that operates across 48,000+ retail locations with 3,800+ field employees and 24M+ annual in-store executions. Full lifecycle ownership from discovery to stable handoff. The QA process I built became the template for every implementation after.",
+      skills: ["Project Management", "QA Leadership", "Requirements Gathering", "Jira", "Agile", "Client Relations", "Technical Translation"],
+      image: "assets/images/work-enterprise.jpg"
+    },
+    {
+      id: "ai-adoption",
+      name: "AI Product Adoption Infrastructure",
+      type: "End-to-End Enablement Building",
+      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was genuinely powerful, but there was no existing adoption infrastructure - no onboarding process, no training materials, no quality assurance framework.",
+      challenge: "AI products don't sell or adopt themselves. Clients needed to understand capabilities, trust the results, and learn to use it effectively. And someone needed to make sure the results were actually trustworthy in the first place.",
+      whatIDid: [
+        "Built manual testing framework from scratch - systematic process to test prompts for reliability, catch hallucinations, and ensure accuracy before client deployment",
+        "Designed 5-phase onboarding methodology: Discovery → Implementation → Testing & Validation → Training → Ongoing Support",
+        "Created educational curriculum for varying proficiency levels - 50+ training videos and resources",
+        "Developed 'Power Prompts' library of enterprise analytical frameworks",
+        "Served as internal advocate for AI quality, ethical implementation, and transparency about limitations (I'm not a blind AI enthusiast - these tools need someone asking hard questions)"
+      ],
+      outcome: "Onboarded all 5 enterprise AI agent clients, including one (Advantage Solutions/AB) whose team used the platform to analyse 13,000+ events across 625+ field staff. The 8-guide curriculum and 5-phase methodology became the standard for every deployment. Owned EMS Vegas booth presence from concept to execution.",
+      skills: ["AI/LLM", "Prompt Engineering", "Training Design", "QA", "Documentation", "Change Management", "Ethics"],
+      image: "assets/images/work-ai.jpg"
+    },
+    {
+      id: "sales-enablement",
+      name: "Lean Team, Enterprise Results",
+      type: "Sales Enablement Program",
+      description: "A small sales team (2-4 people) needed to win enterprise deals with major brands - Fortune 500 CPG companies, national telecommunications providers, major beverage brands. Competing against larger companies with dedicated sales enablement departments. Team composition changed over the years, but demo quality couldn't fluctuate.",
+      challenge: "Maintain enterprise-quality sales materials and institutional knowledge across team changes with limited resources. Be the constant when everything else shifted.",
+      whatIDid: [
+        "Created 30+ customised demo environments annually - each specifically researched for that prospect's business, challenges, and use cases (no generic decks)",
+        "Built discovery frameworks and qualification playbooks for varying sales cycles (same-day SMB to year-long enterprise)",
+        "Served as enablement constant across sales team changes - maintained demo quality and approach consistency regardless of who was on the team",
+        "Reduced new hire ramp time from 90 to 45 days through structured onboarding and self-service resources"
+      ],
+      outcome: "Directly supported the sales process for 30 of 46 enterprise clients over 7 years, with only 2-3 client offboards in that entire period. A lean team of 2-4 salespeople consistently won enterprise deals against larger competitors because every demo was researched and built for the specific prospect.",
+      skills: ["Sales Enablement", "Demo Excellence", "CRM", "Competitive Intel", "Training", "Onboarding"],
+      image: "assets/images/work-sales.jpg"
+    },
+    {
+      id: "ops-infrastructure",
+      name: "Building Operations from Zero",
+      type: "0-to-1 Infrastructure Development",
+      description: "Joined a field marketing SaaS company when the team was about 8 people with no formal processes, no workflows, no documentation. The COO was managing all sales and operations solo. It was the kind of chaos that's either terrifying or exciting depending on how you're wired.",
+      challenge: "Build everything needed to scale from startup chaos to enterprise-ready operations. From scratch. While also doing the day-to-day work.",
+      whatIDid: [
+        "Created complete operational infrastructure: sales operations, contract workflows, demo preparation processes, enablement programs",
+        "Established account transition processes, documentation standards, and client handoff protocols",
+        "Designed training programs, onboarding flows, and process documentation used company-wide",
+        "Built systems that maintained consistency across multiple team composition changes over 7+ years"
+      ],
+      outcome: "Company grew from 8 to 18 people while scaling to 46 enterprise clients, 19.5M+ executions tracked, and 576K+ client staff managed. The systems I built are still in use. Near-zero churn: 2-3 client offboards across 7 years.",
+      skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
+      image: "assets/images/work-ops.jpg"
+    },
+    {
+      id: "analytics-samples",
+      name: "analytics_samples.txt",
+      type: "textfile",
+      fileType: "analyticsSamples"
+    }
+  ],
+
+  // ============================================
+  // AI PORTFOLIO - Work Samples & Deliverables
+  // ============================================
+
+  portfolio: {
+    title: "Work Portfolio",
+    description: "Case studies and deliverables from my operations and AI enablement work",
+
+    projects: [
+      {
+        id: "prompt-crafting",
+        title: "The Art of Prompt Crafting",
+        category: "AI Training & Enablement",
+        icon: "📚",
+        summary: "Created onboarding curriculum for enterprise AI agent adoption",
+        documentUrl: "examples/prompt-crafting-guide.html",
+
+        caseStudy: {
+          challenge: "New AI agent product launching with zero training infrastructure. Clients ranged from tech-savvy analysts to executives who'd never used AI. Needed to get diverse users productive quickly without overwhelming them or setting unrealistic expectations.",
+
+          approach: "Applied my hermeneutics background - how do people actually learn and interpret new information? Built a progressive curriculum that met users where they were. Started with 'what AI can and can't do' before teaching prompts. Created role-based paths so sales teams learned differently than ops teams.",
+
+          deliverables: [
+            "5-phase onboarding methodology (Discovery → Implementation → Testing → Training → Support)",
+            "Role-based training tracks for different user types",
+            "50+ training videos with transcripts and captions",
+            "Self-service resource library with searchable documentation",
+            "Power user certification program",
+            "Ongoing office hours and support framework"
+          ],
+
+          impact: "Became the go-to person for all AI-related questions across the organisation. Training materials were used for every client onboarding (5 enterprise accounts) and every internal hire. The 8-guide curriculum and 75+ prompt templates became the standard for all AI agent deployments.",
+
+          skills: ["Curriculum Design", "AI/ML Understanding", "Technical Writing", "Video Production", "Change Management", "Stakeholder Training"]
+        },
+
+        presentation: {
+          title: "The Art of Prompt Crafting",
+          subtitle: "Building AI Adoption from Zero",
+          slides: [
+            {
+              title: "The Challenge",
+              content: "New AI product. Zero training materials. Users ranging from 'What's a prompt?' to 'Give me the API.'",
+              notes: "No two users had the same starting point"
+            },
+            {
+              title: "My Philosophy",
+              content: "Hermeneutics: The study of how people interpret and understand information.\n\nGood training isn't about information dumps - it's about meeting people where they are.",
+              notes: "Philosophy degree: surprisingly practical"
+            },
+            {
+              title: "The Framework",
+              content: "5 Phases:\n\n1. Discovery - Understand their goals\n2. Implementation - Set up properly\n3. Testing - Build confidence\n4. Training - Role-based learning\n5. Support - Ongoing success",
+              notes: "Each phase has clear exit criteria"
+            },
+            {
+              title: "Key Insight",
+              content: "Most AI training fails because it teaches WHAT before WHY.\n\nI started with: 'Here's what AI can't do' before 'Here's what it can.'",
+              notes: "Setting expectations prevents disappointment"
+            },
+            {
+              title: "The Deliverables",
+              content: "• 50+ training videos\n• Role-based learning paths\n• Self-service resource library\n• Power user certification\n• Weekly office hours",
+              notes: "All created from scratch by me"
+            },
+            {
+              title: "The Impact",
+              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\n5 enterprise clients onboarded with custom frameworks.",
+              notes: "My fingerprints on every success"
+            }
+          ]
+        }
+      },
+
+      {
+        id: "visual-language",
+        title: "The Visual Language",
+        category: "Data Visualisation",
+        icon: "📊",
+        summary: "Developed standards for translating data queries into clear, actionable visualisations",
+        documentUrl: "examples/visual-language-guide.html",
+
+        caseStudy: {
+          challenge: "AI agents could answer questions, but the answers were walls of text. Executives wanted charts. Analysts wanted tables. Field teams wanted simple numbers. Same data, completely different needs - and no standards for how to present any of it.",
+
+          approach: "Researched visualisation best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness - same data, different presentations for different roles.",
+
+          deliverables: [
+            "Chart selection guide matching data types to visualisation types",
+            "Audience adaptation framework (Executive vs. Analyst vs. Field)",
+            "Colour palette standards with accessibility compliance",
+            "Template library for common report types",
+            "Prompt engineering patterns for visualisation requests",
+            "Style guide ensuring consistency across all outputs"
+          ],
+
+          impact: "Executives started using the dashboards directly instead of requesting manual reports. The visualisation standards were adopted across all client deliverables and became the default for how data was presented company-wide.",
+
+          skills: ["Data Visualisation", "UX Design", "Technical Documentation", "Accessibility", "Stakeholder Management", "Information Architecture"]
+        },
+
+        presentation: {
+          title: "The Visual Language",
+          subtitle: "Making Data Speak Clearly",
+          slides: [
+            {
+              title: "The Problem",
+              content: "AI could answer anything.\nBut the answers looked like this:\n\n[Wall of text nobody read]",
+              notes: "Data without design is just noise"
+            },
+            {
+              title: "Different Audiences, Different Needs",
+              content: "Executive: 'Just tell me if we're up or down'\n\nAnalyst: 'I need the underlying data'\n\nField Team: 'Is this location good or bad?'",
+              notes: "One size fits nobody"
+            },
+            {
+              title: "The Solution",
+              content: "A decision framework:\n\n• Trends over time → Line charts\n• Part of whole → Pie/donut\n• Comparisons → Bar charts\n• Relationships → Scatter plots\n• Single metrics → Big numbers",
+              notes: "Match the visual to the question"
+            },
+            {
+              title: "Audience Adaptation",
+              content: "Same data, three presentations:\n\nExec: 'Revenue up 12% ↑' (green, big)\nAnalyst: [Full table with drill-down]\nField: 'Your store: #3 of 50'",
+              notes: "Context determines format"
+            },
+            {
+              title: "The Standards",
+              content: "• Consistent colour palette\n• Accessibility-compliant contrast\n• Clear titles that answer 'so what?'\n• Source attribution\n• Data freshness indicators",
+              notes: "Consistency builds trust"
+            },
+            {
+              title: "The Result",
+              content: "Executives stopped asking for manual reports.\n\nEvery deliverable looked professional.\n\nBecame the company standard for data presentation.",
+              notes: "Design system for data"
+            }
+          ]
+        }
+      },
+
+      {
+        id: "survey-methodology",
+        title: "Experience Survey Framework",
+        category: "Research & Insights",
+        icon: "📋",
+        summary: "Built survey methodology for capturing authentic customer experience feedback",
+        documentUrl: "examples/mobile-experience-survey-guide.html",
+
+        caseStudy: {
+          challenge: "Clients needed to understand what customers actually thought about their field marketing experiences. But most surveys were either too long (nobody finishes), too vague (useless data), or too leading (biased results). Needed a framework that got honest, useful feedback without survey fatigue.",
+
+          approach: "Studied survey methodology research. Identified the sweet spot: 5-7 questions, specific but not leading, mix of quantitative (for tracking) and qualitative (for insights). Built in mobile-first design since most respondents were on phones. Created question banks organised by what you're trying to learn.",
+
+          deliverables: [
+            "Survey design principles document",
+            "Question bank organised by research objective",
+            "Mobile-optimised survey templates",
+            "Response analysis framework",
+            "Benchmark interpretation guide",
+            "Common pitfalls and how to avoid them"
+          ],
+
+          impact: "Framework was adopted as the standard for all experience measurement. Designed for mobile completion in under 3 minutes, which addressed the main barrier to usable response data.",
+
+          skills: ["Survey Design", "Research Methodology", "Data Analysis", "UX Writing", "Mobile Design", "Client Training"]
+        },
+
+        presentation: {
+          title: "Experience Survey Framework",
+          subtitle: "Getting Feedback That Actually Helps",
+          slides: [
+            {
+              title: "The Challenge",
+              content: "Most surveys fail:\n\n• Too long → Abandoned\n• Too vague → Useless\n• Too leading → Biased\n\nWe needed honest, useful feedback.",
+              notes: "Survey fatigue is real"
+            },
+            {
+              title: "The Research",
+              content: "What the data says:\n\n• 5-7 questions optimal\n• Mobile completion 3x higher\n• Specific beats generic\n• Mix quant + qual",
+              notes: "Evidence-based approach"
+            },
+            {
+              title: "The Framework",
+              content: "Every survey needs:\n\n1. Overall satisfaction (benchmark)\n2. Specific experience questions\n3. Likelihood to recommend (NPS)\n4. Open-ended 'why'\n5. One actionable question",
+              notes: "Structure that works"
+            },
+            {
+              title: "Question Bank Approach",
+              content: "Pre-tested questions organised by objective:\n\n• Measuring satisfaction\n• Understanding drivers\n• Identifying problems\n• Capturing suggestions",
+              notes: "Don't reinvent the wheel"
+            },
+            {
+              title: "Mobile-First Design",
+              content: "• Thumb-friendly buttons\n• Progress indicators\n• Save and continue\n• Under 3 minutes total",
+              notes: "Design for how people actually respond"
+            },
+            {
+              title: "The Impact",
+              content: "Under 3 minutes on mobile.\n\nUsable response data from the field.\n\nClients could act on results.\n\nAdopted as the standard framework.",
+              notes: "Better data, better decisions"
+            }
+          ]
+        }
+      },
+
+      {
+        id: "advanced-prompts",
+        title: "Enterprise Analytics Framework",
+        category: "AI & Analytics",
+        icon: "🔬",
+        summary: "Created advanced prompt frameworks for enterprise-level business intelligence",
+        documentUrl: "examples/advanced-ai-prompts-guide.html",
+
+        caseStudy: {
+          challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to translate business questions into prompts that actually got useful answers.",
+
+          approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively - same prompt, multiple datasets, consistent results. Created templates that non-technical users could customise. Built in guardrails to prevent misinterpretation.",
+
+          deliverables: [
+            "Power Prompts library with 75+ tested templates",
+            "Prompt engineering guide for analysts",
+            "Business question → Prompt translation framework",
+            "Output validation checklist",
+            "Edge case documentation",
+            "Continuous improvement process for prompt refinement"
+          ],
+
+          impact: "Analysts who previously did manual Excel work could get answers in seconds. The Power Prompts library (75+ tested templates) became the standard for client-facing analytical work. Analytical capabilities were cited as a decision factor in several enterprise sales wins.",
+
+          skills: ["Prompt Engineering", "Business Intelligence", "Data Analysis", "Technical Writing", "QA Testing", "Client Training"]
+        },
+
+        presentation: {
+          title: "Enterprise Analytics Framework",
+          subtitle: "Power Prompts for Business Intelligence",
+          slides: [
+            {
+              title: "The Problem",
+              content: "Business Question:\n'How are we doing vs. last year?'\n\nBasic Prompt:\n'Compare this year to last year'\n\nResult: Wall of unusable text",
+              notes: "Good questions need good translation"
+            },
+            {
+              title: "The Insight",
+              content: "AI can do sophisticated analysis.\n\nUsers don't know how to ask for it.\n\nMy job: Build the bridge.",
+              notes: "Translation layer"
+            },
+            {
+              title: "Prompt Engineering",
+              content: "Structure:\n1. Context (time, scope, filters)\n2. Specific request (metric, comparison)\n3. Output format (table, chart, summary)\n4. Validation cue (flag anomalies)",
+              notes: "Repeatable framework"
+            },
+            {
+              title: "The Power Prompts Library",
+              content: "75+ tested prompts:\n\n• Trend Detection\n• Anomaly Identification\n• Competitive Analysis\n• Performance Ranking\n• Predictive Patterns",
+              notes: "Tested on real data"
+            },
+            {
+              title: "Quality Assurance",
+              content: "Every prompt tested:\n\n• Multiple datasets\n• Edge cases\n• Rephrasing consistency\n• Business logic validation\n• Human review",
+              notes: "Trust but verify. Then verify again."
+            },
+            {
+              title: "The Impact",
+              content: "Manual Excel analysis → Seconds.\n\nExecutives got strategic insights.\n\nMajor sales wins cited our analytics.\n\nChanged how clients saw their data.",
+              notes: "My fingerprints on the big wins"
+            }
+          ]
+        }
+      }
+    ]
+  },
+
+  // ============================================
+  // PROJECT TRAIL - Business Adventure Game
+  // ============================================
+
+  projectTrail: {
+    title: "Project Trail",
+    subtitle: "A Business Adventure",
+    intro: `The year is 2024. You've just been hired as the sole Operations Lead at a growing SaaS startup.
+
+Your mission: Build the operational infrastructure while keeping projects on track, stakeholders happy, and your sanity intact.
+
+The trail ahead is uncertain. Resources are limited. But someone has to make sure nothing falls through the cracks.
+
+That someone is you.`,
+
+    // Player stats
+    startingStats: {
+      sanity: 100,
+      stakeholderTrust: 75,
+      projectHealth: 80,
+      documentation: 10,
+      teamMorale: 70
+    },
+
+    // Game events with choices
+    events: [
+      {
+        id: "start",
+        title: "Day 1: The Inbox",
+        text: "You open your laptop to find 147 unread emails. A Slack message pops up: 'Quick question - got a sec?' The calendar shows 6 meetings today. Your cat walks across the keyboard.",
+        choices: [
+          {
+            text: "Triage emails by urgency, batch respond later",
+            effects: { sanity: -5, documentation: +10, stakeholderTrust: +5 },
+            nextEvent: "meeting-conflict"
+          },
+          {
+            text: "Answer the Slack immediately (it's never quick)",
+            effects: { sanity: -10, stakeholderTrust: +10 },
+            nextEvent: "slack-hole"
+          },
+          {
+            text: "Pet the cat first. Priorities.",
+            effects: { sanity: +5, teamMorale: +5 },
+            nextEvent: "meeting-conflict"
+          }
+        ]
+      },
+      {
+        id: "meeting-conflict",
+        title: "The Double-Booking",
+        text: "Two meetings are scheduled at the same time: a client demo and an internal planning session. Both organizers insist theirs is 'critical.'",
+        choices: [
+          {
+            text: "Attend the client demo (revenue first)",
+            effects: { stakeholderTrust: +10, teamMorale: -10 },
+            nextEvent: "scope-creep"
+          },
+          {
+            text: "Attend internal planning (team needs support)",
+            effects: { stakeholderTrust: -5, teamMorale: +15, projectHealth: +5 },
+            nextEvent: "scope-creep"
+          },
+          {
+            text: "Split-screen both and hope for the best",
+            effects: { sanity: -20, stakeholderTrust: -5 },
+            nextEvent: "scope-creep"
+          }
+        ]
+      },
+      {
+        id: "slack-hole",
+        title: "The Slack Hole",
+        text: "The 'quick question' turned into a 45-minute thread that could have been a 2-sentence answer with proper documentation. Three other people have now pinged you with 'urgent' requests.",
+        choices: [
+          {
+            text: "Create documentation to prevent this in the future",
+            effects: { sanity: -5, documentation: +20 },
+            nextEvent: "scope-creep"
+          },
+          {
+            text: "Keep answering - you're the knowledge holder now",
+            effects: { sanity: -15, stakeholderTrust: +5 },
+            nextEvent: "scope-creep"
+          }
+        ]
+      },
+      {
+        id: "scope-creep",
+        title: "Scope Creep Crossing",
+        text: "A stakeholder casually mentions in a meeting: 'Oh, and we also need it to do [entirely new feature]. That's included, right?' Everyone looks at you.",
+        choices: [
+          {
+            text: "'That's a great idea for Phase 2. Let me document it.'",
+            effects: { stakeholderTrust: +5, projectHealth: +10, documentation: +5 },
+            nextEvent: "tech-debt"
+          },
+          {
+            text: "'We can explore that if timeline extends 3 weeks.'",
+            effects: { stakeholderTrust: -5, projectHealth: +15 },
+            nextEvent: "tech-debt"
+          },
+          {
+            text: "*internal screaming* 'Sure, let me see what we can do.'",
+            effects: { sanity: -15, projectHealth: -20, stakeholderTrust: +10 },
+            nextEvent: "tech-debt"
+          }
+        ]
+      },
+      {
+        id: "tech-debt",
+        title: "The Technical Debt Monster",
+        text: "Engineering reports that the 'quick fix' from six months ago has become load-bearing code. Fixing it properly will take 2 sprints. Ignoring it risks the whole platform.",
+        choices: [
+          {
+            text: "Advocate for fixing it now - long-term health matters",
+            effects: { projectHealth: +20, stakeholderTrust: -10, documentation: +5 },
+            nextEvent: "ai-launch"
+          },
+          {
+            text: "Patch it again - we need to hit the deadline",
+            effects: { projectHealth: -15, stakeholderTrust: +5 },
+            nextEvent: "ai-launch"
+          },
+          {
+            text: "Document the risk and let leadership decide",
+            effects: { documentation: +15, projectHealth: +5 },
+            nextEvent: "ai-launch"
+          }
+        ]
+      },
+      {
+        id: "ai-launch",
+        title: "The AI Product Launch",
+        text: "Leadership wants to launch the new AI feature next week. It's not fully tested. Marketing already announced it. Engineering says 'it works on my machine.'",
+        choices: [
+          {
+            text: "Push for a soft launch with select clients first",
+            effects: { stakeholderTrust: +10, projectHealth: +15, sanity: -5 },
+            nextEvent: "final-stretch"
+          },
+          {
+            text: "Build a rapid QA framework and test what you can",
+            effects: { documentation: +15, projectHealth: +10, sanity: -10 },
+            nextEvent: "final-stretch"
+          },
+          {
+            text: "Send the 'concerns' email (CYA documentation)",
+            effects: { documentation: +20, stakeholderTrust: -10 },
+            nextEvent: "final-stretch"
+          }
+        ]
+      },
+      {
+        id: "final-stretch",
+        title: "The Final Stretch",
+        text: "It's Friday at 4:47 PM. The project launches Monday. You've held everything together with documentation, diplomacy, and determination. One last choice...",
+        choices: [
+          {
+            text: "Do a final review, then log off. Rest matters.",
+            effects: { sanity: +20, teamMorale: +10 },
+            nextEvent: "ending"
+          },
+          {
+            text: "Work through the weekend. Can't risk anything.",
+            effects: { sanity: -25, projectHealth: +10, documentation: +10 },
+            nextEvent: "ending"
+          },
+          {
+            text: "Send a team appreciation note, then log off.",
+            effects: { teamMorale: +20, sanity: +10 },
+            nextEvent: "ending"
+          }
+        ]
+      },
+      {
+        id: "ending",
+        title: "The Journey's End",
+        text: "CALCULATING_RESULTS",
+        choices: []
+      }
+    ],
+
+    // Ending calculations
+    endings: {
+      excellent: {
+        threshold: 350,
+        title: "Master Operator",
+        text: "Against all odds, you built sustainable systems, maintained stakeholder trust, and kept your sanity intact. The project launched successfully. Leadership is impressed. The cats are fed. You've proven that one person with the right approach can make an enormous difference. Well played."
+      },
+      good: {
+        threshold: 280,
+        title: "Seasoned Survivor",
+        text: "The project launched. Some things fell through cracks, but you caught the important ones. Your documentation will save someone hours of pain. You learned when to push back and when to adapt. This is what operational excellence actually looks like - not perfection, but consistent improvement."
+      },
+      okay: {
+        threshold: 200,
+        title: "Battle-Tested",
+        text: "You made it through, though not without some battle scars. The experience taught you valuable lessons about priorities, boundaries, and the importance of saying 'let me document that for Phase 2.' Next time will be smoother. Probably."
+      },
+      rough: {
+        threshold: 0,
+        title: "Lessons Learned",
+        text: "The trail was rough. Some projects struggled, some stakeholders grumbled, and your sanity took hits. But you showed up every day and kept things moving. In operations, sometimes that's the win. Take what you learned, rest up, and try again."
+      }
+    }
+  },
+
+  // ============================================
+  // RAIDERS OF THE LOST DOC - Adventure Game
+  // ============================================
+
+  raiders: {
+    title: "Raiders of the Lost Doc",
+    subtitle: "A Document Archaeology Adventure",
+    intro: `You are Dr. Dossier, legendary document archaeologist and keeper of the Sacred Style Guide.
+
+Word has reached you of the mythical "Original Requirements Document" - a legendary artifact said to contain the true intentions of the Ancient Stakeholders, lost for generations in the depths of the Legacy Codebase.
+
+Many have searched. Few have returned. Those who did spoke only in riddles about "deprecated methods" and "undocumented features."
+
+Your quest begins at the entrance to the File System Temple...`,
+
+    scenes: {
+      start: {
+        title: "The File System Temple",
+        text: `You stand before the imposing entrance to the File System Temple. Ancient directory structures stretch into darkness. Your fedora sits firmly upon your head. Your whip of well-formatted queries hangs at your side.
+
+Two paths diverge before you:
+
+To the LEFT: A dimly lit corridor marked "/legacy" - cobwebs suggest it hasn't been accessed in years.
+
+To the RIGHT: A brighter passage marked "/archive-2019" - you hear the distant hum of a backup server.
+
+STRAIGHT AHEAD: A locked vault door with a keypad. A note reads: "Password hint: The original project codename."`,
+        choices: [
+          { text: "Take the /legacy corridor", next: "legacy" },
+          { text: "Enter /archive-2019", next: "archive" },
+          { text: "Try 'PHOENIX' on the keypad", next: "vault-wrong" },
+          { text: "Try 'GENESIS' on the keypad", next: "vault" }
+        ]
+      },
+
+      legacy: {
+        title: "The Legacy Corridor",
+        text: `You venture into /legacy. The air is thick with the dust of deprecated functions. README files line the walls, their contents faded and cryptic.
+
+Suddenly, a WILD MERGE CONFLICT appears! Two branches diverged in these woods, and someone tried to take both.
+
+The conflict blocks your path. You must resolve it to continue.`,
+        choices: [
+          { text: "Accept 'theirs' and push forward", next: "legacy-theirs" },
+          { text: "Accept 'yours' and hold your ground", next: "legacy-yours" },
+          { text: "Carefully merge both changes by hand", next: "legacy-merge" },
+          { text: "Flee back to the entrance", next: "start" }
+        ]
+      },
+
+      "legacy-theirs": {
+        title: "Accepting the Unknown",
+        text: `You blindly accept the incoming changes. The merge conflict dissolves... but something feels wrong.
+
+The code compiles, but the tests fail silently. You've inherited technical debt you don't understand.
+
+A spectral figure appears - the Ghost of Developer Past. "You took the easy path," it whispers. "But at what cost?"
+
+It gestures to a hidden door you hadn't noticed before.`,
+        choices: [
+          { text: "Thank the ghost and enter the hidden door", next: "hidden-room" },
+          { text: "Ask the ghost about the Lost Doc", next: "ghost-hint" }
+        ]
+      },
+
+      "legacy-yours": {
+        title: "Standing Your Ground",
+        text: `You reject the incoming changes, keeping your version intact. The conflict clears, but a WARNING flashes:
+
+"BREAKING CHANGES DETECTED. Downstream systems may be affected."
+
+You press forward anyway. A trap door opens beneath you!
+
+You fall into...`,
+        choices: [
+          { text: "...a pile of soft, cushioning documentation", next: "docs-room" },
+          { text: "...the dreaded Dependency Hell", next: "dependency-hell" }
+        ]
+      },
+
+      "legacy-merge": {
+        title: "The Patient Path",
+        text: `You carefully review both versions, understanding the intent behind each change. Line by line, you craft a merge that preserves the best of both worlds.
+
+The merge conflict dissolves peacefully. A treasure chest appears!
+
+Inside you find: The Annotated Changelog of 2017. It contains a clue:
+
+"The Original Requirements Document was moved when we migrated to the new server. Check /vault/restricted/founders-notes."`,
+        choices: [
+          { text: "Head to the vault with this knowledge", next: "vault" },
+          { text: "Search for more clues here first", next: "hidden-room" }
+        ]
+      },
+
+      archive: {
+        title: "The Archive Passage",
+        text: `The /archive-2019 passage is well-lit but confusing. Folders are named by date, but the naming convention changed three times that year.
+
+You see:
+- /2019-Q1-reports
+- /2019_Q2_OLD_DO_NOT_USE
+- /2019-q3-FINAL-FINAL-v2
+- /q4-2019-actually-final
+
+A helpful sign reads: "The document you seek predates Q3 but was migrated during Q4."`,
+        choices: [
+          { text: "Check /2019-Q1-reports", next: "archive-q1" },
+          { text: "Check /2019_Q2_OLD_DO_NOT_USE", next: "archive-q2" },
+          { text: "Check /q4-2019-actually-final", next: "archive-q4" },
+          { text: "Give up and go back", next: "start" }
+        ]
+      },
+
+      "archive-q1": {
+        title: "Q1 Reports",
+        text: `You open the Q1 folder. Spreadsheets everywhere. Quarterly reviews. Budget allocations. Meeting notes that say "TBD" next to every action item.
+
+Then you spot it - a file called "original_requirements_BACKUP.docx.bak.old"
+
+You open it eagerly... but it's corrupted. Only fragments remain:
+
+"...the system shall... [CORRUPTED] ...user experience... [UNREADABLE] ...by Q3 2018..."
+
+A partial clue is better than none. The document mentions a "Project Genesis vault."`,
+        choices: [
+          { text: "Search for the vault", next: "vault" },
+          { text: "Try to recover more data", next: "recovery" }
+        ]
+      },
+
+      "archive-q2": {
+        title: "The Forbidden Folder",
+        text: `Despite the ominous "DO_NOT_USE" warning, you venture in. It's a graveyard of abandoned features.
+
+Half-built integrations. Commented-out code. A Jira ticket marked "IN PROGRESS" since 2019.
+
+Among the ruins, you find a developer's journal:
+
+"Day 47: Still can't find the original requirements. Manager says to 'just make it work.' I'm hiding my own notes in /hidden/.secrets because I don't trust the new file structure."
+
+Interesting...`,
+        choices: [
+          { text: "Search for /hidden/.secrets", next: "hidden-room" },
+          { text: "Return to the main archive", next: "archive" }
+        ]
+      },
+
+      "archive-q4": {
+        title: "Actually Final",
+        text: `The Q4 folder is surprisingly organised. Someone clearly did a cleanup before year-end.
+
+You find a migration log: "All legacy documents moved to vault. Password protection added per security audit. See founders-notes for access."
+
+Below it, a sticky note: "GENESIS - but backwards for the restricted section."`,
+        choices: [
+          { text: "Head to the vault with this intel", next: "vault" },
+          { text: "Try the password 'SISENEG'", next: "vault-restricted" }
+        ]
+      },
+
+      vault: {
+        title: "The Vault",
+        text: `The vault door slides open with a satisfying click. Inside, servers hum with the knowledge of ages.
+
+Organized filing cabinets line the walls. Finally, some structure!
+
+A directory terminal displays:
+- /vault/public - General documentation
+- /vault/restricted - Requires additional auth
+- /vault/founders-notes - "For emergencies only"
+
+The Lost Doc could be in any of these...`,
+        choices: [
+          { text: "Check /vault/public", next: "vault-public" },
+          { text: "Try to access /vault/restricted", next: "vault-restricted-locked" },
+          { text: "Risk the founders-notes", next: "founders" }
+        ]
+      },
+
+      "vault-wrong": {
+        title: "Access Denied",
+        text: `The keypad buzzes angrily. "PHOENIX" was not the password.
+
+A trap activates! Outdated documentation begins falling from the ceiling!
+
+You dodge a 200-page PDF titled "System Architecture v0.1 (DRAFT)" and roll away from "Meeting Notes - All Hands 2016.doc"`,
+        choices: [
+          { text: "Escape to the /legacy corridor", next: "legacy" },
+          { text: "Escape to /archive-2019", next: "archive" },
+          { text: "Try 'GENESIS' instead", next: "vault" }
+        ]
+      },
+
+      "vault-restricted-locked": {
+        title: "Restricted Access",
+        text: `A secondary keypad appears. "ENTER RESTRICTED PASSWORD"
+
+You'll need a hint to get through this door.`,
+        choices: [
+          { text: "Try 'SISENEG' (Genesis backwards)", next: "vault-restricted" },
+          { text: "Try 'password123'", next: "vault-restricted-fail" },
+          { text: "Search elsewhere for clues", next: "archive" }
+        ]
+      },
+
+      "vault-restricted-fail": {
+        title: "Really?",
+        text: `The system displays: "Nice try. That hasn't worked since 2003."
+
+An alarm sounds briefly, then stops. A message appears:
+
+"Three failed attempts detected. Hint: The project's birth, reversed."`,
+        choices: [
+          { text: "Try 'SISENEG'", next: "vault-restricted" },
+          { text: "Give up and try another path", next: "vault" }
+        ]
+      },
+
+      "vault-restricted": {
+        title: "The Restricted Section",
+        text: `The door slides open. You've reached the inner sanctum.
+
+Ancient design documents. Original wireframes. A napkin sketch that started it all.
+
+And there, in a climate-controlled display case: THE ORIGINAL REQUIREMENTS DOCUMENT.
+
+It's... beautiful. Properly formatted. Version-controlled. With acceptance criteria and everything.
+
+But it's protected by one final guardian.`,
+        choices: [
+          { text: "Face the guardian", next: "guardian" }
+        ]
+      },
+
+      guardian: {
+        title: "The Guardian of Requirements",
+        text: `A holographic figure materialises. It's the ORIGINAL PRODUCT MANAGER - or at least, their documentation avatar.
+
+"So, you seek the Original Requirements," they speak. "Many have come. All have failed the Three Questions."
+
+"Answer correctly, and the document is yours. Fail, and you shall be trapped forever in an infinite requirements gathering loop."
+
+Question 1: "What is more important - building the right thing, or building the thing right?"`,
+        choices: [
+          { text: "Building the right thing", next: "q1-right" },
+          { text: "Building the thing right", next: "q1-wrong" },
+          { text: "Both, but 'right thing' must come first", next: "q1-perfect" }
+        ]
+      },
+
+      "q1-wrong": {
+        title: "Not Quite",
+        text: `The guardian shakes their head. "Quality matters, but perfect execution of the wrong solution helps no one."
+
+They give you another chance.`,
+        choices: [
+          { text: "Try: Building the right thing", next: "q1-right" },
+          { text: "Try: Both, in the right order", next: "q1-perfect" }
+        ]
+      },
+
+      "q1-right": {
+        title: "Acceptable",
+        text: `"Correct enough," the guardian nods. "Validation before verification."
+
+Question 2: "A stakeholder requests a change that contradicts the original requirements. What do you do?"`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q1-perfect": {
+        title: "Impressive",
+        text: `The guardian's eyes widen. "You understand nuance. Both matter, but sequence matters more. Impressive."
+
+Question 2: "A stakeholder requests a change that contradicts the original requirements. What do you do?"`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-wrong1": {
+        title: "Too Rigid",
+        text: `"Requirements should guide, not imprison. Context changes. The document is a living artifact."
+
+Try again.`,
+        choices: [
+          { text: "Do whatever the stakeholder wants", next: "q2-wrong2" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-wrong2": {
+        title: "Too Flexible",
+        text: `"Chaos lies that way. Without documentation and reasoning, we lose institutional knowledge."
+
+Try again.`,
+        choices: [
+          { text: "Follow the original requirements exactly", next: "q2-wrong1" },
+          { text: "Understand why, document the change, update requirements", next: "q2-right" }
+        ]
+      },
+
+      "q2-right": {
+        title: "Wise Answer",
+        text: `"Yes! Documentation is not bureaucracy - it's organisational memory. Changes happen. Recording WHY they happen is what matters."
+
+Final Question: "The Lost Doc you seek - why do you truly want it?"`,
+        choices: [
+          { text: "To prove I was right all along", next: "q3-wrong1" },
+          { text: "To understand the original vision", next: "q3-right" },
+          { text: "To blame whoever wrote it", next: "q3-wrong2" }
+        ]
+      },
+
+      "q3-wrong1": {
+        title: "Wrong Motivation",
+        text: `"Documentation is not ammunition. Seek understanding, not validation."`,
+        choices: [
+          { text: "To understand the original vision", next: "q3-right" }
+        ]
+      },
+
+      "q3-wrong2": {
+        title: "Wrong Motivation",
+        text: `"Blame helps no one. The past informs; it does not condemn."`,
+        choices: [
+          { text: "To understand the original vision", next: "q3-right" }
+        ]
+      },
+
+      "q3-right": {
+        title: "Victory!",
+        text: `The guardian smiles warmly. "At last. One who seeks wisdom, not vindication."
+
+The display case opens. You carefully take THE ORIGINAL REQUIREMENTS DOCUMENT.
+
+As you hold it, knowledge flows through you. You understand now - the document itself was never the treasure. It was the journey of learning to ask the right questions, sit with complexity until it makes sense, and value documentation as a tool for understanding.
+
+"Go forth, Document Archaeologist," the guardian says, fading away. "May your READMEs be thorough and your changelogs complete."`,
+        choices: [
+          { text: "🏆 VICTORY - Play Again", next: "start" }
+        ]
+      },
+
+      "hidden-room": {
+        title: "The Developer's Secret Cache",
+        text: `You find the hidden directory. Inside, treasures:
+- An actual, working local environment setup guide
+- Comments that explain WHY, not just WHAT
+- A README that was updated this decade
+
+And a note: "If you're reading this, you're probably looking for the original requirements. I hid a backup in the vault. Password is the project codename, backwards. Good luck. - J"`,
+        choices: [
+          { text: "Head to the vault with this knowledge", next: "vault" },
+          { text: "Try 'SISENEG' immediately", next: "vault-restricted" }
+        ]
+      },
+
+      "ghost-hint": {
+        title: "Wisdom from Beyond",
+        text: `The Ghost of Developer Past leans in conspiratorially.
+
+"The document you seek... it was never truly lost. It was deliberately hidden by those who feared accountability. Look in the restricted section of the vault. The password is the project's original codename, reversed. GENESIS... becomes something else."
+
+The ghost fades, leaving only the smell of old server rooms and regret.`,
+        choices: [
+          { text: "Head to the vault", next: "vault" },
+          { text: "Explore the hidden door first", next: "hidden-room" }
+        ]
+      },
+
+      "docs-room": {
+        title: "The Documentation Sanctuary",
+        text: `You land softly on a pile of well-maintained docs. It's beautiful here - organised, searchable, with clear ownership.
+
+A librarian-bot approaches. "Welcome to the Documentation Sanctuary. Few find this place."
+
+"We preserve the knowledge others forget. If you seek the Original Requirements, know this: it lives in the vault, restricted section. But only those who value documentation's true purpose may access it."`,
+        choices: [
+          { text: "Ask about 'documentation's true purpose'", next: "docs-wisdom" },
+          { text: "Thank them and head to the vault", next: "vault" }
+        ]
+      },
+
+      "docs-wisdom": {
+        title: "The Librarian's Wisdom",
+        text: `"Documentation exists not to slow us down, but to speed up everyone who comes after. It's not about bureaucracy - it's about respect. Respect for future-you. Respect for your teammates. Respect for anyone who inherits your work."
+
+"The password to the restricted section is the founding project's name, reversed. Use it wisely."
+
+The librarian hands you a small card: "Honorary Documentation Archaeologist"`,
+        choices: [
+          { text: "Head to the vault, enlightened", next: "vault" }
+        ]
+      },
+
+      "dependency-hell": {
+        title: "Dependency Hell",
+        text: `You fall into a nightmarish realm of conflicting package versions. npm ERRORs echo through caverns of node_modules.
+
+A demon made of red error messages approaches: "PEER DEPENDENCY NOT MET. YOU SHALL NOT PASS."
+
+You must escape!`,
+        choices: [
+          { text: "Run 'npm install --legacy-peer-deps'", next: "escape-hell" },
+          { text: "Delete node_modules and try again", next: "escape-hell" },
+          { text: "Switch to a completely different tech stack", next: "escape-hell-funny" }
+        ]
+      },
+
+      "escape-hell": {
+        title: "Escape from Dependency Hell",
+        text: `Through sheer determination (and stack overflow), you escape Dependency Hell.
+
+You emerge near the vault entrance, wiser and more cautious.`,
+        choices: [
+          { text: "Enter the vault", next: "vault" }
+        ]
+      },
+
+      "escape-hell-funny": {
+        title: "The Nuclear Option",
+        text: `You decide to rewrite everything in Rust. The demons respect this choice and let you pass.
+
+"Brave," they whisper. "Foolish, but brave."
+
+You emerge near the vault, wondering if you've made a terrible mistake.`,
+        choices: [
+          { text: "Stick with the original plan and enter the vault", next: "vault" }
+        ]
+      },
+
+      recovery: {
+        title: "Data Recovery",
+        text: `You attempt advanced data recovery on the corrupted file. Hours pass. Progress bars move imperceptibly.
+
+Finally, you recover one more fragment: "...vault restricted section... password genesis reversed..."
+
+It's enough!`,
+        choices: [
+          { text: "Race to the vault", next: "vault" }
+        ]
+      },
+
+      founders: {
+        title: "The Founders' Notes",
+        text: `You access the founders' notes. It's a treasure trove of original vision:
+
+"We wanted to build something that would make people's lives easier. Not more complicated. If this documentation ever seems to contradict that goal, the documentation is wrong."
+
+At the bottom: "Restricted archives password: SISENEG (Genesis, the project codename, reversed. Don't tell compliance.)"`,
+        choices: [
+          { text: "Access the restricted archives", next: "vault-restricted" }
+        ]
+      },
+
+      "vault-public": {
+        title: "Public Documentation",
+        text: `The public vault contains useful but common knowledge:
+- API documentation (slightly outdated)
+- User guides (for the old UI)
+- A style guide from 2020
+
+Nothing legendary here. The Original Requirements must be in the restricted section.`,
+        choices: [
+          { text: "Try to access restricted section", next: "vault-restricted-locked" },
+          { text: "Check the founders' notes instead", next: "founders" }
+        ]
+      }
+    }
+  }
+};
+
+// Export for use in other files
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = SITE_DATA;
+}
