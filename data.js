@@ -3261,7 +3261,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
   portfolio: {
     title: "Work Portfolio",
-    description: "Case studies and deliverables from my operations and AI enablement work",
+    description: "Case studies, deliverables, and shipped tools from my operations, AI enablement, and product work",
 
     projects: [
       {
@@ -3519,6 +3519,66 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
               title: "The Impact",
               content: "Manual Excel analysis → Seconds.\n\nExecutives got strategic insights.\n\nMajor sales wins cited our analytics.\n\nChanged how clients saw their data.",
               notes: "My fingerprints on the big wins"
+            }
+          ]
+        }
+      },
+      {
+        id: "job-alert-scorer",
+        title: "Job Alert Scorer",
+        category: "Open-Source Tool / AI Product",
+        icon: "🎯",
+        summary: "Reads 40 job postings so you read 3. An open-source AI triage tool for the job-search firehose.",
+        documentUrl: "https://ashley-sarahsep.github.io/job-alert-scorer/",
+
+        caseStudy: {
+          challenge: "I got tired of reading 40 job postings a day to find the 3 worth applying to. The signal-to-noise ratio in job alert emails is brutal, and the time spent on first-pass triage is time not spent on applications that actually matter.",
+          approach: "I built a tool that does the first pass - then made it free and open source so other people could use it too. Job Alert Scorer reads your LinkedIn and Indeed alert emails, finds the full job description on the company's careers page, and scores each role 1-10 against a candidate profile you write: what you want, what's a dealbreaker, what makes a role genuinely exciting. It reads between the lines - matching underlying capability rather than keywords, so 'built onboarding for a marketing SaaS' can register as a fit for an onboarding role in fintech.\n\nI designed and shipped the whole thing solo by directing Claude Code: a clean public/private architecture (your data never touches the code), a pluggable provider design, documentation, and an offline test suite. It's deliberately not an 'AI applies for you' gimmick - it's honest triage that gives people back their time.",
+          deliverables: [
+            "Full working tool: Gmail API integration, Anthropic Claude scoring with structured outputs and prompt caching, ranked email digest",
+            "Illustrated getting-started page with fill-in-the-blank profile template for non-technical users",
+            "No-code version runnable inside Claude or ChatGPT with zero setup",
+            "Clean public/private architecture - candidate data never touches the codebase",
+            "Pluggable provider design and offline test suite for contributors",
+            "Open-source under MIT licence on GitHub"
+          ],
+          impact: "Shipped a 0-to-1 open-source product from personal pain point to documented, live, usable tool. Built for people who aren't developers: onboarding page, templates, a no-code path. The scoring rubric is plain text you can edit - no black box. Deliberately honest about limits (one tested model; best-effort parsing for some job boards) rather than overselling.",
+          skills: ["Python", "Gmail API", "Claude API", "Prompt Engineering", "Structured Outputs", "Prompt Caching", "GitHub Pages", "Open Source", "Product Design", "Technical Documentation", "Claude Code"]
+        },
+
+        presentation: {
+          title: "Job Alert Scorer",
+          subtitle: "0-to-1 Open-Source AI Tool",
+          slides: [
+            {
+              title: "The Problem",
+              content: "40 job postings a day.\n3 worth applying to.\n\nThe time spent on first-pass triage is time not spent on applications that actually matter.",
+              notes: "Personal pain point that turned into a shipped product"
+            },
+            {
+              title: "What It Does",
+              content: "• Reads LinkedIn and Indeed alert emails via Gmail API\n• Finds the full job description on the company's careers page\n• Scores each role 1-10 against a profile you write about yourself\n• Emails you a ranked shortlist\n\nIt reads between the lines - matching capability, not keywords.",
+              notes: "Honest triage, not an AI-applies-for-you gimmick"
+            },
+            {
+              title: "Built for Real People",
+              content: "• Illustrated getting-started page\n• Fill-in-the-blank profile template\n• No-code version for Claude or ChatGPT\n• Scoring rubric in plain text you can edit\n\nIf you can fill in a form, you can use this.",
+              notes: "The enablement work IS the product work"
+            },
+            {
+              title: "How It Was Built",
+              content: "Designed and shipped solo by directing Claude Code.\n\n• Clean public/private architecture\n• Pluggable provider design\n• Offline test suite\n• Proper GitHub workflow\n\nYour data never touches the codebase.",
+              notes: "Technical ownership without being an engineer"
+            },
+            {
+              title: "What This Shows",
+              content: "• 0→1 product thinking: pain point to shipped tool\n• AI enablement in practice: built an AI tool AND made it usable by non-technical people\n• Technical ownership: directed Claude Code through a real GitHub workflow\n• Builds for the person who inherits the work: templates, guides, contributing path\n• Honest about limits rather than overselling",
+              notes: "The pattern is always the same: see gaps, fill gaps, build systems, hand off"
+            },
+            {
+              title: "Try It",
+              content: "Live page & getting started:\nashley-sarahsep.github.io/job-alert-scorer\n\nCode:\ngithub.com/ashley-sarahsep/job-alert-scorer\n\nOpen source · MIT licence · Free to use",
+              notes: "Links to live project and source code"
             }
           ]
         }
