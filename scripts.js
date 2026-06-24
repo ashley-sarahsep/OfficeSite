@@ -521,6 +521,11 @@ function initDesktop() {
     desktopInitialized = true;
   }
 
+  // Reload icon positions after desktop is visible so container has real dimensions
+  requestAnimationFrame(() => {
+    loadIconPositions();
+  });
+
   // Always restart clock when entering desktop (may have been cleared)
   updateClock();
   if (!clockInterval) {
