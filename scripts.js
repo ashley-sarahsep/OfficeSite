@@ -1357,10 +1357,6 @@ function initLiveJournal(windowEl) {
           <div class="lj-entry-content">
             <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-entry-userpic" onerror="this.style.display='none'">
             <div class="lj-entry-text">
-              <div class="lj-entry-meta">
-                <strong>Current mood:</strong> ${data.mood}<br>
-                <strong>Current music:</strong> ${data.music}
-              </div>
               <div class="lj-entry-body">${data.bio}</div>
             </div>
           </div>
@@ -1379,10 +1375,6 @@ function initLiveJournal(windowEl) {
           <div class="lj-entry-content">
             <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-entry-userpic" onerror="this.style.display='none'">
             <div class="lj-entry-text">
-              <div class="lj-entry-meta">
-                <strong>Current mood:</strong> ${entry.mood}<br>
-                <strong>Current music:</strong> ${entry.music}
-              </div>
               <div class="lj-entry-body">${entry.content}</div>
             </div>
           </div>
