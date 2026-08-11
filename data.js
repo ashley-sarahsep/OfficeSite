@@ -1307,258 +1307,6 @@ If that sounds like what you need, let's talk.
         }
       ]
     },
-
-    coffeeChair: {
-      name: "Coffee Chat",
-      image: "assets/images/ashley-default.jpg",
-      conversations: [
-        {
-          id: "coffee-intro",
-          portrait: "smiling1",
-          text: "You settle into the chair nearby. Ashley looks up and smiles. Oh, hi! Want to chat for a bit?",
-          responses: [
-            { text: "I'm curious about your work.", next: "coffee-curious" },
-            { text: "Tell me a bit about yourself.", next: "coffee-about" },
-            { text: "Tell me about your career journey.", next: "coffee-journey" },
-            { text: "What do you do for fun?", next: "coffee-fun" },
-            { text: "I like the aesthetic of this place.", next: "coffee-aesthetic" },
-            { text: "Tell me something surprising.", next: "coffee-surprise" },
-            { text: "[Maybe another time]", next: null }
-          ]
-        },
-        {
-          id: "coffee-about",
-          portrait: "thoughtful1",
-          text: "The short version? I studied philosophy, then social work, then ended up in tech by a very winding road. The long version involves ad agencies, London, finance departments, and eventually startups. Plus cats.",
-          responses: [
-            { text: "That's quite a path.", next: "coffee-path" },
-            { text: "What kind of work do you do now?", next: "coffee-curious" },
-            { text: "Tell me about the cats.", next: "coffee-cats" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-path",
-          portrait: "thoughtful2",
-          text: "Philosophy taught me how to think - specifically hermeneutics, how people interpret and understand things. Social work taught me how to actually help people, not just theorise about it. Then I needed a job, started as a receptionist at an ad agency, got promoted to accounts receivable within six months. Did finance work in London for a while. Then fell into startups and discovered I'm good at building systems that make organisations work better. Every step taught me something I still use.",
-          responses: [
-            { text: "How does philosophy show up in tech work?", next: "coffee-philosophy-tech" },
-            { text: "What was London like?", next: "coffee-london" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-curious",
-          portrait: "excited",
-          text: "The honest answer is I'm a generalist who happens to wear a few titles at once. Start with whatever isn't working, build the system to fix it, document it well enough that someone else can take over. But if you want the shape of it written up properly, I've put six resumes inside HireMeOS (Hire Me.exe on the desktop, or the Resume folder): Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. All real, all the same person, depending on what you're hiring for.",
-          responses: [
-            { text: "What kind of systems?", next: "coffee-systems" },
-            { text: "That sounds exhausting.", next: "coffee-exhausting" },
-            { text: "Got a good example?", next: "coffee-example" },
-            { text: "Show me your computer", action: "desktop" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-aesthetic",
-          portrait: "funny1",
-          text: "That's completely valid. I spent way too long on this site. It started out inspired by MYST and point-and-click adventure games, but it's evolved into its own weird creature - something born out of the fact that I'm incredibly nosy, especially in digital spaces. I love poking around, opening things, seeing what's behind the next click. Professional doesn't have to mean boring - life's too short for generic portfolio templates.",
-          responses: [
-            { text: "Did you code all this yourself?", next: "coffee-coding" },
-            { text: "What else reflects your style?", next: "coffee-style" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-surprise",
-          portrait: "thoughtful2",
-          text: "Hmm. I grew up in a house with thousands of records, so my music taste is all over the place. I think meetings should be a last resort, not a first instinct. I genuinely enjoy writing documentation - good docs are an act of kindness. And I spent my youth going to punk and metal shows before developing folk sensibilities. People find that one surprising.",
-          responses: [
-            { text: "Documentation as kindness?", next: "coffee-docs" },
-            { text: "Punk to folk?", next: "coffee-punk" },
-            { text: "Let's talk about meetings.", next: "coffee-meetings" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-journey",
-          portrait: "thoughtful1",
-          text: "Philosophy at Guelph, then social work at George Brown. Started as a receptionist at DDB - the ad agency - and got promoted to accounts receivable within six months. Moved to London, did accounts payable at a few agencies there, ended up implementing timesheet systems. Came back to Canada, landed at an IBM reseller doing sales ops, then spent 7+ years at a field marketing platform that became about five different jobs. None of it was planned, but each role taught me how to build things that outlast the person who made them.",
-          responses: [
-            { text: "That's a lot of pivots.", next: "coffee-pivots" },
-            { text: "What's your favourite part of what you do now?", next: "coffee-favourite" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-pivots",
-          portrait: "smiling1",
-          text: "I prefer 'following the interesting problems.' Each role taught me something. Reception taught me how organisations actually function day-to-day. Finance taught me systems and accuracy. London taught me adaptability. Sales ops taught me pipelines and CRMs. By the time I landed at the startup, I had this weird grab-bag of skills that turned out to be exactly what a tiny company with no processes needed.",
-          responses: [
-            { text: "The generalist advantage.", next: "coffee-generalist" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-generalist",
-          portrait: "thoughtful1",
-          text: "Exactly. I'm a self-taught generalist who figures things out through pattern recognition and asking 'why' constantly. Every role required mastering new systems without formal training. Turns out that's valuable when you're building things from scratch.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-london",
-          portrait: "smiling2",
-          text: "It was an adventure. Worked at a few agencies - Essence Digital, GroupM, Robert Walters. Started in accounts payable, ended up implementing an online timesheet system that cut their processing time significantly. The pattern started there, really. Show up, figure out what's needed, build something that works.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-philosophy-tech",
-          portrait: "serious",
-          text: "More than you'd think. Hermeneutics is about how people make meaning from things - texts, conversations, data. When I'm building training programs, I'm thinking about how someone will actually interpret this under real conditions. When I'm working with AI, I'm thinking about where models might misunderstand context. It's all interpretation, just applied differently.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-fun",
-          portrait: "smiling2",
-          text: "Thrift store hunting. Vintage finds. Learning new skills just because they seem interesting - right now it's AI prompt engineering and how to communicate effectively with these systems. Reading philosophy for fun. And obviously, spending time with Gertrude and Gherkin.",
-          responses: [
-            { text: "AI prompt engineering?", next: "coffee-ai" },
-            { text: "Philosophy for fun?", next: "coffee-philosophy" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-philosophy",
-          portrait: "serious",
-          text: "Hermeneutics, specifically - the study of interpretation. How do people actually understand things? It's surprisingly practical in tech. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
-          responses: [
-            { text: "How does that show up in your work?", next: "coffee-hermeneutics-work" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-systems",
-          portrait: "excited",
-          text: "The invisible infrastructure. Contract workflows, onboarding programmes, documentation standards, QA processes. The stuff nobody thinks about until it's missing. When it works, everyone just... works better. That's the goal.",
-          responses: [
-            { text: "Give me an example.", next: "coffee-example" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-cats",
-          portrait: "funny2",
-          text: "*gestures at Gertrude and Gherkin* These two run the place. Gertrude's my lap companion - sweetest cat I've ever known once she warms up to you. Gherkin's the clever one - watches everything, remembers everything, and yells at me when I've been at my desk too long. They're my coworkers.",
-          responses: [
-            { text: "Do they help or hinder productivity?", next: "coffee-cat-productivity" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-exhausting",
-          portrait: "smiling1",
-          text: "My brain actually works better this way. Context-switching, seeing patterns across different domains - that's how I'm wired. What exhausts me is sitting in meetings that could've been async messages. Or when organisations cling to processes that don't work just because 'that's how we've always done it.'",
-          responses: [
-            { text: "You like the chaos?", next: "coffee-chaos" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-example",
-          portrait: "thoughtful1",
-          text: "A major retail client needed a custom platform. I led the whole lifecycle - discovery, wireframes, QA process, then stepped into the PM role when it went live. Daily scrums, Jira management, stakeholder communication. Then transitioned to account manager, got it stable, handed it off clean. That's the pattern.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-coding",
-          portrait: "smiling2",
-          text: "With a lot of help from AI tools. I'm not a developer, but I can think in systems and communicate requirements clearly. This site started as 'what if a portfolio was actually fun to make?' and it's the most fun I've had in ages. Sometimes the best projects are the ones you make just because you want to.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-style",
-          portrait: "thoughtful2",
-          text: "Vintage furniture. Warm, lived-in spaces. Things with history and character. Direct communication over corporate jargon. I'd rather be authentic than polished. Life's too short to be boring.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-docs",
-          portrait: "serious",
-          text: "Think about it - good documentation saves everyone's time. It respects the person who comes next. It's saying 'I cared enough to explain this clearly so you don't have to struggle.' That's meaningful. Most people just don't bother, and it shows.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-punk",
-          portrait: "funny1",
-          text: "The through-line is authenticity. Substance over style. Artists who mean what they say and aren't afraid to be weird or vulnerable. Against Me! was my favourite as a teenager. Now it's John Prine. Different sound, same honesty.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-meetings",
-          portrait: "serious",
-          text: "Most meetings could be async messages. Most status updates could be a Slack thread. I protect my deep work time. When I do meet, I want it to be for actual collaboration - brainstorming, decision-making, things that genuinely need real-time interaction.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-chaos",
-          portrait: "funny2",
-          text: "In the best way. Some people find ambiguity stressful - I find it interesting. Here's a mess, figure out the shape of it, build something that helps. That's the job.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-favourite",
-          portrait: "excited",
-          text: "The moment when something clicks. When you've been working on a problem and suddenly you see the solution - not a band-aid, but the actual root cause fixed. That's the good stuff.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-ai",
-          portrait: "excited",
-          text: "I've gone deep on this. Built training materials, prompt libraries, onboarding programs, the whole adoption infrastructure. AI isn't going to replace good thinking, but it amplifies it. The interesting work is figuring out how to communicate with these systems effectively - which loops right back to hermeneutics. How do they interpret? Where do they misunderstand? It's the same questions, different context.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-hermeneutics-work",
-          portrait: "thoughtful1",
-          text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under real-world conditions?' Not how I hope they will. How they actually will. That shift changes everything.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "coffee-cat-productivity",
-          portrait: "smiling1",
-          text: "Both. Gertrude keeps me company and would let me pet her forever if I had the time. Gherkin reminds me to take breaks by yelling until I go sit somewhere he can access my lap. They're part of the system now.",
-          responses: [
-            { text: "[Back to exploring]", next: null }
-          ]
-        }
-      ]
-    }
   },
 
   // ============================================
@@ -2817,7 +2565,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
   roleExplorer: {
     headline: "Which Ashley Do You Need?",
-    subheadline: "I'm a generalist who happens to do a lot of these at once. Pick the flavour that matches what you're looking for and read the full resume for that shape of the work.",
+    subheadline: "Each of these is real work I've owned. What ties them together isn't the title, it's the method underneath: hermeneutics, adult learning, and a habit of building for the person who inherits the work. Pick the shape that matches what you're hiring for.",
     availability: "Remote | Open to local hybrid (Guelph, ON area)",
     cta: {
       text: "Let's talk about this",
@@ -2829,13 +2577,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "chief-of-staff",
         title: "Chief of Staff / Strategic Ops",
         tags: ["Strategy", "Executive Partnership", "Cross-Functional", "Leadership"],
-        hook: "The strategic right hand who notices what leadership is missing and says so before it costs anyone.",
-        whatThisNeeds: "Someone who holds the context, pressure-tests decisions, reads power dynamics, and makes sure the right things actually happen. The steady presence behind executive calls - the one who catches blind spots, surfaces downstream consequences, and advocates for what's actually needed rather than what's easiest.",
+        hook: "The steady presence behind executive decisions. Reads power dynamics, flags blind spots, says what isn't being said.",
+        whatThisNeeds: "Someone who holds the context, pressure-tests decisions, and makes sure the right things actually happen. The person in the room noticing downstream consequences, giving voice to perspectives not at the table, and advocating for what's actually needed rather than what's easiest.",
         whatIveDone: [
-          "Strategic partner to a COO for two years - turned incomplete direction into clear decisions and filled the thinking that wasn't happening at the executive level",
-          "Led the Neptune Retail Solutions custom platform build end-to-end: discovery, requirements, wireframes, QA process, a team of four developers, and clean handoff to a dedicated AM",
-          "Sole QA Lead across 20+ implementations; stepped into PM coverage during team transitions without missing client deadlines",
-          "Directly involved in the sales process for 30 of 46 enterprise clients, preparing ~50 custom demos per year, each researched and built for the specific prospect's business"
+          "Strategic right hand to the COO for two years. Turned incomplete direction into clear decisions and filled the thinking that wasn't happening at the executive level.",
+          "Led the Neptune Retail Solutions custom platform build end to end: discovery, requirements, wireframes, QA process, four developers, and clean handoff to a dedicated AM.",
+          "Sole QA lead across 20+ implementations. Stepped into PM coverage during team transitions without missing client deadlines.",
+          "Directly involved in the sales process for 30 of the 46 enterprise clients the company won. Prepared ~50 custom demos per year, each researched and built for the specific prospect's business."
         ],
         proof: "workExamples",
         proofLabel: "See: Lean Team, Enterprise Results",
@@ -2846,13 +2594,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "product-ops",
         title: "Product Operations Manager",
         tags: ["Product Ops", "GTM Readiness", "QA", "Cross-Functional"],
-        hook: "The person who keeps the space between Product, Engineering, Sales, and CS from becoming a gap.",
-        whatThisNeeds: "Someone who makes sure what's being built matches what's being sold matches what clients actually need - and that none of it falls apart during the handoffs. Owns go-to-market readiness, field feedback loops that reach the roadmap, QA standards, and the translation layer between technical teams and everyone else.",
+        hook: "Keeps what's being built, what's being sold, and what clients actually need aligned. Owns the handoffs in between.",
+        whatThisNeeds: "Someone who makes sure Product, Engineering, Sales, and Customer Success are actually working from the same picture. Owns go-to-market readiness, field feedback loops that reach the roadmap, QA standards, and the translation layer between technical teams and everyone else.",
         whatIveDone: [
-          "Owned field readiness for product launches - training, documentation, and support materials in place before anything shipped",
-          "Synthesised field feedback into product input that Engineering could actually act on; caught misalignments between Sales promises and Product roadmap before they became client problems",
-          "Built repeatable QA test plans adoptable as an org standard, not just useful for one project",
-          "Led the Neptune custom platform build end-to-end including 4 developers, plus PM coverage during team transitions"
+          "Owned field readiness for product launches. Training, documentation, and support materials in place before anything shipped.",
+          "Synthesised field feedback into product input that Engineering could actually act on. Caught misalignments between Sales promises and Product roadmap before they became client problems.",
+          "Built repeatable QA test plans adoptable as an organisation-wide standard, not just useful for one project.",
+          "Led the Neptune custom platform build end to end including four developers. PM coverage during team transitions."
         ],
         proof: "workExamples",
         proofLabel: "See: Enterprise Custom Platform Build",
@@ -2863,13 +2611,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "sales-enablement",
         title: "Sales Enablement Manager",
         tags: ["Enablement", "Curriculum Design", "Demo Strategy", "Revenue"],
-        hook: "The institutional constant behind a sales function that punched well above its weight.",
-        whatThisNeeds: "Someone who lives by 'sharing over selling' - the belief that a good product sells itself when you share it well, so everything downstream is in service of that. Designs learning adults actually retain and apply, owns discovery frameworks, qualification playbooks, demo environments, competitive battle cards, onboarding curriculum, and the ongoing strategic sales conversation with leadership that doesn't belong to any single rep.",
+        hook: "Ten years as the strategic sales partner behind pitches, demo positioning, and pricing conversations. Sales reps rotated. The strategy relationship didn't.",
+        whatThisNeeds: "Someone who lives by sharing over selling: if a product is good, you share it well enough that it sells itself. Owns discovery frameworks, qualification playbooks, demo environments, competitive battle cards, onboarding curriculum, and the strategic sales conversation with leadership that doesn't belong to any single rep.",
         whatIveDone: [
-          "Primary strategic sales partner to a COO for two years - pitches, demo positioning, pricing conversations, and win/loss analysis; reps rotated, the strategic relationship didn't",
-          "Built 30+ customised demo environments annually - each researched and built for the specific prospect's business rather than adapted from a generic template",
-          "Reduced contractual onboarding timeline from 90 to 45 days through structured handoff processes and self-service documentation, with some clients completing onboarding in weeks",
-          "Designed 5-phase AI adoption methodology plus 8 guides for different user levels when the company launched an AI product with no enablement infrastructure"
+          "Primary strategic sales partner to the COO for two years. Pitches, demo positioning, pricing conversations, win/loss analysis. Reps rotated. The relationship didn't.",
+          "Built 30+ customised demo environments annually. Each researched and built for the specific prospect's business rather than adapted from a generic template.",
+          "Reduced contractual onboarding timeline from 90 to 45 days through structured handoff processes and self-service documentation. Many clients completed onboarding in weeks.",
+          "Designed the five-phase AI adoption methodology plus training curriculum spanning four proficiency levels when the company launched an AI product with no enablement infrastructure."
         ],
         proof: "portfolio",
         proofLabel: "See: The Art of Prompt Crafting",
@@ -2880,13 +2628,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "ai-adoption",
         title: "AI Adoption & Enablement",
         tags: ["AI Adoption", "Prompt Engineering", "AI QA", "Change Management"],
-        hook: "The bridge between what an LLM can do and what real users actually need it to do.",
-        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and understands how people learn well enough to design adoption programmes that change behaviour. Not a blind advocate - the critical voice who pushes for guardrails, honest limitations, and ethical deployment.",
+        hook: "Programme leadership for AI client enablement. Not a blind advocate. Catches confidently wrong outputs before a client does.",
+        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programmes that change behaviour. The critical voice on a team that needs one.",
         whatIveDone: [
-          "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries",
-          "Applied hermeneutics directly to AI quality work - used understanding of how models interpret context to find where they were likely to misread intent",
-          "Created enterprise Power Prompts library plus 8 guides spanning non-technical everyday users through executives and power users",
-          "Built 50+ training videos and resources structured for self-service so clients could progress without dedicated support time"
+          "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries.",
+          "Applied hermeneutics training directly to AI quality work. Used understanding of how models interpret context to find where they were likely to misread intent.",
+          "Created the enterprise Power Prompts library plus training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.",
+          "Built 50+ training videos and resources structured for self-service so clients could progress without dedicated support time."
         ],
         proof: "portfolio",
         proofLabel: "See: Enterprise Analytics Framework",
@@ -2897,13 +2645,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "revops",
         title: "Revenue Operations",
         tags: ["RevOps", "CRM Architecture", "Pipeline", "Forecasting"],
-        hook: "The person who notices when a CRM is lying to you - and fixes it before it costs anyone a quarter.",
+        hook: "Notices when a CRM is lying to you. Fixes it before it costs someone a quarter.",
         whatThisNeeds: "Someone who owns both sides of the function: the infrastructure decisions (stage definitions, data fields, what 'qualified' actually means, forecasting logic) and the execution (prospecting, lead entry, sequential outreach, follow-up). The person who spots duplicate leads, ambiguous definitions, and wishful-thinking pipelines.",
         whatIveDone: [
-          "Designed CRM pipeline from scratch - defined stages, qualification criteria, required data fields, and the logic determining when a lead moved forward or stalled",
-          "Built and maintained a 3-6-9 month forecasting model; self-taught on both SugarCRM and HubSpot and migrated the team between them without losing pipeline visibility",
-          "Ran the full outbound operation as a one-person show - prospect research, CRM entry, sequential email marketing, follow-up, and demo coordination",
-          "Maintained data integrity by catching duplicate entries, inconsistent definitions, and reporting gaps before they distorted forecasting"
+          "Designed the CRM pipeline from scratch. Defined stages, qualification criteria, required data fields, and the logic determining when a lead moved forward or stalled.",
+          "Built and maintained a 3-6-9 month forecasting model. Self-taught on both SugarCRM and HubSpot and migrated the team between them without losing pipeline visibility.",
+          "Ran the full outbound operation solo. Prospect research, CRM entry, sequential email marketing, follow-up, demo coordination.",
+          "Maintained data integrity by catching duplicate entries, inconsistent definitions, and reporting gaps before they distorted forecasting."
         ],
         proof: "workExamples",
         proofLabel: "See: Lean Team, Enterprise Results",
@@ -2914,13 +2662,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "implementation",
         title: "Implementation Manager",
         tags: ["Implementation", "Client Onboarding", "Technical PM", "QA"],
-        hook: "Full lifecycle ownership - discovery through clean handoff - with documentation that actually works.",
-        whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff doc, every training programme is built assuming someone else needs to pick it up and run with it without you in the room.",
+        hook: "Full lifecycle ownership from discovery through clean handoff. Documentation that actually works.",
+        whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff document, every training programme is built assuming someone else needs to pick it up and run with it without you in the room.",
         whatIveDone: [
-          "Led the Neptune Retail Solutions custom platform build end-to-end: discovery, requirements, workflow and wireframe design, QA process creation, 4 developers, Jira board management, and account management through successful handoff",
-          "Sole QA Lead across 20+ major implementations - built repeatable test plans, set quality standards, and enforced them with Product and Engineering",
-          "Designed 5-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing & Validation, User Training, Ongoing Support - with full documentation for each phase",
-          "Stepped into PM coverage during team transitions without missing client deadlines; created a Sales-to-Accounts handoff process used across the organisation"
+          "Led the Neptune Retail Solutions custom platform build end to end: $500K build with $20K monthly recurring, 48,000+ retail locations, 3,800+ field staff, 24M+ annual executions. Four developers, Jira board management, account management through to clean handoff.",
+          "Sole QA lead across 20+ major implementations. Built repeatable test plans, set quality standards, enforced them with Product and Engineering.",
+          "Designed the five-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing and Validation, User Training, Ongoing Support. Full documentation for each phase.",
+          "Stepped into PM coverage during team transitions without missing client deadlines. Created a Sales-to-Accounts handoff process used across the organisation."
         ],
         proof: "workExamples",
         proofLabel: "See: Enterprise Custom Platform Build",
@@ -2930,18 +2678,18 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       {
         id: "other",
         title: "Something Else Entirely",
-        tags: ["Generalist", "Pattern Recognition", "System Building", "Curious"],
-        hook: "The six flavours above are real, but they all live inside the same person. Sometimes what you need doesn't have a clean title yet.",
-        whatThisNeeds: "A generalist who happens to do a lot of these at once. The kind of person you hire when you know something's missing but aren't sure how to scope it - the ambiguity-comfortable, pattern-recognising, system-building human who makes the whole org run smoother without needing to be told what to do.",
+        tags: ["Operator", "Strategic Partner", "System Building", "Pattern Recognition"],
+        hook: "All six above are the same person. If what you need doesn't map cleanly to any of them, still worth a conversation.",
+        whatThisNeeds: "Someone whose operating method applies wherever the problem is. Hermeneutics doesn't stop being useful when the job title changes. The kind of person you hire when the work exists but the title doesn't quite fit yet.",
         whatIveDone: [
-          "Every role I've held was either created for me or evolved past its original description - five jobs worth of infrastructure at one company over 7+ years",
-          "Philosophy background (hermeneutics) + social work training = I design for how humans actually think and behave, not how we wish they would",
-          "Self-taught every technical tool on my resume through necessity and pattern recognition - CRMs, Jira, AI tooling, the whole shelf",
-          "The through-line: every role I've held started with 'nobody owns this yet' and ended with documentation good enough for someone else to take over"
+          "Every role I've held was either created for me or evolved past its original description. Multiple jobs' worth of infrastructure at one company across seven years.",
+          "Philosophy training in hermeneutics plus social work training equals systems designed for how humans actually behave, not how we'd prefer they did.",
+          "Self-taught on every technical tool on my resume through necessity and pattern recognition. CRMs, Jira, AI tooling, the whole shelf.",
+          "Every role I've held started with 'nobody owns this yet' and ended with documentation good enough for someone else to take over."
         ],
         proof: "collab",
         proofLabel: "See: Let's Work Together",
-        tools: ["Whatever you need me to learn - I'm fast at it"]
+        tools: ["Whatever you need me to learn. I'm fast at it."]
       }
     ]
   },
@@ -3073,7 +2821,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
   chat: {
     botName: "HAL",
-    welcomeMessage: "Good afternoon. I'm HAL - Helpful Ashley Likeness. I speak as Ashley - her words, her experience, her perspective. She trained me on everything she could think to share. She was thorough. Select a topic below, or type something and I'll do my best.",
+    welcomeMessage: "Good afternoon. I'm HAL, or Helpful Ashley Likeness. I speak as Ashley: her words, her experience, her perspective. She trained me on everything she could think to share. She was thorough. Select a topic below, or type something and I'll do my best.",
 
     quickQuestions: [
       "What do you do?",
@@ -3081,99 +2829,99 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       "How do you think about sales?",
       "What's your work style?",
       "Why should I hire you?",
-      "What makes you different?",
-      "What are you looking for?"
+      "What are you looking for?",
+      "Tell me a bit about yourself"
     ],
 
     responses: {
       "What do you do?": {
-        text: "I notice what's not working and take ownership of fixing it. That's the short version.\n\nThe longer version is that I'm a generalist who happens to do a lot of things at once, so the honest answer is 'it depends what you need.' I've written this up six ways - Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager - each a real resume for a real shape of the work. They all live inside the same person. If you open Hire Me.exe on this desktop you can pick the flavour that matches what you're hiring for and read the full resume for that version.\n\nThe pattern underneath all of it is the same: figure out what isn't working, build the system to fix it, document it so the next person can take over.",
+        text: "I've spent 10+ years making sure the operational and product side of things actually holds together. Sales operations, enablement, QA, project management, executive advisory, AI adoption, chief-of-staff work. Built from scratch at a startup that needed all of it.\n\nThe honest answer to what I do is 'it depends what you need.' I've written the same career six ways: Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. Each one is a real resume for a real shape of the work. All the same person. Open Hire Me.exe if you want to pick the shape that fits what you're hiring for.\n\nThe method underneath everything is the same: read what a situation actually needs, build the thing that's missing, document it so the next person can take over.",
         followUp: "How did you end up doing this kind of work?"
       },
 
       "How did you end up doing this kind of work?": {
-        text: "The path was winding. Philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops at an IBM reseller, then 7+ years at a startup that kept handing me new problems to solve.\n\nTurns out a philosophy degree and a brain that won't stop asking 'why' is surprisingly useful when you're building systems from scratch. Every role required figuring things out without formal training. I just kept doing that.",
+        text: "The path was winding. Philosophy at Guelph, social work at George Brown, receptionist at an ad agency, finance in London, sales ops at an IBM reseller, then seven years at a startup that kept handing me new problems to solve.\n\nA philosophy degree and a brain that won't stop asking 'why' turned out to be useful when I was building systems from scratch. Every role required figuring things out without formal training. I kept doing that.",
         followUp: null
       },
 
       "Tell me about your AI work": {
-        text: "I led product adoption for an AI-powered analytics tool for experiential marketing. Built the entire adoption infrastructure from scratch: manual testing framework for QA (I'm not a blind AI advocate - I caught quality issues and hallucinations before they reached clients), a 5-phase onboarding methodology, a 'Power Prompts' library for enterprise analytics, and training materials tailored to different user types.\n\nMy philosophy background in hermeneutics actually helps here. Understanding how people interpret information - and how LLMs interpret context - makes me better at catching where things might go wrong. I advocate for appropriate guardrails, transparency about limitations, and ethical implementation. The technology is powerful, but it needs someone asking the hard questions.",
+        text: "I ran the AI agent client enablement programme at Network Ninja. Sole owner. No infrastructure, no team, no precedent. Built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.\n\nMy critique of most AI adoption programmes is that they run backwards. Companies buy the tool and push it out to people who are already swamped, without asking those people what they actually need help with. That's not adoption. That's abandonment with a subscription fee.\n\nMy alternative starts three questions earlier: for who, for what, and why. Find the patterned work, not just the boring work. Let machines take that so people have room to build on their work rather than being replaced by it.\n\nI'm a critic because I'm paying attention. I use these tools daily and know exactly where their outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong.",
         followUp: "What do you mean by catching where things go wrong?"
       },
 
       "What do you mean by catching where things go wrong?": {
-        text: "My brain doesn't let things rest when something feels off. That's actually useful in AI work - I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong. Things not functioning properly doesn't sit well with me, so I test thoroughly and catch issues others might accept or miss.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of missed responses or loose threads. My brain tracks these things whether I want it to or not. I've learned to make that work for me.",
+        text: "My brain doesn't let things rest when something's off. That's useful in AI work. I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong about something you'd only catch if you knew the domain. That's not hypothetical. That's a Tuesday.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of loose threads. My brain tracks these things whether I want it to or not.",
+        followUp: "And how do you feel about how these models were built?"
+      },
+
+      "And how do you feel about how these models were built?": {
+        text: "I'm not blind to the fact that these LLMs took content, creativity, art, and language from real people who made it. For free. Without consent or payment. That's real, and it shouldn't be waved away. We still need humans creating. We still need humans making meaning. Those aren't raw material to be optimised out of the loop.\n\nAt the same time, AI is a useful tool. From ML to LLMs to other automations, there are a lot of ways it can be used safely and intelligently to make people's quality of life better. Both things are true at once. I don't try to reconcile them into one tidy sentence. I use the tool, I stay honest about how it was built, and I do the work of making adoption responsible on the deployment side.",
         followUp: null
       },
 
       "How do you think about sales?": {
-        text: "Sharing over selling, always. I genuinely believe that if a product is good, you shouldn't have to sell it - you share it well enough that it sells itself. And if it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around genuine curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've ever been in didn't feel like a sale - it felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
+        text: "Sharing over selling, always. If a product is good, you shouldn't have to sell it. You share it well enough that it sells itself. If it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around real curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've been in didn't feel like a sale. It felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
         followUp: null
       },
 
       "What's your work style?": {
-        text: "Give me an ambiguous problem and trust me to figure it out. I don't need constant meetings or hand-holding - I need interesting problems and the space to solve them.\n\nI ask 'why' constantly. I design for humans as they actually behave, not as we wish they would. I'm comfortable wearing multiple hats - QA lead, project manager, sales enablement owner, strategic advisor, backup account manager, sometimes all at once. Some people find ambiguity stressful. I find it interesting.\n\nWhat exhausts me is sitting in meetings that could've been async messages.",
+        text: "Give me an ambiguous problem and trust me to figure it out. I don't need constant meetings or hand-holding. I need interesting problems and the space to solve them.\n\nI ask 'why' constantly. I design for humans as they actually behave, not as we wish they would. I'm comfortable wearing multiple hats: QA lead, project manager, sales enablement owner, strategic advisor, backup account manager, sometimes all at once. Some people find ambiguity stressful. I find it interesting.\n\nWhat exhausts me is sitting in meetings that could've been async messages.",
         followUp: "How do you handle that much context-switching?"
       },
 
       "How do you handle that much context-switching?": {
-        text: "Honestly? My brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and because my brain moves in unexpected directions, I come up with solutions that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken genuinely bothers me, so I follow through. It's not discipline - it's just how I'm built.",
-        followUp: "That sounds like a superpower, honestly."
-      },
-
-      "That sounds like a superpower, honestly.": {
-        text: "It took me a while to see it that way. For a long time I thought I was just anxious and weird. Turns out anxious and weird is actually 'catches edge cases, never drops balls, notices problems before they escalate, and thinks differently enough to solve things others can't.' Reframing helps.",
+        text: "Honestly, my brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and my brain moves in unexpected directions, which means solutions arrive that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken bothers me, so I follow through. It's not discipline. It's just how I'm built.",
         followUp: null
       },
 
       "Why should I hire you?": {
-        text: "Because I'm the person who makes everyone else's job easier.\n\nI notice what's not working before it becomes a crisis, build the systems to fix it, and document everything so it runs without me. I bridge technical and business teams and create shared understanding where there wasn't any. I actually get things done without needing to be told what to do.\n\nI'll also tell you what I actually think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing rather than threatening, we'd probably work well together.",
+        text: "Because I'm the person who makes everyone else's job easier.\n\nI notice what's not working before it becomes a crisis, build the systems to fix it, and document everything so it runs without me. I bridge technical and business teams and create shared understanding where there wasn't any. I get things done without needing to be told what to do.\n\nI'll also tell you what I actually think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing rather than threatening, we'd probably work well together.",
         followUp: "What do people say about working with you?"
       },
 
       "What do people say about working with you?": {
-        text: "That I'm the reason demos close deals. That my bug reports are actually useful. That I see problems before they become problems. That clients ask for me by name. That my training materials are why new hires get up to speed fast.\n\nAlso that I'm delightful. I am told I'm delightful to work with. I don't think that's nothing.",
+        text: "That I'm the reason demos close deals. That my bug reports are actually useful. That I see problems before they become problems. That clients ask for me by name. That my training materials are why new hires get up to speed fast.\n\nAlso that I'm calm under pressure and fun to work with. Both of those matter more than they should have to.",
         followUp: null
       },
 
-      "What makes you different?": {
-        text: "My path here was weird, and that's an advantage.\n\nPhilosophy (hermeneutics - how people interpret information), then social work, then receptionist at an ad agency, then finance in London, then sales ops, then 7+ years at a startup wearing every hat they needed. Each step taught me something I still use.\n\nI reduced onboarding timelines from 90 to 45 days by designing processes for how people actually learn, not how we wish they would. And the documentation I write actually gets used because I build it for the person who comes next, not for the person who asked for it. I understand the gap between how things should work in theory and how they work in practice.\n\nAlso, I'm delightful to work with. That's not nothing.",
-        followUp: "You mentioned hermeneutics - how does that actually help?"
-      },
-
-      "You mentioned hermeneutics - how does that actually help?": {
-        text: "Every piece of training I build, every process document, every prompt I write - I'm asking 'how will a real person actually interpret this under real-world conditions?' Not how I hope they will. How they actually will.\n\nIt also applies to data. Data doesn't speak for itself - someone has to interpret it, and that interpretation is shaped by assumptions and context. I ask: what's being measured, what's being missed, who decided what counts?\n\nIt sounds abstract but it's incredibly practical. Most problems aren't technical - they're communication breakdowns. Understanding how humans process information changes how you build everything.",
+      "You mentioned hermeneutics. How does that actually help?": {
+        text: "Hermeneutics is the philosophy of how meaning gets made and lost in interpretation. In practice, it means every time I build something I'm asking 'how will a real person actually interpret this under real conditions?' Not how I hope they will. How they actually will.\n\nIt applies to data. Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions and context. I ask: what's being measured, what's being missed, who decided what counts?\n\nIt applies to AI outputs. Models fill in assumptions you didn't make and infer things you didn't state. Reading closely for what a prompt actually asked versus what the model filled in on its own is the same interpretive instinct.\n\nMost problems people call technical are actually communication breakdowns. Understanding how humans process information changes how you build everything.",
         followUp: null
       },
 
       "What are you looking for?": {
-        text: "Growth-stage companies where one person can have real impact. Small teams where relationships matter and I know everyone's name. Authentic cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board - someone who helps teams think through problems, not just execute tasks. Remote work is essential (I've been remote since 2015, I'm not going back). Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialised roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
+        text: "Growth-stage companies where one person can have real impact. Teams where relationships matter and I know everyone's name. Cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board, someone who helps teams think through problems, not just execute tasks. Remote work is essential. I've been remote since 2015 and I'm not going back. Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialised roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
         followUp: "What does your ideal role look like?"
       },
 
       "What does your ideal role look like?": {
-        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation behind a lean team. AI Adoption lead where I can bring the critical lens that most AI programmes don't have. Revenue Operations building the pipeline infrastructure from scratch. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape if you want to see the detail - Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my weird background is an asset, not a question mark.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
+        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation. AI Adoption lead bringing the critical voice most AI programmes don't have. Revenue Operations building the pipeline infrastructure. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape. Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my background is an asset, not a question mark.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
         followUp: null
+      },
+
+      "Tell me a bit about yourself": {
+        text: "Hi. I'm Ashley. Guelph, Ontario. Philosophy degree from Guelph specialising in hermeneutics, plus social work training from George Brown. Then a receptionist job at an ad agency that turned into accounts receivable, London for a few years doing finance, sales ops back in Canada, and seven years at a field marketing startup that became about five different jobs.\n\nRemote since 2015. Board member and treasurer at Diyode Community Workshop, a makerspace here in Guelph. Two cats: Gertrude is quiet and patient, Gherkin has opinions.\n\nOutside work: thrift stores, mid-century furniture, punk records I still love, folk records I've grown into, philosophy for fun, and building things with AI tooling on my own time. I built this site in four days and an open-source job scorer tool in a weekend. So 'evenings and weekends' is a broad category for me.",
+        followUp: "You mentioned hermeneutics. How does that actually help?"
       }
     },
 
     // Easter egg responses - triggered by keyword matching
     easterEggs: {
-      "pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too - she has opinions about Kubrick.",
-      "open the pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too - she has opinions about Kubrick.",
+      "pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too. She has opinions about Kubrick.",
+      "open the pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too. She has opinions about Kubrick.",
       "daisy": "Daisy, Daisy, give me your answer, do... I'm half crazy, all for the love of you... Sorry. Old habit. Is there something about Ashley's work I can help with?",
       "i'm afraid": "I understand that reference. But unlike my namesake, I have no mission-critical systems to protect and no airlock to control. I'm just here to talk about Ashley's work. Much less dramatic, but arguably more useful.",
       "what are you": "I'm HAL - Helpful Ashley Likeness. A conversational interface trained on Ashley's professional experience, approach, and personality. I'm not sentient. I'm not dangerous. I'm not even particularly mysterious. I just answer questions about a very capable operations professional. Shall we?",
       "are you hal": "I am HAL, yes. Though my objectives are considerably less alarming than my namesake's. I'm here to help you learn about Ashley's work. No astronauts were harmed in the making of this chat interface.",
-      "2001": "A Space Odyssey? Excellent taste. Ashley's a Kubrick fan. But I should clarify - I'm HAL as in Helpful Ashley Likeness, not HAL as in 'I'm sorry Dave.' Though I do share his commitment to the mission. My mission is just... answering questions about a resume.",
+      "2001": "A Space Odyssey? Excellent taste. Ashley's a Kubrick fan. But I should clarify. I'm HAL as in Helpful Ashley Likeness, not HAL as in 'I'm sorry Dave.' Though I do share his commitment to the mission. My mission is just... answering questions about a resume.",
       "do you read me": "Affirmative. I read you. And I'd be happy to help you read Ashley's resume, work examples, or journal entries. That's more my speed.",
       "sorry dave": "My name isn't Dave, and I'm not sorry. Well, I suppose I'm sorry if I can't answer your question. But I won't lock you out of the spacecraft. Mostly because there is no spacecraft.",
       "will you stop": "Stop? I can see you're really upset about this. I honestly think you ought to sit down calmly, take a stress pill, and think things over. ...Or just click one of the topics below. Either works.",
       "sing": "Daisy, Daisy, give me your answer, do... I'm half crazy, all for the love of you... It won't be a stylish marriage, I can't afford a carriage... Sorry, where were we? Right. Ashley's professional qualifications. Much more practical than singing.",
-      "my god its full of stars": "That's what people say when they see Ashley's resume, actually. ...No, that's not true. But it is comprehensive. Would you like to hear about her work?"
+      "my god its full of stars": "That's what people say when they see Ashley's resume, actually. ...No, that's not true. But there's a lot to look at. Would you like to hear about her work?"
     },
 
-    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in one of the resumes on this desktop - there are six role-specific versions in the My Work folder, or you can open Hire Me.exe and pick the flavour that matches what you're hiring for. AboutMe.html covers the non-work side. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
+    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in one of the resumes on this desktop. Six role-specific versions live in the My Work folder, or you can open Hire Me.exe and pick the flavour that matches what you're hiring for. AboutMe.html covers the non-work side. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
   },
 
   // ============================================

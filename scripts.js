@@ -338,8 +338,8 @@ function openDialog(hotspotId, hotspotData) {
 
   // Determine what image to show:
   // - If hotspot has an image (items/cats), show that image
-  // - Otherwise (conversations with Ashley like welcome, coffeeChair), show Ashley's portrait
-  const isAshleyConversation = !hotspotData.image || hotspotId === 'welcome' || hotspotId === 'coffeeChair';
+  // - Otherwise (conversations with Ashley like welcome), show Ashley's portrait
+  const isAshleyConversation = !hotspotData.image || hotspotId === 'welcome';
 
   // Store what type of dialog this is for portrait updates
   state.isAshleyDialog = isAshleyConversation;
