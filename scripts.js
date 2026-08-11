@@ -1938,7 +1938,7 @@ function initAboutComputer(windowEl) {
           </div>
           <div class="about-spec">
             <span class="spec-label">Memory:</span>
-            <span class="spec-value">"I have a doc for that" - 2TB indexed</span>
+            <span class="spec-value">"I have a doc for that" (2TB indexed)</span>
           </div>
           <div class="about-spec">
             <span class="spec-label">Remote Mode:</span>
@@ -1950,7 +1950,7 @@ function initAboutComputer(windowEl) {
 
         <div class="about-spec-group">
           <div class="about-spec">
-            <span class="spec-label">Gap Detection:</span>
+            <span class="spec-label">Context Detection:</span>
             <span class="spec-value">Real-time, high-precision</span>
           </div>
           <div class="about-spec">

@@ -2321,6 +2321,25 @@ body {
     padding: 10px;
   }
 
+  /* Mobile: monitor fills the viewport; room-over-desktop metaphor doesn't work at this size */
+  .desktop-scene {
+    background: #1a1a1a;
+    padding: 0;
+  }
+
+  .monitor-frame {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+  }
+
+  /* Room stays hidden on mobile when desktop is up; no dim needed since no room shows through */
+  .room-scene.behind-desktop {
+    filter: none;
+    visibility: hidden;
+  }
+
   /* Room navbar responsive - two rows on mobile */
   .room-navbar {
     padding: 8px 12px;

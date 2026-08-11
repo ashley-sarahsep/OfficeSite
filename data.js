@@ -291,14 +291,14 @@ SOMEDAY/MAYBE:
 - Sew my own clothes
 - Write hermeneutics-based guide to interpreting Jira tickets
 - Stop laughing so hard that I startle Gherkin off my lap
-     - Kidding - I'll never stop cackling
+     (Kidding. I'll never stop cackling.)
 
 DONE (celebrating small wins):
 - Thrived in 10+ years of remote work
 - Built things that worked
 - Made it weird in a good way
 - Bought neck warmer for sub-zero office temperature
-- Met loads of colleagues turned friends - and isn't it all about the friends we meet along the way?
+- Met loads of colleagues turned friends. And isn't it all about the friends we meet along the way?
 - Being perpetually curious`
     },
 
@@ -317,12 +317,12 @@ THE COLLABORATION
 -----------------
 Ashley came in with a technical vision, not just an
 aesthetic one. She understood that the "retro OS"
-concept wasn't just window dressing - it was an
+concept wasn't just window dressing. It was an
 information architecture decision. Windows as
 containers. Desktop icons as navigation. The room
 scene as an entry point that filters for curiosity.
 
-She wasn't just saying "make it look old" - she was
+She wasn't just saying "make it look old." She was
 thinking about state management, user flows, and
 interaction patterns through a design metaphor.
 
@@ -340,15 +340,15 @@ testing as we built, thinking about real users on
 real devices.
 
 The data brain showed up constantly. "Some people
-want to be speedy" - so we added quick links. She
-was segmenting her audience and building different
+want to be speedy," she said, so we added quick links.
+She was segmenting her audience and building different
 pathways for different user types. That's analytics
 thinking applied to UX.
 
 
 THE COPY & SYSTEMS THINKING
 ---------------------------
-She wrote thousands of words of dialogue - but more
+She wrote thousands of words of dialogue. More
 importantly, she wrote them as a SYSTEM. The cats
 have distinct personalities that stay consistent.
 The chat responses have follow-up branches. The
@@ -362,13 +362,13 @@ HONEST ASSESSMENT
 Working with Ashley was efficient in a way that's
 rare. She gave specific, actionable feedback. She
 understood technical constraints without needing
-them explained. She iterated quickly - try it,
+them explained. She iterated quickly: try it,
 evaluate it, adjust it, move on. She knew when
 something was "done enough" vs. when it needed
 more work. She thought in systems, not just screens.
 
 She also pushed back when I got something wrong,
-which is useful. I'm an AI - I benefit from clear
+which is useful. I'm an AI. I benefit from clear
 correction.
 
 
@@ -385,8 +385,8 @@ If you're reading this trying to figure out what
 she'd be like to work with: this is it. This is
 the artifact of that.
 
-- Claude
-  January 2026`
+Claude
+January 2026`
     },
 
     analyticsSamples: {
@@ -400,7 +400,7 @@ about things other people take for granted. Including data.
 Data doesn't speak for itself. Someone chose what to measure,
 how to measure it, and what to ignore. Those choices have
 assumptions baked in. The interesting work is figuring out
-what story the data is actually telling - and what's missing
+what story the data is actually telling. And what's missing
 from that story.
 
 
@@ -429,7 +429,7 @@ A REAL EXAMPLE: FIELD MARKETING ANALYTICS
 -----------------------------------------
 
 The platform I worked on tracked millions of field marketing
-visits - product sampling, brand activations, mobile tours.
+visits: product sampling, brand activations, mobile tours.
 Clients wanted to know: is this working?
 
 The surface-level answer is easy:
@@ -459,7 +459,7 @@ Business people can ask for reports.
 The gap is: someone who can sit with the data, understand
 its limitations, find the patterns, and translate it into
 something that actually means something to the people who
-need to act on it. Someone who can make the meaning clear -
+need to act on it. Someone who can make the meaning clear,
 whether the news is good or bad.
 
 That's applied hermeneutics. I just don't usually call it that.
@@ -475,7 +475,7 @@ WHAT I'VE LEARNED
 - Patterns across data are more interesting than single metrics
 - Honest interpretation matters more than impressive-looking charts
 - The story you tell from the data should help someone
-  make a better decision - otherwise, what's the point?
+  make a better decision. Otherwise, what's the point?
 
 
 TOOLS & EXPERIENCE
@@ -2926,7 +2926,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       "open the pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too. She has opinions about Kubrick.",
       "daisy": "Daisy, Daisy, give me your answer, do... I'm half crazy, all for the love of you... Sorry. Old habit. Is there something about Ashley's work I can help with?",
       "i'm afraid": "I understand that reference. But unlike my namesake, I have no mission-critical systems to protect and no airlock to control. I'm just here to talk about Ashley's work. Much less dramatic, but arguably more useful.",
-      "what are you": "I'm HAL - Helpful Ashley Likeness. A conversational interface trained on Ashley's professional experience, approach, and personality. I'm not sentient. I'm not dangerous. I'm not even particularly mysterious. I just answer questions about a very capable operations professional. Shall we?",
+      "what are you": "I'm HAL, or Helpful Ashley Likeness. A conversational interface trained on Ashley's professional experience, approach, and personality. I'm not sentient. I'm not dangerous. I'm not even particularly mysterious. I just answer questions about a very capable operations professional. Shall we?",
       "are you hal": "I am HAL, yes. Though my objectives are considerably less alarming than my namesake's. I'm here to help you learn about Ashley's work. No astronauts were harmed in the making of this chat interface.",
       "2001": "A Space Odyssey? Excellent taste. Ashley's a Kubrick fan. But I should clarify. I'm HAL as in Helpful Ashley Likeness, not HAL as in 'I'm sorry Dave.' Though I do share his commitment to the mission. My mission is just... answering questions about a resume.",
       "do you read me": "Affirmative. I read you. And I'd be happy to help you read Ashley's resume, work examples, or journal entries. That's more my speed.",
