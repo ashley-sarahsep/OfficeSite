@@ -2734,7 +2734,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
     interests: {
       general: "Hermeneutics, pattern recognition, thrift stores, vintage finds, point-and-click adventure games, MYST, mid-century modern furniture, estate sales, things with history",
-      music: "John Prine, Emmylou Harris, Talking Heads, Psychedelic Furs, Prince, Against Me!, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Grew up in a house with thousands of records. Spent my youth at punk and metal shows. See you in the pit.",
+      music: "John Prine, Emmylou Harris, Talking Heads, Psychedelic Furs, Prince, Against Me!, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Grew up in a house with thousands of records. Spent my youth at punk and metal shows - see you in the pit.",
       books: "Philosophy texts I still reference, fiction that teaches empathy, social work theory, just good stories",
       heroes: "My dad (music, books, curiosity) and my mum (Prince, Talking Heads, the fun stuff), and I'm sure plenty of others, though I'm not keen on pedestals."
     },
