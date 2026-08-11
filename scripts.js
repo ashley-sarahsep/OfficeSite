@@ -4123,7 +4123,7 @@ function initWorkMatch(windowEl) {
       ]
     },
     {
-      text: "When you describe your 'superpower' honestly, it's:",
+      text: "The thing you're best at, described honestly:",
       answers: [
         { text: "Reading what isn't being said in the room and deciding whether to say it", scores: [5, 2, 1, 1, 1, 1] },
         { text: "Holding the whole org in my head at once and knowing which thread to pull to unblock delivery", scores: [2, 5, 1, 1, 1, 2] },
