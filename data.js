@@ -83,6 +83,150 @@ const SITE_DATA = {
   // EASTER EGGS - HIDDEN FILES
   // ============================================
   easterEggs: {
+    aiReadme: {
+      title: "README.txt - AI Thoughts",
+      content: `AI, ACCORDING TO ME
+=====================
+
+I use these tools daily and well. I know they were built on real people's work, taken without consent or pay, and I don't pretend that away. I think the way most companies are deploying AI now is a failure of people-thinking dressed up as innovation. I know exactly where the tool's confidence shouldn't be trusted, because I've built the systems that catch it when it's wrong. And I still believe, at the same time, that used well it can improve people's quality of life, because humans still need to create, still need to make meaning, and the tool is only worth anything if it protects room for that instead of replacing it.
+
+Both things stay true at once. I don't reconcile them into one tidy sentence. That would be too clean for what this actually is.
+
+---
+
+This folder holds a few of the positions underneath that. Read whichever ones interest you. They aren't a coherent essay. They're a set of things I've worked out over time.
+
+01_backwards_adoption.txt: the deployment critique
+02_distrust_as_practice.txt: how I actually work with AI outputs
+03_hermeneutics_in_practice.txt: what my philosophy background is doing here
+04_origins.txt: the extraction problem
+05_room_to_breathe.txt: what I want AI to protect, not replace`
+    },
+
+    aiBackwards: {
+      title: "01_backwards_adoption.txt - Notepad",
+      content: `BACKWARDS ADOPTION
+====================
+
+Companies adopt AI backwards. They buy the tool first and try to fit people to it after, instead of starting with what people actually need help with.
+
+They throw it at overwhelmed workers without understanding what those workers actually need help with day to day. They invest millions without taking the time to research or even ask. Then they put the burden of figuring it out on people who are already swamped. People who are also being told, implicitly, that this tool might make them redundant.
+
+That's not adoption. That's abandonment with a subscription fee.
+
+---
+
+The alternative starts three questions earlier: for who, for what, and why.
+
+For who: not the executives buying the tool. The people opening it on a Tuesday morning.
+
+For what: specifically patterned work. Not "boring" work. "Boring" is subjective. "Patterned" is the thing that's actually automatable.
+
+Why: not productivity for its own sake. Potential.
+
+---
+
+People don't just do their existing job faster. They find the potential that was buried under it. The improvements they couldn't get to. The thinking they didn't have room for.
+
+Machines take the monotonous, repetitive, easily-automated tasks that bury people. Not to replace people. To give them room to build on their work and produce better things.
+
+I'm an idealist about what people do with that room. A realist about the tool that creates it.`
+    },
+
+    aiDistrust: {
+      title: "02_distrust_as_practice.txt - Notepad",
+      content: `DISTRUST AS A PRACTICED SKILL
+================================
+
+I don't extend blind trust to AI outputs. This is the actual differentiator. Not "I use AI." "I know exactly where it's wrong before the client finds out."
+
+I've tested AI output that was confident, well-structured, and completely wrong about something you'd only catch if you knew the domain. That's not a hypothetical. That's a Tuesday.
+
+The end user is usually the one who finds out. Not the vendor. Not the executive who signed the contract. The person actually using the thing, trying to make a decision based on what it told them.
+
+That gap between who sells it and who lives with the output is where I spend most of my time.
+
+---
+
+There's the "AI can make mistakes, please double-check responses" disclaimer that everyone, including the people who built the tool, knows is true. And executives make headcount decisions as if it weren't. That's darkly funny to me.
+
+My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach. It's what most AI adoption programmes skip.`
+    },
+
+    aiHermeneutics: {
+      title: "03_hermeneutics_in_practice.txt - Notepad",
+      content: `HERMENEUTICS IN PRACTICE
+==========================
+
+My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's not a resume line. It's the literal cognitive process I use when evaluating AI systems.
+
+Understanding how a model interprets and generates information is, for me, an extension of the same interpretive instinct I use to figure out what a client actually means versus what they literally said.
+
+When I evaluate AI output, I'm not just asking "is this correct?" I'm asking:
+
+- How did the model interpret the prompt?
+- Where did it fill in assumptions I didn't make?
+- What did it infer that I didn't state?
+- Is the structure of the response shaping the content in ways I didn't ask for?
+
+That's a different kind of reading than most people bring to AI output.
+
+---
+
+I've found hallucinations that looked perfectly plausible until you traced the reasoning back. I've caught outputs that were technically correct but answered a question slightly different from the one that was asked. That's a much harder failure to spot and a much more dangerous one.
+
+The same hermeneutic instinct that reads a client's business under what they literally said reads a model's output under what it literally produced.
+
+Same skill. Different medium.`
+    },
+
+    aiOrigins: {
+      title: "04_origins.txt - Notepad",
+      content: `ORIGINS
+=========
+
+I am not blind to the fact that these LLMs took content, creativity, art, language from real human people who made it. For free. Without consent. Without payment. That's extraction, and it shouldn't be waved away.
+
+And we still need humans creating. We still need humans making meaning. Those aren't raw material to be optimised out of the loop.
+
+---
+
+This is a harder line than "just automate the patterned work." That framework alone isn't enough. It's not just "don't automate the parts that require judgment." It's "the human act of creating and making meaning is not raw material to be optimised out of the loop."
+
+Both things stay true at once:
+
+- The extraction is real and shouldn't be waved away.
+- The tool used well can genuinely improve people's quality of life.
+
+I don't try to reconcile them into one tidy sentence. That would be too clean. The tool can be genuinely good AND built on a genuine wrong. Both facts stay true.
+
+---
+
+I use these tools. I stay honest about how they were built. And I do the work of making adoption responsible on the deployment side. That's the position. It doesn't resolve. It just holds.`
+    },
+
+    aiRoomToBreathe: {
+      title: "05_room_to_breathe.txt - Notepad",
+      content: `ROOM TO BREATHE
+=================
+
+The thing I want AI to protect isn't productivity. It's room.
+
+Room to think. Room to build on your work. Room to go home at the end of the day without dreading tomorrow, because you know you have space to think when you get there.
+
+That shouldn't be a radical idea. Somehow it's become one.
+
+---
+
+What most current AI deployment does instead is take that room away. It takes the patterned work and gives you more of the unpatterned work, faster, with fewer people. The efficiency lands on the balance sheet. The exhaustion lands on the people.
+
+There's a version of this technology that gives people back their capacity to do what only humans can do. That version requires building for the people, not the executives. Starting with what the tool can protect, not what it can replace.
+
+I want to build the version that protects room for humans to be humans.
+
+That's why I'm a critic. Not because I'm afraid of the technology. Because I'm paying attention.`
+    },
+
     secrets: {
       title: "secrets.txt - Notepad",
       content: `THINGS I'VE LEARNED (that nobody tells you)
@@ -1180,6 +1324,7 @@ If that sounds like what you need, let's talk.
       { id: "roleexplorer", name: "Hire Me.exe", icon: "role-explorer", app: "roleexplorer" },
       { id: "chat", name: "HAL.exe", icon: "hal", app: "messenger" },
       { id: "mywork", name: "My Work", icon: "folder", app: "misc-folder", file: "mywork" },
+      { id: "aithoughts", name: "AI Thoughts", icon: "folder-ai", app: "misc-folder", file: "aithoughts" },
       { id: "gettoknowme", name: "Get to Know Me", icon: "folder-special", app: "misc-folder", file: "gettoknowme" },
       { id: "takeabreak", name: "Take a Break", icon: "folder-games", app: "misc-folder", file: "takeabreak" },
       { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" },
@@ -1212,6 +1357,17 @@ If that sounds like what you need, let's talk.
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
           { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
+        ]
+      },
+      aithoughts: {
+        title: "AI Thoughts",
+        items: [
+          { id: "aiReadme", name: "README.txt", icon: "txt", type: "notepad", noteId: "aiReadme" },
+          { id: "aiBackwards", name: "01_backwards_adoption.txt", icon: "txt", type: "notepad", noteId: "aiBackwards" },
+          { id: "aiDistrust", name: "02_distrust_as_practice.txt", icon: "txt", type: "notepad", noteId: "aiDistrust" },
+          { id: "aiHermeneutics", name: "03_hermeneutics_in_practice.txt", icon: "txt", type: "notepad", noteId: "aiHermeneutics" },
+          { id: "aiOrigins", name: "04_origins.txt", icon: "txt", type: "notepad", noteId: "aiOrigins" },
+          { id: "aiRoomToBreathe", name: "05_room_to_breathe.txt", icon: "txt", type: "notepad", noteId: "aiRoomToBreathe" }
         ]
       },
       takeabreak: {
@@ -2852,6 +3008,23 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       ],
       outcome: "Company grew from 8 to 18 people while scaling to 46 enterprise clients, 19.5M+ executions tracked, and 576K+ client staff managed. The systems I built are still in use. Near-zero churn: 2-3 client offboards across 7 years.",
       skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
+      image: "assets/images/work-ops.jpg"
+    },
+    {
+      id: "performance-management",
+      name: "Cross-Functional Performance Management System",
+      type: "Business Operations Infrastructure",
+      description: "The company needed a way to see what was actually happening across sales, development, and account management as it grew, without adding process weight nobody would use. Leadership was making decisions from anecdotes and gut feel because the visibility wasn't there.",
+      challenge: "Build a performance management system that surfaced honest signal from every function without turning into another meeting nobody wanted. It had to be light enough that the leads would actually use it and structured enough that the numbers said the same thing to everyone reading them.",
+      whatIDid: [
+        "Designed the weekly structured input format for sales, development, and account management leads. Kept it short enough that filling it in took minutes, not hours.",
+        "Tracked demos, pipeline, dev tickets, client satisfaction scores, and recurring query patterns across teams. Chose the metrics deliberately so they told stories rather than just filled dashboards.",
+        "Built the dashboards and visualisations in-house. Made them readable to executives who wanted the summary and to individual leads who wanted the detail.",
+        "For a period, personally ran the weekly management cadence calls with the cross-functional leads. Held them accountable to their metrics without turning it into a performance review.",
+        "Turned the whole thing over to the appropriate owner once the pattern was stable. Documentation good enough that the handoff didn't require me in the room."
+      ],
+      outcome: "Leadership had honest visibility into cross-functional performance for the first time. Decisions started being made from data rather than anecdotes. The system survived personnel turnover across all three functions because it was built to be handed off, not held.",
+      skills: ["Business Operations", "Cross-Functional Coordination", "Dashboard Design", "Performance Management", "Documentation", "Executive Reporting"],
       image: "assets/images/work-ops.jpg"
     },
     {

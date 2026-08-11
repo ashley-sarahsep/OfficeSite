@@ -3971,6 +3971,23 @@ body {
   font-size: 24px;
 }
 
+/* AI Thoughts folder icon */
+.icon-folder-ai {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #a8b8d8 0%, #6b7fa5 100%);
+  border: 1px solid #4c5f80;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-folder-ai::after {
+  content: '🧠';
+  font-size: 24px;
+}
+
 /* ============================================
    ABOUT THIS COMPUTER
    ============================================ */
