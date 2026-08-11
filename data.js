@@ -2353,7 +2353,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     content: `
 <div class="resume-header">
 <h1>ASHLEY SARAH</h1>
-<p class="resume-subtitle">AI Adoption & Enablement | Curriculum Design | Prompt Engineering | Change Management</p>
+<p class="resume-subtitle">AI Adoption & Enablement | Programme Leadership | Change Management | Prompt Engineering</p>
 <p class="resume-contact">
 Email: ashley@stepinto-ashleysoffice.com<br>
 LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
@@ -2362,78 +2362,75 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <div class="resume-section">
 <h2>SUMMARY</h2>
-<p>AI adoption and enablement leader who builds the bridge between what a technology can do and what real users need it to do. At Network Ninja, I was handed a new AI product with no onboarding infrastructure, no quality assurance framework, no training materials, and no team - and built all of it from scratch.</p>
-<p>What makes this work different from generic enablement is the combination: I understand how LLMs interpret and generate information well enough to catch where they'll go wrong before a client does, and I understand how people learn well enough to design adoption programmes that actually change behaviour. My background in philosophy (hermeneutics - how people interpret information) isn't a decorative detail. It's the reason I can look at an AI output, identify where the model misread the intent, and build a prompt framework that prevents it from happening again.</p>
-<p>I'm not a blind AI advocate. I push for guardrails, transparency about limitations, and honest communication with clients about what the technology can and can't do. That critical lens is what makes adoption programmes trustworthy - and what makes them last.</p>
+<p>I ran the AI agent client enablement programme at Network Ninja. Sole owner. No infrastructure, no team, no precedent. I built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum covering four proficiency levels: everyday users, power users, executives, and internal account managers. Sole owner of every AI client engagement that existed at the company.</p>
+<p>Most AI adoption programmes fail the same way. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they actually need help with. The workers are already swamped. They're also being told, implicitly, that this tool might make them redundant. That's not adoption. That's abandonment with a subscription fee.</p>
+<p>My approach starts three questions earlier: for who, for what, and why. Find the patterned work, not just the boring work. Let machines take that so people have room to build on their work rather than being replaced by it.</p>
+<p>I'm not an engineer. I use AI tools every day, direct technical work with them, and ship real things through them: an open-source Python tool for scoring job alerts, this portfolio site, small automations for friends. I also know exactly where AI outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong. My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's the same instinct that reads what a client actually needs under what they literally said, and catches an AI output when it answered a slightly different question than the one asked.</p>
 </div>
 
 <div class="resume-section">
 <h2>SKILLS</h2>
-<p><strong>AI Adoption & Enablement:</strong> Adoption strategy, onboarding methodology design, change management, user training, prompt engineering, AI quality assurance, hallucination identification</p>
-<p><strong>Curriculum Design:</strong> Adult learning principles, multi-level curriculum development, instructional design, self-service resource creation, video training (Loom), structured learning paths</p>
-<p><strong>Prompt Engineering:</strong> Framework development, prompt library creation, output optimisation, edge case testing, enterprise analytical frameworks</p>
-<p><strong>Quality Assurance:</strong> Manual testing framework creation, AI output evaluation, systematic prompt testing, issue documentation, feedback loop design</p>
-<p><strong>AI Tools:</strong> Claude, Claude Code, ChatGPT, Manus, Lovable, LLM implementation, agent configuration, technical training delivery</p>
-<p><strong>Cross-Functional:</strong> Stakeholder communication, client onboarding, executive training, product feedback loops, go-to-market readiness</p>
-<p><strong>Tools:</strong> Jira, Notion, Loom, Google Workspace, Slack, GitHub, HubSpot, Zoom</p>
+<p><strong>AI Adoption Programme Leadership:</strong> Adoption strategy, five-phase onboarding methodology, executive and end-user training, change management, honest documentation of what the tool can and can't do.</p>
+<p><strong>Curriculum Design:</strong> Adult learning principles applied to real workflows. Curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</p>
+<p><strong>Prompt Engineering:</strong> Framework development, tested prompt libraries, output evaluation, edge case testing, enterprise analytical frameworks.</p>
+<p><strong>AI Quality Assurance:</strong> Manual testing framework design, systematic prompt testing, hallucination identification, structured feedback loops between users and product teams.</p>
+<p><strong>Directing AI Tools:</strong> Claude, Claude Code, ChatGPT, Manus, Lovable. Shipped a working open-source Python tool (Job Alert Scorer, on the Anthropic API) and this portfolio site by directing these tools through a real software workflow with branching, staging, and production. Not an engineer. Someone who knows what she's asking for and what to accept back.</p>
+<p><strong>Cross-functional:</strong> Stakeholder communication, client onboarding, executive training, product feedback loops, go-to-market readiness.</p>
+<p><strong>Tools:</strong> Jira, Notion, Loom, Google Workspace, Slack, GitHub, HubSpot, Zoom.</p>
 </div>
 
 <div class="resume-section">
 <h2>EXPERIENCE</h2>
 <hr class="section-divider">
 
-<h3>NETWORK NINJA (MainEvent) - FIELD MARKETING SaaS</h3>
+<h3>NETWORK NINJA (MainEvent), FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Field marketing SaaS platform serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). Platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
+<p>Field marketing SaaS serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). The platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
 
 <hr class="section-divider">
 
 <h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
-<p>Sole owner of adoption and enablement for mAInevent Agents - an AI-powered analytics tool enabling experiential marketing agencies and CPG brands to query millions of field events using natural language. No existing infrastructure, no team, no precedent. Built everything from scratch.</p>
+<p>Sole owner of adoption and enablement for the company's AI agent product (mAInevent Agents). No existing infrastructure, no team, no precedent. Built all of it.</p>
 
-<p><strong>Quality assurance & AI evaluation</strong></p>
+<p><strong>Programme design and onboarding methodology</strong></p>
 <ul>
-<li>Built manual testing framework for AI agent product from scratch - created systematic process to evaluate prompt reliability, output accuracy, and edge case behaviour before any client deployment</li>
-<li>Identified hallucinations and inaccurate outputs through systematic prompt testing and input refinement - raised quality concerns to the product team and drove continuous improvements before issues reached clients</li>
-<li>Applied philosophy background (hermeneutics) directly to AI quality work - used understanding of how LLMs interpret context to identify where models were likely to misread intent or produce misleading results</li>
-<li>Advocated internally for appropriate guardrails, honest communication about AI limitations, and ethical deployment - pushed back when outputs weren't ready for client use</li>
-<li>Created quality feedback loop between client usage patterns and the product development team - documented failure modes, tracked recurring issues, and drove product improvements through evidence</li>
+<li>Designed a five-phase onboarding methodology covering the full client journey: initial discovery, agent implementation, testing and validation, user training, ongoing support and evaluation.</li>
+<li>Built a training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers. Each level written in its own voice, at its own depth.</li>
+<li>Produced 50+ training videos and structured resources for self-service so clients could progress without needing dedicated support time.</li>
+<li>Wrote troubleshooting guides, use case libraries, and best-practice documentation that let clients solve their own problems.</li>
 </ul>
 
-<p><strong>Onboarding methodology & curriculum design</strong></p>
+<p><strong>Quality assurance and honest output evaluation</strong></p>
 <ul>
-<li>Designed 5-phase onboarding methodology covering the full client journey: Initial Discovery, Agent Implementation, Testing & Validation, User Training, and Ongoing Support & Evaluation</li>
-<li>Built complete educational curriculum from scratch across 8 guides for different user levels - from non-technical everyday users through power users and executives, each with appropriate depth and language</li>
-<li>Created enterprise-level prompt frameworks (Power Prompts) enabling clients to extract strategic business intelligence from field marketing data - designed to teach prompting principles, not just hand over templates</li>
-<li>Built 50+ training videos and resources using Loom, Google Drive, and Notion - structured for self-service so clients could progress without requiring dedicated support time</li>
-<li>Developed troubleshooting guides, use case libraries, and best practice documentation that reduced client support burden and enabled independent problem-solving</li>
+<li>Built the manual testing framework from scratch. Systematic evaluation of prompt reliability, output accuracy, and edge case behaviour before any client deployment.</li>
+<li>Identified hallucinations and confidently wrong outputs through systematic testing. Raised concerns to the product team with evidence. Held the position when it wasn't convenient.</li>
+<li>Pushed for guardrails, honest communication about limitations, and appropriate deployment. The critical voice on a team that needed one.</li>
+<li>Built the feedback loop between how clients actually used the tool and what the product team knew about it. Documented failure modes, tracked recurring issues, drove improvements through evidence.</li>
 </ul>
 
-<p><strong>Prompt engineering & framework development</strong></p>
+<p><strong>Prompt engineering</strong></p>
 <ul>
-<li>Developed prompt libraries for multiple audiences: basic user guides, advanced analytical frameworks, agency white-label libraries, and client-specific custom sets</li>
-<li>Created Agent Prompting Tips and Agent Visualisation Tips guides - built to teach the reasoning behind effective prompts, not just provide examples to copy</li>
-<li>Built Public Label prompt libraries for agencies to use with their own clients - covering brand analysis, programme type analysis, market and location analysis, and customisation techniques</li>
-<li>Designed 10-prompt structured learning sequence to progressively build user confidence and capability - from basic data exploration through advanced interactive analysis</li>
-<li>Created enterprise analytical frameworks including programme performance intelligence, staff performance analysis, venue intelligence, pattern discovery, and data quality optimisation</li>
+<li>Built 75+ tested prompt templates across multiple audiences: everyday user guides, advanced analytical frameworks, agency white-label libraries, and client-specific custom sets.</li>
+<li>Wrote the Agent Prompting Tips and Agent Visualisation Tips guides. Focused on the reasoning behind effective prompts, not just examples to copy.</li>
+<li>Designed a 10-prompt structured learning sequence for progressive user confidence: basic exploration through advanced interactive analysis.</li>
+<li>Built enterprise analytical frameworks covering programme performance, staff performance, venue intelligence, pattern discovery, and data quality.</li>
 </ul>
 
-<p><strong>Client onboarding & technical delivery</strong></p>
+<p><strong>Client engagement</strong></p>
 <ul>
-<li>Onboarded all 5 enterprise AI agent clients (TMS, Peralta, Advantage Solutions/AB, Public Label, TEAM Enterprises) - each with custom analytical frameworks tailored to their specific data structures and business questions</li>
-<li>Led technical discovery sessions to understand client data requirements, field structure, and desired analytical outcomes before implementation</li>
-<li>Created custom prompt frameworks and visualisation guides for individual clients - including brand-specific colour palettes, chart recommendations, and data interpretation guidance</li>
-<li>Ran product demonstrations and built custom sandbox environments tailored to prospect technical requirements and use cases</li>
-<li>Featured in client success case studies demonstrating AI agent impact for Transformative Marketing Services and Peralta Experiences</li>
+<li>Sole owner of every AI client engagement that existed at the company. Each client got a custom analytical framework tuned to their data structure and business questions.</li>
+<li>Led technical discovery sessions to understand each client's actual analytical needs before implementation.</li>
+<li>Built custom sandbox environments and demo configurations for specific prospect requirements.</li>
+<li>Featured in client success case studies for two flagship engagements (Transformative Marketing Services, Peralta Experiences).</li>
 </ul>
 
-<p><strong>Go-to-market & industry content</strong></p>
+<p><strong>Industry presence</strong></p>
 <ul>
-<li>Owned EMS Vegas (Experiential Marketing Summit) booth presence from concept to execution - created all video examples, product demonstrations, and outreach materials</li>
-<li>Created industry content on AI-powered analytics for the experiential marketing space, used for both prospect education and conference materials</li>
-<li>Developed 12+ innovative use case frameworks showing practical applications across different field marketing programme types - from predictive event performance to anomaly detection to geographic expansion planning</li>
+<li>Owned EMS Vegas (Experiential Marketing Summit) booth end to end. Concept, video examples, demonstrations, outreach materials.</li>
+<li>Wrote industry content on AI-powered analytics for the experiential marketing space. Used for prospect education and conference materials.</li>
+<li>Developed 12+ use case frameworks across field marketing programme types: predictive event performance, anomaly detection, geographic expansion planning, and others.</li>
 </ul>
 
 <hr class="section-divider">
@@ -2441,11 +2438,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
-<p>Strategic partner to the COO. Alongside CoS responsibilities, served as the institutional knowledge base and strategic constant for the sales function - which informed the AI adoption work directly: I understood the client problems the AI was meant to solve because I'd been helping clients solve them manually for years.</p>
+<p>The Chief of Staff work informed the AI adoption work directly. I understood what the AI was supposed to solve because I'd been helping clients solve it manually for years, and I understood how leadership was thinking about the product because I sat in on those decisions.</p>
 <ul>
-<li>Led daily scrums, managed sprint planning, and triaged bugs in Jira during team transitions - maintained delivery momentum without missing commitments</li>
-<li>Served as sole QA Lead across 20+ major implementations - created and executed test plans covering edge cases, user flows, and regression testing</li>
-<li>Translated complex technical issues for non-technical clients and non-technical business requirements for engineering teams simultaneously</li>
+<li>Sole QA lead across 20+ major platform implementations.</li>
+<li>Led daily scrums and managed sprint planning during team transitions. Kept delivery moving without missing client commitments.</li>
+<li>Translated the same issues two ways at once: detailed Jira tickets for engineering, plain-language explanations for clients. Both audiences, no confusion between them.</li>
 </ul>
 
 <hr class="section-divider">
@@ -2453,51 +2450,52 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
-<p>First operations hire. Built the enablement infrastructure and operational foundation the company scaled on. Relevant to AI adoption work: built a pattern of designing systems for how people actually behave rather than ideal users.</p>
+<p>First operations hire at the company. Built the enablement and operational foundation the AI work later sat on. Relevant to AI adoption specifically: I'd already designed the pattern of building systems that account for how people actually behave rather than how they should, which is the same problem AI adoption has to solve.</p>
 <ul>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes, defined learning paths, and self-service resources</li>
-<li>Used early AI tools to analyse field reports, customer interactions, sales calls, and usage patterns - surfaced insights for product improvements before formal AI products existed</li>
-<li>Designed and delivered training programmes for evolving team composition - applied adult learning principles to build programmes that changed behaviour, not just completed checkboxes</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes, defined learning paths, and self-service resources.</li>
+<li>Used early AI tools to analyse field reports, customer interactions, sales calls, and usage patterns. Surfaced insights for product improvements before formal AI features existed.</li>
+<li>Designed and delivered training programmes that changed how people worked, not just what they completed on a checklist.</li>
 </ul>
 
 <hr class="section-divider">
 
 <h3>SALES OPERATIONS COORDINATOR</h3>
-<p class="job-title">All Blue Solutions Inc. - IBM Reseller</p>
+<p class="job-title">All Blue Solutions Inc. (IBM Reseller)</p>
 <p class="job-meta">May 2015 - Oct 2018 | Remote</p>
 <ul>
-<li>Managed SugarCRM pipeline with 200+ opportunities; designed and delivered new hire training on CRM systems, sales processes, and product knowledge</li>
-<li>Created documentation and self-service resources that enabled team autonomy; coordinated IBM co-marketing funds and outbound campaigns</li>
+<li>Managed the SugarCRM pipeline with 200+ opportunities. Designed and delivered new hire training on CRM, sales processes, and product knowledge.</li>
+<li>Created documentation and self-service resources that let the team work autonomously. Coordinated IBM co-marketing funds and outbound campaigns.</li>
 </ul>
 
 <hr class="section-divider">
 
-<h3>EARLIER CAREER - INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
+<h3>EARLIER CAREER, INTERNATIONAL FINANCE & OPERATIONS (2011-2015)</h3>
 <p class="job-title">Payroll Assistant | Robert Walters, London, UK</p>
 <ul>
-<li>Led implementation of online timesheet system; extended from 6-month contract based on performance</li>
+<li>Led implementation of online timesheet system. Contract extended from six months based on performance.</li>
 </ul>
 <p class="job-title">Accounts Payable Specialist | Essence Digital / GroupM, London, UK</p>
 <ul>
-<li>Managed AP for clients including Google, IGN, and Financial Times; promoted to national accounts</li>
+<li>Managed AP for clients including Google, IGN, and Financial Times. Promoted to national accounts.</li>
 </ul>
 <p class="job-title">Accounts Receivable Coordinator / Receptionist | DDB Canada, Toronto</p>
 <ul>
-<li>Promoted from Receptionist within 6 months; managed financial operations across six Canadian offices</li>
+<li>Promoted from Receptionist within six months. Managed financial operations across six Canadian offices.</li>
 </ul>
 </div>
 
 <div class="resume-section">
 <h2>EDUCATION</h2>
-<p><strong>Bachelor of Arts - Philosophy (Hermeneutics)</strong> | University of Guelph</p>
-<p class="edu-detail">Specialised study in interpretation theory, meaning-making, and how people understand and process information - directly applied to AI quality assurance, prompt engineering, and adoption design.</p>
+<p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
+<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's how I evaluate AI outputs, run discovery sessions, and design training for how people actually process information.</p>
 <p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
 
 <div class="resume-section">
 <h2>PORTFOLIO</h2>
-<p>stepinto-ashleysoffice.com - Interactive portfolio website built by directing AI coding tools (Claude Code) through a full software development lifecycle with a proper GitHub branching workflow (Acceptance / Staging / Production). Concept to live deployment in 4 days.</p>
+<p><strong>stepinto-ashleysoffice.com.</strong> This site. Built in four days by directing Claude Code through a real branching workflow (acceptance, staging, production). PostHog analytics integrated.</p>
+<p><strong>github.com/ashley-sarahsep/job-alert-scorer.</strong> Open-source Python tool built on the Anthropic API. Reads job alert emails, pulls full descriptions from careers pages, and scores each role against a candidate profile you write. Free to use.</p>
 </div>
     `
   },
