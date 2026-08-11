@@ -88,6 +88,12 @@ body {
   align-items: center;
   justify-content: center;
   padding-bottom: 60px; /* Space for bottom navbar */
+  transition: filter 0.4s ease;
+}
+
+.room-scene.behind-desktop {
+  filter: brightness(0.35) blur(1px);
+  pointer-events: none;
 }
 
 .room-container {
@@ -518,19 +524,20 @@ body {
 .desktop-scene {
   position: fixed;
   inset: 0;
-  background: #1a1a1a;
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  z-index: 100;
 }
 
-/* CRT Monitor Frame */
+/* CRT Monitor Frame - sized to sit over the room like a floating monitor */
 .monitor-frame {
-  width: 100%;
-  max-width: 1200px;
-  height: 100%;
-  max-height: 900px;
+  width: 92%;
+  max-width: 1000px;
+  height: 92%;
+  max-height: 760px;
 }
 
 .monitor-bezel {
@@ -2314,6 +2321,25 @@ body {
     padding: 10px;
   }
 
+  /* Mobile: monitor fills the viewport; room-over-desktop metaphor doesn't work at this size */
+  .desktop-scene {
+    background: #1a1a1a;
+    padding: 0;
+  }
+
+  .monitor-frame {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+  }
+
+  /* Room stays hidden on mobile when desktop is up; no dim needed since no room shows through */
+  .room-scene.behind-desktop {
+    filter: none;
+    visibility: hidden;
+  }
+
   /* Room navbar responsive - two rows on mobile */
   .room-navbar {
     padding: 8px 12px;
@@ -3968,6 +3994,23 @@ body {
 
 .icon-folder-games::after {
   content: '🎮';
+  font-size: 24px;
+}
+
+/* AI Thoughts folder icon */
+.icon-folder-ai {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #a8b8d8 0%, #6b7fa5 100%);
+  border: 1px solid #4c5f80;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-folder-ai::after {
+  content: '🧠';
   font-size: 24px;
 }
 
