@@ -96,15 +96,15 @@ Both things stay true at once. I don't reconcile them into one tidy sentence. Th
 
 This folder holds a few of the positions underneath that. Read whichever ones interest you. They aren't a coherent essay. They're a set of things I've worked out over time.
 
-01_backwards_adoption.txt: the deployment critique
-02_distrust_as_practice.txt: how I actually work with AI outputs
-03_hermeneutics_in_practice.txt: what my philosophy background is doing here
-04_origins.txt: the extraction problem
-05_room_to_breathe.txt: what I want AI to protect, not replace`
+backwards_adoption.txt: the deployment critique
+distrust_as_practice.txt: how I actually work with AI outputs
+hermeneutics_in_practice.txt: what my philosophy background is doing here
+origins.txt: the extraction problem
+room_to_breathe.txt: what I want AI to protect, not replace`
     },
 
     aiBackwards: {
-      title: "01_backwards_adoption.txt - Notepad",
+      title: "backwards_adoption.txt - Notepad",
       content: `BACKWARDS ADOPTION
 ====================
 
@@ -134,7 +134,7 @@ I'm an idealist about what people do with that room. A realist about the tool th
     },
 
     aiDistrust: {
-      title: "02_distrust_as_practice.txt - Notepad",
+      title: "distrust_as_practice.txt - Notepad",
       content: `DISTRUST AS A PRACTICED SKILL
 ================================
 
@@ -150,11 +150,11 @@ That gap between who sells it and who lives with the output is where I spend mos
 
 There's the "AI can make mistakes, please double-check responses" disclaimer that everyone, including the people who built the tool, knows is true. And executives make headcount decisions as if it weren't. That's darkly funny to me.
 
-My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach. It's what most AI adoption programmes skip.`
+My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach. It's what most AI adoption programs skip.`
     },
 
     aiHermeneutics: {
-      title: "03_hermeneutics_in_practice.txt - Notepad",
+      title: "hermeneutics_in_practice.txt - Notepad",
       content: `HERMENEUTICS IN PRACTICE
 ==========================
 
@@ -181,7 +181,7 @@ Same skill. Different medium.`
     },
 
     aiOrigins: {
-      title: "04_origins.txt - Notepad",
+      title: "origins.txt - Notepad",
       content: `ORIGINS
 =========
 
@@ -206,7 +206,7 @@ I use these tools. I stay honest about how they were built. And I do the work of
     },
 
     aiRoomToBreathe: {
-      title: "05_room_to_breathe.txt - Notepad",
+      title: "room_to_breathe.txt - Notepad",
       content: `ROOM TO BREATHE
 =================
 
@@ -520,7 +520,7 @@ THINGS I'M GOOD AT
   Building the training, testing, and adoption infrastructure
   that turns "we have AI" into "we use AI well."
 
-→ Onboarding & Enablement Programmes
+→ Onboarding & Enablement Programs
   Designing learning experiences that stick. Not info dumps.
   Actual behaviour change. I think about how humans process
   and retain information (thanks, philosophy degree).
@@ -694,7 +694,7 @@ Ashley`
         {
           id: "desk-work-history",
           portrait: "thoughtful1",
-          text: "Seven years at a field marketing platform SaaS company, and three years before that with an IBM business partner. Joined both when they were a handful of non-developers with very few formal processes. I took the time to pay attention and put together the operational infrastructure from scratch: sales ops, enablement programmes, CRM maintenance, pipeline management, demo process, QA and ticket writing best practices, change order and new scope of work guides. The invisible stuff.",
+          text: "Seven years at a field marketing platform SaaS company, and three years before that with an IBM business partner. Joined both when they were a handful of non-developers with very few formal processes. I took the time to pay attention and put together the operational infrastructure from scratch: sales ops, enablement programs, CRM maintenance, pipeline management, demo process, QA and ticket writing best practices, change order and new scope of work guides. The invisible stuff.",
           responses: [
             { text: "What's your proudest project?", next: "desk-neptune" },
             { text: "What do you mean by 'operational infrastructure'?", next: "desk-ops-explain" },
@@ -1363,11 +1363,11 @@ Ashley`
         title: "AI Thoughts",
         items: [
           { id: "aiReadme", name: "README.txt", icon: "txt", type: "notepad", noteId: "aiReadme" },
-          { id: "aiBackwards", name: "01_backwards_adoption.txt", icon: "txt", type: "notepad", noteId: "aiBackwards" },
-          { id: "aiDistrust", name: "02_distrust_as_practice.txt", icon: "txt", type: "notepad", noteId: "aiDistrust" },
-          { id: "aiHermeneutics", name: "03_hermeneutics_in_practice.txt", icon: "txt", type: "notepad", noteId: "aiHermeneutics" },
-          { id: "aiOrigins", name: "04_origins.txt", icon: "txt", type: "notepad", noteId: "aiOrigins" },
-          { id: "aiRoomToBreathe", name: "05_room_to_breathe.txt", icon: "txt", type: "notepad", noteId: "aiRoomToBreathe" }
+          { id: "aiBackwards", name: "backwards_adoption.txt", icon: "txt", type: "notepad", noteId: "aiBackwards" },
+          { id: "aiDistrust", name: "distrust_as_practice.txt", icon: "txt", type: "notepad", noteId: "aiDistrust" },
+          { id: "aiHermeneutics", name: "hermeneutics_in_practice.txt", icon: "txt", type: "notepad", noteId: "aiHermeneutics" },
+          { id: "aiOrigins", name: "origins.txt", icon: "txt", type: "notepad", noteId: "aiOrigins" },
+          { id: "aiRoomToBreathe", name: "room_to_breathe.txt", icon: "txt", type: "notepad", noteId: "aiRoomToBreathe" }
         ]
       },
       takeabreak: {
@@ -1409,7 +1409,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>OH, HELLO!</h2>
 <p>Hi. I'm Ashley. I've spent 10+ years making sure the operational and product side of things actually holds together. I work well in environments where nothing is formally documented yet and most of the important context lives in people's heads. I build systems and documentation for the person who inherits the work, not just for the person doing it right now.</p>
-<p>I joined Network Ninja when the team was eight people and left when it was eighteen. Over that time I built the operational infrastructure the company scaled on: sales operations, onboarding programmes, QA processes, project management frameworks, an internal cross-functional performance management system, and eventually the entire client-facing enablement layer for a new AI agent product. I was directly involved in the sales process for 30 of the company's 46 enterprise clients including Fortune 500 brands.</p>
+<p>I joined Network Ninja when the team was eight people and left when it was eighteen. Over that time I built the operational infrastructure the company scaled on: sales operations, onboarding programs, QA processes, project management frameworks, an internal cross-functional performance management system, and eventually the entire client-facing enablement layer for a new AI agent product. I was directly involved in the sales process for 30 of the company's 46 enterprise clients including Fortune 500 brands.</p>
 <p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Combined with social service training, it shapes how I approach change management, training design, and system design. I design for how humans actually work, learn, and adopt new behaviours, rather than how we'd prefer they did. That's the through-line across everything I've built.</p>
 </div>
 
@@ -1417,7 +1417,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>WHAT MAKES ME DIFFERENT</h2>
 
 <h3>HERMENEUTICS IS THE OPERATING METHOD</h3>
-<p>Hermeneutics is the philosophy of how meaning gets made and lost in interpretation. It isn't a credential I list. It's the way I actually think, and it shapes every piece of work I do. Training programmes are designed around how people actually process, retain, and apply information. Data analysis starts with what story the numbers are telling versus what the person looking at them wants to see. Client discovery is understanding what someone means, not just what they said. Same instinct, different applications.</p>
+<p>Hermeneutics is the philosophy of how meaning gets made and lost in interpretation. It isn't a credential I list. It's the way I actually think, and it shapes every piece of work I do. Training programs are designed around how people actually process, retain, and apply information. Data analysis starts with what story the numbers are telling versus what the person looking at them wants to see. Client discovery is understanding what someone means, not just what they said. Same instinct, different applications.</p>
 
 <h3>THE PERSON EVERYONE ASKS</h3>
 <p>Over seven years I held QA lead, project manager, product operations lead, sales enablement owner, strategic advisor, and account manager responsibilities. Often at the same time. Colleagues at every level came to me to work through problems, test ideas, and get clear on their thinking before communicating with their own teams. That's a professional capability, not a personality trait, and it's the mechanism behind the strategic partnership work, the discovery sessions, and the training design.</p>
@@ -1433,7 +1433,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>CRITICAL AI ADVOCATE</h3>
 <p>I use AI daily and know exactly where its outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong. My philosophy background helps me evaluate how models interpret context and where they're likely to misread intent.</p>
-<p>My critique of most AI adoption programmes is that they run backwards. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they actually need help with. That's not adoption. That's abandonment with a subscription fee.</p>
+<p>My critique of most AI adoption programs is that they run backwards. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they actually need help with. That isn't adoption. That's cost-cutting dressed as innovation.</p>
 <p>My alternative starts three questions earlier: for who, for what, and why. Find the patterned work, not just the boring work. Let machines take that so people have room to build on their work rather than being replaced by it. I'm a critic because I'm paying attention, not because I'm afraid of the technology.</p>
 
 <div class="did-you-know">
@@ -1456,7 +1456,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Built the manual testing framework from scratch. Systematic evaluation of prompt reliability, output accuracy, and edge case behaviour before any client deployment.</li>
 <li>Applied hermeneutics training directly to AI evaluation. Read how models interpret context, identified where they'd misread intent or produce misleading results, and built the prompt frameworks that prevented it.</li>
-<li>Developed enterprise-level analytical prompt frameworks (Power Prompts) enabling clients to extract business intelligence from field marketing data. Frameworks covered programme performance analysis, staff performance tracking, venue intelligence, pattern discovery, and data quality.</li>
+<li>Developed enterprise-level analytical prompt frameworks (Power Prompts) enabling clients to extract business intelligence from field marketing data. Frameworks covered program performance analysis, staff performance tracking, venue intelligence, pattern discovery, and data quality.</li>
 <li>Designed the five-phase onboarding methodology with a complete educational curriculum: practical guides, onboarding documentation, prompting best practices, enterprise analytical frameworks.</li>
 <li>Built 50+ training videos and resources using Google Drive, Loom, and Notion.</li>
 <li>Created the quality feedback loop between client usage and the product development team. Drove product improvements through documented testing, issue identification, and honest assessment of AI capabilities and limitations.</li>
@@ -1464,13 +1464,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>THE RESULTS:</strong></p>
 <ul>
-<li>Sole owner of every AI agent client engagement that existed at the company. Each got a custom analytical framework tuned to their data and business questions. One flagship client used the platform to analyse 13,000+ annual events across 625+ field staff (published case study).</li>
+<li>Ran adoption for every AI client the company signed. Each got a custom analytical framework tuned to their data and business questions. One flagship client used the platform to analyse 13,000+ annual events across 625+ field staff (published case study).</li>
 <li>Training curriculum spanning four proficiency levels (everyday users, power users, executives, internal account managers), plus 75+ tested prompt templates in the Power Prompts library.</li>
 <li>Owned EMS Vegas booth end to end: demo materials, video examples, outreach content. Generated five prospect conversations from 50 targeted cold messages during the event.</li>
 </ul>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley was the sole owner of every AI agent client engagement the company had. She built the QA testing framework that caught hallucinations and accuracy issues before they reached clients. The onboarding methodology and training curriculum she created became the standard for every deployment.
+<strong>DID YOU KNOW?</strong> Ashley owned every AI agent client engagement at the company. She built the QA testing framework that caught hallucinations and accuracy issues before they reached clients. The onboarding methodology and training curriculum she created became the standard for every deployment.
 </div>
 
 <hr class="section-divider">
@@ -1539,7 +1539,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><em>Operational infrastructure from scratch</em></p>
 <ul>
-<li>Built sales operations, training programmes, QA processes, and project management frameworks from zero.</li>
+<li>Built sales operations, training programs, QA processes, and project management frameworks from zero.</li>
 <li>Established sales processes and reporting standards that scaled with team growth.</li>
 <li>Created evaluation frameworks and KPI tracking systems to measure feature adoption and training effectiveness.</li>
 <li>Managed the sales pipeline across multiple CRM platforms (SugarCRM, HubSpot, self-taught on each). Maintained data integrity, forecasting accuracy, performance analytics.</li>
@@ -1552,9 +1552,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Personally ran the management cadence calls for a period. Held cross-functional leads accountable to their metrics.</li>
 </ul>
 
-<p><em>Training and enablement programmes</em></p>
+<p><em>Training and enablement programs</em></p>
 <ul>
-<li>Designed and delivered onboarding and training programmes on CRM systems, sales processes, product knowledge, and customer discovery.</li>
+<li>Designed and delivered onboarding and training programs on CRM systems, sales processes, product knowledge, and customer discovery.</li>
 <li>Created ~50 custom demo environments per year. Each researched and built for the individual prospect's business context.</li>
 <li>The training constant and institutional knowledge across sales team changes. Kept demo quality and sales approach consistent through turnover.</li>
 <li>Created discovery frameworks, qualification checklists, and sales playbooks that improved effectiveness across sales cycles from same-day SMB to year-long enterprise.</li>
@@ -1586,9 +1586,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p class="job-title">Sales Operations | All Blue Solutions Inc.</p>
 <p class="job-meta">May 2015 - Oct 2018 (3 yrs 6 mos) | Remote</p>
-<p>Sales operations and training for an IBM reseller. Managed CRM infrastructure, training programmes, and demand generation.</p>
+<p>Sales operations and training for an IBM reseller. Managed CRM infrastructure, training programs, and demand generation.</p>
 <ul>
-<li>Designed and delivered new hire training programmes on CRM systems, sales processes, and product knowledge.</li>
+<li>Designed and delivered new hire training programs on CRM systems, sales processes, and product knowledge.</li>
 <li>Managed the SugarCRM system with 200+ opportunities. Trained team members on pipeline management, reporting, and process adherence.</li>
 <li>Created documentation and self-service resources that let the team work autonomously.</li>
 <li>Coordinated IBM co-marketing funds and outbound campaigns.</li>
@@ -1639,7 +1639,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
 <p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's the operating method behind every piece of work on this resume, from AI evaluation to training design to client discovery.</p>
-<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress). SQL, data visualisation, statistical analysis.</p>
 </div>
 
@@ -1676,7 +1676,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>Thinking Partnership:</strong> Sounding board across leadership, product, engineering, sales, and account teams. The person people come to when they need to get clear before they communicate with their own team.</p>
 <p><strong>Project Management:</strong> Jira at expert level. Agile and Scrum, sprint planning, daily standups, backlog prioritisation, risk identification. Asana.</p>
 <p><strong>Quality Assurance:</strong> QA leadership, test plan design, bug triage, edge case identification, regression testing, UAT coordination.</p>
-<p><strong>Enablement & Training:</strong> Onboarding programme design, curriculum development, discovery frameworks, sales playbooks, demo customisation.</p>
+<p><strong>Enablement & Training:</strong> Onboarding program design, curriculum development, discovery frameworks, sales playbooks, demo customisation.</p>
 <p><strong>Directing AI Tools:</strong> Claude, Claude Code, ChatGPT. Shipped a working open-source Python tool (Job Alert Scorer) and this portfolio site by directing these tools through a real software workflow. Not an engineer.</p>
 <p><strong>CRM & Operations:</strong> HubSpot, Salesforce, SugarCRM, pipeline management, forecasting, KPI tracking.</p>
 <p><strong>Tools:</strong> Jira, Slack, Microsoft Teams, Google Workspace, Loom, Notion, GitHub, Zoom.</p>
@@ -1739,13 +1739,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
-<p>Sole owner of adoption and enablement for the company's AI agent product (mAInevent Agents). No playbook, no precedent, no team. Built all of it.</p>
+<p>Sole owner of adoption and enablement for the company's AI agent product (mAInevent Agents). Nothing to inherit, no team, no precedent. Built all of it.</p>
 <ul>
 <li>Built the manual testing framework from scratch. Systematic evaluation of prompt reliability, output accuracy, and edge case behaviour before client deployment.</li>
 <li>Designed a five-phase onboarding methodology with a training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</li>
-<li>Pushed for guardrails, transparent communication about limitations, and honest deployment. The critical voice on a team that needed one.</li>
+<li>Held the line when the outputs weren't ready to ship. Pushed for guardrails, transparent communication about limitations, and honest deployment.</li>
 <li>Owned EMS Vegas trade show presence end to end. Concept, video examples, demonstrations, outreach materials.</li>
-<li>Sole owner of every AI client engagement that existed at the company. Each with a custom analytical framework tuned to their data structure and business questions.</li>
+<li>Ran adoption for every AI client the company signed. Custom analytical framework for each, tuned to their data structure and business questions.</li>
 </ul>
 
 <hr class="section-divider">
@@ -1755,8 +1755,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
 <p>First operations hire at the company. Built the foundational infrastructure the company scaled on.</p>
 <ul>
-<li>Built sales operations, training programmes, QA processes, and project management frameworks from zero.</li>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes and self-service resources.</li>
+<li>Built sales operations, training programs, QA processes, and project management frameworks from zero.</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programs and self-service resources.</li>
 <li>Managed pipeline in SugarCRM and HubSpot, self-taught on both. Maintained data integrity, forecasting accuracy, and performance analytics.</li>
 <li>Led daily scrum calls, triaged Jira bugs, and coordinated resolution between engineering and clients across platform issues.</li>
 <li>Partnered with Product and Engineering through the full software development lifecycle. Conducted win/loss analysis and surfaced field feedback to inform product decisions.</li>
@@ -1794,7 +1794,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
 <p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's how I read rooms, track dynamics, and see the whole picture rather than only the piece in front of me.</p>
-<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
 
@@ -1829,7 +1829,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>Product Operations:</strong> Go-to-market readiness, product launch coordination, field readiness, cross-functional alignment, product feedback synthesis, user needs analysis, roadmap influence.</p>
 <p><strong>Project Management:</strong> Jira at expert level. Agile and Scrum, sprint planning, daily standups, backlog prioritisation, risk identification, stakeholder management. Asana.</p>
 <p><strong>Quality Assurance:</strong> QA leadership, test plan design, bug triage and prioritisation, edge case identification, regression testing, UAT coordination.</p>
-<p><strong>Enablement & Training:</strong> Onboarding programme design, curriculum development, adoption frameworks, discovery frameworks, sales playbooks, demo customisation.</p>
+<p><strong>Enablement & Training:</strong> Onboarding program design, curriculum development, adoption frameworks, discovery frameworks, sales playbooks, demo customisation.</p>
 <p><strong>Directing AI Tools:</strong> Claude, Claude Code, ChatGPT. Shipped a working open-source Python tool (Job Alert Scorer) and this portfolio site by directing these tools through a real software workflow. Not an engineer.</p>
 <p><strong>CRM & Analytics:</strong> HubSpot, SugarCRM, Salesforce, pipeline management, performance metrics, KPI tracking, win/loss analysis.</p>
 <p><strong>Tools:</strong> Jira, HubSpot, SugarCRM, Slack, Google Workspace, Loom, Notion, GitHub, Zoom, Asana.</p>
@@ -1894,7 +1894,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Built the manual testing framework from scratch. Systematic evaluation of prompt reliability, output accuracy, and edge case behaviour before client deployment.</li>
 <li>Identified hallucinations and confidently wrong outputs through systematic testing. Raised concerns to the product team with evidence and drove improvements before issues reached clients.</li>
 <li>Created the quality feedback loop between client usage patterns and the product development team. Documented failure modes, tracked recurring issues, drove product improvements through evidence.</li>
-<li>Pushed for guardrails, transparent communication about limitations, and honest deployment. The critical voice on a team that needed one.</li>
+<li>Said "not yet" out loud when the team needed someone to. Pushed for guardrails, transparent communication about limitations, and honest deployment.</li>
 </ul>
 
 <p><strong>Adoption infrastructure and onboarding</strong></p>
@@ -1902,7 +1902,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Designed a five-phase onboarding methodology covering the full client journey: discovery, implementation, testing and validation, user training, and ongoing support.</li>
 <li>Built a training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</li>
 <li>Created enterprise-level prompt frameworks enabling clients to extract strategic business intelligence from field marketing data. Built to scale self-service, not create ongoing support dependency.</li>
-<li>Sole owner of every AI client engagement that existed at the company. Each with a custom analytical framework tuned to their data structure and business questions.</li>
+<li>Owned onboarding for each AI client the company brought on. Custom analytical framework for each, tuned to their data and business questions.</li>
 </ul>
 
 <hr class="section-divider">
@@ -1910,13 +1910,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>SALES OPERATIONS & ENABLEMENT LEAD</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
-<p>First operations hire at the company. Built the product operations foundation the company scaled on: feedback loops, QA coordination, CRM infrastructure, and the enablement programmes that kept the revenue motion coherent as the team grew.</p>
+<p>First operations hire at the company. Built the product operations foundation the company scaled on: feedback loops, QA coordination, CRM infrastructure, and the enablement programs that kept the revenue motion coherent as the team grew.</p>
 <ul>
 <li>Partnered with Product and Engineering through the full software development lifecycle. Provided the seller and client perspective that kept delivery grounded in actual usage.</li>
 <li>Conducted win/loss analysis and competitive post-mortems. Surfaced field feedback to Product in a form that was actionable for roadmap decisions.</li>
 <li>Managed client issues end to end. Triaged bugs in Jira, coordinated resolution with engineering, and translated complex platform behaviour into plain language for clients throughout.</li>
 <li>Led daily scrum calls with internal team. Prioritised bugs, managed feature development, maintained delivery momentum during critical periods.</li>
-<li>Built evaluation frameworks and KPI tracking systems to measure feature adoption and training effectiveness. Iterated programmes based on data rather than assumption.</li>
+<li>Built evaluation frameworks and KPI tracking systems to measure feature adoption and training effectiveness. Iterated programs based on data rather than assumption.</li>
 </ul>
 
 <hr class="section-divider">
@@ -1951,7 +1951,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
 <p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. Applied to product operations, that shows up as user needs analysis, field feedback synthesis, and designing handoff systems for how people actually interpret and use information.</p>
-<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
 
@@ -1967,7 +1967,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     content: `
 <div class="resume-header">
 <h1>ASHLEY SARAH</h1>
-<p class="resume-subtitle">Sales Enablement Manager | Training & Curriculum Design | Revenue Enablement</p>
+<p class="resume-subtitle">Sales Enablement Manager | Strategic Sales Partner | Training & Curriculum Design | Revenue Enablement</p>
 <p class="resume-contact">
 Email: ashley@stepinto-ashleysoffice.com<br>
 LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
@@ -1979,12 +1979,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>Ten years as the strategic constant behind a sales function that leaders came to for pitches, demo positioning, pricing conversations, and feature prioritisation, regardless of who held the sales title at the time. At Network Ninja, that was the COO and company owner. Sales reps came and went. The strategic sales relationship didn't.</p>
 <p>I held the institutional knowledge, built the tools, trained whoever was new, and kept the ongoing conversation with leadership going on what we were selling, how we were selling it, and why we were or weren't winning. For most of my tenure I was the only enablement person, which meant I owned all of it: discovery frameworks, demo customisation, competitive intelligence, onboarding curriculum, and the ongoing strategy work that didn't belong to any single rep.</p>
 <p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it. You share it well enough that it sells itself. If it isn't good, no amount of pressure will save you. Everything I build for a sales team is in service of that: the demo is research made visible, the discovery framework is real curiosity about the prospect's business, and the training teaches reps to actually know what they're talking about rather than perform a script. Every prospect interaction demonstrated we'd already understood their business before we showed up. That's the whole game.</p>
-<p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Combined with social work training on adult learning, that's why I design training programmes for how people actually retain and apply new information rather than how we'd prefer they did. It's the difference between training that gets completed and training that changes behaviour.</p>
+<p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Combined with social work training on adult learning, that's why I design training programs for how people actually retain and apply new information rather than how we'd prefer they did. It's the difference between training that gets completed and training that changes behaviour.</p>
 </div>
 
 <div class="resume-section">
 <h2>SKILLS</h2>
-<p><strong>Sales Enablement:</strong> Onboarding programme design, curriculum development, ramp optimisation, discovery frameworks, qualification playbooks, sales process design.</p>
+<p><strong>Sales Enablement:</strong> Onboarding program design, curriculum development, ramp optimisation, discovery frameworks, qualification playbooks, sales process design.</p>
 <p><strong>Content & Tools:</strong> Demo environment creation and customisation, pitch deck development, competitive battle cards, objection-handling guides, win/loss analysis.</p>
 <p><strong>Training Design:</strong> Adult learning principles, instructional design, self-service resource development, video training (Loom), structured learning paths.</p>
 <p><strong>CRM & Pipeline:</strong> HubSpot, SugarCRM, Salesforce, pipeline management, data integrity, forecasting, performance analytics.</p>
@@ -2013,7 +2013,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Primary strategic partner to the COO on all sales decisions: pitches, demo positioning, pricing conversations, feature prioritisation for specific prospects, and win/loss analysis.</li>
 <li>Held the sales intelligence that reps didn't have time to accumulate. Understood the product deeply, knew the competitive landscape, and knew what resonated with which buyer type.</li>
 <li>When new sales hires came in, I was the one who got them functional. When they left, I made sure nothing was lost with them.</li>
-<li>Maintained sales continuity through significant team turnover. The programmes, the tools, and the strategic conversation with leadership stayed steady regardless of who held the sales title.</li>
+<li>Maintained sales continuity through significant team turnover. The programs, the tools, and the strategic conversation with leadership stayed steady regardless of who held the sales title.</li>
 <li>Built 30+ customised demo environments annually. Each researched and built for the prospect's business, industry context, and use cases rather than adapted from a generic template.</li>
 <li>Owned every stage of demo preparation: prospect research, sandbox environment build, tailored walkthrough design, and materials development for the sales conversation.</li>
 <li>Directly involved in the sales process for 30 of the 46 enterprise clients the company won. Every deal involved custom demo preparation and prospect-specific research.</li>
@@ -2030,9 +2030,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Onboarding and ramp optimisation</strong></p>
 <ul>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes, defined learning paths, and self-service resources that didn't require hand-holding.</li>
-<li>Designed and delivered onboarding programmes covering CRM systems, sales processes, product knowledge, and customer discovery. Tailored to the specific gaps of each new hire.</li>
-<li>The programmes survived personnel turnover because they were built to be handed off, not held.</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programs, defined learning paths, and self-service resources that didn't require hand-holding.</li>
+<li>Designed and delivered onboarding programs covering CRM systems, sales processes, product knowledge, and customer discovery. Tailored to the specific gaps of each new hire.</li>
+<li>The programs survived personnel turnover because they were built to be handed off, not held.</li>
 </ul>
 
 <p><strong>Field readiness and product launches</strong></p>
@@ -2056,11 +2056,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Created documentation and self-service resources that let the team work autonomously and reduced reliance on informal knowledge transfer.</li>
 </ul>
 
-<p><strong>Training and programme design</strong></p>
+<p><strong>Training and program design</strong></p>
 <ul>
-<li>Designed and delivered training programmes on CRM systems, sales processes, product knowledge, and customer discovery for an evolving team.</li>
+<li>Designed and delivered training programs on CRM systems, sales processes, product knowledge, and customer discovery for an evolving team.</li>
 <li>Applied adult learning principles throughout. Designed for how people actually retain and apply information, not just what gets completed.</li>
-<li>Collected and analysed feedback through surveys, observation, and performance data to iterate on programme design continuously.</li>
+<li>Collected and analysed feedback through surveys, observation, and performance data to iterate on program design continuously.</li>
 </ul>
 
 <p><strong>Product feedback loops</strong></p>
@@ -2075,12 +2075,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
-<p>Sole owner of adoption and enablement for the company's AI agent product. No existing infrastructure, no team, no precedent. Built the curriculum and onboarding methodology from scratch.</p>
+<p>Sole owner of adoption and enablement for the company's AI agent product. Nothing there to start with. Built the curriculum and onboarding methodology from scratch.</p>
 <ul>
 <li>Designed a five-phase onboarding methodology with a training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</li>
 <li>Created enterprise-level prompt frameworks enabling clients to extract strategic business intelligence from field marketing data. Designed to teach prompting principles, not just provide templates.</li>
 <li>Built 50+ training videos and resources using Loom, Google Drive, and Notion.</li>
-<li>Sole owner of every AI client engagement that existed at the company. Each with a custom framework tuned to their data structure and business questions.</li>
+<li>The only person doing AI client enablement at the company. Each client got a custom framework tuned to their data structure and business questions.</li>
 <li>Applied hermeneutics training directly to AI enablement design. Built materials that account for how users interpret AI outputs and where misunderstanding is most likely to occur.</li>
 </ul>
 
@@ -2090,7 +2090,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p class="job-title">All Blue Solutions Inc. (IBM Reseller)</p>
 <p class="job-meta">May 2015 - Oct 2018 | Remote</p>
 <ul>
-<li>Designed and delivered new hire training programmes on CRM systems, sales processes, and product knowledge.</li>
+<li>Designed and delivered new hire training programs on CRM systems, sales processes, and product knowledge.</li>
 <li>Managed the SugarCRM pipeline with 200+ opportunities. Trained team members on pipeline management, reporting, and process adherence.</li>
 <li>Created documentation and self-service resources that let the team work autonomously. Coordinated IBM co-marketing funds and outbound campaigns.</li>
 </ul>
@@ -2115,8 +2115,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
-<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's why I design training programmes for how people actually process and apply information, rather than how we'd prefer they did. It's also why the training I build changes behaviour rather than just gets completed.</p>
-<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's why I design training programs for how people actually process and apply information, rather than how we'd prefer they did. It's also why the training I build changes behaviour rather than just gets completed.</p>
+<p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
 
@@ -2132,7 +2132,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     content: `
 <div class="resume-header">
 <h1>ASHLEY SARAH</h1>
-<p class="resume-subtitle">AI Adoption & Enablement | Programme Leadership | Change Management | Prompt Engineering</p>
+<p class="resume-subtitle">AI Adoption & Enablement | Program Leadership | Change Management | Prompt Engineering</p>
 <p class="resume-contact">
 Email: ashley@stepinto-ashleysoffice.com<br>
 LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
@@ -2141,15 +2141,15 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <div class="resume-section">
 <h2>SUMMARY</h2>
-<p>I ran the AI agent client enablement programme at Network Ninja. Sole owner. No infrastructure, no team, no precedent. I built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum covering four proficiency levels: everyday users, power users, executives, and internal account managers. Sole owner of every AI client engagement that existed at the company.</p>
-<p>Most AI adoption programmes fail the same way. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they actually need help with. The workers are already swamped. They're also being told, implicitly, that this tool might make them redundant. That's not adoption. That's abandonment with a subscription fee.</p>
+<p>I ran the AI agent client enablement program at Network Ninja. Sole owner. No infrastructure, no team, no precedent. I built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum covering four proficiency levels: everyday users, power users, executives, and internal account managers. Every AI client the company brought on came through this work.</p>
+<p>Most AI adoption programs fail the same way. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they actually need help with. The workers are already swamped. They're also being told, implicitly, that this tool might make them redundant. That's not adoption. That's abandonment with a subscription fee.</p>
 <p>My approach starts three questions earlier: for who, for what, and why. Find the patterned work, not just the boring work. Let machines take that so people have room to build on their work rather than being replaced by it.</p>
 <p>I'm not an engineer. I use AI tools every day, direct technical work with them, and ship real things through them: an open-source Python tool for scoring job alerts, this portfolio site, small automations for friends. I also know exactly where AI outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong. My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's the same instinct that reads what a client actually needs under what they literally said, and catches an AI output when it answered a slightly different question than the one asked.</p>
 </div>
 
 <div class="resume-section">
 <h2>SKILLS</h2>
-<p><strong>AI Adoption Programme Leadership:</strong> Adoption strategy, five-phase onboarding methodology, executive and end-user training, change management, honest documentation of what the tool can and can't do.</p>
+<p><strong>AI Adoption Program Leadership:</strong> Adoption strategy, five-phase onboarding methodology, executive and end-user training, change management, honest documentation of what the tool can and can't do.</p>
 <p><strong>Curriculum Design:</strong> Adult learning principles applied to real workflows. Curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</p>
 <p><strong>Prompt Engineering:</strong> Framework development, tested prompt libraries, output evaluation, edge case testing, enterprise analytical frameworks.</p>
 <p><strong>AI Quality Assurance:</strong> Manual testing framework design, systematic prompt testing, hallucination identification, structured feedback loops between users and product teams.</p>
@@ -2171,9 +2171,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
-<p>Sole owner of adoption and enablement for the company's AI agent product (mAInevent Agents). No existing infrastructure, no team, no precedent. Built all of it.</p>
+<p>Sole owner of adoption and enablement for the company's AI agent product (mAInevent Agents). The whole adoption layer needed building. I built it.</p>
 
-<p><strong>Programme design and onboarding methodology</strong></p>
+<p><strong>Program design and onboarding methodology</strong></p>
 <ul>
 <li>Designed a five-phase onboarding methodology covering the full client journey: initial discovery, agent implementation, testing and validation, user training, ongoing support and evaluation.</li>
 <li>Built a training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers. Each level written in its own voice, at its own depth.</li>
@@ -2185,7 +2185,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Built the manual testing framework from scratch. Systematic evaluation of prompt reliability, output accuracy, and edge case behaviour before any client deployment.</li>
 <li>Identified hallucinations and confidently wrong outputs through systematic testing. Raised concerns to the product team with evidence. Held the position when it wasn't convenient.</li>
-<li>Pushed for guardrails, honest communication about limitations, and appropriate deployment. The critical voice on a team that needed one.</li>
+<li>Insisted the outputs actually be reliable before deployment. Pushed for guardrails, honest communication about limitations, and appropriate handoff.</li>
 <li>Built the feedback loop between how clients actually used the tool and what the product team knew about it. Documented failure modes, tracked recurring issues, drove improvements through evidence.</li>
 </ul>
 
@@ -2194,12 +2194,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Built 75+ tested prompt templates across multiple audiences: everyday user guides, advanced analytical frameworks, agency white-label libraries, and client-specific custom sets.</li>
 <li>Wrote the Agent Prompting Tips and Agent Visualisation Tips guides. Focused on the reasoning behind effective prompts, not just examples to copy.</li>
 <li>Designed a 10-prompt structured learning sequence for progressive user confidence: basic exploration through advanced interactive analysis.</li>
-<li>Built enterprise analytical frameworks covering programme performance, staff performance, venue intelligence, pattern discovery, and data quality.</li>
+<li>Built enterprise analytical frameworks covering program performance, staff performance, venue intelligence, pattern discovery, and data quality.</li>
 </ul>
 
 <p><strong>Client engagement</strong></p>
 <ul>
-<li>Sole owner of every AI client engagement that existed at the company. Each client got a custom analytical framework tuned to their data structure and business questions.</li>
+<li>Every AI client engagement, from discovery through ongoing support, was mine. Each client got a custom analytical framework tuned to their data structure and business questions.</li>
 <li>Led technical discovery sessions to understand each client's actual analytical needs before implementation.</li>
 <li>Built custom sandbox environments and demo configurations for specific prospect requirements.</li>
 <li>Featured in client success case studies for two flagship engagements (Transformative Marketing Services, Peralta Experiences).</li>
@@ -2209,7 +2209,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Owned EMS Vegas (Experiential Marketing Summit) booth end to end. Concept, video examples, demonstrations, outreach materials.</li>
 <li>Wrote industry content on AI-powered analytics for the experiential marketing space. Used for prospect education and conference materials.</li>
-<li>Developed 12+ use case frameworks across field marketing programme types: predictive event performance, anomaly detection, geographic expansion planning, and others.</li>
+<li>Developed 12+ use case frameworks across field marketing program types: predictive event performance, anomaly detection, geographic expansion planning, and others.</li>
 </ul>
 
 <hr class="section-divider">
@@ -2231,9 +2231,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
 <p>First operations hire at the company. Built the enablement and operational foundation the AI work later sat on. Relevant to AI adoption specifically: I'd already designed the pattern of building systems that account for how people actually behave rather than how they should, which is the same problem AI adoption has to solve.</p>
 <ul>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes, defined learning paths, and self-service resources.</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programs, defined learning paths, and self-service resources.</li>
 <li>Used early AI tools to analyse field reports, customer interactions, sales calls, and usage patterns. Surfaced insights for product improvements before formal AI features existed.</li>
-<li>Designed and delivered training programmes that changed how people worked, not just what they completed on a checklist.</li>
+<li>Designed and delivered training programs that changed how people worked, not just what they completed on a checklist.</li>
 </ul>
 
 <hr class="section-divider">
@@ -2267,7 +2267,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
 <p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's how I evaluate AI outputs, run discovery sessions, and design training for how people actually process information.</p>
-<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
 
@@ -2303,7 +2303,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>CRM:</strong> HubSpot, SugarCRM, Salesforce. System configuration, data integrity management, pipeline management, reporting, team training and adoption. Self-taught on every system I've ever used.</p>
 <p><strong>Pipeline Execution:</strong> Prospecting, lead entry and qualification, sequential email marketing, outbound outreach, demo coordination, follow-up management.</p>
 <p><strong>Analytics & Reporting:</strong> Performance metrics, forecasting, KPI tracking, sales analytics, competitive intelligence, pattern identification.</p>
-<p><strong>Sales Enablement:</strong> Discovery frameworks, qualification playbooks, demo customisation, onboarding programmes, competitive battle cards.</p>
+<p><strong>Sales Enablement:</strong> Discovery frameworks, qualification playbooks, demo customisation, onboarding programs, competitive battle cards.</p>
 <p><strong>Directing AI Tools:</strong> Claude, ChatGPT, Claude Code. Shipped a working open-source Python tool (Job Alert Scorer) and this portfolio site by directing these tools through a real software workflow. Not an engineer.</p>
 <p><strong>Tools:</strong> HubSpot, SugarCRM, Salesforce, Jira, Slack, Google Workspace, Loom, Notion, Asana, Zoom.</p>
 </div>
@@ -2412,7 +2412,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
 <p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. Applied to revenue operations, it's how I read the story a CRM is telling versus the story leadership wants to hear from it.</p>
-<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
 
@@ -2439,7 +2439,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>SUMMARY</h2>
 <p>I run implementations end to end: discovery, requirements, wireframes, QA process, dev team leadership, account management, clean handoff. Sole QA lead across 20+ major platform implementations. The flagship: Neptune Retail Solutions, a $500K custom build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions. I owned it from discovery through handoff, led four developers, ran the QA process, and managed the client relationship until a dedicated AM was ready to take over.</p>
 <p>I also built the five-phase onboarding methodology for the company's AI agent product, plus the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</p>
-<p>The through-line: I build for the person who inherits the work. Every process, every handoff document, every training programme is built assuming someone else has to pick it up and run with it without me in the room. That's what makes implementations last.</p>
+<p>The through-line: I build for the person who inherits the work. Every process, every handoff document, every training program is built assuming someone else has to pick it up and run with it without me in the room. That's what makes implementations last.</p>
 </div>
 
 <div class="resume-section">
@@ -2499,7 +2499,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
-<p>Designed and implemented the complete onboarding methodology for the company's AI agent product. No existing infrastructure, no team, no precedent. Built the process that took clients from discovery through to independent, confident usage.</p>
+<p>Designed and implemented the complete onboarding methodology for the company's AI agent product. Started from nothing. Built the process that took clients from discovery through to independent, confident usage.</p>
 
 <p><strong>Five-phase onboarding methodology</strong></p>
 <ul>
@@ -2513,7 +2513,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Led technical discovery sessions to understand each client's actual data requirements, field structure, and desired analytical outcomes before implementation began.</li>
 <li>Built custom sandbox environments and demo configurations for specific prospect requirements. Turned prospect requirements into working proof-of-concept setups.</li>
-<li>Sole owner of every AI client engagement that existed at the company. Each client got a custom framework built around their specific data structures and business questions.</li>
+<li>The whole AI client adoption function ran through me. Each client got a custom framework built around their specific data structures and business questions.</li>
 <li>Created a Sales-to-Accounts handoff process covering demo site setup, client pitch requests, development scoping, contract management, and new client onboarding workflows.</li>
 </ul>
 
@@ -2527,7 +2527,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Managed client issues end to end. Triaged bugs in Jira, coordinated resolution with engineering, and translated complex platform behaviour into plain language for clients throughout.</li>
 <li>Led daily scrum calls to prioritise bugs, manage feature development, and maintain delivery momentum during critical periods.</li>
 <li>Partnered with Product and Engineering through the full software development lifecycle. Provided user and client perspective to keep delivery grounded in real usage.</li>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programmes and self-service resources built for the person inheriting them.</li>
+<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programs and self-service resources built for the person inheriting them.</li>
 </ul>
 
 <hr class="section-divider">
@@ -2537,7 +2537,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p class="job-meta">May 2015 - Oct 2018 | Remote</p>
 <ul>
 <li>Managed the SugarCRM implementation and ongoing system administration for a 200+ opportunity pipeline. Trained team members on process adherence and reporting.</li>
-<li>Designed and delivered new hire onboarding programmes covering CRM systems, sales processes, and product knowledge.</li>
+<li>Designed and delivered new hire onboarding programs covering CRM systems, sales processes, and product knowledge.</li>
 <li>Created documentation and self-service resources that let the team work autonomously.</li>
 </ul>
 
@@ -2562,7 +2562,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
 <p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's how I run discovery sessions: understanding what a client actually means rather than only what they said. It's also why I design implementation processes for how people will adopt new tools, rather than how we'd prefer they did.</p>
-<p><strong>Social Service Worker Programme</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
+<p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
 
@@ -2643,8 +2643,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "ai-adoption",
         title: "AI Adoption & Enablement",
         tags: ["AI Adoption", "Prompt Engineering", "AI QA", "Change Management"],
-        hook: "Programme leadership for AI client enablement. Not a blind advocate. Catches confidently wrong outputs before a client does.",
-        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programmes that change behaviour. The critical voice on a team that needs one.",
+        hook: "Program leadership for AI client enablement. Not a blind advocate. Catches confidently wrong outputs before a client does.",
+        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programs that change behaviour. The critical voice on a team that needs one.",
         whatIveDone: [
           "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries.",
           "Applied hermeneutics training directly to AI quality work. Used understanding of how models interpret context to find where they were likely to misread intent.",
@@ -2678,7 +2678,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         title: "Implementation Manager",
         tags: ["Implementation", "Client Onboarding", "Technical PM", "QA"],
         hook: "Full lifecycle ownership from discovery through clean handoff. Documentation that actually works.",
-        whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff document, every training programme is built assuming someone else needs to pick it up and run with it without you in the room.",
+        whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff document, every training program is built assuming someone else needs to pick it up and run with it without you in the room.",
         whatIveDone: [
           "Led the Neptune Retail Solutions custom platform build end to end: $500K build with $20K monthly recurring, 48,000+ retail locations, 3,800+ field staff, 24M+ annual executions. Four developers, Jira board management, account management through to clean handoff.",
           "Sole QA lead across 20+ major implementations. Built repeatable test plans, set quality standards, enforced them with Product and Engineering.",
@@ -2774,7 +2774,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       {
         name: "New Hire",
         title: "Her training materials are the reason I got up to speed so fast.",
-        text: "When I joined, I was nervous about the learning curve. But Ashley had built out this whole library of training videos, documentation, and sandbox environments. It wasn't just 'here's how to click buttons.' It explained why things work the way they do. I went from nervous to confident in about half the time I expected."
+        text: "I hit ramp in half the time I expected, and it wasn't luck. The materials Ashley built assumed I had zero context and no time to hunt for answers, which was exactly the state I was in. Each guide told me what I needed at the specific moment I needed it. I stopped feeling like I was drowning around week three, which is when most new hires are still asking whether they're going to make it."
       }
     ],
 
@@ -2786,14 +2786,14 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>I build for everyone else.</p>
 <p>My undergraduate degree is in hermeneutics, the philosophy of how meaning gets made and lost in interpretation. The core idea, and the one I've never been able to set down, is that interpretation is not passive. The person encountering the material brings their own context, their own prior knowledge, their own way of processing information. The same document, the same onboarding flow, the same training module will land completely differently depending on who's reading it and how they think. Some people need the big picture before the details make sense. Some people need to do the thing before they can learn about the thing. Some people search; some people scan. Some people are brand new and overwhelmed; some are experienced and moving too fast to read carefully.</p>
 <p>Designing for one of those people and hoping it works for the rest is how you end up with systems that technically contain all the right information and are almost completely useless.</p>
-<p>I think about this for everything I build. Onboarding programmes, training materials, knowledge bases, process docs, demo environments. The question I keep coming back to is: what could a person actually need here, and how many different kinds of people are going to encounter this? What does the new hire need at week one versus week six? What does the executive need versus the account manager? What does the person searching at 4pm on a Friday, trying to answer a client question before end of day, need to find in about two minutes?</p>
+<p>I think about this for everything I build. Onboarding programs, training materials, knowledge bases, process docs, demo environments. The question I keep coming back to is: what could a person actually need here, and how many different kinds of people are going to encounter this? What does the new hire need at week one versus week six? What does the executive need versus the account manager? What does the person searching at 4pm on a Friday, trying to answer a client question before end of day, need to find in about two minutes?</p>
 <p>Those are different people with different questions, and they deserve different entry points into the same material.</p>
 <p>Combine hermeneutics with social work training, which is fundamentally about meeting people where they are, not where you'd prefer them to be, and this is just how I think now. I can't turn it off; I'm not sure I'd want to.</p>
 <p>In practice, this changes almost every decision I make.</p>
-<p>Adults learn by doing. This sounds obvious; an extraordinary number of training programmes ignore it. They're built around watching and listening, which produces the impression of learning without much of the actual thing. I design around doing, because that's what sticks.</p>
+<p>Adults learn by doing. This sounds obvious; an extraordinary number of training programs ignore it. They're built around watching and listening, which produces the impression of learning without much of the actual thing. I design around doing, because that's what sticks.</p>
 <p>Documentation is where the gap shows up most clearly. There's a kind of documentation that's complete, accurate, logically structured, and almost useless in practice. It covers everything in the order that makes sense to the person who wrote it. It's thorough. It is a monument to thoroughness. But the person who needs it can't find anything in it, because it was designed for reading, not for searching. I structure things so they're searchable. I put the answer before the explanation, because most of the time someone needs the answer and only sometimes wants the why. I think about what the question is before I think about what the content should be.</p>
 <p>None of this is revolutionary. It's mostly just asking "what could help someone actually grasp this?" before building anything, and being honest about the fact that "someone" is a lot of different people. The hermeneutics training means I take the question seriously at a level below individual design choices; it's a different starting assumption about what interpretation is and who's doing it. The social work training means I know that how people learn is not uniform, and that building for one mode and calling it done leaves a huge number of people behind.</p>
-<p>It also produces better outcomes, which I mention because "I have a philosophy degree and it informs my work" can sound like a nice story. The onboarding programmes I've built this way have cut ramp time. Documentation designed for searching rather than reading has reduced support load. Training built around doing rather than watching has produced higher adoption. Designing for actual humans is better business.</p>
+<p>It also produces better outcomes, which I mention because "I have a philosophy degree and it informs my work" can sound like a nice story. The onboarding programs I've built this way have cut ramp time. Documentation designed for searching rather than reading has reduced support load. Training built around doing rather than watching has produced higher adoption. Designing for actual humans is better business.</p>
 <p>The hard part is that it's easier not to. Designing for one kind of learner, one kind of reader, one set of conditions is simpler and faster. But those are the systems that fail quietly. Not because the information is wrong, but because the people who need it can't get to it the way they need to get to it. And a system that doesn't work for the people using it doesn't really work.</p>`
       },
       {
@@ -2814,7 +2814,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       {
         date: "January 2026",
         subject: "AI Needs Critics Who Actually Use It",
-        content: `<p>I use AI tools every day. I've built QA frameworks, prompt libraries, and training programmes around them. I find the technology interesting: how it works, where it breaks, what it does well, what it confidently gets wrong. I'm not someone who opened Claude once and decided they understood it, and I'm not someone who thinks it's going to save or destroy everything. I think it's a tool that's moving faster than most people's ability to evaluate what it produces. And that's the part that worries me.</p>
+        content: `<p>I use AI tools every day. I've built QA frameworks, prompt libraries, and training programs around them. I find the technology interesting: how it works, where it breaks, what it does well, what it confidently gets wrong. I'm not someone who opened Claude once and decided they understood it, and I'm not someone who thinks it's going to save or destroy everything. I think it's a tool that's moving faster than most people's ability to evaluate what it produces. And that's the part that worries me.</p>
 <p>There's an enormous amount of conversation around AI adoption: which tools, how fast, what it means for jobs. There is much less serious conversation about what the output actually looks like. Whether it's good. How you'd know if it wasn't.</p>
 <p>Here's an analogy that might date me: remember when you could mod your Xbox? Or root your Android? There was this whole culture of people who wanted to understand how the thing worked, who were willing to spend a weekend in forums figuring out exactly which steps to follow and in which order, and who got satisfaction from making the device do something it wasn't supposed to. It rewarded curiosity. It had a community. It had shared knowledge about what you were trying to achieve and why.</p>
 <p>AI has that same energy, at least for some people. The tinkering instinct is absolutely there. But what's missing is any kind of shared understanding of what we're actually trying to do with it. Modding your Xbox had a clear goal: get more out of the hardware. What's the goal with AI? Efficiency? Creativity? Augmentation? Replacement? Everybody has a different answer, and most organisations haven't sat down to figure out theirs. So people are tinkering without a target, which is fun right up until something goes wrong and nobody knows why.</p>
@@ -2860,7 +2860,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "Tell me about your AI work": {
-        text: "I ran the AI agent client enablement programme at Network Ninja. Sole owner. No infrastructure, no team, no precedent. Built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.\n\nMy critique of most AI adoption programmes is that they run backwards. Companies buy the tool and push it out to people who are already swamped, without asking those people what they actually need help with. That's not adoption. That's abandonment with a subscription fee.\n\nMy alternative starts three questions earlier: for who, for what, and why. Find the patterned work, not just the boring work. Let machines take that so people have room to build on their work rather than being replaced by it.\n\nI'm a critic because I'm paying attention. I use these tools daily and know exactly where their outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong.",
+        text: "I ran the AI agent client enablement program at Network Ninja. Sole owner. No infrastructure, no team, no precedent. Built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.\n\nMy critique of most AI adoption programs is that they run backwards. Companies buy the tool and push it out to people who are already swamped, without asking those people what they actually need help with. That's not adoption. That's cost-cutting with an AI budget line.\n\nMy alternative starts three questions earlier: for who, for what, and why. Find the patterned work, not just the boring work. Let machines take that so people have room to build on their work rather than being replaced by it.\n\nI'm a critic because I'm paying attention. I use these tools daily and know exactly where their outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong.",
         followUp: "What do you mean by catching where things go wrong?"
       },
 
@@ -2910,7 +2910,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "What does your ideal role look like?": {
-        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation. AI Adoption lead bringing the critical voice most AI programmes don't have. Revenue Operations building the pipeline infrastructure. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape. Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my background is an asset, not a question mark.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
+        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation. AI Adoption lead bringing the honest testing most AI programs skip. Revenue Operations building the pipeline infrastructure. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape. Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my background is an asset, not a question mark.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
         followUp: null
       },
 
@@ -2972,16 +2972,16 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         "Designed the five-phase onboarding methodology: Discovery, Implementation, Testing and Validation, Training, Ongoing Support.",
         "Created a training curriculum spanning four proficiency levels (everyday users, power users, executives, internal account managers) plus 50+ training videos and resources.",
         "Developed the Power Prompts library of enterprise analytical frameworks.",
-        "Advocated internally for AI quality, honest documentation of limitations, and appropriate deployment. The critical voice on a team that needed one."
+        "Advocated internally for AI quality, honest documentation of limitations, and appropriate deployment. The internal push for guardrails on a product team that needed it."
       ],
-      outcome: "Sole owner of every AI agent client engagement that existed at the company. Each with a custom analytical framework tuned to their data and business questions. One flagship client used the platform to analyse 13,000+ events across 625+ field staff (published case study). The curriculum and methodology became the standard for every deployment. Owned EMS Vegas booth presence from concept to execution.",
+      outcome: "Every AI client the company signed came through the onboarding I built. Each with a custom analytical framework tuned to their data and business questions. One flagship client used the platform to analyse 13,000+ events across 625+ field staff (published case study). The curriculum and methodology became the standard for every deployment. Owned EMS Vegas booth presence from concept to execution.",
       skills: ["AI/LLM", "Prompt Engineering", "Training Design", "QA", "Documentation", "Change Management", "Ethics"],
       image: "assets/images/work-ai.jpg"
     },
     {
       id: "sales-enablement",
       name: "Sales Enablement that Won Enterprise Deals",
-      type: "Sales Enablement Programme",
+      type: "Sales Enablement Program",
       description: "The sales team was closing enterprise deals with Fortune 500 CPG companies, national telecoms, major beverage brands. Competing against companies with dedicated sales enablement departments. Team composition changed over the years, but demo quality couldn't fluctuate. That's where I came in and stayed in.",
       challenge: "Keep the sales motion coherent and enterprise-quality through every team change. Be the strategic constant when everything else shifted.",
       whatIDid: [
@@ -3001,9 +3001,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       description: "Joined a field marketing SaaS company when the team was eight people with no formal processes, no workflows, no documentation. The COO was managing all sales and operations solo. It was the kind of chaos that's either terrifying or exciting depending on how you're wired.",
       challenge: "Build everything needed to scale from startup chaos to enterprise-ready operations. From scratch. While also doing the day-to-day work.",
       whatIDid: [
-        "Created the operational infrastructure: sales operations, contract workflows, demo preparation processes, enablement programmes.",
+        "Created the operational infrastructure: sales operations, contract workflows, demo preparation processes, enablement programs.",
         "Established account transition processes, documentation standards, and client handoff protocols.",
-        "Designed training programmes, onboarding flows, and process documentation used company-wide.",
+        "Designed training programs, onboarding flows, and process documentation used company-wide.",
         "Built systems that maintained consistency across multiple team composition changes over seven-plus years."
       ],
       outcome: "The company grew from eight people to eighteen while scaling to 46 enterprise clients, 19.5M+ executions tracked, and 576K+ client staff managed. The systems I built are still in use. Near-zero churn: two to three client offboards across seven years.",
@@ -3062,7 +3062,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             "Training curriculum spanning four proficiency levels: everyday users, power users, executives, internal account managers",
             "50+ training videos with transcripts and captions",
             "Self-service resource library with searchable documentation",
-            "Power user certification programme",
+            "Power user certification program",
             "Ongoing office hours and support framework"
           ],
 
@@ -3102,7 +3102,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             },
             {
               title: "The Impact",
-              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\nSole owner of every AI client engagement that existed at the company.",
+              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\nRan adoption for every AI client the company brought on.",
               notes: "The curriculum became the standard"
             }
           ]

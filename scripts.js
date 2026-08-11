@@ -4116,7 +4116,7 @@ function initWorkMatch(windowEl) {
       answers: [
         { text: "Watching leadership make a call that nobody around them had the context to question in time", scores: [5, 2, 1, 1, 1, 1] },
         { text: "Product, Sales, and CS all using different words for the same thing and blaming each other for the confusion", scores: [2, 5, 2, 1, 1, 1] },
-        { text: "Training programmes built for the ideal user who reads everything front to back: nobody does that", scores: [1, 1, 5, 2, 1, 1] },
+        { text: "Training programs built for the ideal user who reads everything front to back: nobody does that", scores: [1, 1, 5, 2, 1, 1] },
         { text: "People treating AI output as authoritative because it sounds confident, without testing whether it's right", scores: [1, 1, 1, 5, 1, 1] },
         { text: "A forecast everyone pretends to believe because nobody wants to redefine what 'qualified' actually means", scores: [1, 1, 1, 1, 5, 1] },
         { text: "Implementations that get handed off with a wave and a prayer instead of actual documentation", scores: [1, 2, 1, 1, 1, 5] }
@@ -4167,7 +4167,7 @@ function initWorkMatch(windowEl) {
       emoji: "🎓",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Sales Enablement Manager who can be the institutional constant behind a sales function. Strategic partner to leadership on pitches, pricing, and demo positioning. 30+ custom demo environments a year, each built from real research on the prospect. Onboarding programmes that actually reduce ramp time because they're built for how adults learn. The person who stays even when the sales team turns over. Lives by sharing over selling: the belief that if a product is good, you share it well enough that the sharing does the work, and the whole sales motion she built is downstream of that.";
+        if (pct >= 85) return "You want the Sales Enablement Manager who can be the institutional constant behind a sales function. Strategic partner to leadership on pitches, pricing, and demo positioning. 30+ custom demo environments a year, each built from real research on the prospect. Onboarding programs that actually reduce ramp time because they're built for how adults learn. The person who stays even when the sales team turns over. Lives by sharing over selling: the belief that if a product is good, you share it well enough that the sharing does the work, and the whole sales motion she built is downstream of that.";
         if (pct >= 70) return "Strong Sales Enablement alignment. You'd benefit from someone who owns discovery frameworks, qualification playbooks, demo customisation, and the strategic sales conversation that doesn't belong to any single rep.";
         return "Some Sales Enablement energy here. This Ashley can help a sales team get sharper, faster, and more consistent, and build the training that actually changes behaviour.";
       },
@@ -4175,11 +4175,11 @@ function initWorkMatch(windowEl) {
     },
     {
       name: "AI Adoption Ashley",
-      title: "The One Who Isn't A Blind AI Advocate",
+      title: "The One Who Catches The AI Before The Client Does",
       emoji: "🧠",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the AI Adoption & Enablement lead who brings the critical voice most AI programmes don't have. Philosophy background applied directly to understanding how LLMs interpret context, where they'll go wrong, and how to build prompt frameworks that prevent it. Onboarding methodology, testing framework, honest limitations documentation, and the push for guardrails that makes adoption programmes trustworthy enough to last.";
+        if (pct >= 85) return "You want the AI Adoption & Enablement lead who brings the critical voice most AI programs don't have. Philosophy background applied directly to understanding how LLMs interpret context, where they'll go wrong, and how to build prompt frameworks that prevent it. Onboarding methodology, testing framework, honest limitations documentation, and the push for guardrails that makes adoption programs trustworthy enough to last.";
         if (pct >= 70) return "Strong AI Adoption alignment. You'd benefit from someone who understands both how these models interpret context and how people actually learn to use them, plus the willingness to say 'this isn't ready yet' out loud.";
         return "Some AI Adoption energy here. This Ashley can help turn 'we have AI' into 'we use AI honestly and well' without handing over templates nobody understands.";
       },
@@ -4203,7 +4203,7 @@ function initWorkMatch(windowEl) {
       emoji: "🧱",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Implementation Manager who owns the full lifecycle, discovery through clean handoff, and writes the documentation that actually makes the handoff work. Led the Neptune custom platform build end to end with four developers. Sole QA lead across 20+ implementations. Designed the five-phase AI adoption methodology with complete docs for each phase. The through-line: every handoff doc, every test plan, every training programme is built assuming someone else has to pick it up and run with it without you in the room.";
+        if (pct >= 85) return "You want the Implementation Manager who owns the full lifecycle, discovery through clean handoff, and writes the documentation that actually makes the handoff work. Led the Neptune custom platform build end to end with four developers. Sole QA lead across 20+ implementations. Designed the five-phase AI adoption methodology with complete docs for each phase. The through-line: every handoff doc, every test plan, every training program is built assuming someone else has to pick it up and run with it without you in the room.";
         if (pct >= 70) return "Strong Implementation alignment. You'd benefit from someone who takes projects from requirements gathering through wireframes, QA process, team leadership, and clean handoff, and leaves documentation good enough to be used.";
         return "Some Implementation Manager energy here. This Ashley can own a complex project end to end and make sure what gets handed off is actually usable.";
       },
