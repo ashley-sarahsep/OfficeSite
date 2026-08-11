@@ -4026,21 +4026,21 @@ function initWorkMatch(windowEl) {
     {
       text: "A new initiative is launching but nobody's quite sure who owns what. You:",
       answers: [
-        { text: "Read the room - figure out what leadership isn't saying yet and surface what they're missing before they commit", scores: [5, 2, 1, 1, 1, 2] },
-        { text: "Map the work across Product, Eng, Sales, and CS - make sure what's being built matches what's being sold", scores: [2, 5, 1, 1, 1, 2] },
-        { text: "Build the discovery framework - what are we actually selling, to whom, and how will the team describe it?", scores: [1, 1, 5, 1, 2, 1] },
-        { text: "Ask what 'working' looks like - define the user's interpretation before anyone writes a prompt or a spec", scores: [1, 2, 1, 5, 1, 2] },
-        { text: "Check the pipeline first - is the CRM even capturing what we'll need to measure this?", scores: [1, 1, 2, 1, 5, 1] },
-        { text: "Draft the full project plan - discovery through handoff - so the team knows the shape before we start", scores: [2, 2, 1, 1, 1, 5] }
+        { text: "Read the room: figure out what leadership isn't saying yet and surface what they're missing before they commit", scores: [5, 2, 1, 1, 1, 2] },
+        { text: "Map the work across Product, Eng, Sales, and CS: make sure what's being built matches what's being sold", scores: [2, 5, 1, 1, 1, 2] },
+        { text: "Build the discovery framework: what are we actually selling, to whom, and how will the team describe it?", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "Ask what 'working' looks like: define the user's interpretation before anyone writes a prompt or a spec", scores: [1, 2, 1, 5, 1, 2] },
+        { text: "Check the pipeline first: is the CRM even capturing what we'll need to measure this?", scores: [1, 1, 2, 1, 5, 1] },
+        { text: "Draft the full project plan, discovery through handoff, so the team knows the shape before we start", scores: [2, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "Your favourite kind of problem to solve:",
       answers: [
-        { text: "The decision nobody has surfaced yet - the blind spot that will bite us later if someone doesn't name it now", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "The decision nobody has surfaced yet: the blind spot that will bite us later if someone doesn't name it now", scores: [5, 2, 1, 1, 1, 1] },
         { text: "The disconnect between what Product shipped and what Sales is actually promising in demos", scores: [2, 5, 2, 1, 1, 1] },
         { text: "The new hire who's technically onboarded but still doesn't sound confident on discovery calls", scores: [1, 1, 5, 1, 2, 1] },
-        { text: "The AI output that sounds right but isn't - and explaining to the team why we can't ship it yet", scores: [1, 1, 1, 5, 1, 2] },
+        { text: "The AI output that sounds right but isn't, and explaining to the team why we can't ship it yet", scores: [1, 1, 1, 5, 1, 2] },
         { text: "The pipeline that looks healthy on the dashboard but is secretly full of stale duplicates", scores: [1, 1, 2, 1, 5, 1] },
         { text: "The custom build where the client, the dev team, and the spec all disagree about what 'done' means", scores: [1, 2, 1, 1, 1, 5] }
       ]
@@ -4048,34 +4048,34 @@ function initWorkMatch(windowEl) {
     {
       text: "The CEO asks for a quick summary on something complex. Your instinct:",
       answers: [
-        { text: "Frame what they're actually deciding - what matters, what the downstream consequences are, and what I'd recommend", scores: [5, 2, 1, 1, 1, 1] },
-        { text: "Walk through how it lands across Product, Sales, and CS - because those three often need different framings", scores: [2, 5, 2, 1, 1, 1] },
+        { text: "Frame what they're actually deciding: what matters, what the downstream consequences are, and what I'd recommend", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Walk through how it lands across Product, Sales, and CS: because those three often need different framings", scores: [2, 5, 2, 1, 1, 1] },
         { text: "Translate it into what the sales team will say to a prospect when this hits the pitch deck", scores: [1, 1, 5, 1, 2, 1] },
-        { text: "Explain it the way a non-technical user will need to understand it - plain language, no jargon, no hand-waving", scores: [1, 1, 1, 5, 1, 2] },
-        { text: "Lead with what the numbers actually show - pipeline, forecast, and what's quietly trending in the wrong direction", scores: [1, 1, 1, 1, 5, 1] },
-        { text: "Walk them through the project plan - where we are, what's coming, and the risks I've already flagged", scores: [1, 2, 1, 1, 1, 5] }
+        { text: "Explain it the way a non-technical user will need to understand it: plain language, no jargon, no hand-waving", scores: [1, 1, 1, 5, 1, 2] },
+        { text: "Lead with what the numbers actually show: pipeline, forecast, and what's quietly trending in the wrong direction", scores: [1, 1, 1, 1, 5, 1] },
+        { text: "Walk them through the project plan: where we are, what's coming, and the risks I've already flagged", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "When you join a new team, what do you look for first?",
       answers: [
-        { text: "Who's talking to whom and who isn't - the dynamics nobody puts on a wiki but everybody operates around", scores: [5, 2, 1, 1, 1, 1] },
-        { text: "Where the handoffs are breaking - the moments where one team thinks another is covering something, and neither is", scores: [2, 5, 1, 1, 1, 2] },
+        { text: "Who's talking to whom and who isn't: the dynamics nobody puts on a wiki but everybody operates around", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Where the handoffs are breaking: the moments where one team thinks another is covering something, and neither is", scores: [2, 5, 1, 1, 1, 2] },
         { text: "How new reps are onboarded and whether the demo environment actually reflects the current product", scores: [1, 1, 5, 1, 2, 1] },
-        { text: "Whether anyone is honestly testing the AI outputs before they go to clients - or whether hope is the plan", scores: [1, 1, 1, 5, 1, 1] },
-        { text: "What the CRM says is 'qualified' - and whether that definition actually means anything", scores: [1, 1, 2, 1, 5, 1] },
+        { text: "Whether anyone is honestly testing the AI outputs before they go to clients, or whether hope is the plan", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "What the CRM says is 'qualified', and whether that definition actually means anything", scores: [1, 1, 2, 1, 5, 1] },
         { text: "How implementations are tracked end-to-end and whether the handoff documentation exists at all", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
       text: "A project is going sideways. How do you help?",
       answers: [
-        { text: "Pressure-test the decisions that got us here - which assumption turned out to be wrong, and who needs to know now?", scores: [5, 2, 1, 1, 1, 1] },
-        { text: "Find the translation gap - usually Sales and Engineering have different mental models and nobody has noticed", scores: [2, 5, 2, 1, 1, 1] },
-        { text: "Check whether the team is confident in what they're selling - sometimes 'going sideways' is a pitch problem, not a product one", scores: [1, 1, 5, 1, 2, 1] },
-        { text: "Run the AI outputs through a proper test plan - the model is probably confident about something it shouldn't be", scores: [1, 1, 1, 5, 1, 1] },
-        { text: "Audit the pipeline and the forecast - the real story is usually in the data people stopped looking at three weeks ago", scores: [1, 1, 1, 1, 5, 2] },
-        { text: "Take over the Jira board, rebuild the test plan, get the scrums on track - stabilise before we diagnose", scores: [1, 2, 1, 1, 1, 5] }
+        { text: "Pressure-test the decisions that got us here: which assumption turned out to be wrong, and who needs to know now?", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Find the translation gap: usually Sales and Engineering have different mental models and nobody has noticed", scores: [2, 5, 2, 1, 1, 1] },
+        { text: "Check whether the team is confident in what they're selling: sometimes 'going sideways' is a pitch problem, not a product one", scores: [1, 1, 5, 1, 2, 1] },
+        { text: "Run the AI outputs through a proper test plan: the model is probably confident about something it shouldn't be", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "Audit the pipeline and the forecast: the real story is usually in the data people stopped looking at three weeks ago", scores: [1, 1, 1, 1, 5, 2] },
+        { text: "Take over the Jira board, rebuild the test plan, get the scrums on track: stabilise before we diagnose", scores: [1, 2, 1, 1, 1, 5] }
       ]
     },
     {
@@ -4084,7 +4084,7 @@ function initWorkMatch(windowEl) {
         { text: "Save a leader from a decision they would've regretted by surfacing what they couldn't see from the top", scores: [5, 2, 1, 1, 1, 1] },
         { text: "Ship a product launch where every team actually knows what they're doing before it goes live", scores: [2, 5, 2, 1, 1, 2] },
         { text: "Watch a new sales rep go from nervous to confident because the training was actually built for how adults learn", scores: [1, 1, 5, 2, 1, 1] },
-        { text: "Catch an AI hallucination on test data before it ever reaches a client - and build the framework that stops the next one", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "Catch an AI hallucination on test data before it ever reaches a client: and build the framework that stops the next one", scores: [1, 1, 1, 5, 1, 1] },
         { text: "Build a forecasting model so clean that leadership stops flying blind and starts making real decisions", scores: [1, 1, 2, 1, 5, 1] },
         { text: "Hand off a completed implementation with documentation so good the new AM doesn't need to ask a single question", scores: [1, 2, 1, 1, 1, 5] }
       ]
@@ -4092,10 +4092,10 @@ function initWorkMatch(windowEl) {
     {
       text: "How do you prefer to add value to a team?",
       answers: [
-        { text: "Being the steady presence in the room where high-stakes decisions happen - the one advocating for what's actually needed", scores: [5, 2, 1, 1, 1, 1] },
-        { text: "Keeping the space between teams from becoming a gap - translation, QA, field feedback, GTM readiness", scores: [2, 5, 2, 1, 1, 2] },
+        { text: "Being the steady presence in the room where high-stakes decisions happen: the one advocating for what's actually needed", scores: [5, 2, 1, 1, 1, 1] },
+        { text: "Keeping the space between teams from becoming a gap: translation, QA, field feedback, GTM readiness", scores: [2, 5, 2, 1, 1, 2] },
         { text: "Being the institutional constant behind the sales motion while reps come and go", scores: [1, 1, 5, 1, 2, 1] },
-        { text: "Being the critical voice on an AI product team - the one who insists on guardrails and testing", scores: [1, 1, 1, 5, 1, 1] },
+        { text: "Being the critical voice on an AI product team: the one who insists on guardrails and testing", scores: [1, 1, 1, 5, 1, 1] },
         { text: "Building the CRM architecture and pipeline infrastructure the revenue function actually depends on", scores: [1, 1, 2, 1, 5, 1] },
         { text: "Owning projects end to end and handing them off cleaner than they were picked up", scores: [1, 2, 1, 1, 1, 5] }
       ]
@@ -4116,7 +4116,7 @@ function initWorkMatch(windowEl) {
       answers: [
         { text: "Watching leadership make a call that nobody around them had the context to question in time", scores: [5, 2, 1, 1, 1, 1] },
         { text: "Product, Sales, and CS all using different words for the same thing and blaming each other for the confusion", scores: [2, 5, 2, 1, 1, 1] },
-        { text: "Training programmes built for the ideal user who reads everything front to back - nobody does that", scores: [1, 1, 5, 2, 1, 1] },
+        { text: "Training programmes built for the ideal user who reads everything front to back: nobody does that", scores: [1, 1, 5, 2, 1, 1] },
         { text: "People treating AI output as authoritative because it sounds confident, without testing whether it's right", scores: [1, 1, 1, 5, 1, 1] },
         { text: "A forecast everyone pretends to believe because nobody wants to redefine what 'qualified' actually means", scores: [1, 1, 1, 1, 5, 1] },
         { text: "Implementations that get handed off with a wave and a prayer instead of actual documentation", scores: [1, 2, 1, 1, 1, 5] }
@@ -4143,7 +4143,7 @@ function initWorkMatch(windowEl) {
       emoji: "🎯",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the strategic right hand. The one who holds the context leadership doesn't have time to, pressure-tests decisions before they get made, reads power dynamics in the room, and advocates for what's actually needed rather than what's easiest. She'll manage up as a core function, not a reaction - and save you from the decisions you would've regretted.";
+        if (pct >= 85) return "You want the strategic right hand. The one who holds the context leadership doesn't have time to, pressure-tests decisions before they get made, reads power dynamics in the room, and advocates for what's actually needed rather than what's easiest. She'll manage up as a core function, not a reaction, and save you from the decisions you would've regretted.";
         if (pct >= 70) return "Strong Chief of Staff alignment. You'd benefit from someone who thinks with you rather than for you, who catches blind spots before they cost anyone, and who makes sure the downstream consequences get considered before the call gets made.";
         return "Some strategic right-hand energy here. This Ashley can be your thought partner on the harder decisions and make sure what leadership is missing gets surfaced in time.";
       },
@@ -4156,20 +4156,20 @@ function initWorkMatch(windowEl) {
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
         if (pct >= 85) return "You want the Product Operations Manager who keeps the space between Product, Engineering, Sales, and CS from becoming a gap. The translation layer, the GTM readiness owner, the field feedback loop that actually reaches the roadmap, and the QA standard that catches issues before clients do. The one who makes sure what's shipped matches what's sold matches what users actually need.";
-        if (pct >= 70) return "Strong Product Ops alignment. You'd benefit from someone who owns the cross-functional layer - launches land with every team ready, bugs get caught before clients see them, and product feedback actually reaches Engineering in a form they can act on.";
+        if (pct >= 70) return "Strong Product Ops alignment. You'd benefit from someone who owns the cross-functional layer: launches land with every team ready, bugs get caught before clients see them, and product feedback actually reaches Engineering in a form they can act on.";
         return "Some Product Ops energy here. This Ashley can be your translation layer between technical and business teams and keep things from slipping through the cracks.";
       },
       resumeApp: "wordpad-prodops"
     },
     {
       name: "Sales Enablement Ashley",
-      title: "The One Who Makes The Whole Sales Motion Punch Above Its Weight",
+      title: "The One Who Stays When The Sales Team Turns Over",
       emoji: "🎓",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Sales Enablement Manager who can be the institutional constant behind a sales function. Strategic partner to leadership on pitches, pricing, and demo positioning. 30+ custom demo environments a year, each built from real research on the prospect. Onboarding programmes that actually reduce ramp time because they're built for how adults learn. The person who stays even when the sales team turns over. Lives by sharing over selling - the belief that if a product is good, you share it well enough that the sharing does the work, and the whole sales motion she built is downstream of that.";
+        if (pct >= 85) return "You want the Sales Enablement Manager who can be the institutional constant behind a sales function. Strategic partner to leadership on pitches, pricing, and demo positioning. 30+ custom demo environments a year, each built from real research on the prospect. Onboarding programmes that actually reduce ramp time because they're built for how adults learn. The person who stays even when the sales team turns over. Lives by sharing over selling: the belief that if a product is good, you share it well enough that the sharing does the work, and the whole sales motion she built is downstream of that.";
         if (pct >= 70) return "Strong Sales Enablement alignment. You'd benefit from someone who owns discovery frameworks, qualification playbooks, demo customisation, and the strategic sales conversation that doesn't belong to any single rep.";
-        return "Some Sales Enablement energy here. This Ashley can help a sales team get sharper, faster, and more consistent - and build the training that actually changes behaviour.";
+        return "Some Sales Enablement energy here. This Ashley can help a sales team get sharper, faster, and more consistent, and build the training that actually changes behaviour.";
       },
       resumeApp: "wordpad-sales"
     },
@@ -4179,8 +4179,8 @@ function initWorkMatch(windowEl) {
       emoji: "🧠",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the AI Adoption & Enablement lead who brings the critical lens most AI programmes don't have. Philosophy background applied directly to understanding how LLMs interpret context, where they'll go wrong, and how to build prompt frameworks that prevent it. Onboarding methodology, testing framework, honest limitations documentation - and the push for guardrails that makes adoption programmes trustworthy enough to last.";
-        if (pct >= 70) return "Strong AI Adoption alignment. You'd benefit from someone who understands both how these models interpret context and how people actually learn to use them - plus the willingness to say 'this isn't ready yet' out loud.";
+        if (pct >= 85) return "You want the AI Adoption & Enablement lead who brings the critical voice most AI programmes don't have. Philosophy background applied directly to understanding how LLMs interpret context, where they'll go wrong, and how to build prompt frameworks that prevent it. Onboarding methodology, testing framework, honest limitations documentation, and the push for guardrails that makes adoption programmes trustworthy enough to last.";
+        if (pct >= 70) return "Strong AI Adoption alignment. You'd benefit from someone who understands both how these models interpret context and how people actually learn to use them, plus the willingness to say 'this isn't ready yet' out loud.";
         return "Some AI Adoption energy here. This Ashley can help turn 'we have AI' into 'we use AI honestly and well' without handing over templates nobody understands.";
       },
       resumeApp: "wordpad-ai"
@@ -4191,7 +4191,7 @@ function initWorkMatch(windowEl) {
       emoji: "📐",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Revenue Operations generalist who has owned both sides of the function - the infrastructure decisions (stage definitions, data fields, forecasting logic) and the execution (prospecting, sequencing, follow-up, demo coordination). The one who self-taught SugarCRM and HubSpot, built a 3-6-9 forecasting model from scratch, and spots the duplicate leads and ambiguous definitions before they distort the picture for a whole quarter.";
+        if (pct >= 85) return "You want the Revenue Operations generalist who has owned both sides of the function: the infrastructure decisions (stage definitions, data fields, forecasting logic) and the execution (prospecting, sequencing, follow-up, demo coordination). The one who self-taught SugarCRM and HubSpot, built a 3-6-9 forecasting model from scratch, and spots the duplicate leads and ambiguous definitions before they distort the picture for a whole quarter.";
         if (pct >= 70) return "Strong RevOps alignment. You'd benefit from someone who'll build the CRM architecture properly, keep the forecast honest, and notice the moment the pipeline definitions stop matching reality.";
         return "Some Revenue Operations energy here. This Ashley can help clean up what's lying in your CRM and build the pipeline hygiene your forecast actually depends on.";
       },
@@ -4203,8 +4203,8 @@ function initWorkMatch(windowEl) {
       emoji: "🧱",
       getDesc: (score, total) => {
         const pct = Math.round((score / total) * 100);
-        if (pct >= 85) return "You want the Implementation Manager who owns the full lifecycle - discovery through clean handoff - and writes the documentation that actually makes the handoff work. Led the Neptune custom platform build end to end with 4 developers. Sole QA Lead across 20+ implementations. Designed the 5-phase AI adoption methodology with complete docs for each phase. The through-line: every handoff doc, every test plan, every training programme is built assuming someone else has to pick it up and run with it without you in the room.";
-        if (pct >= 70) return "Strong Implementation alignment. You'd benefit from someone who takes projects from requirements gathering through wireframes, QA process, team leadership, and clean handoff - and leaves documentation good enough to be used.";
+        if (pct >= 85) return "You want the Implementation Manager who owns the full lifecycle, discovery through clean handoff, and writes the documentation that actually makes the handoff work. Led the Neptune custom platform build end to end with four developers. Sole QA lead across 20+ implementations. Designed the five-phase AI adoption methodology with complete docs for each phase. The through-line: every handoff doc, every test plan, every training programme is built assuming someone else has to pick it up and run with it without you in the room.";
+        if (pct >= 70) return "Strong Implementation alignment. You'd benefit from someone who takes projects from requirements gathering through wireframes, QA process, team leadership, and clean handoff, and leaves documentation good enough to be used.";
         return "Some Implementation Manager energy here. This Ashley can own a complex project end to end and make sure what gets handed off is actually usable.";
       },
       resumeApp: "wordpad-impl"

@@ -500,7 +500,7 @@ Author: Someone who thinks the best question is "what does this actually mean?"`
       content: `LET'S WORK TOGETHER
 ===================
 
-Hey - thanks for poking around in here.
+Hi. Thanks for poking around in here.
 
 If you've explored a bit, you probably have a sense
 of how I think. So let me be direct:
@@ -515,14 +515,14 @@ how to scope yet but know you need help with.
 THINGS I'M GOOD AT
 ------------------
 
-→ AI Implementation & Prompt Engineering
+→ AI Adoption & Prompt Engineering
   Making AI tools actually useful for real humans.
   Building the training, testing, and adoption infrastructure
-  that turns "we have AI" into "we use AI effectively."
+  that turns "we have AI" into "we use AI well."
 
-→ Onboarding & Enablement Programs
-  Designing learning experiences that stick. Not info dumps -
-  actual behaviour change. I think about how humans process
+→ Onboarding & Enablement Programmes
+  Designing learning experiences that stick. Not info dumps.
+  Actual behaviour change. I think about how humans process
   and retain information (thanks, philosophy degree).
 
 → Process Documentation & Knowledge Bases
@@ -536,7 +536,7 @@ THINGS I'M GOOD AT
   dumbing them down.
 
 → Operational Infrastructure
-  The systems that let small teams punch above their weight.
+  The invisible systems teams end up relying on.
   I've built these from scratch more than once.
 
 
@@ -569,15 +569,15 @@ whether there's a fit.
 THE FINE PRINT
 --------------
 
-I work remotely (have since 2015, quite good at it).
-I'm in Ontario, Canada - Eastern time zone.
+I work remotely. Have since 2015, quite good at it.
+I'm in Ontario, Canada. Eastern time zone.
 I communicate clearly and often.
 I ask a lot of questions upfront so I don't waste your time later.
 I care about doing good work, not just billable hours.
 
 If that sounds like what you need, let's talk.
 
-- Ashley`
+Ashley`
     },
 
     // Recycle bin contents
@@ -2948,16 +2948,16 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       id: "enterprise-platform",
       name: "Enterprise Custom Platform Build",
       type: "Full Lifecycle Project Leadership",
-      description: "A major retail solutions client managing tens of thousands of field installations needed a custom platform to track their operations at scale. Complex workflows spanning multiple business units, existing systems that needed integration, and high expectations for quality and timeline.",
-      challenge: "No existing playbook for a project of this complexity. Someone needed to own it end-to-end. I became that someone.",
+      description: "A major retail solutions client managing tens of thousands of field installations needed a custom platform to track their operations at scale. Complex workflows spanning multiple business units, existing systems that needed integration, and high expectations for quality and timeline. A $500K build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions.",
+      challenge: "No existing playbook for a project of this complexity. Someone needed to own it end to end. I became that someone.",
       whatIDid: [
-        "Led discovery process - mapped existing workflows against platform capabilities, conducted stakeholder interviews, documented gap analysis",
-        "Created wireframes and workflows translating business requirements into technical specifications",
-        "Built QA process from scratch - test plans, quality standards, coordination between internal dev team and client QA",
-        "Took over as PM when platform went live - led daily scrums with dev team (4 people), managed Jira board, triaged bugs, kept everything moving",
-        "Transitioned to account manager role post-launch, stabilised the relationship, then successfully handed off with complete documentation"
+        "Led discovery. Mapped existing workflows against platform capabilities, conducted stakeholder interviews, documented gap analysis.",
+        "Created wireframes and workflows that translated business requirements into technical specifications.",
+        "Built the QA process from scratch. Test plans, quality standards, coordination between internal dev team and client QA leads.",
+        "Took over as PM when the platform went live. Led daily scrums with the four-person dev team, managed the Jira board, triaged bugs, kept delivery on track.",
+        "Transitioned to account manager role post-launch, stabilised the relationship, handed off with complete documentation to a dedicated AM."
       ],
-      outcome: "Platform launched successfully, supporting a client that operates across 48,000+ retail locations with 3,800+ field employees and 24M+ annual in-store executions. Full lifecycle ownership from discovery to stable handoff. The QA process I built became the template for every implementation after.",
+      outcome: "Platform launched successfully, running for a client operating across 48,000+ retail locations with 3,800+ field staff and 24M+ annual in-store executions. Full lifecycle ownership from discovery to stable handoff. The QA process I built became the template for every implementation after.",
       skills: ["Project Management", "QA Leadership", "Requirements Gathering", "Jira", "Agile", "Client Relations", "Technical Translation"],
       image: "assets/images/work-enterprise.jpg"
     },
@@ -2965,32 +2965,32 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       id: "ai-adoption",
       name: "AI Product Adoption Infrastructure",
       type: "End-to-End Enablement Building",
-      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was genuinely powerful, but there was no existing adoption infrastructure - no onboarding process, no training materials, no quality assurance framework.",
-      challenge: "AI products don't sell or adopt themselves. Clients needed to understand capabilities, trust the results, and learn to use it effectively. And someone needed to make sure the results were actually trustworthy in the first place.",
+      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was powerful. The adoption infrastructure was nonexistent. No onboarding process, no training materials, no quality assurance framework.",
+      challenge: "AI products don't sell or adopt themselves. Clients needed to understand what the tool could and couldn't do, trust the results, and learn to use it well. And someone needed to make sure the results were trustworthy in the first place.",
       whatIDid: [
-        "Built manual testing framework from scratch - systematic process to test prompts for reliability, catch hallucinations, and ensure accuracy before client deployment",
-        "Designed 5-phase onboarding methodology: Discovery → Implementation → Testing & Validation → Training → Ongoing Support",
-        "Created educational curriculum for varying proficiency levels - 50+ training videos and resources",
-        "Developed 'Power Prompts' library of enterprise analytical frameworks",
-        "Served as internal advocate for AI quality, ethical implementation, and transparency about limitations (I'm not a blind AI enthusiast - these tools need someone asking hard questions)"
+        "Built the manual testing framework from scratch. Systematic process to test prompts for reliability, catch hallucinations, and check accuracy before client deployment.",
+        "Designed the five-phase onboarding methodology: Discovery, Implementation, Testing and Validation, Training, Ongoing Support.",
+        "Created a training curriculum spanning four proficiency levels (everyday users, power users, executives, internal account managers) plus 50+ training videos and resources.",
+        "Developed the Power Prompts library of enterprise analytical frameworks.",
+        "Advocated internally for AI quality, honest documentation of limitations, and appropriate deployment. The critical voice on a team that needed one."
       ],
-      outcome: "Onboarded all 5 enterprise AI agent clients, including one (Advantage Solutions/AB) whose team used the platform to analyse 13,000+ events across 625+ field staff. The 8-guide curriculum and 5-phase methodology became the standard for every deployment. Owned EMS Vegas booth presence from concept to execution.",
+      outcome: "Sole owner of every AI agent client engagement that existed at the company. Each with a custom analytical framework tuned to their data and business questions. One flagship client used the platform to analyse 13,000+ events across 625+ field staff (published case study). The curriculum and methodology became the standard for every deployment. Owned EMS Vegas booth presence from concept to execution.",
       skills: ["AI/LLM", "Prompt Engineering", "Training Design", "QA", "Documentation", "Change Management", "Ethics"],
       image: "assets/images/work-ai.jpg"
     },
     {
       id: "sales-enablement",
-      name: "Lean Team, Enterprise Results",
-      type: "Sales Enablement Program",
-      description: "A small sales team (2-4 people) needed to win enterprise deals with major brands - Fortune 500 CPG companies, national telecommunications providers, major beverage brands. Competing against larger companies with dedicated sales enablement departments. Team composition changed over the years, but demo quality couldn't fluctuate.",
-      challenge: "Maintain enterprise-quality sales materials and institutional knowledge across team changes with limited resources. Be the constant when everything else shifted.",
+      name: "Sales Enablement that Won Enterprise Deals",
+      type: "Sales Enablement Programme",
+      description: "The sales team was closing enterprise deals with Fortune 500 CPG companies, national telecoms, major beverage brands. Competing against companies with dedicated sales enablement departments. Team composition changed over the years, but demo quality couldn't fluctuate. That's where I came in and stayed in.",
+      challenge: "Keep the sales motion coherent and enterprise-quality through every team change. Be the strategic constant when everything else shifted.",
       whatIDid: [
-        "Created 30+ customised demo environments annually - each specifically researched for that prospect's business, challenges, and use cases (no generic decks)",
-        "Built discovery frameworks and qualification playbooks for varying sales cycles (same-day SMB to year-long enterprise)",
-        "Served as enablement constant across sales team changes - maintained demo quality and approach consistency regardless of who was on the team",
-        "Reduced new hire ramp time from 90 to 45 days through structured onboarding and self-service resources"
+        "Built 30+ customised demo environments annually. Each researched for that prospect's business, challenges, and use cases. No generic decks.",
+        "Built discovery frameworks and qualification playbooks that worked across sales cycles from same-day SMB to year-long enterprise.",
+        "Enablement constant across sales team changes. Maintained demo quality and sales approach consistency regardless of who was on the team.",
+        "Reduced new hire ramp time from 90 to 45 days through structured onboarding and self-service resources."
       ],
-      outcome: "Directly supported the sales process for 30 of 46 enterprise clients over 7 years, with only 2-3 client offboards in that entire period. A lean team of 2-4 salespeople consistently won enterprise deals against larger competitors because every demo was researched and built for the specific prospect.",
+      outcome: "Directly involved in the sales process for 30 of the 46 enterprise clients the company won across seven years. Near-zero churn: two to three offboards during the entire period. Every demo was researched and built for the specific prospect. That's the whole game.",
       skills: ["Sales Enablement", "Demo Excellence", "CRM", "Competitive Intel", "Training", "Onboarding"],
       image: "assets/images/work-sales.jpg"
     },
@@ -2998,15 +2998,15 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       id: "ops-infrastructure",
       name: "Building Operations from Zero",
       type: "0-to-1 Infrastructure Development",
-      description: "Joined a field marketing SaaS company when the team was about 8 people with no formal processes, no workflows, no documentation. The COO was managing all sales and operations solo. It was the kind of chaos that's either terrifying or exciting depending on how you're wired.",
+      description: "Joined a field marketing SaaS company when the team was eight people with no formal processes, no workflows, no documentation. The COO was managing all sales and operations solo. It was the kind of chaos that's either terrifying or exciting depending on how you're wired.",
       challenge: "Build everything needed to scale from startup chaos to enterprise-ready operations. From scratch. While also doing the day-to-day work.",
       whatIDid: [
-        "Created complete operational infrastructure: sales operations, contract workflows, demo preparation processes, enablement programs",
-        "Established account transition processes, documentation standards, and client handoff protocols",
-        "Designed training programs, onboarding flows, and process documentation used company-wide",
-        "Built systems that maintained consistency across multiple team composition changes over 7+ years"
+        "Created the operational infrastructure: sales operations, contract workflows, demo preparation processes, enablement programmes.",
+        "Established account transition processes, documentation standards, and client handoff protocols.",
+        "Designed training programmes, onboarding flows, and process documentation used company-wide.",
+        "Built systems that maintained consistency across multiple team composition changes over seven-plus years."
       ],
-      outcome: "Company grew from 8 to 18 people while scaling to 46 enterprise clients, 19.5M+ executions tracked, and 576K+ client staff managed. The systems I built are still in use. Near-zero churn: 2-3 client offboards across 7 years.",
+      outcome: "The company grew from eight people to eighteen while scaling to 46 enterprise clients, 19.5M+ executions tracked, and 576K+ client staff managed. The systems I built are still in use. Near-zero churn: two to three client offboards across seven years.",
       skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
       image: "assets/images/work-ops.jpg"
     },
@@ -3055,18 +3055,18 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         caseStudy: {
           challenge: "New AI agent product launching with zero training infrastructure. Clients ranged from tech-savvy analysts to executives who'd never used AI. Needed to get diverse users productive quickly without overwhelming them or setting unrealistic expectations.",
 
-          approach: "Applied my hermeneutics background - how do people actually learn and interpret new information? Built a progressive curriculum that met users where they were. Started with 'what AI can and can't do' before teaching prompts. Created role-based paths so sales teams learned differently than ops teams.",
+          approach: "Applied hermeneutics: how do people actually learn and interpret new information? Built a progressive curriculum that met users where they were. Started with 'what AI can and can't do' before teaching prompts. Created role-based paths so sales teams learned differently than ops teams.",
 
           deliverables: [
-            "5-phase onboarding methodology (Discovery → Implementation → Testing → Training → Support)",
-            "Role-based training tracks for different user types",
+            "Five-phase onboarding methodology (Discovery, Implementation, Testing, Training, Ongoing Support)",
+            "Training curriculum spanning four proficiency levels: everyday users, power users, executives, internal account managers",
             "50+ training videos with transcripts and captions",
             "Self-service resource library with searchable documentation",
-            "Power user certification program",
+            "Power user certification programme",
             "Ongoing office hours and support framework"
           ],
 
-          impact: "Became the go-to person for all AI-related questions across the organisation. Training materials were used for every client onboarding (5 enterprise accounts) and every internal hire. The 8-guide curriculum and 75+ prompt templates became the standard for all AI agent deployments.",
+          impact: "Became the go-to person for all AI-related questions across the organisation. Training materials were used for every client onboarding and every internal hire. The curriculum and 75+ prompt templates became the standard for every AI agent deployment.",
 
           skills: ["Curriculum Design", "AI/ML Understanding", "Technical Writing", "Video Production", "Change Management", "Stakeholder Training"]
         },
@@ -3082,12 +3082,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             },
             {
               title: "My Philosophy",
-              content: "Hermeneutics: The study of how people interpret and understand information.\n\nGood training isn't about information dumps - it's about meeting people where they are.",
+              content: "Hermeneutics: the study of how people interpret and understand information.\n\nGood training isn't information dumps. It's meeting people where they are.",
               notes: "Philosophy degree: surprisingly practical"
             },
             {
               title: "The Framework",
-              content: "5 Phases:\n\n1. Discovery - Understand their goals\n2. Implementation - Set up properly\n3. Testing - Build confidence\n4. Training - Role-based learning\n5. Support - Ongoing success",
+              content: "Five phases:\n\n1. Discovery: understand their goals\n2. Implementation: set up properly\n3. Testing: build confidence\n4. Training: role-based learning\n5. Ongoing Support",
               notes: "Each phase has clear exit criteria"
             },
             {
@@ -3102,8 +3102,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             },
             {
               title: "The Impact",
-              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\n5 enterprise clients onboarded with custom frameworks.",
-              notes: "My fingerprints on every success"
+              content: "Became the org's AI expert.\n\nEvery client onboarding used my materials.\nEvery new hire trained on my curriculum.\nSole owner of every AI client engagement that existed at the company.",
+              notes: "The curriculum became the standard"
             }
           ]
         }
@@ -3118,9 +3118,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         documentUrl: "examples/visual-language-guide.html",
 
         caseStudy: {
-          challenge: "AI agents could answer questions, but the answers were walls of text. Executives wanted charts. Analysts wanted tables. Field teams wanted simple numbers. Same data, completely different needs - and no standards for how to present any of it.",
+          challenge: "AI agents could answer questions, but the answers were walls of text. Executives wanted charts. Analysts wanted tables. Field teams wanted simple numbers. Same data, completely different needs. And no standards for how to present any of it.",
 
-          approach: "Researched visualisation best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness - same data, different presentations for different roles.",
+          approach: "Researched visualisation best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness. Same data, different presentations for different roles.",
 
           deliverables: [
             "Chart selection guide matching data types to visualisation types",
@@ -3250,7 +3250,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         caseStudy: {
           challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to translate business questions into prompts that actually got useful answers.",
 
-          approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively - same prompt, multiple datasets, consistent results. Created templates that non-technical users could customise. Built in guardrails to prevent misinterpretation.",
+          approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively: same prompt, multiple datasets, consistent results. Created templates that non-technical users could customise. Built in guardrails to prevent misinterpretation.",
 
           deliverables: [
             "Power Prompts library with 75+ tested templates",
@@ -3312,17 +3312,17 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         documentUrl: "https://ashley-sarahsep.github.io/job-alert-scorer/",
 
         caseStudy: {
-          challenge: "I got tired of reading 40 job postings a day to find the 3 worth applying to. The signal-to-noise ratio in job alert emails is brutal, and the time spent on first-pass triage is time not spent on applications that actually matter.",
-          approach: "I built a tool that does the first pass - then made it free and open source so other people could use it too. Job Alert Scorer reads your LinkedIn and Indeed alert emails, finds the full job description on the company's careers page, and scores each role 1-10 against a candidate profile you write: what you want, what's a dealbreaker, what makes a role genuinely exciting. It reads between the lines - matching underlying capability rather than keywords, so 'built onboarding for a marketing SaaS' can register as a fit for an onboarding role in fintech.\n\nI designed and shipped the whole thing solo by directing Claude Code: a clean public/private architecture (your data never touches the code), a pluggable provider design, documentation, and an offline test suite. It's deliberately not an 'AI applies for you' gimmick - it's honest triage that gives people back their time.",
+          challenge: "I got tired of reading 40 job postings a day to find the three worth applying to. The signal-to-noise ratio in job alert emails is brutal, and the time spent on first-pass triage is time not spent on applications that actually matter.",
+          approach: "I built a tool that does the first pass, then made it free and open source so other people could use it too. Job Alert Scorer reads your LinkedIn and Indeed alert emails, finds the full job description on the company's careers page, and scores each role 1 to 10 against a candidate profile you write: what you want, what's a dealbreaker, what makes a role genuinely exciting. It reads between the lines. Matches underlying capability rather than keywords, so 'built onboarding for a marketing SaaS' can register as a fit for an onboarding role in fintech.\n\nI designed and shipped the whole thing solo by directing Claude Code: a clean public/private architecture (your data never touches the code), a pluggable provider design, documentation, and an offline test suite. It's deliberately not an 'AI applies for you' gimmick. It's honest triage that gives people back their time.",
           deliverables: [
             "Full working tool: Gmail API integration, Anthropic Claude scoring with structured outputs and prompt caching, ranked email digest",
             "Illustrated getting-started page with fill-in-the-blank profile template for non-technical users",
             "No-code version runnable inside Claude or ChatGPT with zero setup",
-            "Clean public/private architecture - candidate data never touches the codebase",
+            "Clean public/private architecture. Candidate data never touches the codebase",
             "Pluggable provider design and offline test suite for contributors",
             "Open-source under MIT licence on GitHub"
           ],
-          impact: "Shipped a 0-to-1 open-source product from personal pain point to documented, live, usable tool. Built for people who aren't developers: onboarding page, templates, a no-code path. The scoring rubric is plain text you can edit - no black box. Deliberately honest about limits (one tested model; best-effort parsing for some job boards) rather than overselling.",
+          impact: "Shipped a 0-to-1 open-source product from personal pain point to documented, live, usable tool. Built for people who aren't developers: onboarding page, templates, a no-code path. The scoring rubric is plain text you can edit. No black box. Deliberately honest about limits (one tested model, best-effort parsing for some job boards) rather than overselling.",
           skills: ["Python", "Gmail API", "Claude API", "Prompt Engineering", "Structured Outputs", "Prompt Caching", "GitHub Pages", "Open Source", "Product Design", "Technical Documentation", "Claude Code"]
         },
 
@@ -3337,7 +3337,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             },
             {
               title: "What It Does",
-              content: "• Reads LinkedIn and Indeed alert emails via Gmail API\n• Finds the full job description on the company's careers page\n• Scores each role 1-10 against a profile you write about yourself\n• Emails you a ranked shortlist\n\nIt reads between the lines - matching capability, not keywords.",
+              content: "• Reads LinkedIn and Indeed alert emails via Gmail API\n• Finds the full job description on the company's careers page\n• Scores each role 1 to 10 against a profile you write about yourself\n• Emails you a ranked shortlist\n\nIt reads between the lines. Matches capability, not keywords.",
               notes: "Honest triage, not an AI-applies-for-you gimmick"
             },
             {
