@@ -504,7 +504,7 @@ If that sounds like what you need, let's talk.
         {
           id: "welcome-intro",
           portrait: "smiling1",
-          text: "Oh, hello! I'm Ashley - operations, enablement, AI adoption, depending on which version you need. This is my office. The computer has everything: resumes, work examples, a chat with a likeness of me. But the whole place is meant to be explored, so go ahead - open things, dig around. Be nosy; I would be.",
+          text: "Oh, hello! I'm Ashley. Operations, enablement, AI adoption, depending on which version you need. This is my office. The computer has everything: resumes, work examples, a chat with a likeness of me. But the whole place is meant to be explored, so go ahead. Open things, dig around. Be nosy; I would be.",
           responses: [
             { text: "[Start exploring]", next: null }
           ]
@@ -519,7 +519,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-intro",
           portrait: "smiling1",
-          text: "This is my work-from-home setup. I've been remote since 2015 - before it was a common thing. I know what works best for me to work my best.",
+          text: "This is my work-from-home setup. I've been remote since 2015, before it was a common thing. I know what works best for me to work my best.",
           responses: [
             { text: "What do you love about remote work?", next: "desk-remote-love" },
             { text: "Tell me about your work history", next: "desk-work-history" },
@@ -530,7 +530,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-remote-love",
           portrait: "thoughtful1",
-          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out - that's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Gertrude and Gherkin make excellent coworkers.",
+          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out. That's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Gertrude and Gherkin make excellent coworkers.",
           responses: [
             { text: "Who are Gertrude and Gherkin?", next: "desk-cats-tease" },
             { text: "What kind of problems do you solve?", next: "desk-problems" },
@@ -540,7 +540,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-cats-tease",
           portrait: "smiling2",
-          text: "The little fuzzbutts: Gertrude is represented by the black cat on the bookshelf - she supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
+          text: "The little fuzzbutts. Gertrude is represented by the black cat on the bookshelf. She supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
           responses: [
             { text: "I should go meet them", next: null },
             { text: "What kind of work do you do from here?", next: "desk-work-history" },
@@ -550,7 +550,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-work-history",
           portrait: "thoughtful1",
-          text: "I spent 7+ years at a field marketing platform SaaS company, and 3+ years before that with an IBM business partner. Joined both when they were only a handful of non-developers with very few formal processes. I took the time to pay attention and put together the operational infrastructure from scratch - sales ops, enablement programs, CRM maintenance, pipeline management, demo process, QA and ticket writing best practices, change order and new scope of work guides. The stuff that lets small teams punch above their weight.",
+          text: "Seven years at a field marketing platform SaaS company, and three years before that with an IBM business partner. Joined both when they were a handful of non-developers with very few formal processes. I took the time to pay attention and put together the operational infrastructure from scratch: sales ops, enablement programmes, CRM maintenance, pipeline management, demo process, QA and ticket writing best practices, change order and new scope of work guides. The invisible stuff.",
           responses: [
             { text: "What's your proudest project?", next: "desk-neptune" },
             { text: "What do you mean by 'operational infrastructure'?", next: "desk-ops-explain" },
@@ -570,7 +570,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-swiss-army",
           portrait: "smiling1",
-          text: "I've been the QA lead, project manager, sales enablement owner, strategic advisor, and account manager - often simultaneously. I'm good at identifying what's missing and taking ownership without waiting for someone to assign it. Some people find ambiguity stressful. I find it interesting. If you want the shape of all of that written up as actual resumes, I have six flavours sitting in HireMeOS (my computer over there) - one for each way the work tends to get packaged.",
+          text: "I've been the QA lead, project manager, sales enablement owner, strategic advisor, and account manager. Often at once. I'm good at identifying what's missing and taking ownership without waiting for someone to assign it. Some people find ambiguity stressful. I find it interesting. If you want the shape of all that written up as actual resumes, I have six sitting in HireMeOS. One for each way the work tends to get packaged.",
           responses: [
             { text: "That sounds exhausting", next: "desk-exhausting" },
             { text: "Show me your computer", action: "desktop" },
@@ -580,7 +580,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-exhausting",
           portrait: "funny1",
-          text: "My brain actually works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
+          text: "My brain actually works better this way. Context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
           responses: [
             { text: "I want to look around some more", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -608,7 +608,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-hermeneutics",
           portrait: "thoughtful1",
-          text: "I studied philosophy - hermeneutics, specifically. The study of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. If you don't account for how humans process things under real-world conditions, your technically correct solution will still fail.",
+          text: "I studied philosophy. Hermeneutics, specifically. The study of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. If you don't account for how humans process things under real conditions, your technically correct solution will still fail.",
           responses: [
             { text: "I'd like to see more of your office", action: "inspect" },
             { text: "Show me your computer", action: "desktop" },
@@ -627,7 +627,7 @@ If that sounds like what you need, let's talk.
         {
           id: "desk-stickers",
           portrait: "funny1",
-          text: "Just a few things that make me smile - David Lynch-isms, absurd humour. The real personality test is the rest of the room - you should see the bookshelves.",
+          text: "Just a few things that make me smile. David Lynch-isms, absurd humour. The real personality test is the rest of the room.",
           responses: [
             { text: "I'll go check them out", next: null },
             { text: "[Back to exploring]", next: null }
@@ -674,7 +674,7 @@ If that sounds like what you need, let's talk.
         {
           id: "gertrude-gherkin",
           portrait: "thoughtful1",
-          text: "They have an understanding. Gherkin typically rules the high ground - shelves, desks, anywhere he can keep an eye on everything. Gertrude claims the laps and the soft surfaces. Minimal territorial dispute. Mostly.",
+          text: "They have an understanding. Gherkin typically rules the high ground: shelves, desks, anywhere he can keep an eye on everything. Gertrude claims the laps and the soft surfaces. Minimal territorial dispute. Mostly.",
           responses: [
             { text: "Mostly?", next: "gertrude-mostly" },
             { text: "[Back to exploring]", next: null }
@@ -768,147 +768,6 @@ If that sounds like what you need, let's talk.
       ]
     },
 
-    leftBookshelf: {
-      name: "Left Bookshelf",
-      image: "assets/images/bookshelf-left.jpg",
-      conversations: [
-        {
-          id: "bookshelf-left-intro",
-          portrait: "smiling1",
-          text: "I love this wall unit/bookshelf. Got it for 80 bucks - still proud of that. It holds a lot of things that are close to my heart. Books, trinkets from family, things I've collected over the years.",
-          responses: [
-            { text: "What kind of books do you read?", next: "bookshelf-left-books" },
-            { text: "Tell me about some of these objects", next: "bookshelf-left-objects" },
-            { text: "You seem to like collecting things", next: "bookshelf-left-collecting" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-books",
-          portrait: "thoughtful1",
-          text: "It used to be mostly Philosophy. Hermeneutics texts from university that I still reference. Some social work theory. But then it became a lot of fiction - I think stories teach us how to understand people better than any business book. And yes, some pulpy trash. I'm not a purist.",
-          responses: [
-            { text: "What's hermeneutics?", next: "bookshelf-left-hermeneutics" },
-            { text: "Any favorites?", next: "bookshelf-left-favorites" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-hermeneutics",
-          portrait: "thoughtful2",
-          text: "The study of interpretation. How people make meaning from texts, conversations, experiences, data. It sounds academic, but it's incredibly practical - it's about understanding how understanding happens.",
-          responses: [
-            { text: "How does that apply to your work?", next: "bookshelf-left-apply" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-apply",
-          portrait: "excited",
-          text: "More than you'd think. When I design training and onboarding programs, I'm thinking about how someone will interpret this under real-world conditions. When I work with LLMs, I'm thinking about where models might misinterpret context or misrepresent information. When I look at data, I'm thinking about what story it's actually telling versus what story we want it to tell.",
-          responses: [
-            { text: "What do you mean about data?", next: "bookshelf-left-data" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-data",
-          portrait: "serious",
-          text: "Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions, context, what questions you're asking. I've seen teams make confident decisions from dashboards that were technically accurate but fundamentally misleading. Hermeneutics taught me to ask: what's being measured, what's being missed, and who decided what counts?",
-          responses: [
-            { text: "Show me more of the office", action: "inspect" },
-            { text: "Take me to your computer", action: "desktop" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-favorites",
-          portrait: "thoughtful1",
-          text: "My favorites change depending on the day you ask. A little story: when I was about 12, my older brother gave me a book list. I finished every book on it by the time I was 17 - many are on these shelves still. Many of them I was too young to fully grasp, and only on reflection did their weight become apparent. But on any day, I'll tell you: my brain feels at home reading Vonnegut, I feel deeply reading Sylvia Plath, and a Confederacy of Dunces will always be somewhere in my top 5.",
-          responses: [
-            { text: "I'd like to see more", action: "inspect" },
-            { text: "Show me your computer", action: "desktop" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-objects",
-          portrait: "smiling2",
-          text: "Items that have a story, mostly. Things that sat on my grandmothers' dressers or display tables; gifted treasures; parts of my childhood. I like objects with history - they've been somewhere, meant something to someone. Many of these trinkets (and a few books) even made it through an international move.",
-          responses: [
-            { text: "International move?", next: "bookshelf-left-london" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-london",
-          portrait: "smiling1",
-          text: "London, UK - just for a while. Worked at some agencies there. Started in accounts payable, ended up helping to implement a timesheet systems at a recruitment agency. Even then, I was spotting what was missing and building something to fix it.",
-          responses: [
-            { text: "What else is in the office?", action: "inspect" },
-            { text: "Take me to your computer", action: "desktop" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-collecting",
-          portrait: "thoughtful1",
-          text: "Guilty. I'm drawn to objects that have character, that feel like they belong together even if they're from completely different places and eras. My aesthetic is basically 'these things shouldn't work together but somehow they do.'",
-          responses: [
-            { text: "That sounds like your work style too", next: "bookshelf-left-meta" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-left-meta",
-          portrait: "funny1",
-          text: "Yeah, actually. Taking things that shouldn't quite fit - QA and sales enablement, philosophy and AI testing, technical translation and change management - and making them work together. Maybe I'm just collecting skills the way I collect vintage teapots.",
-          responses: [
-            { text: "I want to explore more", action: "inspect" },
-            { text: "Show me your computer", action: "desktop" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        }
-      ]
-    },
-
-    rightBookshelf: {
-      name: "Right Bookshelf",
-      image: "assets/images/bookshelf-right.jpg",
-      conversations: [
-        {
-          id: "bookshelf-right-intro",
-          portrait: "thoughtful1",
-          text: "This side of the wall unit holds some sweet things - meaningful books, my grandma's glasses, photos with friends, a picture of Patrick McGoohan in The Prisoner - more room for things and little displays.",
-          responses: [
-            { text: "What makes it special?", next: "bookshelf-right-special" },
-            { text: "What's over here?", next: "bookshelf-right-whats-here" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-right-special",
-          portrait: "thoughtful2",
-          text: "I like looking at the things I love. Some say it's a bit silly to love objects, but it's not just the object - it's the memories, the moments.",
-          responses: [
-            { text: "What else is here?", next: "bookshelf-right-whats-here" },
-            { text: "Show me more of the office", action: "inspect" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        },
-        {
-          id: "bookshelf-right-whats-here",
-          portrait: "smiling1",
-          text: "Artifacts from a winding path. Bits and pieces from different careers, different cities, different versions of me. The eclectic collection of a self-taught generalist.",
-          responses: [
-            { text: "What else can I see?", action: "inspect" },
-            { text: "Take me to your computer", action: "desktop" },
-            { text: "[Back to exploring]", next: null }
-          ]
-        }
-      ]
-    },
-
     radio: {
       name: "Vintage Radio",
       image: "assets/images/radio.jpg",
@@ -916,7 +775,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-intro",
           portrait: "smiling1",
-          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
+          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics. They were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
           responses: [
             { text: "🎵 Turn the dial", next: "radio-tune", special: "radio" },
             { text: "Do you listen to music while you work?", next: "radio-music" },
@@ -946,7 +805,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-tune-3",
           portrait: "smiling2",
-          text: "*crackle* ...WJPN - All John Prine, all day. 'In spite of ourselves, we'll end up sittin' on a rainbow...'",
+          text: "*crackle* ...WJPN, All John Prine, all day. 'In spite of ourselves, we'll end up sittin' on a rainbow...'",
           responses: [
             { text: "🎵 Keep turning", next: "radio-tune-4", special: "radio" },
             { text: "Perfect.", next: "radio-prine" },
@@ -956,7 +815,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-tune-4",
           portrait: "thoughtful1",
-          text: "*crackle* ...WCOF - Coffee Shop Radio. Lo-fi beats to procrastinate to... *chill music intensifies*",
+          text: "*crackle* ...WCOF, Coffee Shop Radio. Lo-fi beats to procrastinate to... *chill music intensifies*",
           responses: [
             { text: "🎵 Keep turning", next: "radio-tune-5", special: "radio" },
             { text: "[Back to exploring]", next: null }
@@ -965,7 +824,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-tune-5",
           portrait: "funny2",
-          text: "*crackle* ...KCAT 88.3 - Feline Frequencies. *sound of a cat walking across a synthesizer* This has been '3AM Zoomies in D Minor'...",
+          text: "*crackle* ...KCAT 88.3, Feline Frequencies. *sound of a cat walking across a synthesiser* This has been '3AM Zoomies in D Minor'...",
           responses: [
             { text: "🎵 Start over", next: "radio-tune", special: "radio" },
             { text: "Did Gherkin produce this?", next: "radio-gherkin" },
@@ -985,7 +844,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-prine",
           portrait: "excited",
-          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky - grew up in a house full of music.",
+          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky. Grew up in a house full of music.",
           responses: [
             { text: "Thousands of records?", next: "radio-records" },
             { text: "[Back to exploring]", next: null }
@@ -994,7 +853,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-records",
           portrait: "thoughtful1",
-          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection - some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
+          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection. Some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
           responses: [
             { text: "That's a lovely way to grow up", next: "radio-lovely" },
             { text: "[Back to exploring]", next: null }
@@ -1003,7 +862,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-lovely",
           portrait: "smiling2",
-          text: "It really was. My mum brought her own flavour too - Prince, Talking Heads, Psychedelic Furs. Between the two of them, I got a pretty good musical education. Explains why my playlists are all over the place.",
+          text: "It really was. My mum brought her own flavour too: Prince, Talking Heads, Psychedelic Furs. Between the two of them, I got a pretty good musical education. Explains why my playlists are all over the place.",
           responses: [
             { text: "I'd like to see more", action: "inspect" },
             { text: "Show me your computer", action: "desktop" },
@@ -1022,7 +881,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-music",
           portrait: "excited",
-          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi - or the Moon soundtrack. Creative work gets something with more energy. Testing gets some metal.",
+          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi, or the Moon soundtrack. Creative work gets something with more energy. Testing gets some metal.",
           responses: [
             { text: "What's your go-to?", next: "radio-goto" },
             { text: "[Back to exploring]", next: null }
@@ -1031,7 +890,7 @@ If that sounds like what you need, let's talk.
         {
           id: "radio-goto",
           portrait: "thoughtful1",
-          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music - I had too much good stuff thrown at me growing up to pick just one lane.",
+          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music. I had too much good stuff thrown at me growing up to pick just one lane.",
           responses: [
             { text: "Show me more of your office", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -1067,7 +926,7 @@ If that sounds like what you need, let's talk.
         {
           id: "art-intro",
           portrait: "smiling1",
-          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes. Nothing too precious. Things that have been somewhere before they got to me.",
+          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in. Landscapes, pastoral scenes. Nothing too precious. Things that have been somewhere before they got to me.",
           responses: [
             { text: "They create a nice atmosphere", next: "art-atmosphere" },
             { text: "Do you have a favourite?", next: "art-favourite" },
@@ -1078,7 +937,7 @@ If that sounds like what you need, let's talk.
         {
           id: "art-atmosphere",
           portrait: "thoughtful1",
-          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
+          text: "That's the goal. I spend a lot of time in this room. Remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
           responses: [
             { text: "Do you have a favourite piece?", next: "art-favourite" },
             { text: "Show me more of the office", action: "inspect" },
@@ -1088,7 +947,7 @@ If that sounds like what you need, let's talk.
         {
           id: "art-favourite",
           portrait: "thoughtful2",
-          text: "It changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
+          text: "It changes. Some days I notice one more than others. The landscapes especially. There's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
           responses: [
             { text: "The frames are beautiful", next: "art-frames" },
             { text: "I want to look around more", action: "inspect" },
@@ -1121,7 +980,7 @@ If that sounds like what you need, let's talk.
         {
           id: "talk-gertrude-intro",
           portrait: "smiling1",
-          text: "You approach Gertrude. She regards you cautiously at first - she takes her time with new people. But there's warmth in those eyes if you're patient.",
+          text: "You approach Gertrude. She regards you cautiously at first. She takes her time with new people. But there's warmth in those eyes if you're patient.",
           responses: [
             { text: "Hello, Gertrude.", next: "talk-gertrude-hello" },
             { text: "Offer a slow blink", next: "talk-gertrude-blink" },
@@ -1141,7 +1000,7 @@ If that sounds like what you need, let's talk.
         {
           id: "talk-gertrude-blink",
           portrait: "smiling2",
-          text: "Gertrude returns the slow blink - the highest honour a cat can bestow. \"You understand protocol. Good. My human values those who observe before acting. Who listen more than they speak. I am beginning to like you.\"",
+          text: "Gertrude returns the slow blink. The highest honour a cat can bestow. \"You understand protocol. Good. My human values those who observe before acting. Who listen more than they speak. I am beginning to like you.\"",
           responses: [
             { text: "What can you tell me about her?", next: "talk-gertrude-more" },
             { text: "[Accept this blessing and depart]", next: null }
@@ -1168,7 +1027,7 @@ If that sounds like what you need, let's talk.
         {
           id: "talk-gertrude-more",
           portrait: "serious",
-          text: "\"She is gentle but persistent. When problems arrive - and problems always arrive - she does not panic. She watches, learns, finds the thread.\" Gertrude begins to purr softly. \"I was not sure about her at first either. Now I would not leave her lap if I had the choice.\"",
+          text: "\"She is gentle but persistent. When problems arrive, and problems always arrive, she does not panic. She watches, learns, finds the thread.\" Gertrude begins to purr softly. \"I was not sure about her at first either. Now I would not leave her lap if I had the choice.\"",
           responses: [
             { text: "Is she a good human?", next: "talk-gertrude-good" },
             { text: "[Back to exploring]", next: null }
@@ -1177,7 +1036,7 @@ If that sounds like what you need, let's talk.
         {
           id: "talk-gertrude-approach",
           portrait: "thoughtful1",
-          text: "\"She asks why. Constantly. Some might find it tiresome. But the why reveals what should be.\" Gertrude rolls onto her side, showing you her belly - a sign of trust. \"I asked why my dinner was late once. She explained the meeting ran long. I appreciated the honesty.\"",
+          text: "\"She asks why. Constantly. Some might find it tiresome. But the why reveals what should be.\" Gertrude rolls onto her side, showing you her belly, a sign of trust. \"I asked why my dinner was late once. She explained the meeting ran long. I appreciated the honesty.\"",
           responses: [
             { text: "[Back to exploring]", next: null }
           ]
