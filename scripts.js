@@ -82,29 +82,23 @@ function transitionToDesktop(callback) {
   const roomScene = document.getElementById('room-scene');
   const desktopScene = document.getElementById('desktop-scene');
 
-  // Hide room if visible
-  if (!roomScene.classList.contains('hidden')) {
-    roomScene.style.opacity = '0';
-    roomScene.style.transition = 'opacity 0.5s ease';
-    setTimeout(() => {
-      roomScene.classList.add('hidden');
-    }, 500);
-  }
+  // Dim the room behind the desktop instead of hiding it
+  roomScene.classList.add('behind-desktop');
 
-  setTimeout(() => {
-    desktopScene.classList.remove('hidden');
-    desktopScene.style.opacity = '0';
-    setTimeout(() => {
-      desktopScene.style.opacity = '1';
-      desktopScene.style.transition = 'opacity 0.5s ease';
-      // Call the callback after transition completes
-      if (callback && typeof callback === 'function') {
-        setTimeout(callback, 100);
-      }
-    }, 50);
-    state.currentScene = 'desktop';
-    initDesktop();
-  }, 600);
+  desktopScene.classList.remove('hidden');
+  desktopScene.style.opacity = '0';
+  desktopScene.style.transition = 'opacity 0.4s ease';
+
+  requestAnimationFrame(() => {
+    desktopScene.style.opacity = '1';
+  });
+
+  state.currentScene = 'desktop';
+  initDesktop();
+
+  if (callback && typeof callback === 'function') {
+    setTimeout(callback, 450);
+  }
 }
 
 function transitionToRoomFromDesktop() {
@@ -112,7 +106,7 @@ function transitionToRoomFromDesktop() {
   const roomScene = document.getElementById('room-scene');
 
   desktopScene.style.opacity = '0';
-  desktopScene.style.transition = 'opacity 0.5s ease';
+  desktopScene.style.transition = 'opacity 0.4s ease';
 
   // Stop clock when leaving desktop
   if (clockInterval) {
@@ -127,14 +121,10 @@ function transitionToRoomFromDesktop() {
     document.getElementById('windows-container').innerHTML = '';
     document.getElementById('taskbar-items').innerHTML = '';
 
-    roomScene.classList.remove('hidden');
-    roomScene.style.opacity = '0';
-    setTimeout(() => {
-      roomScene.style.opacity = '1';
-      roomScene.style.transition = 'opacity 0.5s ease';
-    }, 50);
+    // Undim the room
+    roomScene.classList.remove('behind-desktop');
     state.currentScene = 'room';
-  }, 500);
+  }, 400);
 }
 
 // ============================================
