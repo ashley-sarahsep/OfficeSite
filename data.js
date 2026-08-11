@@ -521,8 +521,8 @@ THINGS I'M GOOD AT
   that turns "we have AI" into "we use AI well."
 
 → Onboarding & Enablement Programs
-  Designing learning experiences that stick. Not info dumps.
-  Actual behaviour change. I think about how humans process
+  Designing learning experiences that stick - not info dumps,
+  actual behaviour change. I think about how humans process
   and retain information (thanks, philosophy degree).
 
 → Process Documentation & Knowledge Bases
@@ -569,8 +569,8 @@ whether there's a fit.
 THE FINE PRINT
 --------------
 
-I work remotely. Have since 2015, quite good at it.
-I'm in Ontario, Canada. Eastern time zone.
+I work remotely - have since 2015, quite good at it.
+I'm in Ontario, Canada - Eastern time zone.
 I communicate clearly and often.
 I ask a lot of questions upfront so I don't waste your time later.
 I care about doing good work, not just billable hours.
@@ -674,7 +674,7 @@ Ashley`
         {
           id: "desk-remote-love",
           portrait: "thoughtful1",
-          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out. That's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Gertrude and Gherkin make excellent coworkers.",
+          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out - that's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Gertrude and Gherkin make excellent coworkers.",
           responses: [
             { text: "Who are Gertrude and Gherkin?", next: "desk-cats-tease" },
             { text: "What kind of problems do you solve?", next: "desk-problems" },
@@ -684,7 +684,7 @@ Ashley`
         {
           id: "desk-cats-tease",
           portrait: "smiling2",
-          text: "The little fuzzbutts. Gertrude is represented by the black cat on the bookshelf. She supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
+          text: "The little fuzzbutts: Gertrude is represented by the black cat on the bookshelf - she supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
           responses: [
             { text: "I should go meet them", next: null },
             { text: "What kind of work do you do from here?", next: "desk-work-history" },
@@ -724,7 +724,7 @@ Ashley`
         {
           id: "desk-exhausting",
           portrait: "funny1",
-          text: "My brain actually works better this way. Context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
+          text: "My brain actually works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
           responses: [
             { text: "I want to look around some more", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -919,7 +919,7 @@ Ashley`
         {
           id: "radio-intro",
           portrait: "smiling1",
-          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics. They were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
+          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
           responses: [
             { text: "🎵 Turn the dial", next: "radio-tune", special: "radio" },
             { text: "Do you listen to music while you work?", next: "radio-music" },
@@ -988,7 +988,7 @@ Ashley`
         {
           id: "radio-prine",
           portrait: "excited",
-          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky. Grew up in a house full of music.",
+          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky - grew up in a house full of music.",
           responses: [
             { text: "Thousands of records?", next: "radio-records" },
             { text: "[Back to exploring]", next: null }
@@ -997,7 +997,7 @@ Ashley`
         {
           id: "radio-records",
           portrait: "thoughtful1",
-          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection. Some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
+          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection - some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
           responses: [
             { text: "That's a lovely way to grow up", next: "radio-lovely" },
             { text: "[Back to exploring]", next: null }
@@ -1025,7 +1025,7 @@ Ashley`
         {
           id: "radio-music",
           portrait: "excited",
-          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi, or the Moon soundtrack. Creative work gets something with more energy. Testing gets some metal.",
+          text: "Always. Different genres for different work: deep focus gets ambient or lo-fi, or the Moon soundtrack; creative work gets something with more energy; testing gets some metal.",
           responses: [
             { text: "What's your go-to?", next: "radio-goto" },
             { text: "[Back to exploring]", next: null }
@@ -1034,7 +1034,7 @@ Ashley`
         {
           id: "radio-goto",
           portrait: "thoughtful1",
-          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music. I had too much good stuff thrown at me growing up to pick just one lane.",
+          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music - I had too much good stuff thrown at me growing up to pick just one lane.",
           responses: [
             { text: "Show me more of your office", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -1070,7 +1070,7 @@ Ashley`
         {
           id: "art-intro",
           portrait: "smiling1",
-          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in. Landscapes, pastoral scenes. Nothing too precious. Things that have been somewhere before they got to me.",
+          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes, nothing too precious. Things that have been somewhere before they got to me.",
           responses: [
             { text: "They create a nice atmosphere", next: "art-atmosphere" },
             { text: "Do you have a favourite?", next: "art-favourite" },
@@ -1081,7 +1081,7 @@ Ashley`
         {
           id: "art-atmosphere",
           portrait: "thoughtful1",
-          text: "That's the goal. I spend a lot of time in this room. Remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
+          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
           responses: [
             { text: "Do you have a favourite piece?", next: "art-favourite" },
             { text: "Show me more of the office", action: "inspect" },
@@ -1091,7 +1091,7 @@ Ashley`
         {
           id: "art-favourite",
           portrait: "thoughtful2",
-          text: "It changes. Some days I notice one more than others. The landscapes especially. There's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
+          text: "It changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
           responses: [
             { text: "The frames are beautiful", next: "art-frames" },
             { text: "I want to look around more", action: "inspect" },
@@ -1626,7 +1626,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>Project Management:</strong> Jira at expert level (bug tracking, sprint management, feature requests), Linear, ClickUp, Asana, Notion. Agile methodologies, daily scrum facilitation, sprint planning, stakeholder management, OKR/KPI tracking.</p>
 <p><strong>Data & Analytics:</strong> Data cleanup and validation, pattern identification, business intelligence frameworks, dashboards and analysis tools, report building, sales analytics, forecasting, performance metrics tracking, knowledge management.</p>
 <p><strong>CRM & Sales Operations:</strong> SugarCRM, HubSpot, Salesforce integrations, pipeline management, revenue operations, sales process design, go-to-market support, discovery frameworks, demo environment creation.</p>
-<p><strong>Directing AI Tools:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub. Prompt engineering, quality assurance for AI outputs, user adoption strategy, workflow design, technical training delivery, onboarding materials. Shipped a working open-source Python tool (Job Alert Scorer) and this portfolio site by directing these tools through a real software workflow. Not an engineer. Someone who knows what she's asking for and what to accept back.</p>
+<p><strong>Directing AI Tools:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub. Prompt engineering, quality assurance for AI outputs, user adoption strategy, workflow design, technical training delivery, onboarding materials. Shipped a working open-source Python tool (Job Alert Scorer) and this portfolio site by directing these tools through a real software workflow. Not an engineer - someone who knows what she's asking for and what to accept back.</p>
 <p><strong>Design & Content:</strong> Canva, video production (Loom), training curriculum development, presentation design.</p>
 <p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, Slack, Microsoft Teams, Zoom, Google Workspace, Microsoft Office.</p>
 
@@ -2153,7 +2153,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>Curriculum Design:</strong> Adult learning principles applied to real workflows. Curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</p>
 <p><strong>Prompt Engineering:</strong> Framework development, tested prompt libraries, output evaluation, edge case testing, enterprise analytical frameworks.</p>
 <p><strong>AI Quality Assurance:</strong> Manual testing framework design, systematic prompt testing, hallucination identification, structured feedback loops between users and product teams.</p>
-<p><strong>Directing AI Tools:</strong> Claude, Claude Code, ChatGPT, Manus, Lovable. Shipped a working open-source Python tool (Job Alert Scorer, on the Anthropic API) and this portfolio site by directing these tools through a real software workflow with branching, staging, and production. Not an engineer. Someone who knows what she's asking for and what to accept back.</p>
+<p><strong>Directing AI Tools:</strong> Claude, Claude Code, ChatGPT, Manus, Lovable. Shipped a working open-source Python tool (Job Alert Scorer, on the Anthropic API) and this portfolio site by directing these tools through a real software workflow with branching, staging, and production. Not an engineer - someone who knows what she's asking for and what to accept back.</p>
 <p><strong>Cross-functional:</strong> Stakeholder communication, client onboarding, executive training, product feedback loops, go-to-market readiness.</p>
 <p><strong>Tools:</strong> Jira, Notion, Loom, Google Workspace, Slack, GitHub, HubSpot, Zoom.</p>
 </div>
@@ -2704,7 +2704,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         ],
         proof: "collab",
         proofLabel: "See: Let's Work Together",
-        tools: ["Whatever you need me to learn. I'm fast at it."]
+        tools: ["Whatever you need me to learn - I'm fast at it."]
       }
     ]
   },
