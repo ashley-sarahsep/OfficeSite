@@ -1326,7 +1326,6 @@ If that sounds like what you need, let's talk.
       { id: "mywork", name: "My Work", icon: "folder", app: "misc-folder", file: "mywork" },
       { id: "aithoughts", name: "AI Thoughts", icon: "folder-ai", app: "misc-folder", file: "aithoughts" },
       { id: "gettoknowme", name: "Get to Know Me", icon: "folder-special", app: "misc-folder", file: "gettoknowme" },
-      { id: "takeabreak", name: "Take a Break", icon: "folder-games", app: "misc-folder", file: "takeabreak" },
       { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" },
       { id: "accessibility", name: "Accessibility", icon: "accessibility", app: "accessibility" }
     ],
@@ -1354,6 +1353,7 @@ If that sounds like what you need, let's talk.
         items: [
           { id: "about", name: "AboutMe.html", icon: "html", type: "app", app: "livejournal" },
           { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
+          { id: "takeabreak", name: "Take a Break", icon: "folder-games", type: "app", app: "misc-folder" },
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
           { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
           { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
