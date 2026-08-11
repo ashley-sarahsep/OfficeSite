@@ -130,7 +130,7 @@ People don't just do their existing job faster. They find the potential that was
 
 Machines take the monotonous, repetitive, easily-automated tasks that bury people. Not to replace people. To give them room to build on their work and produce better things.
 
-I'm an idealist about what people do with that room. A realist about the tool that creates it.`
+I'm an idealist about what people do with that room - a realist about the tool that creates it.`
     },
 
     aiDistrust: {
@@ -138,7 +138,7 @@ I'm an idealist about what people do with that room. A realist about the tool th
       content: `DISTRUST AS A PRACTICED SKILL
 ================================
 
-I don't extend blind trust to AI outputs. This is the actual differentiator. Not "I use AI." "I know exactly where it's wrong before the client finds out."
+I don't extend blind trust to AI outputs. This is the actual differentiator - not "I use AI," but "I know exactly where it's wrong before the client finds out."
 
 I've tested AI output that was confident, well-structured, and completely wrong about something you'd only catch if you knew the domain. That's not a hypothetical. That's a Tuesday.
 
@@ -150,7 +150,7 @@ That gap between who sells it and who lives with the output is where I spend mos
 
 There's the "AI can make mistakes, please double-check responses" disclaimer that everyone, including the people who built the tool, knows is true. And executives make headcount decisions as if it weren't. That's darkly funny to me.
 
-My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach. It's what most AI adoption programs skip.`
+My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach - it's what most AI adoption programs skip.`
     },
 
     aiHermeneutics: {
@@ -158,7 +158,7 @@ My own AI usage is the model for what I'd build for others. I use Claude to orga
       content: `HERMENEUTICS IN PRACTICE
 ==========================
 
-My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's not a resume line. It's the literal cognitive process I use when evaluating AI systems.
+My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's not a resume line - it's the literal cognitive process I use when evaluating AI systems.
 
 Understanding how a model interprets and generates information is, for me, an extension of the same interpretive instinct I use to figure out what a client actually means versus what they literally said.
 
@@ -2643,11 +2643,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "ai-adoption",
         title: "AI Adoption & Enablement",
         tags: ["AI Adoption", "Prompt Engineering", "AI QA", "Change Management"],
-        hook: "Program leadership for AI client enablement. Not a blind advocate. Catches confidently wrong outputs before a client does.",
+        hook: "Program leadership for AI client enablement. Not a blind advocate - catches confidently wrong outputs before a client does.",
         whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programs that change behaviour. The critical voice on a team that needs one.",
         whatIveDone: [
           "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries.",
-          "Applied hermeneutics training directly to AI quality work. Used understanding of how models interpret context to find where they were likely to misread intent.",
+          "Applied hermeneutics training directly to AI quality work - used understanding of how models interpret context to find where they were likely to misread intent.",
           "Created the enterprise Power Prompts library plus training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.",
           "Built 50+ training videos and resources structured for self-service so clients could progress without dedicated support time."
         ],
@@ -2660,12 +2660,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "revops",
         title: "Revenue Operations",
         tags: ["RevOps", "CRM Architecture", "Pipeline", "Forecasting"],
-        hook: "Notices when a CRM is lying to you. Fixes it before it costs someone a quarter.",
+        hook: "Notices when a CRM is lying to you, and fixes it before it costs someone a quarter.",
         whatThisNeeds: "Someone who owns both sides of the function: the infrastructure decisions (stage definitions, data fields, what 'qualified' actually means, forecasting logic) and the execution (prospecting, lead entry, sequential outreach, follow-up). The person who spots duplicate leads, ambiguous definitions, and wishful-thinking pipelines.",
         whatIveDone: [
           "Designed the CRM pipeline from scratch. Defined stages, qualification criteria, required data fields, and the logic determining when a lead moved forward or stalled.",
           "Built and maintained a 3-6-9 month forecasting model. Self-taught on both SugarCRM and HubSpot and migrated the team between them without losing pipeline visibility.",
-          "Ran the full outbound operation solo. Prospect research, CRM entry, sequential email marketing, follow-up, demo coordination.",
+          "Ran the full outbound operation solo: prospect research, CRM entry, sequential email marketing, follow-up, demo coordination.",
           "Maintained data integrity by catching duplicate entries, inconsistent definitions, and reporting gaps before they distorted forecasting."
         ],
         proof: "workExamples",
@@ -2677,12 +2677,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "implementation",
         title: "Implementation Manager",
         tags: ["Implementation", "Client Onboarding", "Technical PM", "QA"],
-        hook: "Full lifecycle ownership from discovery through clean handoff. Documentation that actually works.",
+        hook: "Full lifecycle ownership from discovery through clean handoff, with documentation that actually works.",
         whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff document, every training program is built assuming someone else needs to pick it up and run with it without you in the room.",
         whatIveDone: [
           "Led the Neptune Retail Solutions custom platform build end to end: $500K build with $20K monthly recurring, 48,000+ retail locations, 3,800+ field staff, 24M+ annual executions. Four developers, Jira board management, account management through to clean handoff.",
           "Sole QA lead across 20+ major implementations. Built repeatable test plans, set quality standards, enforced them with Product and Engineering.",
-          "Designed the five-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing and Validation, User Training, Ongoing Support. Full documentation for each phase.",
+          "Designed the five-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing and Validation, User Training, Ongoing Support - with full documentation for each phase.",
           "Stepped into PM coverage during team transitions without missing client deadlines. Created a Sales-to-Accounts handoff process used across the organisation."
         ],
         proof: "workExamples",
@@ -2865,7 +2865,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "What do you mean by catching where things go wrong?": {
-        text: "My brain doesn't let things rest when something's off. That's useful in AI work. I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong about something you'd only catch if you knew the domain. That's not hypothetical. That's a Tuesday.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of loose threads. My brain tracks these things whether I want it to or not.",
+        text: "My brain doesn't let things rest when something's off. That's useful in AI work - I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong about something you'd only catch if you knew the domain. That's not hypothetical. That's a Tuesday.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of loose threads - my brain tracks these things whether I want it to or not.",
         followUp: "And how do you feel about how these models were built?"
       },
 
@@ -2875,7 +2875,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "How do you think about sales?": {
-        text: "Sharing over selling, always. If a product is good, you shouldn't have to sell it. You share it well enough that it sells itself. If it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around real curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've been in didn't feel like a sale. It felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
+        text: "Sharing over selling, always. If a product is good, you shouldn't have to sell it. You share it well enough that it sells itself. If it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around real curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've been in didn't feel like a sale - it felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
         followUp: null
       },
 
@@ -2885,7 +2885,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "How do you handle that much context-switching?": {
-        text: "Honestly, my brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and my brain moves in unexpected directions, which means solutions arrive that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken bothers me, so I follow through. It's not discipline. It's just how I'm built.",
+        text: "Honestly, my brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and my brain moves in unexpected directions, which means solutions arrive that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken bothers me, so I follow through. It's not discipline - it's just how I'm built.",
         followUp: null
       },
 
@@ -2915,7 +2915,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "Tell me a bit about yourself": {
-        text: "Hi. I'm Ashley. Guelph, Ontario. Philosophy degree from Guelph specialising in hermeneutics, plus social work training from George Brown. Then a receptionist job at an ad agency that turned into accounts receivable, London for a few years doing finance, sales ops back in Canada, and seven years at a field marketing startup that became about five different jobs.\n\nRemote since 2015. Board member and treasurer at Diyode Community Workshop, a makerspace here in Guelph. Two cats: Gertrude is quiet and patient, Gherkin has opinions.\n\nOutside work: thrift stores, mid-century furniture, punk records I still love, folk records I've grown into, philosophy for fun, and building things with AI tooling on my own time. I built this site in four days and an open-source job scorer tool in a weekend. So 'evenings and weekends' is a broad category for me.",
+        text: "Hi. I'm Ashley. Guelph, Ontario. Philosophy degree from Guelph specialising in hermeneutics, plus social work training from George Brown. Then a receptionist job at an ad agency that turned into accounts receivable, London for a few years doing finance, sales ops back in Canada, and seven years at a field marketing startup that became about five different jobs.\n\nRemote since 2015. Board member and treasurer at Diyode Community Workshop, a makerspace here in Guelph. Two cats: Gertrude is quiet and patient, Gherkin has opinions.\n\nOutside work: thrift stores, mid-century furniture, punk records I still love, folk records I've grown into, philosophy for fun, and building things with AI tooling on my own time. I built this site in four days and an open-source job scorer tool in a weekend - so 'evenings and weekends' is a broad category for me.",
         followUp: "You mentioned hermeneutics. How does that actually help?"
       }
     },
