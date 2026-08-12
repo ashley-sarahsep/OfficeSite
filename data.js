@@ -130,7 +130,7 @@ People don't just do their existing job faster. They find the potential that was
 
 Machines take the monotonous, repetitive, easily-automated tasks that bury people. Not to replace people. To give them room to build on their work and produce better things.
 
-I'm an idealist about what people do with that room. A realist about the tool that creates it.`
+I'm an idealist about what people do with that room - a realist about the tool that creates it.`
     },
 
     aiDistrust: {
@@ -138,7 +138,7 @@ I'm an idealist about what people do with that room. A realist about the tool th
       content: `DISTRUST AS A PRACTICED SKILL
 ================================
 
-I don't extend blind trust to AI outputs. This is the actual differentiator. Not "I use AI." "I know exactly where it's wrong before the client finds out."
+I don't extend blind trust to AI outputs. This is the actual differentiator - not "I use AI," but "I know exactly where it's wrong before the client finds out."
 
 I've tested AI output that was confident, well-structured, and completely wrong about something you'd only catch if you knew the domain. That's not a hypothetical. That's a Tuesday.
 
@@ -150,7 +150,7 @@ That gap between who sells it and who lives with the output is where I spend mos
 
 There's the "AI can make mistakes, please double-check responses" disclaimer that everyone, including the people who built the tool, knows is true. And executives make headcount decisions as if it weren't. That's darkly funny to me.
 
-My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach. It's what most AI adoption programs skip.`
+My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach - it's what most AI adoption programs skip.`
     },
 
     aiHermeneutics: {
@@ -158,7 +158,7 @@ My own AI usage is the model for what I'd build for others. I use Claude to orga
       content: `HERMENEUTICS IN PRACTICE
 ==========================
 
-My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's not a resume line. It's the literal cognitive process I use when evaluating AI systems.
+My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's not a resume line - it's the literal cognitive process I use when evaluating AI systems.
 
 Understanding how a model interprets and generates information is, for me, an extension of the same interpretive instinct I use to figure out what a client actually means versus what they literally said.
 
@@ -521,8 +521,8 @@ THINGS I'M GOOD AT
   that turns "we have AI" into "we use AI well."
 
 → Onboarding & Enablement Programs
-  Designing learning experiences that stick. Not info dumps.
-  Actual behaviour change. I think about how humans process
+  Designing learning experiences that stick - not info dumps,
+  actual behaviour change. I think about how humans process
   and retain information (thanks, philosophy degree).
 
 → Process Documentation & Knowledge Bases
@@ -569,8 +569,8 @@ whether there's a fit.
 THE FINE PRINT
 --------------
 
-I work remotely. Have since 2015, quite good at it.
-I'm in Ontario, Canada. Eastern time zone.
+I work remotely - have since 2015, quite good at it.
+I'm in Ontario, Canada - Eastern time zone.
 I communicate clearly and often.
 I ask a lot of questions upfront so I don't waste your time later.
 I care about doing good work, not just billable hours.
@@ -674,7 +674,7 @@ Ashley`
         {
           id: "desk-remote-love",
           portrait: "thoughtful1",
-          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out. That's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Gertrude and Gherkin make excellent coworkers.",
+          text: "The autonomy, mostly. Give me an ambiguous problem and trust me to figure it out - that's where I thrive. I don't need constant meetings or check-ins. I need interesting problems and the space to solve them. Plus, Gertrude and Gherkin make excellent coworkers.",
           responses: [
             { text: "Who are Gertrude and Gherkin?", next: "desk-cats-tease" },
             { text: "What kind of problems do you solve?", next: "desk-problems" },
@@ -684,7 +684,7 @@ Ashley`
         {
           id: "desk-cats-tease",
           portrait: "smiling2",
-          text: "The little fuzzbutts. Gertrude is represented by the black cat on the bookshelf. She supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
+          text: "The little fuzzbutts: Gertrude is represented by the black cat on the bookshelf - she supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
           responses: [
             { text: "I should go meet them", next: null },
             { text: "What kind of work do you do from here?", next: "desk-work-history" },
@@ -724,7 +724,7 @@ Ashley`
         {
           id: "desk-exhausting",
           portrait: "funny1",
-          text: "My brain actually works better this way. Context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
+          text: "My brain actually works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
           responses: [
             { text: "I want to look around some more", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -919,7 +919,7 @@ Ashley`
         {
           id: "radio-intro",
           portrait: "smiling1",
-          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics. They were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
+          text: "This radio still works! I've had it in my bedrooms at various homes since I was… born, I think? There's something about vintage electronics - they were built to last, designed to be beautiful. Not like modern tech that's meant to be replaced.",
           responses: [
             { text: "🎵 Turn the dial", next: "radio-tune", special: "radio" },
             { text: "Do you listen to music while you work?", next: "radio-music" },
@@ -988,7 +988,7 @@ Ashley`
         {
           id: "radio-prine",
           portrait: "excited",
-          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky. Grew up in a house full of music.",
+          text: "John Prine understood something fundamental about how to tell a story. Simple words, complex feelings. My dad had thousands of records and Prine was in heavy rotation. I was lucky - grew up in a house full of music.",
           responses: [
             { text: "Thousands of records?", next: "radio-records" },
             { text: "[Back to exploring]", next: null }
@@ -997,7 +997,7 @@ Ashley`
         {
           id: "radio-records",
           portrait: "thoughtful1",
-          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection. Some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
+          text: "My dad was born in the Netherlands in '44, came to Canada when he was 12. Loved music and books his whole life. Collected both. I get it from him. He had this massive collection - some well-loved, some worn down to almost nothing from being played so much. I had access to all of it growing up.",
           responses: [
             { text: "That's a lovely way to grow up", next: "radio-lovely" },
             { text: "[Back to exploring]", next: null }
@@ -1025,7 +1025,7 @@ Ashley`
         {
           id: "radio-music",
           portrait: "excited",
-          text: "Always. Different genres for different work. Deep focus gets ambient or lo-fi, or the Moon soundtrack. Creative work gets something with more energy. Testing gets some metal.",
+          text: "Always. Different genres for different work: deep focus gets ambient or lo-fi, or the Moon soundtrack; creative work gets something with more energy; testing gets some metal.",
           responses: [
             { text: "What's your go-to?", next: "radio-goto" },
             { text: "[Back to exploring]", next: null }
@@ -1034,7 +1034,7 @@ Ashley`
         {
           id: "radio-goto",
           portrait: "thoughtful1",
-          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music. I had too much good stuff thrown at me growing up to pick just one lane.",
+          text: "It varies so much. My playlists are as eclectic as my bookshelves. Some days it's 90s alternative, some days it's film scores, some days it's whatever the algorithm decided to serve me. I don't have a 'brand' when it comes to music - I had too much good stuff thrown at me growing up to pick just one lane.",
           responses: [
             { text: "Show me more of your office", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -1070,7 +1070,7 @@ Ashley`
         {
           id: "art-intro",
           portrait: "smiling1",
-          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in. Landscapes, pastoral scenes. Nothing too precious. Things that have been somewhere before they got to me.",
+          text: "I've collected these over time. Estate sales, antique shops, the occasional lucky find. I like art that feels lived-in - landscapes, pastoral scenes, nothing too precious. Things that have been somewhere before they got to me.",
           responses: [
             { text: "They create a nice atmosphere", next: "art-atmosphere" },
             { text: "Do you have a favourite?", next: "art-favourite" },
@@ -1081,7 +1081,7 @@ Ashley`
         {
           id: "art-atmosphere",
           portrait: "thoughtful1",
-          text: "That's the goal. I spend a lot of time in this room. Remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
+          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
           responses: [
             { text: "Do you have a favourite piece?", next: "art-favourite" },
             { text: "Show me more of the office", action: "inspect" },
@@ -1091,7 +1091,7 @@ Ashley`
         {
           id: "art-favourite",
           portrait: "thoughtful2",
-          text: "It changes. Some days I notice one more than others. The landscapes especially. There's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
+          text: "It changes. Some days I notice one more than others. The landscapes especially - there's something about looking at a scene with depth and distance when you've been staring at screens all day. A little window to somewhere else.",
           responses: [
             { text: "The frames are beautiful", next: "art-frames" },
             { text: "I want to look around more", action: "inspect" },
@@ -1626,7 +1626,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>Project Management:</strong> Jira at expert level (bug tracking, sprint management, feature requests), Linear, ClickUp, Asana, Notion. Agile methodologies, daily scrum facilitation, sprint planning, stakeholder management, OKR/KPI tracking.</p>
 <p><strong>Data & Analytics:</strong> Data cleanup and validation, pattern identification, business intelligence frameworks, dashboards and analysis tools, report building, sales analytics, forecasting, performance metrics tracking, knowledge management.</p>
 <p><strong>CRM & Sales Operations:</strong> SugarCRM, HubSpot, Salesforce integrations, pipeline management, revenue operations, sales process design, go-to-market support, discovery frameworks, demo environment creation.</p>
-<p><strong>Directing AI Tools:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub. Prompt engineering, quality assurance for AI outputs, user adoption strategy, workflow design, technical training delivery, onboarding materials. Shipped a working open-source Python tool (Job Alert Scorer) and this portfolio site by directing these tools through a real software workflow. Not an engineer. Someone who knows what she's asking for and what to accept back.</p>
+<p><strong>Directing AI Tools:</strong> Claude, ChatGPT, Gemini, Claude Code, GitHub. Prompt engineering, quality assurance for AI outputs, user adoption strategy, workflow design, technical training delivery, onboarding materials. Shipped a working open-source Python tool (Job Alert Scorer) and this portfolio site by directing these tools through a real software workflow. Not an engineer - someone who knows what she's asking for and what to accept back.</p>
 <p><strong>Design & Content:</strong> Canva, video production (Loom), training curriculum development, presentation design.</p>
 <p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, Slack, Microsoft Teams, Zoom, Google Workspace, Microsoft Office.</p>
 
@@ -2153,7 +2153,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>Curriculum Design:</strong> Adult learning principles applied to real workflows. Curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</p>
 <p><strong>Prompt Engineering:</strong> Framework development, tested prompt libraries, output evaluation, edge case testing, enterprise analytical frameworks.</p>
 <p><strong>AI Quality Assurance:</strong> Manual testing framework design, systematic prompt testing, hallucination identification, structured feedback loops between users and product teams.</p>
-<p><strong>Directing AI Tools:</strong> Claude, Claude Code, ChatGPT, Manus, Lovable. Shipped a working open-source Python tool (Job Alert Scorer, on the Anthropic API) and this portfolio site by directing these tools through a real software workflow with branching, staging, and production. Not an engineer. Someone who knows what she's asking for and what to accept back.</p>
+<p><strong>Directing AI Tools:</strong> Claude, Claude Code, ChatGPT, Manus, Lovable. Shipped a working open-source Python tool (Job Alert Scorer, on the Anthropic API) and this portfolio site by directing these tools through a real software workflow with branching, staging, and production. Not an engineer - someone who knows what she's asking for and what to accept back.</p>
 <p><strong>Cross-functional:</strong> Stakeholder communication, client onboarding, executive training, product feedback loops, go-to-market readiness.</p>
 <p><strong>Tools:</strong> Jira, Notion, Loom, Google Workspace, Slack, GitHub, HubSpot, Zoom.</p>
 </div>
@@ -2643,11 +2643,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "ai-adoption",
         title: "AI Adoption & Enablement",
         tags: ["AI Adoption", "Prompt Engineering", "AI QA", "Change Management"],
-        hook: "Program leadership for AI client enablement. Not a blind advocate. Catches confidently wrong outputs before a client does.",
+        hook: "Program leadership for AI client enablement. Not a blind advocate - catches confidently wrong outputs before a client does.",
         whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programs that change behaviour. The critical voice on a team that needs one.",
         whatIveDone: [
           "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries.",
-          "Applied hermeneutics training directly to AI quality work. Used understanding of how models interpret context to find where they were likely to misread intent.",
+          "Applied hermeneutics training directly to AI quality work - used understanding of how models interpret context to find where they were likely to misread intent.",
           "Created the enterprise Power Prompts library plus training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.",
           "Built 50+ training videos and resources structured for self-service so clients could progress without dedicated support time."
         ],
@@ -2660,12 +2660,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "revops",
         title: "Revenue Operations",
         tags: ["RevOps", "CRM Architecture", "Pipeline", "Forecasting"],
-        hook: "Notices when a CRM is lying to you. Fixes it before it costs someone a quarter.",
+        hook: "Notices when a CRM is lying to you, and fixes it before it costs someone a quarter.",
         whatThisNeeds: "Someone who owns both sides of the function: the infrastructure decisions (stage definitions, data fields, what 'qualified' actually means, forecasting logic) and the execution (prospecting, lead entry, sequential outreach, follow-up). The person who spots duplicate leads, ambiguous definitions, and wishful-thinking pipelines.",
         whatIveDone: [
           "Designed the CRM pipeline from scratch. Defined stages, qualification criteria, required data fields, and the logic determining when a lead moved forward or stalled.",
           "Built and maintained a 3-6-9 month forecasting model. Self-taught on both SugarCRM and HubSpot and migrated the team between them without losing pipeline visibility.",
-          "Ran the full outbound operation solo. Prospect research, CRM entry, sequential email marketing, follow-up, demo coordination.",
+          "Ran the full outbound operation solo: prospect research, CRM entry, sequential email marketing, follow-up, demo coordination.",
           "Maintained data integrity by catching duplicate entries, inconsistent definitions, and reporting gaps before they distorted forecasting."
         ],
         proof: "workExamples",
@@ -2677,12 +2677,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "implementation",
         title: "Implementation Manager",
         tags: ["Implementation", "Client Onboarding", "Technical PM", "QA"],
-        hook: "Full lifecycle ownership from discovery through clean handoff. Documentation that actually works.",
+        hook: "Full lifecycle ownership from discovery through clean handoff, with documentation that actually works.",
         whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff document, every training program is built assuming someone else needs to pick it up and run with it without you in the room.",
         whatIveDone: [
           "Led the Neptune Retail Solutions custom platform build end to end: $500K build with $20K monthly recurring, 48,000+ retail locations, 3,800+ field staff, 24M+ annual executions. Four developers, Jira board management, account management through to clean handoff.",
           "Sole QA lead across 20+ major implementations. Built repeatable test plans, set quality standards, enforced them with Product and Engineering.",
-          "Designed the five-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing and Validation, User Training, Ongoing Support. Full documentation for each phase.",
+          "Designed the five-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing and Validation, User Training, Ongoing Support - with full documentation for each phase.",
           "Stepped into PM coverage during team transitions without missing client deadlines. Created a Sales-to-Accounts handoff process used across the organisation."
         ],
         proof: "workExamples",
@@ -2704,7 +2704,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         ],
         proof: "collab",
         proofLabel: "See: Let's Work Together",
-        tools: ["Whatever you need me to learn. I'm fast at it."]
+        tools: ["Whatever you need me to learn - I'm fast at it."]
       }
     ]
   },
@@ -2734,7 +2734,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
     interests: {
       general: "Hermeneutics, pattern recognition, thrift stores, vintage finds, point-and-click adventure games, MYST, mid-century modern furniture, estate sales, things with history",
-      music: "John Prine, Emmylou Harris, Talking Heads, Psychedelic Furs, Prince, Against Me!, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Grew up in a house with thousands of records. Spent my youth at punk and metal shows. See you in the pit.",
+      music: "John Prine, Emmylou Harris, Talking Heads, Psychedelic Furs, Prince, Against Me!, Bright Eyes, T. Rex, Stevie Wonder, Leonard Cohen. Grew up in a house with thousands of records. Spent my youth at punk and metal shows - see you in the pit.",
       books: "Philosophy texts I still reference, fiction that teaches empathy, social work theory, just good stories",
       heroes: "My dad (music, books, curiosity) and my mum (Prince, Talking Heads, the fun stuff), and I'm sure plenty of others, though I'm not keen on pedestals."
     },
@@ -2865,7 +2865,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "What do you mean by catching where things go wrong?": {
-        text: "My brain doesn't let things rest when something's off. That's useful in AI work. I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong about something you'd only catch if you knew the domain. That's not hypothetical. That's a Tuesday.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of loose threads. My brain tracks these things whether I want it to or not.",
+        text: "My brain doesn't let things rest when something's off. That's useful in AI work - I notice when outputs don't quite make sense, when edge cases haven't been considered, when the model is confidently wrong about something you'd only catch if you knew the domain. That's not hypothetical. That's a Tuesday.\n\nIt's the same reason I never miss deadlines and I'm hyper-aware of loose threads - my brain tracks these things whether I want it to or not.",
         followUp: "And how do you feel about how these models were built?"
       },
 
@@ -2875,7 +2875,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "How do you think about sales?": {
-        text: "Sharing over selling, always. If a product is good, you shouldn't have to sell it. You share it well enough that it sells itself. If it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around real curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've been in didn't feel like a sale. It felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
+        text: "Sharing over selling, always. If a product is good, you shouldn't have to sell it. You share it well enough that it sells itself. If it isn't good, no amount of pressure will save you.\n\nThat belief changes everything downstream. The demos I build are research made visible. The discovery frameworks I write are built around real curiosity about the prospect's business. The training I design teaches reps to actually know what they're talking about rather than perform a script.\n\nThe best sales conversation I've been in didn't feel like a sale - it felt like two people figuring out together whether the thing I had was the thing they needed. That's the bar.",
         followUp: null
       },
 
@@ -2885,7 +2885,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "How do you handle that much context-switching?": {
-        text: "Honestly, my brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and my brain moves in unexpected directions, which means solutions arrive that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken bothers me, so I follow through. It's not discipline. It's just how I'm built.",
+        text: "Honestly, my brain is wired for it. I'm neurodivergent, and I've learned to use that rather than fight it. I pick up patterns quickly, I read rooms and notice dynamics others miss, and my brain moves in unexpected directions, which means solutions arrive that aren't always obvious.\n\nThe flip side is I'm also anxious in ways that make me exceptionally reliable. I don't miss deadlines. I don't let things slip. I'm hyper-aware of what needs to be done, what's been missed, what's not quite right. Things sitting unfinished or broken bothers me, so I follow through. It's not discipline - it's just how I'm built.",
         followUp: null
       },
 
@@ -2915,7 +2915,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "Tell me a bit about yourself": {
-        text: "Hi. I'm Ashley. Guelph, Ontario. Philosophy degree from Guelph specialising in hermeneutics, plus social work training from George Brown. Then a receptionist job at an ad agency that turned into accounts receivable, London for a few years doing finance, sales ops back in Canada, and seven years at a field marketing startup that became about five different jobs.\n\nRemote since 2015. Board member and treasurer at Diyode Community Workshop, a makerspace here in Guelph. Two cats: Gertrude is quiet and patient, Gherkin has opinions.\n\nOutside work: thrift stores, mid-century furniture, punk records I still love, folk records I've grown into, philosophy for fun, and building things with AI tooling on my own time. I built this site in four days and an open-source job scorer tool in a weekend. So 'evenings and weekends' is a broad category for me.",
+        text: "Hi. I'm Ashley. Guelph, Ontario. Philosophy degree from Guelph specialising in hermeneutics, plus social work training from George Brown. Then a receptionist job at an ad agency that turned into accounts receivable, London for a few years doing finance, sales ops back in Canada, and seven years at a field marketing startup that became about five different jobs.\n\nRemote since 2015. Board member and treasurer at Diyode Community Workshop, a makerspace here in Guelph. Two cats: Gertrude is quiet and patient, Gherkin has opinions.\n\nOutside work: thrift stores, mid-century furniture, punk records I still love, folk records I've grown into, philosophy for fun, and building things with AI tooling on my own time. I built this site in four days and an open-source job scorer tool in a weekend - so 'evenings and weekends' is a broad category for me.",
         followUp: "You mentioned hermeneutics. How does that actually help?"
       }
     },
