@@ -66,7 +66,7 @@ html, body {
 
 body {
   font-family: var(--font-system);
-  background: var(--color-cream);
+  background: var(--color-blush);
   color: #fff;
 }
 
@@ -87,7 +87,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-bottom: 60px; /* Space for bottom navbar */
+  padding-bottom: 50px; /* Space for bottom navbar */
   transition: filter 0.4s ease;
 }
 
@@ -98,16 +98,16 @@ body {
 
 .room-container {
   position: relative;
-  max-width: 100%;
-  max-height: calc(100vh - 80px);
+  width: 100%;
+  height: calc(100vh - 50px);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .room-image {
-  max-width: 100%;
-  max-height: calc(100vh - 80px);
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   image-rendering: auto;
 }
