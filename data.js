@@ -1351,7 +1351,7 @@ Ashley`
       gettoknowme: {
         title: "Get to Know Me",
         items: [
-          { id: "about", name: "AboutMe.html", icon: "html", type: "app", app: "livejournal" },
+          { id: "about", name: "Blog.html", icon: "html", type: "app", app: "livejournal" },
           { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
           { id: "takeabreak", name: "Take a Break", icon: "folder-games", type: "app", app: "misc-folder" },
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
@@ -2981,7 +2981,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       "my god its full of stars": "That's what people say when they see Ashley's resume, actually. ...No, that's not true. But there's a lot to look at. Would you like to hear about her work?"
     },
 
-    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in one of the resumes on this desktop. Six role-specific versions live in the My Work folder, or you can open Hire Me.exe and pick the flavour that matches what you're hiring for. AboutMe.html covers the non-work side. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
+    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in one of the resumes on this desktop. Six role-specific versions live in the My Work folder, or you can open Hire Me.exe and pick the flavour that matches what you're hiring for. Blog.html has her longer writing on AI, operations, and how she thinks. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
   },
 
   // ============================================

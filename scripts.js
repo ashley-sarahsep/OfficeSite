@@ -985,7 +985,7 @@ function getWindowTitle(appType, fileId) {
   const titles = {
     wordpad: 'Resume.doc - WordPad',
     'wordpad-ats': 'Resume_ATS.doc - WordPad',
-    livejournal: 'AboutMe.html - Internet Explorer',
+    livejournal: 'Blog.html - Internet Explorer',
     roleexplorer: 'Hire Me - Role Explorer',
     messenger: 'HAL - Helpful Ashley Likeness',
     folder: 'Work Examples',
