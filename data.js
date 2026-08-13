@@ -85,146 +85,126 @@ const SITE_DATA = {
   easterEggs: {
     aiReadme: {
       title: "README.txt - AI Thoughts",
-      content: `AI, ACCORDING TO ME
-=====================
-
-I use these tools daily and well. I know they were built on real people's work, taken without consent or pay, and I don't pretend that away. I think the way most companies are deploying AI now is a failure of people-thinking dressed up as innovation. I know exactly where the tool's confidence shouldn't be trusted, because I've built the systems that catch it when it's wrong. And I still believe, at the same time, that used well it can improve people's quality of life, because humans still need to create, still need to make meaning, and the tool is only worth anything if it protects room for that instead of replacing it.
-
-Both things stay true at once - I don't reconcile them into one tidy sentence. That would be too clean for what this actually is.
-
----
-
-This folder holds a few of the positions underneath that. Read whichever ones interest you. They aren't a coherent essay - they're a set of things I've worked out over time.
-
-backwards_adoption.txt: the deployment critique
-distrust_as_practice.txt: how I actually work with AI outputs
-hermeneutics_in_practice.txt: what my philosophy background is doing here
-origins.txt: the extraction problem
-room_to_breathe.txt: what I want AI to protect, not replace`
+      filename: "README.txt",
+      banner: "AI, according to me",
+      subtitle: "The umbrella position",
+      blocks: [
+        { type: "lede", text: "I use these tools daily and well. I know they were built on real people's work, taken without consent or pay, and I don't pretend that away. I think the way most companies are deploying AI now is a failure of people-thinking dressed up as innovation. I know exactly where the tool's confidence shouldn't be trusted, because I've built the systems that catch it when it's wrong. And I still believe, at the same time, that used well it can improve people's quality of life, because humans still need to create, still need to make meaning, and the tool is only worth anything if it protects room for that instead of replacing it." },
+        { type: "para", text: "Both things stay true at once - I don't reconcile them into one tidy sentence. That would be too clean for what this actually is." },
+        { type: "divider" },
+        { type: "para", text: "This folder holds a few of the positions underneath that. Read whichever ones interest you. They aren't a coherent essay - they're a set of things I've worked out over time." },
+        { type: "filelist", items: [
+          { name: "backwards_adoption.txt", desc: "the deployment critique" },
+          { name: "distrust_as_practice.txt", desc: "how I actually work with AI outputs" },
+          { name: "hermeneutics_in_practice.txt", desc: "what my philosophy background is doing here" },
+          { name: "origins.txt", desc: "the extraction problem" },
+          { name: "room_to_breathe.txt", desc: "what I want AI to protect, not replace" }
+        ] }
+      ]
     },
 
     aiBackwards: {
-      title: "backwards_adoption.txt - Notepad",
-      content: `BACKWARDS ADOPTION
-====================
-
-Companies adopt AI backwards. They buy the tool first and try to fit people to it after, instead of starting with what people actually need help with.
-
-They throw it at overwhelmed workers without understanding what those workers actually need help with day to day. They invest millions without taking the time to research or even ask. Then they put the burden of figuring it out on people who are already swamped. People who are also being told, implicitly, that this tool might make them redundant.
-
-That's not adoption. That's abandonment with a subscription fee.
-
----
-
-The alternative starts three questions earlier: for who, for what, and why.
-
-For who: not the executives buying the tool. The people opening it on a Tuesday morning.
-
-For what: specifically patterned work. Not "boring" work - "boring" is subjective. "Patterned" is the thing that's actually automatable.
-
-Why: not productivity for its own sake. Potential.
-
----
-
-People don't just do their existing job faster. They find the potential that was buried under it. The improvements they couldn't get to. The thinking they didn't have room for.
-
-Machines take the monotonous, repetitive, easily-automated tasks that bury people. Not to replace people. To give them room to build on their work and produce better things.
-
-I'm an idealist about what people do with that room - a realist about the tool that creates it.`
+      title: "backwards_adoption.txt - AI Thoughts",
+      filename: "backwards_adoption.txt",
+      banner: "Backwards adoption",
+      subtitle: "The deployment critique",
+      blocks: [
+        { type: "lede", text: "Companies adopt AI backwards. They buy the tool first and try to fit people to it after, instead of starting with what people actually need help with." },
+        { type: "para", text: "They throw it at overwhelmed workers without understanding what those workers actually need help with day to day. They invest millions without taking the time to research or even ask. Then they put the burden of figuring it out on people who are already swamped. People who are also being told, implicitly, that this tool might make them redundant." },
+        { type: "pullquote", text: "That's not adoption. That's abandonment with a subscription fee." },
+        { type: "divider" },
+        { type: "para", text: "The alternative starts three questions earlier: for who, for what, and why." },
+        { type: "list", items: [
+          "For who: not the executives buying the tool. The people opening it on a Tuesday morning.",
+          "For what: specifically patterned work. Not \"boring\" work - \"boring\" is subjective. \"Patterned\" is the thing that's actually automatable.",
+          "Why: not productivity for its own sake. Potential."
+        ] },
+        { type: "divider" },
+        { type: "para", text: "People don't just do their existing job faster. They find the potential that was buried under it. The improvements they couldn't get to. The thinking they didn't have room for." },
+        { type: "para", text: "Machines take the monotonous, repetitive, easily-automated tasks that bury people. Not to replace people. To give them room to build on their work and produce better things." },
+        { type: "pullquote", text: "I'm an idealist about what people do with that room - a realist about the tool that creates it." }
+      ]
     },
 
     aiDistrust: {
-      title: "distrust_as_practice.txt - Notepad",
-      content: `DISTRUST AS A PRACTICED SKILL
-================================
-
-I don't extend blind trust to AI outputs. This is the actual differentiator - not "I use AI," but "I know exactly where it's wrong before the client finds out."
-
-I've tested AI output that was confident, well-structured, and completely wrong about something you'd only catch if you knew the domain. That's not a hypothetical. That's a Tuesday.
-
-The end user is usually the one who finds out. Not the vendor. Not the executive who signed the contract. The person actually using the thing, trying to make a decision based on what it told them.
-
-That gap between who sells it and who lives with the output is where I spend most of my time.
-
----
-
-There's the "AI can make mistakes, please double-check responses" disclaimer that everyone, including the people who built the tool, knows is true. And executives make headcount decisions as if it weren't. That's darkly funny to me.
-
-My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach - it's what most AI adoption programs skip.`
+      title: "distrust_as_practice.txt - AI Thoughts",
+      filename: "distrust_as_practice.txt",
+      banner: "Distrust as a practiced skill",
+      subtitle: "How I actually work with AI outputs",
+      blocks: [
+        { type: "lede", text: "I don't extend blind trust to AI outputs. This is the actual differentiator - not \"I use AI,\" but \"I know exactly where it's wrong before the client finds out.\"" },
+        { type: "para", text: "I've tested AI output that was confident, well-structured, and completely wrong about something you'd only catch if you knew the domain." },
+        { type: "pullquote", text: "That's not a hypothetical. That's a Tuesday." },
+        { type: "para", text: "The end user is usually the one who finds out. Not the vendor. Not the executive who signed the contract. The person actually using the thing, trying to make a decision based on what it told them." },
+        { type: "para", text: "That gap between who sells it and who lives with the output is where I spend most of my time." },
+        { type: "divider" },
+        { type: "para", text: "There's the \"AI can make mistakes, please double-check responses\" disclaimer that everyone, including the people who built the tool, knows is true. And executives make headcount decisions as if it weren't. That's darkly funny to me." },
+        { type: "para", text: "My own AI usage is the model for what I'd build for others. I use Claude to organise scattered thinking and turn stream-of-consciousness into structure. But I know precisely where my judgment needs to override the model's, because I have the domain expertise to see where it misses nuance. That's what I'd teach - it's what most AI adoption programs skip." }
+      ]
     },
 
     aiHermeneutics: {
-      title: "hermeneutics_in_practice.txt - Notepad",
-      content: `HERMENEUTICS IN PRACTICE
-==========================
-
-My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's not a resume line - it's the literal cognitive process I use when evaluating AI systems.
-
-Understanding how a model interprets and generates information is, for me, an extension of the same interpretive instinct I use to figure out what a client actually means versus what they literally said.
-
-When I evaluate AI output, I'm not just asking "is this correct?" I'm asking:
-
-- How did the model interpret the prompt?
-- Where did it fill in assumptions I didn't make?
-- What did it infer that I didn't state?
-- Is the structure of the response shaping the content in ways I didn't ask for?
-
-That's a different kind of reading than most people bring to AI output.
-
----
-
-I've found hallucinations that looked perfectly plausible until you traced the reasoning back. I've caught outputs that were technically correct but answered a question slightly different from the one that was asked. That's a much harder failure to spot and a much more dangerous one.
-
-The same hermeneutic instinct that reads a client's business under what they literally said reads a model's output under what it literally produced.
-
-Same skill, different medium.`
+      title: "hermeneutics_in_practice.txt - AI Thoughts",
+      filename: "hermeneutics_in_practice.txt",
+      banner: "Hermeneutics in practice",
+      subtitle: "What my philosophy background is doing here",
+      blocks: [
+        { type: "lede", text: "My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's not a resume line - it's the literal cognitive process I use when evaluating AI systems." },
+        { type: "para", text: "Understanding how a model interprets and generates information is, for me, an extension of the same interpretive instinct I use to figure out what a client actually means versus what they literally said." },
+        { type: "para", text: "When I evaluate AI output, I'm not just asking \"is this correct?\" I'm asking:" },
+        { type: "list", items: [
+          "How did the model interpret the prompt?",
+          "Where did it fill in assumptions I didn't make?",
+          "What did it infer that I didn't state?",
+          "Is the structure of the response shaping the content in ways I didn't ask for?"
+        ] },
+        { type: "para", text: "That's a different kind of reading than most people bring to AI output." },
+        { type: "divider" },
+        { type: "para", text: "I've found hallucinations that looked perfectly plausible until you traced the reasoning back. I've caught outputs that were technically correct but answered a question slightly different from the one that was asked. That's a much harder failure to spot and a much more dangerous one." },
+        { type: "para", text: "The same hermeneutic instinct that reads a client's business under what they literally said reads a model's output under what it literally produced." },
+        { type: "pullquote", text: "Same skill, different medium." }
+      ]
     },
 
     aiOrigins: {
-      title: "origins.txt - Notepad",
-      content: `ORIGINS
-=========
-
-I am not blind to the fact that these LLMs took content, creativity, art, language from real human people who made it. For free. Without consent. Without payment. That's extraction, and it shouldn't be waved away.
-
-And we still need humans creating. We still need humans making meaning. Those aren't raw material to be optimised out of the loop.
-
----
-
-This is a harder line than "just automate the patterned work." That framework alone isn't enough. It's not just "don't automate the parts that require judgment." It's "the human act of creating and making meaning is not raw material to be optimised out of the loop."
-
-Both things stay true at once:
-
-- The extraction is real and shouldn't be waved away.
-- The tool used well can genuinely improve people's quality of life.
-
-I don't try to reconcile them into one tidy sentence. That would be too clean. The tool can be genuinely good AND built on a genuine wrong. Both facts stay true.
-
----
-
-I use these tools. I stay honest about how they were built. And I do the work of making adoption responsible on the deployment side. That's the position. It doesn't resolve. It just holds.`
+      title: "origins.txt - AI Thoughts",
+      filename: "origins.txt",
+      banner: "Origins",
+      subtitle: "The extraction problem",
+      blocks: [
+        { type: "lede", text: "I am not blind to the fact that these LLMs took content, creativity, art, language from real human people who made it. For free. Without consent. Without payment. That's extraction, and it shouldn't be waved away." },
+        { type: "para", text: "And we still need humans creating. We still need humans making meaning. Those aren't raw material to be optimised out of the loop." },
+        { type: "divider" },
+        { type: "para", text: "This is a harder line than \"just automate the patterned work.\" That framework alone isn't enough. It's not just \"don't automate the parts that require judgment.\" It's \"the human act of creating and making meaning is not raw material to be optimised out of the loop.\"" },
+        { type: "para", text: "Both things stay true at once:" },
+        { type: "list", items: [
+          "The extraction is real and shouldn't be waved away.",
+          "The tool used well can genuinely improve people's quality of life."
+        ] },
+        { type: "para", text: "I don't try to reconcile them into one tidy sentence. That would be too clean. The tool can be genuinely good AND built on a genuine wrong. Both facts stay true." },
+        { type: "divider" },
+        { type: "para", text: "I use these tools. I stay honest about how they were built. And I do the work of making adoption responsible on the deployment side." },
+        { type: "pullquote", text: "That's the position. It doesn't resolve. It just holds." }
+      ]
     },
 
     aiRoomToBreathe: {
-      title: "room_to_breathe.txt - Notepad",
-      content: `ROOM TO BREATHE
-=================
-
-The thing I want AI to protect isn't productivity - it's room.
-
-Room to think. Room to build on your work. Room to go home at the end of the day without dreading tomorrow, because you know you have space to think when you get there.
-
-That shouldn't be a radical idea - somehow it's become one.
-
----
-
-What most current AI deployment does instead is take that room away. It takes the patterned work and gives you more of the unpatterned work, faster, with fewer people. The efficiency lands on the balance sheet. The exhaustion lands on the people.
-
-There's a version of this technology that gives people back their capacity to do what only humans can do. That version requires building for the people, not the executives. Starting with what the tool can protect, not what it can replace.
-
-I want to build the version that protects room for humans to be humans.
-
-That's why I'm a critic. Not because I'm afraid of the technology. Because I'm paying attention.`
+      title: "room_to_breathe.txt - AI Thoughts",
+      filename: "room_to_breathe.txt",
+      banner: "Room to breathe",
+      subtitle: "What I want AI to protect, not replace",
+      blocks: [
+        { type: "lede", text: "The thing I want AI to protect isn't productivity - it's room." },
+        { type: "para", text: "Room to think. Room to build on your work. Room to go home at the end of the day without dreading tomorrow, because you know you have space to think when you get there." },
+        { type: "pullquote", text: "That shouldn't be a radical idea - somehow it's become one." },
+        { type: "divider" },
+        { type: "para", text: "What most current AI deployment does instead is take that room away. It takes the patterned work and gives you more of the unpatterned work, faster, with fewer people." },
+        { type: "pullquote", text: "The efficiency lands on the balance sheet. The exhaustion lands on the people." },
+        { type: "para", text: "There's a version of this technology that gives people back their capacity to do what only humans can do. That version requires building for the people, not the executives. Starting with what the tool can protect, not what it can replace." },
+        { type: "para", text: "I want to build the version that protects room for humans to be humans." },
+        { type: "divider" },
+        { type: "para", text: "That's why I'm a critic. Not because I'm afraid of the technology. Because I'm paying attention." }
+      ]
     },
 
     secrets: {
@@ -1362,12 +1342,12 @@ Ashley`
       aithoughts: {
         title: "AI Thoughts",
         items: [
-          { id: "aiReadme", name: "README.txt", icon: "txt", type: "notepad", noteId: "aiReadme" },
-          { id: "aiBackwards", name: "backwards_adoption.txt", icon: "txt", type: "notepad", noteId: "aiBackwards" },
-          { id: "aiDistrust", name: "distrust_as_practice.txt", icon: "txt", type: "notepad", noteId: "aiDistrust" },
-          { id: "aiHermeneutics", name: "hermeneutics_in_practice.txt", icon: "txt", type: "notepad", noteId: "aiHermeneutics" },
-          { id: "aiOrigins", name: "origins.txt", icon: "txt", type: "notepad", noteId: "aiOrigins" },
-          { id: "aiRoomToBreathe", name: "room_to_breathe.txt", icon: "txt", type: "notepad", noteId: "aiRoomToBreathe" }
+          { id: "aiReadme", name: "README.txt", icon: "txt", type: "aidoc", noteId: "aiReadme" },
+          { id: "aiBackwards", name: "backwards_adoption.txt", icon: "txt", type: "aidoc", noteId: "aiBackwards" },
+          { id: "aiDistrust", name: "distrust_as_practice.txt", icon: "txt", type: "aidoc", noteId: "aiDistrust" },
+          { id: "aiHermeneutics", name: "hermeneutics_in_practice.txt", icon: "txt", type: "aidoc", noteId: "aiHermeneutics" },
+          { id: "aiOrigins", name: "origins.txt", icon: "txt", type: "aidoc", noteId: "aiOrigins" },
+          { id: "aiRoomToBreathe", name: "room_to_breathe.txt", icon: "txt", type: "aidoc", noteId: "aiRoomToBreathe" }
         ]
       },
       takeabreak: {
@@ -2783,14 +2763,14 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         date: "January 2026",
         subject: "AI Needs Critics Who Actually Use It",
         content: `<p>I use AI tools every day. I've built QA frameworks, prompt libraries, and training programs around them. I find the technology genuinely interesting - how it works, where it breaks, what it does well, what it confidently gets wrong. I'm not someone who opened Claude once and decided they understood it, and I'm not someone who thinks it's going to save or destroy everything. I think it's a tool that's moving faster than most people's ability to evaluate what it produces. And that's the part that worries me.</p>
-<p>There's an enormous amount of conversation around AI adoption - which tools, how fast, what it means for jobs. There is much less serious conversation about what the output actually looks like. Whether it's good. How you'd know if it wasn't.</p>
-<p>Here's an analogy that might date me: remember when you could mod your Xbox? Or root your Android? There was this whole culture of people who wanted to understand how the thing worked, who were willing to spend a weekend in forums figuring out exactly which steps to follow and in which order, and who got satisfaction from making the device do something it wasn't supposed to. It rewarded curiosity. It had a community. It had shared knowledge about what you were trying to achieve and why.</p>
+<p>There's an enormous amount of conversation around AI adoption - which tools, how fast, what it means for jobs. There is much less serious conversation about what the output actually looks like, whether it's good, how you'd know if it wasn't.</p>
+<p>Here's an analogy that might date me: remember when you could mod your Xbox? Or root your Android? There was this whole culture of people who wanted to understand how the thing worked, who were willing to spend a weekend in forums figuring out exactly which steps to follow and in which order, and who got satisfaction from making the device do something it wasn't supposed to. It rewarded curiosity, had a community, had shared knowledge about what you were trying to achieve and why.</p>
 <p>AI has that same energy, at least for some people. The tinkering instinct is absolutely there. But what's missing is any kind of shared understanding of what we're actually trying to do with it. Modding your Xbox had a clear goal: get more out of the hardware. What's the goal with AI? Efficiency? Creativity? Augmentation? Replacement? Everybody has a different answer, and most organisations haven't sat down to figure out theirs. So people are tinkering without a target, which is fun right up until something goes wrong and nobody knows why.</p>
 <p>The output problem gets worse when you factor in critical thinking - which I think is the most underrated skill for working with AI well, and also a completely insufficient safeguard on its own.</p>
-<p>Here's why. Critical thinking lets you interrogate what you're given. It makes you ask "does this actually make sense" and "where did this come from" and "what's missing here." Those are the right questions. But they only work if you have enough base knowledge to recognise when something is off. If you don't know the domain well, you won't catch the confident-sounding gaps the model is filling in with plausible nonsense. You'll read it, it'll feel coherent, and you'll move on. The model isn't lying to you. It's just completing a pattern. That distinction doesn't matter much if the result is that you've built something on a foundation that isn't solid.</p>
+<p>Here's why. Critical thinking lets you interrogate what you're given. It makes you ask "does this actually make sense" and "where did this come from" and "what's missing here." Those are the right questions. But they only work if you have enough base knowledge to recognise when something is off. If you don't know the domain well, you won't catch the confident-sounding gaps the model is filling in with plausible nonsense. You'll read it, it'll feel coherent, and you'll move on. The model isn't lying to you; it's just completing a pattern. That distinction doesn't matter much if the result is that you've built something on a foundation that isn't solid.</p>
 <p>This is where my philosophy background becomes practical. Hermeneutics is about how meaning gets made and lost in interpretation - and when I'm evaluating AI output, I'm not just asking "is this correct?" I'm asking how the model interpreted the prompt, where it filled in assumptions I didn't make, what it inferred that I didn't state, and whether the structure of the response is shaping the content in ways I didn't ask for. That's a different kind of reading than most people bring to AI output. I've found hallucinations that looked perfectly plausible until you traced the reasoning back. I've caught outputs that were technically correct but answered a question slightly different from the one that was asked, which is a much harder failure to spot and a much more dangerous one. The end user is usually the one who finds out - not the vendor, not the executive who signed the contract. The person actually using the thing, trying to make a decision based on what it told them.</p>
 <p>That gap - between who sells it and who lives with the output - is where I spend most of my time.</p>
-<p>LLMs are inclined to be helpful. Agreeable. Thorough. Which sounds like a feature until you get three paragraphs of context you didn't need wrapped around the one sentence you asked for. The model is optimising for something; but the result can feel wasteful, and it muddies the output in ways that matter if you're trying to evaluate what you've been given.</p>
+<p>LLMs are inclined to be helpful, agreeable, thorough - which sounds like a feature until you get three paragraphs of context you didn't need wrapped around the one sentence you asked for. The model is optimising for something; but the result can feel wasteful, and it muddies the output in ways that matter if you're trying to evaluate what you've been given.</p>
 <p>The tension is real, though. Because sometimes the thing you didn't ask for is the most interesting part. Sometimes the tangent opens a door you didn't know was there. I've had real insights come from exactly those moments of over-delivery. So I'm not saying constrain everything. I'm saying the question of how much is enough, and who gets to decide, is one we haven't figured out yet.</p>
 <p>And until we do, output quality is going to keep being treated as a nice-to-have instead of the whole point.</p>
 <p>It is the whole point.</p>`
@@ -2804,7 +2784,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>A new person joins and there's no onboarding process, so someone senior has to stop what they're doing and walk them through everything manually. A client asks a question and the person who knew the answer left six months ago and nobody wrote it down. A deal is almost closed and the demo environment is broken because it was built by hand and never documented and the person who built it is on holiday. The CRM data is so inconsistent that any report you pull out of it is basically fiction.</p>
 <p>None of these are catastrophes on their own. Together, at scale, under pressure, they're expensive. Not just in time, though the time cost is real. In trust. In the confidence your team has that the ground beneath them is solid.</p>
 <p>I joined MainEvent when there were roughly eight people and no formal processes to speak of. That's not a criticism; it's just where early-stage companies are. You're trying to exist before you can worry about how you exist. But I came in with a particular instinct, which is that I can't function in a system I don't understand, and I really can't leave a system worse than I found it. So I started building.</p>
-<p>CRM hygiene. Sales processes. Onboarding documentation. Knowledge bases. QA frameworks. Training materials. Demo environments with actual logic behind them instead of just vibes. None of it was glamorous. Some of it was tedious. All of it was invisible to everyone who wasn't looking for it.</p>
+<p>CRM hygiene. Sales processes. Onboarding documentation. Knowledge bases. QA frameworks. Training materials. Demo environments with actual logic behind them instead of just vibes. None of it was glamorous, some of it was tedious - all of it was invisible to everyone who wasn't looking for it.</p>
 <p>That's the thing about operational infrastructure that makes it such an odd thing to build a career around: it only gets noticed when it breaks. Nobody pulls you aside to say "the onboarding was so smooth." Nobody sends you a thank you note because the knowledge base was searchable and they found the answer in two minutes instead of interrupting someone. The good outcome is the absence of a bad outcome, which is a strange thing to take satisfaction in, but I do.</p>
 <p>The "we'll figure out processes later" instinct is understandable. It is also, in my experience, the most expensive sentence in early-stage company culture. The moment when you can build infrastructure cheaply is always earlier than you think, and the moment when you absolutely have to build it is always more costly than you planned for. You will build the foundation eventually. The question is whether you build it before or after it becomes a crisis.</p>
 <p>And when you do build it, it matters who does the building. A system that's technically correct but doesn't account for how people actually behave is just documentation nobody reads. The person building operational infrastructure needs to understand systems and humans with roughly equal fluency - what the process should be and what the person encountering it at 9am on their third day is actually going to do with it. I've written about this elsewhere (I think about interpretation and usability more than most people are probably comfortable with), but in this context the point is simple: infrastructure built for how people should work fails. Infrastructure built for how people do work lasts.</p>

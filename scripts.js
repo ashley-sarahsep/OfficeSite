@@ -958,6 +958,7 @@ function getWindowSize(appType) {
     folder: { width: '500px', height: '400px' },
     recycle: { width: '450px', height: '350px' },
     notepad: { width: '500px', height: '400px' },
+    aidoc: { width: '620px', height: '560px' },
     'work-detail': { width: '500px', height: '400px' },
     portfolio: { width: '550px', height: '450px' },
     'portfolio-viewer': { width: '600px', height: '500px' },
@@ -979,6 +980,9 @@ function getWindowSize(appType) {
 function getWindowTitle(appType, fileId) {
   // Dynamic titles for notepad based on file
   if (appType === 'notepad' && SITE_DATA.easterEggs?.[fileId]) {
+    return SITE_DATA.easterEggs[fileId].title;
+  }
+  if (appType === 'aidoc' && SITE_DATA.easterEggs?.[fileId]) {
     return SITE_DATA.easterEggs[fileId].title;
   }
 
@@ -1064,6 +1068,10 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'notepad':
       initNotepad(windowEl, fileId);
+      break;
+    case 'aidoc':
+      initAidoc(windowEl, fileId);
+      windowEl.dataset.windowType = 'aidoc';
       break;
     case 'work-detail':
       initWorkDetail(windowEl, fileId);
@@ -1802,6 +1810,9 @@ function initMiscFolder(windowEl, folderId) {
       } else if (itemType === 'notepad' && noteId) {
         // Open notepad with specific content
         openApp('notepad', noteId);
+      } else if (itemType === 'aidoc' && noteId) {
+        // Open AI Thoughts document reader
+        openApp('aidoc', noteId);
       } else if (itemType === 'app' && itemApp) {
         // Open specified app
         openApp(itemApp, itemId);
@@ -1876,6 +1887,56 @@ function initNotepad(windowEl, fileId) {
       titleEl.textContent = easterEgg.title;
     }
   }
+}
+
+function initAidoc(windowEl, fileId) {
+  const doc = SITE_DATA.easterEggs?.[fileId];
+  if (!doc) return;
+
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl && doc.title) titleEl.textContent = doc.title;
+
+  const filenameEl = windowEl.querySelector('.aidoc-filename');
+  const bannerEl = windowEl.querySelector('.aidoc-banner');
+  const subtitleEl = windowEl.querySelector('.aidoc-subtitle');
+  const bodyEl = windowEl.querySelector('.aidoc-body');
+  const footerPath = windowEl.querySelector('.aidoc-footer-path');
+
+  if (filenameEl) filenameEl.textContent = doc.filename || '';
+  if (bannerEl) bannerEl.textContent = doc.banner || '';
+  if (subtitleEl) subtitleEl.textContent = doc.subtitle || '';
+  if (footerPath) footerPath.textContent = `C:\\HireMeOS\\AI_Thoughts\\${doc.filename || ''}`;
+
+  if (!bodyEl || !Array.isArray(doc.blocks)) return;
+
+  const escape = (str) => String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  bodyEl.innerHTML = doc.blocks.map((block, idx) => {
+    switch (block.type) {
+      case 'lede':
+        return `<p class="aidoc-lede">${escape(block.text)}</p>`;
+      case 'para':
+        return `<p class="aidoc-para">${escape(block.text)}</p>`;
+      case 'pullquote':
+        return `<blockquote class="aidoc-pullquote"><span class="aidoc-quote-mark">&ldquo;</span>${escape(block.text)}</blockquote>`;
+      case 'divider':
+        return `<div class="aidoc-divider" aria-hidden="true">&#10086;</div>`;
+      case 'list':
+        return `<ul class="aidoc-list">${(block.items || []).map(i => `<li>${escape(i)}</li>`).join('')}</ul>`;
+      case 'filelist':
+        return `<ul class="aidoc-filelist">${(block.items || []).map(i => `
+          <li>
+            <span class="aidoc-file-icon" aria-hidden="true">&#9679;</span>
+            <span class="aidoc-file-name">${escape(i.name)}</span>
+            <span class="aidoc-file-desc">${escape(i.desc)}</span>
+          </li>`).join('')}</ul>`;
+      default:
+        return '';
+    }
+  }).join('');
 }
 
 function initRecycleBin(windowEl) {

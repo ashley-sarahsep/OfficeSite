@@ -497,6 +497,40 @@
     </div>
   </template>
 
+  <!-- AI Thoughts document reader -->
+  <template id="template-aidoc">
+    <div class="window window-aidoc" data-window="aidoc" data-window-type="aidoc">
+      <div class="window-titlebar">
+        <span class="window-title">AI Thoughts</span>
+        <div class="window-controls">
+          <button class="window-btn window-minimize">_</button>
+          <button class="window-btn window-maximize">[]</button>
+          <button class="window-btn window-close">&times;</button>
+        </div>
+      </div>
+      <div class="window-menubar aidoc-menubar">
+        <span class="menu-item">File</span>
+        <span class="menu-item">View</span>
+        <span class="menu-item">Help</span>
+      </div>
+      <div class="window-content aidoc-content">
+        <article class="aidoc-paper">
+          <header class="aidoc-header">
+            <div class="aidoc-filename"></div>
+            <h1 class="aidoc-banner"></h1>
+            <p class="aidoc-subtitle"></p>
+            <div class="aidoc-header-rule"></div>
+          </header>
+          <div class="aidoc-body"></div>
+          <footer class="aidoc-footer">
+            <span class="aidoc-footer-mark">§</span>
+            <span class="aidoc-footer-path"></span>
+          </footer>
+        </article>
+      </div>
+    </div>
+  </template>
+
   <!-- Cat Pong Game Template -->
   <template id="template-catpong">
     <div class="window window-catpong" data-window="catpong">
