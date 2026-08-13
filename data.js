@@ -90,11 +90,11 @@ const SITE_DATA = {
 
 I use these tools daily and well. I know they were built on real people's work, taken without consent or pay, and I don't pretend that away. I think the way most companies are deploying AI now is a failure of people-thinking dressed up as innovation. I know exactly where the tool's confidence shouldn't be trusted, because I've built the systems that catch it when it's wrong. And I still believe, at the same time, that used well it can improve people's quality of life, because humans still need to create, still need to make meaning, and the tool is only worth anything if it protects room for that instead of replacing it.
 
-Both things stay true at once. I don't reconcile them into one tidy sentence. That would be too clean for what this actually is.
+Both things stay true at once - I don't reconcile them into one tidy sentence. That would be too clean for what this actually is.
 
 ---
 
-This folder holds a few of the positions underneath that. Read whichever ones interest you. They aren't a coherent essay. They're a set of things I've worked out over time.
+This folder holds a few of the positions underneath that. Read whichever ones interest you. They aren't a coherent essay - they're a set of things I've worked out over time.
 
 backwards_adoption.txt: the deployment critique
 distrust_as_practice.txt: how I actually work with AI outputs
@@ -120,7 +120,7 @@ The alternative starts three questions earlier: for who, for what, and why.
 
 For who: not the executives buying the tool. The people opening it on a Tuesday morning.
 
-For what: specifically patterned work. Not "boring" work. "Boring" is subjective. "Patterned" is the thing that's actually automatable.
+For what: specifically patterned work. Not "boring" work - "boring" is subjective. "Patterned" is the thing that's actually automatable.
 
 Why: not productivity for its own sake. Potential.
 
@@ -177,7 +177,7 @@ I've found hallucinations that looked perfectly plausible until you traced the r
 
 The same hermeneutic instinct that reads a client's business under what they literally said reads a model's output under what it literally produced.
 
-Same skill. Different medium.`
+Same skill, different medium.`
     },
 
     aiOrigins: {
@@ -210,11 +210,11 @@ I use these tools. I stay honest about how they were built. And I do the work of
       content: `ROOM TO BREATHE
 =================
 
-The thing I want AI to protect isn't productivity. It's room.
+The thing I want AI to protect isn't productivity - it's room.
 
 Room to think. Room to build on your work. Room to go home at the end of the day without dreading tomorrow, because you know you have space to think when you get there.
 
-That shouldn't be a radical idea. Somehow it's become one.
+That shouldn't be a radical idea - somehow it's become one.
 
 ---
 
