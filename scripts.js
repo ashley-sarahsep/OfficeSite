@@ -958,6 +958,7 @@ function getWindowSize(appType) {
     folder: { width: '500px', height: '400px' },
     recycle: { width: '450px', height: '350px' },
     notepad: { width: '500px', height: '400px' },
+    aidoc: { width: '620px', height: '560px' },
     'work-detail': { width: '500px', height: '400px' },
     portfolio: { width: '550px', height: '450px' },
     'portfolio-viewer': { width: '600px', height: '500px' },
@@ -981,11 +982,14 @@ function getWindowTitle(appType, fileId) {
   if (appType === 'notepad' && SITE_DATA.easterEggs?.[fileId]) {
     return SITE_DATA.easterEggs[fileId].title;
   }
+  if (appType === 'aidoc' && SITE_DATA.easterEggs?.[fileId]) {
+    return SITE_DATA.easterEggs[fileId].title;
+  }
 
   const titles = {
     wordpad: 'Resume.doc - WordPad',
     'wordpad-ats': 'Resume_ATS.doc - WordPad',
-    livejournal: 'AboutMe.html - Internet Explorer',
+    livejournal: 'Blog.html - Internet Explorer',
     roleexplorer: 'Hire Me - Role Explorer',
     messenger: 'HAL - Helpful Ashley Likeness',
     folder: 'Work Examples',
@@ -1064,6 +1068,10 @@ function initWindowContent(windowEl, appType, fileId) {
       break;
     case 'notepad':
       initNotepad(windowEl, fileId);
+      break;
+    case 'aidoc':
+      initAidoc(windowEl, fileId);
+      windowEl.dataset.windowType = 'aidoc';
       break;
     case 'work-detail':
       initWorkDetail(windowEl, fileId);
@@ -1338,24 +1346,9 @@ function initLiveJournal(windowEl) {
   function renderJournal() {
     return `
       <div class="lj-journal">
-        <!-- Bio entry -->
-        <div class="lj-entry">
-          <div class="lj-entry-header-bar">
-            <span class="lj-entry-subject-bar">About Me</span>
-            <span class="lj-entry-date">Pinned Entry</span>
-          </div>
-          <div class="lj-entry-content">
-            <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-entry-userpic" onerror="this.style.display='none'">
-            <div class="lj-entry-text">
-              <div class="lj-entry-body">${data.bio}</div>
-            </div>
-          </div>
-          <div class="lj-entry-footer">
-            <span class="lj-comment-link">read comments (3)</span>
-            <span class="lj-comment-link">leave a comment</span>
-          </div>
+        <div class="lj-journal-intro">
+          <p>Longer-form writing on AI adoption, operations, and how I think about the work. Curious about the person writing this? <a href="#" class="lj-inline-link" data-view="userinfo">Check User Info</a>.</p>
         </div>
-
         ${(data.journalEntries || []).map(entry => `
         <div class="lj-entry">
           <div class="lj-entry-header-bar">
@@ -1387,7 +1380,7 @@ function initLiveJournal(windowEl) {
     return `
       <div class="lj-userinfo">
         <div class="lj-userinfo-header">User Info</div>
-        <div class="lj-userinfo-sub">Below is the user information for ${data.displayName}.</div>
+        <div class="lj-userinfo-sub">The person behind the journal.</div>
         <div class="lj-userinfo-content">
           <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-userinfo-pic" onerror="this.style.display='none'">
           <div class="lj-info-table">
@@ -1397,7 +1390,7 @@ function initLiveJournal(windowEl) {
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Name:</div>
-              <div class="lj-info-value">Ashley S.</div>
+              <div class="lj-info-value">Ashley Sarah</div>
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Location:</div>
@@ -1416,8 +1409,8 @@ function initLiveJournal(windowEl) {
               <div class="lj-info-value"><a href="mailto:ashley@stepinto-ashleysoffice.com">ashley@stepinto-ashleysoffice.com</a></div>
             </div>
             <div class="lj-info-row">
-              <div class="lj-info-label">Memories:</div>
-              <div class="lj-info-value">${(data.journalEntries?.length || 0) + 1} entries</div>
+              <div class="lj-info-label">Entries:</div>
+              <div class="lj-info-value">${data.journalEntries?.length || 0} posts, oldest first</div>
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Account type:</div>
@@ -1432,6 +1425,11 @@ function initLiveJournal(windowEl) {
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="lj-userinfo-about">
+          <div class="lj-userinfo-about-heading">More about the author</div>
+          <div class="lj-userinfo-about-body">${data.bio}</div>
         </div>
       </div>
     `;
@@ -1476,6 +1474,17 @@ function initLiveJournal(windowEl) {
       tab.addEventListener('click', () => {
         const view = tab.dataset.view;
         if (view === 'archive') return; // decorative
+        currentView = view;
+        render();
+      });
+    });
+
+    // Inline links that switch tabs (e.g. "Check User Info" in journal intro)
+    content.querySelectorAll('.lj-inline-link[data-view]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const view = link.dataset.view;
+        if (view === 'archive') return;
         currentView = view;
         render();
       });
@@ -1801,6 +1810,9 @@ function initMiscFolder(windowEl, folderId) {
       } else if (itemType === 'notepad' && noteId) {
         // Open notepad with specific content
         openApp('notepad', noteId);
+      } else if (itemType === 'aidoc' && noteId) {
+        // Open AI Thoughts document reader
+        openApp('aidoc', noteId);
       } else if (itemType === 'app' && itemApp) {
         // Open specified app
         openApp(itemApp, itemId);
@@ -1875,6 +1887,56 @@ function initNotepad(windowEl, fileId) {
       titleEl.textContent = easterEgg.title;
     }
   }
+}
+
+function initAidoc(windowEl, fileId) {
+  const doc = SITE_DATA.easterEggs?.[fileId];
+  if (!doc) return;
+
+  const titleEl = windowEl.querySelector('.window-title');
+  if (titleEl && doc.title) titleEl.textContent = doc.title;
+
+  const filenameEl = windowEl.querySelector('.aidoc-filename');
+  const bannerEl = windowEl.querySelector('.aidoc-banner');
+  const subtitleEl = windowEl.querySelector('.aidoc-subtitle');
+  const bodyEl = windowEl.querySelector('.aidoc-body');
+  const footerPath = windowEl.querySelector('.aidoc-footer-path');
+
+  if (filenameEl) filenameEl.textContent = doc.filename || '';
+  if (bannerEl) bannerEl.textContent = doc.banner || '';
+  if (subtitleEl) subtitleEl.textContent = doc.subtitle || '';
+  if (footerPath) footerPath.textContent = `C:\\HireMeOS\\AI_Thoughts\\${doc.filename || ''}`;
+
+  if (!bodyEl || !Array.isArray(doc.blocks)) return;
+
+  const escape = (str) => String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  bodyEl.innerHTML = doc.blocks.map((block, idx) => {
+    switch (block.type) {
+      case 'lede':
+        return `<p class="aidoc-lede">${escape(block.text)}</p>`;
+      case 'para':
+        return `<p class="aidoc-para">${escape(block.text)}</p>`;
+      case 'pullquote':
+        return `<blockquote class="aidoc-pullquote"><span class="aidoc-quote-mark">&ldquo;</span>${escape(block.text)}</blockquote>`;
+      case 'divider':
+        return `<div class="aidoc-divider" aria-hidden="true">&#10086;</div>`;
+      case 'list':
+        return `<ul class="aidoc-list">${(block.items || []).map(i => `<li>${escape(i)}</li>`).join('')}</ul>`;
+      case 'filelist':
+        return `<ul class="aidoc-filelist">${(block.items || []).map(i => `
+          <li>
+            <span class="aidoc-file-icon" aria-hidden="true">&#9679;</span>
+            <span class="aidoc-file-name">${escape(i.name)}</span>
+            <span class="aidoc-file-desc">${escape(i.desc)}</span>
+          </li>`).join('')}</ul>`;
+      default:
+        return '';
+    }
+  }).join('');
 }
 
 function initRecycleBin(windowEl) {
