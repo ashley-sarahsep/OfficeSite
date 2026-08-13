@@ -1338,6 +1338,9 @@ function initLiveJournal(windowEl) {
   function renderJournal() {
     return `
       <div class="lj-journal">
+        <div class="lj-journal-intro">
+          <p>Longer-form writing on AI adoption, operations, and how I think about the work. Curious about the person writing this? <a href="#" class="lj-inline-link" data-view="userinfo">Check User Info</a>.</p>
+        </div>
         ${(data.journalEntries || []).map(entry => `
         <div class="lj-entry">
           <div class="lj-entry-header-bar">
@@ -1369,7 +1372,7 @@ function initLiveJournal(windowEl) {
     return `
       <div class="lj-userinfo">
         <div class="lj-userinfo-header">User Info</div>
-        <div class="lj-userinfo-sub">Below is the user information for ${data.displayName}.</div>
+        <div class="lj-userinfo-sub">The person behind the journal.</div>
         <div class="lj-userinfo-content">
           <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-userinfo-pic" onerror="this.style.display='none'">
           <div class="lj-info-table">
@@ -1379,7 +1382,7 @@ function initLiveJournal(windowEl) {
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Name:</div>
-              <div class="lj-info-value">Ashley S.</div>
+              <div class="lj-info-value">Ashley Sarah</div>
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Location:</div>
@@ -1398,8 +1401,8 @@ function initLiveJournal(windowEl) {
               <div class="lj-info-value"><a href="mailto:ashley@stepinto-ashleysoffice.com">ashley@stepinto-ashleysoffice.com</a></div>
             </div>
             <div class="lj-info-row">
-              <div class="lj-info-label">Memories:</div>
-              <div class="lj-info-value">${(data.journalEntries?.length || 0) + 1} entries</div>
+              <div class="lj-info-label">Entries:</div>
+              <div class="lj-info-value">${data.journalEntries?.length || 0} posts, oldest first</div>
             </div>
             <div class="lj-info-row">
               <div class="lj-info-label">Account type:</div>
@@ -1414,6 +1417,11 @@ function initLiveJournal(windowEl) {
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="lj-userinfo-about">
+          <div class="lj-userinfo-about-heading">More about the author</div>
+          <div class="lj-userinfo-about-body">${data.bio}</div>
         </div>
       </div>
     `;
@@ -1458,6 +1466,17 @@ function initLiveJournal(windowEl) {
       tab.addEventListener('click', () => {
         const view = tab.dataset.view;
         if (view === 'archive') return; // decorative
+        currentView = view;
+        render();
+      });
+    });
+
+    // Inline links that switch tabs (e.g. "Check User Info" in journal intro)
+    content.querySelectorAll('.lj-inline-link[data-view]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const view = link.dataset.view;
+        if (view === 'archive') return;
         currentView = view;
         render();
       });
