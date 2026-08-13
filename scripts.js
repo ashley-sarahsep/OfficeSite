@@ -1338,24 +1338,6 @@ function initLiveJournal(windowEl) {
   function renderJournal() {
     return `
       <div class="lj-journal">
-        <!-- Bio entry -->
-        <div class="lj-entry">
-          <div class="lj-entry-header-bar">
-            <span class="lj-entry-subject-bar">About Me</span>
-            <span class="lj-entry-date">Pinned Entry</span>
-          </div>
-          <div class="lj-entry-content">
-            <img src="assets/images/myspace.jpg" alt="Ashley" class="lj-entry-userpic" onerror="this.style.display='none'">
-            <div class="lj-entry-text">
-              <div class="lj-entry-body">${data.bio}</div>
-            </div>
-          </div>
-          <div class="lj-entry-footer">
-            <span class="lj-comment-link">read comments (3)</span>
-            <span class="lj-comment-link">leave a comment</span>
-          </div>
-        </div>
-
         ${(data.journalEntries || []).map(entry => `
         <div class="lj-entry">
           <div class="lj-entry-header-bar">
