@@ -2560,7 +2560,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
   roleExplorer: {
     headline: "Which Ashley Do You Need?",
-    subheadline: "Each of these is real work I've owned. What ties them together isn't the title, it's the method underneath: hermeneutics, adult learning, and a habit of building for the person who inherits the work. Pick the shape that matches what you're hiring for.",
+    subheadline: "Six titles, one person. The method underneath every one is the same: read what a situation actually needs, build the thing that's missing, document it so someone else can inherit it. Pick the shape that fits what you're hiring for. If you want the how-I-think version before the resume, the AI Thoughts folder on the desktop is where I've written it out.",
     availability: "Remote | Open to local hybrid (Guelph, ON area)",
     cta: {
       text: "Let's talk about this",
@@ -2623,8 +2623,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "ai-adoption",
         title: "AI Adoption & Enablement",
         tags: ["AI Adoption", "Prompt Engineering", "AI QA", "Change Management"],
-        hook: "Program leadership for AI client enablement. Not a blind advocate - catches confidently wrong outputs before a client does.",
-        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programs that change behaviour. The critical voice on a team that needs one.",
+        hook: "Program leadership for AI client enablement. Uses these tools daily and knows exactly where their outputs shouldn't be trusted, because I've built the systems that catch them.",
+        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programs that actually change behaviour. Someone who starts three questions earlier than most: for who, for what, and why.",
         whatIveDone: [
           "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries.",
           "Applied hermeneutics training directly to AI quality work - used understanding of how models interpret context to find where they were likely to misread intent.",
@@ -2657,7 +2657,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "implementation",
         title: "Implementation Manager",
         tags: ["Implementation", "Client Onboarding", "Technical PM", "QA"],
-        hook: "Full lifecycle ownership from discovery through clean handoff, with documentation that actually works.",
+        hook: "Full lifecycle - discovery through clean handoff, with documentation the next person can actually use.",
         whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff document, every training program is built assuming someone else needs to pick it up and run with it without you in the room.",
         whatIveDone: [
           "Led the Neptune Retail Solutions custom platform build end to end: $500K build with $20K monthly recurring, 48,000+ retail locations, 3,800+ field staff, 24M+ annual executions. Four developers, Jira board management, account management through to clean handoff.",
