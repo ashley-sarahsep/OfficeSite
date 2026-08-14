@@ -124,7 +124,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 30px;
-  border-top: 3px solid var(--dialog-cream);
+  border-top: 3px solid var(--color-blush);
   z-index: 50;
 }
 
