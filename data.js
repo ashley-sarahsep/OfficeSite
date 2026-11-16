@@ -31,8 +31,7 @@ const SITE_DATA = {
       guestbook: "Signing the guest book? How civilised. Like leaving your scent, but polite. *dignified blink*",
       idle: "Still here? Good. Patience is underrated. Most humans rush too much. *slow blink*",
       exploring: "Exploring, are we? Curiosity is a virtue. Cats invented it. *proud tail swish*",
-      myspace: "Social media from before everything got complicated. *nostalgic mrrp*",
-      recycle: "Ah, the bin. I've knocked many things in there. On purpose. *innocent look*"
+      myspace: "Social media from before everything got complicated. *nostalgic mrrp*"
     },
     // Track which tips have been shown (reset on page load)
     shownTips: [],
@@ -247,40 +246,6 @@ Last modified: Whenever I remember something else
 Author: Someone who's learned most of this the hard way`
     },
 
-    todo: {
-      title: "todo.txt - Notepad",
-      content: `ASHLEY'S ACTUAL TO-DO LIST
-============================
-
-[x] Build fun portfolio website (in hyper-focus mode for days)
-[x] Add philosophical Gertrude
-[x] Question whether this is too much
-[x] Decide it's not too much
-[x] Write resume
-[ ] Resist urge to make resume a choose-your-own-adventure
-[ ] Seriously resist that urge
-[x] Add a different game instead
-[x] Add cats
-[x] Add MORE cats
-[ ] Pet actual cats (overdue)
-[ ] Sit down so Gherkin stops yelling at me
-
-SOMEDAY/MAYBE:
-- Learn to tolerate corporate jargon and norms
-- Find a job where "why?" is encouraged not suspicious
-- Sew my own clothes
-- Write hermeneutics-based guide to interpreting Jira tickets
-- Stop laughing so hard that I startle Gherkin off my lap
-     (Kidding. I'll never stop cackling.)
-
-DONE (celebrating small wins):
-- Thrived in 10+ years of remote work
-- Built things that worked
-- Made it weird in a good way
-- Bought neck warmer for sub-zero office temperature
-- Met loads of colleagues turned friends. And isn't it all about the friends we meet along the way?
-- Being perpetually curious`
-    },
 
     claudeNotes: {
       title: "claude_notes.txt - Notepad",
@@ -560,19 +525,6 @@ Ashley`
     },
 
     // Recycle bin contents
-    trash: {
-      title: "Recycle Bin",
-      items: [
-        { name: "old_linkedin_headshot.jpg", size: "2 MB", note: "We don't talk about 2015" },
-        { name: "imposter_syndrome.exe", size: "∞ KB", note: "Keeps reinstalling itself" },
-        { name: "assumption_i_didnt_check.txt", size: "34 KB", note: "Cost me a week" },
-        { name: "perfectionism_paralysis.dll", size: "128 MB", note: "Still trying to uninstall" },
-        { name: "that_time_i_didnt_ask_why.doc", size: "12 KB", note: "Learned that one the hard way" },
-        { name: "waiting_for_permission.exe", size: "0 KB", note: "Finally deleted this one" },
-        { name: "comparing_myself_to_others.jpg", size: "46 MB", note: "Doesn't even run on my system anymore" },
-        { name: "things_i_took_personally_that_werent_personal.msg", size: "89 KB", note: "Moved to trash, eventually" }
-      ]
-    },
 
     // Cat petting responses (for clicking cats multiple times)
     catPets: {
@@ -683,7 +635,7 @@ Ashley`
         {
           id: "desk-neptune",
           portrait: "excited",
-          text: "A major retail client needed a very complex custom platform build. With a slim team, I became the core person doing discovery, requirements, wireframes, and QA process. Then after it went live and into hyper-care, I stepped into the PM role. Daily scrums with the dev team, Jira board management, client communications. Got it stable, then handed it off clean to an account manager. Start to finish, then hand it off clean so the next person can run with it.",
+          text: "A national retail merchandising company needed a complex custom platform build. I worked on the sale, then gathered requirements through weekly calls with their team. Once the build started I ran requirements and QA: daily scrums, the whole sprint board with the developers, hundreds of Jira tickets, and QA documentation for their own QA team. When the PM went on leave, I ran the last phase, go-live and hyper-care with our head developer. It became one of the best-functioning accounts on the platform, and the team put that down to the attention to detail during the build.",
           responses: [
             { text: "That's a lot of hats", next: "desk-swiss-army" },
             { text: "Tell me more about your approach", next: "desk-approach" },
@@ -1305,7 +1257,6 @@ Ashley`
       { id: "mywork", name: "My Work", icon: "folder", app: "misc-folder", file: "mywork" },
       { id: "aithoughts", name: "AI Thoughts", icon: "folder-ai", app: "misc-folder", file: "aithoughts" },
       { id: "gettoknowme", name: "Get to Know Me", icon: "folder-special", app: "misc-folder", file: "gettoknowme" },
-      { id: "recycle", name: "Recycle Bin", icon: "recycle", app: "recycle" },
       { id: "accessibility", name: "Accessibility", icon: "accessibility", app: "accessibility" }
     ],
 
@@ -1334,7 +1285,6 @@ Ashley`
           { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
           { id: "takeabreak", name: "Take a Break", icon: "folder-games", type: "app", app: "misc-folder" },
           { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
-          { id: "todo", name: "todo.txt", icon: "txt", type: "easter-egg" },
           { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
         ]
       },
@@ -1495,7 +1445,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>PRODUCT OPERATIONS & STRATEGIC LEADERSHIP</h3>
 <p class="job-title">Network Ninja (MainEvent) | Chief of Staff & Head of Sales Enablement</p>
 <p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
-<p>Partner to the COO for a field marketing SaaS platform serving experiential marketing agencies and major CPG brands (Kraft Heinz, U.S. Cellular, Monster Energy). Managed mobile tours, product sampling, brand activations, and event staffing across 1.9M+ locations.</p>
+<p>Partner to the COO for a field marketing SaaS platform serving Fortune 500 food and beverage brands, national retailers, and the experiential agencies that run their field programs. Managed mobile tours, product sampling, brand activations, and event staffing across 1.9M+ locations.</p>
 
 <p><strong>THE SITUATION:</strong> Enterprise clients, a rotating sales team, no dedicated QA, and a COO who needed a strategic partner to hold everything together.</p>
 
@@ -1503,16 +1453,18 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><em>Quality assurance leadership</em></p>
 <ul>
-<li>Sole QA lead on major client projects including the Neptune Retail Solutions build. Owned quality from testing through client delivery.</li>
+<li>Sole QA lead on major client projects, including a $500K custom build for a national retail merchandising company. Owned quality from testing through client delivery.</li>
 <li>Created and executed detailed test plans covering edge cases, user flows, regression testing, and emerging bugs.</li>
 <li>Partnered with Product and Engineering to deeply understand platform functionality and technical architecture.</li>
 <li>Wrote Jira tickets at the level developers needed and translated the same issues into plain language for clients. Both audiences, no confusion between them.</li>
 </ul>
 
-<p><em>Neptune Retail Solutions, end to end</em></p>
+<p><em>Custom platform build for a national retail merchandising company</em></p>
 <ul>
-<li>Led the complete lifecycle of a $500K custom build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions.</li>
-<li>Owned discovery, requirements gathering, workflow and wireframe design, QA process creation, four-person dev team leadership, Jira board management, and client account management through to a clean handoff.</li>
+<li>A $500K custom build with $20K monthly recurring, for a client operating across 48,000+ retail locations with 3,800+ field staff and 24M+ in-store executions a year.</li>
+<li>Worked on the sale and enablement, then gathered requirements through weekly calls with the client's stakeholders.</li>
+<li>Ran requirements and QA through the build: daily scrums, the full sprint board with the developers, hundreds of Jira tickets, and QA documentation for the client's QA team.</li>
+<li>Ran the final phase, go-live and hyper-care with the head developer when the PM went on leave.</li>
 </ul>
 
 <p><em>Sales enablement and demo work</em></p>
@@ -1534,7 +1486,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>THE RESULTS:</strong></p>
 <ul>
 <li>Directly involved in the sales process for 30 of the 46 enterprise clients the company won. Prepared every custom demo, researched every prospect, created contracts, managed handoffs.</li>
-<li>Led the Neptune Retail Solutions build through clean handoff. $500K custom build with $20K monthly recurring, 48,000+ retail locations, 3,800+ field staff, 24M+ annual executions.</li>
+<li>Gathered requirements, ran QA, and led go-live and hyper-care on a $500K custom platform build ($20K monthly recurring) for a national retail merchandising company operating across 48,000+ locations with 3,800+ field staff.</li>
 <li>Sole QA lead across 20+ implementations. 100+ Jira tickets managed during peak project periods.</li>
 <li>Near-zero client churn: two to three offboards during the entire seven-year tenure.</li>
 </ul>
@@ -1588,13 +1540,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>THE RESULTS:</strong></p>
 <ul>
-<li>Built the operational infrastructure the company scaled on. Systems supported growth from eight people to eighteen, and from a handful of clients to 46 enterprise accounts including Fortune 500 brands. The platform tracks 19.5M+ executions across 576K+ client staff.</li>
+<li>Built the operational infrastructure the company scaled on. Systems supported growth from eight people to eighteen, and from a handful of clients to 46 enterprise accounts including Fortune 500 brands. The platform has supported 400,000 reps executing 32 million visits across 1.9 million locations.</li>
 <li>Reduced contractual onboarding timeline from 90 to 45 days. Many clients completed onboarding in weeks thanks to better handoff materials.</li>
 <li>Prepared ~50 custom demos per year. Roughly ten new clients closed annually during peak years.</li>
 </ul>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> The operational infrastructure Ashley built still supports the platform today: 19.5M+ executions tracked, 576K+ client staff managed, 46 enterprise clients served. Two to three of those clients ever left during her seven-year tenure. The systems she built outlasted multiple team turnovers and are still in use.
+<strong>DID YOU KNOW?</strong> Across Ashley's seven years, only two or three of the company's 46 enterprise clients left. The systems she built outlasted multiple team turnovers and are still in use.
 </div>
 
 <hr class="section-divider">
@@ -1648,7 +1600,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p><strong>Documentation & Collaboration:</strong> Technical writing, process documentation, SOW development, proposal writing, RFP coordination, user guides, Slack, Microsoft Teams, Zoom, Google Workspace, Microsoft Office.</p>
 
 <div class="did-you-know">
-<strong>DID YOU KNOW?</strong> Ashley self-taught every system on this list: SugarCRM, HubSpot, Salesforce, Jira, Claude, ChatGPT. She also designed and built the first mobile tour management workflow for a client (Deep Eddy Vodka) using Network Ninja's asset management system before it was a standard feature. When the company launched an AI product, she was the first non-developer to adopt it and became the sole person responsible for client enablement.
+<strong>DID YOU KNOW?</strong> Ashley self-taught every system on this list: SugarCRM, HubSpot, Salesforce, Jira, Claude, ChatGPT. She also designed and built the first mobile tour management workflow for a craft spirits brand using Network Ninja's asset management system before it was a standard feature. When the company launched an AI product, she was the first non-developer to adopt it and became the sole person responsible for client enablement.
 </div>
 </div>
 
@@ -1682,7 +1634,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>SUMMARY</h2>
 <p>Seven years as a strategic right hand: holding the context, doing the thinking, and making sure the right things happen. Joined Network Ninja when the team was eight people. Built the operational infrastructure the company scaled on, then became the person leadership relied on to pressure-test decisions, flag blind spots, and steady the room when the picture wasn't complete.</p>
-<p>As Chief of Staff to the COO, I was the person in the room noticing what wasn't being said. I ran the Neptune project end to end: a $500K custom build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions. I led four developers, owned the QA process, and managed the client relationship through to clean handoff. I stepped in as QA lead when there wasn't one. PM when there wasn't one. Advisor whenever leadership needed someone to think it through before committing.</p>
+<p>As Chief of Staff to the COO, I was the person in the room noticing what wasn't being said. On a $500K custom build for a national retail merchandising company (48,000+ locations, 3,800+ field staff), I gathered requirements, ran QA, and led go-live and hyper-care when the PM went on leave. I stepped in as QA lead when there wasn't one, and covered PM during transitions. Advisor whenever leadership needed someone to think it through before committing.</p>
 <p>I'm the stage manager. I make sure the whole thing runs. That's the job I want.</p>
 <p>Colleagues at every level, in every job I've held, have come to me to pressure-test ideas, talk through plans, and get clear before they communicate with their own teams. My philosophy training is in hermeneutics, which is how meaning gets made and lost in interpretation. It's why I read power dynamics, catch what's not being said, and see the whole picture. Social work training on top of that means I build systems for people as they are.</p>
 </div>
@@ -1705,7 +1657,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent), FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Field marketing SaaS serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). The platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
+<p>Field marketing SaaS platform that has supported 400,000 reps executing 32 million visits across 1.9 million locations. 46 enterprise clients: Fortune 500 food and beverage brands, national retailers, and the experiential agencies that run their field programs.</p>
 
 <hr class="section-divider">
 
@@ -1722,11 +1674,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Took ownership of work that didn't belong to any team. Built the process, ran it until stable, handed it off with documentation.</li>
 </ul>
 
-<p><strong>Neptune Retail Solutions, end to end</strong></p>
+<p><strong>Custom platform build for a national retail merchandising company</strong></p>
 <ul>
-<li>Owned the complete lifecycle of a $500K custom build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions.</li>
-<li>Ran discovery, requirements gathering, wireframe design, QA process creation, four-person dev team leadership, Jira board management, and client account management through to clean handoff.</li>
-<li>Transitioned into account manager post-launch. Handed off to a dedicated AM with complete documentation and knowledge transfer.</li>
+<li>A $500K custom build with $20K monthly recurring, for a client operating across 48,000+ retail locations with 3,800+ field staff and 24M+ in-store executions a year.</li>
+<li>Worked on the sale and enablement, then gathered requirements through weekly calls with the client's stakeholders.</li>
+<li>Ran requirements and QA through the build: daily scrums, the full sprint board with the developers, hundreds of Jira tickets, and QA documentation for the client's QA team.</li>
+<li>Ran the final phase, go-live and hyper-care with the head developer when the PM went on leave.</li>
 </ul>
 
 <p><strong>Quality assurance leadership</strong></p>
@@ -1773,7 +1726,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>First operations hire at the company. Built the foundational infrastructure the company scaled on.</p>
 <ul>
 <li>Built sales operations, training programs, QA processes, and project management frameworks from zero.</li>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programs and self-service resources.</li>
+<li>Cut contractual client onboarding from 90 to 45 days through structured onboarding programs and self-service resources.</li>
 <li>Managed pipeline in SugarCRM and HubSpot, self-taught on both. Maintained data integrity, forecasting accuracy, and performance analytics.</li>
 <li>Led daily scrum calls, triaged Jira bugs, and coordinated resolution between engineering and clients across platform issues.</li>
 <li>Partnered with Product and Engineering through the full software development lifecycle. Conducted win/loss analysis and surfaced field feedback to inform product decisions.</li>
@@ -1837,7 +1790,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>SUMMARY</h2>
 <p>I keep the space between Product, Engineering, Sales, and Customer Success from becoming a gap. At Network Ninja, I was the person who made sure what was being built matched what was being sold, what was being sold matched what clients needed, and none of it fell apart during the handoffs.</p>
-<p>I've owned go-to-market readiness for product launches, QA across 20+ implementations, PM coverage during team transitions, field feedback loops that reached the roadmap, and the translation layer between technical teams and everyone else. I've also led a complete custom platform build end to end: Neptune Retail Solutions, a $500K build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions. Plus all of the adoption infrastructure for a new AI product.</p>
+<p>I've owned go-to-market readiness for product launches, QA across 20+ implementations, PM coverage during team transitions, field feedback loops that reached the roadmap, and the translation layer between technical teams and everyone else. On a $500K custom platform build for a national retail merchandising company, I gathered requirements, ran QA, and led go-live and hyper-care. Plus all of the adoption infrastructure for a new AI product.</p>
 <p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Applied to product operations, that shows up as understanding what users need versus what they say they need, and designing the handoff systems that keep the difference from becoming a client problem. I ask "why" constantly. I build for the person who inherits the work.</p>
 </div>
 
@@ -1858,7 +1811,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent), FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Field marketing SaaS serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). The platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
+<p>Field marketing SaaS platform that has supported 400,000 reps executing 32 million visits across 1.9 million locations. 46 enterprise clients: Fortune 500 food and beverage brands, national retailers, and the experiential agencies that run their field programs.</p>
 
 <hr class="section-divider">
 
@@ -1894,7 +1847,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Project management and PM coverage</strong></p>
 <ul>
-<li>Led Neptune Retail Solutions custom platform build end to end. $500K build with $20K monthly recurring. Discovery, requirements, wireframe design, QA process, four developers, Jira board management, and account management through to clean handoff.</li>
+<li>Gathered requirements, ran QA, and led go-live and hyper-care on a $500K custom platform build for a national retail merchandising company: daily scrums, the full sprint board, hundreds of Jira tickets.</li>
 <li>Covered PM during team transitions: daily scrums, sprint planning, bug triage, delivery momentum, without missing client commitments.</li>
 <li>Managed stakeholder communications throughout complex implementations. Kept technical and business stakeholders aligned. Surfaced risks early.</li>
 </ul>
@@ -2016,7 +1969,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent), FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Field marketing SaaS serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). The platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
+<p>Field marketing SaaS platform that has supported 400,000 reps executing 32 million visits across 1.9 million locations. 46 enterprise clients: Fortune 500 food and beverage brands, national retailers, and the experiential agencies that run their field programs.</p>
 
 <hr class="section-divider">
 
@@ -2047,7 +2000,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Onboarding and ramp optimisation</strong></p>
 <ul>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programs, defined learning paths, and self-service resources that didn't require hand-holding.</li>
+<li>Cut contractual client onboarding from 90 to 45 days through structured onboarding programs, defined learning paths, and self-service resources that didn't require hand-holding.</li>
 <li>Designed and delivered onboarding programs covering CRM systems, sales processes, product knowledge, and customer discovery. Tailored to the specific gaps of each new hire.</li>
 <li>The programs survived personnel turnover because they were built to be handed off.</li>
 </ul>
@@ -2181,7 +2134,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent), FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Field marketing SaaS serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). The platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
+<p>Field marketing SaaS platform that has supported 400,000 reps executing 32 million visits across 1.9 million locations. 46 enterprise clients: Fortune 500 food and beverage brands, national retailers, and the experiential agencies that run their field programs.</p>
 
 <hr class="section-divider">
 
@@ -2219,7 +2172,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Every AI client engagement, from discovery through ongoing support, was mine. Each client got a custom analytical framework tuned to their data structure and business questions.</li>
 <li>Led technical discovery sessions to understand each client's actual analytical needs before implementation.</li>
 <li>Built custom sandbox environments and demo configurations for specific prospect requirements.</li>
-<li>Featured in client success case studies for two flagship engagements (Transformative Marketing Services, Peralta Experiences).</li>
+<li>Featured in published client case studies for two experiential marketing agencies.</li>
 </ul>
 
 <p><strong>Industry presence</strong></p>
@@ -2248,7 +2201,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p class="job-meta">Oct 2018 - Dec 2023 | Remote</p>
 <p>First operations hire at the company. Built the enablement and operational foundation the AI work later sat on. Relevant to AI adoption specifically: I'd already designed the pattern of building systems that account for how people behave, which is the same problem AI adoption has to solve.</p>
 <ul>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programs, defined learning paths, and self-service resources.</li>
+<li>Cut contractual client onboarding from 90 to 45 days through structured onboarding programs, defined learning paths, and self-service resources.</li>
 <li>Used early AI tools to analyse field reports, customer interactions, sales calls, and usage patterns. Surfaced insights for product improvements before formal AI features existed.</li>
 <li>Designed and delivered training programs that changed how people worked.</li>
 </ul>
@@ -2331,7 +2284,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent), FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Field marketing SaaS serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). The platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
+<p>Field marketing SaaS platform that has supported 400,000 reps executing 32 million visits across 1.9 million locations. 46 enterprise clients: Fortune 500 food and beverage brands, national retailers, and the experiential agencies that run their field programs.</p>
 
 <hr class="section-divider">
 
@@ -2454,7 +2407,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <div class="resume-section">
 <h2>SUMMARY</h2>
-<p>I run implementations end to end: discovery, requirements, wireframes, QA process, dev team leadership, account management, clean handoff. Sole QA lead across 20+ major platform implementations. The flagship: Neptune Retail Solutions, a $500K custom build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions. I owned it from discovery through handoff, led four developers, ran the QA process, and managed the client relationship until a dedicated AM was ready to take over.</p>
+<p>I've worked implementations from requirements through go-live and handoff, and was sole QA lead across 20+ of them. The biggest was a $500K custom build for a national retail merchandising company operating across 48,000+ locations with 3,800+ field staff. I gathered requirements, ran QA through the build, and led go-live and hyper-care with the head developer when the PM went on leave.</p>
 <p>I also built the five-phase onboarding methodology for the company's AI agent product, plus the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.</p>
 <p>The through-line: I build for the person who inherits the work. Every process, every handoff document, every training program is built assuming someone else has to pick it up and run with it without me in the room. That's what makes implementations last.</p>
 </div>
@@ -2476,23 +2429,21 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <h3>NETWORK NINJA (MainEvent), FIELD MARKETING SaaS</h3>
 <p class="job-meta">Oct 2018 - Dec 2025 | Remote</p>
-<p>Field marketing SaaS serving experiential marketing agencies and Fortune 500 CPG brands (Kraft Heinz, Monster Energy, U.S. Cellular, Anheuser-Busch). The platform tracks 19.5M+ executions across 576K+ client staff at 46 enterprise accounts.</p>
+<p>Field marketing SaaS platform that has supported 400,000 reps executing 32 million visits across 1.9 million locations. 46 enterprise clients: Fortune 500 food and beverage brands, national retailers, and the experiential agencies that run their field programs.</p>
 
 <hr class="section-divider">
 
 <h3>CHIEF OF STAFF & HEAD OF SALES ENABLEMENT</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Dec 2023 - Dec 2025 | Remote</p>
-<p>Chief of Staff work in parallel with direct ownership of the largest custom implementation the company had run, plus sole QA lead across a portfolio of concurrent implementations.</p>
+<p>Chief of Staff work in parallel with requirements, QA and go-live on the largest custom implementation the company had run, plus sole QA lead across a portfolio of concurrent implementations.</p>
 
-<p><strong>Neptune Retail Solutions, end to end</strong></p>
+<p><strong>Custom platform build for a national retail merchandising company</strong></p>
 <ul>
-<li>Led the complete lifecycle of a $500K custom platform build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions.</li>
-<li>Owned discovery, requirements gathering, workflow and wireframe design, QA process creation, development team leadership (four developers), Jira board management, and client account management.</li>
-<li>Translated client business requirements into technical specifications. Wrote the workflows and wireframes that bridged what the client needed and what the dev team could build.</li>
-<li>Built the QA process. Established testing protocols and quality standards. Coordinated between internal dev team and client QA leads. Made sure every feature met requirements before release.</li>
-<li>Led daily scrums with the dev team throughout the build. Made decisions on ticket prioritisation, scope questions, and sequencing.</li>
-<li>Transitioned into account manager post-launch. Managed the client relationship, handled escalations, kept operations stable until a dedicated AM was ready to take over.</li>
+<li>A $500K custom build with $20K monthly recurring, for a client operating across 48,000+ retail locations with 3,800+ field staff and 24M+ in-store executions a year.</li>
+<li>Worked on the sale and enablement, then gathered requirements through weekly calls with the client's stakeholders.</li>
+<li>Ran requirements and QA through the build: daily scrums, the full sprint board with the developers, hundreds of Jira tickets, and QA documentation for the client's QA team.</li>
+<li>Ran the final phase, go-live and hyper-care with the head developer when the PM went on leave.</li>
 <li>Handed off with complete documentation and knowledge transfer. Built for the person inheriting the account.</li>
 </ul>
 
@@ -2544,7 +2495,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Managed client issues end to end. Triaged bugs in Jira, coordinated resolution with engineering, and translated complex platform behaviour into plain language for clients throughout.</li>
 <li>Led daily scrum calls to prioritise bugs, manage feature development, and maintain delivery momentum during critical periods.</li>
 <li>Partnered with Product and Engineering through the full software development lifecycle. Provided user and client perspective to keep delivery grounded in real usage.</li>
-<li>Reduced new hire ramp time from 90 to 45 days through structured onboarding programs and self-service resources built for the person inheriting them.</li>
+<li>Cut contractual client onboarding from 90 to 45 days through structured onboarding programs and self-service resources built for the person inheriting them.</li>
 </ul>
 
 <hr class="section-divider">
@@ -2613,7 +2564,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         whatThisNeeds: "Someone who holds the context, pressure-tests decisions, and makes sure the right things happen. The person in the room noticing downstream consequences, giving voice to perspectives not at the table, and advocating for what's needed when the easy option is tempting.",
         whatIveDone: [
           "Strategic right hand to the COO for two years. Turned incomplete direction into clear decisions and filled the thinking that wasn't happening at the executive level.",
-          "Led the Neptune Retail Solutions custom platform build end to end: discovery, requirements, wireframes, QA process, four developers, and clean handoff to a dedicated AM.",
+          "Gathered requirements, ran QA, and led go-live and hyper-care on a $500K custom platform build for a national retail merchandising company.",
           "Sole QA lead across 20+ implementations. Stepped into PM coverage during team transitions without missing client deadlines.",
           "Directly involved in the sales process for 30 of the 46 enterprise clients the company won. Prepared ~50 custom demos per year, each researched and built for the specific prospect's business."
         ],
@@ -2632,7 +2583,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
           "Owned field readiness for product launches. Training, documentation, and support materials in place before anything shipped.",
           "Synthesised field feedback into product input that Engineering could act on. Caught misalignments between Sales promises and Product roadmap before they became client problems.",
           "Built repeatable QA test plans adoptable as an organisation-wide standard.",
-          "Led the Neptune custom platform build end to end including four developers. PM coverage during team transitions."
+          "Ran requirements and QA on a $500K custom platform build, then led its go-live and hyper-care. PM coverage during team transitions."
         ],
         proof: "workExamples",
         proofLabel: "See: Enterprise Custom Platform Build",
@@ -2697,7 +2648,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         hook: "Full lifecycle - discovery through clean handoff, with documentation the next person can use.",
         whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff document, every training program is built assuming someone else needs to pick it up and run with it without you in the room.",
         whatIveDone: [
-          "Led the Neptune Retail Solutions custom platform build end to end: $500K build with $20K monthly recurring, 48,000+ retail locations, 3,800+ field staff, 24M+ annual executions. Four developers, Jira board management, account management through to clean handoff.",
+          "Gathered requirements, ran QA, and led go-live and hyper-care on a $500K custom platform build ($20K monthly recurring) for a national retail merchandising company operating across 48,000+ locations with 3,800+ field staff.",
           "Sole QA lead across 20+ major implementations. Built repeatable test plans, set quality standards, enforced them with Product and Engineering.",
           "Designed the five-phase onboarding methodology for a new AI product: Discovery, Agent Implementation, Testing and Validation, User Training, Ongoing Support - with full documentation for each phase.",
           "Stepped into PM coverage during team transitions without missing client deadlines. Created a Sales-to-Accounts handoff process used across the organisation."
@@ -2767,33 +2718,6 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       { name: "Good Documentation", role: "An Act of Kindness", image: "assets/images/top8-docs.jpg" }
     ],
 
-    testimonials: [
-      {
-        name: "Sales Leader",
-        title: "Ashley is the reason our demos actually close deals.",
-        text: "Every demo she builds is researched specifically for that prospect. She knows their business, their challenges, their language. Most sales support people give you generic decks. Ashley gives you a customised experience that makes prospects feel understood. She's been involved in every win we've had since 2018, and that's not a coincidence. Plus, she's great to work with."
-      },
-      {
-        name: "Engineering Lead",
-        title: "She's the only non-technical person I actually enjoy getting bug reports from.",
-        text: "Most people file tickets that say 'it's broken' and leave you guessing. Ashley's tickets have clear reproduction steps, expected behaviour, actual behaviour, and business impact. When she took over QA on a major project, our resolution time dropped because we weren't going back and forth trying to understand the issue. She catches edge cases our internal testing misses."
-      },
-      {
-        name: "Executive / COO",
-        title: "Ashley sees problems before they become problems.",
-        text: "What I value most is that she doesn't just execute. She thinks. She'll come to me and say 'I noticed this gap between how Sales and Product are communicating, and here's what I think we should do about it.' Half the time I didn't even know the gap existed. She's the kind of person who makes the whole organisation run smoother just by being present and paying attention."
-      },
-      {
-        name: "Client Success Manager",
-        title: "Clients ask for her by name.",
-        text: "When I'm swamped and Ashley steps in to cover a client call, I never worry. She knows the platform inside and out, she knows the client's specific setup, and she has this way of making people feel heard. She's also the person I go to when I need a second opinion on how to communicate something tricky. She always knows the right tone."
-      },
-      {
-        name: "New Hire",
-        title: "Her training materials are the reason I got up to speed so fast.",
-        text: "I hit ramp in half the time I expected, and it wasn't luck. The materials Ashley built assumed I had zero context and no time to hunt for answers, which was exactly the state I was in. Each guide told me what I needed at the specific moment I needed it. I stopped feeling like I was drowning around week three, which is when most new hires are still asking whether they're going to make it."
-      }
-    ],
 
     journalEntries: [
       {
@@ -2953,13 +2877,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
       "Why should I hire you?": {
         text: "Because I'm the person who makes everyone else's job easier.\n\nI notice what's not working before it becomes a crisis, build the systems to fix it, and document everything so it runs without me. I bridge technical and business teams and create shared understanding where there wasn't any. I get things done without needing to be told what to do.\n\nI'll also tell you what I think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing, we'd probably work well together.",
-        followUp: "What do people say about working with you?"
-      },
-
-      "What do people say about working with you?": {
-        text: "That I'm the reason demos close deals. That my bug reports are actually useful. That I see problems before they become problems. That clients ask for me by name. That my training materials are why new hires get up to speed fast.\n\nAlso that I'm calm under pressure and fun to work with. Both of those matter more than they should have to.",
         followUp: null
       },
+
 
       "You mentioned hermeneutics. How does that help?": {
         text: "Hermeneutics is the philosophy of how meaning gets made and lost in interpretation. In practice, it means every time I build something I'm asking 'how will a real person interpret this under real conditions?'\n\nIt applies to data. Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions and context. I ask: what's being measured, what's being missed, who decided what counts?\n\nIt applies to AI outputs. Models fill in assumptions you didn't make and infer things you didn't state. Reading closely for what a prompt asked versus what the model filled in on its own is the same interpretive instinct.\n\nMost problems people call technical turn out to be communication breakdowns. Understanding how humans process information changes how you build everything.",
@@ -3009,17 +2929,17 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     {
       id: "enterprise-platform",
       name: "Enterprise Custom Platform Build",
-      type: "Full Lifecycle Project Leadership",
-      description: "A major retail solutions client managing tens of thousands of field installations needed a custom platform to track their operations at scale. Complex workflows spanning multiple business units, existing systems that needed integration, and high expectations for quality and timeline. A $500K build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions.",
-      challenge: "No existing playbook for a project of this complexity. Someone needed to own it end to end. I became that someone.",
+      type: "Requirements, QA and Go-Live",
+      description: "A national retail merchandising company needed a custom platform to track field operations across 48,000+ retail locations, 3,800+ field staff and 24M+ in-store executions a year. A $500K build with $20K monthly recurring.",
+      challenge: "A build this size needed someone holding requirements and quality together through about a year and a half of development, with the client's own QA team checking the work.",
       whatIDid: [
-        "Led discovery. Mapped existing workflows against platform capabilities, conducted stakeholder interviews, documented gap analysis.",
-        "Created wireframes and workflows that translated business requirements into technical specifications.",
-        "Built the QA process. Test plans, quality standards, coordination between internal dev team and client QA leads.",
-        "Took over as PM when the platform went live. Led daily scrums with the four-person dev team, managed the Jira board, triaged bugs, kept delivery on track.",
-        "Transitioned to account manager role post-launch, stabilised the relationship, handed off with complete documentation to a dedicated AM."
+        "Worked on the sale and enablement for the deal.",
+        "Gathered requirements through weekly calls with the client's stakeholders.",
+        "Ran requirements and QA through the build: daily scrums, the full sprint board with the developers, and hundreds of Jira tickets.",
+        "Wrote QA documentation for the client's own QA team.",
+        "Ran the final phase, go-live and hyper-care with the head developer when the PM went on leave."
       ],
-      outcome: "Platform launched successfully, running for a client operating across 48,000+ retail locations with 3,800+ field staff and 24M+ annual in-store executions. Full lifecycle ownership from discovery to stable handoff. The QA process I built became the template for every implementation after.",
+      outcome: "The platform launched and became one of the best-functioning client accounts on the platform. The team put that down to the attention to detail during the build.",
       skills: ["Project Management", "QA Leadership", "Requirements Gathering", "Jira", "Agile", "Client Relations", "Technical Translation"],
       image: "assets/images/work-enterprise.jpg"
     },
@@ -3050,7 +2970,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         "Built 30+ customised demo environments annually. Each researched for that prospect's business, challenges, and use cases. No generic decks.",
         "Built discovery frameworks and qualification playbooks that worked across sales cycles from same-day SMB to year-long enterprise.",
         "Enablement constant across sales team changes. Maintained demo quality and sales approach consistency regardless of who was on the team.",
-        "Reduced new hire ramp time from 90 to 45 days through structured onboarding and self-service resources."
+        "Cut contractual client onboarding from 90 to 45 days through structured onboarding and self-service resources."
       ],
       outcome: "Directly involved in the sales process for 30 of the 46 enterprise clients the company won across seven years. Near-zero churn: two to three offboards during the entire period. Every demo was researched and built for the specific prospect. That's the whole game.",
       skills: ["Sales Enablement", "Demo Excellence", "CRM", "Competitive Intel", "Training", "Onboarding"],
@@ -3068,7 +2988,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         "Designed training programs, onboarding flows, and process documentation used company-wide.",
         "Built systems that maintained consistency across multiple team composition changes over seven-plus years."
       ],
-      outcome: "The company grew from eight people to eighteen while scaling to 46 enterprise clients, 19.5M+ executions tracked, and 576K+ client staff managed. The systems I built are still in use. Near-zero churn: two to three client offboards across seven years.",
+      outcome: "The company grew from eight people to eighteen and reached 46 enterprise clients. The systems I built are still in use. Near-zero churn: two to three client offboards across seven years.",
       skills: ["Process Design", "Documentation", "Scaling Operations", "Change Management", "Training Design"],
       image: "assets/images/work-ops.jpg"
     },
