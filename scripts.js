@@ -1688,6 +1688,39 @@ function addChatMessage(chatArea, text, type) {
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
+// HAL's matching, in order:
+// 1. Exact questions (the topic buttons and follow-ups) always get their own answer.
+// 2. Kubrick easter eggs. Distinctive phrases match anywhere in the message;
+//    generic ones ("what are you", "sing") only when they are the whole message,
+//    so "What are you looking for?" gets the real answer.
+// 3. Typed questions are scored against chat.topicKeywords in data.js. Most
+//    keyword hits wins. No hits means the honest fallback, never a guess.
+const HAL_EGGS_ANYWHERE = ['2001', 'pod bay doors', 'open the pod bay doors', 'daisy', 'do you read me', 'sorry dave', 'my god its full of stars'];
+
+function normaliseChatText(text) {
+  return ' ' + text.toLowerCase().replace(/[\u2019']/g, '').replace(/[^a-z0-9]+/g, ' ').trim() + ' ';
+}
+
+function findChatAnswer(message, chatData) {
+  const norm = normaliseChatText(message);
+  const exactKey = Object.keys(chatData.responses).find(k => normaliseChatText(k) === norm);
+  if (exactKey) return { key: exactKey };
+
+  for (const [trigger, response] of Object.entries(chatData.easterEggs || {})) {
+    const t = normaliseChatText(trigger);
+    const anywhere = HAL_EGGS_ANYWHERE.includes(trigger.toLowerCase());
+    if (anywhere ? norm.includes(t) : norm === t) return { egg: response };
+  }
+
+  let bestKey = null, bestScore = 0;
+  for (const [key, words] of Object.entries(chatData.topicKeywords || {})) {
+    if (!chatData.responses[key]) continue;
+    const score = words.reduce((n, w) => n + (norm.includes(normaliseChatText(w)) ? 1 : 0), 0);
+    if (score > bestScore) { bestScore = score; bestKey = key; }
+  }
+  return bestKey ? { key: bestKey } : {};
+}
+
 function sendChatMessage(chatArea, message, quickQuestionsEl) {
   // Add user message
   addChatMessage(chatArea, message, 'user');
@@ -1697,32 +1730,15 @@ function sendChatMessage(chatArea, message, quickQuestionsEl) {
   let responseText;
   let followUpQuestion = null;
 
-  // Check for easter egg triggers first
-  const lowerMessage = message.toLowerCase();
-  let easterEggResponse = null;
-  if (chatData.easterEggs) {
-    for (const [trigger, response] of Object.entries(chatData.easterEggs)) {
-      if (lowerMessage.includes(trigger.toLowerCase())) {
-        easterEggResponse = response;
-        break;
-      }
-    }
-  }
+  // Work out which answer fits (see findChatAnswer above)
+  const match = findChatAnswer(message, chatData);
+  const easterEggResponse = match.egg || null;
+  track('hal_question', { topic: match.key || (match.egg ? 'easter_egg' : 'fallback') });
 
   if (easterEggResponse) {
     responseText = easterEggResponse;
   } else {
-    let responseData = chatData.responses[message];
-
-    if (!responseData) {
-      // Check for partial matches
-      for (const [key, value] of Object.entries(chatData.responses)) {
-        if (lowerMessage.includes(key.toLowerCase().split(' ')[0])) {
-          responseData = value;
-          break;
-        }
-      }
-    }
+    let responseData = match.key ? chatData.responses[match.key] : null;
 
     if (!responseData) {
       responseText = chatData.fallbackResponse;

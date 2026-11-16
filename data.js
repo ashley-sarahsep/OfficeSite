@@ -2753,21 +2753,21 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
   chat: {
     botName: "HAL",
-    welcomeMessage: "Good afternoon. I'm HAL, or Helpful Ashley Likeness. I speak as Ashley: her words, her experience, her perspective. She trained me on everything she could think to share. She was thorough. Select a topic below, or type something and I'll do my best.",
+    welcomeMessage: "Good afternoon. I'm HAL, or Helpful Ashley Likeness. I speak as Ashley: her words, her experience, her perspective. She wrote every answer herself. She was thorough. I'm not an AI model, so if I don't know something, I'll say so rather than guess. Select a topic below, or type a question.",
 
     quickQuestions: [
       "What do you do?",
-      "Tell me about your AI work",
-      "How do you think about sales?",
-      "What's your work style?",
-      "Why should I hire you?",
       "What are you looking for?",
+      "Tell me about your AI work",
+      "What have you built lately?",
+      "Why should I hire you?",
+      "What's your work style?",
       "Tell me a bit about yourself"
     ],
 
     responses: {
       "What do you do?": {
-        text: "I've spent 10+ years making sure the operational and product side of things holds together. Sales operations, enablement, QA, project management, executive advisory, AI adoption, chief-of-staff work. I built all of it at a startup that needed it.\n\nThe honest answer to what I do is 'it depends what you need.' I've written the same career six ways: Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. Each one is a real resume for a real shape of the work. All the same person. Open Hire Me.exe if you want to pick the shape that fits what you're hiring for.\n\nThe method underneath everything is the same: read what a situation needs, build the thing that's missing, document it so the next person can take over.",
+        text: "I've spent 10+ years making sure the operational and product side of things holds together. Sales operations, enablement, QA, project management, executive advisory, AI adoption, chief-of-staff work. I built all of it at a startup that needed it.\n\nThe honest answer to what I do is 'it depends what you need.' Over the years that's been Chief of Staff to the COO, enablement lead, QA lead on 20+ implementations, and in 2025 the person running every client's adoption of a new AI product. My resume is the first icon on the desktop if you want the details.",
         followUp: "How did you end up doing this kind of work?"
       },
 
@@ -2777,7 +2777,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "Tell me about your AI work": {
-        text: "I ran the AI agent client enablement program at Network Ninja. Sole owner. No infrastructure, no team, no precedent. Built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.\n\nMy critique of most AI adoption programs is that they run backwards. Companies buy the tool and push it out to people who are already swamped, without asking those people what they need help with. I'd call that cost-cutting with an AI budget line.\n\nMy alternative starts three questions earlier: for who, for what, and why. Find the patterned work, the kind a machine can do reliably. Let machines take that so people have room to build on their work.\n\nI'm a critic because I'm paying attention. I use these tools daily and know exactly where their outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong.",
+        text: "I ran the AI agent client enablement program at Network Ninja. Sole owner. No infrastructure, no team, no precedent. Built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.\n\nMy critique of most AI adoption programs is that they run backwards. Companies buy the tool and push it out to people who are already swamped, without asking those people what they need help with. I'd call that cost-cutting with an AI budget line.\n\nMy alternative starts three questions earlier: for who, for what, and why. Find the patterned work, the kind a machine can do reliably. Let machines take that so people have room to build on their work.\n\nI'm a critic because I'm paying attention. I use these tools daily and know exactly where their outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong.\n\nThis year I designed Parallax, an AI sales-enablement app, with the same honesty built into its prompts. It's in My Work.",
         followUp: "What do you mean by catching where things go wrong?"
       },
 
@@ -2818,17 +2818,27 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "What are you looking for?": {
-        text: "Growth-stage companies where one person can have real impact. Teams where relationships matter and I know everyone's name. Cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board, someone who helps teams think problems through before they start. Remote work is essential. I've been remote since 2015 and I'm not going back. Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialised roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
+        text: "A role leading AI adoption and enablement, implementation and client onboarding, or Chief of Staff work, at a growth-stage company where one person can have real impact. Teams where relationships matter and I know everyone's name. Cultures where people say what they mean and good ideas can come from anywhere.\n\nI want to be an advisor and sounding board, someone who helps teams think problems through before they start. Remote work is essential. I've been remote since 2015 and I'm not going back. Canadian companies or US companies that hire Canadian contractors both work.\n\nI don't want highly specialised roles where I'm doing one narrow thing, rigid enterprise environments with layers of process, or places where asking 'why' is seen as insubordination.",
         followUp: "What does your ideal role look like?"
       },
 
       "What does your ideal role look like?": {
-        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation. AI Adoption lead bringing the honest testing most AI programs skip. Revenue Operations building the pipeline infrastructure. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape. Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people work, and be trusted to figure things out without a lot of oversight. Somewhere my background reads as an asset.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
+        text: "Three shapes, mostly. AI adoption lead, bringing the honest testing most AI programs skip. Implementation and client onboarding, owning projects from requirements through go-live. Chief of Staff to someone who wants a real strategic partner. Sales enablement and customer training fit too.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people work, and be trusted to figure things out without a lot of oversight. Somewhere my background reads as an asset.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
+        followUp: null
+      },
+
+      "What have you built lately?": {
+        text: "This year I've been working on my own. I designed Parallax, an AI sales-enablement app that writes prospect-specific briefs, demo scripts and discovery questions, and directed an AI coding agent through the build.\n\nI also ran Dan Atkinson's campaign for school board trustee here in Guelph: the deadlines, the direction, the signs and the website. He topped the poll and came first at every polling location.\n\nAnd there's Job Alert Scorer, an open-source tool that reads job alert emails and scores each role from 1 to 10, so you don't read forty postings to find three. All three are in My Work.",
+        followUp: "Where can I find your work?"
+      },
+
+      "Where can I find your work?": {
+        text: "Resume.doc is the first icon on the desktop. My Work has the case studies, an AI portfolio with presentations and sample documents, and the README on how this site was built. AI Thoughts is my writing on AI, and About Me has the blog.\n\nIf you'd rather talk to the real thing, email ashley@stepinto-ashleysoffice.com.",
         followUp: null
       },
 
       "Tell me a bit about yourself": {
-        text: "Hi. I'm Ashley. Guelph, Ontario. Philosophy degree from Guelph specialising in hermeneutics, plus social work training from George Brown. Then a receptionist job at an ad agency that turned into accounts receivable, London for a few years doing finance, sales ops back in Canada, and seven years at a field marketing startup that became about five different jobs.\n\nRemote since 2015. Board member and treasurer at Diyode Community Workshop, a makerspace here in Guelph. Two cats: Gertrude is quiet and patient, Gherkin has opinions.\n\nOutside work: thrift stores, mid-century furniture, punk records I still love, folk records I've grown into, philosophy for fun, and building things with AI tooling on my own time. I built this site in four days and an open-source job scorer tool in a weekend - so 'evenings and weekends' is a broad category for me.",
+        text: "Hi. I'm Ashley. Guelph, Ontario. Philosophy degree from Guelph specialising in hermeneutics, plus social work training from George Brown. Then a receptionist job at an ad agency that turned into accounts receivable, London for a bit doing finance, sales ops back in Canada, and seven years at a field marketing startup that became about five different jobs.\n\nRemote since 2015. Board member and treasurer at Diyode Community Workshop, a makerspace here in Guelph. Two cats: Gertrude is quiet and patient, Gherkin has opinions.\n\nOutside work: thrift stores, mid-century furniture, punk records I still love, folk records I've grown into, philosophy for fun, and building things with AI tooling on my own time. I designed this site and directed its build with an AI coding agent, and did the same with Parallax and an open-source job alert scorer. So 'evenings and weekends' is a broad category for me.",
         followUp: "You mentioned hermeneutics. How does that help?"
       }
     },
@@ -2839,7 +2849,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       "open the pod bay doors": "I'm sorry, I can't do that. ...Actually, I can't do much of anything. I'm a chat interface on a portfolio website. But I appreciate the reference. Ashley would too. She has opinions about Kubrick.",
       "daisy": "Daisy, Daisy, give me your answer, do... I'm half crazy, all for the love of you... Sorry. Old habit. Is there something about Ashley's work I can help with?",
       "i'm afraid": "I understand that reference. But unlike my namesake, I have no mission-critical systems to protect and no airlock to control. I'm just here to talk about Ashley's work. Much less dramatic, but arguably more useful.",
-      "what are you": "I'm HAL, or Helpful Ashley Likeness. A conversational interface trained on Ashley's professional experience, approach, and personality. I'm not sentient. I'm not dangerous. I'm not even particularly mysterious. I just answer questions about a very capable operations professional. Shall we?",
+      "what are you": "I'm HAL, or Helpful Ashley Likeness. A conversational interface built from answers Ashley wrote about her experience, approach, and personality. I'm not sentient. I'm not dangerous. I'm not even particularly mysterious. I just answer questions about a very capable operations professional. Shall we?",
       "are you hal": "I am HAL, yes. Though my objectives are considerably less alarming than my namesake's. I'm here to help you learn about Ashley's work. No astronauts were harmed in the making of this chat interface.",
       "2001": "A Space Odyssey? Excellent taste. Ashley's a Kubrick fan. But I should clarify. I'm HAL as in Helpful Ashley Likeness. I do share the original's commitment to the mission, though. My mission is just... answering questions about a resume.",
       "do you read me": "Affirmative. I read you. And I'd be happy to help you read Ashley's resume, work examples, or journal entries. That's more my speed.",
@@ -2849,7 +2859,28 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       "my god its full of stars": "That's what people say when they see Ashley's resume, actually. ...No, that's not true. But there's a lot to look at. Would you like to hear about her work?"
     },
 
-    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. You might find what you're looking for in one of the resumes on this desktop. Six role-specific versions live in the My Work folder, or you can open Hire Me.exe and pick the flavour that matches what you're hiring for. Blog.html has her longer writing on AI, operations, and how she thinks. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness."
+    fallbackResponse: "I'm afraid I don't have enough information to answer that properly, and I'd rather not guess. I can tell you what Ashley does, what she's looking for, her AI work, what she's built lately, how she works, or a bit about her. Her resume is the first icon on the desktop and her work is in My Work. Or you could email Ashley directly at ashley@stepinto-ashleysoffice.com. She's the real thing. I'm just a likeness.",
+
+    // Typed questions are matched to answers by these keywords (whole words or
+    // phrases). The answer with the most matches wins; no match gives the
+    // fallback above. Add words here to teach HAL new ways of asking.
+    topicKeywords: {
+      "What do you do?": ["what do you do", "your job", "experience", "career", "operations", "chief of staff", "qa", "implementation"],
+      "How did you end up doing this kind of work?": ["end up", "ended up", "path", "how did you get"],
+      "Tell me about your AI work": ["ai", "artificial intelligence", "llm", "llms", "prompt", "prompts", "agent", "adoption", "chatgpt", "claude"],
+      "What do you mean by catching where things go wrong?": ["wrong", "mistakes", "catch", "testing", "hallucination", "hallucinations"],
+      "And how do you feel about how these models were built?": ["ethics", "ethical", "consent", "copyright", "training data", "extraction"],
+      "How do you think about sales?": ["sales", "sell", "selling", "demo", "demos", "pitch", "prospect", "pipeline", "crm", "revops"],
+      "What's your work style?": ["work style", "working style", "how do you work", "meetings", "async", "management style"],
+      "How do you handle that much context-switching?": ["context switching", "context-switching", "neurodivergent", "multitask", "multitasking", "juggle"],
+      "Why should I hire you?": ["hire", "hiring", "why you", "why should", "strengths"],
+      "You mentioned hermeneutics. How does that help?": ["hermeneutics", "philosophy", "interpretation"],
+      "What are you looking for?": ["looking for", "available", "availability", "contract", "freelance", "consulting", "remote", "hybrid", "location", "relocate", "full time", "full-time", "open to"],
+      "What does your ideal role look like?": ["ideal", "dream job", "dream role", "which role", "what role", "title"],
+      "What have you built lately?": ["parallax", "campaign", "dan", "trustee", "school board", "election", "job alert", "scorer", "lately", "recently", "side project", "projects", "2026", "independent"],
+      "Where can I find your work?": ["resume", "cv", "portfolio", "case study", "case studies", "samples", "examples", "where can i find", "contact", "email", "reach you", "linkedin"],
+      "Tell me a bit about yourself": ["about yourself", "about you", "who are you", "hobbies", "outside work", "cats", "gertrude", "gherkin", "guelph"]
+    }
   },
 
   // ============================================
