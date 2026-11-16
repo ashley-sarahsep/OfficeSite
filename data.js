@@ -501,6 +501,7 @@ HOW TO REACH ME
 ---------------
 
 Email: ashley@stepinto-ashleysoffice.com
+I read everything myself.
 
 Tell me what you're dealing with. I'll tell you honestly
 if I can help or if you need someone else.
@@ -615,7 +616,7 @@ Ashley`
         {
           id: "desk-cats-tease",
           portrait: "smiling2",
-          text: "The little fuzzbutts: Gertrude is represented by the black cat on the bookshelf - she supervises while waiting for affection. Gherkin's the orange one on the pink chair. They have strong opinions about voice pitch on video calls.",
+          text: "The little fuzzbutts: Gertrude's the grey one asleep on the pink chair. Gherkin's the tabby on the bookshelf, supervising. They have strong opinions about voice pitch on video calls.",
           responses: [
             { text: "I should go meet them", next: null },
             { text: "What kind of work do you do from here?", next: "desk-work-history" },

@@ -1978,7 +1978,7 @@ function initAboutComputer(windowEl) {
 
   // Calculate some dynamic "specs"
   const yearsExp = new Date().getFullYear() - 2011;
-  const remoteYears = new Date().getFullYear() - 2014;
+  const remoteYears = new Date().getFullYear() - 2015;
 
   content.innerHTML = `
     <div class="about-computer-wrapper">
@@ -2004,7 +2004,7 @@ function initAboutComputer(windowEl) {
           </div>
           <div class="about-spec">
             <span class="spec-label">Remote Mode:</span>
-            <span class="spec-value">Native since 2014 (${remoteYears} years)</span>
+            <span class="spec-value">Native since 2015 (${remoteYears} years)</span>
           </div>
         </div>
 
@@ -2035,6 +2035,13 @@ function initAboutComputer(windowEl) {
           <div class="about-spec">
             <span class="spec-label">Output Format:</span>
             <span class="spec-value">Actionable, documented, shipped</span>
+          </div>
+        </div>
+        <div class="about-divider"></div>
+        <div class="about-spec-group">
+          <div class="about-spec">
+            <span class="spec-label">Analytics:</span>
+            <span class="spec-value">PostHog counts visits and clicks so I can see which parts of this office are useful. I don't sell or share that data, and there are no ads.</span>
           </div>
         </div>
       </div>
@@ -4438,13 +4445,15 @@ function initGertrude() {
     hideGertrudeBubble();
   });
 
-  // Start the auto-thought timer
-  scheduleNextGertrudeThought();
+  // Gertrude only speaks when clicked. To bring back her timed thoughts,
+  // call scheduleNextGertrudeThought() here.
 }
 
 let gertrudeFirstThoughtShown = false;
 
 function scheduleNextGertrudeThought() {
+  // Timed thoughts are switched off (see initGertrude). Remove this return to restore them.
+  return;
   // Clear any existing timer
   if (gertrudeAutoTimer) {
     clearTimeout(gertrudeAutoTimer);
@@ -4516,6 +4525,9 @@ function hideGertrudeBubble() {
 
 // Show a context-aware tip (Clippy-style) - only shows each tip once per session
 function showGertrudeContextualTip(context) {
+  // Automatic tips are switched off: Gertrude only speaks when clicked.
+  // Remove this return to bring back the Clippy-style tips.
+  return false;
   const tips = SITE_DATA.gertrude?.contextualTips || {};
   const shownTips = SITE_DATA.gertrude?.shownTips || [];
 
@@ -4654,8 +4666,7 @@ function initSite() {
   // Initialize Gertrude
   initGertrude();
 
-  // Initialize screensaver
-  initScreensaver();
+  // Screensaver switched off. Call initScreensaver() here to restore it.
 
   // Initialize image lightbox
   initImageLightbox();
