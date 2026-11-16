@@ -90,12 +90,12 @@ const SITE_DATA = {
       subtitle: "The umbrella position",
       blocks: [
         { type: "lede", text: "I use these tools daily and well. I know they were built on real people's work, taken without consent or pay, and I don't pretend that away. I think the way most companies are deploying AI now is a failure of people-thinking dressed up as innovation. I know exactly where the tool's confidence shouldn't be trusted, because I've built the systems that catch it when it's wrong. And I still believe, at the same time, that used well it can improve people's quality of life, because humans still need to create, still need to make meaning, and the tool is only worth anything if it protects room for that." },
-        { type: "para", text: "Both things stay true at once - I don't reconcile them into one tidy sentence. That would be too clean for what this actually is." },
+        { type: "para", text: "Both things stay true at once - I don't reconcile them into one tidy sentence. That would be too clean for what this is." },
         { type: "divider" },
         { type: "para", text: "This folder holds a few of the positions underneath that. Read whichever ones interest you. They're things I've worked out over time, in no particular order." },
         { type: "filelist", items: [
           { name: "backwards_adoption.txt", desc: "the deployment critique" },
-          { name: "distrust_as_practice.txt", desc: "how I actually work with AI outputs" },
+          { name: "distrust_as_practice.txt", desc: "how I work with AI outputs" },
           { name: "hermeneutics_in_practice.txt", desc: "what my philosophy background is doing here" },
           { name: "origins.txt", desc: "the extraction problem" },
           { name: "room_to_breathe.txt", desc: "what I want AI to protect" }
@@ -110,7 +110,7 @@ const SITE_DATA = {
       subtitle: "The deployment critique",
       blocks: [
         { type: "lede", text: "Companies adopt AI backwards. They buy the tool first and try to fit people to it afterwards." },
-        { type: "para", text: "They throw it at overwhelmed workers without understanding what those workers actually need help with day to day. They invest millions without taking the time to research or even ask. Then they put the burden of figuring it out on people who are already swamped. People who are also being told, implicitly, that this tool might make them redundant." },
+        { type: "para", text: "They throw it at overwhelmed workers without understanding what those workers need help with day to day. They invest millions without taking the time to research or even ask. Then they put the burden of figuring it out on people who are already swamped. People who are also being told, implicitly, that this tool might make them redundant." },
         { type: "pullquote", text: "I call that abandonment with a subscription fee." },
         { type: "divider" },
         { type: "para", text: "The alternative starts three questions earlier: for who, for what, and why." },
@@ -130,7 +130,7 @@ const SITE_DATA = {
       title: "distrust_as_practice.txt - AI Thoughts",
       filename: "distrust_as_practice.txt",
       banner: "Distrust as a practiced skill",
-      subtitle: "How I actually work with AI outputs",
+      subtitle: "How I work with AI outputs",
       blocks: [
         { type: "lede", text: "I don't extend blind trust to AI outputs. This is the actual differentiator - not \"I use AI,\" but \"I know exactly where it's wrong before the client finds out.\"" },
         { type: "para", text: "I've tested AI output that was confident, well-structured, and completely wrong about something you'd only catch if you knew the domain." },
@@ -150,7 +150,7 @@ const SITE_DATA = {
       subtitle: "What my philosophy background is doing here",
       blocks: [
         { type: "lede", text: "My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. I use it every time I evaluate an AI system." },
-        { type: "para", text: "Understanding how a model interprets and generates information is, for me, an extension of the same interpretive instinct I use to figure out what a client actually means versus what they literally said." },
+        { type: "para", text: "Understanding how a model interprets and generates information is, for me, an extension of the same interpretive instinct I use to figure out what a client means versus what they literally said." },
         { type: "para", text: "When I evaluate AI output, \"is this correct?\" is the first question. Then I ask:" },
         { type: "list", items: [
           "How did the model interpret the prompt?",
@@ -214,7 +214,7 @@ const SITE_DATA = {
 
 1. The best documentation is written by the person who struggled to figure it out.
 
-2. The best process is the one people actually follow. Design for people who are busy and distracted.
+2. The best process is the one people follow. Design for people who are busy and distracted.
 
 3. Good systems are invisible until they break. Like litter boxes.
 
@@ -240,7 +240,7 @@ const SITE_DATA = {
 
 14. Training is about behaviour change. Information transfer is the easy part.
 
-15. The gap between "technically correct" and "actually useful" is where most problems live.
+15. The gap between "technically correct" and "useful" is where most problems live.
 
 ---
 Last modified: Whenever I remember something else
@@ -379,7 +379,7 @@ about things other people take for granted. Including data.
 Data doesn't speak for itself. Someone chose what to measure,
 how to measure it, and what to ignore. Those choices have
 assumptions baked in. The interesting work is figuring out
-what story the data is actually telling. And what's missing
+what story the data is telling. And what's missing
 from that story.
 
 
@@ -426,7 +426,7 @@ The meaningful answer takes more work:
 
 I built prompt frameworks that helped clients move from
 "show me the numbers" to "help me understand what's
-actually happening and what I should do about it."
+happening and what I should do about it."
 
 
 WHERE I ADD VALUE
@@ -437,7 +437,7 @@ Business people can ask for reports.
 
 The gap is: someone who can sit with the data, understand
 its limitations, find the patterns, and translate it into
-something that actually means something to the people who
+something that means something to the people who
 need to act on it. Someone who can make the meaning clear,
 whether the news is good or bad.
 
@@ -471,7 +471,7 @@ I make meaning from data and help others do the same.
 
 ---
 Last modified: Recently
-Author: Someone who thinks the best question is "what does this actually mean?"`
+Author: Someone who thinks the best question is "what does this mean?"`
     },
 
     collab: {
@@ -495,7 +495,7 @@ THINGS I'M GOOD AT
 ------------------
 
 → AI Adoption & Prompt Engineering
-  Making AI tools actually useful for real humans.
+  Making AI tools useful to the people who have to use them.
   Building the training, testing, and adoption infrastructure
   that turns "we have AI" into "we use AI well."
 
@@ -505,7 +505,7 @@ THINGS I'M GOOD AT
   and retain information (thanks, philosophy degree).
 
 → Process Documentation & Knowledge Bases
-  The docs people actually read. The systems that capture
+  The docs people go back to. The systems that capture
   institutional knowledge before it walks out the door.
   Clear, searchable, maintained.
 
@@ -541,7 +541,7 @@ Tell me what you're dealing with. I'll tell you honestly
 if I can help or if you need someone else.
 
 No weird sales calls. No "let's hop on a quick chat"
-that's actually a pitch. Just real conversation about
+that's a pitch. Just real conversation about
 whether there's a fit.
 
 
@@ -703,7 +703,7 @@ Ashley`
         {
           id: "desk-exhausting",
           portrait: "funny1",
-          text: "My brain actually works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
+          text: "My brain works better this way - context-switching between different problems, seeing patterns across domains. It's how I'm wired. What exhausts me is sitting in meetings that could've been async messages.",
           responses: [
             { text: "I want to look around some more", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -731,7 +731,7 @@ Ashley`
         {
           id: "desk-hermeneutics",
           portrait: "thoughtful1",
-          text: "I studied philosophy. Hermeneutics, specifically. The study of interpretation. How people actually understand information versus how we assume they do. It shapes everything I build. If you don't account for how humans process things under real conditions, your technically correct solution will still fail.",
+          text: "I studied philosophy. Hermeneutics, specifically. The study of interpretation. How people understand information versus how we assume they do. It shapes everything I build. If you don't account for how humans process things under real conditions, your technically correct solution will still fail.",
           responses: [
             { text: "I'd like to see more of your office", action: "inspect" },
             { text: "Show me your computer", action: "desktop" },
@@ -1032,7 +1032,7 @@ Ashley`
         {
           id: "radio-work-style",
           portrait: "smiling1",
-          text: "Maybe. I'd rather be authentic than polished. Direct communication over corporate speak. Solutions that actually work for humans over technically correct approaches that nobody adopts. Character over perfection.",
+          text: "Maybe. I'd rather be authentic than polished. Direct communication over corporate speak. Solutions that work for humans over technically correct approaches that nobody adopts. Character over perfection.",
           responses: [
             { text: "Show me more of the office", action: "inspect" },
             { text: "Take me to your computer", action: "desktop" },
@@ -1060,7 +1060,7 @@ Ashley`
         {
           id: "art-atmosphere",
           portrait: "thoughtful1",
-          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you actually want to be. Sterile workspaces make my brain itch.",
+          text: "That's the goal. I spend a lot of time in this room - remote work means your office is also your space. It should feel like somewhere you want to be. Sterile workspaces make my brain itch.",
           responses: [
             { text: "Do you have a favourite piece?", next: "art-favourite" },
             { text: "Show me more of the office", action: "inspect" },
@@ -1241,7 +1241,7 @@ Ashley`
           portrait: "thoughtful1",
           text: "Gherkin considers this seriously. \"She is patient. She thinks before she acts. She does not get frustrated when things don't work the first time.\" A pause. \"Unless it's a printer. Printers make her say words I don't understand.\"",
           responses: [
-            { text: "That's actually insightful.", next: "talk-gherkin-insight" },
+            { text: "That's insightful.", next: "talk-gherkin-insight" },
             { text: "[Back to exploring]", next: null }
           ]
         },
@@ -1387,7 +1387,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <div class="resume-section">
 <h2>OH, HELLO!</h2>
-<p>Hi. I'm Ashley. I've spent 10+ years making sure the operational and product side of things actually holds together. I work well in environments where nothing is formally documented yet and most of the important context lives in people's heads. I build systems and documentation so the next person can pick it up without needing me.</p>
+<p>Hi. I'm Ashley. I've spent 10+ years making sure the operational and product side of things holds together. I work well in environments where nothing is formally documented yet and most of the important context lives in people's heads. I build systems and documentation so the next person can pick it up without needing me.</p>
 <p>I joined Network Ninja when the team was eight people and left when it was eighteen. Over that time I built the operational infrastructure the company scaled on: sales operations, onboarding programs, QA processes, project management frameworks, an internal cross-functional performance management system, and eventually the entire client-facing enablement layer for a new AI agent product. I was directly involved in the sales process for 30 of the company's 46 enterprise clients including Fortune 500 brands.</p>
 <p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Combined with social service training, it shapes how I approach change management, training design, and system design. I design for how people work, learn and pick up new habits when they're busy and distracted. That's the through-line across everything I've built.</p>
 </div>
@@ -1396,7 +1396,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>WHAT MAKES ME DIFFERENT</h2>
 
 <h3>HERMENEUTICS IS THE OPERATING METHOD</h3>
-<p>Hermeneutics is the philosophy of how meaning gets made and lost in interpretation. It's the way I think, and it shapes every piece of work I do. Training programs are designed around how people actually process, retain, and apply information. Data analysis starts with what story the numbers are telling versus what the person looking at them wants to see. Client discovery is working out what someone means, which is often a step away from what they said. Same instinct, different applications.</p>
+<p>Hermeneutics is the philosophy of how meaning gets made and lost in interpretation. It's the way I think, and it shapes every piece of work I do. Training programs are designed around how people process, retain, and apply information. Data analysis starts with what story the numbers are telling versus what the person looking at them wants to see. Client discovery is working out what someone means, which is often a step away from what they said. Same instinct, different applications.</p>
 
 <h3>THE PERSON EVERYONE ASKS</h3>
 <p>Over seven years I held QA lead, project manager, product operations lead, sales enablement owner, strategic advisor, and account manager responsibilities. Often at the same time. Colleagues at every level came to me to work through problems, test ideas, and get clear on their thinking before communicating with their own teams. It's a skill, and it sits behind the strategic partnership work, the discovery sessions, and the training design.</p>
@@ -1405,14 +1405,14 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>I learned every system on this resume by using it. SugarCRM, HubSpot, Salesforce, Jira, Claude, Claude Code, GitHub. When Network Ninja launched an AI product, I was the first person to really work with it and became the sole owner of client enablement. Same pattern with every new tool: pick it up, use it, learn where it breaks, teach someone else.</p>
 
 <h3>BRIDGE BUILDER BETWEEN TECHNICAL AND BUSINESS</h3>
-<p>I translate technical capabilities into business value and technical constraints into terms people can act on. I help engineers understand what users actually need. I help business stakeholders understand what engineering is actually doing. When ideas get lost in translation between teams, I step in to ensure equilibrium of understanding across the group. Most problems that look like execution failures are actually translation failures.</p>
+<p>I translate technical capabilities into business value and technical constraints into terms people can act on. I help engineers understand what users need. I help business stakeholders understand what engineering is doing. When ideas get lost in translation between teams, I step in to ensure equilibrium of understanding across the group. Most problems that look like execution failures turn out to be translation failures.</p>
 
 <h3>SHARING &gt; SELLING</h3>
 <p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it. You share it well enough that it sells itself. If it isn't good, no amount of pressure will save you. That belief shapes everything I build for sales teams: demos are research made visible, discovery frameworks come from real curiosity about the prospect, and the training I design teaches reps to know what they're talking about well enough to drop the script.</p>
 
 <h3>CRITICAL AI ADVOCATE</h3>
 <p>I use AI daily and know exactly where its outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong. My philosophy background helps me evaluate how models interpret context and where they're likely to misread intent.</p>
-<p>My critique of most AI adoption programs is that they run backwards. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they actually need help with. I'd call that cost-cutting dressed as innovation.</p>
+<p>My critique of most AI adoption programs is that they run backwards. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they need help with. I'd call that cost-cutting dressed as innovation.</p>
 <p>My alternative starts three questions earlier: for who, for what, and why. Find the patterned work, the kind a machine can do reliably. Let machines take that so people have room to build on their work. I'm a critic because I'm paying attention.</p>
 
 <div class="did-you-know">
@@ -1716,7 +1716,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Executive partnership and strategic advisory</strong></p>
 <ul>
-<li>Strategic right hand to the COO. Turned incomplete direction into clear decisions. Filled in the thinking that wasn't happening at the executive level. Made sure what needed to be considered actually was.</li>
+<li>Strategic right hand to the COO. Turned incomplete direction into clear decisions. Filled in the thinking that wasn't happening at the executive level. Made sure what needed to be considered got considered.</li>
 <li>Present in executive reviews and performance discussions. Read the power dynamics. Gave voice to team and client perspectives that weren't at the table. Steered outcomes when the full picture wasn't visible from the top.</li>
 <li>Managed up as a regular part of the job. Tracked what leadership was overlooking, brought it forward with evidence, helped protect the team and clients from decisions made without enough context.</li>
 <li>Took ownership of work that didn't belong to any team. Built the process, ran it until stable, handed it off with documentation.</li>
@@ -1836,9 +1836,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <div class="resume-section">
 <h2>SUMMARY</h2>
-<p>I keep the space between Product, Engineering, Sales, and Customer Success from becoming a gap. At Network Ninja, I was the person who made sure what was being built matched what was being sold, what was being sold matched what clients actually needed, and none of it fell apart during the handoffs.</p>
-<p>I've owned go-to-market readiness for product launches, QA across 20+ implementations, PM coverage during team transitions, field feedback loops that actually reached the roadmap, and the translation layer between technical teams and everyone else. I've also led a complete custom platform build end to end: Neptune Retail Solutions, a $500K build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions. Plus all of the adoption infrastructure for a new AI product.</p>
-<p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Applied to product operations, that shows up as understanding what users actually need versus what they say they need, and designing the handoff systems that keep the difference from becoming a client problem. I ask "why" constantly. I build for the person who inherits the work.</p>
+<p>I keep the space between Product, Engineering, Sales, and Customer Success from becoming a gap. At Network Ninja, I was the person who made sure what was being built matched what was being sold, what was being sold matched what clients needed, and none of it fell apart during the handoffs.</p>
+<p>I've owned go-to-market readiness for product launches, QA across 20+ implementations, PM coverage during team transitions, field feedback loops that reached the roadmap, and the translation layer between technical teams and everyone else. I've also led a complete custom platform build end to end: Neptune Retail Solutions, a $500K build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions. Plus all of the adoption infrastructure for a new AI product.</p>
+<p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Applied to product operations, that shows up as understanding what users need versus what they say they need, and designing the handoff systems that keep the difference from becoming a client problem. I ask "why" constantly. I build for the person who inherits the work.</p>
 </div>
 
 <div class="resume-section">
@@ -1869,7 +1869,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
 <p><strong>Cross-functional coordination and product feedback</strong></p>
 <ul>
-<li>Owned the feedback loop between clients, sellers, and the product team. Synthesised what was actually happening in the field and made sure it reached the roadmap in a form Engineering could act on.</li>
+<li>Owned the feedback loop between clients, sellers, and the product team. Synthesised what was happening in the field and made sure it reached the roadmap in a form Engineering could act on.</li>
 <li>Translated technical capabilities into business value for Sales and Customer Success. Translated business requirements into technical specifications for Engineering. Reduced the back-and-forth that slowed delivery.</li>
 <li>Identified misalignments between what Product was building and what Sales was promising. Surfaced these early and steered both sides toward shared understanding before they became client problems.</li>
 <li>Advised the COO on product roadmap priorities and GTM decisions. Brought the cross-functional perspective that wasn't always visible at the executive level.</li>
@@ -1904,7 +1904,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h3>HEAD OF CLIENT ENABLEMENT & AI ADOPTION</h3>
 <p class="job-title">Network Ninja</p>
 <p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
-<p>Sole owner of product adoption for the company's AI agent product. Responsible for everything that happened between the product shipping and clients successfully using it, which is where most AI products actually fail.</p>
+<p>Sole owner of product adoption for the company's AI agent product. Responsible for everything that happened between the product shipping and clients successfully using it, which is where most AI products fail.</p>
 
 <p><strong>AI product operations and quality assurance</strong></p>
 <ul>
@@ -1967,7 +1967,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
-<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. Applied to product operations, that shows up as user needs analysis, field feedback synthesis, and designing handoff systems for how people actually interpret and use information.</p>
+<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. Applied to product operations, that shows up as user needs analysis, field feedback synthesis, and designing handoff systems for how people interpret and use information.</p>
 <p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
@@ -1996,7 +1996,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>Ten years as the strategic constant behind a sales function that leaders came to for pitches, demo positioning, pricing conversations, and feature prioritisation, regardless of who held the sales title at the time. At Network Ninja, that was the COO and company owner. Sales reps came and went. The strategic sales relationship didn't.</p>
 <p>I held the institutional knowledge, built the tools, trained whoever was new, and kept the ongoing conversation with leadership going on what we were selling, how we were selling it, and why we were or weren't winning. For most of my tenure I was the only enablement person, which meant I owned all of it: discovery frameworks, demo customisation, competitive intelligence, onboarding curriculum, and the ongoing strategy work that didn't belong to any single rep.</p>
 <p>My core sales philosophy is sharing over selling. If a product is good, you shouldn't have to sell it. You share it well enough that it sells itself. If it isn't good, no amount of pressure will save you. Everything I build for a sales team is in service of that: the demo is research made visible, the discovery framework is real curiosity about the prospect's business, and the training teaches reps to know what they're talking about well enough to drop the script. Every prospect interaction demonstrated we'd already understood their business before we showed up. That's the whole game.</p>
-<p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Combined with social work training on adult learning, that's why I design training programs for how people actually retain and apply new information. It's the difference between training that gets completed and training that changes behaviour.</p>
+<p>My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. Combined with social work training on adult learning, that's why I design training programs for how people retain and apply new information. It's the difference between training that gets completed and training that changes behaviour.</p>
 </div>
 
 <div class="resume-section">
@@ -2042,7 +2042,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <li>Owned all sales enablement materials: demo environments, pitch decks, competitive battle cards, objection-handling guides, and discovery frameworks for the full sales team.</li>
 <li>Built discovery frameworks and qualification playbooks that worked across sales cycles from same-day SMB deals to year-long enterprise engagements.</li>
 <li>Created vertical-specific enablement materials for retail, CPG, and experiential marketing segments.</li>
-<li>Partnered with Product Marketing on competitive intelligence. Updated battle cards based on win/loss findings and kept messaging aligned with what was actually resonating in the field.</li>
+<li>Partnered with Product Marketing on competitive intelligence. Updated battle cards based on win/loss findings and kept messaging aligned with what was resonating in the field.</li>
 </ul>
 
 <p><strong>Onboarding and ramp optimisation</strong></p>
@@ -2132,7 +2132,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
-<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's why I design training programs for how people actually process and apply information. It's also why I judge training by whether people work differently afterwards.</p>
+<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's why I design training programs for how people process and apply information. It's also why I judge training by whether people work differently afterwards.</p>
 <p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
@@ -2159,9 +2159,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>SUMMARY</h2>
 <p>I ran the AI agent client enablement program at Network Ninja. Sole owner. No infrastructure, no team, no precedent. I built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum covering four proficiency levels: everyday users, power users, executives, and internal account managers. Every AI client the company brought on came through this work.</p>
-<p>Most AI adoption programs fail the same way. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they actually need help with. The workers are already swamped. They're also being told, implicitly, that this tool might make them redundant. I call that abandonment with a subscription fee.</p>
+<p>Most AI adoption programs fail the same way. Companies buy the tool, then push it out to the people who are supposed to use it, without asking those people what they need help with. The workers are already swamped. They're also being told, implicitly, that this tool might make them redundant. I call that abandonment with a subscription fee.</p>
 <p>My approach starts three questions earlier: for who, for what, and why. Find the patterned work, the kind a machine can do reliably. Let machines take that so people have room to build on their work.</p>
-<p>I'm not an engineer. I use AI tools every day, direct technical work with them, and ship real things through them: an open-source Python tool for scoring job alerts, this portfolio site, small automations for friends. I also know exactly where AI outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong. My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's the same instinct that reads what a client actually needs under what they literally said, and catches an AI output when it answered a slightly different question than the one asked.</p>
+<p>I'm not an engineer. I use AI tools every day, direct technical work with them, and ship real things through them: an open-source Python tool for scoring job alerts, this portfolio site, small automations for friends. I also know exactly where AI outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong. My philosophy training is in hermeneutics: how meaning gets made and lost in interpretation. It's the same instinct that reads what a client needs under what they literally said, and catches an AI output when it answered a slightly different question than the one asked.</p>
 </div>
 
 <div class="resume-section">
@@ -2202,8 +2202,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Built the manual testing framework. Systematic evaluation of prompt reliability, output accuracy, and edge case behaviour before any client deployment.</li>
 <li>Identified hallucinations and confidently wrong outputs through systematic testing. Raised concerns to the product team with evidence. Held the position when it wasn't convenient.</li>
-<li>Insisted the outputs actually be reliable before deployment. Pushed for guardrails, honest communication about limitations, and appropriate handoff.</li>
-<li>Built the feedback loop between how clients actually used the tool and what the product team knew about it. Documented failure modes, tracked recurring issues, drove improvements through evidence.</li>
+<li>Insisted the outputs be reliable before deployment. Pushed for guardrails, honest communication about limitations, and appropriate handoff.</li>
+<li>Built the feedback loop between how clients used the tool and what the product team knew about it. Documented failure modes, tracked recurring issues, drove improvements through evidence.</li>
 </ul>
 
 <p><strong>Prompt engineering</strong></p>
@@ -2283,7 +2283,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>EDUCATION</h2>
 <p><strong>Bachelor of Arts, Philosophy (Hermeneutics)</strong> | University of Guelph</p>
-<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's how I evaluate AI outputs, run discovery sessions, and design training for how people actually process information.</p>
+<p class="edu-detail">The philosophy of how meaning gets made and lost in interpretation. It's how I evaluate AI outputs, run discovery sessions, and design training for how people process information.</p>
 <p><strong>Social Service Worker Program</strong> | George Brown College, Toronto | GPA: 3.9/4.0</p>
 <p class="continuing-ed"><strong>CONTINUING EDUCATION:</strong> Google Advanced Data Analytics Certification (In Progress)</p>
 </div>
@@ -2310,7 +2310,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <div class="resume-section">
 <h2>SUMMARY</h2>
 <p>I've owned both sides of revenue operations: the infrastructure that makes a sales process work and the execution that fills the pipeline. At Network Ninja, I designed the CRM architecture, defined pipeline stages and data fields, built the forecasting model, and ran outbound prospecting, email sequencing, and demo coordination. One person, both sides.</p>
-<p>The work I called "sales operations" at the time is what most companies now call RevOps. I just didn't have the title. I owned the system design decisions (what data to collect, how to structure stages, what a qualified lead actually looked like, how to make sure nothing fell through the cracks) and the execution (finding prospects, entering them, following up, running sequential outreach, converting them into demos).</p>
+<p>The work I called "sales operations" at the time is what most companies now call RevOps. I just didn't have the title. I owned the system design decisions (what data to collect, how to structure stages, what a qualified lead looked like, how to make sure nothing fell through the cracks) and the execution (finding prospects, entering them, following up, running sequential outreach, converting them into demos).</p>
 <p>I'm the person who notices when a CRM is lying to you. When the data looks clean but the definitions are wrong. When leads are being counted twice. When the forecast is optimistic because nobody defined what "qualified" means. I fix that before it costs someone a quarter.</p>
 </div>
 
@@ -2489,7 +2489,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <ul>
 <li>Led the complete lifecycle of a $500K custom platform build with $20K monthly recurring, covering 48,000+ retail locations, 3,800+ field staff, and 24M+ annual executions.</li>
 <li>Owned discovery, requirements gathering, workflow and wireframe design, QA process creation, development team leadership (four developers), Jira board management, and client account management.</li>
-<li>Translated client business requirements into technical specifications. Wrote the workflows and wireframes that bridged what the client needed and what the dev team could actually build.</li>
+<li>Translated client business requirements into technical specifications. Wrote the workflows and wireframes that bridged what the client needed and what the dev team could build.</li>
 <li>Built the QA process. Established testing protocols and quality standards. Coordinated between internal dev team and client QA leads. Made sure every feature met requirements before release.</li>
 <li>Led daily scrums with the dev team throughout the build. Made decisions on ticket prioritisation, scope questions, and sequencing.</li>
 <li>Transitioned into account manager post-launch. Managed the client relationship, handled escalations, kept operations stable until a dedicated AM was ready to take over.</li>
@@ -2597,7 +2597,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
   roleExplorer: {
     headline: "Which Ashley Do You Need?",
-    subheadline: "Six titles, one person. The method underneath every one is the same: read what a situation actually needs, build the thing that's missing, document it so someone else can inherit it. Pick the shape that fits what you're hiring for. If you want the how-I-think version before the resume, the AI Thoughts folder on the desktop is where I've written it out.",
+    subheadline: "Six titles, one person. The method underneath every one is the same: read what a situation needs, build the thing that's missing, document it so someone else can inherit it. Pick the shape that fits what you're hiring for. If you want the how-I-think version before the resume, the AI Thoughts folder on the desktop is where I've written it out.",
     availability: "Remote | Open to local hybrid (Guelph, ON area)",
     cta: {
       text: "Let's talk about this",
@@ -2610,7 +2610,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         title: "Chief of Staff / Strategic Ops",
         tags: ["Strategy", "Executive Partnership", "Cross-Functional", "Leadership"],
         hook: "The steady presence behind executive decisions. Reads power dynamics, flags blind spots, says what isn't being said.",
-        whatThisNeeds: "Someone who holds the context, pressure-tests decisions, and makes sure the right things actually happen. The person in the room noticing downstream consequences, giving voice to perspectives not at the table, and advocating for what's needed when the easy option is tempting.",
+        whatThisNeeds: "Someone who holds the context, pressure-tests decisions, and makes sure the right things happen. The person in the room noticing downstream consequences, giving voice to perspectives not at the table, and advocating for what's needed when the easy option is tempting.",
         whatIveDone: [
           "Strategic right hand to the COO for two years. Turned incomplete direction into clear decisions and filled the thinking that wasn't happening at the executive level.",
           "Led the Neptune Retail Solutions custom platform build end to end: discovery, requirements, wireframes, QA process, four developers, and clean handoff to a dedicated AM.",
@@ -2626,11 +2626,11 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "product-ops",
         title: "Product Operations Manager",
         tags: ["Product Ops", "GTM Readiness", "QA", "Cross-Functional"],
-        hook: "Keeps what's being built, what's being sold, and what clients actually need aligned. Owns the handoffs in between.",
-        whatThisNeeds: "Someone who makes sure Product, Engineering, Sales, and Customer Success are actually working from the same picture. Owns go-to-market readiness, field feedback loops that reach the roadmap, QA standards, and the translation layer between technical teams and everyone else.",
+        hook: "Keeps what's being built, what's being sold, and what clients need aligned. Owns the handoffs in between.",
+        whatThisNeeds: "Someone who makes sure Product, Engineering, Sales, and Customer Success are working from the same picture. Owns go-to-market readiness, field feedback loops that reach the roadmap, QA standards, and the translation layer between technical teams and everyone else.",
         whatIveDone: [
           "Owned field readiness for product launches. Training, documentation, and support materials in place before anything shipped.",
-          "Synthesised field feedback into product input that Engineering could actually act on. Caught misalignments between Sales promises and Product roadmap before they became client problems.",
+          "Synthesised field feedback into product input that Engineering could act on. Caught misalignments between Sales promises and Product roadmap before they became client problems.",
           "Built repeatable QA test plans adoptable as an organisation-wide standard.",
           "Led the Neptune custom platform build end to end including four developers. PM coverage during team transitions."
         ],
@@ -2661,7 +2661,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         title: "AI Adoption & Enablement",
         tags: ["AI Adoption", "Prompt Engineering", "AI QA", "Change Management"],
         hook: "Program leadership for AI client enablement. Uses these tools daily and knows exactly where their outputs shouldn't be trusted, because I've built the systems that catch them.",
-        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programs that actually change behaviour. Someone who starts three questions earlier than most: for who, for what, and why.",
+        whatThisNeeds: "Someone who understands how LLMs interpret context well enough to catch where they'll go wrong before a client does, and who understands how people learn well enough to design adoption programs that change behaviour. Someone who starts three questions earlier than most: for who, for what, and why.",
         whatIveDone: [
           "Built the entire adoption infrastructure for a new AI agent product with no team and no precedent: testing framework, onboarding methodology, curriculum, prompt libraries.",
           "Applied hermeneutics training directly to AI quality work - used understanding of how models interpret context to find where they were likely to misread intent.",
@@ -2678,7 +2678,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         title: "Revenue Operations",
         tags: ["RevOps", "CRM Architecture", "Pipeline", "Forecasting"],
         hook: "Notices when a CRM is lying to you, and fixes it before it costs someone a quarter.",
-        whatThisNeeds: "Someone who owns both sides of the function: the infrastructure decisions (stage definitions, data fields, what 'qualified' actually means, forecasting logic) and the execution (prospecting, lead entry, sequential outreach, follow-up). The person who spots duplicate leads, ambiguous definitions, and wishful-thinking pipelines.",
+        whatThisNeeds: "Someone who owns both sides of the function: the infrastructure decisions (stage definitions, data fields, what 'qualified' means, forecasting logic) and the execution (prospecting, lead entry, sequential outreach, follow-up). The person who spots duplicate leads, ambiguous definitions, and wishful-thinking pipelines.",
         whatIveDone: [
           "Designed the CRM pipeline. Defined stages, qualification criteria, required data fields, and the logic determining when a lead moved forward or stalled.",
           "Built and maintained a 3-6-9 month forecasting model. Self-taught on both SugarCRM and HubSpot and migrated the team between them without losing pipeline visibility.",
@@ -2694,7 +2694,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         id: "implementation",
         title: "Implementation Manager",
         tags: ["Implementation", "Client Onboarding", "Technical PM", "QA"],
-        hook: "Full lifecycle - discovery through clean handoff, with documentation the next person can actually use.",
+        hook: "Full lifecycle - discovery through clean handoff, with documentation the next person can use.",
         whatThisNeeds: "Someone who takes a project from requirements gathering through wireframes, QA process, development team leadership, and clean handoff to whoever inherits it. The through-line: every process, every handoff document, every training program is built assuming someone else needs to pick it up and run with it without you in the room.",
         whatIveDone: [
           "Led the Neptune Retail Solutions custom platform build end to end: $500K build with $20K monthly recurring, 48,000+ retail locations, 3,800+ field staff, 24M+ annual executions. Four developers, Jira board management, account management through to clean handoff.",
@@ -2739,8 +2739,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     headline: "Operational Infrastructure Nerd | Hermeneutics Enthusiast | Cat Mom",
 
     bio: `<p>I'm Ashley. I notice things that aren't being said. Systems failing quietly. People overwhelmed and covering well. Two teams talking past each other, both convinced the other one is the problem. I notice, and then I do something about it. Apparently this is rarer than it should be.</p>
-<p>I'm shy. Actually shy. I'm happiest as the stage manager. I'd rather make sure everyone has what they need and that the whole thing runs well than be the person at the front of the room. Get me one on one though, or somewhere I feel comfortable, and I'm a completely different person. Enthusiastic. Animated. Probably talking too fast about something I find fascinating. Both things are true and I've made peace with that.</p>
-<p>My brain works a bit differently than most and I love it. I'm deeply introspective, which means I understand myself well enough to know what I need and why I work the way I do. The anxiety that some people would call a weakness is actually what keeps everything from falling through the cracks. I cannot stand missing the mark. I cannot stand the feeling of something slipping. So things don't slip. I also don't like diving into a direction before I actually understand what I'm doing, which means I ask more questions upfront than most people expect and produce fewer wrong turns than most projects budget for. It's a fair trade.</p>
+<p>I'm shy. Very shy. I'm happiest as the stage manager. I'd rather make sure everyone has what they need and that the whole thing runs well than be the person at the front of the room. Get me one on one though, or somewhere I feel comfortable, and I'm a completely different person. Enthusiastic. Animated. Probably talking too fast about something I find fascinating. Both things are true and I've made peace with that.</p>
+<p>My brain works a bit differently than most and I love it. I'm deeply introspective, which means I understand myself well enough to know what I need and why I work the way I do. The anxiety that some people would call a weakness is what keeps everything from falling through the cracks. I cannot stand missing the mark. I cannot stand the feeling of something slipping. So things don't slip. I also don't like diving into a direction before I understand what I'm doing, which means I ask more questions upfront than most people expect and produce fewer wrong turns than most projects budget for. It's a fair trade.</p>
 <p>My dad was a house painter. I grew up understanding that doing something properly matters, even when nobody's watching. Especially then.</p>
 <p>Philosophy degree from Guelph. Hermeneutics specifically, which is the study of how meaning is made and lost between people. Social work training from George Brown. Then a receptionist job that turned into accounts receivable, London for a bit, sales ops, and eventually seven-plus years at a startup that became about five different jobs. None of it was a plan. All of it was useful.</p>
 <p>I don't think in hierarchies. A title tells me what someone is accountable for. It doesn't tell me whether they're worth listening to. I've gotten good ideas from people on their first week and bad ones from people who'd been somewhere for a decade. Respect is just how you show up.</p>
@@ -2798,14 +2798,14 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     journalEntries: [
       {
         date: "January 2026",
-        subject: "AI Needs Critics Who Actually Use It",
+        subject: "AI Needs Critics Who Use It Every Day",
         content: `<p>I use AI tools every day. I've built QA frameworks, prompt libraries, and training programs around them. I find the technology genuinely interesting - how it works, where it breaks, what it does well, what it confidently gets wrong. I'm not someone who opened Claude once and decided they understood it, and I'm not someone who thinks it's going to save or destroy everything. I think it's a tool that's moving faster than most people's ability to evaluate what it produces. And that's the part that worries me.</p>
-<p>There's an enormous amount of conversation around AI adoption - which tools, how fast, what it means for jobs. There is much less serious conversation about what the output actually looks like, whether it's good, how you'd know if it wasn't.</p>
+<p>There's an enormous amount of conversation around AI adoption - which tools, how fast, what it means for jobs. There is much less serious conversation about what the output looks like, whether it's good, how you'd know if it wasn't.</p>
 <p>Here's an analogy that might date me: remember when you could mod your Xbox? Or root your Android? There was this whole culture of people who wanted to understand how the thing worked, who were willing to spend a weekend in forums figuring out exactly which steps to follow and in which order, and who got satisfaction from making the device do something it wasn't supposed to. It rewarded curiosity, had a community, had shared knowledge about what you were trying to achieve and why.</p>
-<p>AI has that same energy, at least for some people. The tinkering instinct is absolutely there. But what's missing is any kind of shared understanding of what we're actually trying to do with it. Modding your Xbox had a clear goal: get more out of the hardware. What's the goal with AI? Efficiency? Creativity? Augmentation? Replacement? Everybody has a different answer, and most organisations haven't sat down to figure out theirs. So people are tinkering without a target, which is fun right up until something goes wrong and nobody knows why.</p>
+<p>AI has that same energy, at least for some people. The tinkering instinct is absolutely there. But what's missing is any kind of shared understanding of what we're trying to do with it. Modding your Xbox had a clear goal: get more out of the hardware. What's the goal with AI? Efficiency? Creativity? Augmentation? Replacement? Everybody has a different answer, and most organisations haven't sat down to figure out theirs. So people are tinkering without a target, which is fun right up until something goes wrong and nobody knows why.</p>
 <p>The output problem gets worse when you factor in critical thinking - which I think is the most underrated skill for working with AI well, and also a completely insufficient safeguard on its own.</p>
-<p>Here's why. Critical thinking lets you interrogate what you're given. It makes you ask "does this actually make sense" and "where did this come from" and "what's missing here." Those are the right questions. But they only work if you have enough base knowledge to recognise when something is off. If you don't know the domain well, you won't catch the confident-sounding gaps the model is filling in with plausible nonsense. You'll read it, it'll feel coherent, and you'll move on. Technically the model is just completing a pattern. That doesn't matter much if the result is that you've built something on a foundation that isn't solid.</p>
-<p>This is where my philosophy background becomes practical. Hermeneutics is about how meaning gets made and lost in interpretation - and when I'm evaluating AI output, I start with "is this correct?" and then ask how the model interpreted the prompt, where it filled in assumptions I didn't make, what it inferred that I didn't state, and whether the structure of the response is shaping the content in ways I didn't ask for. That's a different kind of reading than most people bring to AI output. I've found hallucinations that looked perfectly plausible until you traced the reasoning back. I've caught outputs that were technically correct but answered a question slightly different from the one that was asked, which is a much harder failure to spot and a much more dangerous one. The end user is usually the one who finds out. The vendor rarely sees it, and neither does the executive who signed the contract. The person actually using the thing, trying to make a decision based on what it told them.</p>
+<p>Here's why. Critical thinking lets you interrogate what you're given. It makes you ask "does this make sense" and "where did this come from" and "what's missing here." Those are the right questions. But they only work if you have enough base knowledge to recognise when something is off. If you don't know the domain well, you won't catch the confident-sounding gaps the model is filling in with plausible nonsense. You'll read it, it'll feel coherent, and you'll move on. Technically the model is just completing a pattern. That doesn't matter much if the result is that you've built something on a foundation that isn't solid.</p>
+<p>This is where my philosophy background becomes practical. Hermeneutics is about how meaning gets made and lost in interpretation - and when I'm evaluating AI output, I start with "is this correct?" and then ask how the model interpreted the prompt, where it filled in assumptions I didn't make, what it inferred that I didn't state, and whether the structure of the response is shaping the content in ways I didn't ask for. That's a different kind of reading than most people bring to AI output. I've found hallucinations that looked perfectly plausible until you traced the reasoning back. I've caught outputs that were technically correct but answered a question slightly different from the one that was asked, which is a much harder failure to spot and a much more dangerous one. The end user is usually the one who finds out. The vendor rarely sees it, and neither does the executive who signed the contract. The person using the thing, trying to make a decision based on what it told them.</p>
 <p>That gap - between who sells it and who lives with the output - is where I spend most of my time.</p>
 <p>LLMs are inclined to be helpful, agreeable, thorough - which sounds like a feature until you get three paragraphs of context you didn't need wrapped around the one sentence you asked for. The model is optimising for something; but the result can feel wasteful, and it muddies the output in ways that matter if you're trying to evaluate what you've been given.</p>
 <p>The tension is real, though. Because sometimes the thing you didn't ask for is the most interesting part. Sometimes the tangent opens a door you didn't know was there. I've had real insights come from exactly those moments of over-delivery. So I'm not saying constrain everything. I'm saying the question of how much is enough, and who gets to decide, is one we haven't figured out yet.</p>
@@ -2824,7 +2824,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>CRM hygiene. Sales processes. Onboarding documentation. Knowledge bases. QA frameworks. Training materials. Demo environments with real logic behind them. None of it was glamorous, some of it was tedious - all of it was invisible to everyone who wasn't looking for it.</p>
 <p>That's the thing about operational infrastructure that makes it such an odd thing to build a career around: it only gets noticed when it breaks. Nobody pulls you aside to say "the onboarding was so smooth." Nobody sends you a thank you note because the knowledge base was searchable and they found the answer in two minutes instead of interrupting someone. The good outcome is the absence of a bad outcome, which is a strange thing to take satisfaction in, but I do.</p>
 <p>The "we'll figure out processes later" instinct is understandable. It is also, in my experience, the most expensive sentence in early-stage company culture. The moment when you can build infrastructure cheaply is always earlier than you think, and the moment when you absolutely have to build it is always more costly than you planned for. You will build the foundation eventually. The question is whether you build it before or after it becomes a crisis.</p>
-<p>And when you do build it, it matters who does the building. A system that's technically correct but doesn't account for how people actually behave is just documentation nobody reads. The person building operational infrastructure needs to understand systems and humans with roughly equal fluency - what the process should be and what the person encountering it at 9am on their third day is actually going to do with it. I've written about this elsewhere (I think about interpretation and usability more than most people are probably comfortable with), but in this context the point is simple: infrastructure built for how people should work fails. Infrastructure built for how people do work lasts.</p>
+<p>And when you do build it, it matters who does the building. A system that's technically correct but doesn't account for how people behave is just documentation nobody reads. The person building operational infrastructure needs to understand systems and humans with roughly equal fluency - what the process should be and what the person encountering it at 9am on their third day is going to do with it. I've written about this elsewhere (I think about interpretation and usability more than most people are probably comfortable with), but in this context the point is simple: infrastructure built for how people should work fails. Infrastructure built for how people do work lasts.</p>
 <p>I've built these things, handed them off, and watched them outlast my direct involvement. That's the goal, really. Building infrastructure that doesn't need you anymore. There's something quietly satisfying about that; like tidying a room you won't be in.</p>`
       },
       {
@@ -2834,13 +2834,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>I build for everyone else.</p>
 <p>My undergraduate degree is in hermeneutics - the philosophy of how meaning gets made and lost in interpretation. The core idea, and the one I've never been able to set down, is that interpretation is not passive. The person encountering the material brings their own context, their own prior knowledge, their own way of processing information. The same document, the same onboarding flow, the same training module will land completely differently depending on who's reading it and how they think. Some people need the big picture before the details make sense. Some people need to do the thing before they can learn about the thing. Some people search; some people scan. Some people are brand new and overwhelmed; some are experienced and moving too fast to read carefully.</p>
 <p>Designing for one of those people and hoping it works for the rest is how you end up with systems that technically contain all the right information and are almost completely useless.</p>
-<p>I think about this for everything I build - onboarding programs, training materials, knowledge bases, process docs, demo environments. The question I keep coming back to is: what could a person actually need here, and how many different kinds of people are going to encounter this? What does the new hire need at week one versus week six? What does the executive need versus the account manager? What does the person searching at 4pm on a Friday, trying to answer a client question before end of day, need to find in about two minutes?</p>
+<p>I think about this for everything I build - onboarding programs, training materials, knowledge bases, process docs, demo environments. The question I keep coming back to is: what could a person need here, and how many different kinds of people are going to encounter this? What does the new hire need at week one versus week six? What does the executive need versus the account manager? What does the person searching at 4pm on a Friday, trying to answer a client question before end of day, need to find in about two minutes?</p>
 <p>Those are different people with different questions, and they deserve different entry points into the same material.</p>
 <p>Combine hermeneutics with social work training - which is about meeting people where they are - and this is just how I think now. I can't turn it off; I'm not sure I'd want to.</p>
 <p>In practice, this changes almost every decision I make.</p>
 <p>Adults learn by doing. This sounds obvious; an extraordinary number of training programs ignore it. They're built around watching and listening, which produces the impression of learning without much of the actual thing. I design around doing, because that's what sticks.</p>
 <p>Documentation is where the gap shows up most clearly. There's a kind of documentation that's complete, accurate, logically structured, and almost useless in practice. It covers everything in the order that makes sense to the person who wrote it. It's thorough. It is a monument to thoroughness. But the person who needs it can't find anything in it, because it was designed to be read from start to finish. I structure things so they're searchable. I put the answer before the explanation, because most of the time someone needs the answer and only sometimes wants the why. I think about what the question is before I think about what the content should be.</p>
-<p>None of this is revolutionary. It's mostly just asking "what could help someone actually grasp this?" before building anything, and being honest about the fact that "someone" is a lot of different people. The hermeneutics training means I take the question seriously at a level below individual design choices; it's a different starting assumption about what interpretation is and who's doing it. The social work training means I know that how people learn is not uniform, and that building for one mode and calling it done leaves a huge number of people behind.</p>
+<p>None of this is revolutionary. It's mostly just asking "what could help someone grasp this?" before building anything, and being honest about the fact that "someone" is a lot of different people. The hermeneutics training means I take the question seriously at a level below individual design choices; it's a different starting assumption about what interpretation is and who's doing it. The social work training means I know that how people learn is not uniform, and that building for one mode and calling it done leaves a huge number of people behind.</p>
 <p>It also produces better outcomes, which I mention because "I have a philosophy degree and it informs my work" can sound like a nice story. The onboarding programs I've built this way have cut ramp time. Documentation people can search has reduced support load. Training where people do the task themselves has produced higher adoption. Designing for actual humans is better business.</p>
 <p>The hard part is that it's easier not to. Designing for one kind of learner, one kind of reader, one set of conditions is simpler and faster. But those are the systems that fail quietly. The information is right, and the people who need it still can't get to it. And a system that doesn't work for the people using it doesn't really work.</p>`
       },
@@ -2860,12 +2860,12 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         date: "July 2026",
         subject: "Let the Machine Handle the Predictable Parts",
         content: `<p>Last month I wrote about the smoothing effect - the way AI adoption tends to flatten human expertise into something that looks replaceable. This is about what the alternative looks like.</p>
-<p>When I talk about machine learning - what it actually does, how it works in practice - the temperature drops. Machine learning learns from data, finds patterns, and can automate the repetitive, predictable, low-judgment parts of work that eat up way too much of someone's day. When you frame it that way, people stop bracing for impact and start asking practical questions. Good ones. "Could it do this thing I spend three hours on every week?" "Could it sort through this so I only have to look at the ones that matter?" Those are worth asking before anything gets rolled out. They're also much smaller questions than "will AI replace me," and smaller questions tend to produce better answers.</p>
-<p>I'm critical of how this is being rolled out. I use these tools every day; I think they can make people's work better. But I think we can do something smarter than treating people as the cost to be cut. The question I keep asking is: for who, for what, and why? Who is the automation for - the people doing the work, or the people cutting the budget? What is it actually useful for - what do the users want it to help with? And why - is it decreasing monotony and giving people room to think, plan, and make better decisions? Or is it just making the headcount smaller?</p>
+<p>When I talk about machine learning - what it does, how it works in practice - the temperature drops. Machine learning learns from data, finds patterns, and can automate the repetitive, predictable, low-judgment parts of work that eat up way too much of someone's day. When you frame it that way, people stop bracing for impact and start asking practical questions. Good ones. "Could it do this thing I spend three hours on every week?" "Could it sort through this so I only have to look at the ones that matter?" Those are worth asking before anything gets rolled out. They're also much smaller questions than "will AI replace me," and smaller questions tend to produce better answers.</p>
+<p>I'm critical of how this is being rolled out. I use these tools every day; I think they can make people's work better. But I think we can do something smarter than treating people as the cost to be cut. The question I keep asking is: for who, for what, and why? Who is the automation for - the people doing the work, or the people cutting the budget? What is it useful for - what do the users want it to help with? And why - is it decreasing monotony and giving people room to think, plan, and make better decisions? Or is it just making the headcount smaller?</p>
 <p>Those are different goals, and they produce very different outcomes.</p>
 <p>When the predictable parts are handled - the data entry, the report formatting, the repetitive processing - people don't just sit there. They have space to think, to notice things, to apply judgment they didn't have time for before. The role starts to change shape around what they're capable of.</p>
-<p>If you already have sharp, capable people - people who perform well, think critically, know the work - why would you replace them when you could make them better? Take the predictable parts off their plate. Let them focus on the parts that actually need a human brain: the judgment calls, the creative work, the things they got into this field to do. Give them room to breathe - room to go home at the end of the day without dreading tomorrow because they know they have space to think when they get there. That shouldn't be a radical idea; somehow it's become one.</p>
-<p>You end up with a stronger team. You end up with people who have room to actually be good at their jobs.</p>
+<p>If you already have sharp, capable people - people who perform well, think critically, know the work - why would you replace them when you could make them better? Take the predictable parts off their plate. Let them focus on the parts that need a human brain: the judgment calls, the creative work, the things they got into this field to do. Give them room to breathe - room to go home at the end of the day without dreading tomorrow because they know they have space to think when they get there. That shouldn't be a radical idea; somehow it's become one.</p>
+<p>You end up with a stronger team. You end up with people who have room to be good at their jobs.</p>
 <p>This is a practical argument. The people who know your systems, your clients, your context - that knowledge is expensive to lose and slow to rebuild. Machine learning can make those people faster and less bogged down. It cannot replace what they know.</p>
 <p>Every major LLM ships with some version of "always review the output." That's correct. The review step is where the human expertise matters most.</p>
 <p>And it can't be one person - it can't be a single overworked holdout left with a login and a mandate to do the work of a team. Review requires people who know the domain, who have the context to spot when something is off, who can tell the difference between an answer that's correct and an answer that's right for this situation. If you've acknowledged that the technology needs human oversight - and every company building it has - then the humans doing that oversight need support, and enough of them to do it.</p>
@@ -2883,10 +2883,10 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>Whatever the tool produced, whatever the model generated, the moment you hand it off or ship it or send it to a client, it's yours. That has always been how it works with any tool. But somehow, with AI, people are treating the tool's involvement as shared authorship. Like the model's participation dilutes their responsibility. It doesn't; your name's on it.</p>
 <p>I've built QA frameworks for AI output. I've tested prompts, reviewed agent responses, caught hallucinations that looked perfectly plausible until you traced the reasoning back. And the thing I keep circling is that reviewing AI output is a skill; one that most people haven't been taught and most companies haven't invested in teaching. It goes past "did the model get it right" to what did it assume that I didn't say, what did it infer that I didn't intend, is the structure of the response shaping the content in ways I didn't ask for. That's interpretive work - it requires domain knowledge and critical thinking and the willingness to read what you've been given before hitting send.</p>
 <p>Someone in the comments made an intern comparison that I thought was apt. When an intern makes a mistake, nobody throws up their hands and says they can't control what the intern did. You go to their manager, because the manager's job is to own the intern's output. Someone senior puts their name on it and says this is ready to represent us - and AI output needs the same thing. The difference is that the intern is learning and will eventually do it on their own. The model won't - it will keep needing that review, every time, because it has no stake in the outcome.</p>
-<p>There's a lot of energy right now going into getting people to use AI tools. There is a lot less going into teaching people how to evaluate what those tools produce. Companies roll out AI and tell people to "double check responses" without ever explaining what that actually means in practice... what to look for, how to spot drift, how to tell the difference between an answer that's correct and an answer that's right for this specific situation. That's a whole skill set, and it's the one that makes the difference between AI that helps people do better work and AI that produces confident-sounding output nobody's actually verifying.</p>
+<p>There's a lot of energy right now going into getting people to use AI tools. There is a lot less going into teaching people how to evaluate what those tools produce. Companies roll out AI and tell people to "double check responses" without ever explaining what that means in practice... what to look for, how to spot drift, how to tell the difference between an answer that's correct and an answer that's right for this specific situation. That's a whole skill set, and it's the one that makes the difference between AI that helps people do better work and AI that produces confident-sounding output nobody's verifying.</p>
 <p>These models were built on real people's work. Writers, artists, coders, researchers - their content, their creativity, their language, scraped and used without consent or compensation to train the tools we're all now being told to adopt. ...I'm not blind to that and I don't think we should pretend it away just because the tools are useful. AI is an incredibly useful tool; from machine learning to LLMs to other automations, there are so many ways it can be used safely and intelligently to make people's quality of life better. Both of those things are true at the same time - the tool can be good and built on a wrong, and I think holding both is more honest than picking a side.</p>
 <p>Humans still need to be in the loop, as the people who understand the work, who can tell when something's off, who know what the output means in context. The review step is where human expertise lives; ownership of AI output is just another way of saying that someone with judgment and domain knowledge looked at this before it went anywhere.</p>
-<p>People don't just do their existing job faster when you give them good tools; they find the potential that was buried under the patterned work. The improvements they couldn't get to, the thinking they didn't have room for. But that only works if they're actually engaging with what the tool produces - reviewing it, interpreting it, applying judgment. If their name is on it and they mean it.</p>
+<p>People don't just do their existing job faster when you give them good tools; they find the potential that was buried under the patterned work. The improvements they couldn't get to, the thinking they didn't have room for. But that only works if they're engaging with what the tool produces - reviewing it, interpreting it, applying judgment. If their name is on it and they mean it.</p>
 <p>We still need to be the ones making meaning. That's kind of what we do.</p>`
       }
     ]
@@ -2912,7 +2912,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
     responses: {
       "What do you do?": {
-        text: "I've spent 10+ years making sure the operational and product side of things actually holds together. Sales operations, enablement, QA, project management, executive advisory, AI adoption, chief-of-staff work. I built all of it at a startup that needed it.\n\nThe honest answer to what I do is 'it depends what you need.' I've written the same career six ways: Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. Each one is a real resume for a real shape of the work. All the same person. Open Hire Me.exe if you want to pick the shape that fits what you're hiring for.\n\nThe method underneath everything is the same: read what a situation actually needs, build the thing that's missing, document it so the next person can take over.",
+        text: "I've spent 10+ years making sure the operational and product side of things holds together. Sales operations, enablement, QA, project management, executive advisory, AI adoption, chief-of-staff work. I built all of it at a startup that needed it.\n\nThe honest answer to what I do is 'it depends what you need.' I've written the same career six ways: Chief of Staff, Product Operations, Sales Enablement, AI Adoption, Revenue Operations, and Implementation Manager. Each one is a real resume for a real shape of the work. All the same person. Open Hire Me.exe if you want to pick the shape that fits what you're hiring for.\n\nThe method underneath everything is the same: read what a situation needs, build the thing that's missing, document it so the next person can take over.",
         followUp: "How did you end up doing this kind of work?"
       },
 
@@ -2922,7 +2922,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "Tell me about your AI work": {
-        text: "I ran the AI agent client enablement program at Network Ninja. Sole owner. No infrastructure, no team, no precedent. Built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.\n\nMy critique of most AI adoption programs is that they run backwards. Companies buy the tool and push it out to people who are already swamped, without asking those people what they actually need help with. I'd call that cost-cutting with an AI budget line.\n\nMy alternative starts three questions earlier: for who, for what, and why. Find the patterned work, the kind a machine can do reliably. Let machines take that so people have room to build on their work.\n\nI'm a critic because I'm paying attention. I use these tools daily and know exactly where their outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong.",
+        text: "I ran the AI agent client enablement program at Network Ninja. Sole owner. No infrastructure, no team, no precedent. Built the five-phase onboarding methodology, the manual testing framework, the prompt library, and the training curriculum spanning four proficiency levels: everyday users, power users, executives, and internal account managers.\n\nMy critique of most AI adoption programs is that they run backwards. Companies buy the tool and push it out to people who are already swamped, without asking those people what they need help with. I'd call that cost-cutting with an AI budget line.\n\nMy alternative starts three questions earlier: for who, for what, and why. Find the patterned work, the kind a machine can do reliably. Let machines take that so people have room to build on their work.\n\nI'm a critic because I'm paying attention. I use these tools daily and know exactly where their outputs shouldn't be trusted, because I've built the systems that catch them when they're wrong.",
         followUp: "What do you mean by catching where things go wrong?"
       },
 
@@ -2952,7 +2952,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "Why should I hire you?": {
-        text: "Because I'm the person who makes everyone else's job easier.\n\nI notice what's not working before it becomes a crisis, build the systems to fix it, and document everything so it runs without me. I bridge technical and business teams and create shared understanding where there wasn't any. I get things done without needing to be told what to do.\n\nI'll also tell you what I actually think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing, we'd probably work well together.",
+        text: "Because I'm the person who makes everyone else's job easier.\n\nI notice what's not working before it becomes a crisis, build the systems to fix it, and document everything so it runs without me. I bridge technical and business teams and create shared understanding where there wasn't any. I get things done without needing to be told what to do.\n\nI'll also tell you what I think. Direct communication, no corporate jargon, just honest and clear. If that sounds refreshing, we'd probably work well together.",
         followUp: "What do people say about working with you?"
       },
 
@@ -2961,8 +2961,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         followUp: null
       },
 
-      "You mentioned hermeneutics. How does that actually help?": {
-        text: "Hermeneutics is the philosophy of how meaning gets made and lost in interpretation. In practice, it means every time I build something I'm asking 'how will a real person actually interpret this under real conditions?' Not how I hope they will. How they actually will.\n\nIt applies to data. Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions and context. I ask: what's being measured, what's being missed, who decided what counts?\n\nIt applies to AI outputs. Models fill in assumptions you didn't make and infer things you didn't state. Reading closely for what a prompt actually asked versus what the model filled in on its own is the same interpretive instinct.\n\nMost problems people call technical are actually communication breakdowns. Understanding how humans process information changes how you build everything.",
+      "You mentioned hermeneutics. How does that help?": {
+        text: "Hermeneutics is the philosophy of how meaning gets made and lost in interpretation. In practice, it means every time I build something I'm asking 'how will a real person interpret this under real conditions?'\n\nIt applies to data. Data doesn't speak for itself. Someone has to interpret it, and that interpretation is shaped by assumptions and context. I ask: what's being measured, what's being missed, who decided what counts?\n\nIt applies to AI outputs. Models fill in assumptions you didn't make and infer things you didn't state. Reading closely for what a prompt asked versus what the model filled in on its own is the same interpretive instinct.\n\nMost problems people call technical turn out to be communication breakdowns. Understanding how humans process information changes how you build everything.",
         followUp: null
       },
 
@@ -2972,13 +2972,13 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "What does your ideal role look like?": {
-        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation. AI Adoption lead bringing the honest testing most AI programs skip. Revenue Operations building the pipeline infrastructure. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape. Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people actually work, and be trusted to figure things out without a lot of oversight. Somewhere my background reads as an asset.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
+        text: "Any of six flavours, honestly. Chief of Staff to someone who wants a real strategic partner. Product Operations Manager keeping the space between teams from becoming a gap. Sales Enablement Manager running the strategic sales conversation. AI Adoption lead bringing the honest testing most AI programs skip. Revenue Operations building the pipeline infrastructure. Implementation Manager owning projects from discovery through clean handoff. I've written a full resume for each shape. Hire Me.exe on this desktop.\n\nThe underneath-it-all version: somewhere I can see problems forming before they're crises, build systems that respect how people work, and be trusted to figure things out without a lot of oversight. Somewhere my background reads as an asset.\n\nGive me interesting problems, trust me to solve them, and let me make your organisation work better.",
         followUp: null
       },
 
       "Tell me a bit about yourself": {
         text: "Hi. I'm Ashley. Guelph, Ontario. Philosophy degree from Guelph specialising in hermeneutics, plus social work training from George Brown. Then a receptionist job at an ad agency that turned into accounts receivable, London for a few years doing finance, sales ops back in Canada, and seven years at a field marketing startup that became about five different jobs.\n\nRemote since 2015. Board member and treasurer at Diyode Community Workshop, a makerspace here in Guelph. Two cats: Gertrude is quiet and patient, Gherkin has opinions.\n\nOutside work: thrift stores, mid-century furniture, punk records I still love, folk records I've grown into, philosophy for fun, and building things with AI tooling on my own time. I built this site in four days and an open-source job scorer tool in a weekend - so 'evenings and weekends' is a broad category for me.",
-        followUp: "You mentioned hermeneutics. How does that actually help?"
+        followUp: "You mentioned hermeneutics. How does that help?"
       }
     },
 
@@ -3076,8 +3076,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       id: "performance-management",
       name: "Cross-Functional Performance Management System",
       type: "Business Operations Infrastructure",
-      description: "The company needed a way to see what was actually happening across sales, development, and account management as it grew, without adding process weight nobody would use. Leadership was making decisions from anecdotes and gut feel because the visibility wasn't there.",
-      challenge: "Build a performance management system that surfaced honest signal from every function without turning into another meeting nobody wanted. It had to be light enough that the leads would actually use it and structured enough that the numbers said the same thing to everyone reading them.",
+      description: "The company needed a way to see what was happening across sales, development, and account management as it grew, without adding process weight nobody would use. Leadership was making decisions from anecdotes and gut feel because the visibility wasn't there.",
+      challenge: "Build a performance management system that surfaced honest signal from every function without turning into another meeting nobody wanted. It had to be light enough that the leads would use it and structured enough that the numbers said the same thing to everyone reading them.",
       whatIDid: [
         "Designed the weekly structured input format for sales, development, and account management leads. Kept it short enough to fill in within a few minutes.",
         "Tracked demos, pipeline, dev tickets, client satisfaction scores, and recurring query patterns across teams. Chose each metric because it answered a question someone was asking.",
@@ -3117,7 +3117,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         caseStudy: {
           challenge: "New AI agent product launching with zero training infrastructure. Clients ranged from tech-savvy analysts to executives who'd never used AI. Needed to get diverse users productive quickly without overwhelming them or setting unrealistic expectations.",
 
-          approach: "Applied hermeneutics: how do people actually learn and interpret new information? Built a progressive curriculum that met users where they were. Started with 'what AI can and can't do' before teaching prompts. Created role-based paths so sales teams learned differently than ops teams.",
+          approach: "Applied hermeneutics: how do people learn and interpret new information? Built a progressive curriculum that met users where they were. Started with 'what AI can and can't do' before teaching prompts. Created role-based paths so sales teams learned differently than ops teams.",
 
           deliverables: [
             "Five-phase onboarding methodology (Discovery, Implementation, Testing, Training, Ongoing Support)",
@@ -3245,7 +3245,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         documentUrl: "examples/mobile-experience-survey-guide.html",
 
         caseStudy: {
-          challenge: "Clients needed to understand what customers actually thought about their field marketing experiences. But most surveys were either too long (nobody finishes), too vague (useless data), or too leading (biased results). Needed a framework that got honest, useful feedback without survey fatigue.",
+          challenge: "Clients needed to understand what customers thought about their field marketing experiences. But most surveys were either too long (nobody finishes), too vague (useless data), or too leading (biased results). Needed a framework that got honest, useful feedback without survey fatigue.",
 
           approach: "Studied survey methodology research. Identified the sweet spot: 5-7 questions, specific but not leading, mix of quantitative (for tracking) and qualitative (for insights). Built in mobile-first design since most respondents were on phones. Created question banks organised by what you're trying to learn.",
 
@@ -3265,7 +3265,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
         presentation: {
           title: "Experience Survey Framework",
-          subtitle: "Getting Feedback That Actually Helps",
+          subtitle: "Getting Feedback You Can Use",
           slides: [
             {
               title: "The Challenge",
@@ -3290,7 +3290,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
             {
               title: "Mobile-First Design",
               content: "• Thumb-friendly buttons\n• Progress indicators\n• Save and continue\n• Under 3 minutes total",
-              notes: "Design for how people actually respond"
+              notes: "Design for how people respond"
             },
             {
               title: "The Impact",
@@ -3310,9 +3310,9 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         documentUrl: "examples/advanced-ai-prompts-guide.html",
 
         caseStudy: {
-          challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to translate business questions into prompts that actually got useful answers.",
+          challenge: "Basic prompts got basic answers. Enterprise clients needed sophisticated analysis: trend detection, anomaly identification, competitive benchmarking, predictive patterns. The AI could do it, but users didn't know how to ask. Needed to translate business questions into prompts that got useful answers.",
 
-          approach: "Worked backward from what executives actually needed to know, then engineered prompts that reliably got those answers. Tested extensively: same prompt, multiple datasets, consistent results. Created templates that non-technical users could customise. Built in guardrails to prevent misinterpretation.",
+          approach: "Worked backward from what executives needed to know, then engineered prompts that reliably got those answers. Tested extensively: same prompt, multiple datasets, consistent results. Created templates that non-technical users could customise. Built in guardrails to prevent misinterpretation.",
 
           deliverables: [
             "Power Prompts library with 75+ tested templates",
@@ -3374,8 +3374,8 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         documentUrl: "https://ashley-sarahsep.github.io/job-alert-scorer/",
 
         caseStudy: {
-          challenge: "I got tired of reading 40 job postings a day to find the three worth applying to. The signal-to-noise ratio in job alert emails is brutal, and the time spent on first-pass triage is time not spent on applications that actually matter.",
-          approach: "I built a tool that does the first pass, then made it free and open source so other people could use it too. Job Alert Scorer reads your LinkedIn and Indeed alert emails, finds the full job description on the company's careers page, and scores each role 1 to 10 against a candidate profile you write: what you want, what's a dealbreaker, what makes a role actually exciting. It reads between the lines. Matches underlying capability, so 'built onboarding for a marketing SaaS' can register as a fit for an onboarding role in fintech.\n\nI designed and shipped the whole thing solo by directing Claude Code: a clean public/private architecture (your data never touches the code), a pluggable provider design, documentation, and an offline test suite. It's honest triage that gives people back their time, and it never applies for anyone.",
+          challenge: "I got tired of reading 40 job postings a day to find the three worth applying to. The signal-to-noise ratio in job alert emails is brutal, and the time spent on first-pass triage is time not spent on applications worth sending.",
+          approach: "I built a tool that does the first pass, then made it free and open source so other people could use it too. Job Alert Scorer reads your LinkedIn and Indeed alert emails, finds the full job description on the company's careers page, and scores each role 1 to 10 against a candidate profile you write: what you want, what's a dealbreaker, what makes a role exciting. It reads between the lines. Matches underlying capability, so 'built onboarding for a marketing SaaS' can register as a fit for an onboarding role in fintech.\n\nI designed and shipped the whole thing solo by directing Claude Code: a clean public/private architecture (your data never touches the code), a pluggable provider design, documentation, and an offline test suite. It's honest triage that gives people back their time, and it never applies for anyone.",
           deliverables: [
             "Full working tool: Gmail API integration, Anthropic Claude scoring with structured outputs and prompt caching, ranked email digest",
             "Illustrated getting-started page with fill-in-the-blank profile template for non-technical users",
@@ -3394,7 +3394,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
           slides: [
             {
               title: "The Problem",
-              content: "40 job postings a day.\n3 worth applying to.\n\nThe time spent on first-pass triage is time not spent on applications that actually matter.",
+              content: "40 job postings a day.\n3 worth applying to.\n\nThe time spent on first-pass triage is time not spent on applications worth sending.",
               notes: "Personal pain point that turned into a shipped product"
             },
             {
