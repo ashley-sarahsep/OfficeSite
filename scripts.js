@@ -2178,12 +2178,12 @@ function initCaseStudy(windowEl, projectId) {
       </div>
 
       <div class="casestudy-footer">
-        <button class="casestudy-btn" id="view-presentation" data-project="${projectId}">
+        ${project.presentation ? `<button class="casestudy-btn" id="view-presentation" data-project="${projectId}">
           📊 View Presentation
-        </button>
-        <button class="casestudy-btn secondary" id="view-document" data-url="${project.documentUrl}">
+        </button>` : ''}
+        ${project.documentUrl ? `<button class="casestudy-btn secondary" id="view-document" data-url="${project.documentUrl}">
           📄 View Full Document
-        </button>
+        </button>` : ''}
       </div>
     </div>
   `;

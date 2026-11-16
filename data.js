@@ -2698,35 +2698,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       heroes: "My dad (music, books, curiosity) and my mum (Prince, Talking Heads, the fun stuff), and I'm sure plenty of others, though I'm not keen on pedestals."
     },
 
-    topEight: [
-      { name: "Gertrude & Gherkin", role: "The Real Bosses", image: "assets/images/top8-cats.jpg" },
-      { name: "Jira", role: "It's Complicated", image: "assets/images/top8-jira.jpg" },
-      { name: "Hermeneutics", role: "Secretly Practical", image: "assets/images/top8-philosophy.jpg" },
-      { name: "Remote Work", role: "Since Before It Was Cool", image: "assets/images/top8-remote.jpg" },
-      { name: "The Pink Chair", role: "Gherkin's Now, Apparently", image: "assets/images/top8-chair.jpg" },
-      { name: "Asking Why", role: "Core Methodology", image: "assets/images/top8-why.jpg" },
-      { name: "The $80 Wall Unit", role: "Best Thrift Find", image: "assets/images/top8-wallunit.jpg" },
-      { name: "Good Documentation", role: "An Act of Kindness", image: "assets/images/top8-docs.jpg" }
-    ],
-
-
     journalEntries: [
-      {
-        date: "January 2026",
-        subject: "AI Needs Critics Who Use It Every Day",
-        content: `<p>I use AI tools every day. I've built QA frameworks, prompt libraries, and training programs around them. I find the technology genuinely interesting - how it works, where it breaks, what it does well, what it confidently gets wrong. I'm not someone who opened Claude once and decided they understood it, and I'm not someone who thinks it's going to save or destroy everything. I think it's a tool that's moving faster than most people's ability to evaluate what it produces. And that's the part that worries me.</p>
-<p>There's an enormous amount of conversation around AI adoption - which tools, how fast, what it means for jobs. There is much less serious conversation about what the output looks like, whether it's good, how you'd know if it wasn't.</p>
-<p>Here's an analogy that might date me: remember when you could mod your Xbox? Or root your Android? There was this whole culture of people who wanted to understand how the thing worked, who were willing to spend a weekend in forums figuring out exactly which steps to follow and in which order, and who got satisfaction from making the device do something it wasn't supposed to. It rewarded curiosity, had a community, had shared knowledge about what you were trying to achieve and why.</p>
-<p>AI has that same energy, at least for some people. The tinkering instinct is absolutely there. But what's missing is any kind of shared understanding of what we're trying to do with it. Modding your Xbox had a clear goal: get more out of the hardware. What's the goal with AI? Efficiency? Creativity? Augmentation? Replacement? Everybody has a different answer, and most organisations haven't sat down to figure out theirs. So people are tinkering without a target, which is fun right up until something goes wrong and nobody knows why.</p>
-<p>The output problem gets worse when you factor in critical thinking - which I think is the most underrated skill for working with AI well, and also a completely insufficient safeguard on its own.</p>
-<p>Here's why. Critical thinking lets you interrogate what you're given. It makes you ask "does this make sense" and "where did this come from" and "what's missing here." Those are the right questions. But they only work if you have enough base knowledge to recognise when something is off. If you don't know the domain well, you won't catch the confident-sounding gaps the model is filling in with plausible nonsense. You'll read it, it'll feel coherent, and you'll move on. Technically the model is just completing a pattern. That doesn't matter much if the result is that you've built something on a foundation that isn't solid.</p>
-<p>This is where my philosophy background becomes practical. Hermeneutics is about how meaning gets made and lost in interpretation - and when I'm evaluating AI output, I start with "is this correct?" and then ask how the model interpreted the prompt, where it filled in assumptions I didn't make, what it inferred that I didn't state, and whether the structure of the response is shaping the content in ways I didn't ask for. That's a different kind of reading than most people bring to AI output. I've found hallucinations that looked perfectly plausible until you traced the reasoning back. I've caught outputs that were technically correct but answered a question slightly different from the one that was asked, which is a much harder failure to spot and a much more dangerous one. The end user is usually the one who finds out. The vendor rarely sees it, and neither does the executive who signed the contract. The person using the thing, trying to make a decision based on what it told them.</p>
-<p>That gap - between who sells it and who lives with the output - is where I spend most of my time.</p>
-<p>LLMs are inclined to be helpful, agreeable, thorough - which sounds like a feature until you get three paragraphs of context you didn't need wrapped around the one sentence you asked for. The model is optimising for something; but the result can feel wasteful, and it muddies the output in ways that matter if you're trying to evaluate what you've been given.</p>
-<p>The tension is real, though. Because sometimes the thing you didn't ask for is the most interesting part. Sometimes the tangent opens a door you didn't know was there. I've had real insights come from exactly those moments of over-delivery. So I'm not saying constrain everything. I'm saying the question of how much is enough, and who gets to decide, is one we haven't figured out yet.</p>
-<p>And until we do, output quality is going to keep being treated as a nice-to-have.</p>
-<p>It is the whole point.</p>`
-      },
       {
         date: "February 2026",
         subject: "The Case for Operational Infrastructure (Before You Think You Need It)",
@@ -2758,37 +2730,6 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>None of this is revolutionary. It's mostly just asking "what could help someone grasp this?" before building anything, and being honest about the fact that "someone" is a lot of different people. The hermeneutics training means I take the question seriously at a level below individual design choices; it's a different starting assumption about what interpretation is and who's doing it. The social work training means I know that how people learn is not uniform, and that building for one mode and calling it done leaves a huge number of people behind.</p>
 <p>It also produces better outcomes, which I mention because "I have a philosophy degree and it informs my work" can sound like a nice story. The onboarding programs I've built this way have cut ramp time. Documentation people can search has reduced support load. Training where people do the task themselves has produced higher adoption. Designing for actual humans is better business.</p>
 <p>The hard part is that it's easier not to. Designing for one kind of learner, one kind of reader, one set of conditions is simpler and faster. But those are the systems that fail quietly. The information is right, and the people who need it still can't get to it. And a system that doesn't work for the people using it doesn't really work.</p>`
-      },
-      {
-        date: "June 2026",
-        subject: "The Smoothing Effect",
-        content: `<p>Naomi Klein said something recently that stuck. She said that the mechanisation of speech and the smoothing of expression make us more replaceable by machines precisely because we begin to behave like them. The more formulaic the output becomes, the easier it is for algorithms to pass for the people who used to make it.</p>
-<p>I work with AI every day. I've built QA frameworks, prompt libraries, training programs. I find the technology interesting and I use it seriously. But I've also watched it smooth things. I've watched it take a specific observation and turn it into a general one. I've watched it replace a phrase that could only have come from one person with a phrase that could have come from anyone. I've watched it produce text that is confident, coherent, well-structured, and completely interchangeable with what any other model would have produced for any other user. That's what the technology is optimised for.</p>
-<p>When every AI announcement is about replacing workflows, eliminating roles, doing more with less, the implicit message is: you are the inefficiency. Your judgment, your review, your particular way of understanding your work - those are the bottleneck we're engineering around. A lot of people right now are reading those announcements and quietly wondering when it's their turn. That fear is based on what they're seeing.</p>
-<p>But here's what I keep coming back to: the things that make a person valuable at their job are mostly the things AI can't do. The judgment call that requires understanding a specific client's history. The instinct that something is off before you can articulate why. The ability to read a room, or a situation, or a report and know what it means. Those are interpretation skills, they're human skills, and they're the first things that get dismissed as soft or replaceable when someone decides that automation is cheaper than people.</p>
-<p>My background is in hermeneutics - the philosophy of interpretation. I keep ending up back there when I think about AI, because the thing hermeneutics takes seriously is exactly the thing that gets lost in the smoothing: context. Who is reading this, what they bring to it, what it means to them versus what it means to someone else. An LLM doesn't interpret; it predicts. It produces the most probable next token based on patterns. That's useful for a lot of things; it is not the same as understanding, and most of the work I care about lives in the difference.</p>
-<p>I've tested AI output that was confident, well-structured, and wrong about something you'd only catch if you knew the domain. That's a regular Tuesday. I've caught outputs that answered a question slightly different from the one that was asked, which is a harder failure to spot and a more dangerous one. The end user is usually the one who finds out. The vendor rarely sees it, and neither does the executive who signed the contract.</p>
-<p>I'm critical of how AI is being rolled out. I use these tools every day and I think they can make people's work better. Those two things aren't contradictory. But I'm watching a version of adoption that treats people as the cost to be cut, and I think we're losing something in the smoothing that we're going to miss.</p>
-<p>Klein is right. The more we flatten human expression into something predictable and pattern-matched, the easier it becomes to argue that a machine could do it. So be specific, be particular - do the work the way only you would do it. The things about human work that have value - the judgment, the interpretation, the context - those are worth protecting. They're also worth investing in, which is something I don't hear enough.</p>`
-      },
-      {
-        date: "July 2026",
-        subject: "Let the Machine Handle the Predictable Parts",
-        content: `<p>Last month I wrote about the smoothing effect - the way AI adoption tends to flatten human expertise into something that looks replaceable. This is about what the alternative looks like.</p>
-<p>When I talk about machine learning - what it does, how it works in practice - the temperature drops. Machine learning learns from data, finds patterns, and can automate the repetitive, predictable, low-judgment parts of work that eat up way too much of someone's day. When you frame it that way, people stop bracing for impact and start asking practical questions. Good ones. "Could it do this thing I spend three hours on every week?" "Could it sort through this so I only have to look at the ones that matter?" Those are worth asking before anything gets rolled out. They're also much smaller questions than "will AI replace me," and smaller questions tend to produce better answers.</p>
-<p>I'm critical of how this is being rolled out. I use these tools every day; I think they can make people's work better. But I think we can do something smarter than treating people as the cost to be cut. The question I keep asking is: for who, for what, and why? Who is the automation for - the people doing the work, or the people cutting the budget? What is it useful for - what do the users want it to help with? And why - is it decreasing monotony and giving people room to think, plan, and make better decisions? Or is it just making the headcount smaller?</p>
-<p>Those are different goals, and they produce very different outcomes.</p>
-<p>When the predictable parts are handled - the data entry, the report formatting, the repetitive processing - people don't just sit there. They have space to think, to notice things, to apply judgment they didn't have time for before. The role starts to change shape around what they're capable of.</p>
-<p>If you already have sharp, capable people - people who perform well, think critically, know the work - why would you replace them when you could make them better? Take the predictable parts off their plate. Let them focus on the parts that need a human brain: the judgment calls, the creative work, the things they got into this field to do. Give them room to breathe - room to go home at the end of the day without dreading tomorrow because they know they have space to think when they get there. That shouldn't be a radical idea; somehow it's become one.</p>
-<p>You end up with a stronger team. You end up with people who have room to be good at their jobs.</p>
-<p>This is a practical argument. The people who know your systems, your clients, your context - that knowledge is expensive to lose and slow to rebuild. Machine learning can make those people faster and less bogged down. It cannot replace what they know.</p>
-<p>Every major LLM ships with some version of "always review the output." That's correct. The review step is where the human expertise matters most.</p>
-<p>And it can't be one person - it can't be a single overworked holdout left with a login and a mandate to do the work of a team. Review requires people who know the domain, who have the context to spot when something is off, who can tell the difference between an answer that's correct and an answer that's right for this situation. If you've acknowledged that the technology needs human oversight - and every company building it has - then the humans doing that oversight need support, and enough of them to do it.</p>
-<p>Machine learning is good at patterns, good at volume, good at the kind of predictable, consistent processing that humans can do but probably shouldn't have to. What it is not good at is meaning. It doesn't know why something matters, doesn't know when the technically correct answer is the wrong one for this client, this context, this moment. It doesn't know what's missing.</p>
-<p>That's human work. It has always been human work.</p>
-<p>The best version of AI adoption is the one where people look at how they're using the tools and go "huh, I don't hate it." Where their roles are shaped by their potential and their output. Where the technology handles the predictable parts and the humans do the thinking. That's a version worth investing in. It's also a version that requires investing in the people as much as the tools.</p>
-<p>The technology should make space for people.</p>
-<p>We still need to be the ones making meaning. That's kind of what we do.</p>`
       },
       {
         date: "August 2026",
@@ -2918,6 +2859,23 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 
   workExamples: [
     {
+      id: "ai-adoption",
+      name: "AI Product Adoption Infrastructure",
+      type: "End-to-End Enablement Building",
+      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was powerful. The adoption infrastructure was nonexistent. No onboarding process, no training materials, no quality assurance framework.",
+      challenge: "AI products don't sell or adopt themselves. Clients needed to understand what the tool could and couldn't do, trust the results, and learn to use it well. And someone needed to make sure the results were trustworthy in the first place.",
+      whatIDid: [
+        "Built the manual testing framework. Systematic process to test prompts for reliability, catch hallucinations, and check accuracy before client deployment.",
+        "Designed the five-phase onboarding methodology: Discovery, Implementation, Testing and Validation, Training, Ongoing Support.",
+        "Created a training curriculum spanning four proficiency levels (everyday users, power users, executives, internal account managers) plus 50+ training videos and resources.",
+        "Developed the Power Prompts library of enterprise analytical frameworks.",
+        "Advocated internally for AI quality, honest documentation of limitations, and appropriate deployment. The internal push for guardrails on a product team that needed it."
+      ],
+      outcome: "Every AI client the company signed came through the onboarding I built. Each with a custom analytical framework tuned to their data and business questions. One flagship client used the platform to analyse 13,000+ events across 625+ field staff (published case study). The curriculum and methodology became the standard for every deployment. Owned EMS Vegas booth presence from concept to execution.",
+      skills: ["AI/LLM", "Prompt Engineering", "Training Design", "QA", "Documentation", "Change Management", "Ethics"],
+      image: "assets/images/work-ai.jpg"
+    },
+    {
       id: "enterprise-platform",
       name: "Enterprise Custom Platform Build",
       type: "Requirements, QA and Go-Live",
@@ -2935,21 +2893,36 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       image: "assets/images/work-enterprise.jpg"
     },
     {
-      id: "ai-adoption",
-      name: "AI Product Adoption Infrastructure",
-      type: "End-to-End Enablement Building",
-      description: "The company launched an AI-powered analytics agent that let clients query their field marketing data using natural language. The technology was powerful. The adoption infrastructure was nonexistent. No onboarding process, no training materials, no quality assurance framework.",
-      challenge: "AI products don't sell or adopt themselves. Clients needed to understand what the tool could and couldn't do, trust the results, and learn to use it well. And someone needed to make sure the results were trustworthy in the first place.",
+      id: "performance-management",
+      name: "Cross-Functional Performance Management System",
+      type: "Business Operations Infrastructure",
+      description: "The company needed a way to see what was happening across sales, development, and account management as it grew, without adding process weight nobody would use. Leadership was making decisions from anecdotes and gut feel because the visibility wasn't there.",
+      challenge: "Build a performance management system that surfaced honest signal from every function without turning into another meeting nobody wanted. It had to be light enough that the leads would use it and structured enough that the numbers said the same thing to everyone reading them.",
       whatIDid: [
-        "Built the manual testing framework. Systematic process to test prompts for reliability, catch hallucinations, and check accuracy before client deployment.",
-        "Designed the five-phase onboarding methodology: Discovery, Implementation, Testing and Validation, Training, Ongoing Support.",
-        "Created a training curriculum spanning four proficiency levels (everyday users, power users, executives, internal account managers) plus 50+ training videos and resources.",
-        "Developed the Power Prompts library of enterprise analytical frameworks.",
-        "Advocated internally for AI quality, honest documentation of limitations, and appropriate deployment. The internal push for guardrails on a product team that needed it."
+        "Designed the weekly structured input format for sales, development, and account management leads. Kept it short enough to fill in within a few minutes.",
+        "Tracked demos, pipeline, dev tickets, client satisfaction scores, and recurring query patterns across teams. Chose each metric because it answered a question someone was asking.",
+        "Built the dashboards and visualisations in-house. Made them readable to executives who wanted the summary and to individual leads who wanted the detail.",
+        "For a period, personally ran the weekly management cadence calls with the cross-functional leads. Held them accountable to their metrics without turning it into a performance review.",
+        "Turned the whole thing over to the appropriate owner once the pattern was stable. Documentation good enough that the handoff didn't require me in the room."
       ],
-      outcome: "Every AI client the company signed came through the onboarding I built. Each with a custom analytical framework tuned to their data and business questions. One flagship client used the platform to analyse 13,000+ events across 625+ field staff (published case study). The curriculum and methodology became the standard for every deployment. Owned EMS Vegas booth presence from concept to execution.",
-      skills: ["AI/LLM", "Prompt Engineering", "Training Design", "QA", "Documentation", "Change Management", "Ethics"],
-      image: "assets/images/work-ai.jpg"
+      outcome: "Leadership had honest visibility into cross-functional performance for the first time. Decisions started being made from data. The system survived personnel turnover across all three functions because it was built to be handed off.",
+      skills: ["Business Operations", "Cross-Functional Coordination", "Dashboard Design", "Performance Management", "Documentation", "Executive Reporting"],
+      image: "assets/images/work-ops.jpg"
+    },
+    {
+      id: "campaign",
+      name: "School Board Trustee Campaign",
+      type: "Campaign Manager, 2026",
+      description: "Dan Atkinson ran for Upper Grand District School Board trustee in Guelph Wards 2, 3 and 4. It was his first campaign: four candidates for two seats, with the vote on 26 October 2026.",
+      challenge: "A first-time candidate in a race many voters don't know is on their ballot. The campaign ran on a website, about 30 signs and candidate questionnaires.",
+      whatIDid: [
+        "Set direction with Dan and was his confidante on decisions and campaigning from start to finish.",
+        "Kept the campaign on its deadlines, nomination and submission dates included.",
+        "Designed the campaign website, dan4guelph.ca, and directed its build with an AI coding agent. It explains what a trustee does and how to vote, has an accessibility panel, and collects nothing about visitors.",
+        "Designed the signs."
+      ],
+      outcome: "Dan topped the poll with 9,810 votes (44.3%), 4,339 ahead of the sitting board chair, and came first at every polling location.",
+      skills: ["Campaign Management", "Deadlines", "Web Design", "Accessibility", "Claude Code"]
     },
     {
       id: "sales-enablement",
@@ -2984,23 +2957,6 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       image: "assets/images/work-ops.jpg"
     },
     {
-      id: "performance-management",
-      name: "Cross-Functional Performance Management System",
-      type: "Business Operations Infrastructure",
-      description: "The company needed a way to see what was happening across sales, development, and account management as it grew, without adding process weight nobody would use. Leadership was making decisions from anecdotes and gut feel because the visibility wasn't there.",
-      challenge: "Build a performance management system that surfaced honest signal from every function without turning into another meeting nobody wanted. It had to be light enough that the leads would use it and structured enough that the numbers said the same thing to everyone reading them.",
-      whatIDid: [
-        "Designed the weekly structured input format for sales, development, and account management leads. Kept it short enough to fill in within a few minutes.",
-        "Tracked demos, pipeline, dev tickets, client satisfaction scores, and recurring query patterns across teams. Chose each metric because it answered a question someone was asking.",
-        "Built the dashboards and visualisations in-house. Made them readable to executives who wanted the summary and to individual leads who wanted the detail.",
-        "For a period, personally ran the weekly management cadence calls with the cross-functional leads. Held them accountable to their metrics without turning it into a performance review.",
-        "Turned the whole thing over to the appropriate owner once the pattern was stable. Documentation good enough that the handoff didn't require me in the room."
-      ],
-      outcome: "Leadership had honest visibility into cross-functional performance for the first time. Decisions started being made from data. The system survived personnel turnover across all three functions because it was built to be handed off.",
-      skills: ["Business Operations", "Cross-Functional Coordination", "Dashboard Design", "Performance Management", "Documentation", "Executive Reporting"],
-      image: "assets/images/work-ops.jpg"
-    },
-    {
       id: "analytics-samples",
       name: "analytics_samples.txt",
       type: "textfile",
@@ -3017,6 +2973,26 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
     description: "Case studies, deliverables, and shipped tools from my operations, AI enablement, and product work",
 
     projects: [
+      {
+        id: "practical-guide",
+        title: "AI Agent: Practical Guide",
+        category: "AI Training & Enablement",
+        icon: "📘",
+        summary: "The guide I wrote for everyday users of the company's AI agent: what it can see, how to ask it useful questions, and what to do when an answer misses.",
+        documentUrl: "examples/ai-agent-practical-guide.html",
+        caseStudy: {
+          challenge: "Most people using the AI agent weren't analysts. They needed to know what data it could see and how to ask questions that got useful answers, without sitting through a long training.",
+          approach: "Written for the everyday-user level of the four-level training program. It starts with the data the agent already has, then moves to habits that get better results, three workflows people could use that day, and ten prompts for common tasks.",
+          deliverables: [
+            "A plain-language explanation of the data the agent works with",
+            "Everyday tips and a short troubleshooting section",
+            "Three practical workflows: meeting prep, form responses, and stakeholder reports",
+            "Ten prompts for everyday tasks, ready to copy and adapt"
+          ],
+          impact: "One of the guides behind onboarding for every client that adopted the AI agent, alongside versions for power users, executives and account managers.",
+          skills: ["Training Design", "Technical Writing", "AI Adoption", "Plain Language"]
+        }
+      },
       {
         id: "prompt-crafting",
         title: "The Art of Prompt Crafting",
@@ -3081,137 +3057,6 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
           ]
         }
       },
-
-      {
-        id: "visual-language",
-        title: "The Visual Language",
-        category: "Data Visualisation",
-        icon: "📊",
-        summary: "Developed standards for translating data queries into clear, actionable visualisations",
-        documentUrl: "examples/visual-language-guide.html",
-
-        caseStudy: {
-          challenge: "AI agents could answer questions, but the answers were walls of text. Executives wanted charts. Analysts wanted tables. Field teams wanted simple numbers. Same data, completely different needs. And no standards for how to present any of it.",
-
-          approach: "Researched visualisation best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness. Same data, different presentations for different roles.",
-
-          deliverables: [
-            "Chart selection guide matching data types to visualisation types",
-            "Audience adaptation framework (Executive vs. Analyst vs. Field)",
-            "Colour palette standards with accessibility compliance",
-            "Template library for common report types",
-            "Prompt engineering patterns for visualisation requests",
-            "Style guide ensuring consistency across all outputs"
-          ],
-
-          impact: "Executives started using the dashboards directly instead of requesting manual reports. The visualisation standards were adopted across all client deliverables and became the default for how data was presented company-wide.",
-
-          skills: ["Data Visualisation", "UX Design", "Technical Documentation", "Accessibility", "Stakeholder Management", "Information Architecture"]
-        },
-
-        presentation: {
-          title: "The Visual Language",
-          subtitle: "Making Data Speak Clearly",
-          slides: [
-            {
-              title: "The Problem",
-              content: "AI could answer anything.\nBut the answers looked like this:\n\n[Wall of text nobody read]",
-              notes: "Data without design is just noise"
-            },
-            {
-              title: "Different Audiences, Different Needs",
-              content: "Executive: 'Just tell me if we're up or down'\n\nAnalyst: 'I need the underlying data'\n\nField Team: 'Is this location good or bad?'",
-              notes: "One size fits nobody"
-            },
-            {
-              title: "The Solution",
-              content: "A decision framework:\n\n• Trends over time → Line charts\n• Part of whole → Pie/donut\n• Comparisons → Bar charts\n• Relationships → Scatter plots\n• Single metrics → Big numbers",
-              notes: "Match the visual to the question"
-            },
-            {
-              title: "Audience Adaptation",
-              content: "Same data, three presentations:\n\nExec: 'Revenue up 12% ↑' (green, big)\nAnalyst: [Full table with drill-down]\nField: 'Your store: #3 of 50'",
-              notes: "Context determines format"
-            },
-            {
-              title: "The Standards",
-              content: "• Consistent colour palette\n• Accessibility-compliant contrast\n• Clear titles that answer 'so what?'\n• Source attribution\n• Data freshness indicators",
-              notes: "Consistency builds trust"
-            },
-            {
-              title: "The Result",
-              content: "Executives stopped asking for manual reports.\n\nEvery deliverable looked professional.\n\nBecame the company standard for data presentation.",
-              notes: "Design system for data"
-            }
-          ]
-        }
-      },
-
-      {
-        id: "survey-methodology",
-        title: "Experience Survey Framework",
-        category: "Research & Insights",
-        icon: "📋",
-        summary: "Built survey methodology for capturing authentic customer experience feedback",
-        documentUrl: "examples/mobile-experience-survey-guide.html",
-
-        caseStudy: {
-          challenge: "Clients needed to understand what customers thought about their field marketing experiences. But most surveys were either too long (nobody finishes), too vague (useless data), or too leading (biased results). Needed a framework that got honest, useful feedback without survey fatigue.",
-
-          approach: "Studied survey methodology research. Identified the sweet spot: 5-7 questions, specific but not leading, mix of quantitative (for tracking) and qualitative (for insights). Built in mobile-first design since most respondents were on phones. Created question banks organised by what you're trying to learn.",
-
-          deliverables: [
-            "Survey design principles document",
-            "Question bank organised by research objective",
-            "Mobile-optimised survey templates",
-            "Response analysis framework",
-            "Benchmark interpretation guide",
-            "Common pitfalls and how to avoid them"
-          ],
-
-          impact: "Framework was adopted as the standard for all experience measurement. Designed for mobile completion in under 3 minutes, which addressed the main barrier to usable response data.",
-
-          skills: ["Survey Design", "Research Methodology", "Data Analysis", "UX Writing", "Mobile Design", "Client Training"]
-        },
-
-        presentation: {
-          title: "Experience Survey Framework",
-          subtitle: "Getting Feedback You Can Use",
-          slides: [
-            {
-              title: "The Challenge",
-              content: "Most surveys fail:\n\n• Too long → Abandoned\n• Too vague → Useless\n• Too leading → Biased\n\nWe needed honest, useful feedback.",
-              notes: "Survey fatigue is real"
-            },
-            {
-              title: "The Research",
-              content: "What the data says:\n\n• 5-7 questions optimal\n• Mobile completion 3x higher\n• Specific beats generic\n• Mix quant + qual",
-              notes: "Evidence-based approach"
-            },
-            {
-              title: "The Framework",
-              content: "Every survey needs:\n\n1. Overall satisfaction (benchmark)\n2. Specific experience questions\n3. Likelihood to recommend (NPS)\n4. Open-ended 'why'\n5. One actionable question",
-              notes: "Structure that works"
-            },
-            {
-              title: "Question Bank Approach",
-              content: "Pre-tested questions organised by objective:\n\n• Measuring satisfaction\n• Understanding drivers\n• Identifying problems\n• Capturing suggestions",
-              notes: "Don't reinvent the wheel"
-            },
-            {
-              title: "Mobile-First Design",
-              content: "• Thumb-friendly buttons\n• Progress indicators\n• Save and continue\n• Under 3 minutes total",
-              notes: "Design for how people respond"
-            },
-            {
-              title: "The Impact",
-              content: "Under 3 minutes on mobile.\n\nUsable response data from the field.\n\nClients could act on results.\n\nAdopted as the standard framework.",
-              notes: "Better data, better decisions"
-            }
-          ]
-        }
-      },
-
       {
         id: "advanced-prompts",
         title: "Enterprise Analytics Framework",
@@ -3277,6 +3122,26 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
         }
       },
       {
+        id: "parallax",
+        title: "Parallax",
+        category: "Independent Build / AI Product",
+        icon: "🔭",
+        summary: "An AI sales-enablement app that writes prospect-specific briefs, demo scripts and discovery questions. I designed it and directed its build.",
+        caseStudy: {
+          challenge: "Deals stall when buyers can't picture the product in their own workflow. Reps tend to talk from inside the product, because that's the part they know best.",
+          approach: "I wrote the spec, made the architecture and QA calls, and directed an AI coding agent through the build. Parallax takes a product profile and what's known about a prospect, and produces a prospect-specific brief, demo talking points, a demo script, a one-pager and discovery questions. The rep starts every generation and decides what to keep.",
+          deliverables: [
+            "Outputs mark confirmed facts differently from inferred ones, so a rep can see what's been checked",
+            "Every output names what the product doesn't solve for that prospect",
+            "Discovery questions are generated without seeing the brief, so they go looking for what it missed",
+            "Runs in the browser with the user's own API key",
+            "React and Vite, the Claude API, hosted on Vercel, with a 77-test offline suite and a demo branch that works without a key"
+          ],
+          impact: "Phase 1 launched in September 2026 with a single product profile. Phase 2, a backend and a HubSpot integration, is planned.",
+          skills: ["Product Design", "Prompt Design", "Sales Enablement", "Claude API", "React", "QA", "Claude Code"]
+        }
+      },
+      {
         id: "job-alert-scorer",
         title: "Job Alert Scorer",
         category: "Open-Source Tool / AI Product",
@@ -3332,6 +3197,134 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
               title: "Try It",
               content: "Live page & getting started:\nashley-sarahsep.github.io/job-alert-scorer\n\nCode:\ngithub.com/ashley-sarahsep/job-alert-scorer\n\nOpen source · MIT licence · Free to use",
               notes: "Links to live project and source code"
+            }
+          ]
+        }
+      },
+      {
+        id: "visual-language",
+        title: "The Visual Language",
+        category: "Data Visualisation",
+        icon: "📊",
+        summary: "Developed standards for translating data queries into clear, actionable visualisations",
+        documentUrl: "examples/visual-language-guide.html",
+
+        caseStudy: {
+          challenge: "AI agents could answer questions, but the answers were walls of text. Executives wanted charts. Analysts wanted tables. Field teams wanted simple numbers. Same data, completely different needs. And no standards for how to present any of it.",
+
+          approach: "Researched visualisation best practices, then adapted them for AI-generated outputs. Created decision trees: 'If they're asking about trends, suggest line charts. If comparing categories, suggest bars.' Built in audience awareness. Same data, different presentations for different roles.",
+
+          deliverables: [
+            "Chart selection guide matching data types to visualisation types",
+            "Audience adaptation framework (Executive vs. Analyst vs. Field)",
+            "Colour palette standards with accessibility compliance",
+            "Template library for common report types",
+            "Prompt engineering patterns for visualisation requests",
+            "Style guide ensuring consistency across all outputs"
+          ],
+
+          impact: "Executives started using the dashboards directly instead of requesting manual reports. The visualisation standards were adopted across all client deliverables and became the default for how data was presented company-wide.",
+
+          skills: ["Data Visualisation", "UX Design", "Technical Documentation", "Accessibility", "Stakeholder Management", "Information Architecture"]
+        },
+
+        presentation: {
+          title: "The Visual Language",
+          subtitle: "Making Data Speak Clearly",
+          slides: [
+            {
+              title: "The Problem",
+              content: "AI could answer anything.\nBut the answers looked like this:\n\n[Wall of text nobody read]",
+              notes: "Data without design is just noise"
+            },
+            {
+              title: "Different Audiences, Different Needs",
+              content: "Executive: 'Just tell me if we're up or down'\n\nAnalyst: 'I need the underlying data'\n\nField Team: 'Is this location good or bad?'",
+              notes: "One size fits nobody"
+            },
+            {
+              title: "The Solution",
+              content: "A decision framework:\n\n• Trends over time → Line charts\n• Part of whole → Pie/donut\n• Comparisons → Bar charts\n• Relationships → Scatter plots\n• Single metrics → Big numbers",
+              notes: "Match the visual to the question"
+            },
+            {
+              title: "Audience Adaptation",
+              content: "Same data, three presentations:\n\nExec: 'Revenue up 12% ↑' (green, big)\nAnalyst: [Full table with drill-down]\nField: 'Your store: #3 of 50'",
+              notes: "Context determines format"
+            },
+            {
+              title: "The Standards",
+              content: "• Consistent colour palette\n• Accessibility-compliant contrast\n• Clear titles that answer 'so what?'\n• Source attribution\n• Data freshness indicators",
+              notes: "Consistency builds trust"
+            },
+            {
+              title: "The Result",
+              content: "Executives stopped asking for manual reports.\n\nEvery deliverable looked professional.\n\nBecame the company standard for data presentation.",
+              notes: "Design system for data"
+            }
+          ]
+        }
+      },
+      {
+        id: "survey-methodology",
+        title: "Experience Survey Framework",
+        category: "Research & Insights",
+        icon: "📋",
+        summary: "Built survey methodology for capturing authentic customer experience feedback",
+        documentUrl: "examples/mobile-experience-survey-guide.html",
+
+        caseStudy: {
+          challenge: "Clients needed to understand what customers thought about their field marketing experiences. But most surveys were either too long (nobody finishes), too vague (useless data), or too leading (biased results). Needed a framework that got honest, useful feedback without survey fatigue.",
+
+          approach: "Studied survey methodology research. Identified the sweet spot: 5-7 questions, specific but not leading, mix of quantitative (for tracking) and qualitative (for insights). Built in mobile-first design since most respondents were on phones. Created question banks organised by what you're trying to learn.",
+
+          deliverables: [
+            "Survey design principles document",
+            "Question bank organised by research objective",
+            "Mobile-optimised survey templates",
+            "Response analysis framework",
+            "Benchmark interpretation guide",
+            "Common pitfalls and how to avoid them"
+          ],
+
+          impact: "Framework was adopted as the standard for all experience measurement. Designed for mobile completion in under 3 minutes, which addressed the main barrier to usable response data.",
+
+          skills: ["Survey Design", "Research Methodology", "Data Analysis", "UX Writing", "Mobile Design", "Client Training"]
+        },
+
+        presentation: {
+          title: "Experience Survey Framework",
+          subtitle: "Getting Feedback You Can Use",
+          slides: [
+            {
+              title: "The Challenge",
+              content: "Most surveys fail:\n\n• Too long → Abandoned\n• Too vague → Useless\n• Too leading → Biased\n\nWe needed honest, useful feedback.",
+              notes: "Survey fatigue is real"
+            },
+            {
+              title: "The Research",
+              content: "What the data says:\n\n• 5-7 questions optimal\n• Mobile completion 3x higher\n• Specific beats generic\n• Mix quant + qual",
+              notes: "Evidence-based approach"
+            },
+            {
+              title: "The Framework",
+              content: "Every survey needs:\n\n1. Overall satisfaction (benchmark)\n2. Specific experience questions\n3. Likelihood to recommend (NPS)\n4. Open-ended 'why'\n5. One actionable question",
+              notes: "Structure that works"
+            },
+            {
+              title: "Question Bank Approach",
+              content: "Pre-tested questions organised by objective:\n\n• Measuring satisfaction\n• Understanding drivers\n• Identifying problems\n• Capturing suggestions",
+              notes: "Don't reinvent the wheel"
+            },
+            {
+              title: "Mobile-First Design",
+              content: "• Thumb-friendly buttons\n• Progress indicators\n• Save and continue\n• Under 3 minutes total",
+              notes: "Design for how people respond"
+            },
+            {
+              title: "The Impact",
+              content: "Under 3 minutes on mobile.\n\nUsable response data from the field.\n\nClients could act on results.\n\nAdopted as the standard framework.",
+              notes: "Better data, better decisions"
             }
           ]
         }
