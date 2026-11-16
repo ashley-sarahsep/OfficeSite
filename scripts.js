@@ -312,6 +312,7 @@ function getPortraitPath(portraitKey) {
 }
 
 function openDialog(hotspotId, hotspotData) {
+  track('room_conversation_opened', { hotspot: hotspotId });
   const overlay = document.getElementById('dialog-overlay');
   const titleEl = document.getElementById('dialog-title');
   const portraitContainer = document.getElementById('dialog-portrait');
@@ -887,7 +888,51 @@ function updateClock() {
 // WINDOW MANAGEMENT
 // ============================================
 
+// ============================================
+// ANALYTICS
+// ============================================
+// Named PostHog events, so the dashboard shows what visitors actually
+// open. Safe when PostHog isn't loaded (localhost, blockers): does nothing.
+const WINDOW_EVENTS = {
+  wordpad: 'resume_opened',
+  'work-detail': 'work_example_opened',
+  casestudy: 'case_study_opened',
+  presentation: 'presentation_opened',
+  messenger: 'hal_opened',
+  game: 'project_trail_started',
+  portfolio: 'ai_portfolio_opened',
+  livejournal: 'blog_opened'
+};
+
+function track(event, props) {
+  try {
+    if (window.posthog && typeof window.posthog.capture === 'function') {
+      window.posthog.capture(event, props || {});
+    }
+  } catch (e) { /* analytics must never break the site */ }
+}
+
+function initAnalytics() {
+  document.addEventListener('click', (e) => {
+    const el = e.target.closest('a, button, .start-menu-item');
+    if (!el) return;
+    const href = el.getAttribute('href') || '';
+    const action = el.dataset.action || '';
+    if (href.startsWith('mailto:') || action === 'email') {
+      track('email_clicked', { from: el.className || el.id || 'link' });
+    } else if (href.includes('linkedin.com') || action === 'linkedin') {
+      track('linkedin_clicked', { from: el.className || el.id || 'link' });
+    } else if (el.id === 'room-hiring-btn' || el.id === 'hiring-tab') {
+      track('hiring_button_clicked', { from: el.id });
+    } else if (action === 'document' || el.id === 'view-document') {
+      track('document_opened', { project: el.dataset.project || el.dataset.url || '' });
+    }
+  }, true);
+}
+
 function openApp(appType, fileId) {
+  if (WINDOW_EVENTS[appType]) track(WINDOW_EVENTS[appType], { file: fileId });
+  else track('window_opened', { app: appType, file: fileId });
   // Check if window already exists
   const existingWindow = state.windows.find(w => w.app === appType && w.file === fileId);
   if (existingWindow) {
@@ -4650,6 +4695,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initSite() {
+  initAnalytics();
   const roomScene = document.getElementById('room-scene');
 
   // Initialize accessibility FIRST (before any visual rendering)
