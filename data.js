@@ -131,7 +131,7 @@ const SITE_DATA = {
       banner: "Distrust as a practiced skill",
       subtitle: "How I work with AI outputs",
       blocks: [
-        { type: "lede", text: "I don't extend blind trust to AI outputs. This is the actual differentiator - not \"I use AI,\" but \"I know exactly where it's wrong before the client finds out.\"" },
+        { type: "lede", text: "I don't extend blind trust to AI outputs. Plenty of people use AI. What I bring is knowing where it's wrong before the client finds out." },
         { type: "para", text: "I've tested AI output that was confident, well-structured, and completely wrong about something you'd only catch if you knew the domain." },
         { type: "pullquote", text: "That's a regular Tuesday." },
         { type: "para", text: "The person who finds out is usually whoever's using the thing, trying to make a decision based on what it told them. The vendor rarely sees it. Neither does the executive who signed the contract." },
@@ -174,7 +174,7 @@ const SITE_DATA = {
         { type: "lede", text: "I am not blind to the fact that these LLMs took content, creativity, art, language from real human people who made it. For free. Without consent. Without payment. That's extraction, and it shouldn't be waved away." },
         { type: "para", text: "And we still need humans creating. We still need humans making meaning. Those aren't raw material to be optimised out of the loop." },
         { type: "divider" },
-        { type: "para", text: "This is a harder line than \"just automate the patterned work,\" and harder than \"don't automate the parts that require judgment.\" The human act of creating and making meaning is not raw material to be optimised out of the loop." },
+        { type: "para", text: "This is a harder line than \"just automate the patterned work,\" and harder than \"don't automate the parts that require judgment.\"" },
         { type: "para", text: "Both things stay true at once:" },
         { type: "list", items: [
           "The extraction is real and shouldn't be waved away.",
