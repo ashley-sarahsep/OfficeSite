@@ -204,7 +204,7 @@ function initRoomMenu() {
     roomHiringBtn.addEventListener('click', () => {
       inspectMenu.classList.add('hidden');
       transitionToDesktop(() => {
-        openApp('roleexplorer', 'roles');
+        openApp('wordpad', 'resume');
       });
     });
   }
@@ -1590,7 +1590,7 @@ function initHiringBar() {
   if (!tab) return;
 
   tab.addEventListener('click', () => {
-    openApp('roleexplorer', 'roles');
+    openApp('wordpad', 'resume');
   });
 }
 

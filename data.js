@@ -579,7 +579,7 @@ Ashley`
         {
           id: "welcome-intro",
           portrait: "smiling1",
-          text: "Oh, hello! I'm Ashley. Operations, enablement, AI adoption, depending on which version you need. This is my office. The computer has everything: resumes, work examples, a chat with a likeness of me. But the whole place is meant to be explored, so go ahead. Open things, dig around. Be nosy; I would be.",
+          text: "Oh, hello! I'm Ashley. Operations, enablement, AI adoption, depending on which version you need. This is my office. The computer has everything: my resume, work examples, a chat with a likeness of me. But the whole place is meant to be explored, so go ahead. Open things, dig around. Be nosy; I would be.",
           responses: [
             { text: "[Start exploring]", next: null }
           ]
@@ -1252,11 +1252,11 @@ Ashley`
     welcomeMessage: "Welcome, Visitor",
 
     icons: [
-      { id: "roleexplorer", name: "Hire Me.exe", icon: "role-explorer", app: "roleexplorer" },
+      { id: "resume", name: "Resume.doc", icon: "doc", app: "wordpad" },
       { id: "chat", name: "HAL.exe", icon: "hal", app: "messenger" },
       { id: "mywork", name: "My Work", icon: "folder", app: "misc-folder", file: "mywork" },
       { id: "aithoughts", name: "AI Thoughts", icon: "folder-ai", app: "misc-folder", file: "aithoughts" },
-      { id: "gettoknowme", name: "Get to Know Me", icon: "folder-special", app: "misc-folder", file: "gettoknowme" },
+      { id: "gettoknowme", name: "About Me", icon: "folder-special", app: "misc-folder", file: "gettoknowme" },
       { id: "accessibility", name: "Accessibility", icon: "accessibility", app: "accessibility" }
     ],
 
@@ -1266,12 +1266,6 @@ Ashley`
         title: "My Work",
         items: [
           { id: "resume", name: "Resume.doc", icon: "doc", type: "app", app: "wordpad" },
-          { id: "resume-cos", name: "Resume_ChiefOfStaff.doc", icon: "doc", type: "app", app: "wordpad-cos" },
-          { id: "resume-prodops", name: "Resume_ProductOps.doc", icon: "doc", type: "app", app: "wordpad-prodops" },
-          { id: "resume-sales", name: "Resume_SalesEnablement.doc", icon: "doc", type: "app", app: "wordpad-sales" },
-          { id: "resume-ai", name: "Resume_AIAdoption.doc", icon: "doc", type: "app", app: "wordpad-ai" },
-          { id: "resume-revops", name: "Resume_RevOps.doc", icon: "doc", type: "app", app: "wordpad-revops" },
-          { id: "resume-impl", name: "Resume_Implementation.doc", icon: "doc", type: "app", app: "wordpad-impl" },
           { id: "work", name: "Work Examples", icon: "folder", type: "app", app: "folder" },
           { id: "aiportfolio", name: "AI Portfolio", icon: "folder-special", type: "app", app: "portfolio" },
           { id: "collab", name: "Lets_Work_Together.txt", icon: "txt", type: "notepad", noteId: "collab" },
@@ -1279,13 +1273,10 @@ Ashley`
         ]
       },
       gettoknowme: {
-        title: "Get to Know Me",
+        title: "About Me",
         items: [
           { id: "about", name: "Blog.html", icon: "html", type: "app", app: "livejournal" },
-          { id: "workmatch", name: "WorkMatch Quiz!.exe", icon: "game-quiz", type: "app", app: "workmatch" },
-          { id: "takeabreak", name: "Take a Break", icon: "folder-games", type: "app", app: "misc-folder" },
-          { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" },
-          { id: "claudeNotes", name: "claude_notes.txt", icon: "txt", type: "easter-egg" }
+          { id: "secrets", name: "secrets.txt", icon: "txt", type: "easter-egg" }
         ]
       },
       aithoughts: {
