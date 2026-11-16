@@ -1,1179 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="posthog-init.js"></script>
-  <title>Ashley Sarah - Portfolio</title>
+  <title>Ashley Sarah: operations, enablement and AI adoption</title>
+  <meta name="description" content="Ashley Sarah builds the operations, training and AI adoption programs that growing software companies run on. Based in Guelph, Ontario.">
 
-  <!-- Open Graph / Social Media Preview -->
-  <meta property="og:title" content="Ashley's Office - Interactive Portfolio">
-  <meta property="og:description" content="A retro OS-themed interactive portfolio. Explore the desktop, open files, play games, and get to know Ashley's work in operations, enablement, and AI adoption.">
+  <meta property="og:title" content="Ashley Sarah: operations, enablement and AI adoption">
+  <meta property="og:description" content="Seven years building operations, enablement and AI adoption at a B2B software company. Resume, work and writing.">
   <meta property="og:image" content="https://stepinto-ashleysoffice.com/assets/images/ashleysofficepreview.png">
   <meta property="og:url" content="https://stepinto-ashleysoffice.com">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <!-- Skip Link for Keyboard Navigation -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Accessibility Quick Panel (Room Scene) -->
-  <div class="a11y-quick-panel" id="a11y-quick-panel" role="dialog" aria-label="Quick accessibility settings">
-    <div class="a11y-quick-panel-header">
-      <h4>Quick Accessibility</h4>
-      <button class="a11y-quick-panel-close" id="a11y-quick-close" aria-label="Close">&times;</button>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="site-name" href="./">Ashley Sarah</a>
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="read.html?doc=resume">Resume</a></li>
+          <li><a href="#writing">Writing</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="nav-office" href="office.html">The office</a></li>
+        </ul>
+      </nav>
     </div>
-    <div class="a11y-quick-toggles">
-      <button class="a11y-quick-toggle" data-setting="highContrast">
-        <span aria-hidden="true">🔲</span> High Contrast
-      </button>
-      <button class="a11y-quick-toggle" data-setting="largeText">
-        <span aria-hidden="true">🔤</span> Large Text
-      </button>
-      <button class="a11y-quick-toggle" data-setting="focusIndicators">
-        <span aria-hidden="true">🎯</span> Focus Indicators
-      </button>
-      <button class="a11y-quick-toggle" data-setting="reducedMotion">
-        <span aria-hidden="true">⏸️</span> Reduced Motion
-      </button>
-      <button class="a11y-quick-toggle" data-setting="singleClick">
-        <span aria-hidden="true">👆</span> Single-Click Mode
-      </button>
-    </div>
-    <div class="a11y-quick-panel-footer">
-      <button class="a11y-quick-panel-link" id="a11y-open-full">Open Full Settings</button>
-    </div>
-  </div>
+  </header>
 
-  <!-- ============================================ -->
-  <!-- MAIN ROOM SCENE -->
-  <!-- ============================================ -->
-  <main id="main-content">
-  <div id="room-scene" class="room-scene">
-    <!-- Room background image -->
-    <div class="room-container">
-      <img src="assets/images/office2.png" alt="Ashley's Office" class="room-image" id="room-image">
-    </div>
+  <main id="main">
 
-    <!-- Bottom navigation bar -->
-    <div class="room-navbar" id="room-navbar">
-      <div class="navbar-title">Ashley's Office</div>
-      <div class="navbar-actions">
-        <button class="navbar-btn" id="inspect-btn">
-          <span class="navbar-btn-icon">&#128269;</span>
-          <span>Inspect</span>
-        </button>
-        <button class="navbar-btn" id="computer-btn" data-action="monitor">
-          <span class="navbar-btn-icon">&#128187;</span>
-          <span>Computer</span>
-        </button>
-      </div>
-      <div class="navbar-quicklinks">
-        <button class="navbar-link navbar-hiring-link" id="room-hiring-btn">Hiring? Start here &rarr;</button>
-        <button class="navbar-link" data-window="livejournal">About Me</button>
-        <button class="navbar-link" data-window="chat">Chat</button>
-        <a class="navbar-link navbar-contact-link" href="mailto:ashley@stepinto-ashleysoffice.com" aria-label="Email">&#9993;</a>
-        <a class="navbar-link navbar-contact-link" href="https://linkedin.com/in/ashley-sarahsep" target="_blank" aria-label="LinkedIn">in</a>
-        <button class="navbar-link navbar-accessibility-btn" id="room-accessibility-btn" aria-label="Accessibility Settings">
-          <span aria-hidden="true">&#9855;</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Inspect menu (popup from bottom bar) -->
-    <div class="inspect-menu hidden" id="inspect-menu">
-      <div class="inspect-menu-header">What would you like to inspect?</div>
-      <div class="inspect-menu-grid">
-        <button class="inspect-item" data-action="desk">
-          <span class="inspect-icon">&#128221;</span>
-          <span>Work Desk</span>
-        </button>
-        <button class="inspect-item" data-action="gertrude">
-          <span class="inspect-icon">&#128008;</span>
-          <span>Gertrude</span>
-        </button>
-        <button class="inspect-item" data-action="gherkin">
-          <span class="inspect-icon">&#128049;</span>
-          <span>Gherkin</span>
-        </button>
-        <button class="inspect-item" data-action="radio">
-          <span class="inspect-icon">&#128251;</span>
-          <span>Vintage Radio</span>
-        </button>
-        <button class="inspect-item" data-action="art">
-          <span class="inspect-icon">&#127912;</span>
-          <span>Wall Art</span>
-        </button>
-      </div>
-      <div class="inspect-menu-header" style="margin-top: 8px;">Talk to...</div>
-      <div class="inspect-menu-grid">
-        <button class="inspect-item" data-action="talkGertrude">
-          <span class="inspect-icon">&#128172;</span>
-          <span>Gertrude</span>
-        </button>
-        <button class="inspect-item" data-action="talkGherkin">
-          <span class="inspect-icon">&#128172;</span>
-          <span>Gherkin</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================ -->
-  <!-- OREGON TRAIL STYLE DIALOG BOX -->
-  <!-- ============================================ -->
-  <div id="dialog-overlay" class="dialog-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-    <div class="dialog-box">
-      <div class="dialog-header">
-        <span class="dialog-title" id="dialog-title">Conversation</span>
-        <button class="dialog-close" id="dialog-close">&times;</button>
-      </div>
-      <div class="dialog-content">
-        <div class="dialog-portrait" id="dialog-portrait">
-          <img src="assets/images/ashley-portrait.jpg" alt="Portrait" id="dialog-portrait-img">
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-labelledby="hero-name">
+      <div class="wrap">
+        <div>
+          <p class="eyebrow">Guelph, Ontario &middot; remote, or hybrid nearby</p>
+          <h1 id="hero-name">Ashley Sarah</h1>
+          <p class="lede">For seven years I was the operations person at a field marketing software company: its first operations hire, then Chief of Staff to the COO. I built its sales operations, enablement, QA and client onboarding, and in 2025 I ran every client's adoption of its new AI product.</p>
+          <p class="looking"><strong>Looking for:</strong> a role leading AI adoption and enablement, implementation and client onboarding, or Chief of Staff work at a growth-stage B2B software company.</p>
+          <ul class="actions">
+            <li><a class="btn btn-primary" href="read.html?doc=resume">Read my resume</a></li>
+            <li><a class="btn btn-quiet" href="#contact">Get in touch</a></li>
+            <li><a class="btn btn-quiet" href="https://linkedin.com/in/ashley-sarahsep" rel="noopener">LinkedIn</a></li>
+          </ul>
         </div>
-        <div class="dialog-text-area">
-          <p class="dialog-text" id="dialog-text"></p>
-          <div class="dialog-responses" id="dialog-responses">
-            <!-- Response buttons generated by JS -->
-          </div>
-        </div>
+
+        <a class="office-card" href="office.html">
+          <figure style="margin:0">
+            <img src="assets/images/office-900.webp"
+                 srcset="assets/images/office-900.webp 900w, assets/images/office-1600.webp 1600w"
+                 sizes="(max-width: 900px) 92vw, 480px"
+                 width="900" height="657"
+                 alt="An illustration of Ashley's home office: pink walls, bookshelves, landscape paintings, a desk, and two cats, one on a shelf and one asleep on a pink armchair.">
+            <figcaption><strong>Step into the office &rarr;</strong> The same site as an explorable room, with the cats.</figcaption>
+          </figure>
+        </a>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- ============================================ -->
-  <!-- HIREMEOS DESKTOP -->
-  <!-- ============================================ -->
-  <div id="desktop-scene" class="desktop-scene hidden">
-    <!-- CRT Monitor Frame -->
-    <div class="monitor-frame">
-      <div class="monitor-bezel">
-        <div class="monitor-brand">HireMeOS</div>
-        <div class="monitor-screen">
-          <!-- Desktop area -->
-          <div class="desktop-area" id="desktop-area">
-            <!-- Desktop icons -->
-            <div class="desktop-icons" id="desktop-icons">
-              <div class="desktop-icon" data-app="roleexplorer" data-file="roles">
-                <div class="icon-image icon-role-explorer"></div>
-                <span class="icon-label">Hire Me.exe</span>
-              </div>
-              <div class="desktop-icon" data-app="messenger" data-file="chat">
-                <div class="icon-image icon-hal"></div>
-                <span class="icon-label">HAL.exe</span>
-              </div>
-              <div class="desktop-icon" data-app="misc-folder" data-file="mywork">
-                <div class="icon-image icon-folder"></div>
-                <span class="icon-label">My Work</span>
-              </div>
-              <div class="desktop-icon" data-app="misc-folder" data-file="aithoughts">
-                <div class="icon-image icon-folder-ai"></div>
-                <span class="icon-label">AI Thoughts</span>
-              </div>
-              <div class="desktop-icon" data-app="misc-folder" data-file="gettoknowme">
-                <div class="icon-image icon-folder-special"></div>
-                <span class="icon-label">Get to Know Me</span>
-              </div>
-              <div class="desktop-icon" data-app="accessibility" data-file="settings">
-                <div class="icon-image icon-accessibility"></div>
-                <span class="icon-label">Accessibility</span>
-              </div>
-            </div>
+    <!-- ============ PROOF ============ -->
+    <section class="proof" aria-label="In numbers">
+      <div class="wrap">
+        <ul>
+          <li><span class="num">30 of 46</span><span class="label">enterprise clients I worked with directly, from the first demo through onboarding</span></li>
+          <li><span class="num">90 &rarr; 45 days</span><span class="label">contractual client onboarding, after I rebuilt the handoff materials</span></li>
+          <li><span class="num">75+</span><span class="label">tested prompt templates in the AI prompt library I built</span></li>
+          <li><span class="num">~10</span><span class="label">direct reports at peak, across sales, development and operations</span></li>
+        </ul>
+      </div>
+    </section>
 
-            <!-- Windows container -->
-            <div class="windows-container" id="windows-container">
-              <!-- Windows generated by JS -->
-            </div>
-          </div>
-
-          <!-- Taskbar -->
-          <div class="taskbar">
-            <button class="start-button" id="start-button">
-              <span class="start-icon"></span>
-              <span>Start</span>
-            </button>
-            <button class="hiring-tab" id="hiring-tab">Hiring? Start here &rarr;</button>
-            <div class="taskbar-items" id="taskbar-items">
-              <!-- Active window buttons generated by JS -->
-            </div>
-            <div class="taskbar-links">
-              <a href="mailto:ashley@stepinto-ashleysoffice.com" class="taskbar-link">Email</a>
-              <a href="https://linkedin.com/in/ashley-sarahsep" target="_blank" class="taskbar-link">LinkedIn</a>
-              <button class="taskbar-link exit-btn" id="exit-to-room-btn">Exit to Room</button>
-            </div>
-            <div class="taskbar-tray">
-              <span class="tray-time" id="tray-time">12:00 PM</span>
-            </div>
-          </div>
-
-          <!-- Start Menu -->
-          <div class="start-menu hidden" id="start-menu">
-            <div class="start-menu-header">
-              <div class="start-menu-user">
-                <div class="user-avatar"></div>
-                <span>Visitor</span>
-              </div>
-            </div>
-            <div class="start-menu-items">
-              <div class="start-menu-item" data-action="roleexplorer">
-                <span class="menu-icon icon-role-small"></span>
-                <span>Hire Me</span>
-              </div>
-              <div class="start-menu-item" data-action="resume">
-                <span class="menu-icon icon-doc-small"></span>
-                <span>Resume.doc</span>
-              </div>
-              <div class="start-menu-item" data-action="about">
-                <span class="menu-icon icon-html-small"></span>
-                <span>Blog.html</span>
-              </div>
-              <div class="start-menu-item" data-action="chat">
-                <span class="menu-icon icon-exe-small"></span>
-                <span>HAL.exe</span>
-              </div>
-              <div class="start-menu-divider"></div>
-              <div class="start-menu-item" data-action="about-computer">
-                <span class="menu-icon icon-computer-small"></span>
-                <span>About This Computer</span>
-              </div>
-              <div class="start-menu-divider"></div>
-              <div class="start-menu-item" data-action="email">
-                <span class="menu-icon icon-email"></span>
-                <span>Email Ashley</span>
-              </div>
-              <div class="start-menu-item" data-action="linkedin">
-                <span class="menu-icon icon-link"></span>
-                <span>LinkedIn</span>
-              </div>
-              <div class="start-menu-divider"></div>
-              <div class="start-menu-item" data-action="exit">
-                <span class="menu-icon icon-exit"></span>
-                <span>Exit to Room</span>
-              </div>
-            </div>
-          </div>
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="work-h">Work</h2>
+          <p>Seven years at Network Ninja, maker of MainEvent field marketing software, and what I've built since.</p>
         </div>
-        <div class="monitor-controls">
-          <div class="monitor-led"></div>
-          <div class="monitor-button"></div>
-          <div class="monitor-button"></div>
+
+        <div class="work-grid">
+
+          <article class="card featured">
+            <p class="kind">AI adoption &middot; Network Ninja &middot; 2025</p>
+            <h3>Getting clients to use an AI product well</h3>
+            <div class="cols">
+              <div>
+                <p>The company launched an AI agent that answers questions about field marketing data in plain language. I owned every client's adoption of it. When I started there was no onboarding process, no training and no way to test the answers.</p>
+                <p>I tested the agent the way a client would use it, wrote down where it went wrong, and fed that back to the product team before clients saw it.</p>
+              </div>
+              <div>
+                <p><strong>What I built</strong></p>
+                <ul>
+                  <li>A manual testing framework that caught hallucinations before they reached clients</li>
+                  <li>A five-phase onboarding method: discovery, implementation, testing and validation, training, ongoing support</li>
+                  <li>Training at four levels: everyday users, power users, executives, and our own account managers</li>
+                  <li>A library of 75+ tested prompt templates</li>
+                </ul>
+              </div>
+            </div>
+            <p class="links">
+              <a href="examples/ai-agent-practical-guide.html">Practical guide for everyday users</a>
+              <a href="examples/prompt-crafting-guide.html">The art of prompt crafting</a>
+              <a href="examples/advanced-ai-prompts-guide.html">Prompts for data analysis</a>
+            </p>
+          </article>
+
+          <article class="card">
+            <p class="kind">Independent build &middot; 2026</p>
+            <h3>Parallax</h3>
+            <p>A sales-enablement app I designed and directed. It takes a product profile and what's known about a prospect, and writes a prospect-specific brief, demo talking points, a demo script, a one-pager and discovery questions.</p>
+            <p>It's built around one reason deals stall: buyers can't picture the product in their own workflow. Outputs mark what's confirmed apart from what's inferred, and say what the product doesn't solve. Discovery questions are written without seeing the brief, so they go looking for what it missed.</p>
+            <p class="status">Phase 1 launched September 2026. React, the Claude API and Vercel, with a 77-test offline suite.</p>
+          </article>
+
+          <article class="card">
+            <p class="kind">Implementation &middot; Network Ninja &middot; 2018&ndash;2025</p>
+            <h3>Implementation and QA</h3>
+            <p>Sole QA lead across 20+ implementations. I cut contractual client onboarding from 90 to 45 days by building better handoff materials and documentation, and many clients finished in weeks.</p>
+            <p>The largest was a $500K custom platform build for a national retail merchandising company operating across 48,000+ locations. I gathered requirements, ran QA through the build (daily scrums, the full sprint board, hundreds of Jira tickets), and led go-live and hyper-care with the head developer.</p>
+          </article>
+
+          <article class="card">
+            <p class="kind">Chief of Staff &middot; Network Ninja &middot; 2023&ndash;2025</p>
+            <h3>Chief of Staff to the COO</h3>
+            <p>Strategic partner to the COO on go-to-market, roadmap priorities, pricing and positioning, and the person who kept sales, product, engineering and client success working from the same picture.</p>
+            <ul>
+              <li>Managed up to ten people across sales, development and operations, with 1:1s and reviews</li>
+              <li>Ran the COO's executive support: meeting prep, correspondence, minutes and follow-ups</li>
+              <li>Every sales win from 2018 on involved me, and only two or three clients left in seven years</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <p class="kind">Campaign manager &middot; Guelph &middot; 2026</p>
+            <h3>A school board trustee campaign</h3>
+            <p>I ran Dan Atkinson's first campaign for Upper Grand District School Board trustee in Guelph Wards 2, 3 and 4: the deadlines, the direction, the signs, and the website, which I designed and directed with an AI coding agent. It's built accessibility-first, with no tracking.</p>
+            <p class="result">Dan topped the poll with 9,810 votes (44.3%) and came first at every polling location.</p>
+            <p class="links"><a href="https://dan4guelph.ca" rel="noopener">dan4guelph.ca</a></p>
+          </article>
+
+          <article class="card">
+            <p class="kind">Open source &middot; 2026</p>
+            <h3>Job Alert Scorer</h3>
+            <p>Reads LinkedIn and Indeed job alert emails, pulls the full job description and scores each role from 1 to 10 against a profile you write. It's a triage tool, and it never applies for anyone. The setup guide is written for people who don't code.</p>
+            <p class="links">
+              <a href="https://ashley-sarahsep.github.io/job-alert-scorer/" rel="noopener">Getting started</a>
+              <a href="https://github.com/ashley-sarahsep/job-alert-scorer" rel="noopener">Code on GitHub</a>
+            </p>
+          </article>
+
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <!-- ============ WRITING ============ -->
+    <section class="section" id="writing" aria-labelledby="writing-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="writing-h">Writing</h2>
+          <p>Longer pieces on AI, operations and the people who use what gets built.</p>
+        </div>
+        <ul class="writing-list">
+          <li><a href="read.html?doc=post&amp;id=5">Your Name's On It</a><span class="meta">August 2026 &middot; On owning what an AI agent produces</span></li>
+          <li><a href="read.html?doc=post&amp;id=2">Who Reads the Whole Document?</a><span class="meta">March 2026 &middot; On designing for the person who skims</span></li>
+          <li><a href="read.html?doc=post&amp;id=1">The Case for Operational Infrastructure</a><span class="meta">February 2026 &middot; On building operations before a startup thinks it needs them</span></li>
+          <li><a href="read.html?doc=ai&amp;id=aiReadme">AI, according to me</a><span class="meta">Six short pieces on how I use AI and where I think companies get adoption wrong</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="wrap">
+        <div class="section-head"><h2 id="about-h">About</h2></div>
+        <div class="about-body">
+          <p>I notice things that aren't being said. Systems failing quietly. People overwhelmed and covering well. Two teams talking past each other, both convinced the other one is the problem. I notice, and then I do something about it.</p>
+          <p>My dad was a house painter. I grew up understanding that doing something properly matters, even when nobody's watching. Especially then.</p>
+          <p>Philosophy degree from Guelph. Hermeneutics specifically, which is the study of how meaning is made and lost between people. Social work training from George Brown. Then a receptionist job that turned into accounts receivable, London for a bit, sales ops, and eventually seven-plus years at a startup that became about five different jobs. None of it was a plan. All of it was useful.</p>
+          <p><a href="read.html?doc=about">The longer version</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="contact-h">Get in touch</h2>
+          <p>I'm open to full-time roles, and to freelance and consulting work.</p>
+        </div>
+        <div class="contact-box">
+          <p>Write to me at</p>
+          <p class="email"><a href="mailto:ashley@stepinto-ashleysoffice.com">ashley@stepinto-ashleysoffice.com</a></p>
+          <ul class="actions">
+            <li><button class="btn btn-primary" type="button" id="copy-email" data-email="ashley@stepinto-ashleysoffice.com">Copy the address</button></li>
+            <li><a class="btn btn-quiet" href="https://linkedin.com/in/ashley-sarahsep" rel="noopener">LinkedIn</a></li>
+          </ul>
+          <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
+          <p class="fine">I read everything myself. There's no form on this site, so write from whatever email you normally use.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OFFICE ============ -->
+    <section class="section" aria-labelledby="office-h">
+      <div class="wrap office-invite">
+        <div>
+          <h2 id="office-h">The office</h2>
+          <p>This site started as a point-and-click office, inspired by Myst and the joy of exploring a computer as a kid. It's still here: the desk, the radio, the landscape paintings, and Gertrude and Gherkin.</p>
+          <p><a class="btn btn-quiet" href="office.html">Step into the office</a></p>
+          <p style="font-size:15px;color:var(--ink-soft)">Or see the <a href="classic/">classic version</a>, the original 2026 office with its desktop computer and games.</p>
+        </div>
+        <a class="office-card" href="office.html" aria-hidden="true" tabindex="-1">
+          <img src="assets/images/office-900.webp" width="900" height="657" alt="" loading="lazy">
+        </a>
+      </div>
+    </section>
+
   </main>
 
-  <!-- ============================================ -->
-  <!-- WINDOW TEMPLATES (hidden, cloned by JS) -->
-  <!-- ============================================ -->
-
-  <!-- WordPad Window Template -->
-  <template id="template-wordpad">
-    <div class="window window-wordpad" data-window="wordpad">
-      <div class="window-titlebar">
-        <span class="window-title">Resume.doc - WordPad</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
+  <footer class="site-footer">
+    <div class="wrap cols">
+      <div>
+        <h2>About this site</h2>
+        <p>This site uses PostHog to count visits and clicks, so I can see which parts are useful. I don't sell or share that data, and there are no ads.</p>
+        <p>Designed by me and built by directing an AI coding agent. The accessibility settings live in <a href="office.html">the office</a>.</p>
       </div>
-      <div class="window-menubar">
-        <span class="menu-item">File</span>
-        <span class="menu-item">Edit</span>
-        <span class="menu-item">View</span>
-        <span class="menu-item">Help</span>
-      </div>
-      <div class="window-toolbar">
-        <button class="toolbar-btn toolbar-btn-print" id="resume-print">
-          <span class="toolbar-icon">🖨</span> Print
-        </button>
-      </div>
-      <div class="window-content wordpad-content" id="wordpad-content">
-        <!-- Resume content loaded by JS -->
+      <div>
+        <h2>Contact</h2>
+        <p><a href="mailto:ashley@stepinto-ashleysoffice.com">ashley@stepinto-ashleysoffice.com</a><br>
+        <a href="https://linkedin.com/in/ashley-sarahsep" rel="noopener">LinkedIn</a></p>
+        <p>Guelph, Ontario</p>
       </div>
     </div>
-  </template>
+  </footer>
 
-  <!-- MySpace Window Template -->
-  <template id="template-livejournal">
-    <div class="window window-livejournal" data-window="livejournal">
-      <div class="window-titlebar">
-        <span class="window-title">Blog.html - Internet Explorer</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-addressbar">
-        <span class="address-label">Address:</span>
-        <input type="text" class="address-input" value="http://www.livejournal.com/users/ashley-sarah" readonly>
-        <button class="address-go">Go</button>
-      </div>
-      <div class="window-content livejournal-content" id="livejournal-content">
-        <!-- LiveJournal content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Role Explorer Window Template -->
-  <template id="template-roleexplorer">
-    <div class="window window-roleexplorer" data-window="roleexplorer">
-      <div class="window-titlebar titlebar-roleexplorer">
-        <span class="window-title">Hire Me - Role Explorer</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content roleexplorer-content" id="roleexplorer-content">
-        <!-- Role Explorer content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Messenger Window Template (MSN Messenger Style) -->
-  <template id="template-messenger">
-    <div class="window window-messenger" data-window="messenger">
-      <div class="window-titlebar titlebar-messenger">
-        <span class="window-title">
-          <span class="hal-eye-icon"></span>
-          HAL - Helpful Ashley Likeness
-        </span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="hal-toolbar">
-        <span class="hal-status">
-          <span class="hal-status-dot"></span>
-          Online
-        </span>
-        <span class="hal-branding">HAL v9000.1</span>
-      </div>
-      <div class="window-content messenger-content">
-        <div class="messenger-chat-area" id="messenger-chat">
-          <!-- Chat messages loaded by JS -->
-        </div>
-        <div class="messenger-input-area">
-          <div class="hal-input-row">
-            <input type="text" class="hal-text-input" id="hal-text-input" placeholder="Type something..." autocomplete="off">
-            <button class="hal-send-btn" id="hal-send-btn">Send</button>
-          </div>
-          <div class="messenger-prompt">Or select a topic:</div>
-          <div class="messenger-quick-questions" id="messenger-quick">
-            <!-- Quick question buttons loaded by JS -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <!-- Guest Book Window Template -->
-  <template id="template-guestbook">
-    <div class="window window-guestbook" data-window="guestbook">
-      <div class="window-titlebar titlebar-guestbook">
-        <span class="window-title">Guest Book - Sign In!</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content guestbook-content">
-        <div class="guestbook-header">
-          <div class="guestbook-title">Welcome to Ashley's Guest Book!</div>
-          <div class="guestbook-subtitle">Leave your mark - say hi, share a thought, or just let me know you stopped by.</div>
-        </div>
-        <div class="guestbook-entries" id="guestbook-entries">
-          <!-- Seeded entries loaded by JS -->
-        </div>
-        <div class="guestbook-form">
-          <div class="guestbook-form-title">Sign the Guest Book</div>
-          <div class="guestbook-input-row">
-            <label for="guestbook-name">Name:</label>
-            <input type="text" id="guestbook-name" placeholder="Your name" maxlength="50">
-          </div>
-          <div class="guestbook-input-row">
-            <label for="guestbook-message">Message:</label>
-            <textarea id="guestbook-message" placeholder="Leave a message..." maxlength="200" rows="3"></textarea>
-          </div>
-          <button class="guestbook-submit" id="guestbook-submit">Sign Guest Book</button>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <!-- Folder Window Template -->
-  <template id="template-folder">
-    <div class="window window-folder" data-window="folder">
-      <div class="window-titlebar">
-        <span class="window-title">Work Examples</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-menubar">
-        <span class="menu-item">File</span>
-        <span class="menu-item">Edit</span>
-        <span class="menu-item">View</span>
-      </div>
-      <div class="window-content folder-content" id="folder-content">
-        <!-- Folder items loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Misc Folder Window Template -->
-  <template id="template-misc-folder">
-    <div class="window window-folder" data-window="misc-folder">
-      <div class="window-titlebar">
-        <span class="window-title">Folder</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-menubar">
-        <span class="menu-item">File</span>
-        <span class="menu-item">Edit</span>
-        <span class="menu-item">View</span>
-      </div>
-      <div class="window-content folder-content">
-        <!-- Folder items loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Work Example Detail Window Template -->
-  <template id="template-work-detail">
-    <div class="window window-work-detail" data-window="work-detail">
-      <div class="window-titlebar">
-        <span class="window-title">Project Details</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content work-detail-content" id="work-detail-content">
-        <!-- Work detail loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Notepad Window Template (for easter eggs) -->
-  <template id="template-notepad">
-    <div class="window window-notepad" data-window="notepad" data-window-type="notepad">
-      <div class="window-titlebar">
-        <span class="window-title">Notepad</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content notepad-content">
-        <pre class="notepad-text" id="notepad-text"></pre>
-      </div>
-    </div>
-  </template>
-
-  <!-- AI Thoughts document reader -->
-  <template id="template-aidoc">
-    <div class="window window-aidoc" data-window="aidoc" data-window-type="aidoc">
-      <div class="window-titlebar">
-        <span class="window-title">AI Thoughts</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-menubar aidoc-menubar">
-        <span class="menu-item">File</span>
-        <span class="menu-item">View</span>
-        <span class="menu-item">Help</span>
-      </div>
-      <div class="window-content aidoc-content">
-        <article class="aidoc-paper">
-          <header class="aidoc-header">
-            <div class="aidoc-filename"></div>
-            <h1 class="aidoc-banner"></h1>
-            <p class="aidoc-subtitle"></p>
-            <div class="aidoc-header-rule"></div>
-          </header>
-          <div class="aidoc-body"></div>
-          <footer class="aidoc-footer">
-            <span class="aidoc-footer-mark">§</span>
-            <span class="aidoc-footer-path"></span>
-          </footer>
-        </article>
-      </div>
-    </div>
-  </template>
-
-  <!-- Cat Pong Game Template -->
-  <template id="template-catpong">
-    <div class="window window-catpong" data-window="catpong">
-      <div class="window-titlebar titlebar-game">
-        <span class="window-title">CatPong.exe</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content catpong-content">
-        <canvas id="catpong-canvas" width="400" height="300"></canvas>
-        <div class="catpong-info">
-          <span class="catpong-score">Gertrude (CPU): <span id="score-left">0</span> | Gherkin (You): <span id="score-right">0</span></span>
-          <span class="catpong-best" id="catpong-best"></span>
-          <span class="catpong-controls">W/S or ↑/↓ to move | Space to start</span>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <!-- Bionic Brain Game Template -->
-  <template id="template-bionicbrain">
-    <div class="window window-bionicbrain" data-window="bionicbrain">
-      <div class="window-titlebar titlebar-game">
-        <span class="window-title">The Bionic Brain</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content bionicbrain-content">
-        <canvas class="bionicbrain-canvas" width="450" height="280"></canvas>
-        <div class="bionicbrain-info">
-          <span class="bionicbrain-score">Score: <span class="bb-score">0</span></span>
-          <span class="bionicbrain-speed">Speed: <span class="bb-speed">100%</span></span>
-          <span class="bionicbrain-best"></span>
-        </div>
-        <div class="bionicbrain-controls">↑/↓ to move | Collect green, avoid red | Space to start</div>
-      </div>
-    </div>
-  </template>
-
-  <!-- Raiders of the Lost Doc Window Template -->
-  <template id="template-raiders">
-    <div class="window window-raiders" data-window="raiders">
-      <div class="window-titlebar titlebar-game">
-        <span class="window-title">Raiders of the Lost Doc</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content raiders-content">
-        <!-- Raiders game content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Memory Match Window Template -->
-  <template id="template-memory">
-    <div class="window window-memory" data-window="memory">
-      <div class="window-titlebar titlebar-game">
-        <span class="window-title">Memory Match</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content memory-content">
-        <!-- Memory game content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Meeting Minesweeper Window Template -->
-  <template id="template-minesweeper">
-    <div class="window window-minesweeper" data-window="minesweeper">
-      <div class="window-titlebar titlebar-game">
-        <span class="window-title">Meeting Minesweeper</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content minesweeper-content">
-        <!-- Minesweeper game content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Recycle Bin Window Template -->
-  <template id="template-recycle">
-    <div class="window window-recycle" data-window="recycle">
-      <div class="window-titlebar">
-        <span class="window-title">Recycle Bin</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content recycle-content">
-        <div class="recycle-items" id="recycle-items">
-          <!-- Populated by JS -->
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <!-- Accessibility Options Window Template -->
-  <template id="template-accessibility">
-    <div class="window window-accessibility" data-window="accessibility" role="dialog" aria-labelledby="accessibility-title">
-      <div class="window-titlebar">
-        <span class="window-title" id="accessibility-title">Accessibility Options</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize" aria-label="Minimize">_</button>
-          <button class="window-btn window-maximize" aria-label="Maximize">[]</button>
-          <button class="window-btn window-close" aria-label="Close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content accessibility-content">
-        <div class="accessibility-wrapper">
-          <div class="accessibility-header">
-            <span class="accessibility-icon" aria-hidden="true">&#9855;</span>
-            <div>
-              <h2>Accessibility Options</h2>
-              <p>Customize your viewing experience</p>
-            </div>
-          </div>
-
-          <div class="accessibility-section">
-            <h3>Display</h3>
-            <div class="accessibility-options">
-              <label class="accessibility-option">
-                <input type="checkbox" id="a11y-high-contrast" data-setting="highContrast">
-                <span class="option-toggle"></span>
-                <div class="option-info">
-                  <span class="option-name">High Contrast Mode</span>
-                  <span class="option-desc">Increases contrast for better readability</span>
-                </div>
-              </label>
-              <label class="accessibility-option">
-                <input type="checkbox" id="a11y-large-text" data-setting="largeText">
-                <span class="option-toggle"></span>
-                <div class="option-info">
-                  <span class="option-name">Large Text</span>
-                  <span class="option-desc">Increases font sizes throughout the site</span>
-                </div>
-              </label>
-              <label class="accessibility-option">
-                <input type="checkbox" id="a11y-dyslexia-font" data-setting="dyslexiaFont">
-                <span class="option-toggle"></span>
-                <div class="option-info">
-                  <span class="option-name">Dyslexia-Friendly Font</span>
-                  <span class="option-desc">Uses OpenDyslexic font for easier reading</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="accessibility-section">
-            <h3>Navigation</h3>
-            <div class="accessibility-options">
-              <label class="accessibility-option">
-                <input type="checkbox" id="a11y-focus-indicators" data-setting="focusIndicators">
-                <span class="option-toggle"></span>
-                <div class="option-info">
-                  <span class="option-name">Enhanced Focus Indicators</span>
-                  <span class="option-desc">Shows visible outlines on focused elements</span>
-                </div>
-              </label>
-              <label class="accessibility-option">
-                <input type="checkbox" id="a11y-single-click" data-setting="singleClick">
-                <span class="option-toggle"></span>
-                <div class="option-info">
-                  <span class="option-name">Single-Click Mode</span>
-                  <span class="option-desc">Opens items with one click instead of double-click</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="accessibility-section">
-            <h3>Motion & Sound</h3>
-            <div class="accessibility-options">
-              <label class="accessibility-option">
-                <input type="checkbox" id="a11y-reduced-motion" data-setting="reducedMotion">
-                <span class="option-toggle"></span>
-                <div class="option-info">
-                  <span class="option-name">Reduced Motion</span>
-                  <span class="option-desc">Minimizes animations and transitions</span>
-                </div>
-              </label>
-              <label class="accessibility-option">
-                <input type="checkbox" id="a11y-screen-reader" data-setting="screenReaderMode">
-                <span class="option-toggle"></span>
-                <div class="option-info">
-                  <span class="option-name">Screen Reader Optimized</span>
-                  <span class="option-desc">Adds extra ARIA labels and announcements</span>
-                </div>
-              </label>
-            </div>
-          </div>
-
-          <div class="accessibility-actions">
-            <button class="accessibility-btn accessibility-btn-reset" id="a11y-reset">Reset All</button>
-            <button class="accessibility-btn accessibility-btn-apply" id="a11y-apply">Apply & Close</button>
-          </div>
-
-          <p class="accessibility-note">Settings are saved automatically and persist between visits.</p>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <!-- AI Portfolio Window Template -->
-  <template id="template-portfolio">
-    <div class="window window-portfolio" data-window="portfolio">
-      <div class="window-titlebar">
-        <span class="window-title">AI Portfolio - Explorer</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-menubar">
-        <span class="menu-item">File</span>
-        <span class="menu-item">Edit</span>
-        <span class="menu-item">View</span>
-      </div>
-      <div class="window-content portfolio-content" id="portfolio-content">
-        <!-- Portfolio items loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Portfolio Viewer Window Template (for viewing documents) -->
-  <template id="template-portfolio-viewer">
-    <div class="window window-portfolio-viewer" data-window="portfolio-viewer">
-      <div class="window-titlebar">
-        <span class="window-title">Document Viewer</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content portfolio-viewer-content" id="portfolio-viewer-content">
-        <!-- Document content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Case Study Window Template -->
-  <template id="template-casestudy">
-    <div class="window window-casestudy" data-window="casestudy">
-      <div class="window-titlebar">
-        <span class="window-title">Case Study</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content casestudy-content">
-        <!-- Case study content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Presentation Window Template -->
-  <template id="template-presentation">
-    <div class="window window-presentation" data-window="presentation">
-      <div class="window-titlebar titlebar-presentation">
-        <span class="window-title">Presentation</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content presentation-content">
-        <!-- Presentation content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- About This Computer Window Template -->
-  <template id="template-about-computer">
-    <div class="window window-about-computer" data-window="about-computer">
-      <div class="window-titlebar">
-        <span class="window-title">About This Computer</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content about-computer-content" id="about-computer-content">
-        <!-- About content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Calculator Window Template -->
-  <template id="template-calculator">
-    <div class="window window-calculator" data-window="calculator">
-      <div class="window-titlebar titlebar-calculator">
-        <span class="window-title">Calculator</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content calculator-content">
-        <div class="calc-display">
-          <div class="calc-display-text">0</div>
-        </div>
-        <div class="calc-buttons">
-          <button class="calc-btn calc-btn-clear" data-action="clear">C</button>
-          <button class="calc-btn calc-btn-clear" data-action="backspace">←</button>
-          <button class="calc-btn calc-btn-op" data-action="percent">%</button>
-          <button class="calc-btn calc-btn-op" data-action="divide">÷</button>
-          <button class="calc-btn" data-action="7">7</button>
-          <button class="calc-btn" data-action="8">8</button>
-          <button class="calc-btn" data-action="9">9</button>
-          <button class="calc-btn calc-btn-op" data-action="multiply">×</button>
-          <button class="calc-btn" data-action="4">4</button>
-          <button class="calc-btn" data-action="5">5</button>
-          <button class="calc-btn" data-action="6">6</button>
-          <button class="calc-btn calc-btn-op" data-action="subtract">−</button>
-          <button class="calc-btn" data-action="1">1</button>
-          <button class="calc-btn" data-action="2">2</button>
-          <button class="calc-btn" data-action="3">3</button>
-          <button class="calc-btn calc-btn-op" data-action="add">+</button>
-          <button class="calc-btn calc-btn-zero" data-action="0">0</button>
-          <button class="calc-btn" data-action="decimal">.</button>
-          <button class="calc-btn calc-btn-equals" data-action="equals">=</button>
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <!-- Work Match Quiz Template -->
-  <template id="template-workmatch">
-    <div class="window window-workmatch" data-window="workmatch">
-      <div class="window-titlebar titlebar-workmatch">
-        <span class="window-title">WorkMatch Quiz!</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content workmatch-content">
-        <!-- Quiz content loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- Paint Window Template -->
-  <template id="template-paint">
-    <div class="window window-paint" data-window="paint">
-      <div class="window-titlebar titlebar-paint">
-        <span class="window-title">Paint - untitled</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="paint-toolbar">
-        <div class="paint-tools">
-          <button class="paint-tool active" data-tool="brush" title="Brush">✏️</button>
-          <button class="paint-tool" data-tool="eraser" title="Eraser">🧹</button>
-          <button class="paint-tool" data-tool="fill" title="Fill">🪣</button>
-        </div>
-        <div class="paint-sizes">
-          <button class="paint-size" data-size="2" title="Small">•</button>
-          <button class="paint-size active" data-size="5" title="Medium">●</button>
-          <button class="paint-size" data-size="12" title="Large">⬤</button>
-        </div>
-        <div class="paint-actions">
-          <button class="paint-action" data-action="clear" title="Clear Canvas">🗑️</button>
-          <button class="paint-action" data-action="save" title="Save Image">💾</button>
-          <button class="paint-action paint-send" data-action="send" title="Send to Ashley">📧</button>
-        </div>
-      </div>
-      <div class="paint-main">
-        <div class="paint-colors">
-          <button class="paint-color active" data-color="#000000" style="background:#000000" title="Black"></button>
-          <button class="paint-color" data-color="#ffffff" style="background:#ffffff" title="White"></button>
-          <button class="paint-color" data-color="#808080" style="background:#808080" title="Grey"></button>
-          <button class="paint-color" data-color="#c0c0c0" style="background:#c0c0c0" title="Silver"></button>
-          <button class="paint-color" data-color="#800000" style="background:#800000" title="Maroon"></button>
-          <button class="paint-color" data-color="#ff0000" style="background:#ff0000" title="Red"></button>
-          <button class="paint-color" data-color="#ff6b6b" style="background:#ff6b6b" title="Coral"></button>
-          <button class="paint-color" data-color="#808000" style="background:#808000" title="Olive"></button>
-          <button class="paint-color" data-color="#ffff00" style="background:#ffff00" title="Yellow"></button>
-          <button class="paint-color" data-color="#00ff00" style="background:#00ff00" title="Lime"></button>
-          <button class="paint-color" data-color="#008000" style="background:#008000" title="Green"></button>
-          <button class="paint-color" data-color="#00ffff" style="background:#00ffff" title="Cyan"></button>
-          <button class="paint-color" data-color="#008080" style="background:#008080" title="Teal"></button>
-          <button class="paint-color" data-color="#0000ff" style="background:#0000ff" title="Blue"></button>
-          <button class="paint-color" data-color="#000080" style="background:#000080" title="Navy"></button>
-          <button class="paint-color" data-color="#C4A4A4" style="background:#C4A4A4" title="Ashley Rose"></button>
-          <button class="paint-color" data-color="#2D5A4A" style="background:#2D5A4A" title="Ashley Green"></button>
-          <button class="paint-color" data-color="#D4A017" style="background:#D4A017" title="Ashley Mustard"></button>
-          <button class="paint-color" data-color="#ff00ff" style="background:#ff00ff" title="Magenta"></button>
-          <button class="paint-color" data-color="#800080" style="background:#800080" title="Purple"></button>
-        </div>
-        <div class="paint-canvas-container">
-          <canvas class="paint-canvas" width="400" height="300"></canvas>
-        </div>
-      </div>
-      <div class="paint-status">
-        <span class="paint-status-tool">Brush</span>
-        <span class="paint-status-pos">0, 0</span>
-      </div>
-    </div>
-  </template>
-
-  <!-- README Case Study Window Template -->
-  <template id="template-readme">
-    <div class="window window-readme" data-window="readme">
-      <div class="window-titlebar titlebar-readme">
-        <span class="window-title">README_actually_read_me.txt</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content readme-content">
-        <div class="readme-scroll-container">
-
-          <!-- Hero Section -->
-          <section class="readme-section readme-hero">
-            <div class="readme-hero-content fade-in">
-              <h1>Building This Site</h1>
-              <p class="readme-subtitle">A case study in AI collaboration, project management, and bringing a vision to life</p>
-              <div class="readme-scroll-hint">
-                <span>Scroll to explore</span>
-                <div class="scroll-arrow">↓</div>
-              </div>
-            </div>
-          </section>
-
-          <!-- The Vision -->
-          <section class="readme-section">
-            <div class="readme-block fade-in">
-              <span class="readme-label">The Vision</span>
-              <h2>A portfolio that feels like somewhere you'd want to be</h2>
-              <p>I wanted something that reflected how I think: layered, a little playful, built with care, and worth exploring. A LinkedIn summary stretched across a page was never going to do that.</p>
-              <p>The concept: a point-and-click adventure through my home office. Visitors could look around, open drawers, talk to my cat, discover work samples organically. The kind of thing that sounds simple until you try to build it.</p>
-            </div>
-          </section>
-
-          <!-- The Challenge -->
-          <section class="readme-section">
-            <div class="readme-block fade-in">
-              <span class="readme-label">The Challenge</span>
-              <h2>I'm not a developer. But I know how to manage technical work.</h2>
-              <p>I understand HTML basics, some SQL, the logic of how systems connect. What I don't have is the ability to code a complex interactive site myself. What I do have is a decade of experience translating vision into requirements, managing iterative development, and knowing when something isn't right.</p>
-              <p>So the question was whether I could direct its creation well.</p>
-            </div>
-          </section>
-
-          <!-- The Collaboration -->
-          <section class="readme-section">
-            <div class="readme-block fade-in">
-              <span class="readme-label">The Approach</span>
-              <h2>Working with AI is like working with any skilled collaborator</h2>
-              <p>There's a misconception that using AI tools means typing "make me a website" and watching magic happen. That's not how it works, at least not if you want something good.</p>
-              <p>Directing Claude Code required the same skills I use when working with developers, designers, or any technical partner:</p>
-              <ul class="readme-list">
-                <li><strong>Clear articulation.</strong> Knowing what I wanted and being specific about it.</li>
-                <li><strong>Iterative refinement.</strong> Reviewing outputs, identifying what wasn't right, course-correcting.</li>
-                <li><strong>Systems thinking.</strong> Understanding how pieces connect so I could spot gaps.</li>
-                <li><strong>Quality standards.</strong> Not accepting "good enough" when it could be better.</li>
-              </ul>
-            </div>
-          </section>
-
-          <!-- The Process -->
-          <section class="readme-section readme-process">
-            <div class="readme-block fade-in">
-              <span class="readme-label">The Process</span>
-              <h2>Four days from vision to deployment</h2>
-              <p>I applied the same methodology I'd use for any technical project: proper environments, version control, staged testing, and deliberate deployment.</p>
-            </div>
-
-            <div class="readme-pipeline fade-in">
-              <div class="pipeline-stage">
-                <div class="pipeline-icon">🔬</div>
-                <h3>Acceptance</h3>
-                <p>First-round testing. Rapid iterations. Break things, fix things, try ideas.</p>
-              </div>
-              <div class="pipeline-arrow">→</div>
-              <div class="pipeline-stage">
-                <div class="pipeline-icon">🧪</div>
-                <h3>Staging</h3>
-                <p>Integration testing. Make sure features play nicely together. Validate before going live.</p>
-              </div>
-              <div class="pipeline-arrow">→</div>
-              <div class="pipeline-stage">
-                <div class="pipeline-icon">🚀</div>
-                <h3>Production</h3>
-                <p>Live deployment. Only after all testing gates passed.</p>
-              </div>
-            </div>
-
-            <div class="readme-block fade-in">
-              <p>I run every deliverable this way, portfolio site included. The discipline transfers whether you're shipping code, launching a campaign, or rolling out a new process.</p>
-            </div>
-          </section>
-
-          <!-- What This Took -->
-          <section class="readme-section">
-            <div class="readme-block fade-in">
-              <span class="readme-label">What This Took</span>
-              <h2>The work behind "just ask AI to do it"</h2>
-              <div class="readme-stats">
-                <div class="stat-item">
-                  <span class="stat-number">4</span>
-                  <span class="stat-label">Days of focused work</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number">50+</span>
-                  <span class="stat-label">Iterative refinements</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-number">3</span>
-                  <span class="stat-label">Deployment environments</span>
-                </div>
-              </div>
-              <p>Every feature required articulation, review, and refinement. The dialog system alone went through multiple iterations. Getting the flow right, making navigation intuitive, making sure users wouldn't get stuck. That part is project management.</p>
-            </div>
-          </section>
-
-          <!-- The Skills -->
-          <section class="readme-section">
-            <div class="readme-block fade-in">
-              <span class="readme-label">Skills Demonstrated</span>
-              <h2>What this project shows</h2>
-              <div class="readme-skills">
-                <div class="skill-card">
-                  <h4>AI Tool Direction</h4>
-                  <p>Translating creative vision into technical requirements. Managing the development conversation. Knowing when outputs need refinement.</p>
-                </div>
-                <div class="skill-card">
-                  <h4>Technical Project Management</h4>
-                  <p>Environment strategy, version control, iterative testing, staged deployment. The same SDLC practices used in professional development.</p>
-                </div>
-                <div class="skill-card">
-                  <h4>User-Centred Design</h4>
-                  <p>Accessibility considerations, intuitive navigation, making sure the interactive parts help people find things.</p>
-                </div>
-                <div class="skill-card">
-                  <h4>Self-Directed Learning</h4>
-                  <p>Figuring out tools and workflows independently. Consistent with a career pattern of mastering new systems without formal training.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Why This Matters -->
-          <section class="readme-section">
-            <div class="readme-block fade-in">
-              <span class="readme-label">Why This Matters</span>
-              <h2>The emerging skill set</h2>
-              <p>More organisations need someone who can translate between "what we need" and "what AI tools can deliver." That person understands requirements, can manage iterative work, and knows how to get good output from powerful tools. They don't need to be a prompt engineer or a developer.</p>
-              <p>That's the role I've been playing my entire career, just with different tools. Translating between technical and non-technical teams. Turning ambiguous needs into clear deliverables. Making sure what gets built serves the people using it.</p>
-              <p>This site is a proof of concept: the skills to direct complex technical work are valuable, and they transfer.</p>
-            </div>
-          </section>
-
-          <!-- Closing -->
-          <section class="readme-section readme-closing">
-            <div class="readme-block fade-in">
-              <p class="readme-closing-text">Thanks for reading the actual README.</p>
-              <p class="readme-signature">Ashley</p>
-            </div>
-          </section>
-
-        </div>
-      </div>
-    </div>
-  </template>
-
-  <!-- Project Trail Game Window Template -->
-  <template id="template-game">
-    <div class="window window-game" data-window="game">
-      <div class="window-titlebar titlebar-game">
-        <span class="window-title">Project Trail - A Business Adventure</span>
-        <div class="window-controls">
-          <button class="window-btn window-minimize">_</button>
-          <button class="window-btn window-maximize">[]</button>
-          <button class="window-btn window-close">&times;</button>
-        </div>
-      </div>
-      <div class="window-content game-content" id="game-content">
-        <!-- Game loaded by JS -->
-      </div>
-    </div>
-  </template>
-
-  <!-- ============================================ -->
-  <!-- SCREENSAVER -->
-  <!-- ============================================ -->
-  <div id="screensaver" class="screensaver hidden">
-    <div class="screensaver-content" id="screensaver-content">
-      <div class="screensaver-logo">
-        <span class="screensaver-text">Ashley.exe</span>
-        <span class="screensaver-subtext">Product Ops • Enablement • AI</span>
-      </div>
-    </div>
-    <div class="screensaver-hint">Move mouse or press any key to exit</div>
-  </div>
-
-  <!-- ============================================ -->
-  <!-- GERTRUDE - CLICKABLE PHILOSOPHICAL CAT -->
-  <!-- ============================================ -->
-  <div id="gertrude-helper" class="gertrude-helper">
-    <img src="assets/images/gerticon2.png" alt="Gertrude - Click for a thought" class="gertrude-icon" id="gertrude-click" title="Click for a thought...">
-    <div class="gertrude-bubble hidden" id="gertrude-bubble">
-      <div class="gertrude-message" id="gertrude-message"></div>
-    </div>
-  </div>
-
-  <!-- Image Lightbox -->
-  <div class="image-lightbox hidden" id="image-lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
-    <button class="image-lightbox-close" aria-label="Close image preview">&times;</button>
-    <img src="" alt="Expanded image" id="lightbox-image">
-    <span class="image-lightbox-hint">Click anywhere or press Escape to close</span>
-  </div>
-
-  <!-- Scripts -->
-  <script src="data.js"></script>
-  <script src="scripts.js"></script>
+  <script>
+    (function () {
+      var btn = document.getElementById('copy-email');
+      var status = document.getElementById('copy-status');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var email = btn.getAttribute('data-email');
+        function done(ok) { status.textContent = ok ? 'Copied. Paste it into your email.' : 'Copy didn’t work here. The address is ' + email + '.'; }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(email).then(function () { done(true); }, function () { done(false); });
+        } else { done(false); }
+      });
+    })();
+  </script>
 </body>
 </html>
