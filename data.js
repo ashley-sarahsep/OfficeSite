@@ -1425,6 +1425,44 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <h2>WHAT I'VE DONE</h2>
 <hr class="section-divider">
 
+<h3>INDEPENDENT WORK (2026)</h3>
+
+<p class="job-title">Dan Atkinson for School Board Trustee | Campaign Manager</p>
+<p class="job-meta">2026 | Guelph, ON</p>
+<p>Ran a first-time candidate's campaign for Upper Grand District School Board trustee in Guelph Wards 2, 3 and 4. Four candidates for two seats, with the vote on 26 October 2026.</p>
+<ul>
+<li>Kept the campaign on its deadlines, nomination and submission dates included.</li>
+<li>Set direction with Dan and was his confidante on decisions and campaigning from start to finish.</li>
+<li>Designed the campaign website (dan4guelph.ca) and directed its build with an AI coding agent. It has an accessibility panel and no analytics, tracking or cookies.</li>
+<li>Designed the signs.</li>
+<li>Dan topped the poll with 9,810 votes (44.3%), 4,339 ahead of the sitting board chair, and came first at every polling location.</li>
+</ul>
+
+<p class="job-title">Parallax | AI sales-enablement app</p>
+<p class="job-meta">Launched Sep 2026</p>
+<p>A web app that takes a product profile and what's known about a prospect, and produces a prospect-specific brief, demo talking points, a demo script, a one-pager and discovery questions. I wrote the spec, made the architecture and QA calls, and directed an AI coding agent through the build.</p>
+<ul>
+<li>Designed around one reason deals stall. Reps get stuck in the product's frame, and buyers can't picture the product in their own workflow.</li>
+<li>Outputs mark confirmed facts differently from inferred ones and say what the product doesn't solve. The rep starts every generation and decides what to keep.</li>
+<li>Discovery questions are generated without seeing the brief, so they look for what's missing instead of repeating what the brief already assumes.</li>
+<li>Phase 1 runs client-side with a bring-your-own API key and one product profile. Built with React and Vite on the Claude API, hosted on Vercel, with a 77-test offline suite and a demo branch that works without a key. Phase 2 (a backend and HubSpot integration) is planned.</li>
+</ul>
+
+<p class="job-title">Job Alert Scorer | Open-source job search tool</p>
+<p class="job-meta">Launched Jun 2026 | github.com/ashley-sarahsep/job-alert-scorer</p>
+<p>Reads LinkedIn and Indeed job alert emails, pulls the full job description from the company's careers page, and scores each role from 1 to 10 against a profile the user writes. It's a triage tool and doesn't apply to jobs for you.</p>
+<ul>
+<li>Written for people who don't code, with a plain-language setup guide with time estimates, a simple/technical toggle, and a no-code version that runs inside Claude or ChatGPT.</li>
+<li>Scoring looks for matching capabilities rather than matching keywords, and the rubric is plain text anyone can edit.</li>
+<li>The code is public and candidate data stays private. Fully tested with Claude so far.</li>
+</ul>
+
+<p class="job-title">Diyode Community Workshop | Treasurer, Board of Directors</p>
+<p class="job-meta">Guelph, ON</p>
+<p>Board treasurer for a makerspace in Guelph.</p>
+
+<hr class="section-divider">
+
 <h3>AI PRODUCT ENABLEMENT & ADOPTION</h3>
 <p class="job-title">Network Ninja (MainEvent) | Head of Client Enablement & AI Adoption</p>
 <p class="job-meta">Jan 2025 - Dec 2025 | Remote</p>
