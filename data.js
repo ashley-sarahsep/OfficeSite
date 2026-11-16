@@ -119,7 +119,7 @@ const SITE_DATA = {
           "Why: not productivity for its own sake. Potential."
         ] },
         { type: "divider" },
-        { type: "para", text: "People don't just do their existing job faster. They find the potential that was buried under it. The improvements they couldn't get to. The thinking they didn't have room for." },
+        { type: "para", text: "People get time back for the improvements they never got to, and the thinking they didn't have room for." },
         { type: "para", text: "Machines take the monotonous, repetitive, easily-automated tasks that bury people, so people have room to build on their work and produce better things." },
         { type: "pullquote", text: "I'm an idealist about what people do with that room - a realist about the tool that creates it." }
       ]
@@ -160,8 +160,7 @@ const SITE_DATA = {
         { type: "para", text: "That's a different kind of reading than most people bring to AI output." },
         { type: "divider" },
         { type: "para", text: "I've found hallucinations that looked perfectly plausible until you traced the reasoning back. I've caught outputs that were technically correct but answered a question slightly different from the one that was asked. That's a much harder failure to spot and a much more dangerous one." },
-        { type: "para", text: "The same hermeneutic instinct that reads a client's business under what they literally said reads a model's output under what it literally produced." },
-        { type: "pullquote", text: "Same skill, different medium." }
+        { type: "para", text: "The same hermeneutic instinct that reads a client's business under what they literally said reads a model's output under what it literally produced." }
       ]
     },
 
@@ -171,19 +170,18 @@ const SITE_DATA = {
       banner: "Origins",
       subtitle: "The extraction problem",
       blocks: [
-        { type: "lede", text: "I am not blind to the fact that these LLMs took content, creativity, art, language from real human people who made it. For free. Without consent. Without payment. That's extraction, and it shouldn't be waved away." },
+        { type: "lede", text: "I am not blind to the fact that these LLMs took content, creativity, art and language from the people who made it, without consent or payment. That's extraction, and it shouldn't be waved away." },
         { type: "para", text: "And we still need humans creating. We still need humans making meaning. Those aren't raw material to be optimised out of the loop." },
         { type: "divider" },
         { type: "para", text: "This is a harder line than \"just automate the patterned work,\" and harder than \"don't automate the parts that require judgment.\"" },
-        { type: "para", text: "Both things stay true at once:" },
+        { type: "para", text: "So I hold two things:" },
         { type: "list", items: [
           "The extraction is real and shouldn't be waved away.",
-          "The tool used well can genuinely improve people's quality of life."
+          "The tool used well can improve people's quality of life."
         ] },
-        { type: "para", text: "I don't try to reconcile them into one tidy sentence. That would be too clean. The tool can be genuinely good AND built on a genuine wrong. Both facts stay true." },
+        { type: "para", text: "The tool can be good and still be built on a wrong." },
         { type: "divider" },
-        { type: "para", text: "I use these tools. I stay honest about how they were built. And I do the work of making adoption responsible on the deployment side." },
-        { type: "pullquote", text: "That's the position. It doesn't resolve. It just holds." }
+        { type: "para", text: "I use these tools. I stay honest about how they were built. And I do the work of making adoption responsible on the deployment side." }
       ]
     },
 
@@ -2743,7 +2741,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
 <p>There's a lot of energy right now going into getting people to use AI tools. There is a lot less going into teaching people how to evaluate what those tools produce. Companies roll out AI and tell people to "double check responses" without ever explaining what that means in practice... what to look for, how to spot drift, how to tell the difference between an answer that's correct and an answer that's right for this specific situation. That's a whole skill set, and it's the one that makes the difference between AI that helps people do better work and AI that produces confident-sounding output nobody's verifying.</p>
 <p>These models were built on real people's work. Writers, artists, coders, researchers - their content, their creativity, their language, scraped and used without consent or compensation to train the tools we're all now being told to adopt. ...I'm not blind to that and I don't think we should pretend it away just because the tools are useful. AI is an incredibly useful tool; from machine learning to LLMs to other automations, there are so many ways it can be used safely and intelligently to make people's quality of life better. Both of those things are true at the same time - the tool can be good and built on a wrong, and I think holding both is more honest than picking a side.</p>
 <p>Humans still need to be in the loop, as the people who understand the work, who can tell when something's off, who know what the output means in context. The review step is where human expertise lives; ownership of AI output is just another way of saying that someone with judgment and domain knowledge looked at this before it went anywhere.</p>
-<p>People don't just do their existing job faster when you give them good tools; they find the potential that was buried under the patterned work. The improvements they couldn't get to, the thinking they didn't have room for. But that only works if they're engaging with what the tool produces - reviewing it, interpreting it, applying judgment. If their name is on it and they mean it.</p>
+<p>Give people good tools and they get time back for the improvements they never got to, and the thinking they didn't have room for. But that only works if they're engaging with what the tool produces - reviewing it, interpreting it, applying judgment. If their name is on it and they mean it.</p>
 <p>We still need to be the ones making meaning. That's kind of what we do.</p>`
       }
     ]
@@ -2789,7 +2787,7 @@ LinkedIn: linkedin.com/in/ashley-sarahsep | Location: Guelph, Ontario / Remote
       },
 
       "And how do you feel about how these models were built?": {
-        text: "I'm not blind to the fact that these LLMs took content, creativity, art, and language from real people who made it. For free. Without consent or payment. That's real, and it shouldn't be waved away. We still need humans creating. We still need humans making meaning. Those aren't raw material to be optimised out of the loop.\n\nAt the same time, AI is a useful tool. From ML to LLMs to other automations, there are a lot of ways it can be used safely and intelligently to make people's quality of life better. Both things are true at once. I don't try to reconcile them into one tidy sentence. I use the tool, I stay honest about how it was built, and I do the work of making adoption responsible on the deployment side.",
+        text: "I'm not blind to the fact that these LLMs took content, creativity, art and language from the people who made it, without consent or payment. That's real, and it shouldn't be waved away. We still need humans creating. We still need humans making meaning. Those aren't raw material to be optimised out of the loop.\n\nAt the same time, AI is a useful tool. From ML to LLMs to other automations, there are a lot of ways it can be used safely and intelligently to make people's quality of life better. Both things are true at once. I don't try to reconcile them into one tidy sentence. I use the tool, I stay honest about how it was built, and I do the work of making adoption responsible on the deployment side.",
         followUp: null
       },
 
