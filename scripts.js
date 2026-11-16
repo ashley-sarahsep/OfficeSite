@@ -2092,12 +2092,12 @@ function initPortfolio(windowEl) {
               <button class="portfolio-action" data-action="casestudy" data-project="${project.id}">
                 📋 Case Study
               </button>
-              <button class="portfolio-action" data-action="presentation" data-project="${project.id}">
+              ${project.presentation ? `<button class="portfolio-action" data-action="presentation" data-project="${project.id}">
                 📊 Presentation
-              </button>
-              <button class="portfolio-action" data-action="document" data-project="${project.id}">
+              </button>` : ''}
+              ${project.documentUrl ? `<button class="portfolio-action" data-action="document" data-project="${project.id}">
                 📄 Full Document
-              </button>
+              </button>` : ''}
             </div>
           </div>
         `).join('')}
